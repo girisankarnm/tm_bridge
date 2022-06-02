@@ -1,0 +1,264 @@
+/*
+ * Author Name: Jinsan T J
+ *  MAIN STYLESHEET
+ * PLEASE FOLLOW CSS CODING STANDARDS 
+ * https://docs.ckan.org/en/2.9/contributing/css.html
+ */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+    height: 8px !important;
+    width: 5px !important;
+    border-radius: 29px !important;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3) !important;
+    border-radius: 10px !important;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #A3A3A3 !important;
+    outline: none;
+    border-radius: 10px !important;
+}
+
+html {
+    font-size: 100%;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    color: #292931;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+background-primary {
+    background: #586ADA !important;
+}
+
+p,
+a {
+    color: #292931;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #292931;
+    letter-spacing: -0.02em;
+    line-height: 29px;
+}
+
+a {
+    color: inherit !important;
+    text-decoration: none !important;
+}
+
+li {
+    list-style: none;
+}
+
+/*
+* ***********************************************************************************************************************************
+* Main navigation
+* ***********************************************************************************************************************************
+*/
+
+.nav-item .nav-icon {
+    max-width: 55px;
+}
+
+.navbar {
+    min-height: 88px;
+    border-bottom: 1px solid #E8E9ED;
+}
+
+.navbar .navbar-brand {
+    height: 73px;
+}
+
+.navbar .btn-hamburger {
+    width: 33.44px;
+}
+
+.navbar .btn-hamburger img {
+    width: 100%;
+}
+
+.navbar .navbar-brand img {
+    width: auto;
+    height: 100%;
+}
+
+.navbar .nav-item .nav-icon img {
+    width: 100%;
+}
+
+.navbar .nav-item .nav-link.notification-link,
+.navbar .nav-item .nav-link.message-link {
+    margin-right: 1rem;
+}
+
+.navbar .nav-item .nav-link.notification-link .notification-cite,
+.navbar .nav-item .nav-link.message-link .message-cite {
+    position: relative;
+    width: 25px;
+}
+
+.navbar .nav-item .nav-link .badge {
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    right: -2px;
+    top: -7px;
+    padding: 4px;
+}
+
+.navbar .nav-item .nav-link.notification-link .notification-cite img,
+.navbar .nav-item .nav-link.message-link .message-cite img {
+    width: 100%;
+}
+
+.navbar .nav-item .nav-link {
+    height: auto;
+}
+
+.navbar .nav-item .nav-link.profile-link .profile-nav {
+    background-color: transparent;
+    padding: 7px;
+    border-radius: 5px;
+    transition: all 250ms ease-in;
+}
+
+.navbar .profile-dropdown:hover .profile-nav {
+    background-color: #eeeeee;
+}
+
+.navbar .nav-item .nav-link .profile-nav .profile-cite {
+    width: 42px;
+    height: 42px;
+    margin-right: 30px;
+    border-radius: 50%;
+}
+
+.navbar .nav-item .nav-link .profile-nav .profile-cite img {
+    width: 100%;
+}
+
+.navbar .nav-item .nav-link .profile-nav .profile-content {
+    margin-right: 10px;
+}
+
+.navbar .nav-item .nav-link .profile-nav .profile-content .name {
+    color: #E40968;
+    margin-right: 5px;
+}
+
+.navbar .nav-item .nav-link .profile-nav .profile-content .name,
+.navbar .nav-item .nav-link .profile-nav .profile-content .designation {
+    margin-bottom: 0;
+}
+
+.navbar .nav-item .nav-link .profile-nav .dropdown-collapse,
+.navbar .nav-item .nav-link .profile-nav .dropdown-collapsed {
+    width: 12px;
+}
+
+.navbar .nav-item.profile-dropdown.show .dropdown-collapse,
+.navbar .nav-item .nav-link .profile-nav .dropdown-collapsed {
+    display: none;
+}
+
+.navbar .nav-item.profile-dropdown.show .dropdown-collapsed {
+    display: block;
+}
+
+/*
+* ***********************************************************************************************************************************
+* Sidebar navigation
+* ***********************************************************************************************************************************
+*/
+
+.content-contr .sidebar-contr {
+    background: #F7F7F9;
+    height: 100vh;
+    padding-top: 45px;
+}
+
+.content-contr .sidebar-contr .sidebar-item {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 14px;
+    padding: 10px;
+    padding-left: 45px;
+}
+
+.content-contr .sidebar-contr .sidebar-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 1px;
+    width: 7.64px;
+    height: 31.68px;
+    background: transparent;
+    border-radius: 5px;
+    transition: all 250ms ease-in-out;
+}
+
+.content-contr .sidebar-contr .sidebar-item:active::before,
+.content-contr .sidebar-contr .sidebar-item:hover::before,
+.content-contr .sidebar-contr .sidebar-item.active::before {
+    background-color: #E40967;
+}
+
+.content-contr .sidebar-contr .sidebar-item:active p,
+.content-contr .sidebar-contr .sidebar-item:hover p,
+.content-contr .sidebar-contr .sidebar-item.active p {
+    color: #E40967;
+}
+
+.content-contr .sidebar-contr .sidebar-item:active img,
+.content-contr .sidebar-contr .sidebar-item:hover img,
+.content-contr .sidebar-contr .sidebar-item.active img {
+    filter: invert(14%) sepia(86%) saturate(4267%) hue-rotate(323deg) brightness(99%) contrast(103%);
+}
+
+.content-contr .sidebar-contr .sidebar-item img {
+    width: 22px;
+    height: 22px;
+    margin-right: 15.8px;
+}
+
+/*
+* ***********************************************************************************************************************************
+* Main Content
+* ***********************************************************************************************************************************
+*/
+
+.content-contr .data-content  {
+    padding: 31.79px 69.33px;
+}
+
+.content-contr .data-content .title {
+    margin-bottom: 30px;
+}
+
+.content-contr .data-content .tab-section {
+    border: 2px solid #E8E9ED;
+    border-radius: 10px;
+    padding: 50px;
+}
