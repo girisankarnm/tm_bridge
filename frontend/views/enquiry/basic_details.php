@@ -1,2 +1,82 @@
 <?php
+use yii\bootstrap4\ActiveForm;
+//frontend\assets\CommonAsset::register($this);
+frontend\assets\DatePickerAsset::register($this);
 ?>
+<script>
+    $(document).ready(function() { 
+        
+        var startDay = new Date();
+        startDay.setDate(startDay.getDate() + 1 );
+
+        var endDay = new Date();
+        endDay.setDate(endDay.getDate() + 450);
+
+        $("#basicdetails-tour_start_date").datepicker({
+        format: "d MM yyyy",        
+        startDate: startDay,
+        autoclose: true,       
+        }).on("changeDate", function (e) 
+        { }
+        );
+    });
+</script>
+
+<link rel="stylesheet" type="text/css" href="/css/tour-min-1.css" />
+<div class="content">
+    <!-- Begin Page Content -->
+    <div class="container-fluid" style="background-color: #f3f3f3">
+        <div class="card-title">
+            Enquiry
+        </div>
+
+        <div class="tab" style="display: flex;flex-direction: row;">
+            <div style="display: inline">   <a href="<?= \yii\helpers\Url::to(['/enquiry/basicdetails']) ?>">  <button class="selectedButton" onclick="openCity(event, 'London')" >Basic Details</button></a> <hr class="new5" >
+            </div>
+            <a href="<?= \yii\helpers\Url::to(['/enquiry/contact']) ?>">   <button id="contactBtn" class="tablinks" onclick="openCity(event, 'Paris')">Contact Details</button></a>
+            <a href="<?= \yii\helpers\Url::to(['/enquiry/guestcount']) ?>"> <button class="tablinks" onclick="openCity(event, 'Tokyo')">Guest Count</button></a>
+            <a href="<?= \yii\helpers\Url::to(['/enquiry/accommodation']) ?>"><button class="tablinks" onclick="openCity(event, 'Tokyo')">Accommodation</button></a>
+        </div>
+        <hr class="sidebar-divider">
+        <?php $form = ActiveForm::begin(['id' => 'enquiry_basic_details','enableClientValidation' => true, 'method' => 'post','action' => ['enquiry/savebasicdetails']]) ?>
+        <div class="row" style="margin-left: 3px;margin-bottom: 8px;">
+            <div style="display: block;margin-right: 35px">
+                <label class="Labelclass" style="display: block;margin-top: 22px" >*Guest Name</label>                
+                <?php echo $form->field($basic_details, 'guest_name')->textInput(['class' => 'inputTextClass' , 'placeholder' =>"Guest Name"])->label(false); ?>
+            </div>
+            <div style="display: block">
+                <label class="Labelclass" style="display: block;margin-top: 20px" >*Nationality</label>                
+                <?php echo $form->field($basic_details, 'nationality_id')->dropDownList($countries,['class' => 'inputTextClass', 'prompt' => 'Choose'])->label(false
+                ) ?>
+            </div>
+        </div>
+
+        <div class="row" style="margin-left: 3px;margin-bottom: 12px;">
+            <div style="display: block;margin-right: 35px">
+                <label class="Labelclass" style="display: block;margin-top: 20px" >*Start Date</label>                
+                <?php echo $form->field($basic_details, 'tour_start_date')->textInput(['class' => 'inputTextClass'])->label(false); ?><br>
+            </div>
+            <div style="display: block;margin-right: 20px;" >
+                <label class="Labelclass" style="display: block;margin-top: 20px" >*Tour Duration</label>
+                
+                <?php echo $form->field($basic_details, 'tour_duration')->textInput(['class' => 'inputTextClass'])->label(false); ?>
+
+            </div>
+            <div style="display: block">
+                <label class="Labelclass" style="display: block;margin-top: 20px" >*End Date</label>
+                <input type="date" class="inputTextClass" style="width: 135px;" placeholder="May-27-22" >
+            </div>
+        </div>
+
+        <div class="row" style="margin-left: 3px;margin-bottom: 12px;">
+            <div style="display: block;margin-right: 35px">
+                <BUTTON type="text" class="buttonSave" > Save </BUTTON>
+            </div>
+        </div>
+        <!-- /.container-fluid -->
+        <?php ActiveForm::end(); ?>
+
+    </div>
+</div>
+
+

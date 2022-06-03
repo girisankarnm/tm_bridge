@@ -7,20 +7,17 @@ use yii\web\AssetBundle;
 /**
  * Main frontend application asset bundle.
  */
-class AppAsset extends AssetBundle
+class CommonAsset extends AssetBundle
 {
-    public $basePath = '@webroot';
-    public $baseUrl = '@web';
-
     public $jsOptions = ['position' => \yii\web\View::POS_HEAD];
-    
+   
     public $css = [
-        'css/site.css',
     ];
     public $js = [
+        'js/jquery-3.6.0.min.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',
-        'yii\bootstrap4\BootstrapAsset',
+      //  'yii\bootstrap\BootstrapAsset',
     ];
 }
