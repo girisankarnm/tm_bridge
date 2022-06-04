@@ -39,6 +39,9 @@ frontend\assets\DatePickerAsset::register($this);
         </div>
         <hr class="sidebar-divider">
         <?php $form = ActiveForm::begin(['id' => 'enquiry_basic_details','enableClientValidation' => true, 'method' => 'post','action' => ['enquiry/savebasicdetails']]) ?>
+        <?= $form->field($basic_details, 'id')->hiddenInput()->label(false); ?>
+        <input type="hidden" value="<?= $basic_details->id ?>" name="enquiry_id">
+        
         <div class="row" style="margin-left: 3px;margin-bottom: 8px;">
             <div style="display: block;margin-right: 35px">
                 <label class="Labelclass" style="display: block;margin-top: 22px" >*Guest Name</label>                
