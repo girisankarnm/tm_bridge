@@ -3,8 +3,9 @@
 /** @var \yii\web\View $this */
 /** @var string $content */
 
-use frontend\assets\AppAsset;
-AppAsset::register($this);
+use frontend\assets\FormAsset;
+//AppAsset::register($this);
+FormAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
