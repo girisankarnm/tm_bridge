@@ -138,7 +138,7 @@ tr {
 input::placeholder {
     font: 12px/3 sans-serif;
 
-    padding-left: 3px;
+    /*padding-left: 8px;*/
     font-size: 13px;
     padding-bottom: 16px;
 }
@@ -175,7 +175,7 @@ input::placeholder {
 
 }
 ::placeholder {
-    color: deeppink;
+    color: #586ADA;
 }
 .thtable {
     padding-top: 12px;
@@ -201,7 +201,7 @@ input::placeholder {
 
 }
 
-,tariffTable
+.tariffTable
  {
      border: 1px solid #000;
  }
@@ -315,7 +315,7 @@ input::placeholder {
 }
 .spanrightpadding
 {
-    padding-right: 31pxpx;
+    padding-right: 31px;
 }
 
 .tab
@@ -404,7 +404,7 @@ hr.new5 {
 }
 .inputTextClass
 {
-    background-color: #e9e9e9;
+    background-color: #F9F9F9;
     box-sizing: border-box;
     color: #787486 !important;
     width: 227px;
@@ -419,10 +419,11 @@ hr.new5 {
     flex: none;
     order: 2;
     flex-grow: 0;
+    padding-left: 15px;
 }
 
 .Labelclass {
-    width: 120px;
+    width: 150px;
     height: 19px;
     left: 315px;
     top: 368px;
@@ -437,6 +438,222 @@ hr.new5 {
     color: #292931;
 
 }
+
+
+.inputLarge{
+    background-color: #F9F9F9;
+    box-sizing: border-box;
+    color: #787486 !important;
+    /*width: 100%;*/
+    width: 444px;
+    height: 34px;
+    font-size: 12px;
+    border: 0.5px solid #c3c3c3;
+    border-radius: 8px;
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+    padding-left: 15px;
+}
+
+input:focus{
+    outline-color:#586ADA;
+    outline-width: thin;
+}
+select:focus{
+    outline-color:#586ADA;
+    outline-width: thin;
+}
+
+
+.inputMedium
+{
+    background-color: #F9F9F9;
+    box-sizing: border-box;
+    color: #787486 !important;
+    width: 300px;
+    height: 34px;
+    font-size: 12px;
+    border: 0.5px solid #c3c3c3;
+    border-radius: 8px;
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+    padding-left: 15px;
+}
+
+
+
+/*image upload*/
+.Neon {
+    font-family: sans-serif;
+    font-size: 14px;
+    color: #494949;
+    position: relative;
+}
+.Neon * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+/*operator image upload*/
+.Neon-input-dragDrop {
+    display: block;
+    width: 100%;
+    height: 200px;
+    margin: 0 auto 25px auto;
+    color: #E8E9ED;
+    background: #fff;
+    border: 2px dashed #C8CBCE;
+    text-align: center;
+}
+
+.Neon-input-dragDrop-small {
+    display: block;
+    width: 219px;
+    height: 120px;
+    margin: 0 auto 25px auto;
+    color: #E8E9ED;
+    background: #fff;
+    border: 2px dashed #C8CBCE;
+    text-align: center;
+}
+/*property image upload*/
+.Neon-input-dragDrop-property-logo{
+    display: block;
+    width: 200px;
+    height: 210px;
+    margin: 0 auto 25px auto;
+    color: #E8E9ED;
+    background: #fff;
+    border: 2px dashed #C8CBCE;
+    text-align: center;
+}
+.Neon-input-dragDrop-property-photo{
+    display: block;
+    width: 240px;
+    height: 210px;
+    margin: 0 auto 25px auto;
+    color: #E8E9ED;
+    background: #fff;
+    border: 2px dashed #C8CBCE;
+    text-align: center;
+}
+
+
+.Neon-input-dragDrop .Neon-input-icon {
+    font-size: 100px;
+    margin-bottom: -10px;
+}
+.Neon-input-text h3 {
+    margin: 0;
+    font-size: 12px;
+    color: darkgrey;
+}
+.Neon-input-text span {
+    font-size: 12px;
+}
+.Neon-input-choose-btn.blue {
+    color: #008BFF;
+    border: 1px solid #008BFF;
+}
+.Neon-input-choose-btn {
+    display: inline-block;
+    padding: 8px 14px;
+    outline: none;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    white-space: nowrap;
+    font-size: 12px;
+    font-weight: bold;
+    color: #8d9496;
+    border-radius: 3px;
+    border: 1px solid #c6c6c6;
+    vertical-align: middle;
+    background-color: #fff;
+    box-shadow: 0px 1px 5px rgba(0,0,0,0.05);
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    transition: all 0.2s;
+}
+
+.contact-head{
+    margin-left: 3px;
+    margin-top: 30px;
+    width: 755px;
+    height: 34px;
+    background-color: #BDC4FF;
+    border-radius: 6px;
+}
+
+.container-terms-conditions{
+    display: block;
+    position: relative;
+    padding-left: 40px;
+    padding-top: 10px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #0b0b0b;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+/* Hide the browser's default checkbox */
+.container-terms-conditions input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    /*top: 35px;*/
+    top: 16px;
+    left: 5px;
+    height: 20px;
+    width: 20px;
+    background-color: white;
+    border: .12rem solid #586ADA; border-radius: 3px;
+
+}
+
+/* When the checkbox is checked, add a blue background */
+.container-terms-conditions input:checked ~ .checkmark {
+    background-color: white;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.container-terms-conditions input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.container-terms-conditions .checkmark:after {
+    left: 5px;
+    top: 3px;
+    width: 5px;
+    height: 10px;
+    border: solid #586ADA;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+
 
 
 
