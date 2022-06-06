@@ -15,6 +15,7 @@
                 <a href="<?= \yii\helpers\Url::to(['/operator/termsandconditions']) ?>"> <button class="tablinks" onclick="openCity(event, 'Tokyo')">Terms & Conditions</button></a>
             </div>
             <hr class="sidebar-divider">
+
             <div class="contact-head" >
                 <h6 style=" color: black; font-size: 12px; padding: 3px; margin-left: 10px">Contact 1</h6>
             </div>

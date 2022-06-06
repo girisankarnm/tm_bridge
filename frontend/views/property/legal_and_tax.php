@@ -15,6 +15,7 @@
                 <a href="<?= \yii\helpers\Url::to(['/property/termsandconditions']) ?>"><button class="tablinks" onclick="openCity(event, 'Tokyo')">Terms & Conditions</button></a>
             </div>
             <hr class="sidebar-divider">
+
             <div class="row" style="margin-left: 3px;margin-bottom: 8px;">
                 <div style="display: block;margin-right: 35px">
                     <label class="Labelclass" style="display: block;margin-top: 20px" >*Legal Status</label>

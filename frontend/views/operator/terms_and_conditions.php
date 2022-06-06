@@ -13,6 +13,7 @@
                 </div>
             </div>
             <hr class="sidebar-divider">
+
             <label class="container-terms-conditions" style="margin-top: 30px">
                 <input type="checkbox" checked="checked;" >
                 <span class="checkmark"></span>I certify that I am engaged as Tour Operator.<br>Note: T & C will be finalized later

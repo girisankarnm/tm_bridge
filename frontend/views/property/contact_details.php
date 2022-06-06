@@ -13,6 +13,7 @@
                 </div>
                 <a href="<?= \yii\helpers\Url::to(['/property/termsandconditions']) ?>"> <button class="tablinks" onclick="openCity(event, 'Tokyo')">Terms & Conditions</button></a>
             </div>
+
             <hr class="sidebar-divider">
 
             <div class="contact-head" >

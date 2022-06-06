@@ -16,6 +16,7 @@
             </div>
 
             <hr class="sidebar-divider">
+
             <div class="row" style="display: flex; flex-direction: row;">
                 <div style="width: 50%">
                     <div style="display: block; margin-right: 35px; margin-left: 10px">

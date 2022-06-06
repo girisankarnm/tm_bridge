@@ -5,6 +5,7 @@ use Yii;
 use yii\web\Controller;
 
 class PropertyController extends Controller{
+
      public function actionBasicdetails(){
          $this->layout = 'tm_main';
          return $this->render('basic_details');
