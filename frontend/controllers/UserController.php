@@ -10,6 +10,7 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 
 use frontend\models\user\LoginForm;
+use frontend\models\user\SignupForm;
 
 class UserController extends Controller
 {
@@ -45,6 +46,19 @@ class UserController extends Controller
         ];
     }
 
+    public function actionSignup()
+    {
+        $model = new SignupForm();
+        if ($model->load(Yii::$app->request->post()) && $model->signup()) {
+            Yii::$app->session->setFlash('success', 'Thank you for registration. Please check your inbox for verification email.');            
+            return $this->redirect(['user/registration-success']);
+        }
+        else {
+            //$this->layout = 'auth';            
+            return $this->render('signup',['register' => $model]);
+        }
+    }    
+
     public function actionLogin()
     {
         $model = new LoginForm();
@@ -60,4 +74,51 @@ class UserController extends Controller
         //$this->layout = 'auth';
         return $this->render('login',['model' => $model]);
     }
+
+    private function gotoHomePage(){
+        if (Yii::$app->user->identity->first_login)
+        {
+            return $this->redirect(['user/onboarding']);
+        }      
+        
+        if (Yii::$app->user->identity->user_type == 1 )
+        {
+            return $this->redirect(['property/home',]);            
+        } 
+        else if (Yii::$app->user->identity->user_type == 2 ) 
+        {
+            return $this->redirect(['enquiry/home',]);
+        } 
+        else {
+            throw new ForbiddenHttpException();
+        }
+    }
+
+    public function actionOnboarding()
+    {  
+        if (!Yii::$app->user->identity->first_login)
+        {
+            return $this->gotoHomePage();
+        }
+        
+        if (Yii::$app->user->identity->user_type == 1)
+        {
+            //$this->layout = 'message';
+            return $this->render('onboarding_hotel', ['user' => Yii::$app->user->identity]);
+        }
+        else if (Yii::$app->user->identity->user_type == 2 ) 
+        {
+            //$this->layout = 'message';
+            return $this->render('onboarding_operator', ['user' => Yii::$app->user->identity]);
+        } 
+        else {
+            throw new ForbiddenHttpException();
+        }         
+    }
+
+    public function actionRegistrationSuccess(){
+        //$this->layout = 'message';
+        return $this->render('registration_success', []);
+    }
+
 }
