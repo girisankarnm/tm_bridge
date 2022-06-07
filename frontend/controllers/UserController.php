@@ -11,6 +11,8 @@ use yii\filters\AccessControl;
 
 use frontend\models\user\LoginForm;
 use frontend\models\user\SignupForm;
+use frontend\models\user\VerifyEmailForm;
+use frontend\models\user\ResendVerificationEmailForm;
 
 class UserController extends Controller
 {
@@ -120,5 +122,66 @@ class UserController extends Controller
         //$this->layout = 'message';
         return $this->render('registration_success', []);
     }
+
+    public function actionDone() {
+        $user = Yii::$app->user->identity;
+        $user->first_login = 0;
+        $user->save(false);
+
+        return $this->gotoHomePage();
+    }
+
+    public function actionLogout()
+    {
+        Yii::$app->user->logout();
+
+        return $this->redirect(['login']);
+    }
+
+    /**
+     * Verify email address
+     *
+     * @param string $token
+     * @throws BadRequestHttpException
+     * @return yii\web\Response
+     */
+    public function actionVerifyEmail($token)
+    {    
+        try {
+            $model = new VerifyEmailForm($token);
+        } catch (InvalidArgumentException $e) {
+            //throw new BadRequestHttpException($e->getMessage());
+            return $this->redirect(['onboarding/activation-failed']);
+        }
+        if (($user = $model->verifyEmail()) && Yii::$app->user->login($user)) {
+            Yii::$app->session->setFlash('success', 'Your email has been confirmed!');
+            return $this->redirect(['onboarding/activation-success']);            
+        }
+
+        Yii::$app->session->setFlash('error', 'Sorry, we are unable to verify your account with provided token.');
+        return $this->redirect(['onboarding/activation-failed']);
+    }
+
+    /**
+     * Resend verification email
+     *
+     * @return mixed
+     */
+    public function actionResendVerificationEmail()
+    {
+        $model = new ResendVerificationEmailForm();
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            if ($model->sendEmail()) {
+                Yii::$app->session->setFlash('success', 'Check your email for further instructions.');
+                return $this->goHome();
+            }
+            Yii::$app->session->setFlash('error', 'Sorry, we are unable to resend verification email for the provided email address.');
+        }
+
+        return $this->render('resendVerificationEmail', [
+            'model' => $model
+        ]);
+    }
+
 
 }

@@ -14,7 +14,7 @@ use yii\helpers\ArrayHelper;
 </div>
 <div class="card-body mt-3">
 
-    <?php $form = ActiveForm::begin(['id' => 'onboarding_form','enableClientValidation' => true,'method' => 'post','action' => ['onboarding/done']]) ?>
+    <?php $form = ActiveForm::begin(['id' => 'onboarding_form','enableClientValidation' => true,'method' => 'post','action' => ['user/done']]) ?>
     <div class="row">
         <h6 class="text-secondary type2 ml-4 mr-2">
             Welcome back, <?= $user->first_name ?> <br/>
