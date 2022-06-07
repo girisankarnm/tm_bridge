@@ -16,6 +16,7 @@ class DatePickerAsset extends AssetBundle
         'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css',
     ];
     public $js = [
+        'https://cdn.jsdelivr.net/momentjs/latest/moment.min.js',
         'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js',
     ];
     public $depends = [

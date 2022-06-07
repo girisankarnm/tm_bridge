@@ -13,7 +13,16 @@ use frontend\models\Country;
 class EnquiryController extends Controller{
     
     public function beforeAction($action) {
-        $this->enableCsrfValidation = false;
+        //$this->enableCsrfValidation = false;
+        if (Yii::$app->user->isGuest) {
+            Yii::$app->user->loginRequired();
+            return;
+        }
+        
+        if (Yii::$app->user->identity->user_type != 1){
+            throw new ForbiddenHttpException();
+        } 
+
         return parent::beforeAction($action);
     }
 
@@ -102,10 +111,42 @@ class EnquiryController extends Controller{
             ]);
         }
     }
-    public function actionContact(){
+    public function actionContactdetails(){
+        $enquiry_id = (int) Yii::$app->request->get('id');
+        $enquiry = NULL;
+        if ($enquiry_id != 0) {
+            $enquiry = Enquiry::find()
+                ->where(['id' => $enquiry_id])
+                ->one();
+        }
+
+        if ($enquiry == NULL){
+            throw new NotFoundHttpException();
+        }
+
         $this->layout = 'tm_main';
-        return $this->render('contact_details', []);
+        return $this->render('contact_details', ['enquiry' => $enquiry]);
     }
+    
+    
+    public function actionSavecontactdetails(){
+        $enquiry_id = Yii::$app->request->post('enquiry_id');
+        if ($enquiry_id != 0) {
+            $enquiry = Enquiry::find()
+                ->where(['id' => $enquiry_id])
+                ->one();
+        }
+
+        if ($enquiry == NULL){
+            throw new NotFoundHttpException();
+        }
+
+        if ($enquiry->load(Yii::$app->request->post())) {
+            $enquiry->save();
+            return $this->redirect(['enquiry/guestcount',  'id' => $enquiry->getPrimaryKey() ]);
+        }
+    }
+
     public function actionGuestcount(){
         $this->layout = 'tm_main';
         return $this->render('guest_count', []);

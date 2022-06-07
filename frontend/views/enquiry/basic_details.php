@@ -2,6 +2,8 @@
 use yii\bootstrap4\ActiveForm;
 //frontend\assets\CommonAsset::register($this);
 frontend\assets\DatePickerAsset::register($this);
+$this->registerJsFile('/js/enquiry/create.js');
+
 ?>
 <script>
     $(document).ready(function() { 
@@ -67,7 +69,7 @@ frontend\assets\DatePickerAsset::register($this);
             </div>
             <div style="display: block">
                 <label class="Labelclass" style="display: block;margin-top: 20px" >*End Date</label>
-                <input type="date" class="inputTextClass" style="width: 135px;" placeholder="May-27-22" >
+                <input type="text" id="tour_end_date" name="tour_end_date" class="inputTextClass" style="width: 135px;" readonly="true" value="<?= $tour_end_date ?>">
             </div>
         </div>
 
