@@ -35,9 +35,9 @@ $this->registerJsFile('/js/enquiry/create.js');
         <div class="tab" style="display: flex;flex-direction: row;">
             <div style="display: inline">   <a href="<?= \yii\helpers\Url::to(['/enquiry/basicdetails']) ?>">  <button class="selectedButton" onclick="openCity(event, 'London')" >Basic Details</button></a> <hr class="new5" >
             </div>
-            <a href="<?= \yii\helpers\Url::to(['/enquiry/contact']) ?>">   <button id="contactBtn" class="tablinks" onclick="openCity(event, 'Paris')">Contact Details</button></a>
-            <a href="<?= \yii\helpers\Url::to(['/enquiry/guestcount']) ?>"> <button class="tablinks" onclick="openCity(event, 'Tokyo')">Guest Count</button></a>
-            <a href="<?= \yii\helpers\Url::to(['/enquiry/accommodation']) ?>"><button class="tablinks" onclick="openCity(event, 'Tokyo')">Accommodation</button></a>
+            <a href="<?= \yii\helpers\Url::to(['/enquiry/contactdetails', 'id' => $basic_details->id]) ?>">   <button id="contactBtn" class="tablinks" onclick="openCity(event, 'Paris')">Contact Details</button></a>
+            <a href="<?= \yii\helpers\Url::to(['/enquiry/guestcount', 'id' => $basic_details->id]) ?>"> <button class="tablinks" onclick="openCity(event, 'Tokyo')">Guest Count</button></a>
+            <a href="<?= \yii\helpers\Url::to(['/enquiry/accommodation', 'id' => $basic_details->id]) ?>"><button class="tablinks" onclick="openCity(event, 'Tokyo')">Accommodation</button></a>
         </div>
         <hr class="sidebar-divider">
         <?php $form = ActiveForm::begin(['id' => 'enquiry_basic_details','enableClientValidation' => true, 'method' => 'post','action' => ['enquiry/savebasicdetails']]) ?>

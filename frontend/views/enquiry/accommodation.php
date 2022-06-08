@@ -1,4 +1,5 @@
 <?php
+use yii\bootstrap4\ActiveForm;
 ?>
 
 <link rel="stylesheet" type="text/css" href="/css/tour-min-1.css" />
@@ -7,18 +8,18 @@
 	<div class="container-fluid" style="background-color: #f3f3f3">
 		<div class="card-title">
 			Enquiry
-
 		</div>
 
 		<div class="tab">
-			<a href="<?= \yii\helpers\Url::to(['/enquiry/basicdetails']) ?>"> <button class="tablinks btnunder" onclick="openCity(event, 'London')" >Basic Details</button></a>
-			<a href="<?= \yii\helpers\Url::to(['/enquiry/contact']) ?>">   <button id="contactBtn" class="tablinks" onclick="openCity(event, 'Paris')">Contact Details</button></a>
-			<a href="<?= \yii\helpers\Url::to(['/enquiry/guestcount']) ?>"> <button class="tablinks" onclick="openCity(event, 'Tokyo')">Guest Count</button></a>
+			<a href="<?= \yii\helpers\Url::to(['/enquiry/basicdetails', 'id' => $enquiry->id]) ?>"> <button class="tablinks btnunder" onclick="openCity(event, 'London')" >Basic Details</button></a>
+			<a href="<?= \yii\helpers\Url::to(['/enquiry/contactdetails', 'id' => $enquiry->id]) ?>">   <button id="contactBtn" class="tablinks" onclick="openCity(event, 'Paris')">Contact Details</button></a>
+			<a href="<?= \yii\helpers\Url::to(['/enquiry/guestcount', 'id' => $enquiry->id]) ?>"> <button class="tablinks" onclick="openCity(event, 'Tokyo')">Guest Count</button></a>
 			<div style="display: inline">   <a href="<?= \yii\helpers\Url::to(['/enquiry/accommodation']) ?>">  <button class="selectedButton" onclick="openCity(event, 'London')" >Accommodation</button></a> <hr class="new5" >
 			</div>
 		</div>
 		<hr class="sidebar-divider">
-
+		<?php $form = ActiveForm::begin(['id' => 'form_enquiry_accomodation','enableClientValidation' => false, 'method' => 'post','action' => ['enquiry/saveaccommodation']]) ?>
+		<input type="hidden" id="enquiry_id" name="enquiry_id" value=<?php echo  $enquiry->id; ?> ?>
 		<div class="row">
 			<table id="customers" class="tableclass" style="width: 895px; border-spacing: 15px;">
 				<tr class="thtable" style=" border: 0.5px solid #A32C4F; border-radius: 15px;font-size: 12px" >
@@ -137,10 +138,12 @@
 
 			</table>
 		</div>
+
 		<div class="row" style="margin-left: 4px;margin-bottom: 12px;">
 			<div style="display: block;margin-right: 35px">
 				<BUTTON type="text"  class="buttonSave"> Save </BUTTON>
 			</div>
 		</div>
+		<?php ActiveForm::end(); ?>
 	</div>
 </div>

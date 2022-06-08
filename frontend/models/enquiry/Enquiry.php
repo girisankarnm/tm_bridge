@@ -3,6 +3,7 @@
 namespace frontend\models\enquiry;
 
 use frontend\models\enquiry\EnquiryAccommodation;
+use frontend\models\tariff\TariffNationalityGroupName;
 use Yii;
 
 /**
