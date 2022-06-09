@@ -4,7 +4,6 @@ namespace frontend\models\property;
 
 use Yii;
 use yii\base\Model;
-use frontend\models\PropertyLegalStatus;
 
 class LegalTaxDocumentation extends Model{
     public $id;
@@ -29,7 +28,7 @@ class LegalTaxDocumentation extends Model{
     {
         return [            
             [['legal_status_id' , 'pan_number', 'business_licence_number', 'bank_account_number', 'bank_account_name', 'bank_name', 'ifsc_code', 'id'], 'required'],
-            [['legal_status_id'], 'exist', 'skipOnError' => true, 'targetClass' => PropertyLegalStatus::className(), 'targetAttribute' => ['legal_status_id' => 'id']],           
+            [['legal_status_id'], 'exist', 'skipOnError' => true, 'targetClass' => PropertyLegalStatus::className(), 'targetAttribute' => ['legal_status_id' => 'id']],
         ];
     }
 }

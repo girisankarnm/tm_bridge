@@ -1,9 +1,12 @@
 <?php
 
-namespace frontend\models;
+namespace frontend\models\property;
 
 use Yii;
 use common\models\User;
+use frontend\models\Country;
+use frontend\models\Destination;
+use frontend\models\Location;
 
 /**
  * This is the model class for table "property".
@@ -128,9 +131,9 @@ class Property extends \yii\db\ActiveRecord
             [['country_id'], 'exist', 'skipOnError' => true, 'targetClass' => Country::className(), 'targetAttribute' => ['country_id' => 'id']],
             [['destination_id'], 'exist', 'skipOnError' => true, 'targetClass' => Destination::className(), 'targetAttribute' => ['destination_id' => 'id']],
             [['location_id'], 'exist', 'skipOnError' => true, 'targetClass' => Location::className(), 'targetAttribute' => ['location_id' => 'id']],
-            [['pets_policy_id'], 'exist', 'skipOnError' => true, 'targetClass' => PropertyPetsPolicy::className(), 'targetAttribute' => ['pets_policy_id' => 'id']],
+//            [['pets_policy_id'], 'exist', 'skipOnError' => true, 'targetClass' => PropertyPetsPolicy::className(), 'targetAttribute' => ['pets_policy_id' => 'id']],
             [['property_type_id'], 'exist', 'skipOnError' => true, 'targetClass' => PropertyType::className(), 'targetAttribute' => ['property_type_id' => 'id']],
-            [['smoking_policy_id'], 'exist', 'skipOnError' => true, 'targetClass' => PropertySmokingPolicy::className(), 'targetAttribute' => ['smoking_policy_id' => 'id']],
+//            [['smoking_policy_id'], 'exist', 'skipOnError' => true, 'targetClass' => PropertySmokingPolicy::className(), 'targetAttribute' => ['smoking_policy_id' => 'id']],
             [['owner_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['owner_id' => 'id']],
         ];
     }

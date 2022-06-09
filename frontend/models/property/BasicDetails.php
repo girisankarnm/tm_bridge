@@ -4,9 +4,10 @@ namespace frontend\models\property;
 
 use Yii;
 use yii\base\Model;
-use common\models\User;
-use frontend\models\PropertyType;
-use frontend\models\PropertyCategory;
+//use frontend\models\PropertyType;
+//use frontend\models\PropertyCategory;
+use frontend\models\property\PropertyCategory;
+use frontend\models\property\PropertyType;
 
 class BasicDetails extends Model{
     public $id;
@@ -25,8 +26,8 @@ class BasicDetails extends Model{
     {
         return [            
             [[ 'id', 'name', 'property_type_id' , 'property_category_id'], 'required'],            
-            [['property_type_id'], 'exist', 'skipOnError' => true, 'targetClass' => PropertyType::className(), 'targetAttribute' => ['property_type_id' => 'id']],
-            [['property_category_id'], 'exist', 'skipOnError' => true, 'targetClass' => PropertyCategory::className(), 'targetAttribute' => ['property_category_id' => 'id']],
+            [['property_type_id'], 'exist', 'skipOnError' => true, 'targetClass' => \frontend\models\property\PropertyType::className(), 'targetAttribute' => ['property_type_id' => 'id']],
+            [['property_category_id'], 'exist', 'skipOnError' => true, 'targetClass' => \frontend\models\property\PropertyCategory::className(), 'targetAttribute' => ['property_category_id' => 'id']],
         ];
     }
 }

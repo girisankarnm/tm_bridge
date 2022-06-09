@@ -1,3 +1,8 @@
+<?php
+
+use yii\bootstrap4\ActiveForm;
+
+?>
 <div class="$content">
     <div class="container-fluid">
         <div class="card-title">
@@ -13,6 +18,46 @@
                 </div>
             </div>
             <hr class="sidebar-divider">
+            <?php $form = ActiveForm::begin(['id' => 'terms_form','enableClientValidation' => true, 'action' => ['property/saveterms']]) ?>
+            <?= $form->field($terms, 'id')->hiddenInput()->label(false); ?>
+
+            <div class="row mt-1 ml-1 ">
+                <div class="col-md-1">
+
+                    <?php echo $form->field($terms,'terms_and_conditons1')->checkbox(['class' => 'form-control form-control-sm'])->label(false) ?>
+                </div>
+                <div class="col-md-10">
+                    <p>
+                        I certify that this is a legitimate accommodation business with all necessary licenses
+                        and permits, which can be shown upon first request. Itinges Technologies reserves
+                        the right to verify and investigate any details provided in this registration.
+                    </p>
+                </div>
+            </div>
+            <div class="row ml-1 ">
+                <div class="col-md-1">
+                    <?php echo $form->field($terms,'terms_and_conditons2')->checkbox(['class' => 'form-control form-control-sm'])->label(false) ?>
+                </div>
+                <div class="col-md-10">
+                    <p>
+                        I certify that this is a legitimate accommodation business with all necessary licenses
+                        and permits, which can be shown upon first request. Itinges Technologies reserves
+                        the right to verify and investigate any details provided in this registration.
+                    </p>
+                </div>
+            </div>
+            <div class="row ml-1 ">
+                <div class="col-md-1">
+                    <?php echo $form->field($terms,'terms_and_conditons3')->checkbox(['class' => 'form-control form-control-sm'])->label(false) ?>
+                </div>
+                <div class="col-md-10">
+                    <p>
+                        I certify that this is a legitimate accommodation business with all necessary licenses
+                        and permits, which can be shown upon first request. Itinges Technologies reserves
+                        the right to verify and investigate any details provided in this registration.
+                    </p>
+                </div>
+            </div>
 
             <label class="container-terms-conditions" style="margin-top: 30px">
                 <input type="checkbox" checked="checked;" >
@@ -55,6 +100,7 @@
                 </div>
 
             </div>
+            <?php ActiveForm::end(); ?>
         </div>
 
     </div>

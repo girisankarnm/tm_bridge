@@ -1,6 +1,6 @@
 <?php
 
-namespace frontend\models;
+namespace frontend\models\property;
 
 use Yii;
 use frontend\models\TourMatrixModel;
