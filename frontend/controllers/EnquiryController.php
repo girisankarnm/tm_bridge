@@ -4,11 +4,16 @@ namespace frontend\controllers;
 use Yii;
 use yii\web\Controller;
 use yii\helpers\ArrayHelper;
+use yii\helpers\Json;
 use Carbon\Carbon;
 
 use frontend\models\enquiry\BasicDetails;
 use frontend\models\enquiry\Enquiry;
+use frontend\models\enquiry\EnquiryAccommodation;
+use frontend\models\enquiry\EnquiryGuestCount;
 use frontend\models\Country;
+use frontend\models\Destination;
+use frontend\models\property\PropertyMealPlan;
 
 class EnquiryController extends Controller{
     
@@ -138,7 +143,7 @@ class EnquiryController extends Controller{
         }
 
         if ($enquiry == NULL){
-            throw new NotFoundHttpException();
+            throw new NotFoundHttpException("Enquiry not found");
         }
 
         if ($enquiry->load(Yii::$app->request->post())) {
@@ -148,11 +153,66 @@ class EnquiryController extends Controller{
     }
 
     public function actionGuestcount(){
+        $enquiry_id = (int) Yii::$app->request->get('id');
+        $enquiry = NULL;
+        if ($enquiry_id != 0) {
+            $enquiry = Enquiry::find()
+                ->where(['id' => $enquiry_id])
+                ->one();
+        }
+
+        if ($enquiry == NULL){
+            throw new NotFoundHttpException();
+        }
+
+        $plan_age_breakup = array();
+        if (isset($enquiry->enquiryGuestCounts)) {
+            foreach ($enquiry->enquiryGuestCounts as $guest_count) {
+                $age_breakup = array();
+                foreach ($guest_count->enquiryGuestCountChildAges as $child_age) {
+                    $age_breakup[$child_age->age] = $child_age->count;
+                }
+                $plan_age_breakup[$guest_count->plan] = $age_breakup;
+            }
+        }
+
+        //var_dump($plan_age_breakup);
+        $age_breakup  = Json::encode($plan_age_breakup, true);        
+
         $this->layout = 'tm_main';
-        return $this->render('guest_count', []);
+        return $this->render('guest_count', [
+            'enquiry' => $enquiry,  
+            'age_breakup' => $age_breakup
+        ]);
     }
     public function actionAccommodation(){
+        $enquiry_id = (int) Yii::$app->request->get('id');
+        $enquiry = NULL;
+        if ($enquiry_id != 0) {
+            $enquiry = Enquiry::find()
+                ->where(['id' => $enquiry_id])
+                ->one();
+        }
+
+        if ($enquiry == NULL){
+            throw new NotFoundHttpException();
+        }
+
+        $accommodation = new EnquiryAccommodation();
+        $destinations = ArrayHelper::map(Destination::find()->asArray()->all(), 'id', 'name');
+        $meal_plans = ArrayHelper::map(PropertyMealPlan::find()->all(), 'id', 'name');
+        $pax_count_plans = ArrayHelper::map(EnquiryGuestCount::find()->where(['enquiry_id' => $enquiry_id])->all(), 'id', function($model) 
+        {
+            return 'Plan: '.$model['plan'].'- Adults:'.$model['adults'].'|Children:'.$model['children'];
+        });
+
         $this->layout = 'tm_main';
-        return $this->render('accommodation', []);
+        return $this->render('accommodation', [
+            'enquiry' => $enquiry,
+            'destinations' => $destinations,
+            'meal_plans' => $meal_plans,
+            'pax_count_plans' => $pax_count_plans,
+            'model' => $accommodation
+        ]);        
     }
 }
