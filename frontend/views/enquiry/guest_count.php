@@ -1,5 +1,6 @@
 <?php
 use yii\bootstrap4\ActiveForm;
+frontend\assets\CommonAsset::register($this);
 $this->registerJsFile('/js/enquiry/create.js');
 ?>
 
@@ -28,45 +29,64 @@ $this->registerJsFile('/js/enquiry/create.js');
     	<input type="hidden" id="child_age_breakup" name="child_age_breakup" value='<?= $age_breakup ?>' >
 
 		<!-- start guest_count_same  -->
+		<?php
+            $i = 1;
+        ?>
 		<div id="guest_count_same" style="display: <?= $enquiry->guest_count_same_on_all_days == 1 ? "block;" : "none;"; ?>" >
 			<div class="row">
-				<table id="customers" class="table2class" style="width: 655px;;">
+				<table id="guest_count_same_table" class="table2class" style="width: 655px;;">
 					<tr class="thtable" style=" border: 0.5px solid #A32C4F; border-radius: 12px;" >
-						<th >Pax Count Plan</th>
-						<th >Adults</th>
-						<th >Children</th>
-						<th >Toral Guest</th>
+						<th>Pax Count Plan</th>
+						<th>Adults</th>
+						<th>Children</th>
+						<th></th>
+						<th>Toral Guest</th>
 						<th style="width: 320px" >Child Age </th>
 					</tr>
 					<?php
 						//if already added guest details
 						$adult_value = "";
                         $children_value = "";
-                        if( $enquiry->guest_count_same_on_all_days == 1 ) {
+                        if( $enquiry->guest_count_same_on_all_days == 1 ) {							
                             $adult_value = (isset($enquiry->enquiryGuestCounts[0])) ? $enquiry->enquiryGuestCounts[0]->adults : "";
                             $children_value = (isset($enquiry->enquiryGuestCounts[0])) ? $enquiry->enquiryGuestCounts[0]->children : "";
+							
+							$adult_value = 2;
+							$children_value = 2;
                         }
                         ?>
 						<tr>
-							<td>  Plan </td>
-							<td>  <input type="number" class="inputTextClass" style="width: 100px;height: 33px;margin-top: 24px;" ></td>
-							<td>  <input type="number" class="inputTextClass" style="width: 100px;height: 33px;margin-top: 24px;" ></td>
-							<td>  <input name="total_guests[]" type="text" class="inputTextClass" style="width: 100px;height: 33px;margin-top: 24px;" ></td>
-							<td> <input name="child_validation[]" type="text" class="inputTextClass" style="width: 100px;height: 33px;margin-top: 24px;" ></td>
+							<td> Plan </td>
+							<td>
+								<input type="hidden" id="plan_uid" name="plan_uid[]" value="0" >   
+								<input name="adults[]" id="adults_0" type="number" class="inputTextClass" style="width: 100px;height: 33px;margin-top: 24px;" value = "<?= $adult_value; ?>" >
+							</td>
+							<td>  <input name="children[]" id="children_0" type="number" class="inputTextClass" style="width: 100px;height: 33px;margin-top: 24px;" value = "<?= $children_value; ?>" ></td>
+							<td>
+								<button type="button" class="btn btn-sm btn-outline-primary child-breakup1" onclick="showChildBreakupModal(this)" data-toggle="modal" unique_plan_id="0">
+                                <i class="fa fa-plus"></i></button>
+							</td>
+							<td> 								
+								<span id="total_guests_0" style="color: red;font-size: 12px;display: inline" id="span_child_validation_0"><?= $adult_value + $children_value ?> </span>
+							</td>
+							<td> 
+								<span id="span_child_validation_0" style="color: red;font-size: 12px;display: inline">NA</span>
+							</td>
 						</tr>						
 				</table>
 			</div>
 		</div>
-		<!-- start guest_count_same  -->
+		<!-- end guest_count_same  -->
 
 		<!-- start guest_count_differnt  -->
 		<div id="guest_count_differnt" style="display: <?= $enquiry->guest_count_same_on_all_days == 0 ? "block;" : "none;"; ?>">
 			<div class="row">
-				<table id="customers" class="table2class" style="width: 655px;;">
+				<table id="guest_count_differnt_table" class="table2class" style="width: 655px;;">
 					<tr class="thtable" style=" border: 0.5px solid #A32C4F; border-radius: 12px;" >
 						<th >Pax Count Plan</th>
 						<th >Adults</th>
 						<th >Children</th>
+						<th ></th>
 						<th >Toral Guest</th>
 						<th style="width: 320px" >Child Age </th>
 					</tr>
@@ -80,38 +100,63 @@ $this->registerJsFile('/js/enquiry/create.js');
 								<td>  <input type="number" class="inputTextClass" style="width: 100px;height: 33px;margin-top: 24px;" ></td>
 								<td>  <input type="number" class="inputTextClass" style="width: 100px;height: 33px;margin-top: 24px;" ></td>
 								<td>  <input type="text" class="inputTextClass" style="width: 100px;height: 33px;margin-top: 24px;" ></td>
-								<td > <span style="color: red;font-size: 12px;width: 100px;margin-top: 24px;height: 33px">! Age is validated</span></td>
+								<td >
+									
+									 <span style="color: red;font-size: 12px;width: 100px;margin-top: 24px;height: 33px">! Age is validated</span></td>
 							</tr>
-						<?php	}
+						<?php	
+							$i++;
+						}
 						}
 						else
 						{
+							$i = 3; //use for unique plan id
 						?>
 						<tr>
 							<td>  Plan 1</td>
-							<td>  <input type="number" class="inputTextClass" style="width: 100px;height: 33px;margin-top: 24px;" ></td>
-							<td>  <input type="number" class="inputTextClass" style="width: 100px;height: 33px;margin-top: 24px;" ></td>
-							<td>  <input type="text" class="inputTextClass" style="width: 100px;height: 33px;margin-top: 24px;" ></td>
-							<td > <span style="color: red;font-size: 12px;width: 100px;margin-top: 24px;height: 33px">! Age is validated</span></td>
+							<td> 
+								<input type="hidden" id="plan_uid" name="plan_uid[]" value="1" >
+								<input name="adults[]" id="adults_1" type="number" class="inputTextClass" style="width: 100px;height: 33px;margin-top: 24px;" >
+							</td>							
+							<td>  <input name="children[]" id="children_1" type="text" class="inputTextClass" style="width: 100px;height: 33px;margin-top: 24px;" ></td>
+							<td> 
+								<button type="button" class="btn btn-sm btn-outline-primary child-breakup1" onclick="showChildBreakupModal(this)" data-toggle="modal" unique_plan_id="1">
+                                <i class="fa fa-plus"></i></button>
+							</td>
+							<td>  
+								<span id="total_guests_1" style="color: red;font-size: 12px;display: inline" id="span_child_validation_0"> NA </span>
+							</td>
+							<td > 
+								<span id="span_child_validation_1" style="color: red;font-size: 12px;display: inline">NA</span>
+							</td>
 						</tr>
 						<tr >
 							<td>  Plan 2</td>
-							<td>  <input type="number" class="inputTextClass" style="width: 100px;height: 33px" ></td>
-							<td>  <input type="number" class="inputTextClass" style="width: 100px;height: 33px" ></td>
-							<td>  <input type="text" class="inputTextClass" style="width: 100px;height: 33px" ></td>
-							<td style="width: 20px;"><span style="color: red;font-size: 12px;display: inline">! Age is validated</span></td>
+							<td>
+								<input type="hidden" id="plan_uid" name="plan_uid[]" value="2" >  
+								<input name="adults[]" id="adults_2" type="number" class="inputTextClass" style="width: 100px;height: 33px" >
+							</td>
+							<td>  
+								<input name="children[]" id="children_2" type="number" class="inputTextClass" style="width: 100px;height: 33px" ></td>
+							<td> 
+								<button type="button" class="btn btn-sm btn-outline-primary child-breakup1" onclick="showChildBreakupModal(this)" data-toggle="modal" unique_plan_id="2">
+                                <i class="fa fa-plus"></i></button>
+							</td>
+							<td>  
+								<span id="total_guests_2" style="color: red;font-size: 12px;display: inline"> NA </span>
+							</td>
+							<td > 
+								<span id="span_child_validation_2" style="color: red;font-size: 12px;display: inline">NA</span>
+							</td>
 						</tr>
 					<?php
 						}                    
-					?>
-					
-					<tr > <td> <button class="btnAdd" style="border-radius: 50%;"><i  class="fa fa-plus" aria-hidden="true"></i></button><span style="padding-left: 3px">Add more </span></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
+					?>					
 				</table>
+				<div>
+				<button class="btnAdd" style="border-radius: 50%;" id="add_new_plan_row"><i  class="fa fa-plus" aria-hidden="true"></i></button>
+							<span style="padding-left: 3px">Add more </span>
+				</div>
 			</div>
 		</div>
 		<!-- end start guest_count_differnt  -->
@@ -124,5 +169,36 @@ $this->registerJsFile('/js/enquiry/create.js');
 		</div>
 
 		<?php ActiveForm::end(); ?>
+	</div>
+</div>
+
+<div class="modal fade" id="childBreakupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="childBreakupModalLabel">Enter age and count</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<input type="hidden" id="plan_id" name="planID" value="0">
+				<table id="age_breakup_table" class="table-sm">
+					<thead class="text-center">
+					<th>Age (Years)</th>
+					<th>Count</th>
+					<th></th>
+					</thead>
+					<tbody>					
+					</tbody>
+				</table>
+				<div><button type="button" id="add_age_count_row" class="btn btn-sm bg-success" style="border-radius: 50%">
+						<i class="fa fa-plus"></i></button></div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" id="close_child_breakup"  class="btn btn-secondary" data-dismiss="modal">Close</button>
+				<button type="button" id="apply_child_breakup" class="btn btn-primary">Apply</button>
+			</div>
+		</div>
 	</div>
 </div>

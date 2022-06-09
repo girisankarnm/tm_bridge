@@ -185,6 +185,12 @@ class EnquiryController extends Controller{
             'age_breakup' => $age_breakup
         ]);
     }
+
+    public function actionSaveguestcount(){
+        var_dump($_POST);
+    }
+    
+
     public function actionAccommodation(){
         $enquiry_id = (int) Yii::$app->request->get('id');
         $enquiry = NULL;
