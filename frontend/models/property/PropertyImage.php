@@ -1,5 +1,6 @@
 <?php
-namespace frontend\models;
+//namespace frontend\models;
+namespace frontend\models\property;
 use yii\base\Model;
 use yii\web\UploadedFile;
 

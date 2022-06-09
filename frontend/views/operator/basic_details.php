@@ -1,3 +1,8 @@
+<?php
+
+use yii\bootstrap4\ActiveForm;
+
+?>
 
 <div class="$content">
 
@@ -16,16 +21,21 @@
             </div>
 
             <hr class="sidebar-divider">
-
+            <?php $form = ActiveForm::begin(['id' => 'operational_form','enableClientValidation' => true,'method' => 'post','action' => ['operator/savebasicdetails']]) ?>
+            <?= $form->field($basic_details, 'id')->hiddenInput()->label(false); ?>
             <div class="row" style="display: flex; flex-direction: row;">
                 <div style="width: 50%">
                     <div style="display: block; margin-right: 35px; margin-left: 10px">
-                        <label class="Labelclass" style="display: block;margin-top: 22px" >*Company</label>
-                        <input type="text" class="inputLarge" placeholder="Company" >
+                        <label class="Labelclass" style="display: block" >*Company</label>
+                        <?php echo $form->field($basic_details,'name')->textInput(['class' => 'inputLarge'])->label(false) ?>
+
+<!--                        <input type="text" class="inputLarge" placeholder="Company" >-->
                     </div>
                     <div style="display: block; margin-right: 35px; margin-left: 10px">
-                        <label class="Labelclass" style="display: block;margin-top: 20px" >*Websit</label>
-                        <input type="text" class="inputLarge" placeholder="Website" >
+                        <label class="Labelclass" style="display: block" >*Website</label>
+                        <?php echo $form->field($basic_details,'website')->textInput(['class' => 'inputLarge', 'placeholder'=>'Please provide website if available'])->label(false) ?>
+
+<!--                        <input type="text" class="inputLarge" placeholder="Website" >-->
                     </div>
                     <div style="display: block;margin-right: 35px; margin-left: 10px; margin-top: 20px">
                         <BUTTON type="text" class="buttonSave" style="width: 85px; border-radius: 5px"> Save </BUTTON>
@@ -33,7 +43,7 @@
                 </div>
                 <div style="width: 50%">
                     <div style="display: block; margin-right: 35px; margin-left: 10px;">
-                        <label class="Labelclass" style="display: block;margin-top: 22px" >*Upload Logo</label>
+                        <label class="Labelclass" style="display: block" >*Upload Logo</label>
                         <div class="Neon Neon-theme-dragdropbox">
                             <input style="z-index: 999; opacity: 0; width: 320px; height: 200px; position: absolute; " name="files[]" id="filer_input2" multiple="multiple" type="file">
                             <div class="Neon-input-dragDrop">
@@ -77,6 +87,8 @@
                     </div>
                 </div>
             </div>
+            <?php ActiveForm::end(); ?>
+
         </div>
     </div>
 </div>

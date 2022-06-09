@@ -522,7 +522,7 @@ select:focus{
 .Neon-input-dragDrop-property-logo{
     display: block;
     width: 200px;
-    height: 210px;
+    height: 200px;
     margin: 0 auto 25px auto;
     color: #E8E9ED;
     background: #fff;
@@ -532,7 +532,7 @@ select:focus{
 .Neon-input-dragDrop-property-photo{
     display: block;
     width: 240px;
-    height: 210px;
+    height: 200px;
     margin: 0 auto 25px auto;
     color: #E8E9ED;
     background: #fff;
@@ -580,7 +580,8 @@ select:focus{
 
 .contact-head{
     margin-left: 3px;
-    margin-top: 30px;
+    margin-top: 15px;
+    margin-bottom: 20px;
     width: 755px;
     height: 34px;
     background-color: #BDC4FF;
@@ -652,6 +653,17 @@ select:focus{
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
 }
+
+
+/*property from active form*/
+.invalid-feedback {
+    display: none;
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 70% !important;
+    color: #586ADA !important;
+}
+
 
 
 

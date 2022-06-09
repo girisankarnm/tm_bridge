@@ -4,7 +4,8 @@ namespace frontend\models\operator;
 
 use Yii;
 use yii\base\Model;
-use frontend\models\PropertyLegalStatus;
+//use frontend\models\PropertyLegalStatus;
+use frontend\models\property\PropertyLegalStatus;
 
 class LegalTaxDocumentation extends Model{
     public $id;
