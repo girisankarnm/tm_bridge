@@ -45,8 +45,8 @@ $this->registerJsFile('/js/enquiry/create.js');
 					</tr>
 					<?php
 						//if already added guest details
-						$adult_value = "";
-                        $children_value = "";
+						$adult_value = 0;
+                        $children_value = 0;
                         if( $enquiry->guest_count_same_on_all_days == 1 ) {							
                             $adult_value = (isset($enquiry->enquiryGuestCounts[0])) ? $enquiry->enquiryGuestCounts[0]->adults : "";
                             $children_value = (isset($enquiry->enquiryGuestCounts[0])) ? $enquiry->enquiryGuestCounts[0]->children : "";
@@ -161,7 +161,7 @@ $this->registerJsFile('/js/enquiry/create.js');
 		</div>
 		<!-- end start guest_count_differnt  -->
 		
-
+		<input type="hidden" id="current_unique_plan_id" name="current_unique_plan_id" value="<?= $i; ?>" ?>
 		<div class="row" style="margin-left: 4px;margin-bottom: 12px;">
 			<div style="display: block;margin-right: 35px">
 				<BUTTON type="text" class="buttonSave"> Save </BUTTON>

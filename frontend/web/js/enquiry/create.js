@@ -1,6 +1,8 @@
 var unique_plan_id = 0;
 var age_break_up = "";
 var planAgeBreakupMap = {};
+//var planAgeBreakupMapSameGuestCount = {};
+//var planAgeBreakupMapDifferentGuestCount = {};
 
 $(document).ready(function() {
     $('#apply_child_breakup').click(function(e) {
@@ -24,6 +26,9 @@ $(document).ready(function() {
         e.preventDefault();
         addPlanRow();
     });
+
+    unique_plan_id = $('#current_unique_plan_id').val();
+    age_break_up = $('#child_age_breakup').val();
 });
 
 $("#basicdetails-tour_duration").on("input", function() {        
@@ -38,12 +43,14 @@ $("#basicdetails-tour_duration").on("input", function() {
 $('#enquiry-guest_count_same_on_all_days :radio').change(function(){        
     // 1 => guest_count_same_on_all_days
     if ( $(this).val() == 1 ){
+        //planAgeBreakupMap =  Object.assign({}, planAgeBreakupMapSameGuestCount);         
        // $('#add_plan_div').hide('slide');
         $('#guest_count_differnt').hide('slide');
         $('#guest_count_same').show('slide');
     }
     else {
         //$('#add_plan_div').show('slide');
+        //planAgeBreakupMap =  Object.assign({}, planAgeBreakupMapDifferentGuestCount);
         $('#guest_count_same').hide('slide');
         $('#guest_count_differnt').show('slide');        
     }  
@@ -136,8 +143,8 @@ function applyChildAgeBreakup(){
         sumOfCount += Number(this.value);
     });
 
-    console.log("sumOfCount: " + sumOfCount);
-    console.log("totalChild: " + totalChild);
+    //console.log("sumOfCount: " + sumOfCount);
+    //console.log("totalChild: " + totalChild);
 
     if(sumOfCount === totalChild ){        
         $('#span_child_validation_'+plan_id).text("OK");        
@@ -155,8 +162,13 @@ function applyChildAgeBreakup(){
     var i = 0;
     const ageBreakupMap = {};
     $('input[name^="age"]').each(function () {
-        //console.log(this.value + ": " + countArray[i].value);
-        ageBreakupMap[this.value] = countArray[i].value;
+        if(this.value in ageBreakupMap ) {
+            ageBreakupMap[this.value] = parseInt(ageBreakupMap[this.value]) + parseInt(countArray[i].value);
+        } 
+        else 
+        {        
+            ageBreakupMap[this.value] = countArray[i].value;
+        }
         i++;
     });
     
@@ -174,13 +186,21 @@ function applyChildAgeBreakup(){
     } */
 
     var guest_count_same = $('input[name="Enquiry[guest_count_same_on_all_days]"]:checked').val();    
-    
+
+    /* if(guest_count_same == 1) {        
+        planAgeBreakupMapSameGuestCount = Object.assign({}, planAgeBreakupMap);
+        console.log("guest_count_same" + JSON.stringify(planAgeBreakupMapSameGuestCount));
+    } else
+    {        
+        planAgeBreakupMapDifferentGuestCount = Object.assign({}, planAgeBreakupMap);
+        console.log("guest_count_different" + JSON.stringify(planAgeBreakupMapDifferentGuestCount));
+    } */
 
     $('#guest_count_data').val( (guest_count_same == 1) ? $('#guest_count_same :input').serialize() :  $('#guest_count_differnt :input').serialize());
-    console.log("setting guest_count_data: " );
+    //console.log("setting guest_count_data: " );
 
     $('#child_breakup').val(JSON.stringify(planAgeBreakupMap));
-    console.log("setting childbreakup: " + JSON.stringify(planAgeBreakupMap) );    
+    //console.log("setting childbreakup: " + JSON.stringify(planAgeBreakupMap) );    
 }
 
 function updateGuestCount(){
@@ -216,8 +236,8 @@ function addPlanRow()
 
     //console.log("Adding row: " + rowCount);
     //console.log("UID: " + unique_plan_id);
-    $("#guest_count_differnt_table").append('<tr class="trhideclass1 text-center"><td>Plan '+ (rowCount) +'</td><td><input type="hidden" id="plan_uid" name="plan_uid[]" value="'+ unique_plan_id +'"><input type="text" class="form-control form-control-sm a col-md-12" name="adults[]" /></td><td><input type="text" class="form-control form-control-sm a col-md-12" name="children[]" id="children_' + unique_plan_id+ '" /></td><td><button type="button" id="add_age_breakup" onclick="showChildBreakupModal(this)"class="btn btn-sm btn-outline-primary" unique_plan_id="' + unique_plan_id + '">\n' +
-        '<i class="fa fa-plus"></i></button></td><td><input type="text" class="form-control form-control-sm a col-md-12" /></td><td><input type="text" class="form-control form-control-sm a col-md-12" id="child_validation_' + unique_plan_id +'"/></td> <td><button id="remr" onclick="deletePlanRow(this)" class="btn btn-sm bg-danger" style="border-radius: 50%" unique_plan_id="' + unique_plan_id + '" ><i class="fa fa-minus"></i></button></td></tr>');
+    $("#guest_count_differnt_table").append('<tr><td>Plan '+ (rowCount) +'</td><td><input type="hidden" id="plan_uid" name="plan_uid[]" value="'+ unique_plan_id +'"><input type="text" class="inputTextClass" style="width: 100px;height: 33px" name="adults[]" /></td><td><input type="text" class="inputTextClass" style="width: 100px;height: 33px" name="children[]" id="children_' + unique_plan_id+ '" /></td><td><button type="button" id="add_age_breakup" onclick="showChildBreakupModal(this)"class="btn btn-sm btn-outline-primary" unique_plan_id="' + unique_plan_id + '">\n' +
+        '<i class="fa fa-plus"></i></button></td><td><span style="color: red;font-size: 12px;display: inline" id="total_guests_' + unique_plan_id +'"> NA </span></td><td> <span style="color: red;font-size: 12px;display: inline" id="span_child_validation_' + unique_plan_id +'" >NA</span></td> <td><button id="remr" onclick="deletePlanRow(this)" class="btn btn-sm bg-danger" style="border-radius: 50%" unique_plan_id="' + unique_plan_id + '" ><i class="fa fa-minus"></i></button></td></tr>');
 
     unique_plan_id++;
 }

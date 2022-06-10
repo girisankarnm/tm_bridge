@@ -4,6 +4,9 @@ namespace frontend\controllers;
 use Yii;
 use yii\web\Controller;
 use yii\helpers\ArrayHelper;
+use yii\base\Exception;
+use yii\web\NotFoundHttpException;
+use yii\web\ForbiddenHttpException;
 use yii\helpers\Json;
 use Carbon\Carbon;
 
@@ -11,6 +14,7 @@ use frontend\models\enquiry\BasicDetails;
 use frontend\models\enquiry\Enquiry;
 use frontend\models\enquiry\EnquiryAccommodation;
 use frontend\models\enquiry\EnquiryGuestCount;
+use frontend\models\enquiry\EnquiryGuestCountChildAge;
 use frontend\models\Country;
 use frontend\models\Destination;
 use frontend\models\property\PropertyMealPlan;
@@ -186,8 +190,82 @@ class EnquiryController extends Controller{
         ]);
     }
 
-    public function actionSaveguestcount(){
-        var_dump($_POST);
+    public function actionSaveguestcount(){        
+
+        //var_dump($_POST);
+        //TODO: Check this proerty owned by this user
+        $enquiry_id = Yii::$app->request->post('enquiry_id');
+        $enquiry = NULL;
+        if ($enquiry_id != 0) {
+            $enquiry = Enquiry::find()
+                ->where(['id' => $enquiry_id])
+                ->one();
+        }
+
+        if ($enquiry == NULL){
+            throw new NotFoundHttpException();
+        }
+
+        //TODO: Add transaction & rollback
+
+        $guest_count_data = Yii::$app->request->post('guest_count_data');
+        $child_breakup_data = Yii::$app->request->post('child_breakup');
+        $childBreakupArray = Json::decode($child_breakup_data, true);
+        parse_str($guest_count_data, $guestCountDataArray);
+
+        $initial_plan_id = 1;
+        if($enquiry->guest_count_same_on_all_days == 1) {
+            $initial_plan_id = 0;
+        }
+
+        $transaction = Yii::$app->db->beginTransaction();
+
+        try {            
+            $enquiry->guest_count_same_on_all_days = isset($_POST["Enquiry"]["guest_count_same_on_all_days"]) ? $_POST["Enquiry"]["guest_count_same_on_all_days"] : 1;
+            if(!$enquiry->save() ) {
+                throw new Exception("Unable to save Enquiry details");
+            }
+            
+            EnquiryGuestCount::deleteAll(['enquiry_id' => $enquiry_id]);
+
+            if (isset($guestCountDataArray['adults'])) {
+                $plan_count = count($guestCountDataArray['adults']);            
+                for ($i = 0; $i < $plan_count; $i++ ) {
+                    $guest_count  = new EnquiryGuestCount();
+                    $guest_count->plan = ($i + $initial_plan_id);
+                    $guest_count->adults = $guestCountDataArray['adults'][$i];
+                    $guest_count->children = $guestCountDataArray['children'][$i];
+                    $guest_count->enquiry_id = $enquiry_id;
+                    if(!$guest_count->save()) {
+                        throw new Exception("Unable to save Guest count");
+                    }
+                    
+                    $child_break_up_array = $childBreakupArray[$guestCountDataArray['plan_uid'][$i]];
+                    foreach ($child_break_up_array as $key => $value) {                
+                        $enquiry_guest_count_child_age = new EnquiryGuestCountChildAge();
+                        $enquiry_guest_count_child_age->age = $key;
+                        $enquiry_guest_count_child_age->count = $value;
+                        $enquiry_guest_count_child_age->plan_id = $guest_count->getPrimaryKey();
+                        if(!$enquiry_guest_count_child_age->save()) {
+                            throw new Exception("Unable to save child age break up");
+                        }
+                    }
+                }
+            }
+            $transaction->commit();
+            //TODO: Handling exception in page
+        } catch (\Exception $e) {
+            $transaction->rollBack();
+            echo $e->getMessage();            
+            throw $e;
+        } catch (\Throwable $e) {
+            //TODO: Handling exception in page
+            $transaction->rollBack();
+            echo $e->getMessage();
+            throw $e;
+        }
+
+        return $this->redirect(['enquiry/accommodation',  'id' => $enquiry->getPrimaryKey()]);
     }
     
 
