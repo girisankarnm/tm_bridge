@@ -1,5 +1,6 @@
 <?php
 use yii\bootstrap4\ActiveForm;
+$this->registerJsFile('/js/enquiry/create.js');
 ?>
 
 <link rel="stylesheet" type="text/css" href="/css/tour-min-1.css" />
@@ -29,119 +30,41 @@ use yii\bootstrap4\ActiveForm;
 					<th>Meal Plan</th>
 					<th>Pax Count Plan</th>
 				</tr>
-				<tr>
 
-					<td>  <input type="date" class="inputTextClass tableinput" style="width: 143px;color: #787486 !important;" ></td>
-					<td>  <select class="inputTextClass tableinput" style="width: 150px;" >
-							<option  value="">Required</option>
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-						</select>
-					</td>
-					<td>
-						<select class="inputTextClass tableinput" style="width: 143px;color: #787486 !important;" >
-							<option value="">choose</option>
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-						</select>
-					</td>
-					<td>
-						<select class="inputTextClass tableinput"style="width: 143px;color: #787486 !important;" >
-							<option value="">choose</option>
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-						</select>
-					</td>
-					<td>
-						<select class="inputTextClass tableinput" style="width: 143px;color: #787486 !important;">
-							<option value="">choose</option>
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-						</select>
-
-					</td>
-				</tr>
-				<tr>
-					<td>  <input type="date" class="inputTextClass tableinput" style="width: 143px;color: #787486 !important;" ></td>
-					<td>  <select class="inputTextClass tableinput" style="width: 150px" >
-							<option value="">Required</option>
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-						</select>
-					</td>
-					<td>
-						<select class="inputTextClass tableinput" style="width: 150px" >
-							<option value="">choose</option>
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-						</select>
-					</td>
-					<td>
-						<select class="inputTextClass tableinput" style="width: 150px" >
-							<option value="">choose</option>
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-						</select>
-					</td>
-					<td>
-						<select class="inputTextClass tableinput" style="width: 150px" >
-							<option value="">choose</option>
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-						</select>
-
-					</td>
-				</tr>
-				<tr>
-					<td>  <input type="date" class="inputTextClass tableinput" style="width: 143px;color: #787486 !important;" ></td>
-					<td>  <select class="inputTextClass tableinput" style="width: 150px" >
-							<option value="">Required</option>
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-						</select>
-					</td>
-					<td>
-						<select class="inputTextClass tableinput" style="width: 150px" >
-							<option value="">choose</option>
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-						</select>
-					</td>
-					<td>
-						<select class="inputTextClass tableinput" style="width: 150px" >
-							<option value="">choose</option>
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-						</select>
-					</td>
-					<td>
-						<select class="inputTextClass tableinput" style="width: 150px" >
-							<option value="">choose</option>
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-						</select>
-
-					</td>
-				</tr>
-
+				<?php for ($i = 0; $i <= $enquiry->tour_duration; $i++){ ?>				
+					<tr>
+						<td>
+							<input type="text" name="day[]"  value="<?php echo date('Y-m-d', strtotime($enquiry->tour_start_date. ' + ' .$i. 'days')); ?>" class="inputTextClass tableinput" readonly />						
+						</td>
+						<td>
+							<select row_id="<?= $i?>" class="inputTextClass tableinput" style="width: 150px;" name="accommodation_status[]">
+							<option value="1">Required</option>
+							<option value="0">Not Required</option>
+							</select>
+						</td>
+						<td>
+							<?php echo $form->field($model,'destination_id')->dropDownList($destinations,['id' => 'destination_'.$i , 'name' => 'destination_id[]','class' => 'inputTextClass tableinput', 'prompt' => 'Choose'])->label(false) ?>						
+						</td>
+						<td>
+							<?php echo $form->field($model,'meal_plan_id')->dropDownList($meal_plans,['id' => 'meal_plan_'.$i, 'name' => 'meal_plan_id[]','class' => 'inputTextClass tableinput', 'prompt' => 'Choose'])->label(false) ?>
+						</td>
+						<td>
+							<?php if ($enquiry->guest_count_same_on_all_days == 1){
+								$model->guest_count_plan_id = 1;
+								echo $form->field($model,'guest_count_plan_id')->dropDownList($pax_count_plans,['id' => 'plan_'.$i, 'name' => 'guest_count_plan_id[]','class' => 'inputTextClass tableinput', 'prompt' => 'Choose','readonly' => 'true'])->label(false);
+							}
+							else
+								echo $form->field($model,'guest_count_plan_id')->dropDownList($pax_count_plans,['id' => 'plan_'.$i, 'name' => 'guest_count_plan_id[]','class' => 'inputTextClass tableinput', 'prompt' => 'Choose'])->label(false);
+							?>
+						</td>
+					</tr>
+				<?php } ?>
 			</table>
 		</div>
 
 		<div class="row" style="margin-left: 4px;margin-bottom: 12px;">
 			<div style="display: block;margin-right: 35px">
-				<BUTTON type="text"  class="buttonSave"> Save </BUTTON>
+				<button type="button" class="buttonSave" id="save_accommodation"> Save </button>
 			</div>
 		</div>
 		<?php ActiveForm::end(); ?>

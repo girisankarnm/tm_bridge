@@ -268,7 +268,6 @@ class EnquiryController extends Controller{
         return $this->redirect(['enquiry/accommodation',  'id' => $enquiry->getPrimaryKey()]);
     }
     
-
     public function actionAccommodation(){
         $enquiry_id = (int) Yii::$app->request->get('id');
         $enquiry = NULL;
@@ -298,5 +297,36 @@ class EnquiryController extends Controller{
             'pax_count_plans' => $pax_count_plans,
             'model' => $accommodation
         ]);        
+    }
+
+    public function actionSaveaccommodation(){
+        
+        $enquiry_id = Yii::$app->request->post('enquiry_id');
+        if ($enquiry_id != 0) {
+            $enquiry = Enquiry::find()
+                ->where(['id' => $enquiry_id])
+                ->one();
+        }
+
+        if ($enquiry == NULL){
+            throw new NotFoundHttpException();
+        }
+
+        EnquiryAccommodation::deleteAll(['enquiry_id' => $enquiry_id]);
+        if (isset($_POST["day"])) {
+            $plan_count = count($_POST["day"]);
+            for ($i = 0; $i < $plan_count; $i++ ) {
+                $accommodation = new EnquiryAccommodation();
+                $accommodation->day =  $_POST["day"][$i];
+                $accommodation->status = $_POST["accommodation_status"][$i];
+                $accommodation->destination_id = $_POST["destination_id"][$i];
+                $accommodation->meal_plan_id = $_POST["meal_plan_id"][$i];
+                $accommodation->guest_count_plan_id = $_POST["guest_count_plan_id"][$i];
+                $accommodation->enquiry_id = $enquiry_id;
+                $accommodation->save();
+            }
+        }
+
+        return $this->redirect(['enquiry/home',]);
     }
 }

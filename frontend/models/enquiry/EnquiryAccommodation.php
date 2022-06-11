@@ -3,6 +3,8 @@
 namespace frontend\models\enquiry;
 
 use Yii;
+use frontend\models\Destination;
+use frontend\models\property\PropertyMealPlan;
 
 /**
  * This is the model class for table "enquiry_accommodation".

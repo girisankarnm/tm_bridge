@@ -27,6 +27,22 @@ $(document).ready(function() {
         addPlanRow();
     });
 
+    $('#save_accommodation').click(function(e){        
+        e.preventDefault();
+        validateEnquiryAccomodation();
+    });
+
+    $('select[name^="accommodation_status"]').bind("change",function(){
+        var row_id = $(this).attr('row_id');       
+        if($(this).val() == 0) { 
+            disableAccommodationRow(row_id, true);           
+        }
+        else
+        {
+            disableAccommodationRow(row_id, false);
+        }
+    });
+
     unique_plan_id = $('#current_unique_plan_id').val();
     age_break_up = $('#child_age_breakup').val();
 });
@@ -250,4 +266,46 @@ function deletePlanRow(row)
     //console.log("Deleting row: " + i);
     delete planAgeBreakupMap[uid];
     document.getElementById('guest_count_differnt_table').deleteRow(i);
+}
+
+function validateEnquiryAccomodation(){
+    
+    var bError = false;
+    var ErrorMessage = "Please select the below fields";
+
+    $('select[name^="accommodation_status"]').each( function() {        
+        if($(this).val() != 0) { 
+            var row_id = this.getAttribute("row_id");
+            if($("#destination_"+row_id).val() == undefined || $("#destination_"+row_id).val() == ""){
+                bError = true;
+                ErrorMessage = "destination not selected";
+            }
+            
+            if($("#meal_plan_"+row_id).val() == undefined || $("#meal_plan_"+row_id).val() == ""){
+                bError = true;
+                ErrorMessage = "Meals plan not selected";
+            }
+
+            if($("#plan_"+row_id).val() == undefined || $("#plan_"+row_id).val() == ""){
+                bError = true;
+                ErrorMessage = "Plan not selected";
+            }
+        }
+    });
+
+    if(bError) {
+        //toastr.error(ErrorMessage);
+        alert(ErrorMessage);
+    }
+    else 
+    {
+        console.log("Good to submit");
+        $("#form_enquiry_accomodation").submit();        
+    }
+}
+
+function disableAccommodationRow(row_id, disableFlag){
+    $('#destination_' + row_id).prop('disabled', disableFlag);
+    $('#meal_plan_' + row_id).prop('disabled', disableFlag);
+    $('#plan_' + row_id).prop('disabled', disableFlag);
 }
