@@ -94,12 +94,21 @@ $this->registerJsFile('/js/enquiry/guest_count.js');
                             foreach ($enquiry->enquiryGuestCounts as $guest_count) { ?>
 							<tr>
 								<td>  Plan <?= $i ?></td>
-								<td>  <input type="number" class="inputTextClass" style="width: 100px;height: 33px;margin-top: 24px;" ></td>
-								<td>  <input type="number" class="inputTextClass" style="width: 100px;height: 33px;margin-top: 24px;" ></td>
-								<td>  <input type="text" class="inputTextClass" style="width: 100px;height: 33px;margin-top: 24px;" ></td>
-								<td >
-									
-									 <span style="color: red;font-size: 12px;width: 100px;margin-top: 24px;height: 33px">! Age is validated</span></td>
+								<td>  
+									<input type="hidden" id="plan_uid" name="plan_uid[]" value="1" >
+									<input name="adults[]" id="adults_1" type="number" class="inputTextClass" style="width: 100px;height: 33px;margin-top: 24px;" >									
+								</td>
+								<td>  <input name="children[]" id="children_1" type="text" class="inputTextClass" style="width: 100px;height: 33px;margin-top: 24px;" ></td>
+								<td>  
+									<button type="button" class="btn btn-sm btn-outline-primary child-breakup1" onclick="showChildBreakupModal(this)" data-toggle="modal" unique_plan_id="1">
+                                	<i class="fa fa-plus"></i></button>
+								</td>
+								<td >									
+									<span id="total_guests_1" style="color: red;font-size: 12px;display: inline" id="span_child_validation_0"> NA </span>
+								</td>
+								<td > 
+								<span id="span_child_validation_1" style="color: red;font-size: 12px;display: inline">NA</span>
+								</td>
 							</tr>
 						<?php	
 							$i++;
