@@ -5,7 +5,6 @@ use borales\extensions\phoneInput\PhoneInput;
 
 <link rel="stylesheet" type="text/css" href="/css/tour-min-1.css" />
 
-
 <!-- Begin Page Content -->
 <div class="content">
     <div class="container-fluid" style="background-color: #f3f3f3">

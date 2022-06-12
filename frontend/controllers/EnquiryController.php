@@ -286,7 +286,7 @@ class EnquiryController extends Controller{
         $meal_plans = ArrayHelper::map(PropertyMealPlan::find()->all(), 'id', 'name');
         $pax_count_plans = ArrayHelper::map(EnquiryGuestCount::find()->where(['enquiry_id' => $enquiry_id])->all(), 'id', function($model) 
         {
-            return 'Plan: '.$model['plan'].'- Adults:'.$model['adults'].'|Children:'.$model['children'];
+            return 'Plan: '.($model['plan'] + 1).' [Adults:'.$model['adults'].' | Children:'.$model['children'].']';
         });
 
         $this->layout = 'tm_main';
@@ -299,7 +299,7 @@ class EnquiryController extends Controller{
         ]);        
     }
 
-    public function actionSaveaccommodation(){
+    public function actionSaveaccommodation(){       
         
         $enquiry_id = Yii::$app->request->post('enquiry_id');
         if ($enquiry_id != 0) {
@@ -312,19 +312,33 @@ class EnquiryController extends Controller{
             throw new NotFoundHttpException();
         }
 
-        EnquiryAccommodation::deleteAll(['enquiry_id' => $enquiry_id]);
-        if (isset($_POST["day"])) {
-            $plan_count = count($_POST["day"]);
-            for ($i = 0; $i < $plan_count; $i++ ) {
-                $accommodation = new EnquiryAccommodation();
-                $accommodation->day =  $_POST["day"][$i];
-                $accommodation->status = $_POST["accommodation_status"][$i];
-                $accommodation->destination_id = $_POST["destination_id"][$i];
-                $accommodation->meal_plan_id = $_POST["meal_plan_id"][$i];
-                $accommodation->guest_count_plan_id = $_POST["guest_count_plan_id"][$i];
-                $accommodation->enquiry_id = $enquiry_id;
-                $accommodation->save();
+        $transaction = Yii::$app->db->beginTransaction();
+        try
+        {
+            EnquiryAccommodation::deleteAll(['enquiry_id' => $enquiry_id]);
+            if (isset($_POST["day"])) {
+                $plan_count = count($_POST["day"]);
+                for ($i = 0; $i < $plan_count; $i++ ) {                
+                    $accommodation = new EnquiryAccommodation();
+                    $accommodation->day =  $_POST["day"][$i];
+                    $accommodation->status = $_POST["accommodation_status"][$i];
+                    $accommodation->destination_id = ($accommodation->status == 1 ) ? $_POST["destination_id"][$i] : 0;
+                    $accommodation->meal_plan_id = ($accommodation->status == 1 ) ? $_POST["meal_plan_id"][$i] : 0;
+                    $accommodation->guest_count_plan_id = ($accommodation->status == 1) ? $_POST["guest_count_plan_id"][$i] : 0;
+                    $accommodation->enquiry_id = $enquiry_id;
+                    $accommodation->save();
+                }
             }
+
+            $transaction->commit();
+            //TODO: Handling exception in page
+        } catch (\Exception $e) {
+            $transaction->rollBack();            
+            throw $e;
+        } catch (\Throwable $e) {
+            //TODO: Handling exception in page
+            $transaction->rollBack();            
+            throw $e;
         }
 
         return $this->redirect(['enquiry/home',]);

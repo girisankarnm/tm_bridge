@@ -1,7 +1,7 @@
 <?php
 use yii\bootstrap4\ActiveForm;
 frontend\assets\CommonAsset::register($this);
-$this->registerJsFile('/js/enquiry/create.js');
+$this->registerJsFile('/js/enquiry/guest_count.js');
 ?>
 
 <link rel="stylesheet" type="text/css" href="/css/tour-min-1.css" />
@@ -48,11 +48,8 @@ $this->registerJsFile('/js/enquiry/create.js');
 						$adult_value = 0;
                         $children_value = 0;
                         if( $enquiry->guest_count_same_on_all_days == 1 ) {							
-                            $adult_value = (isset($enquiry->enquiryGuestCounts[0])) ? $enquiry->enquiryGuestCounts[0]->adults : "";
-                            $children_value = (isset($enquiry->enquiryGuestCounts[0])) ? $enquiry->enquiryGuestCounts[0]->children : "";
-							
-							$adult_value = 2;
-							$children_value = 2;
+                            $adult_value = (isset($enquiry->enquiryGuestCounts[0])) ? $enquiry->enquiryGuestCounts[0]->adults : 0;
+                            $children_value = (isset($enquiry->enquiryGuestCounts[0])) ? $enquiry->enquiryGuestCounts[0]->children : 0;														
                         }
                         ?>
 						<tr>

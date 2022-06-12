@@ -14,6 +14,7 @@ use Yii;
  * @property int|null $enquiry_id
  *
  * @property Enquiry $enquiry
+ * @property EnquiryGuestCountChildAge[] $enquiryGuestCountChildAges
  */
 class EnquiryGuestCount extends \yii\db\ActiveRecord
 {
@@ -60,7 +61,12 @@ class EnquiryGuestCount extends \yii\db\ActiveRecord
         return $this->hasOne(Enquiry::className(), ['id' => 'enquiry_id']);
     }
 
-    public function getEnquiryGuestCountChildAge()
+    /**
+     * Gets query for [[EnquiryGuestCountChildAges]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getEnquiryGuestCountChildAges()
     {
         return $this->hasMany(EnquiryGuestCountChildAge::className(), ['plan_id' => 'id']);
     }

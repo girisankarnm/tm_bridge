@@ -2,8 +2,7 @@
 use yii\bootstrap4\ActiveForm;
 //frontend\assets\CommonAsset::register($this);
 frontend\assets\DatePickerAsset::register($this);
-$this->registerJsFile('/js/enquiry/create.js');
-
+$this->registerJsFile('/js/enquiry/basic_details.js');
 ?>
 <script>
     $(document).ready(function() { 
