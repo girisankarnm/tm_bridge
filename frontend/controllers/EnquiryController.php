@@ -73,9 +73,7 @@ class EnquiryController extends Controller{
             echo "Load failed";
         }
 
-        if( !$basic_details->validate() ) {
-            var_dump($basic_details->errors);
-            exit;
+        if( !$basic_details->validate() ) {            
             $this->layout = 'tm_main';
             $countries = ArrayHelper::map(Country::find()->asArray()->all(), 'id', 'nationality');
             return $this->render('basic_details',[
