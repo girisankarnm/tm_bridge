@@ -91,23 +91,24 @@ $this->registerJsFile('/js/enquiry/guest_count.js');
 					<?php
 						//if already added guest details
                         if (isset($enquiry->enquiryGuestCounts) && count($enquiry->enquiryGuestCounts) > 0) {
+							$i = 1;
                             foreach ($enquiry->enquiryGuestCounts as $guest_count) { ?>
 							<tr>
 								<td>  Plan <?= $i ?></td>
 								<td>  
-									<input type="hidden" id="plan_uid" name="plan_uid[]" value="1" >
-									<input name="adults[]" id="adults_1" type="number" class="inputTextClass" style="width: 100px;height: 33px;margin-top: 24px;" >									
+									<input type="hidden" id="plan_uid" name="plan_uid[]" value="<?= $i ?>" >
+									<input name="adults[]" id="adults_<?=$i ?>" type="number" class="inputTextClass" style="width: 100px;height: 33px;margin-top: 24px;" value="<?= $guest_count->adults ?>">
 								</td>
-								<td>  <input name="children[]" id="children_1" type="text" class="inputTextClass" style="width: 100px;height: 33px;margin-top: 24px;" ></td>
+								<td>  <input name="children[]" id="children_<?=$i ?>" type="text" class="inputTextClass" style="width: 100px;height: 33px;margin-top: 24px;" value="<?= $guest_count->children ?>"></td>
 								<td>  
-									<button type="button" class="btn btn-sm btn-outline-primary child-breakup1" onclick="showChildBreakupModal(this)" data-toggle="modal" unique_plan_id="1">
+									<button type="button" class="btn btn-sm btn-outline-primary child-breakup1" onclick="showChildBreakupModal(this)" data-toggle="modal" unique_plan_id="<?= $i ?>">
                                 	<i class="fa fa-plus"></i></button>
 								</td>
 								<td >									
-									<span id="total_guests_1" style="color: red;font-size: 12px;display: inline" id="span_child_validation_0"> NA </span>
+									<span id="total_guests_<?=$i ?>" style="color: red;font-size: 12px;display: inline" id="span_child_validation_"<?=$i ?>> NA </span>
 								</td>
 								<td > 
-								<span id="span_child_validation_1" style="color: red;font-size: 12px;display: inline">NA</span>
+								<span id="span_child_validation_<?=$i ?>" style="color: red;font-size: 12px;display: inline">NA</span>
 								</td>
 							</tr>
 						<?php	
