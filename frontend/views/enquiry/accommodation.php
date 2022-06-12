@@ -15,7 +15,7 @@ $this->registerJsFile('/js/enquiry/accomodation.js');
 			<a href="<?= \yii\helpers\Url::to(['/enquiry/basicdetails', 'id' => $enquiry->id]) ?>"> <button class="tablinks btnunder" onclick="openCity(event, 'London')" >Basic Details</button></a>
 			<a href="<?= \yii\helpers\Url::to(['/enquiry/contactdetails', 'id' => $enquiry->id]) ?>">   <button id="contactBtn" class="tablinks" onclick="openCity(event, 'Paris')">Contact Details</button></a>
 			<a href="<?= \yii\helpers\Url::to(['/enquiry/guestcount', 'id' => $enquiry->id]) ?>"> <button class="tablinks" onclick="openCity(event, 'Tokyo')">Guest Count</button></a>
-			<div style="display: inline">   <a href="<?= \yii\helpers\Url::to(['/enquiry/accommodation']) ?>">  <button class="selectedButton" onclick="openCity(event, 'London')" >Accommodation</button></a> <hr class="new5" >
+			<div style="display: inline">   <a href="<?= \yii\helpers\Url::to(['/enquiry/accommodation', 'id' => $enquiry->id]) ?>">  <button class="selectedButton" onclick="openCity(event, 'London')" >Accommodation</button></a> <hr class="new5" >
 			</div>
 		</div>
 		<hr class="sidebar-divider">

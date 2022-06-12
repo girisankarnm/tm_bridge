@@ -35,6 +35,27 @@ class EnquiryController extends Controller{
         return parent::beforeAction($action);
     }
 
+    private function getEnquiry() {
+        if(!isset( $_GET['id'])) {
+            throw new NotFoundHttpException();
+        }
+
+        $enquiry_id = (int) Yii::$app->request->get('id');
+        $enquiry = NULL;
+        if ($enquiry_id != 0) {
+            $enquiry = Enquiry::find()
+                ->where(['id' => $enquiry_id])
+                ->andWhere(['owner_id' => Yii::$app->user->identity->getOWnerId()])
+                ->one();
+        }
+
+        if ($enquiry == NULL){
+            throw new NotFoundHttpException("Enquiry not found.");
+        }
+
+        return $enquiry;
+    }
+
     public function actionBasicdetails(){
         $enquiry_id = Yii::$app->request->get('id');
 
@@ -69,67 +90,50 @@ class EnquiryController extends Controller{
 
     public function actionSavebasicdetails(){        
         $basic_details = new  BasicDetails();
-        if ( !$basic_details->load(Yii::$app->request->post()))  {
-            echo "Load failed";
+        if ( $basic_details->load(Yii::$app->request->post()))  {
+            
+            if( $basic_details->validate() ) {            
+                $enquiry_id = Yii::$app->request->post('enquiry_id');
+                if ($enquiry_id != 0) {
+                    $enquiry = Enquiry::find()
+                        ->where(['id' => $enquiry_id])
+                        ->one();
+                    if ($enquiry == NULL){
+                        throw new NotFoundHttpException();
+                    }
+                }
+                else {
+                    $enquiry = new Enquiry();
+                }
+
+                $enquiry->guest_name = $basic_details->guest_name;
+                $enquiry->nationality_id = $basic_details->nationality_id;
+                //$start_date = \DateTime::createFromFormat('d/m/Y', $basic_details->tour_start_date);
+                //$enquiry->tour_start_date = $start_date->format('Y-m-d');
+                $enquiry->tour_start_date = Carbon::createFromFormat('d M Y', $basic_details->tour_start_date)->toDateString();
+                $enquiry->tour_duration = $basic_details->tour_duration;
+                $enquiry->owner_id = Yii::$app->user->identity->getOWnerId();
+
+                if ($enquiry->save(false)) {
+                    Yii::$app->session->setFlash('success', "Enquiry created successfully.");
+                    return $this->redirect(['enquiry/contactdetails',  'id' => $enquiry->getPrimaryKey()]);
+                }                
+            }                       
         }
 
-        if( !$basic_details->validate() ) {            
-            $this->layout = 'tm_main';
-            $countries = ArrayHelper::map(Country::find()->asArray()->all(), 'id', 'nationality');
-            return $this->render('basic_details',[
-                'basic_details' => $basic_details,
-                'countries' => $countries,                
-            ]);
-        }
-
-        $enquiry_id = Yii::$app->request->post('enquiry_id');
-        if ($enquiry_id != 0) {
-            $enquiry = Enquiry::find()
-                ->where(['id' => $enquiry_id])
-                ->one();
-            if ($enquiry == NULL){
-                throw new NotFoundHttpException();
-            }
-        }
-        else {
-            $enquiry = new Enquiry();
-        }
-
-        $enquiry->guest_name = $basic_details->guest_name;
-        $enquiry->nationality_id = $basic_details->nationality_id;
-        //$start_date = \DateTime::createFromFormat('d/m/Y', $basic_details->tour_start_date);
-        //$enquiry->tour_start_date = $start_date->format('Y-m-d');
-        $enquiry->tour_start_date = Carbon::createFromFormat('d M Y', $basic_details->tour_start_date)->toDateString();
-        $enquiry->tour_duration = $basic_details->tour_duration;
-        $enquiry->owner_id = Yii::$app->user->identity->getOWnerId();
-
-        if ($enquiry->save(false)) {
-            Yii::$app->session->setFlash('success', "Enquiry created successfully.");
-            return $this->redirect(['enquiry/contactdetails',  'id' => $enquiry->getPrimaryKey()]);
-        }
-        else {
-            Yii::$app->session->setFlash('error', "Enquiry creation failed.");            
-            $this->layout = 'tm_main';
-            $countries = ArrayHelper::map(Country::find()->asArray()->all(), 'id', 'nationality');
-            return $this->render('basic_details',[
-                'basic_details' => $basic_details,
-                'countries' => $countries,
-                'tour_end_date' => $tour_end_date
-            ]);
-        }
+        //TODO: Manage flash message in view
+        Yii::$app->session->setFlash('error', "Enquiry creation failed.");            
+        $this->layout = 'tm_main';
+        $countries = ArrayHelper::map(Country::find()->asArray()->all(), 'id', 'nationality');
+        return $this->render('basic_details',[
+            'basic_details' => $basic_details,
+            'countries' => $countries,
+            'tour_end_date' => $tour_end_date
+        ]);
+        
     }
     public function actionContactdetails(){
-        $enquiry_id = (int) Yii::$app->request->get('id');
-        $enquiry = NULL;
-        if ($enquiry_id != 0) {
-            $enquiry = Enquiry::find()
-                ->where(['id' => $enquiry_id])
-                ->one();
-        }
-
-        if ($enquiry == NULL){
-            throw new NotFoundHttpException();
-        }
+        $enquiry = $this->getEnquiry();        
 
         $this->layout = 'tm_main';
         return $this->render('contact_details', ['enquiry' => $enquiry]);
@@ -141,11 +145,12 @@ class EnquiryController extends Controller{
         if ($enquiry_id != 0) {
             $enquiry = Enquiry::find()
                 ->where(['id' => $enquiry_id])
+                ->andWhere(['owner_id' => Yii::$app->user->identity->getOWnerId()])
                 ->one();
         }
 
         if ($enquiry == NULL){
-            throw new NotFoundHttpException("Enquiry not found");
+            throw new NotFoundHttpException("Enquiry not found.");
         }
 
         if ($enquiry->load(Yii::$app->request->post())) {
@@ -155,17 +160,7 @@ class EnquiryController extends Controller{
     }
 
     public function actionGuestcount(){
-        $enquiry_id = (int) Yii::$app->request->get('id');
-        $enquiry = NULL;
-        if ($enquiry_id != 0) {
-            $enquiry = Enquiry::find()
-                ->where(['id' => $enquiry_id])
-                ->one();
-        }
-
-        if ($enquiry == NULL){
-            throw new NotFoundHttpException();
-        }
+        $enquiry = $this->getEnquiry(); 
 
         $plan_age_breakup = array();
         if (isset($enquiry->enquiryGuestCounts)) {
@@ -197,11 +192,12 @@ class EnquiryController extends Controller{
         if ($enquiry_id != 0) {
             $enquiry = Enquiry::find()
                 ->where(['id' => $enquiry_id])
+                ->andWhere(['owner_id' => Yii::$app->user->identity->getOWnerId()])
                 ->one();
         }
 
         if ($enquiry == NULL){
-            throw new NotFoundHttpException();
+            throw new NotFoundHttpException("Enquiry not found.");
         }
 
         //TODO: Add transaction & rollback
@@ -267,22 +263,12 @@ class EnquiryController extends Controller{
     }
     
     public function actionAccommodation(){
-        $enquiry_id = (int) Yii::$app->request->get('id');
-        $enquiry = NULL;
-        if ($enquiry_id != 0) {
-            $enquiry = Enquiry::find()
-                ->where(['id' => $enquiry_id])
-                ->one();
-        }
-
-        if ($enquiry == NULL){
-            throw new NotFoundHttpException();
-        }
+        $enquiry = $this->getEnquiry(); 
 
         $accommodation = new EnquiryAccommodation();
         $destinations = ArrayHelper::map(Destination::find()->asArray()->all(), 'id', 'name');
         $meal_plans = ArrayHelper::map(PropertyMealPlan::find()->all(), 'id', 'name');
-        $pax_count_plans = ArrayHelper::map(EnquiryGuestCount::find()->where(['enquiry_id' => $enquiry_id])->all(), 'id', function($model) 
+        $pax_count_plans = ArrayHelper::map(EnquiryGuestCount::find()->where(['enquiry_id' => $enquiry->id])->all(), 'id', function($model) 
         {
             return 'Plan: '.($model['plan'] + 1).' [Adults:'.$model['adults'].' | Children:'.$model['children'].']';
         });
@@ -303,11 +289,12 @@ class EnquiryController extends Controller{
         if ($enquiry_id != 0) {
             $enquiry = Enquiry::find()
                 ->where(['id' => $enquiry_id])
+                ->andWhere(['owner_id' => Yii::$app->user->identity->getOWnerId()])
                 ->one();
         }
 
         if ($enquiry == NULL){
-            throw new NotFoundHttpException();
+            throw new NotFoundHttpException("Enquiry not found.");
         }
 
         $transaction = Yii::$app->db->beginTransaction();

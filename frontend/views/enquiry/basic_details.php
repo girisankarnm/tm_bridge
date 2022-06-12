@@ -32,7 +32,7 @@ $this->registerJsFile('/js/enquiry/basic_details.js');
         </div>
 
         <div class="tab" style="display: flex;flex-direction: row;">
-            <div style="display: inline">   <a href="<?= \yii\helpers\Url::to(['/enquiry/basicdetails']) ?>">  <button class="selectedButton" onclick="openCity(event, 'London')" >Basic Details</button></a> <hr class="new5" >
+            <div style="display: inline">   <a href="<?= \yii\helpers\Url::to(['/enquiry/basicdetails', 'id' => $basic_details->id]) ?>">  <button class="selectedButton" onclick="openCity(event, 'London')" >Basic Details</button></a> <hr class="new5" >
             </div>
             <a href="<?= \yii\helpers\Url::to(['/enquiry/contactdetails', 'id' => $basic_details->id]) ?>">   <button id="contactBtn" class="tablinks" onclick="openCity(event, 'Paris')">Contact Details</button></a>
             <a href="<?= \yii\helpers\Url::to(['/enquiry/guestcount', 'id' => $basic_details->id]) ?>"> <button class="tablinks" onclick="openCity(event, 'Tokyo')">Guest Count</button></a>
