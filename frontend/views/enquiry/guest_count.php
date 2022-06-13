@@ -19,7 +19,7 @@ $this->registerJsFile('/js/enquiry/guest_count.js');
 			<a href="<?= \yii\helpers\Url::to(['/enquiry/accommodation', 'id' => $enquiry->id]) ?>"><button class="tablinks" onclick="openCity(event, 'Tokyo')">Accommodation</button></a>
 		</div>
 		<hr class="sidebar-divider">
-		<?php $form = ActiveForm::begin(['id' => 'operational_form','enableClientValidation' => true, 'method' => 'post','action' => ['enquiry/saveguestcount']]) ?>
+		<?php $form = ActiveForm::begin(['id' => 'form_guest_count','enableClientValidation' => true, 'method' => 'post','action' => ['enquiry/saveguestcount']]) ?>
 		<div style="display: inline">
 			<?= $form->field($enquiry, 'guest_count_same_on_all_days')->inline()->radioList([1 => 'Same guest count on all days', 0 => 'Different guest count combination'],['class' => 'radiobtn'])->label(false); ?>			
 		</div>
@@ -58,7 +58,7 @@ $this->registerJsFile('/js/enquiry/guest_count.js');
 								<input type="hidden" id="plan_uid" name="plan_uid[]" value="0" >   
 								<input name="adults[]" id="adults_0" type="number" class="inputTextClass" style="width: 100px;height: 33px;margin-top: 24px;" value = "<?= $adult_value; ?>" >
 							</td>
-							<td>  <input name="children[]" id="children_0" type="number" class="inputTextClass" style="width: 100px;height: 33px;margin-top: 24px;" value = "<?= $children_value; ?>" ></td>
+							<td>  <input uid="0" name="children[]" id="children_0" type="number" class="inputTextClass" style="width: 100px;height: 33px;margin-top: 24px;" value = "<?= $children_value; ?>" ></td>
 							<td>
 								<button type="button" class="btn btn-sm btn-outline-primary child-breakup1" onclick="showChildBreakupModal(this)" data-toggle="modal" unique_plan_id="0">
                                 <i class="fa fa-plus"></i></button>
@@ -90,7 +90,10 @@ $this->registerJsFile('/js/enquiry/guest_count.js');
 
 					<?php
 						//if already added guest details
-                        if (isset($enquiry->enquiryGuestCounts) && count($enquiry->enquiryGuestCounts) > 0) {
+                        if ( isset($enquiry->enquiryGuestCounts) && 
+								count($enquiry->enquiryGuestCounts) > 0 &&
+								 ($enquiry->guest_count_same_on_all_days == 0)) 
+							{
 							$i = 1;
                             foreach ($enquiry->enquiryGuestCounts as $guest_count) { ?>
 							<tr>
@@ -99,7 +102,7 @@ $this->registerJsFile('/js/enquiry/guest_count.js');
 									<input type="hidden" id="plan_uid" name="plan_uid[]" value="<?= $i ?>" >
 									<input name="adults[]" id="adults_<?=$i ?>" type="number" class="inputTextClass" style="width: 100px;height: 33px;margin-top: 24px;" value="<?= $guest_count->adults ?>">
 								</td>
-								<td>  <input name="children[]" id="children_<?=$i ?>" type="text" class="inputTextClass" style="width: 100px;height: 33px;margin-top: 24px;" value="<?= $guest_count->children ?>"></td>
+								<td>  <input uid="<?=$i ?>" name="children[]" id="children_<?=$i ?>" type="text" class="inputTextClass" style="width: 100px;height: 33px;margin-top: 24px;" value="<?= $guest_count->children ?>"></td>
 								<td>  
 									<button type="button" class="btn btn-sm btn-outline-primary child-breakup1" onclick="showChildBreakupModal(this)" data-toggle="modal" unique_plan_id="<?= $i ?>">
                                 	<i class="fa fa-plus"></i></button>
@@ -125,7 +128,7 @@ $this->registerJsFile('/js/enquiry/guest_count.js');
 								<input type="hidden" id="plan_uid" name="plan_uid[]" value="1" >
 								<input name="adults[]" id="adults_1" type="number" class="inputTextClass" style="width: 100px;height: 33px;margin-top: 24px;" >
 							</td>							
-							<td>  <input name="children[]" id="children_1" type="text" class="inputTextClass" style="width: 100px;height: 33px;margin-top: 24px;" ></td>
+							<td>  <input uid="1" name="children[]" id="children_1" type="text" class="inputTextClass" style="width: 100px;height: 33px;margin-top: 24px;" ></td>
 							<td> 
 								<button type="button" class="btn btn-sm btn-outline-primary child-breakup1" onclick="showChildBreakupModal(this)" data-toggle="modal" unique_plan_id="1">
                                 <i class="fa fa-plus"></i></button>
@@ -144,7 +147,7 @@ $this->registerJsFile('/js/enquiry/guest_count.js');
 								<input name="adults[]" id="adults_2" type="number" class="inputTextClass" style="width: 100px;height: 33px" >
 							</td>
 							<td>  
-								<input name="children[]" id="children_2" type="number" class="inputTextClass" style="width: 100px;height: 33px" ></td>
+								<input uid="2" name="children[]" id="children_2" type="number" class="inputTextClass" style="width: 100px;height: 33px" ></td>
 							<td> 
 								<button type="button" class="btn btn-sm btn-outline-primary child-breakup1" onclick="showChildBreakupModal(this)" data-toggle="modal" unique_plan_id="2">
                                 <i class="fa fa-plus"></i></button>
@@ -171,7 +174,7 @@ $this->registerJsFile('/js/enquiry/guest_count.js');
 		<input type="hidden" id="current_unique_plan_id" name="current_unique_plan_id" value="<?= $i; ?>" ?>
 		<div class="row" style="margin-left: 4px;margin-bottom: 12px;">
 			<div style="display: block;margin-right: 35px">
-				<BUTTON type="text" class="buttonSave"> Save </BUTTON>
+				<button id="save_guest_count" type="text" class="buttonSave"> Save </button>
 			</div>
 		</div>
 

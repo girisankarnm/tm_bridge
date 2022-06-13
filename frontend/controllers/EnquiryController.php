@@ -207,6 +207,9 @@ class EnquiryController extends Controller{
         $childBreakupArray = Json::decode($child_breakup_data, true);
         parse_str($guest_count_data, $guestCountDataArray);
 
+        //var_dump($guestCountDataArray);
+        //exit;
+
         $initial_plan_id = 1;
         if($enquiry->guest_count_same_on_all_days == 1) {
             $initial_plan_id = 0;
@@ -223,10 +226,16 @@ class EnquiryController extends Controller{
             EnquiryGuestCount::deleteAll(['enquiry_id' => $enquiry_id]);
 
             if (isset($guestCountDataArray['adults'])) {
-                $plan_count = count($guestCountDataArray['adults']);            
+                $plan_count = count($guestCountDataArray['adults']);
+                $plan_increment = 1;
+                if($enquiry->guest_count_same_on_all_days == 1) {
+                    //consider only one plan
+                    $plan_count = 1;
+                    $plan_increment = 0;
+                }
                 for ($i = 0; $i < $plan_count; $i++ ) {
                     $guest_count  = new EnquiryGuestCount();
-                    $guest_count->plan = ($i + $initial_plan_id);
+                    $guest_count->plan = $i + $plan_increment;
                     $guest_count->adults = $guestCountDataArray['adults'][$i];
                     $guest_count->children = $guestCountDataArray['children'][$i];
                     $guest_count->enquiry_id = $enquiry_id;
