@@ -148,8 +148,8 @@
                     <div class="accordion" id="accordionExample2">
                         <div class="card" style="margin-left: 16px">
 
-                            <h2 class="mb-0 accordion-toggle" >
-                                <button class="btn btn-block text-left accordianstyle" type="button" onclick="functionchange(this);" data-toggle="collapse" data-target="#collapsetwo" aria-expanded="false" aria-controls="collapsetwo">
+                            <h2 class="mb-0 accordianbg " >
+                                <button class="btn btn-block text-left accordianstyle  accordion-toggle" type="button" onclick="functionchange(this);" data-toggle="collapse" data-target="#collapsetwo" aria-expanded="false" aria-controls="collapsetwo">
                                     <strong class="accordianText"> 11 jan 2022 <span> -</span> 31 dec 2022 </strong>   <strong  class="accordianText" style="color: #ffffff;text-align: center;margin-left: 25%"> Published </strong>
                                     <div class="float-right">
                                         <i class="fas fa-angle-down rotate-icon"></i>
@@ -250,7 +250,7 @@
                     <div class="accordion " id="accordionExample3">
                         <div class="card" style="margin-left: 16px">
 
-                            <h2 class="mb-0 accordionbg accordion-toggle" >
+                            <h2 class="mb-0 accordionbg " >
                                 <button class="btn btn-block text-left accordianstyle accordion-toggle" type="button" onclick="functionchange(this);" data-toggle="collapse" data-target="#collapsethree" aria-expanded="false" aria-controls="collapsethree">
                                     <strong class="accordianText"> 11 jan 2022 <span> -</span> 31 dec 2022 </strong>   <strong  class="accordianText" style="color: #ffffff;text-align: center;margin-left: 25%"> Published </strong>
                                     <div class="float-right">

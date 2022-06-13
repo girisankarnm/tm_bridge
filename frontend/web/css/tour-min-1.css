@@ -363,11 +363,11 @@ input::placeholder {
 
 
 }
-.accordianbg:focus {
-    background-color: #e0a800 !important;
+.accordianbg:focus-within {
+    background-color: #586ada !important;
 }
 .accordianbg {
-    background-color: #E8E9ED !important;
+    background-color: #bcc3f1 ;
 }
 .thtableAcoordion {
     padding-top: 12px;
@@ -499,8 +499,8 @@ input::placeholder {
 }
 .accordionbg
 {
-    background-color:  #586ADA;
-    color: black;
+    background-color:  #bcc3f1;
+
 }
 /*.accordionbg:focus-within*/
 /*{*/
