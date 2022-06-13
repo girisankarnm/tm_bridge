@@ -488,18 +488,18 @@ input::placeholder {
 }
 
 .accordion-toggle {
-    background-color: #586ADA;
+    background-color: #586ADA ;
 
 }
 
 
 
 .accordion-toggle.collapsed {
-    background-color: #586ADA;
+    background-color: #bcc3f1;
 }
 .accordionbg
 {
-    background-color: #BCC3F1;
+    background-color:  #586ADA;
     color: black;
 }
 /*.accordionbg:focus-within*/
