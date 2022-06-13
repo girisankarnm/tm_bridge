@@ -2,6 +2,7 @@
 use yii\bootstrap4\ActiveForm;
 //frontend\assets\CommonAsset::register($this);
 frontend\assets\DatePickerAsset::register($this);
+$this->registerJsFile('/js/enquiry/basic_details.js');
 ?>
 <script>
     $(document).ready(function() { 
@@ -31,14 +32,17 @@ frontend\assets\DatePickerAsset::register($this);
         </div>
 
         <div class="tab" style="display: flex;flex-direction: row;">
-            <div style="display: inline">   <a href="<?= \yii\helpers\Url::to(['/enquiry/basicdetails']) ?>">  <button class="selectedButton" onclick="openCity(event, 'London')" >Basic Details</button></a> <hr class="new5" >
+            <div style="display: inline">   <a href="<?= \yii\helpers\Url::to(['/enquiry/basicdetails', 'id' => $basic_details->id]) ?>">  <button class="selectedButton" onclick="openCity(event, 'London')" >Basic Details</button></a> <hr class="new5" >
             </div>
-            <a href="<?= \yii\helpers\Url::to(['/enquiry/contact']) ?>">   <button id="contactBtn" class="tablinks" onclick="openCity(event, 'Paris')">Contact Details</button></a>
-            <a href="<?= \yii\helpers\Url::to(['/enquiry/guestcount']) ?>"> <button class="tablinks" onclick="openCity(event, 'Tokyo')">Guest Count</button></a>
-            <a href="<?= \yii\helpers\Url::to(['/enquiry/accommodation']) ?>"><button class="tablinks" onclick="openCity(event, 'Tokyo')">Accommodation</button></a>
+            <a href="<?= \yii\helpers\Url::to(['/enquiry/contactdetails', 'id' => $basic_details->id]) ?>">   <button id="contactBtn" class="tablinks" onclick="openCity(event, 'Paris')">Contact Details</button></a>
+            <a href="<?= \yii\helpers\Url::to(['/enquiry/guestcount', 'id' => $basic_details->id]) ?>"> <button class="tablinks" onclick="openCity(event, 'Tokyo')">Guest Count</button></a>
+            <a href="<?= \yii\helpers\Url::to(['/enquiry/accommodation', 'id' => $basic_details->id]) ?>"><button class="tablinks" onclick="openCity(event, 'Tokyo')">Accommodation</button></a>
         </div>
         <hr class="sidebar-divider">
         <?php $form = ActiveForm::begin(['id' => 'enquiry_basic_details','enableClientValidation' => true, 'method' => 'post','action' => ['enquiry/savebasicdetails']]) ?>
+        <?= $form->field($basic_details, 'id')->hiddenInput()->label(false); ?>
+        <input type="hidden" value="<?= $basic_details->id ?>" name="enquiry_id">
+        
         <div class="row" style="margin-left: 3px;margin-bottom: 8px;">
             <div style="display: block;margin-right: 35px">
                 <label class="Labelclass" style="display: block;margin-top: 22px" >*Guest Name</label>                
@@ -64,7 +68,7 @@ frontend\assets\DatePickerAsset::register($this);
             </div>
             <div style="display: block">
                 <label class="Labelclass" style="display: block;margin-top: 20px" >*End Date</label>
-                <input type="date" class="inputTextClass" style="width: 135px;" placeholder="May-27-22" >
+                <input type="text" id="tour_end_date" name="tour_end_date" class="inputTextClass" style="width: 135px;" readonly="true" value="<?= $tour_end_date ?>">
             </div>
         </div>
 

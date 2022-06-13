@@ -16,13 +16,14 @@ return [
             'csrfParam' => '_csrf-frontend',
         ],
         'user' => [
-            'identityClass' => 'common\models\User',
+            'identityClass' => 'frontend\models\user\User',
+            'loginUrl' => array('user/login'),
             'enableAutoLogin' => true,
             'identityCookie' => ['name' => '_identity-frontend', 'httpOnly' => true],
         ],
         'session' => [
             // this is the name of the session cookie used for login on the frontend
-            'name' => 'advanced-frontend',
+            'name' => 'tourmatrix-bridge',
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,

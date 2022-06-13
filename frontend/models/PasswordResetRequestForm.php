@@ -1,10 +1,10 @@
 <?php
 
-namespace frontend\models;
+namespace frontend\models\user;
 
 use Yii;
 use yii\base\Model;
-use common\models\User;
+use frontend\models\user\User;
 
 /**
  * Password reset request form
