@@ -69,7 +69,7 @@
                     <div><h6 class="motherdaterange-H6 h9class" ><i style="color: #545b62;margin-right: 4px"  class="fa fa-check-circle w3-large " aria-hidden="true"></i>Not Published  </h6></div>
                     <div style="margin-left: 45%">
 
-                        <div style="margin-right: 10px;padding-bottom: 10px"> <BUTTON type="button" class="buttonSaveroomrate"  data-toggle="modal" data-target="#logoutModal"> Publish </BUTTON> <i  class="fas fa-edit editfa"></i>  <i  class="fa fa-trash editfa" aria-hidden="true"></i></div>
+                        <div style="margin-right: 10px;padding-bottom: 10px"> <BUTTON type="button" class="buttonSaveroomrate"  data-toggle="modal" data-target="#logoutModal"> Publish </BUTTON> <a href="#">  <i  class="fas fa-edit editfa"></i>   </a>   <a href="#">  <i  class="fa fa-trash editfa" aria-hidden="true"></i>  </a></div>
                     </div>
                 </div>
             </div>
@@ -106,7 +106,7 @@
                     <div><h6 class="motherdaterange-H6 h9class" ><i style="color: #545b62;margin-right: 4px"  class="fa fa-check-circle w3-large " aria-hidden="true"></i>Not Published  </h6></div>
                     <div style="margin-left: 45%">
 
-                        <div style="margin-right: 10px;padding-bottom: 10px"> <BUTTON type="button" class="buttonSaveroomrate"  data-toggle="modal" data-target="#logoutModal"> Publish </BUTTON> <i  class="fas fa-edit editfa"></i>  <i  class="fa fa-trash editfa" aria-hidden="true"></i></div>
+                        <div style="margin-right: 10px;padding-bottom: 10px"> <BUTTON type="button" class="buttonSaveroomrate"  data-toggle="modal" data-target="#logoutModal"> Publish </BUTTON> <a href="#">  <i  class="fas fa-edit editfa"></i>   </a>   <a href="#">  <i  class="fa fa-trash editfa" aria-hidden="true"></i>  </a></div>
 
                     </div>
                 </div>
