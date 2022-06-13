@@ -6,7 +6,7 @@ $this->registerJsFile('/js/enquiry/accomodation.js');
 <link rel="stylesheet" type="text/css" href="/css/tour-min-1.css" />
 
 <div class="$content">
-	<div class="container-fluid" style="background-color: #f3f3f3">
+	<div class="container-fluid" >
 		<div class="card-title">
 			Enquiry
 		</div>

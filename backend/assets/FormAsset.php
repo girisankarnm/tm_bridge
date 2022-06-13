@@ -4,8 +4,7 @@
  * @copyright Copyright (c) 2008 Yii Software LLC
  * @license http://www.yiiframework.com/license/
  */
-
-namespace frontend\assets;
+namespace backend\assets;
 
 use yii\web\AssetBundle;
 
@@ -37,6 +36,6 @@ class FormAsset extends AssetBundle
     public $depends = [
         'yii\web\YiiAsset',
         'yii\bootstrap4\BootstrapAsset',
-//        'rmrevin\yii\fontawesome\AssetBundle',
+        'rmrevin\yii\fontawesome\AssetBundle',
     ];
 }
