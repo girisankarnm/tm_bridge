@@ -4,7 +4,10 @@
 /** @var string $content */
 
 use frontend\assets\AppAsset;
+use frontend\assets\FormAsset;
 AppAsset::register($this);
+FormAsset::register($this);
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -131,7 +134,7 @@ AppAsset::register($this);
             </div>
         </nav>
 
-        <div class="row content-contr">
+        <div class="row content-contr" style="padding: 1.79px 26.33px;">
             <!-- Sidebar Menu -->
             <div class="col-2 sidebar-contr">
                 <a class="sidebar-item" href="#">
@@ -154,7 +157,7 @@ AppAsset::register($this);
                     <p class="mb-0"> Properties </p>
                 </a>
             </div>
-            <div class="col-10 data-content">
+            <div class="col-10 data-content" style="padding: 1.79px 26.33px;">
                 <?= $content ?>
             </div>
         </div>
