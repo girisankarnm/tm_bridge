@@ -16,19 +16,31 @@ use frontend\models\property\PropertyLegalStatus;
 use Yii;
 use yii\helpers\ArrayHelper;
 use yii\web\Controller;
+use yii\web\ForbiddenHttpException;
 use yii\web\NotFoundHttpException;
 use yii\web\UploadedFile;
 
 class OperatorController extends Controller{
 
+    public function beforeAction($action) {
+
+        if (Yii::$app->user->isGuest) {
+            Yii::$app->user->loginRequired();
+            return;
+        }
+
+        if (Yii::$app->user->identity->user_type != 2) {
+            throw new ForbiddenHttpException();
+        }
+        return parent::beforeAction($action);
+    }
+
     public function actionBasicdetails(){
         $this->layout = 'tm_main';
         $operator = NULL;
-//        $operator = Operator::find()
-//            ->andWhere(['owner_id' => Yii::$app->user->identity->getOWnerId()])
-//            ->one();
-
-
+        $operator = Operator::find()
+            ->andWhere(['owner_id' => Yii::$app->user->identity->getOWnerId()])
+            ->one();
 
         $basic_details = new BasicDetails();
         $operator_image = new OperatorImage();
@@ -58,7 +70,6 @@ class OperatorController extends Controller{
             'show_terms_tab' => $show_terms_tab
         ]);
 
-//        return $this->render('basic_details');
     }
 
     public function actionSavebasicdetails(){
@@ -109,11 +120,9 @@ class OperatorController extends Controller{
                 ->where(['id' => $operator_id])
                 ->one();
         }
-
         if ($operator == NULL){
             throw new NotFoundHttpException();
         }
-
         $address_location = new AddressLocation();
         $address_location->id = $operator->id;
         $address_location->country_id = $operator->country_id;
@@ -274,46 +283,10 @@ class OperatorController extends Controller{
         $operator->bank_account_name = $legal_tax_documentation->bank_account_name;
         $operator->bank_account_number = $legal_tax_documentation->bank_account_number;
         $operator->ifsc_code = $legal_tax_documentation->ifsc_code;
-//        $operator->swift_code = $legal_tax_documentation->swift_code;
 
         $legal_doc_images = new LegalDocsImages();
 
-//        $legal_doc_images->pan_image = UploadedFile::getInstance($legal_doc_images, 'pan_image');
-//        if (null != $legal_doc_images->pan_image  ) {
-//            $file_name =  uniqid('', true) . '.' . $legal_doc_images->pan_image->extension;
-//            if ($legal_doc_images->upload($legal_doc_images->pan_image, $file_name)) {
-//                $operator->pan_image = $file_name;
-//                $legal_doc_images->pan_image = null;
-//            } else {
-//                //File upload error
-//                //TODO: Allow to proceed?
-//                //return "pan_image err1";
-//            }
-//        }
-//        else {
-//            //File upload error, if there is no pan image already, shouldn't proceed
-//            if (empty($operator->pan_image)) {
-////                return "pan_image err2";
-//            }
-//        }
-//
-//        $legal_doc_images->gst_image = UploadedFile::getInstance($legal_doc_images, 'gst_image');
-//        if (null != $legal_doc_images->gst_image  ) {
-//            $file_name =  uniqid('', true) . '.' . $legal_doc_images->gst_image->extension;
-//            if ($legal_doc_images->upload($legal_doc_images->gst_image, $file_name)) {
-//                $legal_doc_images->gst_image = null;
-//                $operator->gst_image = $file_name;
-//            } else {
-//                //File upload error
-////                return "gst_image err1";
-//            }
-//        }
-//        else {
-//            if (empty($operator->gst_image)) {
-////                return "gst_image err2";
-//            }
-//            //File upload error
-//        }
+        //TODO file upload
 
 
         if ($operator->save(false)) {
@@ -335,10 +308,9 @@ class OperatorController extends Controller{
         if ($operator_id != 0) {
             $operator = Operator::find()
                 ->where(['id' => $operator_id])
-//                ->andWhere(['owner_id' => Yii::$app->user->identity->getOWnerId()])
+                ->andWhere(['owner_id' => Yii::$app->user->identity->getOWnerId()])
                 ->one();
         }
-
 
         $contact = OperatorContacts::find()
             ->where(['operator_id' => $operator->id])
@@ -348,15 +320,12 @@ class OperatorController extends Controller{
             $contact = new OperatorContacts();
             $contact->operator_id = $operator->id;
         }
-
         $show_terms_tab = 1;
         if ($operator->terms_and_conditons == 1)
         {
             $show_terms_tab = 0;
         }
-
         return $this->render('contact_details',['contact' => $contact, 'show_terms_tab' => $show_terms_tab]);
-
     }
 
     public function actionSavecontactdetails() {
@@ -365,7 +334,7 @@ class OperatorController extends Controller{
         if ($operator_id != 0) {
             $operator = Operator::find()
                 ->where(['id' => $operator_id])
-//                ->andWhere(['owner_id' => Yii::$app->user->identity->getOWnerId()])
+                ->andWhere(['owner_id' => Yii::$app->user->identity->getOWnerId()])
                 ->one();
         }
 
@@ -394,29 +363,29 @@ class OperatorController extends Controller{
 
             $contacts->operator_id = $operator_id;
 
-//            if($contacts->validate()) {
-//                $contacts->save();
-//                $show_terms_tab =  Yii::$app->request->post('show_terms_tab');
-//                $redirect_url = 'operator/';
-//                $redirect_url .= ($show_terms_tab == 1) ? "terms" : "basicdetails";
-//                return $this->redirect([$redirect_url, 'id' => $operator_id]);
-//            }
-//            else {
-//                $show_terms_tab = 1;
-//                if ($operator->terms_and_conditons == 1)
-//                {
-//                    $show_terms_tab = 0;
-//                }
-//                return $this->render('contact_details',['contact' => $contacts, 'show_terms_tab' => $show_terms_tab]);
-//            }
+            if($contacts->validate()) {
+                $contacts->save();
+                $show_terms_tab =  Yii::$app->request->post('show_terms_tab');
+                $redirect_url = 'operator/';
+                $redirect_url .= ($show_terms_tab == 1) ? "termsandconditions" : "basicdetails";
+                return $this->redirect([$redirect_url, 'id' => $operator_id]);
+            }
+            else {
+                $show_terms_tab = 1;
+                if ($operator->terms_and_conditons == 1)
+                {
+                    $show_terms_tab = 0;
+                }
+                return $this->render('contact_details',['contact' => $contacts, 'show_terms_tab' => $show_terms_tab]);
+            }
 
-            if ($contacts->save(false)) {
-                Yii::$app->session->setFlash('success', "Operator documents updated successfully.");
-                return $this->redirect(['operator/termsandconditions', 'id' => $operator->getPrimaryKey()]);
-            }
-            else{
-                return $this->render('contact_details',['contact' => $contacts]);
-            }
+//            if ($contacts->save(false)) {
+//                Yii::$app->session->setFlash('success', "Operator documents updated successfully.");
+//                return $this->redirect(['operator/termsandconditions', 'id' => $operator->getPrimaryKey()]);
+//            }
+//            else{
+//                return $this->render('contact_details',['contact' => $contacts]);
+//            }
         }
     }
 

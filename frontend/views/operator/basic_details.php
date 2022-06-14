@@ -12,12 +12,14 @@ use yii\bootstrap4\ActiveForm;
         </div>
         <div class="card-body" style="border: .12rem solid #dedede; border-radius: 6px;">
             <div class="tab" style="display: flex;flex-direction: row;">
-                <div style="display: inline">   <a href="<?= \yii\helpers\Url::to(['/operator/basicdetails']) ?>">  <button class="selectedButton" onclick="openCity(event, 'London')" >Basic Details</button></a> <hr class="new5" >
-                </div>
-                <a href="<?= \yii\helpers\Url::to(['/operator/addressandlocation']) ?>">   <button id="contactBtn" class="tablinks" onclick="openCity(event, 'Paris')">Address & Location</button></a>
-                <a href="<?= \yii\helpers\Url::to(['/operator/legaltax']) ?>"> <button class="tablinks" onclick="openCity(event, 'Tokyo')">Legal Tax</button></a>
-                <a href="<?= \yii\helpers\Url::to(['/operator/contact']) ?>"><button class="tablinks" onclick="openCity(event, 'Tokyo')">Contact Details</button></a>
-                <a href="<?= \yii\helpers\Url::to(['/operator/termsandconditions']) ?>"><button class="tablinks" onclick="openCity(event, 'Tokyo')">Terms & Conditions</button></a>
+                <div style="display: inline">   <a href="index.php?r=operator%2Fbasicdetails&id=<?= $basic_details->id ?>">  <button class="selectedButton" >Basic Details</button></a> <hr class="new5" ></div>
+                <a href="index.php?r=operator%2Faddressandlocation&id=<?= $basic_details->id; ?>" <?= ($operator_image->scenario == "create") ? 'onclick="return showAlert()"' : '' ?>>   <button id="contactBtn" class="tablinks" >Address & Location</button></a>
+                <a href="index.php?r=operator%2Flegaltax&id=<?= $basic_details->id; ?>" <?= ($operator_image->scenario == "create") ? 'onclick="return showAlert()"' : '' ?>"> <button class="tablinks" >Legal Tax</button></a>
+                <a href="index.php?r=operator%2Fcontact&id=<?= $basic_details->id ?>" <?= ($operator_image->scenario == "create") ? 'onclick="return showAlert()"' : '' ?>"><button class="tablinks" >Contact Details</button></a>
+
+                <?php if($show_terms_tab) { ?>
+                    <a href="index.php?r=operator%2Ftermsandconditions&id=<?= $basic_details->id; ?>" <?= ($operator_image->scenario == "create") ? 'onclick="return showAlert()"' : '' ?>"><button class="tablinks" >Terms & Conditions</button></a>
+                <?php } ?>
             </div>
 
             <hr class="sidebar-divider">
@@ -28,14 +30,10 @@ use yii\bootstrap4\ActiveForm;
                     <div style="display: block; margin-right: 35px; margin-left: 10px">
                         <label class="Labelclass" style="display: block" >*Company</label>
                         <?php echo $form->field($basic_details,'name')->textInput(['class' => 'inputLarge'])->label(false) ?>
-
-<!--                        <input type="text" class="inputLarge" placeholder="Company" >-->
                     </div>
                     <div style="display: block; margin-right: 35px; margin-left: 10px">
                         <label class="Labelclass" style="display: block" >*Website</label>
                         <?php echo $form->field($basic_details,'website')->textInput(['class' => 'inputLarge', 'placeholder'=>'Please provide website if available'])->label(false) ?>
-
-<!--                        <input type="text" class="inputLarge" placeholder="Website" >-->
                     </div>
                     <div style="display: block;margin-right: 35px; margin-left: 10px; margin-top: 20px">
                         <BUTTON type="text" class="buttonSave" style="width: 85px; border-radius: 5px"> Save </BUTTON>

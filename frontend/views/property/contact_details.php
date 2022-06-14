@@ -12,12 +12,16 @@ use borales\extensions\phoneInput\PhoneInput;
 
         <div class="card-body" style="border: .12rem solid #dedede; border-radius: 6px;">
             <div class="tab">
-                <a href="<?= \yii\helpers\Url::to(['/property/basicdetails']) ?>"> <button class="tablinks btnunder" onclick="openCity(event, 'London')" >Basic Details</button></a>
-                <a href="<?= \yii\helpers\Url::to(['/property/addressandlocation']) ?>"> <button class="tablinks btnunder" onclick="openCity(event, 'London')" >Address & Location</button></a>
-                <a href="<?= \yii\helpers\Url::to(['/property/legaltax']) ?>"> <button class="tablinks btnunder" onclick="openCity(event, 'London')" >Legal Tax</button></a>
-                <div style="display: inline">   <a href="<?= \yii\helpers\Url::to(['/property/contact']) ?>">  <button class="selectedButton" onclick="openCity(event, 'London')" >Contact Details</button></a> <hr class="new5" >
+                <a  href="index.php?r=property%2Fbasicdetails&id=<?= $contact->property_id ?>"> <button class="tablinks btnunder">Basic Details</button></a>
+                <a href="index.php?r=property%2Faddressandlocation&id=<?= $contact->property_id; ?>"> <button class="tablinks btnunder">Address & Location</button></a>
+                <a href="index.php?r=property%2Flegaltax&id=<?= $contact->property_id ?>"> <button class="tablinks btnunder">Legal Tax</button></a>
+                <div style="display: inline">   <a href="index.php?r=property%2Fcontact&id=<?= $contact->property_id; ?>">  <button class="selectedButton">Contact Details</button></a> <hr class="new5" >
                 </div>
-                <a href="<?= \yii\helpers\Url::to(['/property/termsandconditions']) ?>"> <button class="tablinks" onclick="openCity(event, 'Tokyo')">Terms & Conditions</button></a>
+
+                <?php if($show_terms_tab) { ?>
+                    <a  href="index.php?r=property%2Ftermsandconditions&id=<?= $contact->property_id ?>"> <button class="tablinks">Terms & Conditions</button></a>
+                <?php } ?>
+
             </div>
 
             <hr class="sidebar-divider">
@@ -47,8 +51,6 @@ use borales\extensions\phoneInput\PhoneInput;
                 <div style="display: block">
                     <label class="Labelclass" style="display: block" >*Email</label>
                     <?= $form->field($contact,'sales_email')->textInput(['class' => 'inputTextClass'])->label(false) ?>
-
-<!--                    <input type="email" class="inputTextClass" >-->
                 </div>
             </div>
             <div class="contact-head" >
@@ -58,8 +60,6 @@ use borales\extensions\phoneInput\PhoneInput;
                 <div style="display: block;margin-right: 35px">
                     <label class="Labelclass" style="display: block" >*Name</label>
                     <?= $form->field($contact,'reservation_name')->textInput(['class' => 'inputTextClass'])->label(false) ?>
-
-<!--                    <input type="text" class="inputTextClass" >-->
                 </div>
                 <div style="display: block;margin-right: 35px">
                     <label class="Labelclass" style="display: block" >*Phone</label>
@@ -70,13 +70,10 @@ use borales\extensions\phoneInput\PhoneInput;
                         ],
                         'options'=> array('class'=>'inputTextClass', 'placeholder' => '9123456780', 'maxlength' => '12'),
                     ], )->label(false);?>
-<!--                    <input type="text" class="inputTextClass" >-->
                 </div>
                 <div style="display: block">
                     <label class="Labelclass" style="display: block" >*Email</label>
                     <?= $form->field($contact,'reservation_email')->textInput(['class' => 'inputTextClass'])->label(false) ?>
-
-<!--                    <input type="email" class="inputTextClass" >-->
                 </div>
             </div>
             <div class="contact-head" >
@@ -86,8 +83,6 @@ use borales\extensions\phoneInput\PhoneInput;
                 <div style="display: block;margin-right: 35px">
                     <label class="Labelclass" style="display: block" >*Name</label>
                     <?= $form->field($contact,'front_office_name')->textInput(['class' => 'inputTextClass'])->label(false) ?>
-
-<!--                    <input type="text" class="inputTextClass" >-->
                 </div>
                 <div style="display: block;margin-right: 35px">
                     <label class="Labelclass" style="display: block" >*Phone</label>
@@ -98,13 +93,10 @@ use borales\extensions\phoneInput\PhoneInput;
                         ],
                         'options'=> array('class'=>'inputTextClass', 'placeholder' => '9123456780', 'maxlength' => '12'),
                     ], )->label(false);?>
-<!--                    <input type="text" class="inputTextClass" >-->
                 </div>
                 <div style="display: block">
                     <label class="Labelclass" style="display: block" >*Email</label>
                     <?= $form->field($contact,'front_office_email')->textInput(['class' => 'inputTextClass'])->label(false) ?>
-
-<!--                    <input type="email" class="inputTextClass" >-->
                 </div>
             </div>
             <div class="contact-head" >
@@ -114,8 +106,6 @@ use borales\extensions\phoneInput\PhoneInput;
                 <div style="display: block;margin-right: 35px">
                     <label class="Labelclass" style="display: block" >*Name</label>
                     <?= $form->field($contact,'accounts_office_name')->textInput(['class' => 'inputTextClass'])->label(false) ?>
-
-<!--                    <input type="text" class="inputTextClass" >-->
                 </div>
                 <div style="display: block;margin-right: 35px">
                     <label class="Labelclass" style="display: block" >*Phone</label>
@@ -126,13 +116,10 @@ use borales\extensions\phoneInput\PhoneInput;
                         ],
                         'options'=> array('class'=>'inputTextClass', 'placeholder' => '9123456780', 'maxlength' => '12'),
                     ], )->label(false);?>
-<!--                    <input type="text" class="inputTextClass" >-->
                 </div>
                 <div style="display: block">
                     <label class="Labelclass" style="display: block" >*Email</label>
                     <?= $form->field($contact,'accounts_office_email')->textInput(['class' => 'inputTextClass'])->label(false) ?>
-
-<!--                    <input type="email" class="inputTextClass" >-->
                 </div>
             </div>
             <div class="row" style="margin-left: 3px;margin-bottom: 12px;">

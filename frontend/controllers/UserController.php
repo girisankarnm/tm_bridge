@@ -53,15 +53,20 @@ class UserController extends Controller
     public function actionSignup()
     {
         $model = new SignupForm();
+
         if ($model->load(Yii::$app->request->post()) && $model->signup()) {
-            Yii::$app->session->setFlash('success', 'Thank you for registration. Please check your inbox for verification email.');            
+            Yii::$app->session->setFlash('success', 'Thank you for registration. Please check your inbox for verification email.');
             return $this->redirect(['user/registration-success']);
         }
         else {
-            //$this->layout = 'auth';            
-            return $this->render('signup',['register' => $model]);
+            $this->layout = 'common';
+//            return $this->render('signup',['register' => $model]);
+            return $this->render('registration', ['register' => $model]);
         }
-    }    
+    }
+
+
+
 
     public function actionLogin()
     {
@@ -70,14 +75,18 @@ class UserController extends Controller
            return $this->gotoHomePage();
         }
 
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {            
-            return $this->gotoHomePage();            
+        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+//            return 'success';
+            return $this->gotoHomePage();
         }
-        
+
         $model->password = '';
-        //$this->layout = 'auth';
-        return $this->render('login',['model' => $model]);
+        $this->layout = 'common';
+//        return $this->render('login',['model' => $model]);
+        return $this->render('user-login',['model' => $model]);
     }
+
+
 
     private function gotoHomePage(){
         if (Yii::$app->user->identity->first_login)
@@ -190,7 +199,8 @@ class UserController extends Controller
      *
      * @return mixed
      */
-    public function actionRequestPasswordReset()
+//    public function actionRequestPasswordReset()
+    public function actionRequestpasswordreset()
     {
         $model = new PasswordResetRequestForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
@@ -203,10 +213,12 @@ class UserController extends Controller
             Yii::$app->session->setFlash('error', 'Sorry, we are unable to reset password for the provided email address.');
         }
 
-        //$this->layout = 'message';
-        return $this->render('requestPasswordResetToken', [
-            'model' => $model,
-        ]);
+        $this->layout = 'common';
+//        return $this->render('requestPasswordResetToken', [
+//            'model' => $model,
+//        ]);
+
+        return $this->render('request-password-reset');
     }
 
     /**
