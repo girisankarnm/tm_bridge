@@ -26,21 +26,10 @@ $(document).ready(function() {
         e.preventDefault();
         addPlanRow();
     });
-
-    $('#save_accommodation').click(function(e){        
+    
+    $('#save_guest_count').click(function(e){        
         e.preventDefault();
-        validateEnquiryAccomodation();
-    });
-
-    $('select[name^="accommodation_status"]').bind("change",function(){
-        var row_id = $(this).attr('row_id');       
-        if($(this).val() == 0) { 
-            disableAccommodationRow(row_id, true);           
-        }
-        else
-        {
-            disableAccommodationRow(row_id, false);
-        }
+        validateGuestCount();
     });
 
     unique_plan_id = $('#current_unique_plan_id').val();
@@ -48,15 +37,6 @@ $(document).ready(function() {
     planAgeBreakupMap = JSON.parse(age_break_up);
     console.log(age_break_up);
 });
-
-$("#basicdetails-tour_duration").on("input", function() {        
-    setTourEndDate();    
- });   
-
- function setTourEndDate(e){
-    var end_date = moment($("#basicdetails-tour_start_date").val(), "DD MMM YYYY").add(parseInt($("#basicdetails-tour_duration").val()), 'days').format('DD MMM YYYY');
-    $('#tour_end_date').val(end_date);
-}
 
 $('#enquiry-guest_count_same_on_all_days :radio').change(function(){        
     // 1 => guest_count_same_on_all_days
@@ -120,8 +100,7 @@ function initializeChildBreakupModal(uid){
         }
     }
     else
-    {     
-        console.log("else id :" + uid)   
+    {   
         $("#age_breakup_table").append('<tr><td><input type="text" class="form-control form-control-sm" name="age[]" /></td><td><input type="text" class="form-control form-control-sm" name="count[]" /></td><td></td></tr>');
     }    
 }
@@ -130,6 +109,7 @@ function closeChildBreakupModal(){
     resetChildBreakupModal();    
     $('#childBreakupModal').modal('toggle');    
 
+    /*
     for (var key in planAgeBreakupMap) {
         console.log("Plan: " + key);
         let plan = planAgeBreakupMap[key];
@@ -139,6 +119,7 @@ function closeChildBreakupModal(){
 
         console.log('----------------');
     }
+    */
 
     //delete planAgeBreakupMap[1];
 
@@ -173,8 +154,7 @@ function applyChildAgeBreakup(){
     }
     else if (sumOfCount >totalChild ) {        
         $('#span_child_validation_'+plan_id).text("Excess by "+ (sumOfCount - totalChild)); 
-    }
-    
+    }    
     
     var countArray = document.getElementsByName('count[]');
     var i = 0;
@@ -218,7 +198,9 @@ function applyChildAgeBreakup(){
     //console.log("setting guest_count_data: " );
 
     $('#child_breakup').val(JSON.stringify(planAgeBreakupMap));
-    //console.log("setting childbreakup: " + JSON.stringify(planAgeBreakupMap) );    
+    //console.log("setting childbreakup: " + JSON.stringify(planAgeBreakupMap) );
+    
+    closeChildBreakupModal();
 }
 
 function updateGuestCount(){
@@ -254,7 +236,7 @@ function addPlanRow()
 
     //console.log("Adding row: " + rowCount);
     //console.log("UID: " + unique_plan_id);
-    $("#guest_count_differnt_table").append('<tr><td>Plan '+ (rowCount) +'</td><td><input type="hidden" id="plan_uid" name="plan_uid[]" value="'+ unique_plan_id +'"><input type="text" class="inputTextClass" style="width: 100px;height: 33px" name="adults[]" /></td><td><input type="text" class="inputTextClass" style="width: 100px;height: 33px" name="children[]" id="children_' + unique_plan_id+ '" /></td><td><button type="button" id="add_age_breakup" onclick="showChildBreakupModal(this)"class="btn btn-sm btn-outline-primary" unique_plan_id="' + unique_plan_id + '">\n' +
+    $("#guest_count_differnt_table").append('<tr><td>Plan '+ (rowCount) +'</td><td><input type="hidden" id="plan_uid" name="plan_uid[]" value="'+ unique_plan_id +'"><input type="text" class="inputTextClass" style="width: 100px;height: 33px" name="adults[]" /></td><td><input uid="'+ unique_plan_id +'" type="text" class="inputTextClass" style="width: 100px;height: 33px" name="children[]" id="children_' + unique_plan_id+ '" /></td><td><button type="button" id="add_age_breakup" onclick="showChildBreakupModal(this)"class="btn btn-sm btn-outline-primary" unique_plan_id="' + unique_plan_id + '">\n' +
         '<i class="fa fa-plus"></i></button></td><td><span style="color: red;font-size: 12px;display: inline" id="total_guests_' + unique_plan_id +'"> NA </span></td><td> <span style="color: red;font-size: 12px;display: inline" id="span_child_validation_' + unique_plan_id +'" >NA</span></td> <td><button id="remr" onclick="deletePlanRow(this)" class="btn btn-sm bg-danger" style="border-radius: 50%" unique_plan_id="' + unique_plan_id + '" ><i class="fa fa-minus"></i></button></td></tr>');
 
     unique_plan_id++;
@@ -270,44 +252,97 @@ function deletePlanRow(row)
     document.getElementById('guest_count_differnt_table').deleteRow(i);
 }
 
-function validateEnquiryAccomodation(){
+function validateGuestCount() {
     
-    var bError = false;
-    var ErrorMessage = "Please select the below fields";
+    var guest_count_same = $('input[name="Enquiry[guest_count_same_on_all_days]"]:checked').val();     
+    console.log(planAgeBreakupMap);
+    var childAgeBreakupValid = true;
 
-    $('select[name^="accommodation_status"]').each( function() {        
-        if($(this).val() != 0) { 
-            var row_id = this.getAttribute("row_id");
-            if($("#destination_"+row_id).val() == undefined || $("#destination_"+row_id).val() == ""){
-                bError = true;
-                ErrorMessage = "destination not selected";
+    if(guest_count_same == 1) {
+        if( parseInt($('#adults_0').val()) <= 0 ){
+            //Error, adult is mandatory
+            console.log("Error, adult is mandatory");
+        }
+        var child_count = parseInt($('#children_0').val());
+        if( child_count > 0 )
+        {
+            //Check Check child breakup
+            console.log("Check child breakup");
+            if (planAgeBreakupMap.hasOwnProperty(0) ) {
+                var sumofChildCount = 0;
+                var ageBreakupMap = planAgeBreakupMap[0];
+                console.log(ageBreakupMap);
+                for (var key in ageBreakupMap) {
+                    sumofChildCount += parseInt(ageBreakupMap[key]);                
+                }
+
+                if(sumofChildCount != child_count) {
+                    childAgeBreakupValid = false;
+                    console.log("Incorrect child breakup");
+                }
+                else {                        
+                    console.log("Child breakup correct. Good to go");
+                }                
+            }
+            else
+            {
+                childAgeBreakupValid = false;
+                console.log("Error Child age break up not defined");
+            }
+        } 
+    }
+    else
+    {
+        //console.log(planAgeBreakupMap);
+        $('input[name^="children"]').each(function () {            
+            var uid = $(this).attr('uid');
+            
+            var child_count = Number(this.value);
+            if(uid != 0) {
+                if (planAgeBreakupMap.hasOwnProperty(uid) ) {
+                    var sumofChildCount = 0;
+                    var ageBreakupMap = planAgeBreakupMap[uid];                
+                    for (var key in ageBreakupMap) {
+                        sumofChildCount += parseInt(ageBreakupMap[key]);                
+                    }
+
+                    if(sumofChildCount != child_count) {
+                        childAgeBreakupValid = false;
+                        console.log("Incorrect child breakup");
+                    }
+                    else {                        
+                        console.log("Child breakup correct. Good to go");
+                    }                
+                }
+                else
+                {
+                    childAgeBreakupValid = false;
+                    console.log("Error Child age break up not defined");
+                }
+            }
+        });
+
+        return;
+        
+        for (var key in planAgeBreakupMap) {                    
+            var child_count =  Number($('#children_'+key).val());
+            console.log("Plan:" + key + " Childs: " + child_count);  
+
+            let age_break_up = planAgeBreakupMap[key];
+            var sumofChildCount = 0;
+            for (var key2 in age_break_up) {
+                sumofChildCount += Number(age_break_up[key2]);               
             }
             
-            if($("#meal_plan_"+row_id).val() == undefined || $("#meal_plan_"+row_id).val() == ""){
-                bError = true;
-                ErrorMessage = "Meals plan not selected";
+            if(sumofChildCount != child_count) {
+                childAgeBreakupValid = false;
+                console.log("Incorrect child breakup");
             }
-
-            if($("#plan_"+row_id).val() == undefined || $("#plan_"+row_id).val() == ""){
-                bError = true;
-                ErrorMessage = "Plan not selected";
-            }
+            else {                        
+                console.log("Child breakup correct. Good to go");
+            } 
         }
-    });
-
-    if(bError) {
-        //toastr.error(ErrorMessage);
-        alert(ErrorMessage);
     }
-    else 
-    {
-        console.log("Good to submit");
-        $("#form_enquiry_accomodation").submit();        
-    }
-}
 
-function disableAccommodationRow(row_id, disableFlag){
-    $('#destination_' + row_id).prop('disabled', disableFlag);
-    $('#meal_plan_' + row_id).prop('disabled', disableFlag);
-    $('#plan_' + row_id).prop('disabled', disableFlag);
+    //$("#form_guest_count").submit();
 }

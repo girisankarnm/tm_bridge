@@ -3,7 +3,11 @@
 namespace frontend\models\enquiry;
 
 use frontend\models\enquiry\EnquiryAccommodation;
+use frontend\models\enquiry\EnquiryGuestCount;
 use frontend\models\tariff\TariffNationalityGroupName;
+use frontend\models\Country;
+use frontend\models\user\User;
+
 use Yii;
 
 /**
@@ -19,10 +23,12 @@ use Yii;
  * @property string|null $contact1
  * @property string|null $contact2
  * @property int|null $guest_count_same_on_all_days
+ * @property int|null $owner_id
  *
  * @property EnquiryAccommodation[] $enquiryAccommodations
  * @property EnquiryGuestCount[] $enquiryGuestCounts
- * @property TariffNationalityGroupName $nationality
+ * @property Country $nationality
+ * @property User $owner
  */
 class Enquiry extends \yii\db\ActiveRecord
 {
@@ -41,12 +47,13 @@ class Enquiry extends \yii\db\ActiveRecord
     {
         return [
             [['guest_name'], 'required'],
-            [['nationality_id', 'tour_duration', 'guest_count_same_on_all_days'], 'integer'],
+            [['nationality_id', 'tour_duration', 'guest_count_same_on_all_days', 'owner_id'], 'integer'],
             [['tour_start_date'], 'safe'],
             [['guest_name'], 'string', 'max' => 80],
             [['email1', 'email2'], 'string', 'max' => 255],
             [['contact1', 'contact2'], 'string', 'max' => 15],
-            [['nationality_id'], 'exist', 'skipOnError' => true, 'targetClass' => TariffNationalityGroupName::className(), 'targetAttribute' => ['nationality_id' => 'id']],
+            [['nationality_id'], 'exist', 'skipOnError' => true, 'targetClass' => Country::className(), 'targetAttribute' => ['nationality_id' => 'id']],
+            [['owner_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['owner_id' => 'id']],
         ];
     }
 
@@ -66,6 +73,7 @@ class Enquiry extends \yii\db\ActiveRecord
             'contact1' => 'Contact 1',
             'contact2' => 'Contact 2',
             'guest_count_same_on_all_days' => 'Guest Count Same On All Days',
+            'owner_id' => 'Owner ID',
         ];
     }
 
@@ -84,14 +92,9 @@ class Enquiry extends \yii\db\ActiveRecord
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getGuestCountPlan()
+    public function getEnquiryGuestCounts()
     {
         return $this->hasMany(EnquiryGuestCount::className(), ['enquiry_id' => 'id']);
-    }
-
-    public function getEnquiryAccommodation()
-    {
-        return $this->hasMany(EnquiryAccommodation::className(), ['enquiry_id' => 'id']);
     }
 
     /**
@@ -101,6 +104,16 @@ class Enquiry extends \yii\db\ActiveRecord
      */
     public function getNationality()
     {
-        return $this->hasOne(TariffNationalityGroupName::className(), ['id' => 'nationality_id']);
+        return $this->hasOne(Country::className(), ['id' => 'nationality_id']);
+    }
+
+    /**
+     * Gets query for [[Owner]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getOwner()
+    {
+        return $this->hasOne(User::className(), ['id' => 'owner_id']);
     }
 }
