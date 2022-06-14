@@ -43,7 +43,7 @@ use yii\bootstrap4\ActiveForm;
                     <div style="display: block; margin-right: 35px; margin-left: 10px;">
                         <label class="Labelclass" style="display: block" >*Upload Logo</label>
                         <div class="Neon Neon-theme-dragdropbox">
-                            <input style="z-index: 999; opacity: 0; width: 320px; height: 200px; position: absolute; " name="files[]" id="filer_input2" multiple="multiple" type="file">
+                            <input style="z-index: 999; opacity: 0; width: 460px; height: 200px; position: absolute; " name="files[]" id="filer_input2" multiple="multiple" type="file">
                             <div class="Neon-input-dragDrop">
                                 <div class="Neon-input-inner">
                                     <div class="Neon-input-icon">
@@ -59,7 +59,7 @@ use yii\bootstrap4\ActiveForm;
                         <label class="Labelclass" style="display: block;margin-top: 22px" >*Upload Vcard</label>
 
                         <div class="Neon Neon-theme-dragdropbox" style="display: inline-block">
-                            <input style="z-index: 999; opacity: 0; width: 320px; height: 200px; position: absolute; " name="files[]" id="filer_input2" multiple="multiple" type="file">
+                            <input style="z-index: 999; opacity: 0; width: 220px; height: 120px; position: absolute; " name="files[]" id="filer_input2" multiple="multiple" type="file">
                             <div class="Neon-input-dragDrop-small" >
                                 <div class="Neon-input-inner">
                                     <div class="Neon-input-icon" style="font-size: 50px">
@@ -71,7 +71,7 @@ use yii\bootstrap4\ActiveForm;
                             </div>
                         </div>
                         <div class="Neon Neon-theme-dragdropbox" style="display: inline-block">
-                            <input style="z-index: 999; opacity: 0; width: 320px; height: 200px; position: absolute; " name="files[]" id="filer_input2" multiple="multiple" type="file">
+                            <input style="z-index: 999; opacity: 0; width: 220px; height: 120px; position: absolute; " name="files[]" id="filer_input2" multiple="multiple" type="file">
                             <div class="Neon-input-dragDrop-small" >
                                 <div class="Neon-input-inner">
                                     <div class="Neon-input-icon" style="font-size: 50px">

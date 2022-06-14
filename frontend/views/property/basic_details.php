@@ -48,19 +48,45 @@ use yii\bootstrap4\ActiveForm;
                         <BUTTON type="text" class="buttonSave" style="width: 85px; border-radius: 5px"> Save </BUTTON>
                     </div>
                 </div>
-                <div style="width: 50%; padding-right: 10px; padding-left: 10px">
-                    <div style="display: inline-block; margin-right: 10px">
-                        <label class="Labelclass" style="display: block" >*Property Photo</label>
-                        <?= $form->field($property_image, 'proFile')->fileInput(['class' => 'btn btn-sm', 'accept' => "image/*", 'onchange'=>'showImage(this);'])->label(false); ?>
-                        <img id="image" src="uploads/<?php echo $basic_details->image; ?>" alt="" />
-                        <input type="hidden" id="profile_image_there" value="<?= empty($basic_details->image) ? 0 : 1  ?>">
+                <div style="width: 50%; padding-right: 10px; padding-left: 10px; display: block">
+
+                    <div style="display: inline-block; margin-right: 15px">
+                        <label class="Labelclass" style="display: block;" >*Property Photo</label>
+                        <div class="Neon Neon-theme-dragdropbox" style="display: inline-block">
+                            <input style="z-index: 999; opacity: 0; width: 240px; height: 200px; position: absolute; " name="files[]" id="filer_input2" multiple="multiple" type="file">
+                            <div class="Neon-input-dragDrop-property-photo" >
+                                <div class="Neon-input-inner">
+                                    <div class="Neon-input-icon" style="font-size: 100px;  margin-bottom: -15px">
+                                        <i class="fa fa-file-image"></i>
+                                    </div>
+                                    <div class="Neon-input-text"><h3>Property picture</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
-                    <div style="display: inline-block">
-                        <label class="Labelclass" style="display: block" >*Property Logo</label>
-                        <?= $form->field($property_image, 'logoFile')->fileInput(['class' => 'btn btn-sm', 'accept' => "image/*", 'onchange'=>'showImage(this);'])->label(false); ?>
-                        <img id="image" src="uploads/<?php echo $basic_details->image; ?>" alt="" />
-                        <input type="hidden" id="profile_image_there" value="<?= empty($basic_details->image) ? 0 : 1  ?>">
+                    <div style="display: inline-block;">
+                        <label class="Labelclass" style="display: block;" >*Property Logo</label>
+
+                        <div class="Neon Neon-theme-dragdropbox" style="display: inline-block">
+                            <input style="z-index: 999; opacity: 0; width: 200px; height: 200px; position: absolute; " name="files[]" id="filer_input2" multiple="multiple" type="file">
+                            <div class="Neon-input-dragDrop-property-logo" >
+                                <div class="Neon-input-inner">
+                                    <div class="Neon-input-icon" style="font-size: 100px; margin-bottom: -15px">
+                                        <i class="fa fa-file-image"></i>
+                                    </div>
+                                    <div class="Neon-input-text"><h3>Property Logo</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
+
+
+
+
                 </div>
             </div>
             <?php ActiveForm::end(); ?>
