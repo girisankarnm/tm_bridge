@@ -32,7 +32,7 @@ $this->registerJsFile('/js/enquiry/accomodation.js');
 				</tr>
 
 				<?php 				
-				if(isset($enquiry->enquiryAccommodations)) {
+				if( isset($enquiry->enquiryAccommodations) && count($enquiry->enquiryAccommodations) > 0 ) {						
 					$accomodation_status = ['1' => 'Required', '0' => 'Not Required'];
 					foreach ($enquiry->enquiryAccommodations as $accomodation){
 						$i = 0;						
@@ -87,7 +87,7 @@ $this->registerJsFile('/js/enquiry/accomodation.js');
 							<td>
 								<?php if ($enquiry->guest_count_same_on_all_days == 1){
 									$model->guest_count_plan_id = 1;
-									echo $form->field($model,'guest_count_plan_id')->dropDownList($pax_count_plans,['id' => 'plan_'.$i, 'name' => 'guest_count_plan_id[]','class' => 'inputTextClass tableinput', 'disabled' => 'disabled'])->label(false);
+									echo $form->field($model,'guest_count_plan_id')->dropDownList($pax_count_plans,['id' => 'plan_'.$i, 'name' => 'guest_count_plan_id[]','class' => 'inputTextClass tableinput', 'readonly' => 'true'])->label(false);
 								}
 								else
 									echo $form->field($model,'guest_count_plan_id')->dropDownList($pax_count_plans,['id' => 'plan_'.$i, 'name' => 'guest_count_plan_id[]','class' => 'inputTextClass tableinput' ])->label(false);

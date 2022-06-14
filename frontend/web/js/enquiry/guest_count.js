@@ -340,8 +340,7 @@ function validateGuestCount() {
             }
             else {                        
                 console.log("Child breakup correct. Good to go");
-            }     
-
+            } 
         }
     }
 

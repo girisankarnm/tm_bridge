@@ -278,8 +278,9 @@ class EnquiryController extends Controller{
         $destinations = ArrayHelper::map(Destination::find()->asArray()->all(), 'id', 'name');
         $meal_plans = ArrayHelper::map(PropertyMealPlan::find()->all(), 'id', 'name');
         $pax_count_plans = ArrayHelper::map(EnquiryGuestCount::find()->where(['enquiry_id' => $enquiry->id])->all(), 'id', function($model) 
-        {
-            return 'Plan: '.($model['plan'] + 1).' [Adults:'.$model['adults'].' | Children:'.$model['children'].']';
+        {            
+            $plan = ($model->enquiry->guest_count_same_on_all_days == 1) ? "Plan: " : "Plan: ".($model['plan'] + 1);
+            return $plan.' [Adults:'.$model['adults'].' | Children:'.$model['children'].']';
         });
 
         $this->layout = 'tm_main';
