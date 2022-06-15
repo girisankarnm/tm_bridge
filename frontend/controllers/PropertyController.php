@@ -87,9 +87,11 @@ class PropertyController extends Controller{
          }
 
          $basic_details = new BasicDetails();
+         $property_image = new PropertyImage();
          if ($property == NULL){
              $property = new Property();
              $basic_details->id = 0;
+             $property_image->scenario = "create";
          }
          else {
              $basic_details->id = $property->id;
@@ -111,18 +113,22 @@ class PropertyController extends Controller{
 
          $property_types = ArrayHelper::map(PropertyType::find()->asArray()->all(), 'id', 'name');
          $property_categories = ArrayHelper::map(PropertyCategory::find()->asArray()->all(), 'id', 'name');
-         $property_image = new PropertyImage();
+//         $property_image = new PropertyImage();
          return $this->render('basic_details',['basic_details' => $basic_details, 'property_types' => $property_types, 'property_categories' => $property_categories,  'property_image' => $property_image, 'show_terms_tab' => $show_terms_tab ]);
 
      }
 
     public function actionSavepropertybasic() {
         $basic_details = new BasicDetails();
+
         if ( !$basic_details->load(Yii::$app->request->post()))  {
             echo "Load failed";
         }
 
         $property_image = new PropertyImage();
+        $property_image->proFile = UploadedFile::getInstance($property_image, 'proFile');
+        $property_image->logoFile = UploadedFile::getInstance($property_image, 'logoFile');
+
         $property_id = Yii::$app->request->post('property_id');
 
         //Check this prooerty owned by this user
@@ -146,8 +152,42 @@ class PropertyController extends Controller{
         $property->website = $basic_details->website;
         $property->owner_id = Yii::$app->user->getId();
 //        $property->owner_id =2;
-        $property->image = 1;
-        $property->logo = 2;
+
+        if ($property_image->proFile != null) {
+            $file_name =  uniqid('', true) . '.' . $property_image->proFile->extension;
+            if ($property_image->upload($property_image->proFile,$file_name)) {
+                //TODO: Will we allow to proceed if image upload fails
+                $property->image = $file_name;
+
+            } else {
+                echo "Image upload failed";
+            }
+        }
+        else {
+            if (empty($property->image)) {
+                echo "Profile image (Mandatory) upload failed";
+            }
+        }
+
+        if ($property_image->logoFile != null) {
+
+            $file_namelogo =  uniqid('', true) . '.' . $property_image->logoFile->extension;
+
+            if ($property_image->upload( $property_image->logoFile,$file_namelogo)) {
+                //TODO: Will we allow to proceed if image upload fails
+                $property->logo = $file_namelogo;
+
+            } else {
+                echo "Image upload failed";
+            }
+        }
+        else {
+            if (empty($property->logo)) {
+                echo "Profile image (Mandatory) upload failed";
+            }
+        }
+
+
 
         if ($property->save(false)) {
             Yii::$app->session->setFlash('success', "Property created successfully.");

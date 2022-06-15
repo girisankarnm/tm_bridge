@@ -20,8 +20,9 @@ use yii\bootstrap4\ActiveForm;
             <hr class="sidebar-divider">
             <?php $form = ActiveForm::begin(['id' => 'property_basic_details', 'enableClientValidation' => true,  'method' => 'post','action' => ['property/savepropertybasic']])?>
 
+            <input type="hidden" value="<?= $basic_details->id ?>" name="property_id">
             <div class="row" style="display: flex; flex-direction: row;">
-                <div style="width: 50%; padding-left: 10px; padding-right: 10px">
+                <div class="col-lg-6">
                     <div class="row" style="margin-left: 3px;margin-bottom: 8px;">
                         <div style="display: block;margin-right: 35px">
                             <label class="Labelclass" style="display: block">*Property Name</label>
@@ -48,39 +49,24 @@ use yii\bootstrap4\ActiveForm;
                         <BUTTON type="text" class="buttonSave" style="width: 85px; border-radius: 5px"> Save </BUTTON>
                     </div>
                 </div>
-                <div style="width: 50%; padding-right: 10px; padding-left: 10px; display: block">
+                <div class="col-lg-6 row">
 
-                    <div style="display: inline-block; margin-right: 15px">
+                    <div class="col-lg-6" style="padding-right: 20px
+">
                         <label class="Labelclass" style="display: block;" >*Property Photo</label>
-                        <div class="Neon Neon-theme-dragdropbox" style="display: inline-block">
-                            <input style="z-index: 999; opacity: 0; width: 240px; height: 200px; position: absolute; " name="files[]" id="filer_input2" multiple="multiple" type="file">
-                            <div class="Neon-input-dragDrop-property-photo" >
-                                <div class="Neon-input-inner">
-                                    <div class="Neon-input-icon" style="font-size: 100px;  margin-bottom: -15px">
-                                        <i class="fa fa-file-image"></i>
-                                    </div>
-                                    <div class="Neon-input-text"><h3>Property picture</h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
+                        <img id="imagePreview" src="uploads/<?php echo $basic_details->image; ?>" class="imagePreview <?php if(!$basic_details->id): ?> default-preview <?php endif; ?> " />
+                        <?= $form->field($property_image, 'proFile')->fileInput(['class' => 'btn btn-sm img uploadFile', 'accept' => "image/*", 'id'=>"uploadFile"])->label(false); ?>
+
+<!--                        <input id="uploadFile" type="file" name="property_photo" class="img uploadFile" />-->
                     </div>
-                    <div style="display: inline-block;">
+                    <div class="col-lg-6" >
                         <label class="Labelclass" style="display: block;" >*Property Logo</label>
 
-                        <div class="Neon Neon-theme-dragdropbox" style="display: inline-block">
-                            <input style="z-index: 999; opacity: 0; width: 200px; height: 200px; position: absolute; " name="files[]" id="filer_input2" multiple="multiple" type="file">
-                            <div class="Neon-input-dragDrop-property-logo" >
-                                <div class="Neon-input-inner">
-                                    <div class="Neon-input-icon" style="font-size: 100px; margin-bottom: -15px">
-                                        <i class="fa fa-file-image"></i>
-                                    </div>
-                                    <div class="Neon-input-text"><h3>Property Logo</h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <img id="imagePreview-logo" src="uploads/<?php echo $basic_details->logo; ?>" class="imagePreviewLogo <?php if(!$basic_details->id): ?> default-preview <?php endif; ?>"  />
+
+<!--                        <input id="uploadFile-logo" type="file" name="property_logo" class="img uploadFile" />-->
+                        <?= $form->field($property_image, 'logoFile')->fileInput(['class' => 'btn btn-sm img uploadFile', 'accept' => "image/*", 'id'=>"uploadFile-logo"])->label(false); ?>
 
                     </div>
 
@@ -93,5 +79,83 @@ use yii\bootstrap4\ActiveForm;
         </div>
     </div>
 </div>
+<style>
+    .imagePreview {
+        width: 200px;
+        height: 200px;
+        background-position: center center;
+        background-size: cover;
+        /*-webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);*/
+        display: inline-block;
+        background-image: url('http://via.placeholder.com/350x150');
+        /*border: 2px gray dashed;*/
+    }
+    .imagePreviewLogo {
+        width: 240px;
+        height: 200px;
+        background-position: center center;
+        background-size: cover;
+        /*-webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);*/
+        display: inline-block;
+        background-image: url('http://via.placeholder.com/350x150');
+    }
+    .default-preview{
+        border: 2px gray dashed;
+    }
+
+    .uploadFile{
+        display: none
+    }
+</style>
+
+<script>
+    $('#imagePreview').click(function(){
+
+        $('#uploadFile').click();
+    });
+    $(function() {
+        $("#uploadFile").on("change", function()
+        {
+
+            var files = !!this.files ? this.files : [];
+            if (!files.length || !window.FileReader) return; // no file selected, or no FileReader support
+
+            if (/^image/.test( files[0].type)){ // only image file
+                var reader = new FileReader(); // instance of the FileReader
+                reader.readAsDataURL(files[0]); // read the local file
+
+                reader.onloadend = function(){ // set image data as background of div
+
+                    $('#imagePreview').removeClass('default-preview');
+                    $("#imagePreview").css("background-image", "url("+this.result+")");
+                }
+            }
+        });
+    });
 
 
+
+    $('#imagePreview-logo').click(function(){
+
+        $('#uploadFile-logo').click();
+    });
+    $(function() {
+        $("#uploadFile-logo").on("change", function()
+        {
+
+            var files = !!this.files ? this.files : [];
+            if (!files.length || !window.FileReader) return; // no file selected, or no FileReader support
+
+            if (/^image/.test( files[0].type)){ // only image file
+                var reader = new FileReader(); // instance of the FileReader
+                reader.readAsDataURL(files[0]); // read the local file
+
+                reader.onloadend = function(){ // set image data as background of div
+                    $('#imagePreview-logo').removeClass('default-preview');
+                    $("#imagePreview-logo").css("background-image", "url("+this.result+")");
+                }
+            }
+        });
+    });
+
+</script>
