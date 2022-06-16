@@ -75,11 +75,11 @@ $this->registerJsFile('/js/enquiry/guest_count.js');
                         </td>
                     </tr>
                     <tfoot >
-                    <tr style="background-color: #ffffff">
-                        <td class="addmoreguestcount" >                    <button class="btnAdd" style="border-radius: 50%; margin-left: 30px;margin-bottom: 15px;height: 23px;width: 23px;" id="add_new_plan_row"><i  class="fa fa-plus" aria-hidden="true"></i></button>
-                            <span style="padding-left: 3px">Add more </span></td>
-
-                    </tr>
+<!--                    <tr style="background-color: #ffffff">-->
+<!--                        <td class="addmoreguestcount" >                    <button class="btnAdd" style="border-radius: 50%; margin-left: 30px;margin-bottom: 15px;height: 23px;width: 23px;" id="add_new_plan_row"><i  class="fa fa-plus" aria-hidden="true"></i></button>-->
+<!--                            <span style="padding-left: 3px">Add more </span></td>-->
+<!---->
+<!--                    </tr>-->
                     </tfoot>
                 </table>
             </div>
@@ -175,6 +175,9 @@ $this->registerJsFile('/js/enquiry/guest_count.js');
                     }
                     ?>
                     <tfoot >
+                    <tr style="height: 15px">
+
+                    </tr>
                     <tr style="background-color: #ffffff">
                         <td class="addmoreguestcount" >                    <button class="btnAdd" type="button" style="border-radius: 50%; margin-left: 30px;margin-bottom: 15px;height: 23px;width: 23px;" id="add_new_plan_row"><i  class="fa fa-plus" aria-hidden="true"></i></button>
                             <span style="padding-left: 3px">Add more </span></td>
