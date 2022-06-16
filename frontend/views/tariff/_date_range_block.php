@@ -1,7 +1,11 @@
 <?php
 use Carbon\Carbon;
+use frontend\models\tariff\RoomRateValidator;
 ?>
-
+<?php
+    $rc = new RoomRateValidator($range);
+    $bValidated = $rc->validateRoomTariff();
+?>
 <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample1">
     <div class="card matherdaterangecard" >
         <div style="margin-bottom: 18px; background-color: ">
@@ -23,14 +27,17 @@ use Carbon\Carbon;
                 <div style="width: 18px"></div>
                 <div><h6  class="motherdaterange-H6" style="padding-top: 0px; font-size: 10px; line-height: 0;"><i class="fa fa-user" style="color: #545b62;margin-right: 4px" aria-hidden="true"></i>Arjun Raj  </h6></div>
                 <div style="width: 18px"></div>
-                <div><h6 class="motherdaterange-H6 h7class" > <i style="color: #545b62;margin-right: 4px" class="fa fa-calendar" aria-hidden="true"></i> december 25 2022 </h6></div>
+                <div><h6 class="motherdaterange-H6 h7class" > <i style="color: #545b62;margin-right: 4px" class="fa fa-calendar" aria-hidden="true"></i> 25 December 2022 </h6></div>
                 <div style="width: 18px"></div>
-                <div><h6 class="motherdaterange-H6 h9class" ><i style="color: #545b62;margin-right: 4px"  class="fa fa-check-circle w3-large " aria-hidden="true"></i>Not Published  </h6></div>
+                <div><h6 class="motherdaterange-H6 h9class" ><i style="color: #545b62;margin-right: 4px"  class="fa fa-check-circle w3-large " aria-hidden="true"></i> Not published  </h6></div>
+                <div style="width: 18px"></div>
+                <div><h6 class="motherdaterange-H6 h9class" ><i style="color: #545b62;margin-right: 4px"  class="fa fa-check-circle w3-large " aria-hidden="true"></i> Tariff validation: <?= (!$bValidated) ? "Failed - ".implode(",", $rc->getLastErrorMessages()) : "Success" ?>   </h6></div>
                 <div style="margin-left: 45%">
                     <a href="<?= \yii\helpers\Url::to(['/tariff/nesting', 'id' =>  $property->id, 'mother_range_id' => $range->id, 'tariff' => 1]) ?>"> Nesting </a>
                     <div style="margin-right: 10px;padding-bottom: 10px"> <a href="#"> <i  class="fas fa-edit editfa"></i> </a>  <a href="#"> <i  class="fa fa-trash editfa" aria-hidden="true"></i></a> <BUTTON type="button" class="buttonSaveroomrate"  data-toggle="modal" data-target="#logoutModal">Nesting  </BUTTON></div>
                 </div>
             </div>
+
         </div>
     </div>
 </div>

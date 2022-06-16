@@ -5,8 +5,8 @@ namespace frontend\models\tariff;
 use Yii;
 use frontend\models\tariff\TariffDateRange;
 use frontend\models\TariffNationalityGroupName;
-use frontend\models\Room;
-use frontend\models\Property;
+use frontend\models\property\Room;
+use frontend\models\property\Property;
 use Carbon\Carbon;
 use yii\web\NotFoundHttpException;
 use yii\web\ForbiddenHttpException;
@@ -58,18 +58,18 @@ class RoomRateValidator {
     public function validateRoomTariff() {
         //ROOM TARIFF VALIDATION
         if($this->date_range == NULL) {
-            array_push($this->error_messages, "Room tariff: Date range is NULL");
+            array_push($this->error_messages, "Date range is NULL");
             return false;
         }
 
         if (count($this->date_range->roomTariffDatewises) < 0) {            
             //echo "Not defined any room tariff for date range </br>";;
-            array_push($this->error_messages, "Room tariff: Not defined any room tariff for date range");
+            array_push($this->error_messages, "Not defined tariff for any rooms for this date range");
             return false;
         }
 
         if($this->property == NULL) {
-            array_push($this->error_messages, "Room tariff: Property is NULL");
+            array_push($this->error_messages, "Property is NULL/Invalid");
             return false;
         }
         
@@ -79,7 +79,7 @@ class RoomRateValidator {
         ->all();
         
         if ($rooms == NULL){
-            array_push($this->error_messages, "Room tariff: Rooms not availble/NULL");
+            array_push($this->error_messages, "Rooms not availble/NULL/Invalid");
             return false;
         }
         
@@ -94,7 +94,7 @@ class RoomRateValidator {
             $tariffs = $this->date_range->getRoomTariffDatewises()->andWhere(['room_id' => $room->id])->all();
             if(count($tariffs) == 0 ) {
                 //echo $room->name. ": Room tariff are not defined."."</br>";
-                array_push($this->error_messages, "Room tariff: ". $room->name. ": Room tariff are not defined.");
+                array_push($this->error_messages, $room->name. ": Tariff not defined.");
                 $bValidated = false;
                 continue;
             }
@@ -102,7 +102,7 @@ class RoomRateValidator {
             //This should not happen as we store tariff for all nationalites together.
             if (count($tariffs) < ($nationality_count + 1)) {
                 //echo $room->name. ": Tariff is not defined for all nationalities."."</br>";
-                array_push($this->error_messages, "Room tariff: ".$room->name. ": Tariff is not defined for all nationalities");
+                array_push($this->error_messages, $room->name. ": Tariff is not defined for all nationalities");
                 $bValidated = false;
             }            
         }
