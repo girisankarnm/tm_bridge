@@ -27,7 +27,7 @@ $(document).ready(function() {
         addPlanRow();
     });
     
-    $('#save_guest_count').click(function(e){        
+    $('#save_guest_count').click(function(e){
         e.preventDefault();
         validateGuestCount();
     });
@@ -236,8 +236,8 @@ function addPlanRow()
 
     //console.log("Adding row: " + rowCount);
     //console.log("UID: " + unique_plan_id);
-    $("#guest_count_differnt_table").append('<tr><td>Plan '+ (rowCount) +'</td><td><input type="hidden" id="plan_uid" name="plan_uid[]" value="'+ unique_plan_id +'"><input type="text" class="inputTextClass" style="width: 100px;height: 33px" name="adults[]" /></td><td><input uid="'+ unique_plan_id +'" type="text" class="inputTextClass" style="width: 100px;height: 33px" name="children[]" id="children_' + unique_plan_id+ '" /></td><td><button type="button" id="add_age_breakup" onclick="showChildBreakupModal(this)"class="btn btn-sm btn-outline-primary" unique_plan_id="' + unique_plan_id + '">\n' +
-        '<i class="fa fa-plus"></i></button></td><td><span style="color: red;font-size: 12px;display: inline" id="total_guests_' + unique_plan_id +'"> NA </span></td><td> <span style="color: red;font-size: 12px;display: inline" id="span_child_validation_' + unique_plan_id +'" >NA</span></td> <td><button id="remr" onclick="deletePlanRow(this)" class="btn btn-sm bg-danger" style="border-radius: 50%" unique_plan_id="' + unique_plan_id + '" ><i class="fa fa-minus"></i></button></td></tr>');
+    $("#guest_count_differnt_table").append('<tr><td>Plan '+ (rowCount) +'</td><td><input type="hidden" id="plan_uid" name="plan_uid[]" value="'+ unique_plan_id +'"><input type="text" class="inputTextClass enquiryTable" style="width: 100px;height: 33px" name="adults[]" /></td><td><input uid="'+ unique_plan_id +'" type="text" class="inputTextClass enquiryTable" style="width: 100px;height: 33px" name="children[]" id="children_' + unique_plan_id+ '" /></td><td><button type="button" id="add_age_breakup" onclick="showChildBreakupModal(this)"class="btn btn-sm btn-outline-primary childplus plusbutton" unique_plan_id="' + unique_plan_id + '">\n' +
+        '<i class="fa fa-user-plus plusiconstyle"  aria-hidden="true"></i></button></td><td class="letterpad"><span style="color: red;font-size: 12px;display: inline" id="total_guests_' + unique_plan_id +'"> NA </span></td><td class="letterpad"> <span style="color: red;font-size: 12px;display: inline" id="span_child_validation_' + unique_plan_id +'" >NA</span></td> <td class="fijo btnminus"><button id="remr" onclick="deletePlanRow(this)" class="btn btn-sm bg-danger" style="border-radius: 50%" unique_plan_id="' + unique_plan_id + '" ><i class="fa fa-minus"></i></button></td></tr>');
 
     unique_plan_id++;
 }
@@ -253,7 +253,7 @@ function deletePlanRow(row)
 }
 
 function validateGuestCount() {
-    
+
     var guest_count_same = $('input[name="Enquiry[guest_count_same_on_all_days]"]:checked').val();     
     console.log(planAgeBreakupMap);
     var childAgeBreakupValid = true;
