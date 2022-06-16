@@ -39,6 +39,7 @@ class m130524_201442_init extends Migration
             'username' => 'hotel@a.com',
             'email' => 'hotel@a.com',
             'user_type' => 1,
+            'status' => 10,
             'password_hash' => Yii::$app->security->generatePasswordHash("123456789"),
             'auth_key' => Yii::$app->security->generateRandomString(),
             
@@ -51,6 +52,7 @@ class m130524_201442_init extends Migration
             'username' => 'op@a.com',
             'email' => 'op@a.com',
             'user_type' => 1,
+            'status' => 10,
             'password_hash' => Yii::$app->security->generatePasswordHash("123456789"),
             'auth_key' => Yii::$app->security->generateRandomString(),            
         ]);
