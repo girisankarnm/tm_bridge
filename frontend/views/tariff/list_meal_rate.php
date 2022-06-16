@@ -49,7 +49,8 @@ use Carbon\Carbon;
                             <?php
                                 echo Yii::$app->controller->renderPartial('_date_range_block', [
                                     'range' => $range, 
-                                    'property' => $property
+                                    'property' => $property,
+                                    'tariff' => 2
                                 ]);                    
                             ?>
                         </div>
