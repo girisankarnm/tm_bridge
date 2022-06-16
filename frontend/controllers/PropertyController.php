@@ -126,8 +126,8 @@ class PropertyController extends Controller{
         }
 
         $property_image = new PropertyImage();
-        $property_image->proFile = UploadedFile::getInstance($property_image, 'proFile');
-        $property_image->logoFile = UploadedFile::getInstance($property_image, 'logoFile');
+        $property_image->pan_image = UploadedFile::getInstance($property_image, 'proFile');
+        $property_image->gst_image = UploadedFile::getInstance($property_image, 'logoFile');
 
         $property_id = Yii::$app->request->post('property_id');
 
@@ -160,12 +160,12 @@ class PropertyController extends Controller{
                 $property->image = $file_name;
 
             } else {
-                echo "Image upload failed";
+//                echo "Image upload failed";
             }
         }
         else {
             if (empty($property->image)) {
-                echo "Profile image (Mandatory) upload failed";
+//                echo "Profile image (Mandatory) upload failed";
             }
         }
 
@@ -178,12 +178,12 @@ class PropertyController extends Controller{
                 $property->logo = $file_namelogo;
 
             } else {
-                echo "Image upload failed";
+//                echo "Image upload failed";
             }
         }
         else {
             if (empty($property->logo)) {
-                echo "Profile image (Mandatory) upload failed";
+//                echo "Profile image (Mandatory) upload failed";
             }
         }
 
@@ -391,12 +391,68 @@ class PropertyController extends Controller{
         $property->bank_account_name = $legal_tax_documentation->bank_account_name;
         $property->bank_account_number = $legal_tax_documentation->bank_account_number;
         $property->ifsc_code = $legal_tax_documentation->ifsc_code;
-        $property->pan_image = 1;
-        $property->business_licence_image = 1;
-        $property->gst_image = 1;
+//        $property->pan_image = $legal_tax_documentation->pan_image;
+//        $property->business_licence_image = $legal_tax_documentation->business_licence_image;
+//        $property->gst_image =  $legal_tax_documentation->gst_image;
 //        $property->swift_code = $legal_tax_documentation->swift_code;
 
         $legal_doc_images = new LegalDocsImages();
+        $legal_doc_images->pan_image = UploadedFile::getInstance($legal_doc_images, 'pan_image');
+        $legal_doc_images->gst_image = UploadedFile::getInstance($legal_doc_images, 'gst_image');
+        $legal_doc_images->business_licence_image = UploadedFile::getInstance($legal_doc_images, 'business_licence_image');
+
+        //PAN
+        if ($legal_doc_images->pan_image != null) {
+            $file_name =  uniqid('', true) . '.' . $legal_doc_images->pan_image->extension;
+            if ($legal_doc_images->upload($legal_doc_images->pan_image,$file_name)) {
+                //TODO: Will we allow to proceed if image upload fails
+                $property->pan_image = $file_name;
+
+            } else {
+//                echo "Image upload failed";
+            }
+        }
+        else {
+            if (empty($property->pan_image)) {
+//                echo "Profile image (Mandatory) upload failed";
+            }
+        }
+
+        //GST
+        if ($legal_doc_images->gst_image != null) {
+            $file_name =  uniqid('', true) . '.' . $legal_doc_images->gst_image->extension;
+            if ($legal_doc_images->upload($legal_doc_images->gst_image,$file_name)) {
+                //TODO: Will we allow to proceed if image upload fails
+                $property->gst_image = $file_name;
+
+            } else {
+//                echo "Image upload failed";
+            }
+        }
+        else {
+            if (empty($property->gst_image)) {
+//                echo "Profile image (Mandatory) upload failed";
+            }
+        }
+ //Licence
+        if ($legal_doc_images->business_licence_image != null) {
+            $file_name =  uniqid('', true) . '.' . $legal_doc_images->business_licence_image->extension;
+            if ($legal_doc_images->upload($legal_doc_images->business_licence_image,$file_name)) {
+                //TODO: Will we allow to proceed if image upload fails
+                $property->business_licence_image = $file_name;
+
+            } else {
+//                echo "Image upload failed";
+            }
+        }
+        else {
+            if (empty($property->business_licence_image)) {
+//                echo "Profile image (Mandatory) upload failed";
+            }
+        }
+
+
+
 
         if ($property->save(false)) {
             Yii::$app->session->setFlash('success', "Property documents updated successfully.");

@@ -20,7 +20,7 @@ class LegalDocsImages extends Model{
     public function upload($imageFile, $file_name)
     {
         if ($this->validate()) {
-            $imageFile->saveAs('uploads/' . $file_name);
+            $imageFile->saveAs('uploads/' . $file_name,false);
             return true;
         } else {
             return false;

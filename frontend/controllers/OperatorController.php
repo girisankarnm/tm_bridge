@@ -54,7 +54,8 @@ class OperatorController extends Controller{
             $basic_details->name = $operator->name;
             $basic_details->website = $operator->website;
             $basic_details->logo_image = $operator->logo_image;
-            $basic_details->v_card_image = $operator->v_card_image;
+            $basic_details->v_card_image_front = $operator->v_card_image_front;
+            $basic_details->v_card_image_back = $operator->v_card_image_back;
             $operator_image->scenario = "update";
         }
 
@@ -79,6 +80,8 @@ class OperatorController extends Controller{
         }
         $operator_image = new OperatorImage();
         $operator_image->logo_image = UploadedFile::getInstance($operator_image, 'logo_image');
+        $operator_image->v_card_image_front = UploadedFile::getInstance($operator_image, 'v_card_image_front');
+        $operator_image->v_card_image_back = UploadedFile::getInstance($operator_image, 'v_card_image_back');
 
         if( !$basic_details->validate() /*|| ($property_image->imageFile == null) */ ) {
             return $this->render('basic_details',['basic_details' => $basic_details, 'operator_image' => $operator_image ]);
@@ -99,8 +102,59 @@ class OperatorController extends Controller{
         $operator->name = $basic_details->name;
         $operator->website = $basic_details->website;
         $operator->owner_id = Yii::$app->user->getId();
-        $operator_image->logo_image = 1;
-        $operator_image->v_card_image = 2;
+
+//Logo Image
+        if ($operator_image->logo_image != null) {
+            $file_name =  uniqid('', true) . '.' . $operator_image->logo_image->extension;
+            if ($operator_image->upload($operator_image->logo_image,$file_name)) {
+                //TODO: Will we allow to proceed if image upload fails
+                $operator->logo_image = $file_name;
+
+            } else {
+                echo "Image upload failed";
+            }
+        }
+        else {
+            if (empty($operator->logo_image)) {
+                echo "Profile image (Mandatory) upload failed";
+            }
+        }
+
+ // V-card image front
+        if ($operator_image->v_card_image_front != null) {
+            $file_name =  uniqid('', true) . '.' . $operator_image->v_card_image_front->extension;
+            if ($operator_image->upload($operator_image->v_card_image_front,$file_name)) {
+                //TODO: Will we allow to proceed if image upload fails
+                $operator->v_card_image_front = $file_name;
+
+            } else {
+                echo "Image upload failed";
+            }
+        }
+        else {
+            if (empty($operator->v_card_image_front)) {
+//                echo "Profile image (Mandatory) upload failed";
+            }
+        }
+
+ //V-card image back
+        if ($operator_image->v_card_image_back != null) {
+            $file_name =  uniqid('', true) . '.' . $operator_image->v_card_image_back->extension;
+            if ($operator_image->upload($operator_image->v_card_image_back,$file_name)) {
+                //TODO: Will we allow to proceed if image upload fails
+                $operator->v_card_image_back = $file_name;
+
+            } else {
+                echo "Image upload failed";
+            }
+        }
+        else {
+            if (empty($operator->v_card_image_back)) {
+//                echo "Profile image (Mandatory) upload failed";
+            }
+        }
+
+
         if ($operator->save(false)) {
             Yii::$app->session->setFlash('success', "Operator created successfully.");
             return $this->redirect(['operator/addressandlocation', 'id' => $operator->getPrimaryKey()]);
@@ -239,8 +293,8 @@ class OperatorController extends Controller{
         $legal_tax_documentation->bank_account_number = $operator->bank_account_number;
         $legal_tax_documentation->ifsc_code = $operator->ifsc_code;
         $legal_tax_documentation->swift_code = $operator->swift_code;
-//        $legal_tax_documentation->pan_image = $operator->pan_image;
-//        $legal_tax_documentation->gst_image = $operator->gst_image;
+        $legal_tax_documentation->pan_image = $operator->pan_image;
+        $legal_tax_documentation->gst_image = $operator->gst_image;
 //        $legal_tax_documentation->cheque_image = $operator->cheque_image;
 
         $legal_status = ArrayHelper::map(PropertyLegalStatus::find()->asArray()->all(), 'id', 'name');
@@ -285,8 +339,43 @@ class OperatorController extends Controller{
         $operator->ifsc_code = $legal_tax_documentation->ifsc_code;
 
         $legal_doc_images = new LegalDocsImages();
+        $legal_doc_images->pan_image = UploadedFile::getInstance($legal_doc_images, 'pan_image');
+        $legal_doc_images->gst_image = UploadedFile::getInstance($legal_doc_images, 'gst_image');
 
-        //TODO file upload
+
+        if ($legal_doc_images->pan_image != null) {
+            $file_name =  uniqid('', true) . '.' . $legal_doc_images->pan_image->extension;
+            if ($legal_doc_images->upload($legal_doc_images->pan_image,$file_name)) {
+                //TODO: Will we allow to proceed if image upload fails
+                $operator->pan_image = $file_name;
+
+            } else {
+//                echo "Image upload failed";
+            }
+        }
+        else {
+            if (empty($operator->pan_image)) {
+//                echo "Profile image (Mandatory) upload failed";
+            }
+        }
+
+        //GST
+          if ($legal_doc_images->gst_image != null) {
+            $file_name =  uniqid('', true) . '.' . $legal_doc_images->gst_image->extension;
+            if ($legal_doc_images->upload($legal_doc_images->gst_image,$file_name)) {
+                //TODO: Will we allow to proceed if image upload fails
+                $operator->gst_image = $file_name;
+
+            } else {
+//                echo "Image upload failed";
+            }
+        }
+        else {
+            if (empty($operator->gst_image)) {
+//                echo "Profile image (Mandatory) upload failed";
+            }
+        }
+
 
 
         if ($operator->save(false)) {
