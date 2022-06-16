@@ -103,6 +103,7 @@ class m211118_090741_create_property_table extends Migration
             'destination_id' => 1,
             'property_type_id' => 1,
             'property_category_id' => 1,
+            'owner_id' => 1
         ]);
     }
 

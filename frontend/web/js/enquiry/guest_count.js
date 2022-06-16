@@ -311,7 +311,7 @@ function validateGuestCount() {
                         console.log("Incorrect child breakup");
                     }
                     else {                        
-                        console.log("Child breakup correct. Good to go");
+                        console.log("Child breakup correct. Good to go2");
                     }                
                 }
                 else
@@ -344,5 +344,5 @@ function validateGuestCount() {
         }
     }
 
-    //$("#form_guest_count").submit();
+    $("#form_guest_count").submit();
 }
