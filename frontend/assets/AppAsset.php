@@ -16,6 +16,7 @@ class AppAsset extends AssetBundle
     
     public $css = [
         'css/site.css',
+        'css/tour-min-1.css',
     ];
     public $js = [
     ];

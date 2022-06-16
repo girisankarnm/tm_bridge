@@ -19,10 +19,57 @@ use frontend\models\property\PropertyCategory;
 use frontend\models\property\Property;
 use frontend\models\property\PropertyImage;
 use frontend\models\property\PropertyContacts;
+use yii\web\ForbiddenHttpException;
 use yii\web\NotFoundHttpException;
 use yii\web\UploadedFile;
 
 class PropertyController extends Controller{
+    public function beforeAction($action) {
+        $this->enableCsrfValidation = false;
+
+        if (Yii::$app->user->isGuest) {
+            Yii::$app->user->loginRequired();
+            return;
+        }
+
+        if (Yii::$app->user->identity->user_type != 1){
+            throw new ForbiddenHttpException();
+        }
+
+        return parent::beforeAction($action);
+    }
+
+    private function getProperty() {
+        if(!isset( $_GET['id'])) {
+            throw new NotFoundHttpException();
+        }
+
+        $property = NULL;
+        $property_id = (int) Yii::$app->request->get('id');
+        if ($property_id != 0) {
+            $property =Property::find()
+                ->where(['id' => $property_id])
+                ->andWhere(['owner_id' => Yii::$app->user->identity->getOWnerId()])
+                ->one();
+
+            if ($property == NULL){
+                throw new NotFoundHttpException();
+            }
+        }
+        else {
+            throw new NotFoundHttpException();
+        }
+
+        /*     $property = Property::find()
+            ->where(['id' => $property_id])
+            ->one(); */
+        if ($property == NULL){
+            throw new NotFoundHttpException();
+        }
+
+        return $property;
+    }
+
 
      public function actionBasicdetails(){
          $this->layout = 'tm_main';
@@ -40,9 +87,11 @@ class PropertyController extends Controller{
          }
 
          $basic_details = new BasicDetails();
+         $property_image = new PropertyImage();
          if ($property == NULL){
              $property = new Property();
              $basic_details->id = 0;
+             $property_image->scenario = "create";
          }
          else {
              $basic_details->id = $property->id;
@@ -50,8 +99,8 @@ class PropertyController extends Controller{
              $basic_details->property_type_id = $property->property_type_id;
              $basic_details->property_category_id = $property->property_category_id;
              $basic_details->website = $property->website;
-             $basic_details->image = $property->proFile;
-             $basic_details->logo = $property->logoFile;
+             $basic_details->image = $property->image;
+             $basic_details->logo = $property->logo;
          }
 
          $show_terms_tab = true;
@@ -64,18 +113,22 @@ class PropertyController extends Controller{
 
          $property_types = ArrayHelper::map(PropertyType::find()->asArray()->all(), 'id', 'name');
          $property_categories = ArrayHelper::map(PropertyCategory::find()->asArray()->all(), 'id', 'name');
-         $property_image = new PropertyImage();
+//         $property_image = new PropertyImage();
          return $this->render('basic_details',['basic_details' => $basic_details, 'property_types' => $property_types, 'property_categories' => $property_categories,  'property_image' => $property_image, 'show_terms_tab' => $show_terms_tab ]);
 
      }
 
     public function actionSavepropertybasic() {
         $basic_details = new BasicDetails();
+
         if ( !$basic_details->load(Yii::$app->request->post()))  {
             echo "Load failed";
         }
 
         $property_image = new PropertyImage();
+        $property_image->proFile = UploadedFile::getInstance($property_image, 'proFile');
+        $property_image->logoFile = UploadedFile::getInstance($property_image, 'logoFile');
+
         $property_id = Yii::$app->request->post('property_id');
 
         //Check this prooerty owned by this user
@@ -97,10 +150,44 @@ class PropertyController extends Controller{
         $property->property_type_id = $basic_details->property_type_id;
         $property->property_category_id = $basic_details->property_category_id;
         $property->website = $basic_details->website;
-//        $property->owner_id = Yii::$app->user->getId();
-        $property->owner_id =2;
-        $property->image = 1;
-        $property->logo = 2;
+        $property->owner_id = Yii::$app->user->getId();
+//        $property->owner_id =2;
+
+        if ($property_image->proFile != null) {
+            $file_name =  uniqid('', true) . '.' . $property_image->proFile->extension;
+            if ($property_image->upload($property_image->proFile,$file_name)) {
+                //TODO: Will we allow to proceed if image upload fails
+                $property->image = $file_name;
+
+            } else {
+                echo "Image upload failed";
+            }
+        }
+        else {
+            if (empty($property->image)) {
+                echo "Profile image (Mandatory) upload failed";
+            }
+        }
+
+        if ($property_image->logoFile != null) {
+
+            $file_namelogo =  uniqid('', true) . '.' . $property_image->logoFile->extension;
+
+            if ($property_image->upload( $property_image->logoFile,$file_namelogo)) {
+                //TODO: Will we allow to proceed if image upload fails
+                $property->logo = $file_namelogo;
+
+            } else {
+                echo "Image upload failed";
+            }
+        }
+        else {
+            if (empty($property->logo)) {
+                echo "Profile image (Mandatory) upload failed";
+            }
+        }
+
+
 
         if ($property->save(false)) {
             Yii::$app->session->setFlash('success', "Property created successfully.");
@@ -121,7 +208,7 @@ class PropertyController extends Controller{
         if ($property_id != 0) {
             $property =Property::find()
                 ->where(['id' => $property_id])
-//                ->andWhere(['owner_id' => Yii::$app->user->getId()])
+                ->andWhere(['owner_id' => Yii::$app->user->getId()])
                 ->one();
         }
 
@@ -234,7 +321,7 @@ class PropertyController extends Controller{
         if ($property_id != 0) {
             $property =Property::find()
                 ->where(['id' => $property_id])
-//                ->andWhere(['owner_id' => Yii::$app->user->getId()])
+                ->andWhere(['owner_id' => Yii::$app->user->getId()])
                 ->one();
         }
 
@@ -330,7 +417,7 @@ class PropertyController extends Controller{
         if ($property_id != 0) {
             $property = Property::find()
                 ->where(['id' => $property_id])
-//                ->andWhere(['owner_id' => Yii::$app->user->identity->getOWnerId()])
+                ->andWhere(['owner_id' => Yii::$app->user->identity->getOWnerId()])
                 ->one();
         }
 
@@ -356,16 +443,70 @@ class PropertyController extends Controller{
             $show_terms_tab = 0;
         }
 
-        return $this->render('contact_details',['contact' => $contact, 'show_terms_tab' => $show_terms_tab]);;
+        return $this->render('contact_details',['contact' => $contact, 'show_terms_tab' => $show_terms_tab]);
      }
 
     public function actionSavecontactdetails() {
         $property_id = $_POST['PropertyContacts']['property_id'];
         $property = NULL;
         if ($property_id != 0) {
+            $property = Property::find()
+                ->where(['id' => $property_id])
+                ->andWhere(['owner_id' => Yii::$app->user->identity->getOWnerId()])
+                ->one();
+        }
+
+        if ($property == NULL){
+            //Property (id) doesn't exists
+            throw new NotFoundHttpException();
+        }
+
+        $contacts =PropertyContacts::find()
+            ->where(['property_id' => $property_id])
+            ->one();
+
+        if ($contacts == NULL){
+            $contacts = new PropertyContacts();
+        }
+
+        if (isset($_POST['PropertyContacts'])) {
+            $contacts->sales_name =	$_POST['PropertyContacts']['sales_name'];
+            $contacts->reservation_name	= $_POST['PropertyContacts']['reservation_name'];
+            $contacts->front_office_name= $_POST['PropertyContacts']['front_office_name'];
+            $contacts->accounts_office_name = $_POST['PropertyContacts']['accounts_office_name'];
+            $contacts->sales_phone = $_POST['PropertyContacts']['sales_phone'];
+            $contacts->reservation_phone = $_POST['PropertyContacts']['reservation_phone'];
+            $contacts->front_office_phone =	$_POST['PropertyContacts']['front_office_phone'];
+            $contacts->accounts_office_phone = $_POST['PropertyContacts']['accounts_office_phone'];
+            $contacts->sales_email = $_POST['PropertyContacts']['sales_email'];
+            $contacts->reservation_email = $_POST['PropertyContacts']['reservation_email'];
+            $contacts->front_office_email = $_POST['PropertyContacts']['front_office_email'];
+            $contacts->accounts_office_email= $_POST['PropertyContacts']['accounts_office_email'];
+            $contacts->property_id = $property_id;
+
+            if($contacts->validate()) {
+                $contacts->save();
+                $show_terms_tab =  Yii::$app->request->post('show_terms_tab');
+//                $redirect_url = 'property/';
+//                $redirect_url .= ($show_terms_tab == 1) ? "terms" : "home";
+//                return $this->redirect([$redirect_url, 'id' => $property_id]);
+                return $this->redirect(['property/termsandconditions', 'id' => $property->getPrimaryKey()]);
+
+            }
+            else {
+                return $this->render('contact_details',['contact' => $contacts]);
+            }
+        }
+    }
+
+    public function actionSavecontactdetails1() {
+        $property_id = $_POST['PropertyContacts']['property_id'];
+
+        $property = NULL;
+        if ($property_id != 0) {
             $property =Property::find()
                 ->where(['id' => $property_id])
-//                ->andWhere(['owner_id' => Yii::$app->user->identity->getOWnerId()])
+                ->andWhere(['owner_id' => Yii::$app->user->identity->getOWnerId()])
                 ->one();
         }
 
@@ -410,12 +551,12 @@ class PropertyController extends Controller{
     public function actionTermsandconditions(){
         $this->layout = 'tm_main';
         $property_id = Yii::$app->request->get('id');
-        //Check this prooerty owned by this user
+        //Check this property owned by this user
         $property = NULL;
         if ($property_id != 0) {
             $property = Property::find()
                 ->where(['id' => $property_id])
-//                ->andWhere(['owner_id' => Yii::$app->user->identity->getOWnerId()])
+                ->andWhere(['owner_id' => Yii::$app->user->identity->getOWnerId()])
                 ->one();
         }
 
@@ -454,7 +595,7 @@ class PropertyController extends Controller{
         if ($property_id != 0) {
             $property =Property::find()
                 ->where(['id' => $property_id])
-//                ->andWhere(['owner_id' => Yii::$app->user->identity->getOWnerId()])
+                ->andWhere(['owner_id' => Yii::$app->user->identity->getOWnerId()])
                 ->one();
         }
 
