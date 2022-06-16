@@ -76,12 +76,12 @@ table, th, td {
     
     <div class="row" >
         <div class="col-8" style="display: inline;margin-top: 12px;">
-            <span class="commonTitleMother">Enter Mother Date Range</span>
+            <span class="commonTitleMother">Enter date range under <?= Carbon::parse($mother_range->from_date)->format('d M Y'); ?> - <?= Carbon::parse($mother_range->from_date)->format('d M Y'); ?></span>
         </div>
-        <div class="col-4" style="float: right;margin-top: 12px;" > <span class="commonTitleMother2"> Defined nesting dates </span>  </div>        
+        <div class="col-4" style="float: right;margin-top: 12px;" > <span class="commonTitleMother2"> Already defined nested dates </span>  </div>        
     </div>
     
-    <?php $form = ActiveForm::begin(['id' => 'tariff_step1','enableClientValidation' => true,'method' => 'post','action' => ['tariff/savenesting']]) ?>
+    <?php $form = ActiveForm::begin(['id' => 'form_nesting','enableClientValidation' => true,'method' => 'post','action' => ['tariff/savenesting']]) ?>
     <?= $form->field($date_range, 'property_id')->hiddenInput()->label(false); ?>
     <?= $form->field($date_range, 'parent')->hiddenInput()->label(false); ?>
     
@@ -108,8 +108,7 @@ table, th, td {
             </div>
             <div class="row" style="margin-left: 4px;margin-bottom: 12px;margin-left: 28px">
                 <div style="display: block;margin-right: 35px;">
-                    <?= \yii\bootstrap4\Html::submitButton('Save & Proceed', ['class' => 'buttonSave savebuttonMother']); ?>
-                    <?= Html::a('Next', ['tariff/step3', 'id'=> $property->id, 'mother_id' => $date_range->id],  ['class'=>'buttonSave savebuttonMother']) ?>                    
+                    <?= \yii\bootstrap4\Html::submitButton('Save & Proceed', ['class' => 'buttonSave savebuttonMother']); ?>                    
                 </div>
             </div>
         </div>
