@@ -21,12 +21,12 @@ class PropertyImage extends Model
             [['logoFile'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, jpeg'],
         ];
     }
-    
-    public function upload($imageFile, $file_name)
-    {        
+
+    public function upload($imageFile,$file_name)
+    {
         if ($this->validate()) {
             //$this->imageFile->saveAs('uploads/' . $this->imageFile->baseName . '.' . $this->imageFile->extension);
-            $imageFile->saveAs('uploads/' . $file_name);
+            $imageFile->saveAs('uploads/' . $file_name, false);
             return true;
         } else {
             return false;
@@ -34,7 +34,7 @@ class PropertyImage extends Model
     }
 
     public function upload2($file_name)
-    {   
+    {
         if ($this->validate()) {
             //$this->imageFile->saveAs('uploads/' . $this->imageFile->baseName . '.' . $this->imageFile->extension);
             $this->logoFile->saveAs('uploads/' . $file_name);
@@ -44,11 +44,11 @@ class PropertyImage extends Model
         }
     }
 
-    public function attributeLabels()
-    {
-        return [
-            'imageFile' => 'Property picture',
-        ];
-    }
+//    public function attributeLabels()
+//    {
+//        return [
+//            'imageFile' => 'Property picture',
+//        ];
+//    }
 }
 ?>
