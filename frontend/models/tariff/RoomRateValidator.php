@@ -112,8 +112,8 @@ class RoomRateValidator {
     }
 
     public function validateMealTariff() {
-        if (count($this->date_range->roomTariffSupplimentMeals) == 0) {
-            array_push($this->error_messages, "Meal tariff: Not defined any meal tariff for date range");
+        if (count($this->date_range->supplimentMeals) == 0) {
+            array_push($this->error_messages, "Not defined any meal tariff for date range");
             return false;
         }
 
@@ -123,7 +123,7 @@ class RoomRateValidator {
     public function validateWeekdayHike() {
         if ($this->property->have_weekday_hike) {
             if (count($this->date_range->roomTariffWeekdaywises) == 0) {
-                array_push($this->error_messages,"Weekday Hike: Not defined any week day hike for date range");
+                array_push($this->error_messages,"Not defined any week day hike for date range");
                 return false;
             }
         }
@@ -135,7 +135,7 @@ class RoomRateValidator {
         //echo $this->property->provide_compulsory_inclusions;
         if ($this->property->provide_compulsory_inclusions) {
             if (count($this->date_range->roomTariffMandatoryDinners) == 0) {                            
-                array_push($this->error_messages, "Mandatory dinner: Not defined any mandatory dinner for date range");
+                array_push($this->error_messages, "Not defined any mandatory dinner for date range");
                 return false;
             }
         }

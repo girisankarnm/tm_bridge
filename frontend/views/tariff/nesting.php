@@ -76,7 +76,7 @@ table, th, td {
     
     <div class="row" >
         <div class="col-8" style="display: inline;margin-top: 12px;">
-            <span class="commonTitleMother">Enter date range under <?= Carbon::parse($mother_range->from_date)->format('d M Y'); ?> - <?= Carbon::parse($mother_range->from_date)->format('d M Y'); ?></span>
+            <span class="commonTitleMother">Enter date range under <?= Carbon::parse($mother_range->from_date)->format('d M Y'); ?> - <?= Carbon::parse($mother_range->to_date)->format('d M Y'); ?></span>
         </div>
         <div class="col-4" style="float: right;margin-top: 12px;" > <span class="commonTitleMother2"> Already defined nested dates </span>  </div>        
     </div>
