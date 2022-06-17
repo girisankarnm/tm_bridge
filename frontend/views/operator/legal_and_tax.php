@@ -38,7 +38,9 @@ use yii\bootstrap4\ActiveForm;
                 <div style="display: block;margin-right: 35px">
                     <label class="Labelclass" style="display: block" ></label>
                     <button class="inputTextClass" style="display:block;width:110px;" onclick="document.getElementById('getFile').click()"><i class="fa fa-upload"></i> <b>Upload File</b></button>
-                    <input type='file' id="getFile" style="display:none">
+                    <?= $form->field($legal_docs_images, 'pan_image')->fileInput(['class' => 'btn btn-sm img uploadFile', 'accept' => "image/*", 'id'=>"getFile"])->label(false); ?>
+
+<!--                    <input type='file' id="getFile" style="display:none">-->
                 </div>
 
             </div>
@@ -49,8 +51,9 @@ use yii\bootstrap4\ActiveForm;
                 </div>
                 <div style="display: block;margin-right: 35px">
                     <label class="Labelclass" style="display: block" ></label>
-                    <button class="inputTextClass" style="display:block;width:110px;" onclick="document.getElementById('getFile').click()"><i class="fa fa-upload"></i> <b>Upload File</b></button>
-                    <input type='file' id="getFile" style="display:none">
+                    <button class="inputTextClass" style="display:block;width:110px;" onclick="document.getElementById('getFileGst').click()"><i class="fa fa-upload"></i> <b>Upload File</b></button>
+<!--                    <input type='file' id="getFile" style="display:none">-->
+                    <?= $form->field($legal_docs_images, 'gst_image')->fileInput(['class' => 'btn btn-sm img uploadFile', 'accept' => "image/*", 'id'=>"getFileGst"])->label(false); ?>
                 </div>
 
             </div>

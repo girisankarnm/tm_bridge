@@ -18,7 +18,8 @@ class m220401_050135_create_operator_table extends Migration
             'name' => $this->string(80)->defaultValue(null),
             'logo_image' => $this->string(80)->defaultValue(null),
             'website' => $this->string(256)->defaultValue(null),
-            'v_card_image' => $this->string(80)->defaultValue(null),
+            'v_card_image_front' => $this->string(80)->defaultValue(null),
+            'v_card_image_back' => $this->string(80)->defaultValue(null),
             'country_id' => $this->integer(11)->defaultValue(null),
             'location_id' => $this->integer(11)->defaultValue(null),
             'destination_id' => $this->integer(11)->defaultValue(null),
@@ -42,7 +43,7 @@ class m220401_050135_create_operator_table extends Migration
 
         $this->addForeignKey('fk_operator_user','operator','user_id','user','id','CASCADE','CASCADE');
         $this->addForeignKey('fk_operator_owner_user','operator','owner_id','user','id','CASCADE','CASCADE');
-        
+
         $this->addForeignKey('fk_operator_country','operator','country_id','country','id','CASCADE','CASCADE');
         $this->addForeignKey('fk_operator_location','operator','location_id','location','id','CASCADE','CASCADE');
         $this->addForeignKey('fk_operator_destination','operator','destination_id','destination','id','CASCADE','CASCADE');
@@ -54,8 +55,8 @@ class m220401_050135_create_operator_table extends Migration
     public function safeDown()
     {
         $this->dropForeignKey('fk_operator_user','operator');
-        $this->dropForeignKey('fk_operator_owner_user','operator');        
-        
+        $this->dropForeignKey('fk_operator_owner_user','operator');
+
         $this->dropForeignKey('fk_operator_country','property');
         $this->dropForeignKey('fk_operator_location','property');
         $this->dropForeignKey('fk_operator_destination','property');

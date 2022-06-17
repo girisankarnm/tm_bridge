@@ -13,7 +13,8 @@ class BasicDetails extends Model{
     public $name;
     public $website;
     public $logo_image;
-    public $v_card_image;
+    public $v_card_image_front;
+    public $v_card_image_back;
 
 
     /**

@@ -81,8 +81,12 @@ use yii\bootstrap4\ActiveForm;
 </div>
 <style>
     .imagePreview {
+        max-width:100%;
+        max-height:100%;
         width: 200px;
-        height: 200px;
+        height: auto;
+        /*width: 200px;*/
+        /*height: 200px;*/
         background-position: center center;
         background-size: cover;
         /*-webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);*/
@@ -91,8 +95,12 @@ use yii\bootstrap4\ActiveForm;
         /*border: 2px gray dashed;*/
     }
     .imagePreviewLogo {
+        max-width:100%;
+        max-height:100%;
         width: 240px;
-        height: 200px;
+        height: auto;
+        /*width: 240px;*/
+        /*height: 200px;*/
         background-position: center center;
         background-size: cover;
         /*-webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);*/
@@ -127,7 +135,8 @@ use yii\bootstrap4\ActiveForm;
                 reader.onloadend = function(){ // set image data as background of div
 
                     $('#imagePreview').removeClass('default-preview');
-                    $("#imagePreview").css("background-image", "url("+this.result+")");
+                    $("#imagePreview").attr("src", reader.result);
+                    // $("#imagePreview").css("background-image", "url("+this.result+")");
                 }
             }
         });
@@ -152,7 +161,8 @@ use yii\bootstrap4\ActiveForm;
 
                 reader.onloadend = function(){ // set image data as background of div
                     $('#imagePreview-logo').removeClass('default-preview');
-                    $("#imagePreview-logo").css("background-image", "url("+this.result+")");
+                    // $("#imagePreview-logo").css("background-image", "url("+this.result+")");
+                    $("#imagePreview-logo").attr("src", reader.result);
                 }
             }
         });
