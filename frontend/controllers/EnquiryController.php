@@ -88,7 +88,7 @@ class EnquiryController extends Controller{
         ]);
     }
 
-    public function actionSavebasicdetails(){        
+    public function actionSavebasicdetails(){
         $basic_details = new  BasicDetails();
         if ( $basic_details->load(Yii::$app->request->post()))  {
             
@@ -183,9 +183,9 @@ class EnquiryController extends Controller{
         ]);
     }
 
-    public function actionSaveguestcount(){        
 
-        //var_dump($_POST);
+
+    public function actionSaveguestcount(){        
         //TODO: Check this proerty owned by this user
         $enquiry_id = Yii::$app->request->post('enquiry_id');
         $enquiry = NULL;
