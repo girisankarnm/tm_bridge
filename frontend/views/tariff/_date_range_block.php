@@ -2,9 +2,31 @@
 use Carbon\Carbon;
 use frontend\models\tariff\RoomRateValidator;
 ?>
-<?php
+<?php    
+    $bValidated = true;
     $rc = new RoomRateValidator($range);
-    $bValidated = $rc->validateRoomTariff();
+    switch ($tariff) {
+        case 0:
+            $bValidated = $rc->validateRoomTariff();
+        break;
+
+        case 1:
+            $bValidated = $rc->validateRoomTariff();
+        break;
+
+        case 2:
+            $bValidated = $rc->validateMealTariff();
+        break;
+
+        case 3:
+            $bValidated = $rc->validateWeekdayHike();
+        break;
+
+        case 4:
+            $bValidated = $rc->validateMandatoryDinner();
+        break;
+    }
+    
 ?>
 <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample1">
     <div class="card matherdaterangecard" >
