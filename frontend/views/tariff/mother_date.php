@@ -102,7 +102,7 @@ table, th, td {
             <div class="row" style="margin-left: 4px;margin-bottom: 12px;margin-left: 28px">
                 <div style="display: block;margin-right: 35px;">
                     <?= \yii\bootstrap4\Html::submitButton('Save & Proceed', ['class' => 'buttonSave savebuttonMother']); ?>
-                    <?= Html::a('Next', ['tariff/step3', 'id'=> $property->id, 'mother_id' => $date_range->id],  ['class'=>'buttonSave savebuttonMother']) ?>                    
+                    <?= Html::a('Next', ['tariff/addroomrate', 'id'=> $property->id, 'mother_id' => $date_range->id],  ['class'=>'buttonSave savebuttonMother']) ?>                    
                 </div>
             </div>
         </div>
