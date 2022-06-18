@@ -126,8 +126,8 @@ class PropertyController extends Controller{
         }
 
         $property_image = new PropertyImage();
-        $property_image->pan_image = UploadedFile::getInstance($property_image, 'proFile');
-        $property_image->gst_image = UploadedFile::getInstance($property_image, 'logoFile');
+        $property_image->proFile = UploadedFile::getInstance($property_image, 'proFile');
+        $property_image->logoFile = UploadedFile::getInstance($property_image, 'logoFile');
 
         $property_id = Yii::$app->request->post('property_id');
 
