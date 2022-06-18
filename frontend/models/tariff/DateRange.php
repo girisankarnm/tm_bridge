@@ -112,7 +112,7 @@ class DateRange extends Model{
         return $bValid;
     }
 
-    public function isValidChildDateRange() {
+    public function isValidChildDateRange($tariff_type = 1) {
         $this->errorMessage = "";
         $bValid = true;
 
@@ -144,6 +144,7 @@ class DateRange extends Model{
         $child_ranges = TariffDateRange::find()
         ->where(['property_id' => $this->property_id])
         ->andWhere(['parent' => $this->parent])
+        ->andWhere(['tariff_type' => $tariff_type])
         ->all();
 
         foreach ($child_ranges as $child_range) 
