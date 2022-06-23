@@ -1,9 +1,9 @@
 <?php
 
-namespace frontend\models;
-use frontend\models\Property;
-use frontend\models\Room;
-use frontend\models\Enquiry;
+namespace frontend\models\tariff;
+use frontend\models\property\Property;
+use frontend\models\property\Room;
+use frontend\models\enquiry\Enquiry;
 
 use Yii;
 
@@ -111,17 +111,17 @@ class Rooming
         }
 
         //Room rate
-        //echo "<br/>Room Rate: <br/>";
+        echo "<br/>Room Rate: <br/>";
         if($this->property->room_tariff_same_for_all) {
             $nationality_id = 0;
         }
 
         $rows = (new \yii\db\Query())
-        ->select(['room_tariff_datewise.id', 'DATEDIFF(room_tariff_date_range.to_date, room_tariff_date_range.from_date) AS date_difference' ])
-        ->from('room_tariff_date_range')
+        ->select(['room_tariff_datewise.id', 'DATEDIFF(tariff_date_range.to_date, tariff_date_range.from_date) AS date_difference' ])
+        ->from('tariff_date_range')
         ->where(['<=', 'from_date', $accomodation_date])
         ->andWhere(['>=', 'to_date', $accomodation_date])
-        ->leftJoin('room_tariff_datewise', 'room_tariff_datewise.id = room_tariff_date_range.tariff_id' )
+        ->leftJoin('room_tariff_datewise', 'room_tariff_datewise.date_range_id = tariff_date_range.id' )
         ->andWhere(['=', 'nationality_id', $nationality_id])
         ->andWhere(['=', 'room_id', $room_id])
         ->orderBy('date_difference ASC')
@@ -141,17 +141,16 @@ class Rooming
             }
         }
 
-
         //echo "<br/>Weekday hike<br/>";
 
         //Weekday hike
         $rows = (new \yii\db\Query())
-        ->select(['room_tariff_weekdaywise.id', 'DATEDIFF(room_tariff_date_range_weekdaywise.to_date, room_tariff_date_range_weekdaywise.from_date) AS date_difference' ])
-        ->from('room_tariff_date_range_weekdaywise')
-        ->where(['<=', 'room_tariff_date_range_weekdaywise.from_date', $accomodation_date])
-        ->andWhere(['>=', 'room_tariff_date_range_weekdaywise.to_date', $accomodation_date])
-        ->leftJoin('room_tariff_weekdaywise', 'room_tariff_date_range_weekdaywise.tariff_id  = room_tariff_weekdaywise.id')
-        ->andWhere(['=', 'room_tariff_weekdaywise.room_id', $room_id])
+        ->select(['room_tariff_weekdaywise.id', 'DATEDIFF(tariff_date_range.to_date, tariff_date_range.from_date) AS date_difference' ])
+        ->from('tariff_date_range')
+        ->where(['<=', 'tariff_date_range.from_date', $accomodation_date])
+        ->andWhere(['>=', 'tariff_date_range.to_date', $accomodation_date])
+        ->leftJoin('room_tariff_weekdayhike', 'tariff_date_range.id  = room_tariff_weekdayhike.date_range_id')
+        ->andWhere(['=', 'room_tariff_weekdayhike.room_id', $room_id])
         ->orderBy('date_difference ASC')
         ->one();
 
@@ -173,11 +172,11 @@ class Rooming
 
         //Suppliment meals
         $rows = (new \yii\db\Query())
-        ->select(['room_tariff_suppliment_meal.id', 'DATEDIFF(room_tariff_date_range_suppliment_meal.to_date, room_tariff_date_range_suppliment_meal.from_date) AS date_difference' ])
-        ->from('room_tariff_date_range_suppliment_meal')
-        ->where(['<=', 'room_tariff_date_range_suppliment_meal.from_date', $accomodation_date])
-        ->andWhere(['>=', 'room_tariff_date_range_suppliment_meal.to_date', $accomodation_date])
-        ->leftJoin('room_tariff_suppliment_meal', 'room_tariff_date_range_suppliment_meal.tariff_id  = room_tariff_suppliment_meal.id')
+        ->select(['room_tariff_suppliment_meal.id', 'DATEDIFF(tariff_date_range.to_date, tariff_date_range.from_date) AS date_difference' ])
+        ->from('tariff_date_range')
+        ->where(['<=', 'tariff_date_range.from_date', $accomodation_date])
+        ->andWhere(['>=', 'tariff_date_range.to_date', $accomodation_date])
+        ->leftJoin('room_tariff_suppliment_meal', 'tariff_date_range.id  = suppliment_meal.date_range_id')
         ->andWhere(['=', 'room_tariff_suppliment_meal.property_id', $property_id])
         ->orderBy('date_difference ASC')
         ->one();

@@ -6,10 +6,10 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\helpers\ArrayHelper;
 use Yii;
-use frontend\models\Property;
-use frontend\models\Room;
-use frontend\models\Rooming;
-use frontend\models\Enquiry;
+use frontend\models\property\Property;
+use frontend\models\property\Room;
+use frontend\models\tariff\Rooming;
+use frontend\models\enquiry\Enquiry;
 
 class RoomingController extends Controller
 {
@@ -61,9 +61,9 @@ class RoomingController extends Controller
 
         $accomodation_date = '2022-05-01';
         $nationality_id  = 1;
-        $room_id = 3;
-        $property_id = 2;
-        $enquiry_id = 2;
+        $room_id = 1;
+        $property_id = 1;
+        $enquiry_id = 1;
 
         $enquiry_adults = 3;
         $enquiry_child = 2;
@@ -80,6 +80,9 @@ class RoomingController extends Controller
         //$rooming->SetAdultChildInfant($enquiry_adults, $enquiry_child, $enquiry_infant);
         $rooming->SetRoomBedRequirement($enquiry_no_rooms, $enquiry_eba, $enquiry_cwb, $enquiry_cnb, $enquiry_single);
         $rooming->initialize($accomodation_date, $nationality_id, $room_id, $property_id, $enquiry_id);
+
+        echo "End";
+        exit;
 
         echo '<style>table, th, td {  border: 1px solid black;  border-collapse: collapse;} </style>';
         echo "<table>";
