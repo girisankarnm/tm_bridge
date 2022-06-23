@@ -59,7 +59,7 @@ class RoomingController extends Controller
 
     public function actionJinsan(){
 
-        $accomodation_date = '2022-05-01';
+        $accomodation_date = '2022-06-25';
         $nationality_id  = 1;
         $room_id = 1;
         $property_id = 1;

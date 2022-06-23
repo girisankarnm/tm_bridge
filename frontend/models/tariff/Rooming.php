@@ -110,8 +110,7 @@ class Rooming
             return false;
         }
 
-        //Room rate
-        echo "<br/>Room Rate: <br/>";
+        //Room rate        
         if($this->property->room_tariff_same_for_all) {
             $nationality_id = 0;
         }
@@ -140,12 +139,11 @@ class Rooming
                 }
             }
         }
-
-        //echo "<br/>Weekday hike<br/>";
+        
 
         //Weekday hike
         $rows = (new \yii\db\Query())
-        ->select(['room_tariff_weekdaywise.id', 'DATEDIFF(tariff_date_range.to_date, tariff_date_range.from_date) AS date_difference' ])
+        ->select(['room_tariff_weekdayhike.id', 'DATEDIFF(tariff_date_range.to_date, tariff_date_range.from_date) AS date_difference' ])
         ->from('tariff_date_range')
         ->where(['<=', 'tariff_date_range.from_date', $accomodation_date])
         ->andWhere(['>=', 'tariff_date_range.to_date', $accomodation_date])
@@ -156,62 +154,63 @@ class Rooming
 
         if($rows != false) {
             $tariff_id = $rows["id"];
-            $weekday_hike = RoomTariffWeekdaywise::findOne(['id' => $tariff_id]);
+            $weekday_hike = RoomTariffWeekdayhike::findOne(['id' => $tariff_id]);
             if($weekday_hike != null) {
                 $day_of_the_week = date('w', strtotime($accomodation_date));
-                foreach ($weekday_hike->roomTariffWeekdaywiseDays as $tariff_days) {
+                foreach ($weekday_hike->roomTariffWeekdayhikeDays as $tariff_days) {
                     if ($day_of_the_week == $tariff_days->day){
-                        $this->weekday_hike_slab = $weekday_hike->getRoomTariffSlabWeekdaywises()
+                        $this->weekday_hike_slab = $weekday_hike->getRoomTariffSlabWeekdayhikes()
                         ->one();
                     }
                 }
             }
         }
-
+        
         //echo "<br/>Suppliment meals<br/>";
 
         //Suppliment meals
         $rows = (new \yii\db\Query())
-        ->select(['room_tariff_suppliment_meal.id', 'DATEDIFF(tariff_date_range.to_date, tariff_date_range.from_date) AS date_difference' ])
+        ->select(['suppliment_meal.id', 'DATEDIFF(tariff_date_range.to_date, tariff_date_range.from_date) AS date_difference' ])
         ->from('tariff_date_range')
         ->where(['<=', 'tariff_date_range.from_date', $accomodation_date])
         ->andWhere(['>=', 'tariff_date_range.to_date', $accomodation_date])
-        ->leftJoin('room_tariff_suppliment_meal', 'tariff_date_range.id  = suppliment_meal.date_range_id')
-        ->andWhere(['=', 'room_tariff_suppliment_meal.property_id', $property_id])
+        ->leftJoin('suppliment_meal', 'tariff_date_range.id  = suppliment_meal.date_range_id')
+        ->andWhere(['=', 'suppliment_meal.property_id', $property_id])
         ->orderBy('date_difference ASC')
         ->one();
 
         if($rows != false) {
             $tariff_id = $rows["id"];
-            $suppliment_meal = RoomTariffSupplimentMeal::findOne(['id' => $tariff_id]);
+            $suppliment_meal = SupplimentMeal::findOne(['id' => $tariff_id]);
             if($suppliment_meal != null) {
-                $this->supplimentary_slab = $suppliment_meal->getRoomTariffSlabSupplimentMeals();
-                //var_dump($suppliment_meal->roomTariffSlabSupplimentMeals);
+                $this->supplimentary_slab = $suppliment_meal->getSupplimentMealSlabs();                
             }
         }
-
-       // echo "<br/>Mandatory Dinner<br/>";
+        
+       // echo "<br/>Mandatory Dinner<br/>";       
 
         $rows = (new \yii\db\Query())
-        ->select(['room_tariff_mandatory_dinner.id', 'DATEDIFF(room_tariff_mandatory_dinner.to_date, room_tariff_mandatory_dinner.from_date) AS date_difference' ])
-        ->from('room_tariff_mandatory_dinner')
-        ->where(['<=', 'room_tariff_mandatory_dinner.from_date', $accomodation_date])
-        ->andWhere(['>=', 'room_tariff_mandatory_dinner.to_date', $accomodation_date])
-        ->andWhere(['=', 'room_tariff_mandatory_dinner.property_id', $property_id])
+        ->select(['mandatory_dinner.id', 'DATEDIFF(tariff_date_range.to_date, tariff_date_range.from_date) AS date_difference' ])
+        ->from('tariff_date_range')
+        ->where(['<=', 'tariff_date_range.from_date', $accomodation_date])
+        ->andWhere(['>=', 'tariff_date_range.to_date', $accomodation_date])
+        ->leftJoin('mandatory_dinner', 'tariff_date_range.id  = mandatory_dinner.date_range_id')
+        ->andWhere(['=', 'mandatory_dinner.property_id', $property_id])
         ->orderBy('date_difference ASC')
         ->one();
 
         if($rows != false) {
             $tariff_id = $rows["id"];
-            $mandatory_dinner_tariff = RoomTariffMandatoryDinner::findOne(['id' => $tariff_id]);
+            $mandatory_dinner_tariff = MandatoryDinner::findOne(['id' => $tariff_id]);
             if($mandatory_dinner_tariff != null) {
                 $this->mandatory_slab = $mandatory_dinner_tariff;
                 //var_dump($mandatory_dinner_tariff);
             }
         }
 
+
         //Apply room child policy to enquiry children
-        $enquiry_accomodation = $this->enquiry->getEnquiryAccommodations()->where(['=',  'day', $accomodation_date])->one();
+        $enquiry_accomodation = $this->enquiry->getEnquiryAccommodations()->where(['=',  'day', $accomodation_date])->one();        
         //$enquiry_accomodation = EnquiryAccommodation::find()->where(['day' => $accomodation_date])->one();
         if ($enquiry_accomodation == NULL)
             return;
