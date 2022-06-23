@@ -577,7 +577,7 @@ class TariffController extends Controller {
         $room_ids = ArrayHelper::getColumn(Room::find()->select('id')->where(['property_id' => $date_range->property_id])->all(), 'id');
 
         foreach ($room_ids as $room_id){
-            RoomTariffWeekdayhike::deleteAll(['room_id' => $room_id, 'range_id' => $_POST["TariffDateRange"]["id"]]);
+            RoomTariffWeekdayhike::deleteAll(['room_id' => $room_id, 'date_range_id' => $_POST["TariffDateRange"]["id"]]);
         }
 
         if($room_checked != NULL) {
@@ -586,7 +586,7 @@ class TariffController extends Controller {
                 $tariff = new RoomTariffWeekdayhike();  
                 $tariff->property_id = $date_range->property_id;
                 $tariff->room_id = $room_id;
-                $tariff->range_id = $_POST["TariffDateRange"]["id"];
+                $tariff->date_range_id = $_POST["TariffDateRange"]["id"];
                 $tariff->save();
 
                 $week_days = Yii::$app->request->post('week_days_'.$room_id);

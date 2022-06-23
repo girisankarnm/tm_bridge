@@ -11,11 +11,11 @@ use Yii;
  * @property int $id
  * @property int|null $property_id
  * @property int|null $room_id
- * @property int|null $range_id
+ * @property int|null $date_range_id
  * @property int $status
  *
+ * @property TariffDateRange $dateRange
  * @property Property $property
- * @property TariffDateRange $range
  * @property Room $room
  * @property RoomTariffSlabWeekdayhike[] $roomTariffSlabWeekdayhikes
  * @property RoomTariffWeekdayhikeDays[] $roomTariffWeekdayhikeDays
@@ -36,8 +36,8 @@ class RoomTariffWeekdayhike extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['property_id', 'room_id', 'range_id', 'status'], 'integer'],
-            [['range_id'], 'exist', 'skipOnError' => true, 'targetClass' => TariffDateRange::className(), 'targetAttribute' => ['range_id' => 'id']],
+            [['property_id', 'room_id', 'date_range_id', 'status'], 'integer'],
+            [['date_range_id'], 'exist', 'skipOnError' => true, 'targetClass' => TariffDateRange::className(), 'targetAttribute' => ['date_range_id' => 'id']],
             [['property_id'], 'exist', 'skipOnError' => true, 'targetClass' => Property::className(), 'targetAttribute' => ['property_id' => 'id']],
             [['room_id'], 'exist', 'skipOnError' => true, 'targetClass' => Room::className(), 'targetAttribute' => ['room_id' => 'id']],
         ];
@@ -52,9 +52,19 @@ class RoomTariffWeekdayhike extends \yii\db\ActiveRecord
             'id' => 'ID',
             'property_id' => 'Property ID',
             'room_id' => 'Room ID',
-            'range_id' => 'Range ID',
+            'date_range_id' => 'Date Range ID',
             'status' => 'Status',
         ];
+    }
+
+    /**
+     * Gets query for [[DateRange]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getDateRange()
+    {
+        return $this->hasOne(TariffDateRange::className(), ['id' => 'date_range_id']);
     }
 
     /**
@@ -65,16 +75,6 @@ class RoomTariffWeekdayhike extends \yii\db\ActiveRecord
     public function getProperty()
     {
         return $this->hasOne(Property::className(), ['id' => 'property_id']);
-    }
-
-    /**
-     * Gets query for [[Range]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getRange()
-    {
-        return $this->hasOne(TariffDateRange::className(), ['id' => 'range_id']);
     }
 
     /**
