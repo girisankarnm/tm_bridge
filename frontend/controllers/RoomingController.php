@@ -80,10 +80,7 @@ class RoomingController extends Controller
         //$rooming->SetAdultChildInfant($enquiry_adults, $enquiry_child, $enquiry_infant);
         $rooming->SetRoomBedRequirement($enquiry_no_rooms, $enquiry_eba, $enquiry_cwb, $enquiry_cnb, $enquiry_single);
         $rooming->initialize($accomodation_date, $nationality_id, $room_id, $property_id, $enquiry_id);
-
-        echo "End";
-        exit;
-
+        
         echo '<style>table, th, td {  border: 1px solid black;  border-collapse: collapse;} </style>';
         echo "<table>";
         echo "<tr><td>4A</td><td>".$rooming->_4A()."</td></tr>";
