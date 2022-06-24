@@ -472,6 +472,22 @@ select:focus
     outline-width: thin;
     outline-color: #586ada;
 }
+.inputTextClassaccomadation
+{
+    background-color: #e5e3e3 !important;
+    box-sizing: border-box;
+    color: #787486!important;
+    width: 94px !important;
+    height: 34px !important;
+    font-size: 13px !important;
+    border: 0.1px solid #c3c3c3!important;
+    border-radius: 8px !important;
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+}
+
+
 
 input:focus
 {
