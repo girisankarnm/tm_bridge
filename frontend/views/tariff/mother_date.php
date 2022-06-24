@@ -102,34 +102,197 @@ table, th, td {
             <div class="row" style="margin-left: 4px;margin-bottom: 12px;margin-left: 28px">
                 <div style="display: block;margin-right: 35px;">
                     <?= \yii\bootstrap4\Html::submitButton('Save & Proceed', ['class' => 'buttonSave savebuttonMother']); ?>
-                    <?= Html::a('Next', ['tariff/step3', 'id'=> $property->id, 'mother_id' => $date_range->id],  ['class'=>'buttonSave savebuttonMother']) ?>                    
+
+                    <?= Html::a('Next', ['tariff/step3', 'id'=> $property->id, 'mother_id' => $date_range->id],  ['class'=>'buttonSave savebuttonMother nextbtn']); ?>
                 </div>
             </div>
         </div>
 
-        <div class="col-4" >
-            <div class="row" style="height: 350px;  overflow-y: scroll;scrollbar-width: 20px;">
+        <div class="col-4 motherdateScroll"  >
+            <div class="row" style="height: 180px; ">
                 <?php 
                 $i = 1;
                 foreach ($mother_ranges as $range) { ?>
-                <div class="flex-container flex-container2" style="justify-content: right">
-                    <div><i style="background-color: white;color: red;font-size: 28px;margin-right: 5px" class="fa fa-check-circle w3-large" aria-hidden="true"></i></div>
-                    <div style=" flex-direction: column-reverse;">
-                        <div><h6 style="padding-top: 7px;margin-right: 8px">From Date</h6></div>
-                        <div><h6 style="padding-top: 0px;margin-right: 8px;    font-size: 10px; line-height: 0;"><?= Carbon::parse($range->from_date)->format('d M Y');  ?>   </h6></div>
 
-                    </div>
-                    <div style=" flex-direction: column-reverse;">
-                        <div><h6 style="padding-top: 7px;margin-right: 8px"><hr class="new1"> </h6></div>
+                <div class="row margin30">
+                    <div id="main"  >
+                        <div class="margintopcls" style="background-color: #ffffff;text-align: center">
+                            <svg style="margin-left: 3px" width="37" height="36" viewBox="0 0 43 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="21.5893" cy="21.0307" r="17.2748" transform="rotate(-172.902 21.5893 21.0307)" stroke="#009721" stroke-width="3"/>
+                                <path d="M14.875 21.5339L19.6822 26.3413L30.3058 15.7178" stroke="#009721" stroke-width="3" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div class="margintopcls" >
+                            <span class="dateform">From Date</span>
+                            <!--                    <div style=" flex-wrap: wrap">-->
+                            <div ><h6 class="motherdaterange-H6 h7class" > <?= Carbon::parse($range->from_date)->format('d M Y'); ?> </h6></div>
+                            <div> </div>
+                            <div style=""><h6 class="motherdaterange-H6 h7class" >22/05/2022 </h6></div>
+                        </div>
+                        <div style="margin-top: 4px"><h6 class="h6class"><hr class="new1 hrtopmargin"> </h6>
+                        </div>
+                        <div class="margintopcls" >  <span class="dateform">From Date</span>
+                            <div style="width: 90px;"><h6 class="motherdaterange-H6 h7class" > <?= Carbon::parse($range->to_date)->format('d M Y'); ?> </h6></div>
+                            <div style="width: 150px"><h6 class="motherdaterange-H6 h7class" ><img s src="images/user-icon.svg" style="color: #545b62;margin-right: 4px" aria-hidden="true"></img>jhone
 
-                    </div>
+                                    <svg style="margin-right: 4px;" width="12" height="8" viewBox="0 0 43 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="21.5893" cy="21.0307" r="17.2748" transform="rotate(-172.902 21.5893 21.0307)" stroke="#009721" stroke-width="3"/>
+                                        <path d="M14.875 21.5339L19.6822 26.3413L30.3058 15.7178" stroke="#009721" stroke-width="3" stroke-linecap="round"/>
+                                    </svg><span style="color: red">active</span>
+                                </h6>
+                            </div>
+                        </div>
 
-                    <div style=" flex-direction: column-reverse;">
-                        <div><h6 style="padding-top: 7px;margin-right: 8px"> To Date </h6></div>
-                        <div><h6 style="padding-top: 0px;margin-right: 8px;    font-size: 10px; line-height: 0;"> <?= Carbon::parse($range->to_date)->format('d M Y'); ?> </h6></div>
+                        <div style="flex-basis: 100%"> <hr class="new2" ></div>
+
+
                     </div>
                 </div>
-                <hr class="new2" >
+
+                <div class="row margin30">
+                    <div id="main"  >
+                        <div class="margintopcls" style="background-color: #ffffff;text-align: center">
+                            <svg style="margin-left: 3px" width="37" height="36" viewBox="0 0 43 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="21.5893" cy="21.0307" r="17.2748" transform="rotate(-172.902 21.5893 21.0307)" stroke="#009721" stroke-width="3"/>
+                                <path d="M14.875 21.5339L19.6822 26.3413L30.3058 15.7178" stroke="#009721" stroke-width="3" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div class="margintopcls" >
+                            <span class="dateform">From Date</span>
+                            <!--                    <div style=" flex-wrap: wrap">-->
+                            <div ><h6 class="motherdaterange-H6 h7class" > <?= Carbon::parse($range->from_date)->format('d M Y'); ?> </h6></div>
+                            <div> </div>
+                            <div style=""><h6 class="motherdaterange-H6 h7class" >22/05/2022 </h6></div>
+                        </div>
+                        <div style="margin-top: 4px"><h6 class="h6class"><hr class="new1 hrtopmargin"> </h6>
+                        </div>
+                        <div class="margintopcls" >  <span class="dateform">From Date</span>
+                            <div style="width: 90px;"><h6 class="motherdaterange-H6 h7class" > <?= Carbon::parse($range->to_date)->format('d M Y'); ?> </h6></div>
+                            <div style="width: 150px"><h6 class="motherdaterange-H6 h7class" ><i class="fa fa-user" style="color: #545b62;margin-right: 4px" aria-hidden="true"></i>jhone
+
+                                    <svg style="margin-right: 4px;" width="12" height="8" viewBox="0 0 43 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="21.5893" cy="21.0307" r="17.2748" transform="rotate(-172.902 21.5893 21.0307)" stroke="#009721" stroke-width="3"/>
+                                        <path d="M14.875 21.5339L19.6822 26.3413L30.3058 15.7178" stroke="#009721" stroke-width="3" stroke-linecap="round"/>
+                                    </svg><span style="color: red">active</span>
+                                </h6>
+                            </div>
+                        </div>
+
+                        <div style="flex-basis: 100%"> <hr class="new2" ></div>
+
+
+                    </div>
+                </div>
+
+                <div class="row margin30">
+                    <div id="main"  >
+                        <div class="margintopcls" style="background-color: #ffffff;text-align: center">
+                            <svg style="margin-left: 3px" width="37" height="36" viewBox="0 0 43 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="21.5893" cy="21.0307" r="17.2748" transform="rotate(-172.902 21.5893 21.0307)" stroke="#009721" stroke-width="3"/>
+                                <path d="M14.875 21.5339L19.6822 26.3413L30.3058 15.7178" stroke="#009721" stroke-width="3" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div class="margintopcls" >
+                            <span class="dateform">From Date</span>
+                            <!--                    <div style=" flex-wrap: wrap">-->
+                            <div ><h6 class="motherdaterange-H6 h7class" > <?= Carbon::parse($range->from_date)->format('d M Y'); ?> </h6></div>
+                            <div> </div>
+                            <div style=""><h6 class="motherdaterange-H6 h7class" >22/05/2022 </h6></div>
+                        </div>
+                        <div style="margin-top: 4px"><h6 class="h6class"><hr class="new1 hrtopmargin"> </h6>
+                        </div>
+                        <div class="margintopcls" >  <span class="dateform">From Date</span>
+                            <div style="width: 90px;"><h6 class="motherdaterange-H6 h7class" > <?= Carbon::parse($range->to_date)->format('d M Y'); ?> </h6></div>
+                            <div style="width: 150px"><h6 class="motherdaterange-H6 h7class" ><i class="fa fa-user" style="color: #545b62;margin-right: 4px" aria-hidden="true"></i>jhone
+
+                                    <svg style="margin-right: 4px;" width="12" height="8" viewBox="0 0 43 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="21.5893" cy="21.0307" r="17.2748" transform="rotate(-172.902 21.5893 21.0307)" stroke="#009721" stroke-width="3"/>
+                                        <path d="M14.875 21.5339L19.6822 26.3413L30.3058 15.7178" stroke="#009721" stroke-width="3" stroke-linecap="round"/>
+                                    </svg><span style="color: red">active</span>
+                                </h6>
+                            </div>
+                        </div>
+
+                        <div style="flex-basis: 100%"> <hr class="new2" ></div>
+
+
+                    </div>
+                </div>
+
+                <div class="row margin30">
+                    <div id="main"  >
+                        <div class="margintopcls" style="background-color: #ffffff;text-align: center">
+                            <svg style="margin-left: 3px" width="37" height="36" viewBox="0 0 43 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="21.5893" cy="21.0307" r="17.2748" transform="rotate(-172.902 21.5893 21.0307)" stroke="#009721" stroke-width="3"/>
+                                <path d="M14.875 21.5339L19.6822 26.3413L30.3058 15.7178" stroke="#009721" stroke-width="3" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div class="margintopcls" >
+                            <span class="dateform">From Date</span>
+                            <!--                    <div style=" flex-wrap: wrap">-->
+                            <div ><h6 class="motherdaterange-H6 h7class" > <?= Carbon::parse($range->from_date)->format('d M Y'); ?> </h6></div>
+                            <div> </div>
+                            <div style=""><h6 class="motherdaterange-H6 h7class" >22/05/2022 </h6></div>
+                        </div>
+                        <div style="margin-top: 4px"><h6 class="h6class"><hr class="new1 hrtopmargin"> </h6>
+                        </div>
+                        <div class="margintopcls" >  <span class="dateform">From Date</span>
+                            <div style="width: 90px;"><h6 class="motherdaterange-H6 h7class" > <?= Carbon::parse($range->to_date)->format('d M Y'); ?> </h6></div>
+                            <div style="width: 150px"><h6 class="motherdaterange-H6 h7class" ><i class="fa fa-user" style="color: #545b62;margin-right: 4px" aria-hidden="true"></i>jhone
+
+                                    <svg style="margin-right: 4px;" width="12" height="8" viewBox="0 0 43 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="21.5893" cy="21.0307" r="17.2748" transform="rotate(-172.902 21.5893 21.0307)" stroke="#009721" stroke-width="3"/>
+                                        <path d="M14.875 21.5339L19.6822 26.3413L30.3058 15.7178" stroke="#009721" stroke-width="3" stroke-linecap="round"/>
+                                    </svg><span style="color: red">active</span>
+                                </h6>
+                            </div>
+                        </div>
+
+                        <div style="flex-basis: 100%"> <hr class="new2" ></div>
+
+
+                    </div>
+                </div>
+
+                <div class="row margin30">
+                    <div id="main"  >
+                        <div class="margintopcls" style="background-color: #ffffff;text-align: center">
+                            <svg style="margin-left: 3px" width="37" height="36" viewBox="0 0 43 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="21.5893" cy="21.0307" r="17.2748" transform="rotate(-172.902 21.5893 21.0307)" stroke="#009721" stroke-width="3"/>
+                                <path d="M14.875 21.5339L19.6822 26.3413L30.3058 15.7178" stroke="#009721" stroke-width="3" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div class="margintopcls" >
+                            <span class="dateform">From Date</span>
+                            <!--                    <div style=" flex-wrap: wrap">-->
+                            <div ><h6 class="motherdaterange-H6 h7class" > <?= Carbon::parse($range->from_date)->format('d M Y'); ?> </h6></div>
+                            <div> </div>
+                            <div style=""><h6 class="motherdaterange-H6 h7class" >22/05/2022 </h6></div>
+                        </div>
+                        <div style="margin-top: 4px"><h6 class="h6class"><hr class="new1 hrtopmargin"> </h6>
+                        </div>
+                        <div class="margintopcls" >  <span class="dateform">From Date</span>
+                            <div style="width: 90px;"><h6 class="motherdaterange-H6 h7class" > <?= Carbon::parse($range->to_date)->format('d M Y'); ?> </h6></div>
+                            <div style="width: 150px"><h6 class="motherdaterange-H6 h7class" ><i class="fa fa-user" style="color: #545b62;margin-right: 4px" aria-hidden="true"></i>jhone
+
+                                    <svg style="margin-right: 4px;" width="12" height="8" viewBox="0 0 43 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="21.5893" cy="21.0307" r="17.2748" transform="rotate(-172.902 21.5893 21.0307)" stroke="#009721" stroke-width="3"/>
+                                        <path d="M14.875 21.5339L19.6822 26.3413L30.3058 15.7178" stroke="#009721" stroke-width="3" stroke-linecap="round"/>
+                                    </svg><span style="color: red">active</span>
+                                </h6>
+                            </div>
+                        </div>
+
+                        <div style="flex-basis: 100%"> <hr class="new2" ></div>
+
+
+                    </div>
+                </div>
+
+
+
+                    </div>
+
                 <?php } ?>
             </div>
         </div>

@@ -742,6 +742,14 @@ class TariffController extends Controller {
         $this->layout = 'tm_main';
         return $this->render('tariff_mather_date_range', []);
     }
+
+      public function actionTariffpublished(){
+        $this->layout = 'common_published';
+        return $this->render('tariff_published', []);
+    }
+
+
+
     public function actionTariffmotherroomrate(){
         $this->layout = 'tm_main';
         return $this->render('tariff_mather_room_rate', []);

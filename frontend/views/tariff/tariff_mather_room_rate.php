@@ -1,7 +1,7 @@
 <div class="$content">
 
 
-    <div class="container-fluid" >
+    <div class="container-fluid" style="background-color: #E5E5E5" >
 
         <div class="card-title">
             Tariff
@@ -164,11 +164,13 @@
                                     <div style="margin-bottom: 18px; background-color: ">
 
                                         <div class="flex-containerDate " style="padding-left: 12px;padding-top: 12px;padding-right: 12px;width: 270px;">
+
                                             <div style="width: 50px;"><i  class="fa fa-check-circle w3-large tickiconmotherdaterange item" aria-hidden="true"></i></div>
                                             <div style="width: 84px;"><h6 class="motherdaterange-H6 " style="padding-top: 7px;margin-right: 8px;width: ">From Date</h6></div>
                                             <div style=" width: 10px;"><h6 class="h6class"><hr class="new1 hrtopmargin"> </h6></div>
                                             <div style=" width: 10px;"> </h6></div>
-                                            <div style="width: 80px;"><h6 class="motherdaterange-H6 h6class " > To Date </h6></div>
+                                            <div style="width: 80px;height: 22px;"><h6 class="motherdaterange-H6 h6class " > To Date </h6></div>
+
                                             <div style="width: 10px"><h6 class="motherdaterange-H6 h7class" ></h6></div>
                                             <div style="width: 50px" ></div>
                                             <div style="width: 94px;"><h6 class="motherdaterange-H6 h7class" > september 25 2022 </h6></div>
