@@ -54,7 +54,14 @@ $('#enquiry-guest_count_same_on_all_days :radio').change(function(){
     }  
 });
 
+function updateGuestCountTotal(row) {
+    var uid = $(row).attr('uid');
+    $('#total_guests_'+uid).text(Number($('#children_'+uid).val()) + Number($('#adults_'+uid).val()));
+}
+
 function showChildBreakupModal(row){
+    // clear message in agebreakup poup
+    $('#ageBreakupValidation').text("");
     var uid = $(row).attr('unique_plan_id');
     console.log(uid);
     $('#plan_id').val(uid);
@@ -96,13 +103,13 @@ function initializeChildBreakupModal(uid){
         var ageBreakupMap = planAgeBreakupMap[uid];
         for (var key in ageBreakupMap) {
             //console.log("Age: " + key);
-            $("#age_breakup_table").append('<tr><td><input type="text" class="form-control form-control-sm" name="age[]" value="'+ key + '"/></td><td><input type="text" class="form-control form-control-sm" name="count[]" value="'+ ageBreakupMap[key] + '"/></td><td><button id="remr1" onclick="deleteAgeSplitupRow(this)" class="btn btn-sm bg-danger" style="border-radius: 50%"><i class="fa fa-minus"></i></button></td></tr>');    
+            $("#age_breakup_table").append('<tr><td><input type="text" class="form-control form-control-sm" name="age[]" value="'+ key + '" onchange="checkAge(this.value)"/></td><td><input type="text" class="form-control form-control-sm" name="count[]" value="'+ ageBreakupMap[key] + '"/></td><td><button id="remr1" onclick="deleteAgeSplitupRow(this)" class="btn btn-sm bg-danger" style="border-radius: 50%"><i class="fa fa-minus"></i></button></td></tr>');
         }
     }
     else
     {   
-        $("#age_breakup_table").append('<tr><td><input type="text" class="form-control form-control-sm" name="age[]" /></td><td><input type="text" class="form-control form-control-sm" name="count[]" /></td><td></td></tr>');
-    }    
+        $("#age_breakup_table").append('<tr><td><input type="text" class="form-control form-control-sm" name="age[]" onchange="checkAge(this.value)" /></td><td><input type="text" class="form-control form-control-sm" name="count[]" /></td><td></td></tr>');
+    }
 }
 
 function closeChildBreakupModal(){
@@ -133,28 +140,49 @@ function closeChildBreakupModal(){
 }
 
 function applyChildAgeBreakup(){
-
+    countFlag = 0;
+    ageFlag = 0;
     var sumOfCount = 0;
     var plan_id = $('#plan_id').val();
     var totalChild =  Number($('#children_'+plan_id).val());
 
     $('input[name^="count"]').each(function () {
+        if( Number(this.value) === 0){
+            countFlag = 1;
+        }
         sumOfCount += Number(this.value);
+    });
+    $('input[name^="age"]').each(function () {
+        if( Number(this.value) === 0){
+            ageFlag = 1;
+        }
     });
 
     //console.log("sumOfCount: " + sumOfCount);
     //console.log("totalChild: " + totalChild);
-
-    if(sumOfCount === totalChild ){        
-        $('#span_child_validation_'+plan_id).text("OK");        
-        $('#child_validation_'+plan_id).val("OK");        
+    if ((ageFlag === 1) && (countFlag === 1)){
+        $('#ageBreakupValidation').text("age and count fields are empty ").style(display("block"));
     }
-    else if (sumOfCount < totalChild ) {
-        $('#span_child_validation_'+plan_id).text("Short by "+ (totalChild - sumOfCount));         
+    else if((ageFlag === 1)){
+        $('#ageBreakupValidation').text("age field is empty ").style(display("block"));
     }
-    else if (sumOfCount >totalChild ) {        
-        $('#span_child_validation_'+plan_id).text("Excess by "+ (sumOfCount - totalChild)); 
-    }    
+    else if((countFlag === 1)){
+        $('#ageBreakupValidation').text("count field is empty ").style(display("block"));
+    }
+    else {
+        if(sumOfCount === totalChild ){
+            $('#span_child_validation_'+plan_id).text("OK");
+            $('#child_validation_'+plan_id).val("OK");
+        }
+        else if (sumOfCount < totalChild ) {
+            $('#span_child_validation_'+plan_id).text("Short by "+ (totalChild - sumOfCount));
+            $('#ageBreakupValidation').text("Child count short by "+ (totalChild - sumOfCount)).style(display("block"));
+        }
+        else if (sumOfCount >totalChild ) {
+            $('#span_child_validation_'+plan_id).text("Excess by "+ (sumOfCount - totalChild));
+            $('#ageBreakupValidation').text("Child count excess by "+ (sumOfCount - totalChild)).style(display("block"));
+        }
+    }
     
     var countArray = document.getElementsByName('count[]');
     var i = 0;
@@ -216,8 +244,14 @@ function addAgeSplitupRow()
     }
     var num = rowCount;
 
-    $("#age_breakup_table").append('<tr><td><input type="text" id="'+num+'" class="form-control form-control-sm" name="age[]" /></td><td><input type="text" class="form-control form-control-sm" name="count[]" /></td><td><button id="remr1" onclick="deleteAgeSplitupRow(this)" class="btn btn-sm bg-danger" style="border-radius: 50%"><i class="fa fa-minus"></i></button></td></tr>');
+    $("#age_breakup_table").append('<tr><td><input type="text" id="'+num+'" class="form-control form-control-sm" name="age[]" onchange="checkAge(this.value)" /></td><td><input type="text" class="form-control form-control-sm" name="count[]" /></td><td><button id="remr1" onclick="deleteAgeSplitupRow(this)" class="btn btn-sm bg-danger" style="border-radius: 50%"><i class="fa fa-minus"></i></button></td></tr>');
 }
+function checkAge(age) {
+    if ((age > 17) || (age < 0)){
+        $('#ageBreakupValidation').text("Age must be less than 17").style(display("block"));
+    }
+}
+
 
 function deleteAgeSplitupRow(row)
 {
@@ -236,8 +270,10 @@ function addPlanRow()
 
     //console.log("Adding row: " + rowCount);
     //console.log("UID: " + unique_plan_id);
-    $("#guest_count_differnt_table").append('<tr><td>Plan '+ (rowCount) +'</td><td><input type="hidden" id="plan_uid" name="plan_uid[]" value="'+ unique_plan_id +'"><input type="text" class="inputTextClass enquiryTable" style="width: 100px;height: 33px" name="adults[]" /></td><td><input uid="'+ unique_plan_id +'" type="text" class="inputTextClass enquiryTable" style="width: 100px;height: 33px" name="children[]" id="children_' + unique_plan_id+ '" /></td><td><button type="button" id="add_age_breakup" onclick="showChildBreakupModal(this)"class="btn btn-sm btn-outline-primary childplus plusbutton" unique_plan_id="' + unique_plan_id + '">\n' +
-        '<i class="fa fa-user-plus plusiconstyle"  aria-hidden="true"></i></button></td><td class="letterpad"><span style="color: red;font-size: 12px;display: inline" id="total_guests_' + unique_plan_id +'"> NA </span></td><td class="letterpad"> <span style="color: red;font-size: 12px;display: inline" id="span_child_validation_' + unique_plan_id +'" >NA</span></td> <td class="fijo btnminus"><button id="remr" onclick="deletePlanRow(this)" class="btn btn-sm bg-danger" style="border-radius: 50%" unique_plan_id="' + unique_plan_id + '" ><i class="fa fa-minus"></i></button></td></tr>');
+
+    $("#guest_count_differnt_table").append('<tr><td>Plan '+ (rowCount-2) +'</td>' +
+        '<td><input uid="'+ unique_plan_id +'" type="hidden" id="plan_uid" name="plan_uid[]" value="'+ unique_plan_id +'"><input type="text" uid="'+ unique_plan_id +'" class="inputTextClass enquiryTable" style="width: 100px;height: 33px" name="adults[]" id="adults_' + unique_plan_id+ '" onchange="updateGuestCountTotal(this)" /></td><td><input uid="'+ unique_plan_id +'" type="text" class="inputTextClass enquiryTable" style="width: 100px;height: 33px" name="children[]" id="children_' + unique_plan_id+ '" onchange="updateGuestCountTotal(this)" /></td><td><button type="button" id="add_age_breakup" onclick="showChildBreakupModal(this)"class="btn btn-sm btn-outline-primary childplus plusbutton" unique_plan_id="' + unique_plan_id + '">\n' +
+        '<i class="fa fa-user-plus plusiconstyle"  aria-hidden="true"></i></button></td><td><span style="color: red;font-size: 12px;display: inline" id="total_guests_' + unique_plan_id +'"> NA </span></td><td> <span style="color: red;font-size: 12px;display: inline" id="span_child_validation_' + unique_plan_id +'" >NA</span></td> <td><button id="remr" onclick="deletePlanRow(this)" class="btn btn-sm bg-danger" style="border-radius: 50%" unique_plan_id="' + unique_plan_id + '" ><i class="fa fa-minus"></i></button></td></tr>');
 
     unique_plan_id++;
 }
@@ -246,10 +282,13 @@ function deletePlanRow(row)
 {    
     var i = row.parentNode.parentNode.rowIndex;
     var uid = $(row).attr('unique_plan_id');
-    //console.log("UID: " + uid);
-    //console.log("Deleting row: " + i);
+    var rowcount = guest_count_differnt_table.rows.length;
     delete planAgeBreakupMap[uid];
     document.getElementById('guest_count_differnt_table').deleteRow(i);
+    for( j = i; j < rowcount-1; j++){
+        var table = document.getElementById('guest_count_differnt_table');
+        table.rows[j].cells[0].innerHTML = 'Plan' +  j;
+    }
 }
 
 function validateGuestCount() {

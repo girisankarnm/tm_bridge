@@ -1,9 +1,6 @@
 <?php
 
 namespace frontend\models\operator;
-use frontend\models\Country;
-use frontend\models\Location;
-use frontend\models\Destination;
 
 use Yii;
 
@@ -15,7 +12,8 @@ use Yii;
  * @property string|null $name
  * @property string|null $logo_image
  * @property string|null $website
- * @property string|null $v_card_image
+ * @property string|null $v_card_image_front
+ * @property string|null $v_card_image_back
  * @property int|null $country_id
  * @property int|null $location_id
  * @property int|null $destination_id
@@ -39,6 +37,7 @@ use Yii;
  * @property Country $country
  * @property Destination $destination
  * @property Location $location
+ * @property OperatorContacts[] $operatorContacts
  * @property User $owner
  * @property User $user
  */
@@ -59,7 +58,7 @@ class Operator extends \yii\db\ActiveRecord
     {
         return [
             [['user_id', 'country_id', 'location_id', 'destination_id', 'legal_status_id', 'terms_and_conditons', 'owner_id'], 'integer'],
-            [['name', 'logo_image', 'v_card_image', 'postal_code', 'locality', 'pan_number', 'pan_image', 'gst_number', 'gst_image', 'bank_account_number', 'bank_account_name', 'bank_name', 'ifsc_code', 'swift_code', 'cheque_image'], 'string', 'max' => 80],
+            [['name', 'logo_image', 'v_card_image_front', 'v_card_image_back', 'postal_code', 'locality', 'pan_number', 'pan_image', 'gst_number', 'gst_image', 'bank_account_number', 'bank_account_name', 'bank_name', 'ifsc_code', 'swift_code', 'cheque_image'], 'string', 'max' => 80],
             [['website', 'address'], 'string', 'max' => 256],
             [['country_id'], 'exist', 'skipOnError' => true, 'targetClass' => Country::className(), 'targetAttribute' => ['country_id' => 'id']],
             [['destination_id'], 'exist', 'skipOnError' => true, 'targetClass' => Destination::className(), 'targetAttribute' => ['destination_id' => 'id']],
@@ -80,7 +79,8 @@ class Operator extends \yii\db\ActiveRecord
             'name' => 'Name',
             'logo_image' => 'Logo Image',
             'website' => 'Website',
-            'v_card_image' => 'V Card Image',
+            'v_card_image_front' => 'V Card Image Front',
+            'v_card_image_back' => 'V Card Image Back',
             'country_id' => 'Country ID',
             'location_id' => 'Location ID',
             'destination_id' => 'Destination ID',
@@ -131,6 +131,16 @@ class Operator extends \yii\db\ActiveRecord
     public function getLocation()
     {
         return $this->hasOne(Location::className(), ['id' => 'location_id']);
+    }
+
+    /**
+     * Gets query for [[OperatorContacts]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getOperatorContacts()
+    {
+        return $this->hasMany(OperatorContacts::className(), ['operator_id' => 'id']);
     }
 
     /**

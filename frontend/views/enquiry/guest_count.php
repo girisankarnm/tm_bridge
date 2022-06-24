@@ -59,9 +59,9 @@ $this->registerJsFile('/js/enquiry/guest_count.js');
                         <td > Plan </td>
                         <td  class="Adults">
                             <input type="hidden" id="plan_uid" name="plan_uid[]" value="0" >
-                            <input name="adults[]" id="adults_0" type="number" class="inputTextClass enquiryTable"  value = "<?= $adult_value; ?>" >
+                            <input uid="0" name="adults[]" id="adults_0" type="number" class="inputTextClass enquiryTable"  onchange="updateGuestCountTotal(this)" value = "<?= $adult_value; ?>" >
                         </td>
-                        <td  class="Adults">  <input uid="0" name="children[]" id="children_0" type="number" class="inputTextClass enquiryTable"  value = "<?= $children_value; ?>" ></td>
+                        <td  class="Adults">  <input uid="0" name="children[]" id="children_0" type="number" class="inputTextClass enquiryTable"  onchange="updateGuestCountTotal(this)" value = "<?= $children_value; ?>" ></td>
                         <td class="plusb">
                             <button type="button" class="btn btn-sm btn-outline-primary childplus plusbutton  child-breakup1 " onclick="showChildBreakupModal(this)" data-toggle="modal" unique_plan_id="0">
                                 <?php echo FA::icon('user-plus',['class' => 'plusiconstyle']); ?></button>
@@ -112,9 +112,9 @@ $this->registerJsFile('/js/enquiry/guest_count.js');
                                 <td>  Plan <?= $i ?></td>
                                 <td  class="Adults">
                                     <input type="hidden" id="plan_uid" name="plan_uid[]" value="<?= $i ?>" >
-                                    <input name="adults[]"  id="adults_<?=$i ?>" type="number" value="<?= $guest_count->adults ?>">
+                                    <input name="adults[]"  id="adults_<?=$i ?>" type="number" onchange="updateGuestCountTotal(this)" value="<?= $guest_count->adults ?>">
                                 </td>
-                                <td class="Adults">  <input uid="<?=$i ?>" name="children[]" id="children_<?=$i ?>" type="number" class="inputTextClass enquiryTable"  value="<?= $guest_count->children ?>"></td>
+                                <td class="Adults">  <input uid="<?=$i ?>" name="children[]" id="children_<?=$i ?>" type="number" class="inputTextClass enquiryTable"  onchange="updateGuestCountTotal(this)" value="<?= $guest_count->children ?>"></td>
                                 <td class="plusb">
                                     <button type="button" class="btn btn-sm btn-outline-primary childplus plusbutton  child-breakup1 " onclick="showChildBreakupModal(this)" data-toggle="modal" unique_plan_id="<?= $i ?>">
                                         <?php echo FA::icon('user-plus',['class' => 'plusiconstyle']); ?></button>
@@ -138,9 +138,9 @@ $this->registerJsFile('/js/enquiry/guest_count.js');
                             <td>  Plan 1</td>
                             <td>
                                 <input type="hidden" id="plan_uid" name="plan_uid[]" value="1" >
-                                <input name="adults[]" id="adults_1" type="number" class="inputTextClass enquiryTable"  >
+                                <input uid="1" name="adults[]" id="adults_1" type="number" class="inputTextClass enquiryTable" onchange="updateGuestCountTotal(this)" >
                             </td>
-                            <td>  <input uid="1" name="children[]" id="children_1" type="number" class="inputTextClass enquiryTable" ></td>
+                            <td>  <input uid="1" name="children[]" id="children_1" type="number" class="inputTextClass enquiryTable" onchange="updateGuestCountTotal(this)" ></td>
                             <td>
                                 <button type="button" class="btn btn-sm btn-outline-primary childplus plusbutton  child-breakup1 " onclick="showChildBreakupModal(this)" data-toggle="modal" unique_plan_id="1">
                                     <?php echo FA::icon('user-plus',['class' => 'plusiconstyle']); ?></button>
@@ -156,10 +156,11 @@ $this->registerJsFile('/js/enquiry/guest_count.js');
                             <td>  Plan 2</td>
                             <td>
                                 <input type="hidden" id="plan_uid" name="plan_uid[]" value="2" >
-                                <input name="adults[]" id="adults_2" type="number" class="inputTextClass enquiryTable"  >
+                                <input uid="2" name="adults[]" id="adults_2" type="number" class="inputTextClass enquiryTable"  onchange="updateGuestCountTotal(this)">
                             </td>
                             <td>
-                                <input uid="2" name="children[]" id="children_2" type="number" class="inputTextClass enquiryTable"  ></td>
+                                <input uid="2" name="children[]" id="children_2" type="number" class="inputTextClass enquiryTable" onchange="updateGuestCountTotal(this)" ></td>
+
                             <td>
                                 <button  type="button" style="border-radius: 50%;" class="btn btn-sm btn-outline-primary childplus plusbutton child-breakup1" onclick="showChildBreakupModal(this)" data-toggle="modal" unique_plan_id="2">
                                     <?php echo FA::icon('user-plus',['class' => 'plusiconstyle']); ?></button>
@@ -224,6 +225,8 @@ $this->registerJsFile('/js/enquiry/guest_count.js');
                     <tbody>
                     </tbody>
                 </table>
+                <!--                display validation error-->
+                <div id="ageBreakupValidation" style="color: red; font-size: 14px; width: 200px; left: 25%; position: relative"></div>
                 <div><button type="button" id="add_age_count_row" class="btn btn-sm bg-success" style="border-radius: 50%">
                         <i class="fa fa-plus"></i></button></div>
             </div>

@@ -1,14 +1,15 @@
 <?php
 
 namespace frontend\models\tariff;
-use Yii;
 use frontend\models\property\Property;
 use frontend\models\tariff\RoomTariffDatewise;
-use frontend\models\RoomTariffSupplimentMeal;
-use frontend\models\RoomTariffWeekdaywise;
-use frontend\models\RoomTariffMandatoryDinner;
+use frontend\models\tariff\SupplimentMeal;
+use frontend\models\tariff\RoomTariffWeekdayhike;
+use frontend\models\tariff\MandatoryDinner;
+
 use Carbon\Carbon;
 
+use Yii;
 
 /**
  * This is the model class for table "tariff_date_range".
@@ -18,14 +19,14 @@ use Carbon\Carbon;
  * @property string|null $to_date
  * @property int|null $property_id
  * @property int|null $parent
- * @property int $status 
- * @property int tariff_type
+ * @property int|null $status
+ * @property int|null $tariff_type
  *
+ * @property MandatoryDinner[] $mandatoryDinners
  * @property Property $property
  * @property RoomTariffDatewise[] $roomTariffDatewises
- * @property RoomTariffMandatoryDinner[] $roomTariffMandatoryDinners
- * @property RoomTariffSupplimentMeal[] $roomTariffSupplimentMeals
- * @property RoomTariffWeekdaywise[] $roomTariffWeekdaywises
+ * @property RoomTariffWeekdayhike[] $roomTariffWeekdayhikes
+ * @property SupplimentMeal[] $supplimentMeals
  */
 class TariffDateRange extends \yii\db\ActiveRecord
 {
@@ -45,7 +46,6 @@ class TariffDateRange extends \yii\db\ActiveRecord
         return [
             [['from_date', 'to_date'], 'safe'],
             [['property_id', 'parent', 'status', 'tariff_type'], 'integer'],
-            [['status', 'tariff_type'], 'required'],
             [['property_id'], 'exist', 'skipOnError' => true, 'targetClass' => Property::className(), 'targetAttribute' => ['property_id' => 'id']],
         ];
     }
@@ -62,8 +62,18 @@ class TariffDateRange extends \yii\db\ActiveRecord
             'property_id' => 'Property ID',
             'parent' => 'Parent',
             'status' => 'Status',
-            'tariff_type' => 'Tariff type'
+            'tariff_type' => 'Tariff Type',
         ];
+    }
+
+    /**
+     * Gets query for [[MandatoryDinners]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getMandatoryDinners()
+    {
+        return $this->hasMany(MandatoryDinner::className(), ['date_range_id' => 'id']);
     }
 
     /**
@@ -87,33 +97,23 @@ class TariffDateRange extends \yii\db\ActiveRecord
     }
 
     /**
-     * Gets query for [[RoomTariffMandatoryDinners]].
+     * Gets query for [[RoomTariffWeekdayhikes]].
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getRoomTariffMandatoryDinners()
+    public function getRoomTariffWeekdayhikes()
     {
-        return $this->hasMany(RoomTariffMandatoryDinner::className(), ['date_range_id' => 'id']);
+        return $this->hasMany(RoomTariffWeekdayhike::className(), ['range_id' => 'id']);
     }
 
     /**
-     * Gets query for [[RoomTariffSupplimentMeals]].
+     * Gets query for [[SupplimentMeals]].
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getRoomTariffSupplimentMeals()
+    public function getSupplimentMeals()
     {
-        return $this->hasMany(RoomTariffSupplimentMeal::className(), ['date_range_id' => 'id']);
-    }
-
-    /**
-     * Gets query for [[RoomTariffWeekdaywises]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getRoomTariffWeekdaywises()
-    {
-        return $this->hasMany(RoomTariffWeekdaywise::className(), ['range_id' => 'id']);
+        return $this->hasMany(SupplimentMeal::className(), ['date_range_id' => 'id']);
     }
 
     public function getNestingCount() {

@@ -68,7 +68,7 @@ use frontend\models\tariff\roomTariffWeekdayhikeDays;
             foreach ($rooms as $room) {
 
             $day_hike = RoomTariffWeekdayhike::find()
-            ->where(['range_id' => $date_range->id])
+            ->where(['date_range_id' => $date_range->id])
             ->andWhere(['room_id' => $room->id])->one();
 
             $days = array();
@@ -157,6 +157,7 @@ use frontend\models\tariff\roomTariffWeekdayhikeDays;
             <div style="display: block;margin-right: 35px">
                 <BUTTON type="button" class="prevbutton" style="width: 80px;height: 30px" data-toggle="modal" data-target="#logoutModal"> Prev </BUTTON>
                 <BUTTON type="submit" class="buttonSave" style="width: 80px;height: 30px" data-toggle="modal" data-target="#logoutModal"> Save </BUTTON>
+                <?= Html::a('Next', ['tariff/addmandatorydinnner', 'id'=> $property->id, 'mother_id' => $date_range->id],  ['class'=>'buttonSave savebuttonMother']) ?>                    
             </div>
         </div>
 
