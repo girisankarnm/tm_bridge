@@ -64,7 +64,7 @@ $this->registerJsFile('/js/enquiry/guest_count.js');
                         <td  class="Adults">  <input uid="0" name="children[]" id="children_0" type="number" class="inputTextClass enquiryTable"  onchange="updateGuestCountTotal(this)" value = "<?= $children_value; ?>" ></td>
                         <td class="plusb">
                             <button type="button" class="btn btn-sm btn-outline-primary childplus plusbutton  child-breakup1 " onclick="showChildBreakupModal(this)" data-toggle="modal" unique_plan_id="0">
-                                <?php echo FA::icon('user-plus',['class' => 'plusiconstyle']); ?></button>
+                                <img s src="images/plus-button.svg"  aria-hidden="true"></img></button>
                         </td>
                         <td class="letterpad">
                             <span id="total_guests_0" style="color: red;font-size: 12px;display: inline" id="span_child_validation_0"><?= $adult_value + $children_value ?> </span>
@@ -117,7 +117,7 @@ $this->registerJsFile('/js/enquiry/guest_count.js');
                                 <td class="Adults">  <input uid="<?=$i ?>" name="children[]" id="children_<?=$i ?>" type="number" class="inputTextClass enquiryTable"  onchange="updateGuestCountTotal(this)" value="<?= $guest_count->children ?>"></td>
                                 <td class="plusb">
                                     <button type="button" class="btn btn-sm btn-outline-primary childplus plusbutton  child-breakup1 " onclick="showChildBreakupModal(this)" data-toggle="modal" unique_plan_id="<?= $i ?>">
-                                        <?php echo FA::icon('user-plus',['class' => 'plusiconstyle']); ?></button>
+                                        <img s src="images/plus-button.svg"  aria-hidden="true"></img></button>
                                 </td>
                                 <td class="letterpad">
                                     <span id="total_guests_<?=$i ?>" style="color: red;font-size: 12px;display: inline" id="span_child_validation_"<?=$i ?>> NA </span>
@@ -143,7 +143,7 @@ $this->registerJsFile('/js/enquiry/guest_count.js');
                             <td>  <input uid="1" name="children[]" id="children_1" type="number" class="inputTextClass enquiryTable" onchange="updateGuestCountTotal(this)" ></td>
                             <td>
                                 <button type="button" class="btn btn-sm btn-outline-primary childplus plusbutton  child-breakup1 " onclick="showChildBreakupModal(this)" data-toggle="modal" unique_plan_id="1">
-                                    <?php echo FA::icon('user-plus',['class' => 'plusiconstyle']); ?></button>
+                                    <img s src="images/plus-button.svg"  aria-hidden="true"></img></button>
                             </td>
                             <td class="letterpad">
                                 <span id="total_guests_1" style="color: red;font-size: 12px;display: inline" id="span_child_validation_0"> NA </span>
@@ -163,7 +163,7 @@ $this->registerJsFile('/js/enquiry/guest_count.js');
 
                             <td>
                                 <button  type="button" style="border-radius: 50%;" class="btn btn-sm btn-outline-primary childplus plusbutton child-breakup1" onclick="showChildBreakupModal(this)" data-toggle="modal" unique_plan_id="2">
-                                    <?php echo FA::icon('user-plus',['class' => 'plusiconstyle']); ?></button>
+                                    <img s src="images/plus-button.svg"  aria-hidden="true"></img></button>
                             </td>
                             <td class="letterpad">
                                 <span id="total_guests_2" style="color: red;font-size: 12px;   "> NA </span>
@@ -180,7 +180,7 @@ $this->registerJsFile('/js/enquiry/guest_count.js');
 
                     </tr>
                     <tr style="background-color: #ffffff">
-                        <td class="addmoreguestcount" >                    <button class="btnAdd" type="button" style="border-radius: 50%; margin-left: 30px;margin-bottom: 15px;height: 23px;width: 23px;" id="add_new_plan_row"><i  class="fa fa-plus" aria-hidden="true"></i></button>
+                        <td class="addmoreguestcount" >                    <button class="btnAdd" type="button" style="border-radius: 50%; margin-left: 30px;margin-bottom: 15px;height: 23px;width: 23px;" id="add_new_plan_row"><i  style=" padding-top: 4px;" class="fa fa-plus" aria-hidden="true"></i></button>
                             <span style="padding-left: 3px">Add more </span></td>
 
                     </tr>

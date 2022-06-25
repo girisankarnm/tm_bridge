@@ -22,8 +22,8 @@ $this->registerJsFile('/js/enquiry/accomodation.js');
 		<?php $form = ActiveForm::begin(['id' => 'form_enquiry_accomodation','enableClientValidation' => false, 'method' => 'post','action' => ['enquiry/saveaccommodation']]) ?>
 		<input type="hidden" id="enquiry_id" name="enquiry_id" value=<?php echo  $enquiry->id; ?> ?>
 		<div class="row">
-			<table id="customers" class="tableclass" style="width: 895px; border-spacing: 15px;">
-				<tr class="thtable" style=" border: 0.5px solid #A32C4F; border-radius: 15px;font-size: 12px" >
+            <table id="guest_count_same_table " class="table3enquiryclass" >
+                <tr  class="thtableguestcount " >
 					<th>Day</th>
 					<th>Accommodation Staus</th>
 					<th>Stay Destination</th>
@@ -38,25 +38,25 @@ $this->registerJsFile('/js/enquiry/accomodation.js');
 						$i = 0;						
 				?>
 					<tr>
-						<td>
-							<input type="text" name="day[]"  value="<?php echo date('Y-m-d', strtotime($accomodation->day)); ?>" class="inputTextClass tableinput" readonly />						
+						<td class="Adults">
+							<input type="text" name="day[]"  value="<?php echo date('Y-m-d', strtotime($accomodation->day)); ?>" class="inputTextClassaccomadation enquiryTable" readonly />
 						</td>
-						<td>
-							<?php echo $form->field($accomodation,'status')->dropDownList($accomodation_status,['row_id' => $i, 'name' => 'accommodation_status[]','class' => 'inputTextClass tableinput' ])->label(false) ?>
+						<td  class="Adults">
+							<?php echo $form->field($accomodation,'status')->dropDownList($accomodation_status,['row_id' => $i, 'name' => 'accommodation_status[]','class' => 'inputTextClassaccomadation enquiryTable' ])->label(false) ?>
+						</td >
+						<td  class="Adults">
+							<?php echo $form->field($accomodation,'destination_id')->dropDownList($destinations,['id' => 'destination_'.$i , 'name' => 'destination_id[]','class' => 'inputTextClassaccomadation enquiryTable' ])->label(false) ?>
 						</td>
-						<td>
-							<?php echo $form->field($accomodation,'destination_id')->dropDownList($destinations,['id' => 'destination_'.$i , 'name' => 'destination_id[]','class' => 'inputTextClass tableinput' ])->label(false) ?>
+						<td  class="Adults">
+							<?php echo $form->field($accomodation,'meal_plan_id')->dropDownList($meal_plans,['id' => 'meal_plan_'.$i, 'name' => 'meal_plan_id[]','class' => 'inputTextClassaccomadation enquiryTable'])->label(false) ?>
 						</td>
-						<td>
-							<?php echo $form->field($accomodation,'meal_plan_id')->dropDownList($meal_plans,['id' => 'meal_plan_'.$i, 'name' => 'meal_plan_id[]','class' => 'inputTextClass tableinput'])->label(false) ?>
-						</td>
-						<td>
+						<td  class="Adults">
 							<?php if ($enquiry->guest_count_same_on_all_days == 1){
 								$model->guest_count_plan_id = 1;
-								echo $form->field($accomodation,'guest_count_plan_id')->dropDownList($pax_count_plans,['id' => 'plan_'.$i, 'name' => 'guest_count_plan_id[]','class' => 'inputTextClass tableinput', 'readonly' => 'readonly'])->label(false);
+								echo $form->field($accomodation,'guest_count_plan_id')->dropDownList($pax_count_plans,['id' => 'plan_'.$i, 'name' => 'guest_count_plan_id[]','class' => 'inputTextClassaccomadation enquiryTable', 'readonly' => 'readonly'])->label(false);
 							}
 							else
-								echo $form->field($accomodation,'guest_count_plan_id')->dropDownList($pax_count_plans,['id' => 'plan_'.$i, 'name' => 'guest_count_plan_id[]','class' => 'inputTextClass tableinput' ])->label(false);
+								echo $form->field($accomodation,'guest_count_plan_id')->dropDownList($pax_count_plans,['id' => 'plan_'.$i, 'name' => 'guest_count_plan_id[]','class' => 'inputTextClassaccomadation enquiryTable' ])->label(false);
 							?>
 						</td>
 					</tr>
@@ -69,28 +69,28 @@ $this->registerJsFile('/js/enquiry/accomodation.js');
 				{
 					for ($i = 0; $i <= $enquiry->tour_duration; $i++){ ?>				
 						<tr>
-							<td>
-								<input type="text" name="day[]"  value="<?php echo date('Y-m-d', strtotime($enquiry->tour_start_date. ' + ' .$i. 'days')); ?>" class="inputTextClass tableinput" readonly />						
+							<td  class="Adults">
+								<input type="text" name="day[]"  value="<?php echo date('Y-m-d', strtotime($enquiry->tour_start_date. ' + ' .$i. 'days')); ?>" class="inputTextClassaccomadation tableinput" readonly />
 							</td>
-							<td>
-								<select row_id="<?= $i?>" class="inputTextClass tableinput" style="width: 150px;" name="accommodation_status[]">
+							<td  class="Adults">
+								<select row_id="<?= $i?>" class="inputTextClassaccomadation  tableinput" name="accommodation_status[]">
 								<option value="1">Required</option>
 								<option value="0">Not Required</option>
 								</select>
 							</td>
-							<td>
-								<?php echo $form->field($model,'destination_id')->dropDownList($destinations,['id' => 'destination_'.$i , 'name' => 'destination_id[]','class' => 'inputTextClass tableinput' ])->label(false) ?>						
+							<td  class="Adults">
+								<?php echo $form->field($model,'destination_id')->dropDownList($destinations,['id' => 'destination_'.$i , 'name' => 'destination_id[]','class' => 'inputTextClassaccomadation tableinput' ])->label(false) ?>
+							</td  >
+							<td  class="Adults">
+								<?php echo $form->field($model,'meal_plan_id')->dropDownList($meal_plans,['id' => 'meal_plan_'.$i, 'name' => 'meal_plan_id[]','class' => 'inputTextClassaccomadation tableinput'])->label(false) ?>
 							</td>
-							<td>
-								<?php echo $form->field($model,'meal_plan_id')->dropDownList($meal_plans,['id' => 'meal_plan_'.$i, 'name' => 'meal_plan_id[]','class' => 'inputTextClass tableinput'])->label(false) ?>
-							</td>
-							<td>
+							<td  class="Adults">
 								<?php if ($enquiry->guest_count_same_on_all_days == 1){
 									$model->guest_count_plan_id = 1;
-									echo $form->field($model,'guest_count_plan_id')->dropDownList($pax_count_plans,['id' => 'plan_'.$i, 'name' => 'guest_count_plan_id[]','class' => 'inputTextClass tableinput', 'readonly' => 'true'])->label(false);
+									echo $form->field($model,'guest_count_plan_id')->dropDownList($pax_count_plans,['id' => 'plan_'.$i, 'name' => 'guest_count_plan_id[]','class' => 'inputTextClassaccomadation tableinput', 'readonly' => 'true'])->label(false);
 								}
 								else
-									echo $form->field($model,'guest_count_plan_id')->dropDownList($pax_count_plans,['id' => 'plan_'.$i, 'name' => 'guest_count_plan_id[]','class' => 'inputTextClass tableinput' ])->label(false);
+									echo $form->field($model,'guest_count_plan_id')->dropDownList($pax_count_plans,['id' => 'plan_'.$i, 'name' => 'guest_count_plan_id[]','class' => 'inputTextClassaccomadation tableinput' ])->label(false);
 								?>
 							</td>
 						</tr>

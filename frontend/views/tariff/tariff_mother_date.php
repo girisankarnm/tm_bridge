@@ -62,8 +62,8 @@
                 <div style="display: block;margin-right: 35px;">
 
 
-                    <BUTTON type="button" class="buttonSave savebuttonMother"  data-toggle="modal" data-target="#logoutModal"> Save </BUTTON>
-                    <BUTTON type="button" class="buttonSave nextbuttonMother"  data-toggle="modal" data-target="#logoutModal"> Next </BUTTON>
+                    <BUTTON type="button" class="buttonSave savebuttonMother"  > Save </BUTTON>
+                    <BUTTON type="button" class="buttonSave nextbuttonMother" > Next </BUTTON>
                 </div>
 
             </div>

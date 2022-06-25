@@ -201,10 +201,30 @@ sidebar .nav-item .nav-link {
     font-style: normal;
     box-shadow: #51459F17;
     alignment: inherit;
-    margin: 12px;
+    /*margin: 12px;*/
     width: fit-content !important;
     /*border: 1px solid blue !important;*/
     /*border-top-left-radius: 45px !important;*/
+
+
+    font-family: 'Bw Mitga';
+    font-style: normal;
+    box-shadow: #51459F17;
+    alignment: inherit;
+    margin-left: 36px;
+    margin-right: 12px;
+    margin-top: 12px;
+    margin-top: 12px;
+    /*width: 668px !important;*/
+    height: 150px;
+
+    transform: rotate(0deg);
+    /*border-top-left-radius: 15px !important;*/
+    border: 1px solid #586ada !important;
+    /*border-top-left-radius: 20px !important;*/
+    /*border-radius: 10px;*/
+    /*border-collapse: initial;*/
+    text-align: center;
 
 }
 td.chilage, th.chilage {
@@ -220,6 +240,13 @@ td.paxcount, th.paxcount {
 td.Adults, th.Adults {
     width:          100px !important;
 }
+
+td.Adultswith, th.Adultswith {
+    width:          150px !important;
+}
+
+
+
 td.totalguest, th.totalguest {
     width:          80px !important;
 }
@@ -445,6 +472,22 @@ select:focus
     outline-width: thin;
     outline-color: #586ada;
 }
+.inputTextClassaccomadation
+{
+    background-color: #e5e3e3 !important;
+    box-sizing: border-box;
+    color: #787486!important;
+    width: 94px !important;
+    height: 34px !important;
+    font-size: 13px !important;
+    border: 0.1px solid #c3c3c3!important;
+    border-radius: 8px !important;
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+}
+
+
 
 input:focus
 {
@@ -583,7 +626,7 @@ input::placeholder {
 
 .data-content {
     padding: 0.79px 30.33px !important;
-  background-color:#ffffff;
+  background-color:#f7f7fb;
 }
 
 
@@ -597,7 +640,7 @@ input::placeholder {
     display: flex;
     flex-wrap: nowrap;
     background-color:
-            #f9f9f9;
+            #f7f7fb;
 }
 
 
@@ -605,7 +648,7 @@ input::placeholder {
     justify-content: left;
     flex-flow: row wrap;
     display: flex;
-    background-color: #f9f9f9;
+    background-color: #f7f7fb;
 }
 
 .editfa {
@@ -656,6 +699,7 @@ input::placeholder {
 
 
 .motherdaterange-H6 {
+    text-overflow: ellipsis;
     color: #292931;
     letter-spacing: -0.02em;
     /* line-height: 21px; */
@@ -722,7 +766,7 @@ input::placeholder {
 
 }
 hr.new1 {
-    width:10px;
+    width:15px;
 
     border-top: 2px solid black;
 
@@ -812,9 +856,15 @@ hr.new2 {
 .h7class {
     padding-top: 0px;
     margin-right: 4px;
-    font-size: 10px;
+    font-size: 12px;
     line-height: 0;
 }
+.smallFonts
+{
+    color: #787486 !important;
+    font-style: normal !important;
+}
+
 .h9class {
     font-weight: 700;
     padding-top: 0px;
@@ -833,8 +883,8 @@ hr.new2 {
     margin-right: 20px;
     background-color: #E40968;
     color: #ffffff;
-    height: 36px;
-    width: 200px;
+    height: 40px;
+    width: 221px;
     font-family: 'Bw Mitga';
     font-style: normal;
     font-size: 13px;
@@ -875,11 +925,11 @@ hr.new2 {
     margin-right: 5px;
     padding-top: 20px;
     padding-left: 12px;
-    background-color: ##f9f9f9;
+    background-color: #f7f7fb;
 }
 .container-fluid
 {
-    background-color:#f9f9f9;
+    background-color:#f7f7fb;
 }
 .tariffBorder1
 {
@@ -890,8 +940,25 @@ hr.new2 {
     margin-right: 5px;
     padding-top: 20px;
     padding-left: 12px;
-    background-color: #f9f9f9;;
+    background-color: #f7f7fb;;
 }
+
+.publishedBorder
+{
+    margin-left: 30%;
+    /*margin-right: 15%;*/
+    width: 500px;
+    height: 500px;
+    margin-top: 60px;
+    background-color: #f7f7fb;
+    border: 1px solid #E8E9ED;
+    border-radius: 14px;
+    margin-bottom: 15px;
+    padding-top: 20px;
+    padding-left: 12px;
+    /*background-color: #f9f9f9;*/
+}
+
 .tariffBorder
 {
     margin-top: 20px;
@@ -905,7 +972,7 @@ hr.new2 {
     margin-bottom: 15px;
     padding-top: 20px;
     padding-left: 12px;
-    background-color: #f9f9f9;
+    background-color: #f7f7fb;
 }
 
 .tableclass{
@@ -975,6 +1042,42 @@ hr.new2 {
     font-weight: 600;
     inline-size: 1px;
 }
+
+.commonTitlesmall
+{height: 15%;
+    font-size: 13px;
+    padding-top: 4px;
+    color: black;
+    font-weight: 600;
+    inline-size: 1px;
+}
+.dateform
+{
+
+    font-size: 14px;
+    font-weight: 650;
+}
+
+.tickpublish
+{
+    background-color: white;
+    color: #18a136;;
+    font-size: 41px;
+    margin-right: 4px;
+
+}
+
+
+
+.publishform
+{
+    color: #E40968;
+    font-size: 11px;
+    color: #E40967 !important;
+    font-weight: bold !important;
+    Letter spacing: -2% !important;
+}
+
 .hrMother
 {
     margin-top: 1rem;
@@ -1042,8 +1145,22 @@ hr.new2 {
     height: 30px !important;
     margin-left: 5px !important;
 }
+.motherdateScroll
+{
+    height: 355px;
+    overflow-y: scroll;
+}
+.nextbtn
+{
+    background-color: #586ADA!important;
+    color: white!important;
+    border: 1px solid #586ADA!important;
+    display: inline-block;
+    padding-top: 5px;
+    padding-left: 60px;
+}
 .savebuttonMother {
-    width: 72px;
+    /*width: 72px;*/
     height: 30px;
     background-color: #E40968;
     border-color: #E40968;
@@ -1168,12 +1285,20 @@ hr.new5 {
 }
 .matherdaterangecard{
     /*border-box;border:0px solid rgba(0,0,0,.125) !important;*/
-    height: 100px !important;
+    height: 115px !important;
     background-color: #ffffff !important;
     margin-top: 24px;
     margin-right: 24px !important;
     margin-left: 17px !important;
     margin-bottom: 24px !important;
+}
+.hotelHeading
+{
+    font-size: 18px;
+    padding-top: 4px;
+    color: black;
+    font-weight: 700;
+    inline-size: 1px;
 }
 
 hr.new6 {
@@ -1501,4 +1626,201 @@ select:focus{
     font-size: 70% !important;
     color: #586ADA !important;
 }
+.break {
+    flex-basis: 100%;
+    height: 0;
+}
+.margintopcls
+{
+    margin-top: 8px;
+}
+#main3 {
+    padding-top: 5px;
+    width:150px;
+    height:300px;
 
+    display: flex;
+}
+
+#main3 div {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 60px;
+}
+#main3 div:nth-of-type(2) {
+    flex-basis: 0px;
+    overflow: hidden;
+}
+#main3 div:nth-of-type(3) {
+    flex-basis: 100px;
+}
+#main3 div:nth-of-type(4) {
+    flex-basis: 120px;
+}
+
+
+#main2 {
+    padding-top: 5px;
+    width: 65%;
+    height:20px;
+
+    display: flex;
+}
+
+#main2 div {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 60px;
+}
+#main2 div:nth-of-type(2) {
+    flex-basis: 86px;
+    overflow: hidden;
+}
+#main2 div:nth-of-type(3) {
+    flex-basis: 130px;
+}
+#main2 div:nth-of-type(4) {
+    flex-basis: 190px;
+}
+
+.margin30
+{
+    margin-top: 30px;
+}
+.flexrow {
+    width: 350px;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+}
+
+#main4 {
+    padding-top: 9px;
+    width: 350px;
+    height: 60px;
+    flex-wrap: wrap;
+    display: flex;
+}
+
+#tariffAddmain
+{
+    padding-top: 0px;
+    /*width: 374px;*/
+    height: 60px;
+    flex-wrap: wrap;
+    display: flex;
+}
+#tariffAddmain div {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 50px;
+}
+
+
+#tariffAddmain div:nth-of-type(1) {
+    flex-basis: 60px;
+}
+
+#tariffAddmain div:nth-of-type(2) {
+    flex-basis: 76px;
+}
+
+#tariffAddmain div:nth-of-type(3) {
+    flex-basis: 20px;
+}
+#tariffAddmain div:nth-of-type(4) {
+    110px;
+}
+
+
+
+#main {
+    padding-top: 9px;
+    width: 350px;
+    height: 60px;
+    flex-wrap: wrap;
+    display: flex;
+}
+
+#main div {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 50px;
+}
+#main div:nth-of-type(1) {
+    flex-basis: 60px;
+}
+
+#main div:nth-of-type(2) {
+    flex-basis: 76px;
+}
+
+#main div:nth-of-type(3) {
+    flex-basis: 20px;
+}
+#main div:nth-of-type(4) {
+    110px;
+}
+
+#b {
+    width: 2 0%;
+
+    height: 30px;
+    margin-left: auto;
+    margin-bottom: 2ch;
+}
+
+#publishmain
+{
+    padding-top: 0px;
+    /*width: 374px;*/
+    height: 60px;
+    flex-wrap: wrap;
+    display: flex;
+}
+#publishmain div {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 50px;
+}
+
+#publishmain div:nth-of-type(1) {
+    flex-basis: 76px;
+}
+
+#publishmain div:nth-of-type(2) {
+    flex-basis: 20px;
+}
+#publishmain div:nth-of-type(3) {
+    110px;
+}
+
+.circleicon
+{
+
+    /*background-color: #8d9496;*/
+    border-radius: 50%;
+    border: 1px solid grey;
+    padding: 1px;
+    margin: 2px;
+}
+#maintick {
+    padding-top: 9px;
+    width: 270px;
+    height: 60px;
+    flex-wrap: wrap;
+    display: flex;
+}
+
+#maintick div {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 50px;
+}
+#maintick div:nth-of-type(1) {
+    flex-basis: 54px;
+}
+
+#maintick div:nth-of-type(2) {
+    flex-basis: 206px;
+}

@@ -1,11 +1,11 @@
-<div class="tab-accordion" >
+   <div class="tab-accordion" >
     <div class="tab-content">
         <div class="tab-pane fade active show">
-            <div class="accordion" id="accordionExample">
+            <div class="accordion" id="accordionExample<?= $count?>">
                 <div class="card" style="margin-left: 5px">
 
                     <h2 class="mb-0 accordionbg" style="background-color:#E8E9ED">
-                        <button class="btn btn-block text-left" type="button" onclick="functionchange(this);" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                        <button class="btn btn-block text-left" type="button" onclick="functionchange(this);" data-toggle="collapse" data-target="#collapseOne<?= $count?>" aria-expanded="false" aria-controls="collapseOne<?= $count?>">
                             <strong> <?= $count?>. Nationality - <?= $nationality_name ?> </strong>
                             <input type="hidden" name="nationality[]" value="<?= $nationality_id; ?>">
                             <div class="float-right">
@@ -14,17 +14,17 @@
                         </button>
                     </h2>
 
-                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div id="collapseOne<?= $count?>" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample<?= $count?>">
                         <div class="row roomacord " >
-                            <table id="tariff_slab_table_<?= $nationality_id; ?>" class="table2class" >
-                                <tr class="thtable" >
-                                    <th >Rate slabs</th>
-                                    <th >Room rate</th>
-                                    <th >Adult with Extra Bed</th>
-                                    <th >Child With Extra Bed</th>
-                                    <th >Child Sharing Bed</th>
-                                    <th >Single Occupancy</th>
-                                    <th >Actions</th>
+                            <table id="tariff_slab_table_<?= $nationality_id; ?>" class="table3enquiryclass" style="  width: 798px !important;"  >
+                                <tr class="thtableguestcount" >
+                                    <th class="totalguest" >Rate slabs</th>
+                                    <th class="totalguest" >Room rate</th>
+                                    <th class="Adultswith"  >Adult with Extra Bed</th>
+                                    <th class="Adultswith">Child With Extra Bed</th>
+                                    <th class="Adultswith" >Child Sharing Bed</th>
+                                    <th  class="Adultswith">Single Occupancy</th>
+                                    <th class="Adults" >Actions</th>
                                 </tr>
                                 <?php
                                     $slab_count = 0;
@@ -43,7 +43,6 @@
                                     }
                                 ?>
                             </table>
-                            <div style="float: left;"> <a href="#" onclick="insertSlabRow(<?= $nationality_id; ?>); return true;">Add more slab?</a> </div>
                         </div>
 
                     </div>

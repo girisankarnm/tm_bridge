@@ -1,0 +1,744 @@
+/*
+* ***********************************************************************************************************************************
+* @author Jinsan T J
+* ***********************************************************************************************************************************
+*/
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: "Gordita_medium";
+    src: url("../fonts/Gordita_Medium.otf") format("opentype");
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: "Gordita_regular";
+    src: url("../fonts/Gordita_Regular.otf") format("opentype");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "Gordita_light";
+    src: url("../fonts/Gordita_Light.otf") format("opentype");
+    font-weight: 100;
+}
+
+::-webkit-scrollbar {
+    width: 3px !important;
+    height: 3px !important;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3) !important;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #a3a3a3 !important;
+    outline: 1px solid slategrey;
+}
+
+html {
+    font-size: 13px;
+    font-family: "Gordita_medium", "Gordita_regular", "Gordita_light", sans-serif !important;
+    scroll-behavior: smooth;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #55505c;
+    font-size: 13px;
+    font-family: "Gordita_medium", "Gordita_regular", "Gordita_light", sans-serif !important;
+    margin: 0;
+    text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #747474 !important;
+    font-family: "Gordita_medium", sans-serif !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body p,
+body select,
+body option,
+body table,
+body table th,
+body table td,
+body input,
+body label {
+    font-size: 14px !important;
+    font-family: "Gordita_regular", sans-serif !important;
+    font-weight: normal !important;
+    color: #55505c !important;
+    margin-bottom: 5px;
+}
+
+.btn-rounded {
+    border-radius: 50% !important;
+}
+
+table thead {
+    background-color: #d19564;
+}
+
+body a,
+body button,
+body .btn {
+    font-size: 14px !important;
+    color: #55505c;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:hover,
+i:hover {
+    background-color: transparent !important;
+}
+
+body li {
+    color: #55505c;
+    list-style: none;
+}
+
+.font-primary {
+    color: #e77d27 !important;
+    margin-bottom: 0;
+}
+
+.background-primary {
+    background-color: #e77d27;
+}
+
+.background-secondary {
+    background: #f4f1eb;
+}
+
+.border-description {
+    border: 1px solid #eee;
+    padding: 5px;
+}
+
+.input-normal,
+.input-small {
+    font-size: 12px !important;
+    font-weight: normal;
+    text-align: center;
+    height: 27px !important;
+    padding: 4px !important;
+}
+
+.input-normal {
+    width: 60px !important;
+}
+
+.input-small {
+    width: 60px !important;
+}
+
+/* Checkbox */
+
+.checkbox {
+    padding-left: 20px;
+}
+
+.checkbox label {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    padding-left: 5px;
+}
+
+.checkbox label::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    left: 0;
+    margin-left: -20px;
+    margin-top: 3px;
+    border-radius: 3px;
+    background-color: #fff;
+    border: 1px solid #e67a21;
+    -webkit-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+    -o-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+    transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+
+.checkbox label::after {
+    display: inline-block;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    left: 0;
+    top: 0;
+    margin-left: -20px;
+    padding-left: 3px;
+}
+
+.checkbox input[type="checkbox"],
+.checkbox input[type="radio"] {
+    opacity: 0;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.checkbox input[type="checkbox"]:focus+label::before,
+.checkbox input[type="radio"]:focus+label::before {
+    background-color: #e67a21;
+}
+
+.checkbox.checkbox-circle label::before {
+    border-radius: 50%;
+}
+
+
+table td {
+    text-align: center !important;
+    vertical-align: middle !important;
+}
+
+.form-control:focus,
+.btn:focus {
+    /* border: inherit !important; */
+    box-shadow: inherit !important;
+}
+
+.dropdown-menu {
+    min-width: 280px !important;
+    border: 0 !important;
+    border-radius: 0.358rem;
+    -webkit-box-shadow: 0 5px 25px rgb(34 41 47 / 10%) !important;
+    box-shadow: 0 5px 25px rgb(34 41 47 / 10%) !important;
+}
+
+.dropdown-menu .dropdown-item,
+.dropdown-menu .dropdown-item p,
+.dropdown-menu .dropdown-item span {
+    font-size: 12px !important;
+}
+
+.dropdown-menu .dropdown-item .text-ago {
+    font-size: 11px !important;
+}
+
+.content-wrapper {
+    background-color: #fff !important;
+}
+
+.input-field {
+    max-height: 30px !important;
+}
+
+.form-group {
+    margin-bottom: 10px !important;
+}
+
+.checkbox-padding .custom-checkbox {
+    padding-left: 0;
+}
+
+/*
+* ***********************************************************************************************************************************
+* Main navigation
+* ***********************************************************************************************************************************
+*/
+
+.navbar-bg,
+[class*="sidebar-dark-"] {
+    background: #fbf8f9 !important;
+}
+
+[class*="sidebar-dark"] .brand-link,
+.navbar {
+    border-bottom: 1px solid #e7e7e7 !important;
+}
+
+.nav-item .nav-icon {
+    max-width: 55px;
+}
+
+.navbar {
+    min-height: 88px !important;
+}
+
+.navbar .nav-item .badge {
+    display: inline-flex !important;
+    align-items: center;
+    right: 4px !important;
+    top: 2px !important;
+    padding: 4px !important;
+}
+
+.navbar .nav-item .nav-icon img {
+    width: 100% !important;
+}
+
+.navbar .search-form .input-group {
+    background: #ffffff;
+    width: 343px;
+    border: 1px solid #e9e9e9;
+    border-radius: 6px;
+    transition: all 150ms ease-in-out;
+}
+
+.navbar .search-form .input-group:focus,
+.navbar .search-form .input-group:focus-visible,
+.navbar .search-form .input-group:focus-within,
+.navbar .search-form .input-group:hover {
+    border: 2px solid #e9e9e9;
+}
+
+.navbar .search-form .input-group .form-control {
+    font-size: 12px !important;
+    background: #ffffff;
+    height: 50px;
+    border: 0 !important;
+    border-radius: 0 !important;
+    outline: none !important;
+}
+
+.navbar .search-form .input-group .search-icon .btn-navbar {
+    color: #ffffff !important;
+    background: linear-gradient(86.68deg, #f9a177 1.27%, #e67a21 97.5%);
+    display: table;
+    place-items: center;
+    width: 36.22px;
+    height: 36.96px;
+    margin: auto;
+    margin-right: 5px;
+    padding: 5px;
+    border-radius: 6px;
+}
+
+.navbar .nav-item .nav-link.notification-link .notification-cite,
+.navbar .nav-item .nav-link.message-link .message-cite {
+    width: 18.15px;
+}
+
+.navbar .nav-item .nav-link.notification-link .notification-cite img,
+.navbar .nav-item .nav-link.message-link .message-cite img {
+    width: 100%;
+}
+
+.navbar .nav-item .nav-link {
+    height: auto;
+}
+
+.navbar .nav-item .nav-link.profile-link .profile-nav {
+    background-color: transparent;
+    padding: 7px;
+    border-radius: 5px;
+    transition: all 250ms ease-in;
+}
+
+.navbar .profile-dropdown:hover .profile-nav {
+    background-color: #eeeeee !important;
+}
+
+.navbar .nav-item .nav-link .profile-nav .profile-cite {
+    width: 42px;
+    height: 42px;
+    margin-right: 8px;
+    border: 3px solid #e6791f;
+    border-radius: 50%;
+}
+
+.navbar .nav-item .nav-link .profile-nav .profile-cite img {
+    width: 100%;
+}
+
+.navbar .nav-item .nav-link .profile-nav .profile-content {
+    margin-right: 10px;
+}
+
+.navbar .nav-item .nav-link .profile-nav .profile-content .name,
+.navbar .nav-item .nav-link .profile-nav .profile-content .designation {
+    margin-bottom: 0;
+}
+
+.navbar .nav-item .nav-link .profile-nav .profile-content .designation {
+    color: #e6791f;
+}
+
+.navbar .nav-item .nav-link .profile-nav .dropdown-collapse,
+.navbar .nav-item .nav-link .profile-nav .dropdown-collapsed {
+    width: 12px;
+}
+
+.navbar .nav-item .nav-link .profile-nav .dropdown-collapse i,
+.navbar .nav-item .nav-link .profile-nav .dropdown-collapsed i {
+    color: #e6791f;
+}
+
+.navbar .nav-item.profile-dropdown.show .dropdown-collapse,
+.navbar .nav-item .nav-link .profile-nav .dropdown-collapsed {
+    display: none;
+}
+
+.navbar .nav-item.profile-dropdown.show .dropdown-collapsed {
+    display: block !important;
+}
+
+/*
+* ***********************************************************************************************************************************
+* Sidebar Menu
+* ***********************************************************************************************************************************
+*/
+
+.main-sidebar .brand-link {
+    height: 88px;
+    overflow: hidden;
+}
+
+.main-sidebar .brand-link .brand-icon {
+    width: 55px;
+}
+
+.main-sidebar .brand-link .brand-icon img {
+    width: 100%;
+    max-height: inherit;
+}
+
+.sidebar-dark-primary .nav-sidebar>.nav-item.active,
+.sidebar-light-primary .nav-sidebar>.nav-item.active {
+    border-left: 7px solid #f69b69;
+    border-top-left-radius: 1px;
+    border-bottom-left-radius: 1px;
+}
+
+.sidebar-dark-primary .nav-sidebar>.nav-item>.nav-link.active,
+.sidebar-light-primary .nav-sidebar>.nav-item>.nav-link.active {
+    color: #e6791f !important;
+    background-color: transparent !important;
+}
+
+.sidebar-dark-primary .nav-sidebar>.nav-item>.nav-link.active p,
+.sidebar-light-primary .nav-sidebar>.nav-item>.nav-link.active p {
+    color: #e6791f !important;
+}
+
+[class*="sidebar-dark-"] .nav-sidebar>.nav-item>.nav-link.active {
+    box-shadow: none !important;
+}
+
+.sidebar {
+    padding-left: 0 !important;
+}
+
+/*
+* ***********************************************************************************************************************************
+* Breadcrumb
+* ***********************************************************************************************************************************
+*/
+
+nav[aria-label="breadcrumb"] .breadcrumb .breadcrumb-item {
+    font-size: 14px;
+    font-weight: 300;
+    font-family: "Gordita_light", sans-serif !important;
+}
+
+.breadcrumb-item+.breadcrumb-item {
+    padding-left: 3px !important;
+}
+
+.breadcrumb-item+.breadcrumb-item::before {
+    padding-right: 3px !important;
+}
+
+.breadcrumb-item.active {
+    color: #e98130 !important;
+}
+
+/*
+* ***********************************************************************************************************************************
+* Tab and accordion
+* ***********************************************************************************************************************************
+*/
+
+.tab-accordion .nav.nav-tabs,
+.nav.nav-tabs .nav-item {
+    background-color: #e98130;
+}
+
+.tab-accordion .nav-tabs .nav-link {
+    font-size: 14px;
+    padding: 10px 40px;
+    border: 0 !important;
+    border-radius: 0 !important;
+}
+
+.tab-accordion .nav-tabs .nav-link:focus,
+.tab-accordion .nav-tabs .nav-link:hover {
+    border: 0 !important;
+}
+
+.tab-accordion .nav.nav-tabs .nav-item .nav-link,
+.tab-accordion .nav.nav-tabs .nav-item:not(.show) .na-link:not(.active) {
+    color: #ffffff;
+    transition: all 150ms ease-in;
+}
+
+.tab-accordion .nav-tabs .nav-item.show .nav-link,
+.tab-accordion .nav-tabs .nav-link.active,
+.tab-accordion .nav.nav-tabs .nav-item .nav-link:hover {
+    color: #848484 !important;
+    background-color: #ffffff !important;
+    border-top: 2px solid #e6791f !important;
+    border-radius: 5px 0px 0px 0px !important;
+}
+
+.tab-accordion .tab-content .tab-pane {
+    padding: 30px;
+    padding-top: 40px;
+}
+
+.tab-accordion .tab-content .card {
+    background: #fff3ea;
+    border: 1px solid #e7e7e7 !important;
+    border-radius: 6px;
+    box-shadow: none;
+}
+
+.tab-accordion .tab-content .card-header {
+    border: 0;
+}
+
+.tab-accordion.tab-content .card-header .btn {
+    color: #848484;
+}
+
+.tab-content .card-header .btn {
+    padding-left: 0;
+}
+
+.tab-content .card-body {
+    padding-top: 0;
+}
+
+.btn-save {
+    color: #ffffff !important;
+    background-color: #e67a21 !important;
+}
+
+.tab-content .card-header .btn[aria-expanded="true"] .rotate-icon {
+    transform: rotate(180deg);
+}
+
+.tab-content .card-header .btn {
+    color: #848484;
+}
+
+/*
+* ***********************************************************************************************************************************
+* Bootstrap Calendar
+* ***********************************************************************************************************************************
+*/
+.datepicker {
+    border-radius: 0;
+    padding: 0;
+}
+
+.datepicker-days table thead,
+.datepicker-days table tbody,
+.datepicker-days table tfoot {
+    padding: 10px;
+    display: list-item;
+}
+
+.datepicker-days table thead,
+.datepicker-months table thead,
+.datepicker-years table thead,
+.datepicker-decades table thead,
+.datepicker-centuries table thead {
+    border-radius: 0;
+}
+
+.datepicker-days table thead tr:nth-child(2n + 0) td,
+.datepicker-days table thead tr:nth-child(2n + 0) th {
+    border-radius: 3px;
+}
+
+.datepicker-days table thead tr:nth-child(3n + 0) {
+    text-transform: uppercase;
+    font-weight: 300 !important;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.table-condensed>tbody {
+    background-color: #fff !important;
+}
+
+.table-condensed>thead>tr>th {
+    background-color: #fff3ea !important;
+}
+
+.table-condensed>tbody>tr>td,
+.table-condensed>tbody>tr>th,
+.table-condensed>tfoot>tr>td,
+.table-condensed>tfoot>tr>th,
+.table-condensed>thead>tr>td,
+.table-condensed>thead>tr>th {
+    padding: 5px;
+}
+
+.datepicker-months table thead td,
+.datepicker-months table thead th,
+.datepicker-years table thead td,
+.datepicker-years table thead th,
+.datepicker-decades table thead td,
+.datepicker-decades table thead th,
+.datepicker-centuries table thead td,
+.datepicker-centuries table thead th {
+    border-radius: 0;
+}
+
+.datepicker td,
+.datepicker th {
+    border-radius: 50%;
+    padding: 0 12px;
+}
+
+.datepicker-days table thead,
+.datepicker-months table thead,
+.datepicker-years table thead,
+.datepicker-decades table thead,
+.datepicker-centuries table thead {
+    border-radius: 0;
+}
+
+.datepicker table tr td.active,
+.datepicker table tr td.active:hover,
+.datepicker table tr td.active.disabled,
+.datepicker table tr td.active.disabled:hover {
+    background-image: none;
+}
+
+.datepicker table tr td.disabled {
+    background: #f4f9f9 !important;
+    color: #aaaaaa !important;
+    border-radius: 0;
+    cursor: not-allowed;
+}
+
+.datepicker table tr td {
+    background: none;
+    cursor: pointer;
+    transition: all 250ms ease-in-out;
+}
+
+.datepicker table tr td:hover,
+.datepicker table tr td.active,
+.daterangepicker td.active,
+.daterangepicker td.active:hover {
+    color: #ffffff !important;
+    background: #e67a21 !important;
+}
+
+.datepicker table tr td.new,
+.datepicker table tr td.old {
+    color: #aaaaaa !important;
+}
+
+.datepicker table tr td.new:hover {
+    color: inherit !important;
+}
+
+.datepicker .prev,
+.datepicker .next {
+    color: rgba(255, 255, 255, 0.5);
+    transition: 0.3s;
+    width: 37px;
+    height: 37px;
+}
+
+.datepicker .prev:hover,
+.datepicker .next:hover {
+    background: transparent;
+    color: rgba(255, 255, 255, 0.99);
+    font-size: 21px;
+}
+
+.datepicker .datepicker-switch {
+    /* pointer-events: none; */
+    font-size: 24px;
+    font-weight: 400;
+    transition: 0.3s;
+}
+
+.datepicker .datepicker-switch:hover {
+    color: rgba(255, 255, 255, 0.7);
+    background: transparent;
+}
+
+.datepicker table tr td span {
+    border-radius: 2px;
+    margin: 3%;
+    width: 27%;
+}
+
+.datepicker table tr td span.active,
+.datepicker table tr td span.active:hover,
+.datepicker table tr td span.active.disabled,
+.datepicker table tr td span.active.disabled:hover {
+    background-color: #177242;
+    background-image: none;
+}
+
+.dropdown-menu {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+}
+
+.datepicker-dropdown.datepicker-orient-top:before {
+    border-top: 7px solid rgba(0, 0, 0, 0.1);
+}
+
+.applyBtn {
+    color: #ffffff !important;
+    background: #e67a21 !important;
+    border: 0 !important;
+}
+
+@media screen and (max-width: 992px) {
+    .navbar-nav {
+        flex-direction: row !important;
+    }
+
+    .nav-item.dropdown {
+        padding-right: 20px;
+    }
+
+    .dropdown-menu {
+        position: absolute !important;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .navbar .search-form .input-group {
+        width: 250px;
+    }
+
+    .tab-accordion .tab-content .tab-pane {
+        padding: 10px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .form-inline.search-form {
+        display: none;
+    }
+}

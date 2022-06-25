@@ -68,7 +68,7 @@ use frontend\models\tariff\roomTariffWeekdayhikeDays;
             foreach ($rooms as $room) {
 
             $day_hike = RoomTariffWeekdayhike::find()
-            ->where(['range_id' => $date_range->id])
+            ->where(['date_range_id' => $date_range->id])
             ->andWhere(['room_id' => $room->id])->one();
 
             $days = array();
