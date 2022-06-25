@@ -8,6 +8,25 @@ use frontend\assets\FormAsset;
 AppAsset::register($this);
 FormAsset::register($this);
 ?>
+
+<?php
+$menuText = "";
+$url = "";
+$icon ="";
+$user_type = Yii::$app->user->identity->user_type;
+if ($user_type == 1) {
+    $menuText = "Properties";
+    $url = 'index.php?r=property/home';
+    $icon = "/images/properties.svg";
+
+} else {
+    $menuText = "Enquires";
+    $url = 'index.php?r=enquiry/home';
+    //TODO: Change icon
+    $icon = "/images/properties.svg";
+}
+?>
+
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -136,9 +155,9 @@ FormAsset::register($this);
         <div class="row content-contr">
             <!-- Sidebar Menu -->
             <div class="col-2 sidebar-contr">
-                <a class="sidebar-item" href="#">
-                    <img src="/images/properties.svg" alt="properties.svg">
-                    <p class="mb-0"> Properties </p>
+                <a class="sidebar-item" href="<?= $url ?>">
+                    <img src="<?= $icon ?>" alt="<?= $menuText ?>">
+                    <p class="mb-0"><?= $menuText ?></p>
                 </a>
 
                 <a class="sidebar-item active" href="#">

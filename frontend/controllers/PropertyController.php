@@ -70,6 +70,26 @@ class PropertyController extends Controller{
         return $property;
     }
 
+    public function actionHome(){
+        $this->layout = 'tm_main';
+        $roles = Yii::$app->authManager->getRolesByUser(Yii::$app->user->getId());
+        if (ArrayHelper::keyExists('HotelOwner', $roles, false) ){
+            
+            $properties = Property::find()->where(['owner_id' => Yii::$app->user->identity->getOWnerId()])->all();
+        }
+        else 
+        {
+            $usr = Yii::$app->user->identity;
+            $assigned_properties = $usr->getUserPropertyMaps()->select(['property_id'])->column();            
+
+            $properties = Property::find()
+            ->where(['owner_id' => Yii::$app->user->identity->getOWnerId()])
+            ->andWhere(['in', 'id', $assigned_properties])
+            ->all();
+        }
+        
+        return $this->render('home', ['properties' => $properties]);
+    }
 
      public function actionBasicdetails(){
          $this->layout = 'tm_main';
