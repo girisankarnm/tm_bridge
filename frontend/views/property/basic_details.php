@@ -19,62 +19,57 @@ use yii\bootstrap4\ActiveForm;
 
             <hr class="sidebar-divider">
             <?php $form = ActiveForm::begin(['id' => 'property_basic_details', 'enableClientValidation' => true,  'method' => 'post','action' => ['property/savepropertybasic']])?>
-
             <input type="hidden" value="<?= $basic_details->id ?>" name="property_id">
-            <div class="row" style="display: flex; flex-direction: row;">
-                <div class="col-lg-6">
-                    <div class="row" style="margin-left: 3px;margin-bottom: 8px;">
-                        <div style="display: block;margin-right: 35px">
-                            <label class="Labelclass" style="display: block">*Property Name</label>
-                            <?php echo $form->field($basic_details,'name')->textInput(['class' => 'inputLarge'])->label(false) ?>
+
+            <div class="row align-items-start">
+                <div class="col-md-6 ">
+                    <div class="form-group ">
+                        <label class="Labelclass" style="display: block">*Property Name</label>
+                        <?php echo $form->field($basic_details,'name')->textInput(['class' => 'inputLarge'])->label(false) ?>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group ">
+                                <label class="Labelclass" style="display: block">*Property Type</label>
+                                <?php echo $form->field($basic_details, 'property_type_id')->dropDownList($property_types, ['class' => 'inputTextClass','style' => 'width: 200px','prompt' => 'Choose'])->label(false); ?>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group ">
+                                <label class="Labelclass" style="display: block">*Property Rating</label>
+                                <?php echo $form->field($basic_details, 'property_category_id')->dropDownList($property_categories, ['class' => 'inputTextClass','style' => 'width: 200px','prompt' => 'Choose'])->label(false); ?>
+                            </div>
                         </div>
                     </div>
-                    <div class="row" style="margin-left: 3px;margin-bottom: 8px;">
-                        <div style="display: block;margin-right: 35px">
-                            <label class="Labelclass" style="display: block">*Property Type</label>
-                            <?php echo $form->field($basic_details, 'property_type_id')->dropDownList($property_types, ['class' => 'inputTextClass','style' => 'width: 200px','prompt' => 'Choose'])->label(false); ?>
-                        </div>
-                        <div style="display: block;margin-right: 35px">
-                            <label class="Labelclass" style="display: block">*Property Rating</label>
-                            <?php echo $form->field($basic_details, 'property_category_id')->dropDownList($property_categories, ['class' => 'inputTextClass','style' => 'width: 200px','prompt' => 'Choose'])->label(false); ?>
-                        </div>
-                    </div>
-                    <div class="row" style="margin-left: 3px;margin-bottom: 8px;">
-                        <div style="display: block;margin-right: 35px">
-                            <label class="Labelclass" style="display: block">*Website</label>
-                            <?php echo $form->field($basic_details,'website')->textInput(['class' => 'inputLarge'])->label(false) ?>
-                        </div>
-                    </div>
-                    <div style="display: block;margin-right: 35px; margin-left: 10px">
-                        <BUTTON type="text" class="buttonSave" style="width: 85px; border-radius: 5px"> Save </BUTTON>
+                    <div class="form-group ">
+                        <label class="Labelclass" style="display: block">*Website</label>
+                        <?php echo $form->field($basic_details,'website')->textInput(['class' => 'inputLarge'])->label(false) ?>
                     </div>
                 </div>
-                <div class="col-lg-6 row">
+                <div class="col-md-6 ">
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label class="Labelclass" style="display: block;" >*Property Photo</label>
+                            <img id="imagePreview" src="uploads/<?php echo $basic_details->image; ?>" class="imagePreview <?php if(!$basic_details->id): ?> default-preview <?php endif; ?> "  style="height: 200px; width:100%;  border: 2px #808080 dashed; border-radius: 6px"/>
+                            <?= $form->field($property_image, 'proFile')->fileInput(['class' => 'btn btn-sm img uploadFile', 'accept' => "image/*", 'id'=>"uploadFile"])->label(false); ?>
 
-                    <div class="col-lg-6" style="padding-right: 20px
-">
-                        <label class="Labelclass" style="display: block;" >*Property Photo</label>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="Labelclass" style="display: block;" >*Property Logo</label>
 
-                        <img id="imagePreview" src="uploads/<?php echo $basic_details->image; ?>" class="imagePreview <?php if(!$basic_details->id): ?> default-preview <?php endif; ?> " />
-                        <?= $form->field($property_image, 'proFile')->fileInput(['class' => 'btn btn-sm img uploadFile', 'accept' => "image/*", 'id'=>"uploadFile"])->label(false); ?>
+                            <img id="imagePreview-logo" src="uploads/<?php echo $basic_details->logo; ?>" class="imagePreviewLogo <?php if(!$basic_details->id): ?> default-preview <?php endif; ?>" style="height: 200px; width:100%;  border: 2px #808080 dashed; border-radius: 6px" />
 
-<!--                        <input id="uploadFile" type="file" name="property_photo" class="img uploadFile" />-->
+                            <!--                        <input id="uploadFile-logo" type="file" name="property_logo" class="img uploadFile" />-->
+                            <?= $form->field($property_image, 'logoFile')->fileInput(['class' => 'btn btn-sm img uploadFile', 'accept' => "image/*", 'id'=>"uploadFile-logo"])->label(false); ?>
+
+                        </div>
                     </div>
-                    <div class="col-lg-6" >
-                        <label class="Labelclass" style="display: block;" >*Property Logo</label>
-
-                        <img id="imagePreview-logo" src="uploads/<?php echo $basic_details->logo; ?>" class="imagePreviewLogo <?php if(!$basic_details->id): ?> default-preview <?php endif; ?>"  />
-
-<!--                        <input id="uploadFile-logo" type="file" name="property_logo" class="img uploadFile" />-->
-                        <?= $form->field($property_image, 'logoFile')->fileInput(['class' => 'btn btn-sm img uploadFile', 'accept' => "image/*", 'id'=>"uploadFile-logo"])->label(false); ?>
-
-                    </div>
-
-
-
-
                 </div>
             </div>
+            <div style="display: block;margin-right: 35px; margin-left: 10px">
+                <BUTTON type="text" class="buttonSave" style="width: 85px; border-radius: 5px"> Save </BUTTON>
+            </div>
+
             <?php ActiveForm::end(); ?>
         </div>
     </div>

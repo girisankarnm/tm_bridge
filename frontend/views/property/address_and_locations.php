@@ -24,34 +24,35 @@ use yii\bootstrap4\ActiveForm;
             <?php $form = ActiveForm::begin(['id' => 'address_location','enableClientValidation' => true, 'method' => 'post','action' => ['property/savepropertyaddresslocation']]) ?>
             <?= $form->field($address_location, 'id')->hiddenInput()->label(false); ?>
 
-            <div class="row" style="margin-left: 3px;margin-bottom: 8px;">
-                <div style="display: block;margin-right: 35px">
+            <div class="row">
+                <div class="form-group col-md-4">
                     <label class="Labelclass" style="display: block" >*Country</label>
                     <?php echo $form->field($address_location,'country_id')->dropDownList($countries,['class' => 'inputTextClass', 'prompt' => 'Choose'])->label(false) ?>
                 </div>
-                <div style="display: block;margin-right: 35px">
+                <div class="form-group col-md-4">
                     <label class="Labelclass" style="display: block" >*Location</label>
                     <?php echo $form->field($address_location,'location_id')->dropDownList($locations,['class' => 'inputTextClass', 'prompt' => 'Choose'])->label(false) ?>
                 </div>
-                <div style="display: block">
+                <div class="form-group col-md-4">
                     <label class="Labelclass" style="display: block" >*Destination</label>
                     <?php echo $form->field($address_location,'destination_id')->dropDownList($destinations,['class' => 'inputTextClass', 'prompt' => 'Choose'])->label(false) ?>
                 </div>
             </div>
-            <div class="row" style="margin-left: 3px;margin-bottom: 15px">
-                <div style="display: block;margin-right: 35px">
+            <div class="row">
+                <div class="form-group col-md-4">
                     <label class="Labelclass" style="display: block" >*Address</label>
-                    <?php echo $form->field($address_location,'address')->textInput(['class' => 'inputTextClass'])->label(false) ?>
+                    <?php echo $form->field($address_location,'address')->textInput(['class' => 'inputTextClass', 'placeholder'=>'Please enter official address of the business'])->label(false) ?>
                 </div>
-                <div style="display: block;margin-right: 35px">
+                <div class="form-group col-md-4">
                     <label class="Labelclass" style="display: block" >*Zip Code</label>
                     <?php echo $form->field($address_location,'postal_code')->textInput(['class' => 'inputTextClass'])->label(false) ?>
                 </div>
-                <div style="display: block">
+                <div class="form-group col-md-4">
                     <label class="Labelclass" style="display: block" >*Locality</label>
-                    <?php echo $form->field($address_location,'locality')->textInput(['class' => 'inputTextClass'])->label(false) ?>
+                    <?php echo $form->field($address_location,'locality')->textInput(['class' => 'inputTextClass', 'placeholder'=>'Enter locality where the business is situated'])->label(false) ?>
                 </div>
             </div>
+
             <div style="display: block;margin-right: 35px; margin-left: 10px; margin-top: 20px">
                 <BUTTON type="text" class="buttonSave" style="width: 85px; border-radius: 5px"> Save </BUTTON>
             </div>

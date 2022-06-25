@@ -12,6 +12,7 @@ use frontend\models\operator\Operator;
 use frontend\models\operator\OperatorContacts;
 use frontend\models\operator\OperatorImage;
 use frontend\models\operator\TermsConditions;
+use frontend\models\property\Property;
 use frontend\models\property\PropertyLegalStatus;
 use Yii;
 use yii\helpers\ArrayHelper;
@@ -38,9 +39,20 @@ class OperatorController extends Controller{
     public function actionBasicdetails(){
         $this->layout = 'tm_main';
         $operator = NULL;
-        $operator = Operator::find()
-            ->andWhere(['owner_id' => Yii::$app->user->identity->getOWnerId()])
-            ->one();
+        if(isset( $_GET['id']) ) {
+            $operator_id = Yii::$app->request->get('id');
+            $operator = Operator::find()
+                ->where(['id' => $operator_id])
+                ->andWhere(['owner_id' => Yii::$app->user->getId()])
+                ->one();
+            if ($operator == NULL){
+                throw new NotFoundHttpException();
+            }
+        }
+//        $operator = Operator::find()
+//            ->andWhere(['owner_id' => Yii::$app->user->identity->getOWnerId()])
+//            ->one();
+//        return $operator->id;
 
         $basic_details = new BasicDetails();
         $operator_image = new OperatorImage();
@@ -64,7 +76,6 @@ class OperatorController extends Controller{
         {
             $show_terms_tab = false;
         }
-
         return $this->render('basic_details',[
             'basic_details' => $basic_details,
             'operator_image' => $operator_image,
