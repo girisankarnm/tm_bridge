@@ -4,14 +4,12 @@ use borales\extensions\phoneInput\PhoneInput;
 ?>
 
 <link rel="stylesheet" type="text/css" href="/css/tour-min-1.css" />
-
-<!-- Begin Page Content -->
 <div class="content">
     <div class="container-fluid" >
         <div class="card-title">
             <span style="font: bold">Enquiry</span>
         </div>
-
+        <div class="tariffBorder" style="margin-top: 20px;">
         <div class="tab">
             <a href="<?= \yii\helpers\Url::to(['/enquiry/basicdetails', 'id' => $enquiry->id]) ?>"> <button class="tablinks btnunder" onclick="openCity(event, 'London')" >Basic Details</button></a>
             <div style="display: inline">   <a href="<?= \yii\helpers\Url::to(['/enquiry/contactdetails', 'id' => $enquiry->id]) ?>">  <button class="selectedButton" onclick="openCity(event, 'London')" >Contact Details</button></a> <hr class="new5" >
@@ -29,7 +27,7 @@ use borales\extensions\phoneInput\PhoneInput;
                 <?php echo $form->field($enquiry, 'email1')->textInput(['class' => 'inputTextClass'])->label(false); ?>
             </div>
             <div style="display: block">
-                <label class="Labelclass" style="display: block;margin-top: 20px" >*Email 2</label>                
+                <label class="Labelclass" style="display: block;margin-top: 20px" >Email 2</label>
                 <?php echo $form->field($enquiry, 'email2')->textInput(['class' => 'inputTextClass'])->label(false); ?>
             </div>
         </div>
@@ -46,7 +44,7 @@ use borales\extensions\phoneInput\PhoneInput;
                 ], )->label(false);?> 
             </div>
             <div style="display: block">
-                <label class="Labelclass" style="display: block;margin-top: 20px" >*Contact Number 2</label>
+                <label class="Labelclass" style="display: block;margin-top: 20px" >Contact Number 2</label>
                 <?php
                     echo $form->field($enquiry, 'contact2')->widget(PhoneInput::className(), [                   
                     'jsOptions' => [
@@ -62,6 +60,7 @@ use borales\extensions\phoneInput\PhoneInput;
             </div>
         </div>
         <!-- /.container-fluid -->
+        </div>
         <?php ActiveForm::end(); ?>
     </div>
 </div>
