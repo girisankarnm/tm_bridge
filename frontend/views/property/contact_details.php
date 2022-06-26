@@ -29,15 +29,19 @@ use borales\extensions\phoneInput\PhoneInput;
             <?= $form->field($contact, 'id')->hiddenInput()->label(false); ?>
             <?= $form->field($contact, 'property_id')->hiddenInput()->label(false); ?>
 
-            <div class="contact-head" >
+            <div class="contact-head col-md-11" >
                 <h6 style=" color: black; font-size: 12px; padding: 3px; margin-left: 10px">Particulars Sales</h6>
             </div>
-            <div class="row" style="margin-left: 3px;margin-bottom: 8px;">
-                <div style="display: block;margin-right: 35px">
+
+
+
+
+            <div class="row">
+                <div class="form-group col-md-4">
                     <label class="Labelclass" style="display: block" >*Name</label>
                     <?= $form->field($contact,'sales_name')->textInput(['class' => 'inputTextClass'])->label(false) ?>
                 </div>
-                <div style="display: block;margin-right: 35px">
+                <div class="form-group col-md-4">
                     <label class="Labelclass" style="display: block" >*Phone</label>
                     <?php
                     echo $form->field($contact, 'sales_phone')->widget(PhoneInput::className(), [
@@ -48,20 +52,20 @@ use borales\extensions\phoneInput\PhoneInput;
                     ], )->label(false);?>
 
                 </div>
-                <div style="display: block">
+                <div class="form-group col-md-4">
                     <label class="Labelclass" style="display: block" >*Email</label>
                     <?= $form->field($contact,'sales_email')->textInput(['class' => 'inputTextClass'])->label(false) ?>
                 </div>
             </div>
-            <div class="contact-head" >
+            <div class="contact-head col-md-11" >
                 <h6 style=" color: black; font-size: 12px; padding: 3px; margin-left: 10px">Reservation</h6>
             </div>
-            <div class="row" style="margin-left: 3px;margin-bottom: 15px">
-                <div style="display: block;margin-right: 35px">
+            <div class="row">
+                <div class="form-group col-md-4">
                     <label class="Labelclass" style="display: block" >*Name</label>
                     <?= $form->field($contact,'reservation_name')->textInput(['class' => 'inputTextClass'])->label(false) ?>
                 </div>
-                <div style="display: block;margin-right: 35px">
+                <div class="form-group col-md-4">
                     <label class="Labelclass" style="display: block" >*Phone</label>
                     <?php
                     echo $form->field($contact, 'reservation_phone')->widget(PhoneInput::className(), [
@@ -71,20 +75,20 @@ use borales\extensions\phoneInput\PhoneInput;
                         'options'=> array('class'=>'inputTextClass', 'placeholder' => '9123456780', 'maxlength' => '12'),
                     ], )->label(false);?>
                 </div>
-                <div style="display: block">
+                <div class="form-group col-md-4">
                     <label class="Labelclass" style="display: block" >*Email</label>
                     <?= $form->field($contact,'reservation_email')->textInput(['class' => 'inputTextClass'])->label(false) ?>
                 </div>
             </div>
-            <div class="contact-head" >
+            <div class="contact-head col-md-11" >
                 <h6 style=" color: black; font-size: 12px; padding: 3px; margin-left: 10px">Front Office</h6>
             </div>
-            <div class="row" style="margin-left: 3px;margin-bottom: 15px">
-                <div style="display: block;margin-right: 35px">
+            <div class="row">
+                <div class="form-group col-md-4">
                     <label class="Labelclass" style="display: block" >*Name</label>
                     <?= $form->field($contact,'front_office_name')->textInput(['class' => 'inputTextClass'])->label(false) ?>
                 </div>
-                <div style="display: block;margin-right: 35px">
+                <div class="form-group col-md-4">
                     <label class="Labelclass" style="display: block" >*Phone</label>
                     <?php
                     echo $form->field($contact, 'front_office_phone')->widget(PhoneInput::className(), [
@@ -94,20 +98,20 @@ use borales\extensions\phoneInput\PhoneInput;
                         'options'=> array('class'=>'inputTextClass', 'placeholder' => '9123456780', 'maxlength' => '12'),
                     ], )->label(false);?>
                 </div>
-                <div style="display: block">
+                <div class="form-group col-md-4">
                     <label class="Labelclass" style="display: block" >*Email</label>
                     <?= $form->field($contact,'front_office_email')->textInput(['class' => 'inputTextClass'])->label(false) ?>
                 </div>
             </div>
-            <div class="contact-head" >
+            <div class="contact-head col-md-11" >
                 <h6 style=" color: black; font-size: 12px; padding: 3px; margin-left: 10px">Accounts</h6>
             </div>
-            <div class="row" style="margin-left: 3px;margin-bottom: 15px">
-                <div style="display: block;margin-right: 35px">
+            <div class="row">
+                <div class="form-group col-md-4">
                     <label class="Labelclass" style="display: block" >*Name</label>
                     <?= $form->field($contact,'accounts_office_name')->textInput(['class' => 'inputTextClass'])->label(false) ?>
                 </div>
-                <div style="display: block;margin-right: 35px">
+                <div class="form-group col-md-4">
                     <label class="Labelclass" style="display: block" >*Phone</label>
                     <?php
                     echo $form->field($contact, 'accounts_office_phone')->widget(PhoneInput::className(), [
@@ -117,7 +121,7 @@ use borales\extensions\phoneInput\PhoneInput;
                         'options'=> array('class'=>'inputTextClass', 'placeholder' => '9123456780', 'maxlength' => '12'),
                     ], )->label(false);?>
                 </div>
-                <div style="display: block">
+                <div class="form-group col-md-4">
                     <label class="Labelclass" style="display: block" >*Email</label>
                     <?= $form->field($contact,'accounts_office_email')->textInput(['class' => 'inputTextClass'])->label(false) ?>
                 </div>

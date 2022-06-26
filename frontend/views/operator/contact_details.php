@@ -24,15 +24,15 @@ use yii\bootstrap4\ActiveForm;
             <?= $form->field($contact, 'id')->hiddenInput()->label(false); ?>
             <?= $form->field($contact, 'operator_id')->hiddenInput()->label(false); ?>
 
-            <div class="contact-head" >
+            <div class="contact-head col-md-11">
                 <h6 style=" color: black; font-size: 12px; padding: 3px; margin-left: 10px">Contact 1</h6>
             </div>
-            <div class="row" style="margin-left: 3px;margin-bottom: 8px;">
-                <div style="display: block;margin-right: 35px">
+            <div class="row">
+                <div class="form-group col-md-4">
                     <label class="Labelclass" style="display: block" >*Name</label>
                    <?= $form->field($contact,'name1')->textInput(['class' => 'inputTextClass'])->label(false) ?>
                 </div>
-                <div style="display: block;margin-right: 35px">
+                <div class="form-group col-md-4">
                     <label class="Labelclass" style="display: block" >*Phone</label>
                     <?php
                     echo $form->field($contact, 'phone1')->widget(PhoneInput::className(), [
@@ -42,20 +42,20 @@ use yii\bootstrap4\ActiveForm;
                         'options'=> array('class'=>'inputTextClass', 'placeholder' => '9123456780', 'maxlength' => '12'),
                     ], )->label(false);?>
                 </div>
-                <div style="display: block">
+                <div class="form-group col-md-4">
                     <label class="Labelclass" style="display: block" >*Email</label>
                     <?= $form->field($contact,'email1')->textInput(['class' => 'inputTextClass'])->label(false) ?>
                 </div>
             </div>
-            <div class="contact-head" >
+            <div class="contact-head col-md-11">
                 <h6 style=" color: black; font-size: 12px; padding: 3px; margin-left: 10px">Contact 2</h6>
             </div>
-            <div class="row" style="margin-left: 3px;margin-bottom: 15px">
-                <div style="display: block;margin-right: 35px">
+            <div class="row">
+                <div class="form-group col-md-4">
                     <label class="Labelclass" style="display: block" >*Name</label>
                     <?= $form->field($contact,'name2')->textInput(['class' => 'inputTextClass'])->label(false) ?>
                 </div>
-                <div style="display: block;margin-right: 35px">
+                <div class="form-group col-md-4">
                     <label class="Labelclass" style="display: block" >*Phone</label>
                     <?php
                     echo $form->field($contact, 'phone2')->widget(PhoneInput::className(), [
@@ -65,7 +65,7 @@ use yii\bootstrap4\ActiveForm;
                         'options'=> array('class'=>'inputTextClass', 'placeholder' => '9123456780', 'maxlength' => '12'),
                     ], )->label(false);?>
                 </div>
-                <div style="display: block">
+                <div class="form-group col-md-4">
                     <label class="Labelclass" style="display: block" >*Email</label>
                     <?= $form->field($contact,'email2')->textInput(['class' => 'inputTextClass'])->label(false) ?>
                 </div>

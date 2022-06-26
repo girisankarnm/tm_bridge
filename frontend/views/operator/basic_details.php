@@ -26,79 +26,52 @@ use yii\bootstrap4\ActiveForm;
             <?php $form = ActiveForm::begin(['id' => 'operational_form','enableClientValidation' => true,'method' => 'post','action' => ['operator/savebasicdetails']]) ?>
             <?= $form->field($basic_details, 'id')->hiddenInput()->label(false); ?>
             <input type="hidden" value="<?= $basic_details->id ?>" name="operator_id">
-            <div class="row" style="display: flex; flex-direction: row;">
-                <div style="width: 50%">
-                    <div style="display: block; margin-right: 35px; margin-left: 10px">
-                        <label class="Labelclass" style="display: block" >*Company</label>
+
+            <div class="row align-items-start">
+                <div class="col-md-6 ">
+                    <div class="form-group ">
+                        <label class="Labelclass">*Company</label>
                         <?php echo $form->field($basic_details,'name')->textInput(['class' => 'inputLarge'])->label(false) ?>
                     </div>
-                    <div style="display: block; margin-right: 35px; margin-left: 10px">
-                        <label class="Labelclass" style="display: block" >*Website</label>
+                    <div class="form-group ">
+                        <label class="Labelclass">*Website</label>
                         <?php echo $form->field($basic_details,'website')->textInput(['class' => 'inputLarge', 'placeholder'=>'Please provide website if available'])->label(false) ?>
                     </div>
-                    <div style="display: block;margin-right: 35px; margin-left: 10px; margin-top: 20px">
-                        <BUTTON type="text" class="buttonSave" style="width: 85px; border-radius: 5px"> Save </BUTTON>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label class="Labelclass" style="display: block;margin-top: 22px" >*Upload Vcard</label>
+                            <img src="uploads/<?php echo $basic_details->v_card_image_front; ?>" id="v-card-front"  class="v-card  <?php if($basic_details->v_card_image_front == null): ?> default-preview <?php endif; ?> "  style="height: 150px; width: 100%;  border: 2px #cacaca dashed; border-radius: 6px"/>
+                            <?= $form->field($operator_image, 'v_card_image_front')->fileInput(['class' => 'btn btn-sm img uploadFile', 'accept' => "image/*", 'id'=>"operator-v-card-front"])->label(false); ?>
+
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="Labelclass" style="display: block;margin-top: 22px" ></label>
+<!--                            <input id="operator-v-card-front" type="file" name="property_photo" class="img uploadFile" />-->
+                            <img src="uploads/<?php echo $basic_details->v_card_image_back; ?>" id="v-card-back"  class="v-card  <?php if($basic_details->v_card_image_back == null): ?> default-preview <?php endif; ?> " style="height: 150px; width: 100%;  border: 2px #cacaca dashed; border-radius: 6px"/>
+                            <?= $form->field($operator_image, 'v_card_image_back')->fileInput(['class' => 'btn btn-sm img uploadFile', 'accept' => "image/*", 'id'=>"operator-v-card-back"])->label(false); ?>
+
+                        </div>
                     </div>
                 </div>
-                <div style="width: 50%">
-                    <div style="display: block; margin-right: 35px; margin-left: 10px;">
+                <div class="col-md-6 ">
+                    <div class="form-group ">
                         <label class="Labelclass" style="display: block" >*Upload Logo</label>
-                        <img src="uploads/<?php echo $basic_details->logo_image; ?>" id="imagePreview-logo"  class="imagePreview-logo  <?php if($basic_details->logo_image == null): ?> default-preview <?php endif; ?>  " />
-                        <?= $form->field($operator_image, 'logo_image')->fileInput(['class' => 'btn btn-sm img uploadFile', 'accept' => "image/*", 'id'=>"operator-logo"])->label(false); ?>
-<!--                    <input id="operator-logo" type="file" name="property_photo" class="img uploadFile" />-->
+                        <img src="uploads/<?php echo $basic_details->logo_image; ?>" id="imagePreview-logo"  class="imagePreview-logo  <?php if($basic_details->logo_image == null): ?> default-preview <?php endif; ?> " style="height: 220px; width: 100%;  border: 2px #cacaca dashed; border-radius: 6px" />
+                        <?= $form->field($operator_image, 'logo_image')->fileInput(['class' => 'btn btn-sm img uploadFile ', 'accept' => "image/*", 'id'=>"operator-logo", ])->label(false); ?>
 
-<!--                        <div class="Neon Neon-theme-dragdropbox">-->
-<!--                            <input style="z-index: 999; opacity: 0; width: 460px; height: 200px; position: absolute; " name="files[]" id="filer_input2" multiple="multiple" type="file">-->
-<!--                            <div class="Neon-input-dragDrop">-->
-<!--                                <div class="Neon-input-inner">-->
-<!--                                    <div class="Neon-input-icon">-->
-<!--                                        <i class="fa fa-file-image"></i>-->
-<!--                                    </div>-->
-<!--                                    <div class="Neon-input-text"><h3>Company Logo</h3>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-                    </div>
-                    <div style="display: block; margin-right: 35px; margin-left: 10px">
-                        <label class="Labelclass" style="display: block;margin-top: 22px" >*Upload Vcard</label>
-                        <img src="uploads/<?php echo $basic_details->v_card_image_front; ?>" id="v-card-front"  class="v-card  <?php if($basic_details->v_card_image_front == null): ?> default-preview <?php endif; ?> " />
-                        <?= $form->field($operator_image, 'v_card_image_front')->fileInput(['class' => 'btn btn-sm img uploadFile', 'accept' => "image/*", 'id'=>"operator-v-card-front"])->label(false); ?>
 
-                        <input id="operator-v-card-front" type="file" name="property_photo" class="img uploadFile" />
-
-                        <img src="uploads/<?php echo $basic_details->v_card_image_back; ?>" id="v-card-back"  class="v-card  <?php if($basic_details->v_card_image_back == null): ?> default-preview <?php endif; ?> " />
-                        <?= $form->field($operator_image, 'v_card_image_back')->fileInput(['class' => 'btn btn-sm img uploadFile', 'accept' => "image/*", 'id'=>"operator-v-card-back"])->label(false); ?>
-
-<!--                        <input id="operator-v-card-back" type="file" name="property_photo" class="img uploadFile" />-->
-
-<!--                        <div class="Neon Neon-theme-dragdropbox" style="display: inline-block">-->
-<!--                            <input style="z-index: 999; opacity: 0; width: 220px; height: 120px; position: absolute; " name="files[]" id="filer_input2" multiple="multiple" type="file">-->
-<!--                            <div class="Neon-input-dragDrop-small" >-->
-<!--                                <div class="Neon-input-inner">-->
-<!--                                    <div class="Neon-input-icon" style="font-size: 50px">-->
-<!--                                        <i class="fa fa-file-image"></i>-->
-<!--                                    </div>-->
-<!--                                    <div class="Neon-input-text"><h3>Company visiting card front</h3>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="Neon Neon-theme-dragdropbox" style="display: inline-block">-->
-<!--                            <input style="z-index: 999; opacity: 0; width: 220px; height: 120px; position: absolute; " name="files[]" id="filer_input2" multiple="multiple" type="file">-->
-<!--                            <div class="Neon-input-dragDrop-small" >-->
-<!--                                <div class="Neon-input-inner">-->
-<!--                                    <div class="Neon-input-icon" style="font-size: 50px">-->
-<!--                                        <i class="fa fa-file-image"></i>-->
-<!--                                    </div>-->
-<!--                                    <div class="Neon-input-text"><h3>Company visiting card back</h3>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
                     </div>
                 </div>
             </div>
+            <div style="display: block;margin-right: 35px; margin-left: 10px; margin-top: 20px">
+                <BUTTON type="text" class="buttonSave" style="width: 85px; border-radius: 5px"> Save </BUTTON>
+            </div>
+
+
+
+
+
+
             <?php ActiveForm::end(); ?>
 
         </div>

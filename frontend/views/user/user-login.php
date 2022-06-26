@@ -3,10 +3,11 @@ use yii\bootstrap4\ActiveForm;
 $this->registerCssFile('/css/full-page.css');
 ?>
 
-<div class="content" style=" height: 100%; background-image: url(/images/background1.jpg); background-repeat: no-repeat; background-size: 100% 100%; align-content: center">
+<!--<div class="content" style=" height: 100%; background-image: url(/images/Login.png); background-repeat: no-repeat; background-size: 100% 100%; align-content: center">-->
+<div class="content" style="height: 100%; background-image: url(/images/Login.png); background-size: cover; background-position: center; background-repeat: no-repeat; margin: 0">
     <div style="width:32%; margin:5% auto">
         <?php $form = ActiveForm::begin(['id' => 'login-form', 'class' => 'form-class']); ?>
-        <div class="" style="width: 100%;height: 100%; margin: auto; padding: 28px; background-color: white ">
+        <div class="" style="width: 100%;height: 100%; margin: auto; padding: 28px;  ">
             <div>
                 <img src="/images/logo.svg" class="logo-small">
             </div>
