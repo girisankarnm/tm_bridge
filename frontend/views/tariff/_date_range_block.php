@@ -29,37 +29,43 @@ use frontend\models\tariff\RoomRateValidator;
     
 ?>
 <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample1">
+
     <div class="card matherdaterangecard" >
-        <div style="margin-bottom: 18px; background-color: ">
-
-            <div class="flex-containerDate " style="padding-left: 12px;padding-top: 12px;padding-right: 12px;width: 270px;">
-                <div style="width: 50px;"><i  class="fa fa-check-circle w3-large tickiconmotherdaterange item" aria-hidden="true"></i></div>
-                    <div style="width: 84px;"><h6 class="motherdaterange-H6 " style="padding-top: 7px;margin-right: 8px;width: ">From Date</h6></div>
-                <div style=" width: 10px;"><h6 class="h6class"><hr class="new1 hrtopmargin"> </h6></div>
-                <div style=" width: 10px;"> </h6></div>
-                <div style="width: 80px;"><h6 class="motherdaterange-H6 h6class " > To Date </h6></div>
-                <div style="width: 10px"><h6 class="motherdaterange-H6 h7class" ></h6></div>
-                <div style="width: 50px" ></div>
-                <div style="width: 94px;"><h6 class="motherdaterange-H6 h7class" > <?= Carbon::parse($range->from_date)->format('d M Y');  ?> </h6></div>
-                <div style="width:10px;"></div>
-                <div style="width: 90px;"><h6 class="motherdaterange-H6 h7class" > <?= Carbon::parse($range->to_date)->format('d M Y'); ?> </h6></div>
+        <div id="main"  >
+            <div  style="margin-top: 8px;background-color: #ffffff;text-align: center">
+                <svg width="37" height="36" viewBox="0 0 43 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="21.5893" cy="21.0307" r="17.2748" transform="rotate(-172.902 21.5893 21.0307)" stroke="#009721" stroke-width="3"/>
+                    <path d="M14.875 21.5339L19.6822 26.3413L30.3058 15.7178" stroke="#009721" stroke-width="3" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <div style="margin-top: 8px; ">
+                <span class="dateform">From Date</span>
+                <!--                    <div style=" flex-wrap: wrap">-->
+                <div ><h6 class="motherdaterange-H6 h7class  smallFonts" > <?= Carbon::parse($range->from_date)->format('d M Y'); ?> </h6></div>
+                <!--                    </div>-->
+            </div>
+            <div style="margin-top: 4px"><h6 class="h6class"><hr class="new1 hrtopmargin"> </h6>
+            </div>
+            <div style="margin-top: 8px;">  <span class="dateform">To Date</span>
+                <div style="width: 90px;"><h6 class="motherdaterange-H6 h7class  smallFonts" ><?= Carbon::parse($range->to_date)->format('d M Y'); ?>   </h6></div>
+            </div>
+        </div>
+        <div style="display: flex">
+            <div id="main2"  >
+                <div></div>
+                <div ><h6  class="motherdaterange-H6  smallFonts" style="padding-top: 0px; font-size: 10px; line-height: 0;"><img s src="images/user-icon.svg" style="color: #545b62;margin-right: 4px" aria-hidden="true"></img>Arjun Raj sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss </h6></div>
+                <div ><h6 class="motherdaterange-H6 h7class  smallFonts" ><img s src="images/callender-icon.svg" style="color: #545b62;margin-right: 4px" aria-hidden="true"></img> december 25 2022 </h6></div>
+                <div ><h6 class="motherdaterange-H6 h7class" >                  <img s src="images/ticksuccess.svg" style="color: #545b62;margin-right: 4px" aria-hidden="true"></img>
+                        <span class="publishform"> Not published  </span><span class="publishform">Tariff validation: <?= (!$bValidated) ? "Failed - ".implode(",", $rc->getLastErrorMessages()) : "Success" ?>   </span> </h6></div>
+            </div>
+            <div id="b" style=" display: flex">
+                <div style="margin-right: 10px;padding-bottom: 10px"> <a href="<?= \yii\helpers\Url::to(['/tariff/addmotherdate', 'id' =>  $property->id, 'mother_id' => $range->id]) ?>"> <img s src="images/edit-1-icon.svg" style="color: #545b62;margin-right: 4px" aria-hidden="true"></img>   </a>   <a href="#"> <img s src="images/delete-1-icon.svg" style="color: #545b62;margin-right: 4px" aria-hidden="true"></img>   </a>
+                     <a href="<?= \yii\helpers\Url::to(['/tariff/nesting', 'id' =>  $property->id, 'mother_range_id' => $range->id, 'tariff' => 1]) ?>"> <BUTTON type="button" class="buttonSaveroomrate" > Nesting </BUTTON> </a> </div>
             </div>
 
-            <div class="flex-containerDate " style="padding-left: 12px;padding-top: 12px;padding-right: 12px; margin-left: 28px;">
-                <div style="width: 18px"></div>
-                <div><h6  class="motherdaterange-H6" style="padding-top: 0px; font-size: 10px; line-height: 0;"><i class="fa fa-user" style="color: #545b62;margin-right: 4px" aria-hidden="true"></i>Arjun Raj  </h6></div>
-                <div style="width: 18px"></div>
-                <div><h6 class="motherdaterange-H6 h7class" > <i style="color: #545b62;margin-right: 4px" class="fa fa-calendar" aria-hidden="true"></i> 25 December 2022 </h6></div>
-                <div style="width: 18px"></div>
-                <div><h6 class="motherdaterange-H6 h9class" ><i style="color: #545b62;margin-right: 4px"  class="fa fa-check-circle w3-large " aria-hidden="true"></i> Not published  </h6></div>
-                <div style="width: 18px"></div>
-                <div><h6 class="motherdaterange-H6 h9class" ><i style="color: #545b62;margin-right: 4px"  class="fa fa-check-circle w3-large " aria-hidden="true"></i> Tariff validation: <?= (!$bValidated) ? "Failed - ".implode(",", $rc->getLastErrorMessages()) : "Success" ?>   </h6></div>
-                <div style="margin-left: 45%">
-                    <a href="<?= \yii\helpers\Url::to(['/tariff/nesting', 'id' =>  $property->id, 'mother_range_id' => $range->id, 'tariff' => 1]) ?>"> Nesting </a>
-                    <div style="margin-right: 10px;padding-bottom: 10px"> <a href="#"> <i  class="fas fa-edit editfa"></i> </a>  <a href="#"> <i  class="fa fa-trash editfa" aria-hidden="true"></i></a> <BUTTON type="button" class="buttonSaveroomrate"  data-toggle="modal" data-target="#logoutModal">Nesting  </BUTTON></div>
-                </div>
-            </div>
 
         </div>
     </div>
+
+
 </div>

@@ -13,6 +13,7 @@ $this->registerJsFile('/js/enquiry/guest_count.js');
         <div class="card-title">
             Enquiry
         </div>
+        <div class="tariffBorder" style="margin-top: 20px;">
         <div class="tab">
             <a href="<?= \yii\helpers\Url::to(['/enquiry/basicdetails', 'id' => $enquiry->id]) ?>"> <button class="tablinks btnunder" onclick="openCity(event, 'London')" >Basic Details</button></a>
             <a href="<?= \yii\helpers\Url::to(['/enquiry/contactdetails', 'id' => $enquiry->id]) ?>">   <button id="contactBtn" class="tablinks" onclick="openCity(event, 'Paris')">Contact Details</button></a>
@@ -196,11 +197,11 @@ $this->registerJsFile('/js/enquiry/guest_count.js');
 
         <input type="hidden" id="current_unique_plan_id" name="current_unique_plan_id" value="<?= $i; ?>" ?>
         <div class="row" style="margin-left: 4px;margin-bottom: 12px;">
-            <div style="display: block;margin-right: 35px">
+            <div class="savedivstyle">
                 <button id="save_guest_count" type="text" class="buttonSaveenquiry"> Save </button>
             </div>
         </div>
-
+        </div>
         <?php ActiveForm::end(); ?>
     </div>
 </div>

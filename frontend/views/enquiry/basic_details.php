@@ -26,11 +26,11 @@ $this->registerJsFile('/js/enquiry/basic_details.js');
 <link rel="stylesheet" type="text/css" href="/css/tour-min-1.css" />
 <div class="content">
     <!-- Begin Page Content -->
-    <div class="container-fluid" style="background-color: #f3f3f3">
+    <div class="container-fluid" >
         <div class="card-title">
             Enquiry
         </div>
-
+        <div class="tariffBorder" style="margin-top: 20px;">
         <div class="tab" style="display: flex;flex-direction: row;">
             <div style="display: inline">   <a href="<?= \yii\helpers\Url::to(['/enquiry/basicdetails', 'id' => $basic_details->id]) ?>">  <button class="selectedButton" onclick="openCity(event, 'London')" >Basic Details</button></a> <hr class="new5" >
             </div>
@@ -68,7 +68,7 @@ $this->registerJsFile('/js/enquiry/basic_details.js');
             </div>
             <div style="display: block">
                 <label class="Labelclass" style="display: block;margin-top: 20px" >*End Date</label>
-                <input type="text" id="tour_end_date" name="tour_end_date" class="inputTextClass" style="width: 135px;" readonly="true" value="<?= $tour_end_date ?>">
+                <input type="text" id="tour_end_date" name="tour_end_date" class="inputTextClass"  readonly="true" value="<?= $tour_end_date ?>">
             </div>
         </div>
 
@@ -78,6 +78,7 @@ $this->registerJsFile('/js/enquiry/basic_details.js');
             </div>
         </div>
         <!-- /.container-fluid -->
+        </div>
         <?php ActiveForm::end(); ?>
 
     </div>
