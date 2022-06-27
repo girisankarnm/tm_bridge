@@ -32,7 +32,7 @@ frontend\assets\CommonAsset::register($this);
 </script>
 <div class="row">
     <div class="col-md-12">
-        <?= Html::a('<button id="tariff_add_row" type="submit" class="btn btn-sm btn-save  float-right">Add New Property</button>', ['/property/create']) ?>
+        <?= Html::a('<button id="tariff_add_row" type="submit" class="btn btn-sm btn-save  float-right">Add New Property</button>', ['/property/basicdetails']) ?>
 <!--        <button id="tariff_add_row" type="submit" class="btn btn-primary btn-sm  float-right">Add New Property</button>-->
     </div>
 </div><br>
@@ -59,11 +59,11 @@ frontend\assets\CommonAsset::register($this);
             <a href="#" class="btn btn-sm t" title="Total Units"><i class="fa fa-book text-secondary"></i><br>Booking</a>
         </td>
         <td>
-       <?= Html::a('<i class="fa fa-tasks text-success p-1 t" title="Assign Slab"></i>', ['/slab/home','id'=> $property->id ]) ?>            
-       <?= Html::a('<i class="fa fa-edit text-success p-1 t" title="Edit Basic Details"></i>', Url::toRoute(['/property/create', 'id' => $property->id ])) ?>
+       <?= Html::a('<i class="fa fa-tasks text-success p-1 t" style="width: 30px; height: 30px" title="Assign Slab"></i>', ['/slab/home','id'=> $property->id ]) ?>            
+       <?= Html::a('<i class="fa fa-edit text-success p-1 t" style="width: 30px; height: 30px" title="Edit Basic Details"></i>', Url::toRoute(['/property/basicdetails', 'id' => $property->id ])) ?>
        <?php //Html::a('<i class="fa fa-money text-info p-1 t" title="Edit Tariff"></i>', ['/property/rates','id'=> $property->id ]) ?>
-       <?= Html::a('<i class="fa fa-building text-warning p-1 t" title="Edit Operational Details"></i>', ['/property/rulespolicies','id'=> $property->id]) ?>
-     <i class="fa fa-trash text-danger p-1 t" title="Delete Property">
+       <?= Html::a('<i class="fa fa-building text-warning p-1 t" style="width: 30px; height: 30px" title="Edit Operational Details"></i>', ['/property/rulespolicies','id'=> $property->id]) ?>
+     <i class="fa fa-trash text-danger p-1 t" style="width: 30px; height: 30px" title="Delete Property">
         </td>
     </tr>
 
