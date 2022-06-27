@@ -167,7 +167,7 @@ if ($user_type == 1) {
 
                 <!-- Operator only -->
                 <?php if ($user_type == 2) { ?>
-                <a class="sidebar-item" href="index.php?r=operator/basicdetails&id=1">
+                <a class="sidebar-item" href="index.php?r=operator/basicdetails">
                     <img src="/images/properties.svg" alt="properties.svg">
                     <p class="mb-0"> My profile </p>
                 </a>
