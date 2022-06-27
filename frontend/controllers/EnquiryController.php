@@ -28,7 +28,7 @@ class EnquiryController extends Controller{
             return;
         }
         
-        if (Yii::$app->user->identity->user_type != 1){
+        if (Yii::$app->user->identity->user_type != 2){
             throw new ForbiddenHttpException();
         } 
 
