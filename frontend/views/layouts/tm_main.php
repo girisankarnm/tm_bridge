@@ -129,7 +129,7 @@ if ($user_type == 1) {
                                     </div>
                                     <div class="profile-content">
                                         <div class="d-flex align-items-center">
-                                            <h6 class="name"> John Doe </h6>
+                                            <h6 class="name"> <?= Yii::$app->user->identity->first_name ?> </h6>
                                             <div class="dropdown-collapse">
                                                 <i class="fas fa-angle-down"></i>
                                             </div>
@@ -142,7 +142,7 @@ if ($user_type == 1) {
                                 </div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right py-2 border-0">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="index.php?r=user/logout">
                                     <small> Logout </small>
                                 </a>
                             </div>
