@@ -112,24 +112,30 @@ table, th, td {
                 <?php 
                 $i = 1;
                 foreach ($mother_ranges as $range) { ?>
-                <div class="flex-container flex-container2" style="justify-content: right">
-                    <div><i style="background-color: white;color: red;font-size: 28px;margin-right: 5px" class="fa fa-check-circle w3-large" aria-hidden="true"></i></div>
-                    <div style=" flex-direction: column-reverse;">
-                        <div><h6 style="padding-top: 7px;margin-right: 8px">From Date</h6></div>
-                        <div><h6 style="padding-top: 0px;margin-right: 8px;    font-size: 10px; line-height: 0;"><?= Carbon::parse($range->from_date)->format('d M Y');  ?>   </h6></div>
+                    <div class="flex-container flex-container2" >
+                        <div><i style="background-color: white;color: red;font-size: 28px;margin-right: 5px" class="fa fa-check-circle w3-large" aria-hidden="true"></i></div>
+                        <div style=" flex-direction: column-reverse;">
+                            <div><h6 style="padding-top: 7px;margin-right: 8px">From Date</h6></div>
+                            <div><h6 style="padding-top: 0px;margin-right: 8px;    font-size: 10px;
+    line-height: 0;">september 25 2022   </h6></div>
+
+                        </div>
+                        <div style=" flex-direction: column-reverse;">
+                            <div><h6 style="padding-top: 7px;margin-right: 8px"><hr class="new1"> </h6></div>
+
+                        </div>
+
+                        <div style=" flex-direction: column-reverse;">
+                            <div><h6 style="padding-top: 7px;margin-right: 8px"> To Date </h6></div>
+                            <div><h6 style="padding-top: 0px;margin-right: 8px;    font-size: 10px;
+    line-height: 0;"> may 25 2022 </h6></div>
+
+                        </div>
+
 
                     </div>
-                    <div style=" flex-direction: column-reverse;">
-                        <div><h6 style="padding-top: 7px;margin-right: 8px"><hr class="new1"> </h6></div>
 
-                    </div>
-
-                    <div style=" flex-direction: column-reverse;">
-                        <div><h6 style="padding-top: 7px;margin-right: 8px"> To Date </h6></div>
-                        <div><h6 style="padding-top: 0px;margin-right: 8px;    font-size: 10px; line-height: 0;"> <?= Carbon::parse($range->to_date)->format('d M Y'); ?> </h6></div>
-                    </div>
-                </div>
-                <hr class="new2" >
+                    <hr class="new2" >
                 <?php } ?>
             </div>
         </div>

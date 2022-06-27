@@ -12,20 +12,28 @@ use Carbon\Carbon;
             </div>
                 <a href="<?= \yii\helpers\Url::to(['/tariff/meal', 'id' =>  $property->id]) ?>"> <button class="tablinks2" onclick="openCity(event, 'Tokyo')">Meal rate</button></a>
                 <a href="<?= \yii\helpers\Url::to(['/tariff/hikeday', 'id' =>  $property->id]) ?>"><button class="tablinks2" onclick="openCity(event, 'Tokyo')">Hike day rate</button></a>
-                <a href="<?= \yii\helpers\Url::to(['/tariff/mandatorydinner', 'id' =>  $property->id]) ?>"><button class="tablinks2" onclick="openCity(event, 'Tokyo')">Mandatory dinner</button></a>
+                <a href+="<?= \yii\helpers\Url::to(['/tariff/mandatorydinner', 'id' =>  $property->id]) ?>"><button class="tablinks2" onclick="openCity(event, 'Tokyo')">Mandatory dinner</button></a>
             </div>
             <hr class="sidebar-divider hrdivider">
 
             <div class="tariffBorder3" style="display: block">
                 <div class="daterangetitle"> Room rates defined for Mother date ranges </div>
-                <div style="display: inline">
-                    <img style="width: 34px;height: 34px" src="images/building1.png" alt="Matrix">
-                    <span style="font-size: 20px;padding-top:  4px;color: black;font-weight: 700;inline-size: 1px">
-                    <?= $property->name ?><i style="font-size: 13px;color: gold;padding-left: 4px" class="fa fa-star" aria-hidden="true"></i>
-            <i style="font-size: 13px;color: gold;padding-left: 2px" class="fa fa-star" aria-hidden="true"></i>
-            <i style="font-size: 13px;color: gold;padding-left: 2px" class="fa fa-star" aria-hidden="true"></i>
-            <br>
-            <div style="display: inline">  <small  class="smallclass"><i  class="fa fa-map-marker locatiospace" aria-hidden="true"></i><?= $property->location->name?>, <?= $property->destination->name?>, <?= $property->country->name?></small></span></div>
+                <div id="mainHeding-location"style="height: 43px">
+                    <div > <img style="width: 34px;height: 34px" src="images/building1.png" alt="Matrix"></div>
+                    <div >
+                        <div id="h-location"  >
+                            <div  >
+                          <span class="hotelHeading" > <?= $property->name ?> <img class="f-star" src="images/Star-1.svg" alt="Matrix">
+                           <img class="f-star" style="padding-left: 2px"  src="images/Star-1.svg" alt="Matrix">
+                           <img  class="f-star" style="padding-left: 2px" src="images/Star-1.svg" alt="Matrix">
+                           </span>
+                            </div>
+                            <div>   <small  class="smallFonts fontsize-location"><i  class="fa fa-map-marker locatiospace" aria-hidden="true"></i><?= $property->location->name?>, <?= $property->destination->name?>, <?= $property->country->name?></small>
+                                </span></div>
+                        </div>
+                    </div>
+
+                </div>
     </div>
 </div>
 
