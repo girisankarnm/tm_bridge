@@ -165,11 +165,14 @@ if ($user_type == 1) {
                     <p class="mb-0"> Users </p>
                 </a>
 
-                <a class="sidebar-item" href="#">
+                <!-- Operator only -->
+                <?php if ($user_type == 2) { ?>
+                <a class="sidebar-item" href="index.php?r=operator/basicdetails&id=1">
                     <img src="/images/properties.svg" alt="properties.svg">
-                    <p class="mb-0"> Properties </p>
+                    <p class="mb-0"> My profile </p>
                 </a>
-
+                <?php  } ?>
+                
                 <a class="sidebar-item" href="#">
                     <img src="/images/properties.svg" alt="properties.svg">
                     <p class="mb-0"> Properties </p>

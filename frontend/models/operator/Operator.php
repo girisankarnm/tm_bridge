@@ -1,6 +1,9 @@
 <?php
 
 namespace frontend\models\operator;
+use frontend\models\Country;
+use frontend\models\Location;
+use frontend\models\Destination;
 
 use Yii;
 
