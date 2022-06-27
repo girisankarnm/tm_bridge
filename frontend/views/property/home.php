@@ -16,6 +16,7 @@ frontend\assets\CommonAsset::register($this);
         /*background: #2a3f54;*/
         font-family: "Helvetica Neue",Roboto,Arial,"Droid Sans",sans-serif;
         font-size: 13px;
+        height: 0%;
     }
     a:hover {
         background-color: #1dd5ff;
@@ -31,7 +32,7 @@ frontend\assets\CommonAsset::register($this);
 </script>
 <div class="row">
     <div class="col-md-12">
-        <?= Html::a('<button id="tariff_add_row" type="submit" class="btn btn-sm btn-save  float-right">Add New Property</button>', ['/property/basicdetails']) ?>
+        <?= Html::a('<button id="tariff_add_row" type="submit" class="btn btn-sm btn-save  float-right">Add New Property</button>', ['/property/create']) ?>
 <!--        <button id="tariff_add_row" type="submit" class="btn btn-primary btn-sm  float-right">Add New Property</button>-->
     </div>
 </div><br>
@@ -43,7 +44,9 @@ frontend\assets\CommonAsset::register($this);
     <th>Actions</th>
     </thead>
 
-    <?php  foreach ($properties as $property) { ?>
+    <?php  
+    
+    foreach ($properties as $property) { ?>
     <tr>
         <td width="100px" valign="top" class="px-1"><img src="uploads/<?php echo $property->image ?>" width="100"></td>
         <td><?php echo $property->name ?> </td>

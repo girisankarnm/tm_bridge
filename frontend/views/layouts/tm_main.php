@@ -160,7 +160,7 @@ if ($user_type == 1) {
                     <p class="mb-0"><?= $menuText ?></p>
                 </a>
 
-                <a class="sidebar-item active" href="#">
+                <a class="sidebar-item active" href="index.php?r=user/list">
                     <img src="/images/user.svg" alt="user.svg">
                     <p class="mb-0"> Users </p>
                 </a>
