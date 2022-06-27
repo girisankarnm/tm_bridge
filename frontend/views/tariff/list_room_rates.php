@@ -35,7 +35,7 @@ use Carbon\Carbon;
 
                 </div>
     </div>
-</div>
+
 
     <?php 
     $i = 1;
@@ -68,9 +68,6 @@ use Carbon\Carbon;
     <?php 
     $i++;
     } ?>
-
-
-
-        
+   </div>
 </div>
 </div>

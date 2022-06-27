@@ -36,7 +36,7 @@ use frontend\models\tariff\TariffDateRange;
 
                 </div>
     </div>
-</div>
+
 
     <?php 
     $i = 1;
@@ -87,6 +87,6 @@ use frontend\models\tariff\TariffDateRange;
     <?php 
     $i++;
     } ?>
-        
+        </div>
 </div>
 </div>
