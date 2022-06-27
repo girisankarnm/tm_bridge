@@ -51,17 +51,16 @@ frontend\assets\CommonAsset::register($this);
         <td width="100px" valign="top" class="px-1"><img src="uploads/<?php echo $property->image ?>" width="100"></td>
         <td><?php echo $property->name ?> </td>
         <td class="text-center">
-            <a href="#" class="btn btn-sm t" title="Total Units"><i class="fa fa-file text-secondary"></i><br>Enquiry</a>
-            <a href="#" class="btn btn-sm t" title="Total Units"><i class="fa fa-book text-secondary"></i><br>Booking</a>
-            <a href="#" class="btn btn-sm t" title="Total Units"><i class="fa fa-file text-secondary"></i><br>Enquiry</a>
-            <a href="#" class="btn btn-sm t" title="Total Units"><i class="fa fa-book text-secondary"></i><br>Booking</a>
-            <a href="#" class="btn btn-sm t" title="Total Units"><i class="fa fa-file text-secondary"></i><br>Enquiry</a>
-            <a href="#" class="btn btn-sm t" title="Total Units"><i class="fa fa-book text-secondary"></i><br>Booking</a>
+            <a href="#" class="btn btn-sm t" title="Messages"><i class="fa fa-file text-secondary"></i><br>Messages</a>
+            <a href="#" class="btn btn-sm t" title="Special Rate Request"><i class="fa fa-book text-secondary"></i><br>SRR</a>
+            <a href="#" class="btn btn-sm t" title="Availability"><i class="fa fa-file text-secondary"></i><br>Availability</a>
+            <a href="#" class="btn btn-sm t" title="Blocking"><i class="fa fa-book text-secondary"></i><br>Blocking</a>
+            <a href="#" class="btn btn-sm t" title="Booking"><i class="fa fa-file text-secondary"></i><br>Booking</a>            
         </td>
         <td>
        <?= Html::a('<i class="fa fa-tasks text-success p-1 t" style="width: 30px; height: 30px" title="Assign Slab"></i>', ['/slab/home','id'=> $property->id ]) ?>            
        <?= Html::a('<i class="fa fa-edit text-success p-1 t" style="width: 30px; height: 30px" title="Edit Basic Details"></i>', Url::toRoute(['/property/basicdetails', 'id' => $property->id ])) ?>
-       <?php //Html::a('<i class="fa fa-money text-info p-1 t" title="Edit Tariff"></i>', ['/property/rates','id'=> $property->id ]) ?>
+       <?= Html::a('<i class="fa fa-circle-dollar text-info p-1 t" style="width: 30px; height: 30px" title="Edit Tariff"></i>', ['/tariff/home','id'=> $property->id ]) ?>
        <?= Html::a('<i class="fa fa-building text-warning p-1 t" style="width: 30px; height: 30px" title="Edit Operational Details"></i>', ['/property/rulespolicies','id'=> $property->id]) ?>
      <i class="fa fa-trash text-danger p-1 t" style="width: 30px; height: 30px" title="Delete Property">
         </td>
