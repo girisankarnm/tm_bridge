@@ -2,6 +2,7 @@
 
 namespace frontend\models\property;
 
+use frontend\models\property\PropertySmokingPolicy;
 use Yii;
 use common\models\User;
 use frontend\models\Country;
