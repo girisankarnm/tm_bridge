@@ -25,28 +25,30 @@ use Carbon\Carbon;
         </div>
 
         <div class="tariffBorder" style="margin-top: 20px;">
-            <div style="margin-bottom: 30px; background-color: ">
+            <div >
 
                 <div class="commonTitle" style="width: 50%;float: left">
                     Enter Meal Tariff</div>
 
-                <div class="flex-container" style="justify-content: right">
-                    <div><i style="background-color: white;color: red;font-size: 28px;margin-right: 5px" class="fa fa-check-circle w3-large" aria-hidden="true"></i></div>
-                    <div style=" flex-direction: column-reverse;">
-                        <div><h6 style="padding-top: 7px;margin-right: 8px">From Date</h6></div>
-                        <div><h6 style="padding-top: 0px;margin-right: 8px;    font-size: 10px; line-height: 0;"> <?= Carbon::parse($date_range->from_date)->format('d M Y'); ?>  </h6></div>
+                <div id="tariffAddmain" style="justify-content: right"  >
+                    <div class="margintopcls" style="background-color: #ffffff;text-align: center">
+                        <svg style="margin-left: 3px" width="37" height="36" viewBox="0 0 43 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="21.5893" cy="21.0307" r="17.2748" transform="rotate(-172.902 21.5893 21.0307)" stroke="#009721" stroke-width="3"/>
+                            <path d="M14.875 21.5339L19.6822 26.3413L30.3058 15.7178" stroke="#009721" stroke-width="3" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="margintopcls" >
+                        <span class="dateform">From Date</span>
+                        <!--                    <div style=" flex-wrap: wrap">-->
+                        <div ><h6 class="motherdaterange-H6 h7class" ><?= Carbon::parse($date_range->from_date)->format('d M Y'); ?> </h6></div>
 
                     </div>
-                    <div style=" flex-direction: column-reverse;">
-                        <div><h6 style="padding-top: 7px;margin-right: 8px"><hr class="new1"> </h6></div>
-
+                    <div style="margin-top: 4px"><h6 class="h6class"><hr class="new1 hrtopmargin"> </h6>
+                    </div>
+                    <div class="margintopcls" >  <span class="dateform">From Date</span>
+                        <div style="width: 90px;"><h6 class="motherdaterange-H6 h7class" ><?= Carbon::parse($date_range->to_date)->format('d M Y'); ?> </h6></div>
                     </div>
 
-                    <div style=" flex-direction: column-reverse;">
-                        <div><h6 style="padding-top: 7px;margin-right: 8px"> To Date </h6></div>
-                        <div><h6 style="padding-top: 0px;margin-right: 8px;    font-size: 10px;line-height: 0;"> <?= Carbon::parse($date_range->to_date)->format('d M Y'); ?> </h6></div>
-
-                    </div>
 
 
                 </div>
@@ -60,38 +62,38 @@ use Carbon\Carbon;
             <input type="hidden" name="tariff" value="<?= $tariff; ?>">
 
             <div class="row">
-                <table id="meals"  class="tablemealclass" >
-                    <tr class="" style=" " >
-                        <th >Meal Type</th>
-                        <th >Rate Adult</th>
-                        <th >Rate Child</th>
+                <table id="meals"  class="table3mealsadd" >
+                    <tr class="thtableguestcount"  >
+                        <th class="Adults" >Meal Type</th>
+                        <th  class="Adults">Rate Adult</th>
+                        <th class="Adults">Rate Child</th>
                     </tr>
                     <tr>
                         <?php $meals_type = ($suppliment_meal) ? $suppliment_meal->getSupplimentMealSlabs()->where(['meal_type_id' => 1])->one() : NULL; ?>
-                        <td style="font: bold;margin-top: 24px" class="mealinputText">Break Fast</td>
-                        <td> <input id="breakfast_rate_adult" name="breakfast_rate_adult" type="number" class="mealfonttext" value="<?= ($meals_type) ? $meals_type->rate_adult : "" ?>" > </td>
-                        <td> <input id="breakfast_rate_child" name="breakfast_rate_child" type="number" class="mealfonttext" value="<?= ($meals_type) ? $meals_type->rate_child : "" ?>" > </td>                        
+                        <td style="font: bold;margin-top: 24px" class="class="Adults mealinputText">Break Fast</td>
+                        <td class="Adults"> <input id="breakfast_rate_adult" name="breakfast_rate_adult" type="number" class="mealfonttext" value="<?= ($meals_type) ? $meals_type->rate_adult : "" ?>" > </td>
+                        <td class="Adults"> <input id="breakfast_rate_child" name="breakfast_rate_child" type="number" class="mealfonttext" value="<?= ($meals_type) ? $meals_type->rate_child : "" ?>" > </td>
                     </tr>
 
                     <tr>
                         <?php $meals_type = ($suppliment_meal) ? $suppliment_meal->getSupplimentMealSlabs()->where(['meal_type_id' => 2])->one() : NULL; ?>
-                        <td style="font: bold;margin-top: 24px" class="mealinputText">Lunch</td>
-                        <td>  <input id="lunch_rate_adult" name="lunch_rate_adult" class="mealfonttext" value="<?= ($meals_type) ? $meals_type->rate_adult : ""?>"/></td>
-                        <td>  <input id="lunch_rate_child" name="lunch_rate_child" class="mealfonttext"  value="<?= ($meals_type) ? $meals_type->rate_child : "" ?>"/> </td>
+                        <td style="font: bold;margin-top: 24px" class="mealinputText Adults">Lunch</td>
+                        <td class="Adults">  <input id="lunch_rate_adult" name="lunch_rate_adult" class="mealfonttext" value="<?= ($meals_type) ? $meals_type->rate_adult : ""?>"/></td>
+                        <td class="Adults">  <input id="lunch_rate_child" name="lunch_rate_child" class="mealfonttext"  value="<?= ($meals_type) ? $meals_type->rate_child : "" ?>"/> </td>
                     </tr>
                     <tr>
                         <?php $meals_type = ($suppliment_meal) ? $suppliment_meal->getSupplimentMealSlabs()->where(['meal_type_id' => 3])->one() : NULL; ?>
-                        <td style="font: bold;margin-top: 24px" class="mealinputText">Dinner</td>
-                        <td> <input id="dinner_rate_adult" name="dinner_rate_adult" class="mealfonttext" value="<?= ($meals_type) ? $meals_type->rate_adult : "" ?>"/></td>
-                        <td> <input id="dinner_rate_child" name="dinner_rate_child" class="mealfonttext" value="<?= ($meals_type) ? $meals_type->rate_child : "" ?>"/></td>
+                        <td style="font: bold;margin-top: 24px" >Dinner</td>
+                        <td class="Adults">  <input id="dinner_rate_adult" name="dinner_rate_adult" class="mealfonttext" value="<?= ($meals_type) ? $meals_type->rate_adult : "" ?>"/></td>
+                        <td class="Adults">  <input id="dinner_rate_child" name="dinner_rate_child" class="mealfonttext" value="<?= ($meals_type) ? $meals_type->rate_child : "" ?>"/></td>
                     </tr>
                 </table>
             </div>
             <div class="row" style="margin-left: 4px;margin-bottom: 12px;">
                 <div style="display: block;margin-right: 35px">
-                    <BUTTON type="button" class="prevbutton" style="width: 80px;height: 30px" data-toggle="modal" data-target="#logoutModal"> Prev </BUTTON>
-                    <BUTTON type="submit" class="buttonSave" style="width: 80px;height: 30px;background-color: #E40968" data-toggle="modal" data-target="#logoutModal"> Save </BUTTON>
-                    <BUTTON type="button" class="buttonSave" style="width: 80px;height: 30px" data-toggle="modal" data-target="#logoutModal"> Next / </BUTTON>
+                    <BUTTON type="button" class="prevbutton" style="width: 80px;height: 30px" > Prev </BUTTON>
+                    <BUTTON type="submit" class="buttonSave" style="width: 80px;height: 30px;background-color: #E40968" > Save </BUTTON>
+                    <BUTTON type="button" class="buttonSave" style="width: 80px;height: 30px" > Next / </BUTTON>
                     <?= Html::a('Next', ['tariff/addhikedayrate', 'id'=> $property->id, 'mother_id' => $date_range->id],  ['class'=>'buttonSave savebuttonMother']) ?>                    
                 </div>
 
