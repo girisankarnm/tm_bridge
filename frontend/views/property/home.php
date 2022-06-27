@@ -31,7 +31,7 @@ frontend\assets\CommonAsset::register($this);
 </script>
 <div class="row">
     <div class="col-md-12">
-        <?= Html::a('<button id="tariff_add_row" type="submit" class="btn btn-sm btn-save  float-right">Add New Property</button>', ['/property/create']) ?>
+        <?= Html::a('<button id="tariff_add_row" type="submit" class="btn btn-sm btn-save  float-right">Add New Property</button>', ['/property/basicdetails']) ?>
 <!--        <button id="tariff_add_row" type="submit" class="btn btn-primary btn-sm  float-right">Add New Property</button>-->
     </div>
 </div><br>
