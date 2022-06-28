@@ -23,6 +23,9 @@ use frontend\models\property\PropertyCategory;
 use frontend\models\property\Property;
 use frontend\models\property\PropertyImage;
 use frontend\models\property\PropertyContacts;
+use frontend\models\property\PropertyPictures;
+use frontend\models\property\RoomPictures;
+use frontend\models\property\Room;
 use yii\web\ForbiddenHttpException;
 use yii\web\NotFoundHttpException;
 use yii\web\UploadedFile;
@@ -78,20 +81,20 @@ class PropertyController extends Controller{
         $this->layout = 'tm_main';
         $roles = Yii::$app->authManager->getRolesByUser(Yii::$app->user->getId());
         if (ArrayHelper::keyExists('HotelOwner', $roles, false) ){
-            
+
             $properties = Property::find()->where(['owner_id' => Yii::$app->user->identity->getOWnerId()])->all();
         }
-        else 
+        else
         {
             $usr = Yii::$app->user->identity;
-            $assigned_properties = $usr->getUserPropertyMaps()->select(['property_id'])->column();            
+            $assigned_properties = $usr->getUserPropertyMaps()->select(['property_id'])->column();
 
             $properties = Property::find()
             ->where(['owner_id' => Yii::$app->user->identity->getOWnerId()])
             ->andWhere(['in', 'id', $assigned_properties])
             ->all();
         }
-        
+
         return $this->render('home', ['properties' => $properties]);
     }
 
@@ -997,5 +1000,274 @@ class PropertyController extends Controller{
         } else {
             return array('status' => 1,'message' => "Failed to update Weekday hike option", 'data' => 0);
         }
+    }
+
+    public function actionPictures() {
+        $this->layout = 'tm_main';
+        $property = $this->getProperty();
+
+        $pictures = PropertyPictures::find()->where(['property_id' => $property->id])->all();
+
+        $propertyRooms = Room::find()->where(['property_id'=>$property->id])->all();
+        return $this->render('pictures', ['property' => $property, 'pictures' => $pictures,'propertyRooms'=>$propertyRooms]);
+
+    }
+
+    // Property pictures
+
+    public function actionUploadpreview(){
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+        $propertyID = Yii::$app->request->get('propertyID');
+        $propertyPictures = PropertyPictures::find()->where(['property_id' => $propertyID])->all();
+        $previewdata = array();
+
+        foreach ($propertyPictures as $key => $propertyPicture){
+
+            $previewdata['initialPreview'][$key] = 'http://localhost:8080/uploads/'.$propertyPicture->name ;
+            $previewdata['initialPreviewConfig'][$key]['caption'] = $propertyPicture->description ;
+            $previewdata['initialPreviewConfig'][$key]['downloadUrl'] = 'http://localhost:8080/uploads/'.$propertyPicture->name ;
+            $previewdata['initialPreviewConfig'][$key]['description'] = $propertyPicture->description ;
+            $previewdata['initialPreviewConfig'][$key]['url'] = 'http://localhost:8080/index.php?r=property/deletepicture';
+            $previewdata['initialPreviewConfig'][$key]['key'] = $propertyPicture->id;
+            $previewdata['caption'][$key]['{TAG_VALUE}'] = $propertyPicture->description;
+            $previewdata['caption'][$key]['{TAG_CSS_NEW}'] = 'kv-hidden';
+            $previewdata['caption'][$key]['{TAG_CSS_INIT}'] = '';
+            $previewdata['caption'][$key]['{TAG_CSS_ID}'] = $propertyPicture->id;
+            $previewdata['initialPreviewAsData'] = true;
+        }
+
+        return array('status' => 0, 'message' => "preview data !", 'data' => $previewdata);
+    }
+
+    public function actionUpdatecaption(){
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        $PictureID =  $_POST['pictureID'];
+        $NewCaption =  $_POST['caption'];
+        $PropertyPicture = PropertyPictures::find()->where(['id'=>$PictureID])->one();
+        $PropertyPicture->description = $NewCaption ;
+        $PropertyPicture->save();
+        return array('status' => 0, 'message' => "Caption Updated");
+    }
+
+    public function actionDeletepicture(){
+
+        $PictureID =  $_POST['key'];
+        $PropertyPicture = PropertyPictures::find()->where(['id'=>$PictureID])->one();
+        $path =  Yii::getAlias('@frontend') .'/web/uploads/'.$PropertyPicture->name;
+        unlink($path);
+        $PropertyPicture->delete();
+        return true;
+    }
+
+
+    public function actionUploadpictures()
+    {
+
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        $preview = $config = $errors = array();
+
+
+        $input = 'imageFiles'; // the input name for the fileinput plugin
+        if (empty($_FILES[$input])) {
+            return [];
+        }
+        $total = count($_FILES[$input]['name']); // multiple files
+
+
+//        $path = '/uploads/'; // your upload path
+        $path =  Yii::getAlias('@frontend') .'/web/uploads/'; // your upload path
+        $request = $_POST;
+//        $fp = fopen('lidn.txt', 'w');
+//        fwrite($fp,   $_POST['id']);
+//        fclose($fp);
+
+//        return $uploadDir;
+        for ($i = 0; $i < $total; $i++) {
+
+            $tmpFilePath = $_FILES[$input]['tmp_name'][$i]; // the temp file path
+            $fileName = $_FILES[$input]['name'][$i]; // the file name
+            $extention  = pathinfo($fileName, PATHINFO_EXTENSION);
+            $fileName =  uniqid('', true) . '.' . $extention;
+
+//                    $fp = fopen('lidn.txt', 'w');
+//        fwrite($fp,   $extention);
+//        fclose($fp);
+            $fileSize = $_FILES[$input]['size'][$i]; // the file size
+
+            //Make sure we have a file path
+            if ($tmpFilePath != ""){
+                //Setup our new file path
+                $newFilePath = $path . $fileName;
+
+                $newFileUrl = 'http://localhost:8080/uploads/' . $fileName;
+
+                //Upload the file into the new path
+
+                if(move_uploaded_file($tmpFilePath, $newFilePath)) {
+                    $picture_object = new PropertyPictures();
+                    $picture_object->property_id = $_POST['propertyID'];
+                    $picture_object->name = $fileName;
+                    $picture_object->description = $_POST[$i];
+                    $picture_object->save();
+
+                    $fileId = $fileName . $i; // some unique key to identify the file
+
+                    $preview[] =  $newFileUrl;
+
+                    $config[] = [
+                        'key' => $picture_object->id,
+                        'caption' => $fileName,
+                        'size' => $fileSize,
+                        'downloadUrl' => $newFileUrl, // the url to download the file
+                        'url' => 'http://localhost:8080/index.php?r=property/deletepicture', // server api to delete the file based on key
+                    ];
+                    $caption[] = ['{TAG_VALUE}'=> $_POST[$i], '{TAG_CSS_NEW}'=> 'kv-hidden', '{TAG_CSS_INIT}'=> '','{TAG_CSS_ID}'=>$picture_object->id];
+
+                } else {
+                    $errors[] = $fileName;
+                }
+
+            }
+            else {
+                $errors[] = $fileName;
+            }
+
+        }
+        $out = ['initialPreview' => $preview, 'initialPreviewConfig' => $config,
+
+            'initialPreviewThumbTags'=>$caption,'initialPreviewAsData' => true];
+//        return $out;
+        if (!empty($errors)) {
+            $img = count($errors) === 1 ? 'file "' . $error[0]  . '" ' : 'files: "' . implode('", "', $errors) . '" ';
+            $out['error'] = 'Oh snap! We could not upload the ' . $img . 'now. Please try again later.';
+        }
+
+        return $out;
+
+    }
+
+
+
+    //Room Images upload and preview
+
+    public function actionRoomimagepreview(){
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+        $roomID = Yii::$app->request->get('roomID');
+        $roomPictures = RoomPictures::find()->where(['room_id' => $roomID])->all();
+        $previewdata = array();
+
+        foreach ($roomPictures as $key => $roomPicture){
+
+            $previewdata['initialPreview'][$key] = 'http://localhost:8080/uploads/'.$roomPicture->name ;
+            $previewdata['initialPreviewConfig'][$key]['caption'] = $roomPicture->description ;
+            $previewdata['initialPreviewConfig'][$key]['downloadUrl'] = 'http://localhost:8080/uploads/'.$roomPicture->name ;
+            $previewdata['initialPreviewConfig'][$key]['description'] = $roomPicture->description ;
+            $previewdata['initialPreviewConfig'][$key]['url'] = 'http://localhost:8080/index.php?r=property/deleteroompicture';
+            $previewdata['initialPreviewConfig'][$key]['key'] = $roomPicture->id;
+            $previewdata['caption'][$key]['{TAG_VALUE}'] = $roomPicture->description;
+            $previewdata['caption'][$key]['{TAG_CSS_NEW}'] = 'kv-hidden';
+            $previewdata['caption'][$key]['{TAG_CSS_INIT}'] = '';
+            $previewdata['caption'][$key]['{TAG_CSS_ID}'] = $roomPicture->id;
+            $previewdata['initialPreviewAsData'] = true;
+        }
+
+        return array('status' => 0, 'message' => "preview data !", 'data' => $previewdata);
+    }
+
+    public function  actionDeleteroompicture(){
+        $RoomPictureID =  $_POST['key'];
+        $RoomPicture = RoomPictures::find()->where(['id'=>$RoomPictureID])->one();
+        $path =  Yii::getAlias('@frontend') .'/web/uploads/'.$RoomPicture->name;
+        unlink($path);
+        $RoomPicture->delete();
+        return true;
+    }
+
+    public function actionUpdateroomcaption(){
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        $PictureID =  $_POST['pictureID'];
+        $NewCaption =  $_POST['caption'];
+        $PropertyPicture = RoomPictures::find()->where(['id'=>$PictureID])->one();
+        $PropertyPicture->description = $NewCaption ;
+        $PropertyPicture->save();
+        return array('status' => 0, 'message' => "Caption Updated");
+    }
+
+    public function actionUploadroompictures(){
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        $preview = $config = $errors = array();
+
+
+        $input = 'roomFiles'; // the input name for the fileinput plugin
+        if (empty($_FILES[$input])) {
+            return [];
+        }
+        $total = count($_FILES[$input]['name']); // multiple files
+
+
+//        $path = '/uploads/'; // your upload path
+        $path =  Yii::getAlias('@frontend') .'/web/uploads/'; // your upload path
+        $request = $_POST;
+
+        for ($i = 0; $i < $total; $i++) {
+
+            $tmpFilePath = $_FILES[$input]['tmp_name'][$i]; // the temp file path
+            $fileName = $_FILES[$input]['name'][$i]; // the file name
+            $fileSize = $_FILES[$input]['size'][$i]; // the file size
+            $extention  = pathinfo($fileName, PATHINFO_EXTENSION);
+            $fileName =  uniqid('', true) . '.' . $extention; // Changing file name for preventing duplicate entry
+
+            //Make sure we have a file path
+            if ($tmpFilePath != ""){
+                //Setup our new file path
+                $newFilePath = $path . $fileName;
+
+                $newFileUrl = 'http://localhost:8080/uploads/' . $fileName;
+
+                //Upload the file into the new path
+
+                if(move_uploaded_file($tmpFilePath, $newFilePath)) {
+                    $picture_object = new RoomPictures();
+                    $picture_object->room_id = $_POST['roomID'];
+                    $picture_object->name = $fileName;
+                    $picture_object->description = $_POST[$i];
+                    $picture_object->save();
+
+                    $fileId = $fileName . $i; // some unique key to identify the file
+
+                    $preview[] =  $newFileUrl;
+
+                    $config[] = [
+                        'key' => $picture_object->id,
+                        'caption' => $fileName,
+                        'size' => $fileSize,
+                        'downloadUrl' => $newFileUrl, // the url to download the file
+                        'url' => 'http://localhost:8080/index.php?r=property/deleteroompicture', // server api to delete the file based on key
+                    ];
+                    $caption[] = ['{TAG_VALUE}'=> $_POST[$i], '{TAG_CSS_NEW}'=> 'kv-hidden', '{TAG_CSS_INIT}'=> '','{TAG_CSS_ID}'=>$picture_object->id];
+
+                } else {
+                    $errors[] = $fileName;
+                }
+
+            }
+            else {
+                $errors[] = $fileName;
+            }
+
+        }
+        $out = ['initialPreview' => $preview, 'initialPreviewConfig' => $config,
+
+            'initialPreviewThumbTags'=>$caption,'initialPreviewAsData' => true];
+//        return $out;
+        if (!empty($errors)) {
+            $img = count($errors) === 1 ? 'file "' . $error[0]  . '" ' : 'files: "' . implode('", "', $errors) . '" ';
+            $out['error'] = 'Oh snap! We could not upload the ' . $img . 'now. Please try again later.';
+        }
+
+        return $out;
+
     }
 }
