@@ -5,12 +5,27 @@ use yii\bootstrap4\ActiveForm;
 $this->registerCssFile('/css/full-page.css');
 
 ?>
+<script>
+    $(document).ready(function () {
+        $('#signupform-user_type input').change(function () {
+            console.log($(this).val());
+            $('#registration_form').show('slide');
+            // $('#save_data').style.display('none');
+            document.getElementById('save_data').style.display="block";
+        });
+    });
+    function selectedUserType(userType) {
+        console.log(userType.val)
+        $('#registration_form').show('slide');
+    }
+</script>
 
-<div class="content">
+<div class="content" >
     <div style="width:32%; margin: auto">
         <?php $form = ActiveForm::begin(['method' => 'post','action' => ['user/signup']]) ?>
+<!--               <div class="" style="width: 100%;height: 100%; margin: auto; padding: 28px; background-color: white ">-->
                <div class="" style="width: 100%;height: 100%; margin: auto; padding: 28px; background-color: white ">
-                <div>
+                <div >
                     <img src="/images/logo.svg" class="logo-small">
                 </div>
                 <div  style="margin-left: 6px; margin-bottom: 10px; font-size: 24px; font-weight: bold">
@@ -28,6 +43,9 @@ $this->registerCssFile('/css/full-page.css');
                         <?= $form->field($register, 'user_type')->inline()->radioList([1 => 'Hotelier', 2 => 'Tour Operator'],['class' => 'text-secondary type',])->label(false); ?>
                     </div>
                 </div>
+<!--                   new div-->
+                <div id="registration_form" style="display:<?= empty($register->user_type) ? "none" : "block" ?>">
+
                 <div class="row" style=" margin-left: 6px;">
                     <label for="your-input" class="Inline-label">First Name</label>
                     <?= $form->field($register, 'first_name')->textInput(['class' => 'login-input','placeholder'=>'First Name'])->label(false)?>
@@ -65,11 +83,15 @@ $this->registerCssFile('/css/full-page.css');
                 </div>
 
                 <hr class="sidebar-divider" style="margin-top: 20px">
+
+                </div>
+
+
                 <div style="display: flex; flex-direction: row; justify-content: space-between; margin-top: 10px; margin-left: 6px">
                         <div style="font-size: 13px; margin-top: 17px">
                             Already have an account? <a href="index.php?r=user%2Flogin" style="text-decoration: none; color: #E40967; font-weight: bold">sign in</a>
                         </div>
-                    <div>
+                    <div id="save_data" style="display: none">
                         <BUTTON type="text" class="login-button" > Register </BUTTON>
                     </div>
                 </div>

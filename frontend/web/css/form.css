@@ -1,0 +1,143 @@
+.form-group input[type="text"].form-control {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+    letter-spacing: -0.02em;
+    color: #787486;
+    background: #F9F9F9;
+    border: 0.5px solid #BCBCBC;
+    border-radius: 5px;
+    outline: none;
+    box-shadow: none !important;
+}
+
+.input-sm {
+    width: 70px;
+    height: 31px;
+}
+
+.input-md {
+    width: 130px;
+    height: 31px;
+}
+
+.input-sh {
+    height: 31px;
+}
+
+.input-sw {
+    width: 70px;
+}
+
+.pointer-none {
+    pointer-events: none;
+}
+
+/* Form - Radio button */
+
+.form-group input[type="radio"]:checked,
+.form-group input[type="radio"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+
+.form-group input[type="radio"]:checked + label,
+.form-group input[type="radio"]:not(:checked) + label
+{
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    line-height: 20px;
+    display: inline-block;
+    color: #666;
+}
+
+.form-group input[type="radio"]:checked + label:before,
+.form-group input[type="radio"]:not(:checked) + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--primary-color);
+    border-radius: 100%;
+    background: #fff;
+}
+
+.form-group input[type="radio"]:checked + label:after,
+.form-group input[type="radio"]:not(:checked) + label:after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background: var(--primary-color);
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+.form-group input[type="radio"]:not(:checked) + label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+.form-group input[type="radio"]:checked + label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+/* Select2 */
+.select2.select2-container {
+    width: 100% !important;
+}
+
+.select2-60 .select2.select2-container {
+    width: 60% !important;
+}
+
+.select2.select2-container .select2-selection--single {
+    background: #F9F9F9;
+    border: 0.5px solid #BCBCBC;
+    border-radius: 10px;
+    padding: 5px 10px;
+    height: auto;
+    width: 100%;
+}
+
+.select2.select2-container .select2-selection--single .select2-selection__rendered {
+    font-size: 14px;
+    color: #787486;
+}
+
+.select2.select2-container .select2-selection--single .select2-selection__arrow {
+    top: 10px;
+}
+
+.select2.select2-container .select2-selection--single .select2-selection__arrow b {
+    position: unset;
+    height: auto;
+    border: 0;
+    margin-left: 0;
+    margin-top: 0;
+}
+
+.select2.select2-container .select2-selection--single .select2-selection__arrow b::after {
+    font-family: "Font Awesome 5 Free";
+    font-size: 16px;
+    font-weight: 900;
+    content: '\f107';
+}
+
+.select2.select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b::after {
+    content: '\f106';
+}
+
+.btn.btn-primary {
+    text-align: center;
+    background: var(--secondary-color);
+    border-radius: 10px;
+    padding: 7px 25px;
+}

@@ -1,0 +1,17 @@
+/*
+* @author Jinsan T J
+* Style sheet for Rules And Policies page
+ */
+
+.add-cancellation-detail {
+    width: fit-content;
+    cursor: pointer;
+}
+
+.room-tariff-table .action-items .edit-icon {
+    width: 20px;
+}
+
+.room-tariff-table .action-items .delete-icon {
+    width: 17px;
+}

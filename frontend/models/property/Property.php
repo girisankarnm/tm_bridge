@@ -7,6 +7,7 @@ use common\models\User;
 use frontend\models\Country;
 use frontend\models\Destination;
 use frontend\models\Location;
+use frontend\models\tariff\TariffNationalityGroupName;
 
 /**
  * This is the model class for table "property".
