@@ -56,6 +56,13 @@ class EnquiryController extends Controller{
         return $enquiry;
     }
 
+    public function actionHome(){
+        $this->layout = 'tm_main';
+        $enquiries = Enquiry::find()->where(['owner_id' => Yii::$app->user->identity->getOWnerId()])->all();
+
+        return $this->render('home', ['enquiries' => $enquiries]);
+    }
+
     public function actionBasicdetails(){
         $enquiry_id = Yii::$app->request->get('id');
 
