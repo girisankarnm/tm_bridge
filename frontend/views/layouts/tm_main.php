@@ -8,6 +8,25 @@ use frontend\assets\FormAsset;
 AppAsset::register($this);
 FormAsset::register($this);
 ?>
+
+<?php
+$menuText = "";
+$url = "";
+$icon ="";
+$user_type = Yii::$app->user->identity->user_type;
+if ($user_type == 1) {
+    $menuText = "Properties";
+    $url = 'index.php?r=property/home';
+    $icon = "/images/properties.svg";
+
+} else {
+    $menuText = "Enquires";
+    $url = 'index.php?r=enquiry/home';
+    //TODO: Change icon
+    $icon = "/images/properties.svg";
+}
+?>
+
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,14 +65,14 @@ FormAsset::register($this);
     <title> Tour matrix </title>
 
     <?php $this->head() ?>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js" integrity="sha512-Tn2m0TIpgVyTzzvmxLNuqbSJH3JP8jm+Cy3hvHrW7ndTDcJ1w5mBiksqDBb8GpE2ksktFvDB/ykZ0mDpsZj20w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="/css/tm_bridge.css">
-    
+
     <!-- PLEASE FOLLOW CODING STANDARDS https://docs.ckan.org/en/2.9/contributing/html.html -->
 </head>
 
@@ -87,7 +106,7 @@ FormAsset::register($this);
                                 <span class="dropdown-header">Notifications</span>
                             </div>
                         </li>
-                
+
                         <!-- Messages Dropdown Menu -->
                         <li class="nav-item dropdown">
                             <a class="nav-link message-link" data-toggle="dropdown" href="#">
@@ -100,7 +119,7 @@ FormAsset::register($this);
                                 <span class="dropdown-header"> Messages </span>
                             </div>
                         </li>
-                
+
                         <!-- Account Dropdown Menu -->
                         <li class="nav-item profile-dropdown dropdown">
                             <a class="nav-link profile-link" data-toggle="dropdown" href="#">
@@ -110,7 +129,7 @@ FormAsset::register($this);
                                     </div>
                                     <div class="profile-content">
                                         <div class="d-flex align-items-center">
-                                            <h6 class="name"> John Doe </h6>
+                                            <h6 class="name"> <?= Yii::$app->user->identity->first_name ?> </h6>
                                             <div class="dropdown-collapse">
                                                 <i class="fas fa-angle-down"></i>
                                             </div>
@@ -123,7 +142,7 @@ FormAsset::register($this);
                                 </div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right py-2 border-0">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="index.php?r=user/logout">
                                     <small> Logout </small>
                                 </a>
                             </div>
@@ -136,20 +155,23 @@ FormAsset::register($this);
         <div class="row content-contr">
             <!-- Sidebar Menu -->
             <div class="col-2 sidebar-contr">
-                <a class="sidebar-item" href="#">
-                    <img src="/images/properties.svg" alt="properties.svg">
-                    <p class="mb-0"> Properties </p>
+                <a class="sidebar-item" href="<?= $url ?>">
+                    <img src="<?= $icon ?>" alt="<?= $menuText ?>">
+                    <p class="mb-0"><?= $menuText ?></p>
                 </a>
 
-                <a class="sidebar-item active" href="#">
+                <a class="sidebar-item active" href="index.php?r=user/list">
                     <img src="/images/user.svg" alt="user.svg">
                     <p class="mb-0"> Users </p>
                 </a>
 
-                <a class="sidebar-item" href="#">
+                <!-- Operator only -->
+                <?php if ($user_type == 2) { ?>
+                <a class="sidebar-item" href="index.php?r=operator/basicdetails">
                     <img src="/images/properties.svg" alt="properties.svg">
-                    <p class="mb-0"> Properties </p>
+                    <p class="mb-0"> My profile </p>
                 </a>
+                <?php  } ?>
 
                 <a class="sidebar-item" href="#">
                     <img src="/images/properties.svg" alt="properties.svg">
