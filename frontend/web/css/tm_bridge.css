@@ -1,9 +1,17 @@
 /*
  * Author Name: Jinsan T J
- *  MAIN STYLESHEET
- * PLEASE FOLLOW CSS CODING STANDARDS 
+ *  MAIN STYLE SHEET
+ * PLEASE FOLLOW CSS CODING STANDARDS
  * https://docs.ckan.org/en/2.9/contributing/css.html
  */
+
+:root {
+    --primary-color: #E40967;
+    --secondary-color: #586ADA;
+    --optional-color: #831BEE;
+    --white-color: #FFFFFF;
+    --font-primary-color: ##292931;
+}
 
 * {
     padding: 0;
@@ -39,14 +47,18 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    max-width: 1920px;
+    margin: 0 auto;
 }
 
 background-primary {
-    background: #586ADA !important;
+    background: var(--secondary-color) !important;
 }
 
 p,
-a {
+a,
+label {
+    font-size: 14px;
     color: #292931;
 }
 
@@ -59,6 +71,34 @@ h6 {
     color: #292931;
     letter-spacing: -0.02em;
     line-height: 29px;
+}
+
+.table-responsive {
+    background: #FFFFFF;
+    box-shadow: 0px 4px 39px 9px rgba(81, 69, 159, 0.09);
+    border-radius: 10px;
+}
+
+/*changes*/
+table thead tr {
+    color: #FFFFFF;
+    background-color: var(--secondary-color);
+    /*height: 45px;*/
+    height: 31px;
+}
+
+table thead tr th:first-child {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+table thead tr th:last-child {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+table td {
+    margin-bottom: 10px;
 }
 
 a {
@@ -162,7 +202,7 @@ li {
 }
 
 .navbar .nav-item .nav-link .profile-nav .profile-content .name {
-    color: #E40968;
+    color: var(--primary-color);
     margin-right: 5px;
 }
 
@@ -191,10 +231,17 @@ li {
 * ***********************************************************************************************************************************
 */
 
+.content-contr {
+    display: flex;
+}
+
 .content-contr .sidebar-contr {
+    width: 253.18px;
     background: #F7F7F9;
-    height: 100vh;
+    height: calc(100vh - 100px);
     padding-top: 45px;
+    overflow: auto;
+    transition: width 250ms ease-in-out;
 }
 
 .content-contr .sidebar-contr .sidebar-item {
@@ -222,13 +269,13 @@ li {
 .content-contr .sidebar-contr .sidebar-item:active::before,
 .content-contr .sidebar-contr .sidebar-item:hover::before,
 .content-contr .sidebar-contr .sidebar-item.active::before {
-    background-color: #E40967;
+    background-color: var(--primary-color);
 }
 
 .content-contr .sidebar-contr .sidebar-item:active p,
 .content-contr .sidebar-contr .sidebar-item:hover p,
 .content-contr .sidebar-contr .sidebar-item.active p {
-    color: #E40967;
+    color: var(--primary-color);
 }
 
 .content-contr .sidebar-contr .sidebar-item:active img,
@@ -250,7 +297,10 @@ li {
 */
 
 .content-contr .data-content  {
+    width: 100%;
+    height: calc(100vh - 100px);
     padding: 31.79px 69.33px;
+    overflow: auto;
 }
 
 .content-contr .data-content .title {
@@ -261,4 +311,147 @@ li {
     border: 2px solid #E8E9ED;
     border-radius: 10px;
     padding: 50px;
+}
+.content-contr .data-content .tab-section .nav.nav-peills {
+    border-bottom: 0.5px solid #BCC3F1;
+}
+
+.content-contr .data-content .tab-section .nav.nav-pills .nav-item .nav-link {
+    position: relative;
+    background-color: var(--white-color);
+    margin-right: 55px;
+    margin-bottom: 30px;
+    transition: all 250ms ease-in-out;
+}
+
+.content-contr .data-content .tab-section .nav.nav-pills .nav-item .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    background-color: transparent;
+    width: 100%;
+    height: 4px;
+    transition: all 250ms ease-in-out;
+}
+
+.content-contr .data-content .tab-section .nav.nav-pills .nav-item .nav-link:hover,
+.content-contr .data-content .tab-section .nav.nav-pills .nav-item .nav-link:active,
+.content-contr .data-content .tab-section .nav.nav-pills .nav-item .nav-link.active {
+    color: var(--white-color) !important;
+    background-color: var(--secondary-color);
+}
+
+.content-contr .data-content .tab-section .nav.nav-pills .nav-item .nav-link:hover::after,
+.content-contr .data-content .tab-section .nav.nav-pills .nav-item .nav-link:active::after,
+.content-contr .data-content .tab-section .nav.nav-pills .nav-item .nav-link.active::after {
+    background-color: var(--secondary-color);
+}
+
+.content-contr .data-content .tab-section .tab-pane .accordion .accordion-item {
+    margin-bottom: 30px;
+}
+
+.content-contr .data-content .tab-section .tab-pane .accordion .accordion-item .accordion-top {
+    display: flex;
+    justify-content: space-between;
+    color: var(--white-color);
+    background-color: var(--secondary-color);
+    width: 100%;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    transition: all 250ms ease-in-out;
+}
+
+.content-contr .data-content .tab-section .tab-pane .accordion .accordion-item .accordion-top.collapsed::after {
+    display: inline-block;
+    content: '\f107';
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+}
+
+.content-contr .data-content .tab-section .tab-pane .accordion .accordion-item .accordion-top::after {
+    display: inline-block;
+    content: '\f106';
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+}
+
+.content-contr .data-content .tab-section .tab-pane .accordion .accordion-item .accordion-top.collapsed {
+    background-color: #BCC3F1 !important;
+}
+
+.content-contr .data-content .tab-section .tab-pane .accordion .accordion-item .accordion-content {
+    border: 1px solid var(--secondary-color);
+    border-radius: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    box-shadow: 0px 4px 39px 9px rgba(81, 69, 159, 0.09);
+    margin-bottom: 10px;
+    padding: 17.24px 33.13px;
+}
+
+.content-contr .data-content .tab-section .tab-pane .accordion .accordion-item .accordion-content .form-date-input {
+    border: 0;
+    width: 100px;
+    /* margin: 10px; */
+}
+
+.content-contr .data-content .tab-section .tab-pane .accordion .accordion-item .accordion-content .form-checkin {
+    background: #F9F9F9;
+    border: 0.5px solid #BCBCBC;
+    border-radius: 10px;
+    width: 300px;
+    padding: 7px 15px;
+}
+
+.content-contr .data-content .tab-section .tab-pane .accordion .accordion-item .accordion-content .form-checkin .checkin-text::after {
+    content: '';
+    border: 1px solid #BCBCBC;
+    width: 2px;
+    height: 100%;
+    margin-left: 10px;
+}
+
+.content-contr .data-content .tab-section .tab-pane .accordion .accordion-item .accordion-content .form-checkin .form-control {
+    color: #BCBCBC;
+    outline: none !important;
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+.content-contr .data-content .tab-section .tab-pane .accordion .accordion-item .accordion-content .tab-contr .nav.nav-pills {
+    margin-bottom: 10px;
+}
+
+/*
+* ***********************************************************************************************************************************
+* Modal styles
+* ***********************************************************************************************************************************
+*/
+
+.data-content .modal .modal-content {
+    background: var(--white-color);
+    border: 1px solid var(--secondary-color);
+    box-shadow: 0px 4px 39px 9px rgba(81, 69, 159, 0.09);
+    border-radius: 10px;
+}
+
+.data-content .modal .modal-content .modal-header  {
+    background: var(--secondary-color);
+}
+
+.data-content .modal .modal-content .modal-header .modal-title {
+    font-size: 16px;
+    color: var(--white-color);
+}
+
+.modal-backdrop {
+    transition: all 250ms ease-in-out;
+}
+
+.modal-backdrop {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(5px);
+    opacity: 1 !important;
 }

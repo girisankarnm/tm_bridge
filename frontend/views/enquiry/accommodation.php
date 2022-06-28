@@ -34,8 +34,8 @@ $this->registerJsFile('/js/enquiry/accomodation.js');
                 <?php
                 if( isset($enquiry->enquiryAccommodations) && count($enquiry->enquiryAccommodations) > 0 ) {
                     $accomodation_status = ['1' => 'Required', '0' => 'Not Required'];
-                    foreach ($enquiry->enquiryAccommodations as $accomodation){
-                        $i = 0;
+                    $i = 0;
+                    foreach ($enquiry->enquiryAccommodations as $accomodation){                        
                         ?>
                         <tr class="">
                             <td class="Adults">

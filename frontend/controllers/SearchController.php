@@ -305,8 +305,7 @@ class SearchController extends Controller
                         $searchResult[$property->name]['property'] = $Room->property;
 
                         //Check Favourite
-                        //TODO: Operator ID
-                        $operatorID = 1;
+                        $operatorID = Yii::$app->user->identity->getOWnerId();
                         $favouriteProperty = PropertyFavourite::find()->where(['property_id' => $property->id])->andWhere(['operator_id' => $operatorID])->one();
                         $favouriteStatus = false;
                         if ($favouriteProperty) {
@@ -804,12 +803,6 @@ class SearchController extends Controller
         $transaction = Yii::$app->db->beginTransaction();
         try
         {
-            $enqPropSelected = EnquiryPropertySelection::find()->where(['enquiry_id' => $enquiryID])->andWhere(['property_id' => $room->property->id])->one();
-//            if (!$enqPropSelected) {
-//                return array('status' => 3, 'message' => "no props",'data'=>$room->property);
-//            }
-//
-
             foreach ($accommodation_policy as $AP) {
 
             $enquiryRoomSelected = new EnquiryRoomSelection();

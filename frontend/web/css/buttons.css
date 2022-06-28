@@ -1,0 +1,44 @@
+.add-items .add-icon {
+    font-size: 14px;
+    color: var(--white-color);
+    text-align: center;
+    background: var(--optional-color);
+    width: 25.36px;
+    height: 25.36px;
+    line-height: 25.36px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.delete-icon {
+    font-size: 14px;
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+.button-primary {
+    /*font-size: 14px;*/
+    font-size: 12px;
+    background: var(--primary-color);
+    border-radius: 10px;
+    padding: 5px 15px;
+    margin: 10px;
+}
+
+.button-secondary {
+    color: var(--white-color);
+    background: var(--secondary-color);
+    border-radius: 10px;
+    padding: 5px 15px;
+}
+
+.button-secondary:hover {
+    color: var(--white-color);
+}
+
+.btn-border {
+    background-color: var(--white-color);
+    border: 1px solid #BCC3F1;
+    border-radius: 10px;
+    padding: 5px 15px;
+}

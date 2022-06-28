@@ -1,0 +1,43 @@
+/* 
+* @author Jinsan T J
+* Style sheet for width related elements
+ */
+
+.data-content .fit-width-230px {
+    -ms-flex: 0 0 230px;
+    flex: 0 0 230px;
+    max-width: 230px;
+    padding-right: 0;
+}
+
+.data-content .fit-width-215px {
+    -ms-flex: 0 0 215px;
+    flex: 0 0 215px;
+    max-width: 215px;
+    padding-right: 0;
+}
+
+.data-content .fit-width-112px {
+    -ms-flex: 0 0 112px;
+    flex: 0 0 112px;
+    max-width: 112px;
+    padding-right: 0;
+}
+
+.data-content .fit-width-105px{
+    -ms-flex: 0 0 105px;
+    flex: 0 0 105px;
+    max-width: 105px;
+    padding-right: 0;
+}
+
+.data-content .fit-width-70px {
+    -ms-flex: 0 0 70px;
+    flex: 0 0 70px;
+    max-width: 70px;
+    padding-right: 0;
+}
+
+table :where(label, p) {
+    display: inline;
+}

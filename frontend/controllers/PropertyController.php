@@ -8,7 +8,11 @@ use frontend\models\Location;
 use frontend\models\property\AddressLocation;
 use frontend\models\property\LegalTaxDocumentation;
 use frontend\models\property\PropertyLegalStatus;
+use frontend\models\property\PropertyPetsPolicy;
+use frontend\models\property\PropertySmokingPolicy;
 use frontend\models\property\TermsConditions;
+use frontend\models\tariff\TariffNationalityGroupName;
+use frontend\models\tariff\TariffNationalityTable;
 use Yii;
 use yii\helpers\ArrayHelper;
 use yii\web\Controller;
@@ -701,6 +705,297 @@ class PropertyController extends Controller{
             $terms->terms_and_conditons3 = $property->terms_and_conditons3;
 
             return $this->render('terms_and_conditions',['terms' => $terms]);
+        }
+    }
+
+
+    public function actionRules() {
+
+        $this->layout = 'tm_main';
+        $property = $this->getProperty();
+        $smoking_policy = ArrayHelper::map(PropertySmokingPolicy::find()->asArray()->all(), 'id', 'name');
+        $pets_policy = ArrayHelper::map(PropertyPetsPolicy::find()->asArray()->all(), 'id', 'name');
+        return $this->render('rules_and_policies',['property' => $property, 'smoking_policy' => $smoking_policy, 'pets_policy' => $pets_policy]);
+    }
+
+    public function actionSavecheckincheckout(){
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        if(!isset( $_REQUEST['property_id'])) {
+            return array('status' => 2,'message' => "Invalid input. Property missing.", 'data' => 0);
+        }
+
+        $property_id = Yii::$app->request->post('property_id');
+
+        //Check this proerty owned by this user
+        if ($property_id != 0) {
+            $property =Property::find()
+                ->where(['id' => $property_id])
+                ->one();
+
+            if ($property == NULL){
+                return array('status' => 2,'message' => "Property (id) doesn't exists", 'data' => 0);
+            }
+        }
+        else {
+            return array('status' => 2,'message' => "Property id cannot zero", 'data' => 0);
+        }
+
+        $property->twenty_four_hours_check_in = Yii::$app->request->post('twenty_four_hours_check_in');
+//        if ( !$property->twenty_four_hours_check_in ) {
+        if ( $property->twenty_four_hours_check_in ) {
+            $property->check_in_time = Yii::$app->request->post('check_in_time');
+            $property->check_out_time =  Yii::$app->request->post('check_out_time');
+        }
+
+        if ($property->save() ) {
+//            return Yii::$app->request->post('CSRF');
+            return array('status' => 0,'message' => "Property Checkin/Check out time updated successfully", 'data' => 0);
+        }
+
+        return array('status' => 1,'message' => "Failed to update Checkin/Check out policy.", 'data' => 0);
+    }
+
+    public function actionSavesmokingpolicy(){
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+        if(!isset( $_REQUEST['property_id'])) {
+            return array('status' => 2,'message' => "Invalid input. Property id missing.", 'data' => 0);;
+        }
+
+        $property_id = Yii::$app->request->post('property_id');
+
+        //TODO: Check this proerty owned by this user
+        if ($property_id != 0) {
+
+            $property = Property::find()
+                ->where(['id' => $property_id])
+                ->one();
+
+            if ($property == NULL){
+                return array('status' => 2,'message' => "Property (id) doesn't exists", 'data' => 0);
+            }
+        }
+        else {
+            return array('status' => 2,'message' => "Property id cannot zero", 'data' => 0);
+        }
+
+        $property->smoking_policy_id = Yii::$app->request->post('smoking_policy_id');
+
+        if ($property->save() ) {
+            return array('status' => 0,'message' => "Property Smoking policy updated successfully", 'data' => 0);
+        }
+
+        return array('status' => 1,'message' => "Failed to update Smoking policy.", 'data' => 0);
+    }
+
+    public function actionSavepetspolicy(){
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+        if(!isset( $_REQUEST['property_id'])) {
+            return array('status' => 2,'message' => "Invalid input. Property id missing.", 'data' => 0);;
+        }
+
+        $property_id = Yii::$app->request->post('property_id');
+
+        //TODO: Check this proerty owned by this user
+        if ($property_id != 0) {
+            $property = Property::find()
+                ->where(['id' => $property_id])
+                ->one();
+
+            if ($property == NULL){
+                return array('status' => 2,'message' => "Property (id) doesn't exists", 'data' => 0);
+            }
+        }
+        else {
+            return array('status' => 2,'message' => "Property id cannot zero", 'data' => 0);
+        }
+
+        $property->pets_policy_id = Yii::$app->request->post('pets_policy_id');
+        if ($property->save() ) {
+            return array('status' => 0,'message' => "Property Pets policy updated successfully", 'data' => 0);
+        }
+
+        return array('status' => 1,'message' => "Failed to update Pets policy.", 'data' => 0);
+    }
+
+    public function actionSavechildpolicy(){
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+        if(!isset( $_REQUEST['property_id'])) {
+            return array('status' => 2,'message' => "Invalid input. Property id missing.", 'data' => 0);
+        }
+
+        $property_id = Yii::$app->request->post('property_id');
+        //Check this prooerty owned by this user
+        if ($property_id != 0) {
+            $property = Property::find()
+                ->where(['id' => $property_id])
+                ->one();
+
+            if ($property == NULL){
+                return array('status' => 2,'message' => "Property (id) doesn't exists", 'data' => 0);
+            }
+        }
+        else {
+            return array('status' => 2,'message' => "Property id cannot zero", 'data' => 0);
+        }
+
+        $property->allow_child_of_all_ages = Yii::$app->request->post('allow_child_of_all_ages');
+        $property->restricted_for_child  = Yii::$app->request->post('restricted_for_child');
+        $property->restricted_for_child_below_age = Yii::$app->request->post('restricted_for_child_below_age');
+        $property->allow_complimentary  = Yii::$app->request->post('allow_complimentary');
+        $property->complimentary_from_age  = Yii::$app->request->post('complimentary_from_age');
+        $property->complimentary_to_age = Yii::$app->request->post('complimentary_to_age');
+        $property->allow_child_rate = Yii::$app->request->post('allow_child_rate');
+        $property->child_rate_from_age = Yii::$app->request->post('child_rate_from_age');
+        $property->child_rate_to_age = Yii::$app->request->post('child_rate_to_age');
+        $property->allow_adult_rate = Yii::$app->request->post('allow_adult_rate');
+        $property->adult_rate_age  = Yii::$app->request->post('adult_rate_age');
+
+        if ($property->save() ) {
+            return array('status' => 0,'message' => "Property Cancellation policy updated successfully", 'data' => 0);
+        }
+        else {
+            return array('status' => 5,'message' => "Property Cancellation policy update failed", 'data' => 0);
+        }
+
+    }
+
+    public function actionNationalities(){
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        $group_id = Yii::$app->request->get('group_id');
+        $property_id = Yii::$app->request->get('property_id');
+        $group_names = TariffNationalityGroupName::find()->where(['property_id' => $property_id])->andWhere(['<>','id', $group_id]) ->all();
+
+        $all_linked_nationalities = array();
+        $i = 0;
+        foreach ($group_names as $group) {
+            foreach ($group->tariffNationalityTables as $table) {
+                $all_linked_nationalities[$i] = $table->country_id;
+                $i++;
+            }
+        }
+
+        //Edit mode?
+        $linked_nationalities_in_group = array();
+        if($group_id != 0){
+            $linked_group = TariffNationalityGroupName::find()->where(['id' => $group_id])->one();
+            $i = 0;
+            foreach ($linked_group->tariffNationalityTables as $country) {
+                $linked_nationalities_in_group[$i] = $country->country_id;
+                $i++;
+            }
+        }
+
+        $countries = Country::find()->where(['not in', 'id', $all_linked_nationalities ])->all();
+        $countries_list = ArrayHelper::toArray($countries, [ 'frontend\models\Country' => ['id', 'name']]);
+        //return $countries_list;
+
+        $nationality = array('available_countries' => $countries_list,'countries_in_group' => $linked_nationalities_in_group);
+        //return $nationality;
+
+        return array('status' => 0,'message' => "Successfully updated nationality.", 'data' => $nationality);
+    }
+
+    public function actionSavenationalities(){
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        $group_id = Yii::$app->request->post('group_id');
+        $property_id = Yii::$app->request->post('property_id');
+        $nationalities = Yii::$app->request->post('nationalities');
+        $name = Yii::$app->request->post('name');
+
+        $group_name = null;
+        if($group_id != 0) {
+            $group_name = TariffNationalityGroupName::find()->where(['id' => $group_id])->one();
+            return $group_name;
+        }
+
+        if($group_name == null) {
+            $group_name = new TariffNationalityGroupName();
+        }
+
+        $country_count = count($nationalities);
+        if ($country_count > 0 ) {
+            TariffNationalityTable::deleteAll(['group_id' => $group_id ]);
+        }
+
+        $group_name->name = $name;
+        $group_name->property_id = $property_id;
+        $group_name->save();
+
+        for ($i = 0; $i < $country_count; $i++ ) {
+            $tariff_nationality = new TariffNationalityTable();
+            $tariff_nationality->country_id = $nationalities[$i];
+            $tariff_nationality->group_id = $group_name->getPrimaryKey();
+            $tariff_nationality->save();
+        }
+
+        return array('status' => 0,'message' => "Successfully updated nationality.", 'data' => 0);
+    }
+
+    public function actionSavemandatorydinneroption(){
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+        if(!isset( $_REQUEST['property_id'])) {
+            return array('status' => 2,'message' => "Invalid input. Property id missing.", 'data' => 0);;
+        }
+
+        $property_id = Yii::$app->request->post('property_id');
+
+
+        //TODO: Check this proerty owned by this user
+        if ($property_id != 0) {
+            $property = Property::find()
+                ->where(['id' => $property_id])
+                ->one();
+
+            if ($property == NULL){
+                return array('status' => 2,'message' => "Property (id) doesn't exists", 'data' => 0);
+            }
+        }
+        else {
+            return array('status' => 2,'message' => "Property id cannot zero", 'data' => 0);
+        }
+
+        $property->provide_compulsory_inclusions = Yii::$app->request->post('provide_compulsory_inclusions');
+
+        if ($property->save() ) {
+            return array('status' => 0,'message' => "Property Mandatory dinner option updated successfully", 'data' => 0);
+        } else {
+            return array('status' => 1,'message' => "Failed to update Mandatory dinner option", 'data' => 0);
+        }
+    }
+
+    public function actionSaveweekdayhikeoption(){
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+        if(!isset( $_REQUEST['property_id'])) {
+            return array('status' => 2,'message' => "Invalid input. Property id missing.", 'data' => 0);;
+        }
+
+        $property_id = Yii::$app->request->post('property_id');
+
+        //TODO: Check this proerty owned by this user
+        if ($property_id != 0) {
+            $property = Property::find()
+                ->where(['id' => $property_id])
+                ->one();
+
+            if ($property == NULL){
+                return array('status' => 2,'message' => "Property (id) doesn't exists", 'data' => 0);
+            }
+        }
+        else {
+            return array('status' => 2,'message' => "Property id cannot zero", 'data' => 0);
+        }
+
+        $property->have_weekday_hike = Yii::$app->request->post('have_weekday_hike');
+
+        if ($property->save() ) {
+            return array('status' => 0,'message' => "Property Weekday hike option updated successfully", 'data' => 0);
+        } else {
+            return array('status' => 1,'message' => "Failed to update Weekday hike option", 'data' => 0);
         }
     }
 }
