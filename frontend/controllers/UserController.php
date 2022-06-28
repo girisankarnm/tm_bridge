@@ -9,12 +9,16 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 
+use frontend\models\user\AddUserForm;
 use frontend\models\user\LoginForm;
 use frontend\models\user\SignupForm;
 use frontend\models\user\VerifyEmailForm;
 use frontend\models\user\ResendVerificationEmailForm;
 use frontend\models\user\PasswordResetRequestForm;
 use frontend\models\user\ResetPasswordForm;
+use frontend\models\user\User;
+use frontend\models\user\UserPropertyMap;
+use frontend\models\property\Property;
 
 class UserController extends Controller
 {
@@ -64,10 +68,6 @@ class UserController extends Controller
             return $this->render('registration', ['register' => $model]);
         }
     }
-
-
-
-
     public function actionLogin()
     {
         $model = new LoginForm();
@@ -87,6 +87,103 @@ class UserController extends Controller
     }
 
 
+    public function actionList(){
+        
+        $this->layout = 'tm_main';
+        $users = User::findUsers(Yii::$app->user->getId(), Yii::$app->user->identity->parent);        
+        return $this->render('list', ['users' => $users]);
+    }
+
+    public function actionAdd(){
+        $this->layout = 'tm_main';
+
+        $new_user = new AddUserForm();
+        $new_user->user_id = 0;
+        
+        if ($new_user->load(Yii::$app->request->post()) ) {                        
+            $new_user->user_type = Yii::$app->user->identity->user_type;
+            $new_user->parent = Yii::$app->user->identity->getOWnerId();
+            $new_user->user_id = $_POST['AddUserForm']['user_id'];        
+            if ( $new_user->save() ) {
+                Yii::$app->session->setFlash('success', 'User added and sent activation link by mail');
+                
+                if (Yii::$app->user->identity->user_type == 1) {
+                    //Property assignment only for hotel
+                    $assigned_properties = Yii::$app->request->post('assigned_properties');            
+                    $properties_count = count($assigned_properties);                
+                    UserPropertyMap::deleteAll(['user_id' => $new_user->getUserID()]);
+                    
+                    for ($i = 0; $i < $properties_count; $i++ ) {
+                        $user_map = new UserPropertyMap();
+                        $user_map->user_id = $new_user->getUserID();
+                        $user_map->property_id = $assigned_properties[$i];
+                        $user_map->save();
+                    }
+                }
+
+                return $this->redirect(['user/list']);
+            }            
+        }
+        
+        
+        $property = NULL;
+        $assigned_roles = NULL;
+        $assigned_properties = NULL;
+        if(isset( $_GET['id']) ) {
+            $user_id = Yii::$app->request->get('id');
+            $user = User::find()
+            ->where(['id' => $user_id])            
+            ->one();
+
+            if ($user == NULL){                
+                throw new NotFoundHttpException();
+            }
+
+            $assigned_roles = ArrayHelper::getColumn(Yii::$app->authManager->getRolesByUser($user->id), 'name');
+            $assigned_properties =  ArrayHelper::getColumn(UserPropertyMap::find()->where(['user_id' => $user->id])->asArray()->all(), 'property_id');
+            
+            $new_user->user_id = $user->id;
+            $new_user->first_name = $user->first_name;
+            $new_user->last_name  = $user->last_name;
+            $new_user->phone  = $user->phone;
+            $new_user->email  = $user->email;            
+            $new_user->user_type  = $user->user_type;
+            $new_user->parent  = $user->parent;
+            $new_user->user_role =  $assigned_roles;
+            $new_user->password_change_on_login  = $user->password_change_on_login;
+            $new_user->scenario = 'update';
+        }
+
+        $roles = Yii::$app->authManager->getRoles();
+        $needle = "";
+        if(Yii::$app->user->identity->user_type == 1) {
+            $needle = "Operator";
+        } 
+        else if(Yii::$app->user->identity->user_type == 2) {
+            $needle = "Hotel";
+        }
+        
+        foreach($roles as $key => $role){            
+            if (str_contains($role->name, $needle)) {
+                unset($roles[$key]);
+            }
+        } 
+        
+        $roles =  ArrayHelper::map($roles, 'name', 'description');
+
+        //Assign property only in case of hotel
+        $properties = NULL;
+        if (Yii::$app->user->identity->user_type == 1) { 
+            $properties = Property::find()            
+                ->where(['owner_id' => Yii::$app->user->identity->getOWnerId()])
+                ->all();
+
+            $properties =  ArrayHelper::map($properties, 'id', 'name');
+        }
+        
+        $new_user->user_type = Yii::$app->user->identity->user_type;
+        return $this->render('add_user',['user' => $new_user, 'roles' => $roles, 'properties' => $properties, 'assigned_roles' => $assigned_roles, 'assigned_properties' => $assigned_properties]);        
+    }
 
     private function gotoHomePage(){
         if (Yii::$app->user->identity->first_login)

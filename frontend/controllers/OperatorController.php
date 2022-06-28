@@ -38,25 +38,17 @@ class OperatorController extends Controller{
 
     public function actionBasicdetails(){
         $this->layout = 'tm_main';
+
         $operator = NULL;
-        if(isset( $_GET['id']) ) {
-            $operator_id = Yii::$app->request->get('id');
-            $operator = Operator::find()
-                ->where(['id' => $operator_id])
-                ->andWhere(['owner_id' => Yii::$app->user->getId()])
-                ->one();
-            if ($operator == NULL){
-                throw new NotFoundHttpException();
-            }
-        }
-//        $operator = Operator::find()
-//            ->andWhere(['owner_id' => Yii::$app->user->identity->getOWnerId()])
-//            ->one();
-//        return $operator->id;
+        $operator = Operator::find()
+            ->where(['owner_id' => Yii::$app->user->getId()])
+            ->one();
 
         $basic_details = new BasicDetails();
         $operator_image = new OperatorImage();
-        if ($operator == null){
+        
+        if ($operator == NULL){
+            //TODO: Show a message box on view that you don't have a profile yet, create one
             $operator = new Operator();
             $basic_details->id = 0;
             $operator_image->scenario = "create";

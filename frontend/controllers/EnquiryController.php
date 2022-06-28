@@ -28,7 +28,7 @@ class EnquiryController extends Controller{
             return;
         }
         
-        if (Yii::$app->user->identity->user_type != 1){
+        if (Yii::$app->user->identity->user_type != 2){
             throw new ForbiddenHttpException();
         } 
 
@@ -54,6 +54,13 @@ class EnquiryController extends Controller{
         }
 
         return $enquiry;
+    }
+
+    public function actionHome(){
+        $this->layout = 'tm_main';
+        $enquiries = Enquiry::find()->where(['owner_id' => Yii::$app->user->identity->getOWnerId()])->all();
+
+        return $this->render('home', ['enquiries' => $enquiries]);
     }
 
     public function actionBasicdetails(){

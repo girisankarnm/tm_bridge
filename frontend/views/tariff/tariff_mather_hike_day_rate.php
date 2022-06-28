@@ -4,7 +4,7 @@
     <div class="container-fluid" >
 
         <div class="card-title">
-            Tariff
+            Tariff1
         </div>
 
         <div class="tariffBorder">
@@ -15,7 +15,7 @@
                  <a href="<?= \yii\helpers\Url::to(['/tariff/tariffmotherroomrate']) ?>">  <button id="contactBtn" class="selectedButtonmotherdaterange" >Room rate</button></a>
 
                 <a href="<?= \yii\helpers\Url::to(['/tariff/tariffmothermealrate']) ?>"> <button class="tablinks2">Meal rate</button></a>
-            <div style="display: inline">  <a href="<?= \yii\helpers\Url::to(['/tariff/tariffmotherhikedayrate']) ?>"><button class="tablinks2" >Hike day rate</button></a><hr class="new6" >
+            <div style="display: inline">  <a href="<?= \yii\helpers\Url::to(['/tariff/tariffmotherhikedayrate']) ?>"><button class="selectedButtonmotherdaterange" >Hike day rate</button></a><hr class="new6" >
             </div>
                 <a href="<?= \yii\helpers\Url::to(['/tariff/tariffmothermandatorydinner']) ?>"><button class="tablinks2" >Mandatory dinner</button></a>
             </div>

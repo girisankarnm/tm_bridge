@@ -111,6 +111,23 @@ sidebar .nav-item .nav-link {
 
 }
 
+.buttonSaveaccomadation
+{
+
+    background-color: #586ADA;
+    color: #ffffff;
+    height: 31px;
+    width: 97px;
+    font-family: 'Bw Mitga';
+    font-style: normal;
+    font-size: 12px;
+    border: 0.5px solid #586ADA;
+    border-radius: 10px;
+    margin-top: 12px;
+    margin-left: 15px;
+
+}
+
 .custom-control-label
 {
     margin-left: 21px;
@@ -290,11 +307,74 @@ input::-webkit-inner-spin-button {
 }
 
 
-.table3enquiryclass
+.table3accomadatonclass
 {
+
     font-family: 'Bw Mitga';
     font-style: normal;
-    box-shadow: #51459F17;
+    /*box-shadow: #51459F17;*/
+    alignment: inherit;
+    margin-left: 36px;
+    margin-right: 12px;
+    margin-top: 12px;
+    margin-top: 12px;
+    width: 768px !important;
+    height: 150px;
+
+    /*transform: rotate(0deg);*/
+    /*border-top-left-radius: 15px !important;*/
+    /*border: 1px solid #586ada !important;*/
+    border: 1px solid  #c69500;
+    /*border-top-left-radius: 34px;*/
+    perspective: 16px;
+    /*border: 8px solid  #c69500 !important;*/
+
+    /*border-top-right-radius: 24px;*/
+    /*border-collapse: revert;*/
+    /*border-top-left-radius: 20px !important;*/
+    /*border-radius: 10px;*/
+    /*border-collapse: initial;*/
+    text-align: center;
+
+}
+  .table3mealsadd
+{
+      font-family: 'Bw Mitga';
+      font-style: normal;
+      /*box-shadow: #51459F17;*/
+      alignment: inherit;
+      margin-left: 16px;
+      margin-right: 10px;
+      margin-top: 12px;
+      margin-top: 12px;
+      width: 400px !important;
+      height: 150px;
+
+      /*transform: rotate(0deg);*/
+      /*border-top-left-radius: 15px !important;*/
+      /*border: 1px solid #586ada !important;*/
+      border: 1px solid  #c69500;
+      /*border-top-left-radius: 34px;*/
+      perspective: 16px;
+      /*border: 8px solid  #c69500 !important;*/
+
+      /*border-top-right-radius: 24px;*/
+      /*border-collapse: revert;*/
+      /*border-top-left-radius: 20px !important;*/
+      /*border-radius: 10px;*/
+      /*border-collapse: initial;*/
+      text-align: center;
+
+
+  }
+
+.table3enquiryclass
+{
+
+
+    font-family: 'Bw Mitga';
+    font-style: normal;
+    /*box-shadow: #51459F17;*/
     alignment: inherit;
     margin-left: 36px;
     margin-right: 12px;
@@ -303,14 +383,36 @@ input::-webkit-inner-spin-button {
     width: 668px !important;
     height: 150px;
 
-    transform: rotate(0deg);
+    /*transform: rotate(0deg);*/
     /*border-top-left-radius: 15px !important;*/
-    border: 1px solid #586ada !important;
+    /*border: 1px solid #586ada !important;*/
+    border: 1px solid  #c69500;
+    /*border-top-left-radius: 34px;*/
+    perspective: 16px;
+    /*border: 8px solid  #c69500 !important;*/
+
+    /*border-top-right-radius: 24px;*/
+    /*border-collapse: revert;*/
     /*border-top-left-radius: 20px !important;*/
     /*border-radius: 10px;*/
     /*border-collapse: initial;*/
     text-align: center;
 
+}
+  .acco-margintop
+  {
+      margin-top: 18px !important;
+  }
+
+/*.classradious*/
+/*{*/
+/*    border-top-left-radius: 24px;*/
+/*    perspective: 16px;*/
+
+/*    !*overflow: hidden;*!*/
+/*}*/
+.rowboarder{
+    border: 1px solid #586ada !important;
 }
 
 
@@ -323,8 +425,8 @@ input::-webkit-inner-spin-button {
 }
 table {
     /*border-spacing: 0;*/
-    height: 100%;
-    width: 100%;
+    height: fit-content;
+    width: fit-content%;
     border: 1px solid #586ADA !important;
     overflow: hidden;
     border-top-radius: 10px;
@@ -341,13 +443,31 @@ table {
     font-style: normal;
     font-weight: 200;
     font-size: 11px;
-    height: 41px;
+    height: 33px;
     text-align: center;
 
 
 
 }
 
+.thtableaccomadation {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #586ADA;
+    color: white;
+    font-family: 'Bw Mitga';
+    font-style: normal;
+    font-weight: 200;
+    font-size: 11px;
+    height: 33px;
+    text-align: center;
+
+}
+
+.daytextindent
+{
+    text-indent: 16px !important;
+}
 
 #headingOne:focus {
     background-color: #586ada;
@@ -378,8 +498,8 @@ table {
 
 input[type='number'] {text-indent:10px;  }
 input[type='text'] {text-indent:10px;  }
-input[type='email'] {text-indent:10px;  }
-input[type='password'] {text-indent:10px;  }
+input[type='email'] {text-indent:23px;  }
+input[type='password'] {text-indent:23px;  }
 tr {
     background-color: #F9F9F9;
     padding: 8px;
@@ -409,6 +529,10 @@ tr {
     font-size: 0.78rem;
     text-align: left;
     color: #0b2e13;
+    padding-left: 24px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
 }
 #guest_count_differnt td {
 background-color: #ffffff;
@@ -474,7 +598,7 @@ select:focus
 }
 .inputTextClassaccomadation
 {
-    background-color: #e5e3e3 !important;
+    background-color: #ffffff !important;
     box-sizing: border-box;
     color: #787486!important;
     width: 94px !important;
@@ -506,7 +630,7 @@ input::placeholder {
 .tablinks2 {
     margin-right: 57px;
     border: 0px;
-    background: #f9f9f9;
+    background: #ffffff;
     cursor: pointer;
     /* margin-left: 3px; */
     margin-top: 12px;
@@ -532,7 +656,7 @@ input::placeholder {
 
     margin-right: 57px;
     border: 0px;
-    background: #f9f9f9;
+    background: #fff;
     cursor: pointer;
     /*margin-left: 3px;*/
     margin-top: 12px;
@@ -626,7 +750,7 @@ input::placeholder {
 
 .data-content {
     padding: 0.79px 30.33px !important;
-  background-color:#f7f7fb;
+  background-color:#ffffff;
 }
 
 
@@ -640,7 +764,7 @@ input::placeholder {
     display: flex;
     flex-wrap: nowrap;
     background-color:
-            #f7f7fb;
+            #ffffff;
 }
 
 
@@ -757,7 +881,11 @@ input::placeholder {
     margin-right: 15px;
 }
 
-
+.border-zero
+{
+    border: 0px!important;
+    margin-left: 16px !important;
+}
 
 .hrdivider {
     margin-top: 0.1rem !important;
@@ -766,7 +894,7 @@ input::placeholder {
 
 }
 hr.new1 {
-    width:15px;
+    width:12px;
 
     border-top: 2px solid black;
 
@@ -784,7 +912,7 @@ hr.new2 {
 }
 
 .flex-container > div {
-    background-color: #f9f9f9;
+    background-color: #fdfdff;
 
     margin-right: 0px;
     text-align: right;
@@ -797,8 +925,11 @@ hr.new2 {
 }
 .tableinput{
     line-height: normal;
-    margin-top: 12px;
     text-align: center;
+}
+.dropDownList
+{
+    margin-top: 34px;
 }
 .fromfate
 {
@@ -815,8 +946,8 @@ hr.new2 {
 .smallclass
 {
     inline-size:2px;
-    padding-left: 40px;
-    font-size: 12px;
+    padding-left: 0px;
+    font-size: 11px;
 
 }
 .icon {
@@ -859,6 +990,15 @@ hr.new2 {
     font-size: 12px;
     line-height: 0;
 }
+.fontsize-location
+{
+    font-size: 11px;
+}
+
+.fontsize-button
+{
+    font-size: 12px !important;
+}
 .smallFonts
 {
     color: #787486 !important;
@@ -890,8 +1030,27 @@ hr.new2 {
     font-size: 13px;
     border: 0.5px solid #E40968;
     border-radius: 10px;
-    margin-top: 12px;
+    margin-top: 5px;
 }
+
+
+
+.motherdateAddButton {
+
+    margin-right: 20px;
+    background-color: #E40968;
+    color: #ffffff;
+    height: 40px;
+    width: 221px;
+    font-family: 'Bw Mitga';
+    font-style: normal;
+    font-size: 13px;
+    border: 0.5px solid #E40968;
+    border-radius: 10px;
+    margin-top: 0px;
+}
+
+
 
 .locatiospace {
     font-size: 10px;
@@ -900,7 +1059,7 @@ hr.new2 {
     margin-right: 4px;
 }
 .plusbuttonspace {
-    font-size: 17px;
+    font-size: 20px;
     margin-right: 6px;
 }
 
@@ -909,7 +1068,7 @@ hr.new2 {
     margin-left: 3px;
     font-family: 'Bw Mitga';
     font-style: normal;
-    margin-bottom: 22px;
+    margin-bottom: 10px;
     font-size: 16px;
     padding-top: 0px;
     color: black;
@@ -918,18 +1077,18 @@ hr.new2 {
 }
 .tariffBorder3
 {
-    line-height: 0px;
+
     height:fit-content !important;
 
     margin-left: 3px;
     margin-right: 5px;
-    padding-top: 20px;
+    padding-top: 9px;
     padding-left: 12px;
-    background-color: #f7f7fb;
+    background-color: #ffffff;
 }
 .container-fluid
 {
-    background-color:#f7f7fb;
+    background-color:#fdfdff;
 }
 .tariffBorder1
 {
@@ -940,7 +1099,7 @@ hr.new2 {
     margin-right: 5px;
     padding-top: 20px;
     padding-left: 12px;
-    background-color: #f7f7fb;;
+    background-color: #fffffff;;
 }
 
 .publishedBorder
@@ -972,7 +1131,7 @@ hr.new2 {
     margin-bottom: 15px;
     padding-top: 20px;
     padding-left: 12px;
-    background-color: #f7f7fb;
+    background-color: #fff;
 }
 
 .tableclass{
@@ -1191,7 +1350,7 @@ hr.new2 {
 {
     display: flex;
     flex-wrap: nowrap;
-    background-color: #f9f9f9;
+    background-color: #fdfdff;
 
     margin-right: 7px;
     text-align: right;
@@ -1279,7 +1438,7 @@ hr.new5 {
 }
 .accordianstyle
 {
-    height: 35px !important;
+    height: 33px !important;
     padding-left: 13px !important;
     padding-top: 2px !important;
 }
@@ -1287,11 +1446,16 @@ hr.new5 {
     /*border-box;border:0px solid rgba(0,0,0,.125) !important;*/
     height: 115px !important;
     background-color: #ffffff !important;
-    margin-top: 24px;
+    margin-top: 18px;
     margin-right: 24px !important;
-    margin-left: 17px !important;
+    margin-left: 4px !important;
     margin-bottom: 24px !important;
 }
+.material-icons {
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
 .hotelHeading
 {
     font-size: 18px;
@@ -1313,12 +1477,14 @@ hr.new6 {
 
 
 
-.tableinput
-{
-    width: 100px;
-    height: 33px;
-    margin-top: 24px
-}
+/*.tableinput*/
+/*{*/
+/*    width: 100px;*/
+/*    height: 33px;*/
+/*    margin-top: 24px*/
+/*}*/
+
+
 .btnAdd {
     color: white;
     background-color: #586ADA;
@@ -1390,7 +1556,7 @@ hr.new6 {
 }
 .inputTextClass
 {
-    background-color: #e5e3e3;
+    background-color: #ffffff;
     box-sizing: border-box;
     color: #787486!important;
     width: 227px;
@@ -1477,7 +1643,15 @@ select:focus{
     outline-color:#586ADA;
     outline-width: thin;
 }
-
+.select
+{
+    text-indent: 23px;
+}
+.savedivstyle
+{
+    display: block;
+    margin-right: 35px
+}
 
 .inputMedium
 {
@@ -1634,13 +1808,78 @@ select:focus{
 {
     margin-top: 8px;
 }
+
+#mainHeding-location {
+    padding-top: 0px;
+    width:100%;
+    display: flex;
+}
+
+#mainHeding-location div {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 60px;
+}
+#mainHeding-location div:nth-of-type(1) {
+    flex-basis: 37px;
+    height: 43px;
+    overflow: hidden;
+}#mainHeding-location div:nth-of-type(2) {
+    flex-basis:70%;
+    height:42px;
+    overflow: hidden;
+}
+#mainHeding-location div:nth-of-type(3) {
+    flex-basis: 24%;
+    height: 80px;
+    padding-left: 12px;
+}
+#mainHeding-location div:nth-of-type(4) {
+    flex-basis: 120px;
+}
+
+#h-location
+{
+    flex-basis: 350px;
+    height:300px;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+}
+
+
+#h-location div:nth-of-type(1) {
+    flex-basis: 350px;
+    height: 27px;
+    padding-top: 2px;
+
+
+}
+.f-star{
+    padding-bottom: 3px;
+}
+#h-location div:nth-of-type(2) {
+    flex-basis: 350px;
+   padding-top: 0px;
+    line-height: .8rem;
+
+}
+
+
 #main3 {
-    padding-top: 5px;
+    padding-top: 34px;
     width:150px;
+
     height:300px;
 
     display: flex;
 }
+
+
+
+
+
+
 
 #main3 div {
     flex-grow: 0;
@@ -1680,7 +1919,7 @@ select:focus{
     flex-basis: 130px;
 }
 #main2 div:nth-of-type(4) {
-    flex-basis: 190px;
+    flex-basis: 450px;
 }
 
 .margin30
@@ -1823,4 +2062,54 @@ select:focus{
 
 #maintick div:nth-of-type(2) {
     flex-basis: 206px;
+}
+
+
+
+
+
+#main_Accomadation {
+    font-family: 'Bw Mitga';
+    font-style: normal;
+    box-shadow: #51459F17;
+    alignment: inherit;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    padding-top: 5px;
+    width:885px;
+    height:300px;
+background-color: blue;
+    display: flex;
+    border: 1px solid  #c69500;
+    border-top-left-radius: 34px;
+    border-top-right-radius: 34px;
+    align-content: flex-start
+}
+
+#main_Accomadation div {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 160px;
+    margin-top: 0px !important;
+}
+#main_Accomadation div:nth-of-type(1) {
+    flex-basis: 160px;
+    border-top-left-radius: 34px;
+    overflow: hidden;
+}
+
+
+#main_Accomadation div:nth-of-type(2) {
+
+    overflow: hidden;
+}
+#main_Accomadation div:nth-of-type(3) {
+
+}
+#main_Accomadation div:nth-of-type(4) {
+
+}
+#main_Accomadation div:nth-of-type(5) {
+
 }

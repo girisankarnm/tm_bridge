@@ -2,6 +2,7 @@
 
 namespace frontend\models\enquiry;
 
+use frontend\models\enquiry\EnquiryGuestCount;
 use Yii;
 use frontend\models\Destination;
 use frontend\models\property\PropertyMealPlan;
@@ -66,5 +67,35 @@ class EnquiryAccommodation extends \yii\db\ActiveRecord
     public function getEnquiry()
     {
         return $this->hasOne(Enquiry::className(), ['id' => 'enquiry_id']);
+    }
+
+    /**
+     * Gets query for [[Destination]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getDestination()
+    {
+        return $this->hasOne(Destination::className(), ['id' => 'destination_id']);
+    }
+
+    /**
+     * Gets query for [[GuestCountPlan]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getGuestCountPlan()
+    {
+        return $this->hasOne(EnquiryGuestCount::className(), ['id' => 'guest_count_plan_id']);
+    }
+
+    /**
+     * Gets query for [[MealPlan]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getMealPlan()
+    {
+        return $this->hasOne(PropertyMealPlan::className(), ['id' => 'meal_plan_id']);
     }
 }

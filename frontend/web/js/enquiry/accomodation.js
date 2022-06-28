@@ -4,14 +4,15 @@ $(document).ready(function() {
         validateEnquiryAccomodation();
     });
 
-    $('select[name^="accommodation_status"]').bind("change",function(){
+    $('select[name^="accommodation_status"]').bind("change",function(){        
         var row_id = $(this).attr('row_id');       
         if($(this).val() == 0) { 
-            disableAccommodationRow(row_id, true);           
+            //TODO: add a hidden filed to manage the issue of disabled field not submitting, then remove the comment below
+            //disableAccommodationRow(row_id, true);           
         }
         else
         {
-            disableAccommodationRow(row_id, false);
+            //disableAccommodationRow(row_id, false);
         }
     });    
 });

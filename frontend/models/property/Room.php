@@ -2,6 +2,7 @@
 
 namespace frontend\models\property;
 
+use frontend\models\operator\EnquiryRoomSelection;
 use Yii;
 
 /**

@@ -100,14 +100,14 @@ $(".room-checkbox").change(function() {
                 if (response.status == 0) {
                     console.log(response.data);
 
-                    toastr.success(response.message);
+                    // toastr.success(response.message);
                 }
             },
             error: function (e) {
                 // $("#overlay").fadeOut(300);
 
                 console.log(e.responseText);
-                toastr.error("Server error: " + e.responseText);
+                // toastr.error("Server error: " + e.responseText);
             }
         });
 
@@ -209,7 +209,9 @@ $(".room-check-box").change(function() {
                     console.log('response.status');
 
                     toastr.success(response.message);
-                } else {
+                }
+
+                else {
                     $('#' + ID).prop('checked', false); // Unchecks it
                     toastr.warning(response.message);
                 }

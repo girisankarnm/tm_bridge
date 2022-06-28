@@ -1,6 +1,8 @@
 <?php
 
 namespace frontend\models\tariff;
+use frontend\models\enquiry\EnquiryAccommodation;
+use frontend\models\enquiry\EnquiryGuestCountChildAge;
 use frontend\models\property\Property;
 use frontend\models\property\Room;
 use frontend\models\enquiry\Enquiry;
@@ -110,7 +112,7 @@ class Rooming
             return false;
         }
 
-        //Room rate        
+        //Room rate
         if($this->property->room_tariff_same_for_all) {
             $nationality_id = 0;
         }
@@ -139,7 +141,7 @@ class Rooming
                 }
             }
         }
-        
+
 
         //Weekday hike
         $rows = (new \yii\db\Query())
@@ -165,7 +167,7 @@ class Rooming
                 }
             }
         }
-        
+
         //echo "<br/>Suppliment meals<br/>";
 
         //Suppliment meals
@@ -183,11 +185,11 @@ class Rooming
             $tariff_id = $rows["id"];
             $suppliment_meal = SupplimentMeal::findOne(['id' => $tariff_id]);
             if($suppliment_meal != null) {
-                $this->supplimentary_slab = $suppliment_meal->getSupplimentMealSlabs();                
+                $this->supplimentary_slab = $suppliment_meal->getSupplimentMealSlabs();
             }
         }
-        
-       // echo "<br/>Mandatory Dinner<br/>";       
+
+       // echo "<br/>Mandatory Dinner<br/>";
 
         $rows = (new \yii\db\Query())
         ->select(['mandatory_dinner.id', 'DATEDIFF(tariff_date_range.to_date, tariff_date_range.from_date) AS date_difference' ])
@@ -210,7 +212,7 @@ class Rooming
 
 
         //Apply room child policy to enquiry children
-        $enquiry_accomodation = $this->enquiry->getEnquiryAccommodations()->where(['=',  'day', $accomodation_date])->one();        
+        $enquiry_accomodation = $this->enquiry->getEnquiryAccommodations()->where(['=',  'day', $accomodation_date])->one();
         //$enquiry_accomodation = EnquiryAccommodation::find()->where(['day' => $accomodation_date])->one();
         if ($enquiry_accomodation == NULL)
             return;
