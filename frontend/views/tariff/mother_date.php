@@ -62,15 +62,22 @@ table, th, td {
         </div>
 
         <div class="tariffBorder1" style="line-height: 0px; height:80px;">
-            <div style="display: inline">
-                <img style="width: 34px;height: 34px" src="images/building1.png" alt="Matrix">
-                <span style="font-size: 20px;padding-top:  4px;color: black;font-weight: 700;inline-size: 1px">
-                <?= $property->name ?>  <i style="font-size: 13px;color: gold;padding-left: 4px" class="fa fa-star" aria-hidden="true"></i>
-    <i style="font-size: 13px;color: gold;padding-left: 2px" class="fa fa-star" aria-hidden="true"></i>
-    <i style="font-size: 13px;color: gold;padding-left: 2px" class="fa fa-star" aria-hidden="true"></i>
-<br>
-  <div style="display: inline">  <small  class="smallclass"><i style="font-size: 10px;color: red;top: 0px" class="fa fa-map-marker" aria-hidden="true"></i><?= $property->location->name?>, <?= $property->destination->name?>, <?= $property->country->name?></small>
-</span></div>
+            <div id="mainHeding-location"style="height: 43px;">
+                <div > <img style="width: 34px;height: 34px" src="images/building1.png" alt="Matrix"></div>
+                <div >
+                    <div id="border-box-location"\>
+                        <div  >
+                          <span class="hotelHeading" > <?= $property->name ?> <img class="f-star" src="images/Star-1.svg" alt="Matrix">
+                           <img class="f-star" style="padding-left: 2px"  src="images/Star-1.svg" alt="Matrix">
+                           <img  class="f-star" style="padding-left: 2px" src="images/Star-1.svg" alt="Matrix">
+                           </span>
+                        </div>
+                        <div>   <small  class="smallFonts fontsize-location"><i  class="fa fa-map-marker locatiospace" aria-hidden="true"></i><?= $property->location->name?>, <?= $property->destination->name?>, <?= $property->country->name?></small>
+                            </span></div>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
     
@@ -101,44 +108,100 @@ table, th, td {
             </div>
             <div class="row" style="margin-left: 4px;margin-bottom: 12px;margin-left: 28px">
                 <div style="display: block;margin-right: 35px;">
-                    <?= \yii\bootstrap4\Html::submitButton('Save & Proceed', ['class' => 'buttonSave savebuttonMother']); ?>
-                    <?= Html::a('Next', ['tariff/addroomrate', 'id'=> $property->id, 'mother_id' => $date_range->id],  ['class'=>'buttonSave savebuttonMother']) ?>                    
+                    <?= \yii\bootstrap4\Html::submitButton('Save & Proceed', ['class' => 'buttonmotherdatesave']); ?>
+                    <?= Html::a('Next', ['tariff/addroomrate', 'id'=> $property->id, 'mother_id' => $date_range->id],  ['class'=>'buttonNextanchor']) ?>
                 </div>
             </div>
         </div>
-
         <div class="col-4" >
             <div class="row" style="height: 350px;  overflow-y: scroll;scrollbar-width: 20px;">
-                <?php 
+                <?php
                 $i = 1;
                 foreach ($mother_ranges as $range) { ?>
-                    <div class="flex-container flex-container2" >
-                        <div><i style="background-color: white;color: red;font-size: 28px;margin-right: 5px" class="fa fa-check-circle w3-large" aria-hidden="true"></i></div>
-                        <div style=" flex-direction: column-reverse;">
-                            <div><h6 style="padding-top: 7px;margin-right: 8px">From Date</h6></div>
-                            <div><h6 style="padding-top: 0px;margin-right: 8px;    font-size: 10px;
+                <div class="flex-container flex-container2" >
+                    <div><i style="background-color: white;color: red;font-size: 28px;margin-right: 5px" class="fa fa-check-circle w3-large" aria-hidden="true"></i></div>
+                    <div style=" flex-direction: column-reverse;">
+                        <div><h6 style="padding-top: 7px;margin-right: 8px">From Date</h6></div>
+                        <div><h6 style="padding-top: 0px;margin-right: 8px;    font-size: 10px;
     line-height: 0;">september 25 2022   </h6></div>
 
-                        </div>
-                        <div style=" flex-direction: column-reverse;">
-                            <div><h6 style="padding-top: 7px;margin-right: 8px"><hr class="new1"> </h6></div>
-
-                        </div>
-
-                        <div style=" flex-direction: column-reverse;">
-                            <div><h6 style="padding-top: 7px;margin-right: 8px"> To Date </h6></div>
-                            <div><h6 style="padding-top: 0px;margin-right: 8px;    font-size: 10px;
-    line-height: 0;"> may 25 2022 </h6></div>
-
-                        </div>
-
+                    </div>
+                    <div style=" flex-direction: column-reverse;">
+                        <div><h6 style="padding-top: 7px;margin-right: 8px"><hr class="new1"> </h6></div>
 
                     </div>
 
-                    <hr class="new2" >
+                    <div style=" flex-direction: column-reverse;">
+                        <div><h6 style="padding-top: 7px;margin-right: 8px"> To Date </h6></div>
+                        <div><h6 style="padding-top: 0px;margin-right: 8px;    font-size: 10px;
+    line-height: 0;"> may 25 2022 </h6></div>
+
+                    </div>
+
+
+                </div>
+
+                <hr class="new2" >
+                <div class="flex-container" style="justify-content: right">
+                    <div><i style="background-color: white;color: red;font-size: 28px;margin-right: 5px" class="fa fa-check-circle w3-large" aria-hidden="true"></i></div>
+                    <div style=" flex-direction: column-reverse;">
+                        <div><h6 style="padding-top: 7px;margin-right: 8px">From Date</h6></div>
+                        <div><h6 style="padding-top: 0px;margin-right: 8px;    font-size: 10px;
+    line-height: 0;">may 25 2022   </h6></div>
+
+                    </div>
+                    <div style=" flex-direction: column-reverse;">
+                        <div><h6 style="padding-top: 7px;margin-right: 8px"><hr class="new1"> </h6></div>
+
+                    </div>
+
+                    <div style=" flex-direction: column-reverse;">
+                        <div><h6 style="padding-top: 7px;margin-right: 8px"> To Date </h6></div>
+                        <div><h6 style="padding-top: 0px;margin-right: 8px;    font-size: 10px;
+    line-height: 0;"> may 25 2022 </h6></div>
+
+                    </div>
+
+
+                </div>
+                <hr class="new2" style=" ">
+                <div class="flex-container" style="justify-content: right">
+                    <div><i style="background-color: white;color: red;font-size: 28px;margin-right: 5px" class="fa fa-check-circle w3-large" aria-hidden="true"></i></div>
+                    <div style=" flex-direction: column-reverse;">
+                        <div><h6 style="padding-top: 7px;margin-right: 8px">From Date</h6></div>
+                        <div><h6 style="padding-top: 0px;margin-right: 8px;    font-size: 10px;
+    line-height: 0;">may 25 2022   </h6></div>
+                        <div><h6 style="padding-top: 19px;px;margin-right: 8px;    font-size: 10px;
+    line-height: 0;">ma 25 2022   </h6></div>
+
+
+                    </div>
+                    <div style=" flex-direction: column-reverse;">
+                        <div><h6 style="padding-top: 7px;margin-right: 8px"><hr class="new1"> </h6></div>
+
+                    </div>
+
+                    <div style=" flex-direction: column-reverse;">
+                        <div><h6 style="padding-top: 7px;margin-right: 8px"> To Date </h6></div>
+                        <div><h6 style="padding-top: 0px;margin-right: 8px;    font-size: 10px;
+    line-height: 0;"> may 25 2022 </h6></div>
+
+                    </div>
+
+
+
+
+
+
+                </div>
+                <hr class="new2" >
+
                 <?php } ?>
+
             </div>
+
         </div>
+
     </div>
     <?php ActiveForm::end(); ?>
 </div>

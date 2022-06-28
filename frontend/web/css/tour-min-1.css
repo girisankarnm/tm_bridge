@@ -1269,7 +1269,7 @@ hr.new2 {
     background-color: #F9F9F9;
     box-sizing: border-box;
     color: #787486 !important;
-    width: 161px;
+    width: 195px;
     height: 34px;
     font-size: 12px;
     border: 0.1px solid #c3c3c3;
@@ -1838,6 +1838,11 @@ select:focus{
     flex-basis: 120px;
 }
 
+
+.f-star{
+    padding-bottom: 3px;
+}
+
 #h-location
 {
     flex-basis: 350px;
@@ -1855,9 +1860,7 @@ select:focus{
 
 
 }
-.f-star{
-    padding-bottom: 3px;
-}
+
 #h-location div:nth-of-type(2) {
     flex-basis: 350px;
    padding-top: 0px;
@@ -2111,5 +2114,63 @@ background-color: blue;
 
 }
 #main_Accomadation div:nth-of-type(5) {
+
+}
+
+
+
+.buttonNextanchor {
+    background: #586ADA;
+    padding: 10px;
+    padding-right: 35px;
+    padding-top: 11px;
+    padding-left: 32px;
+    text-align: center;
+    font-family: 'Bw Mitga';
+    font-style: normal;
+    font-size: 12px;
+    border-radius: 10px;
+    color: white !important;
+    font-weight: normal;
+}
+
+.buttonmotherdatesave
+{
+    color: #ffffff;
+    height: 35px;
+    width: 92px;
+    font-family: 'Bw Mitga';
+    font-style: normal;
+    font-size: 12px;
+    background-color: #E40968;
+    border: 0.5px solid #E40968;
+    border-radius: 10px;
+    margin-top: 12px;
+
+
+}
+
+#border-box-location
+{
+    flex-basis: 350px;
+    height:300px;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+}
+
+
+#border-box-location div:nth-of-type(1) {
+    flex-basis: 350px;
+    height: 27px;
+    padding-top: 10px;
+
+
+}
+
+#border-box-location div:nth-of-type(2) {
+    flex-basis: 350px;
+    padding-top: 0px;
+    line-height: .8rem;
 
 }

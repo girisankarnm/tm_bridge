@@ -24,7 +24,7 @@ $this->registerJsFile('/js/enquiry/guest_count.js');
         <hr class="sidebar-divider">
         <?php $form = ActiveForm::begin(['id' => 'form_guest_count','enableClientValidation' => true, 'method' => 'post','action' => ['enquiry/saveguestcount']]) ?>
         <div style="display: inline">
-            <?= $form->field($enquiry, 'guest_count_same_on_all_days')->inline()->radioList([1 => 'Same guest count on all days', 0 => 'Different guest count combination'],['class' => 'radiobtn guestradioText'])->label(false); ?>
+            <?= $form->field($enquiry, 'guest_count_same_on_all_days')->inline()->radioList([1 => 'Same guest count on all days', 0 => 'Different guest count combination'],['class' => 'radiobtn guestradioText '])->label(false); ?>
         </div>
         <input type="hidden" id="enquiry_id" name="enquiry_id" value=<?php echo  $enquiry->id; ?> ?>
         <input type="hidden" id="guest_count_data" name="guest_count_data" value="" >
