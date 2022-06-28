@@ -64,7 +64,7 @@ use frontend\models\tariff\RoomRateValidator;
             </div>
             <div id="b" style=" display: flex">
                 <div style="margin-right: 10px;padding-bottom: 10px"><a href="<?= \yii\helpers\Url::to([ $edit_url, 'id' =>  $property->id, 'mother_id' => $range->id]) ?>"> <img s src="images/edit-1-icon.svg" style="color: #545b62;margin-right: 4px" aria-hidden="true"></img>   </a>   <a href="#"> <img s src="images/delete-1-icon.svg" style="color: #545b62;margin-right: 4px" aria-hidden="true"></img>   </a>
-                     <a href="<?= \yii\helpers\Url::to(['/tariff/nesting', 'id' =>  $property->id, 'mother_range_id' => $range->id, 'tariff' => 1]) ?>"> <BUTTON type="button" class="buttonSaveroomrate" > Nesting </BUTTON> </a> </div>
+                     <a href="<?= \yii\helpers\Url::to(['/tariff/nesting', 'id' =>  $property->id, 'mother_range_id' => $range->id, 'tariff' => $tariff]) ?>"> <BUTTON type="button" class="buttonSaveroomrate" > Nesting </BUTTON> </a> </div>
             </div>
 
 
