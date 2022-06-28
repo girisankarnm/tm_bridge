@@ -12,18 +12,22 @@ use frontend\models\tariff\RoomRateValidator;
 
         case 1:
             $bValidated = $rc->validateRoomTariff();
+            $edit_url = '/tariff/addroomrate';
         break;
 
         case 2:
             $bValidated = $rc->validateMealTariff();
+            $edit_url = '/tariff/addmealrate';
         break;
 
         case 3:
             $bValidated = $rc->validateWeekdayHike();
+            $edit_url = '/tariff/addhikedayrate';
         break;
 
         case 4:
             $bValidated = $rc->validateMandatoryDinner();
+            $edit_url = '/tariff/addmandatorydinnner';
         break;
     }
     
@@ -59,7 +63,7 @@ use frontend\models\tariff\RoomRateValidator;
                         <span class="publishform"> Not published  </span><span class="publishform">Tariff validation: <?= (!$bValidated) ? "Failed - ".implode(",", $rc->getLastErrorMessages()) : "Success" ?>   </span> </h6></div>
             </div>
             <div id="b" style=" display: flex">
-                <div style="margin-right: 10px;padding-bottom: 10px"><a href="<?= \yii\helpers\Url::to(['/tariff/addmotherdate', 'id' =>  $property->id, 'mother_id' => $range->id]) ?>"> <img s src="images/edit-1-icon.svg" style="color: #545b62;margin-right: 4px" aria-hidden="true"></img>   </a>   <a href="#"> <img s src="images/delete-1-icon.svg" style="color: #545b62;margin-right: 4px" aria-hidden="true"></img>   </a>
+                <div style="margin-right: 10px;padding-bottom: 10px"><a href="<?= \yii\helpers\Url::to([ $edit_url, 'id' =>  $property->id, 'mother_id' => $range->id]) ?>"> <img s src="images/edit-1-icon.svg" style="color: #545b62;margin-right: 4px" aria-hidden="true"></img>   </a>   <a href="#"> <img s src="images/delete-1-icon.svg" style="color: #545b62;margin-right: 4px" aria-hidden="true"></img>   </a>
                      <a href="<?= \yii\helpers\Url::to(['/tariff/nesting', 'id' =>  $property->id, 'mother_range_id' => $range->id, 'tariff' => 1]) ?>"> <BUTTON type="button" class="buttonSaveroomrate" > Nesting </BUTTON> </a> </div>
             </div>
 
