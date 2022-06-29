@@ -84,7 +84,7 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                                 </div>
                             </div>
                         </div>
-<!--                        <button class="btn btn-primary" id="save_checkin_checkout" type="submit"> Save </button>-->
+                        <!--                        <button class="btn btn-primary" id="save_checkin_checkout" type="submit"> Save </button>-->
                         <button class="buttonSave" id="save_checkin_checkout" type="submit" style="width: 85px; border-radius: 5px"> Save </button>
                     </div>
                 </div>
@@ -99,6 +99,7 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                         <div class="accordion-content">
 
                             <div class="form-select select2-60">
+                                Room tariff is same for all guests
                                 <?php echo $form->field($property, 'smoking_policy_id')->dropDownList($smoking_policy, ['class' => 'select2','prompt' => 'Choose...'])->label(false); ?>
 
                                 <!--                                <select name="smoking_policy" id="" class="select2">-->
@@ -477,8 +478,8 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                                 <!--                                    </label>-->
                                 <!--                                </div>-->
                             </div>
-                            <div class="room-tariff-table table-responsive" id="nationality_div">
-                                <table class="display table-sm">
+                            <div class="room-tariff-table table-responsive" id="nationality_div" <?php if ($property['room_tariff_same_for_all'] == 1): ?> style="display:none" <?php endif ; ?>>
+                                <table class="display table-sm" id="nationalityTable">
                                     <thead>
                                     <tr>
                                         <th width="20%"> Group Name </th>
@@ -487,47 +488,19 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <?php foreach ($property->tariffNationalityGroupNames as $group) { ?>
-                                        <tr>
-                                            <td>
-                                                <div class="form-control ">
-                                                    <?= $group->name ?>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="form-control pointer-none">
-                                                    <?php foreach ($group->tariffNationalityTables as $tablecountry) {
-                                                        echo $tablecountry->country->name. ", ";
-                                                    }
-                                                    ?>
-                                                </div>
-
-                                            </td>
-                                            <td>
-                                                <div class="d-flex action-items form-group align-items-center">
-                                                    <div class="edit-icon item mr-2">
-                                                        <img src="<?= Yii::$app->request->baseUrl . 'images/edit-icon.svg' ?>"
-                                                             alt="" class="img-fluid" onclick="showNationalityEditForm(<?= $group->id ?>, '<?= $group->name?>')">
-                                                    </div>
-                                                    <div class="delete-icon item">
-                                                        <img src="<?= Yii::$app->request->baseUrl . 'images/delete-icon.svg' ?>"
-                                                             alt="" class="img-fluid" onclick="showNationalityDeleteConfirm(<?= $group->id ?>, '<?= $group->name?>')">
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    <?php } ?>
-
+                                    <?php
+                                    echo Yii::$app->controller->renderPartial('_nationality_based_tariff_table', ['property' => $property]);
+                                     ?>
                                     </tbody>
                                 </table>
-                                <!--                                <button type="button" class="btn button-primary btn-nationality text-white" data-toggle="modal" id="define_nationality" data-target="#nationalityModal"> Define Nationality-->
-                                <!--                                </button>-->
 
-                                <button id="define_nationality" class="btn button-primary btn-nationality text-white" data-toggle="modal" > Define Nationality
-                                </button>
+                                    <button type="button" class="btn button-primary text-white btn-nationality " data-toggle="modal" id="define_nationality" data-target="#nationalityModal"> Define Nationality
+                                    </button>
+                                <!--                                <button id="define_nationality" class="btn button-primary btn-nationality text-white" data-toggle="modal" > Define Nationality-->
+                                <!--                                </button>-->
                             </div>
                         </div>
-                        <button class="btn btn-primary"> Save </button>
+                        <button class="btn btn-primary" id="save_tariff_option"> Save </button>
                     </div>
                 </div>
 

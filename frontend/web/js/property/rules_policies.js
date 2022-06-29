@@ -346,10 +346,14 @@ function saveNationality(){
         nationalities: $('#nationality').val(),
         property_id: $('#property_id').val(),
         group_id: $('#group_id').val(),
+        room_tariff_same_for_all: $('input[name="Property[room_tariff_same_for_all]"]:checked').val(),
     }, function (response) {
         console.log(response);
         if ( parseInt(response.status) == 0) {
+            console.log(response.data);
             // toastr.success("Nationality updated");
+            $("#nationalityTable tbody").empty();
+            $("#nationalityTable tbody").append(response.data);
             dismissNationaliyModal();
         } else
         {
@@ -412,3 +416,39 @@ $('#save_weekday_hike_option').click(function(e){
             toastr.error("HTTP Error: Unable to connect to Server" );
         });
 });
+
+/////////////////Tariff Option Policy /////////////////////
+
+$('#save_tariff_option').click(function(e){
+    e.preventDefault();
+
+    saveTariffOptions();
+});
+
+function saveTariffOptions(){
+    /*  var bError = validateTariffOptions();
+     if(bError){
+         console.log('validateTariffOptions Error');
+         return;
+     } */
+
+    $.post("index.php?r=property/savetariffoption",{
+        room_tariff_same_for_all: $('input[name="Property[room_tariff_same_for_all]"]:checked').val(),
+        property_id: $('#property_id').val(),
+        tariff_data: $('#room_tariff_table :input').serialize()
+    }, function (response) {
+        if ( parseInt(response.status) == 0) {
+            toastr.success("Tariff Option updated");
+        } else
+        {
+            toastr.error(response.message);
+        }
+        $("#overlay").fadeOut(300);
+    })
+        .fail(function() {
+            $("#overlay").fadeOut(300);
+            toastr.error("HTTP Error: Unable to connect to Server" );
+        });
+}
+
+/////////////////End Tariff Option Policy /////////////////////

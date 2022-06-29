@@ -2,6 +2,7 @@
 
 namespace frontend\models\tariff;
 
+use frontend\models\Country;
 use Yii;
 
 /**

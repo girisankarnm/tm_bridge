@@ -908,10 +908,14 @@ class PropertyController extends Controller{
         $nationalities = Yii::$app->request->post('nationalities');
         $name = Yii::$app->request->post('name');
 
+
+        $transaction = Yii::$app->db->beginTransaction();
+        try
+        {
+
         $group_name = null;
         if($group_id != 0) {
             $group_name = TariffNationalityGroupName::find()->where(['id' => $group_id])->one();
-            return $group_name;
         }
 
         if($group_name == null) {
@@ -934,7 +938,53 @@ class PropertyController extends Controller{
             $tariff_nationality->save();
         }
 
-        return array('status' => 0,'message' => "Successfully updated nationality.", 'data' => 0);
+        $property = Property::find()->where(['id'=>$property_id])->one();
+        $property->room_tariff_same_for_all = Yii::$app->request->post('room_tariff_same_for_all');
+        $property->save();
+            $transaction->commit();
+
+        } catch (\Exception $e) {
+            $transaction->rollBack();
+            throw $e;
+        } catch (\Throwable $e) {
+            $transaction->rollBack();
+            throw $e;
+        }
+       $tableData =  $this->renderPartial('_nationality_based_tariff_table', ['property' => $property]);
+
+        return array('status' => 0,'message' => "Successfully updated nationality.", 'data' => $tableData);
+    }
+
+    public function actionSavetariffoption(){
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+        if(!isset( $_REQUEST['property_id'])) {
+            return array('status' => 2,'message' => "Invalid input. Property id missing.", 'data' => 0);;
+        }
+
+        $property_id = Yii::$app->request->post('property_id');
+
+
+        if ($property_id != 0) {
+            $property = Property::find()
+                ->where(['id' => $property_id])
+                ->andWhere(['owner_id' => Yii::$app->user->identity->getOWnerId()])
+                ->one();
+
+            if ($property == NULL){
+                return array('status' => 2,'message' => "Property (id) doesn't exists", 'data' => 0);
+            }
+        }
+        else {
+            return array('status' => 2,'message' => "Property id cannot zero", 'data' => 0);
+        }
+
+        $property->room_tariff_same_for_all = Yii::$app->request->post('room_tariff_same_for_all');
+        if ($property->save() ) {
+            return array('status' => 0,'message' => "Property Tariff option updated successfully", 'data' => 0);
+        } else {
+            return array('status' => 1,'message' => "Failed to update Tariff option", 'data' => 0);
+        }
     }
 
     public function actionSavemandatorydinneroption(){
