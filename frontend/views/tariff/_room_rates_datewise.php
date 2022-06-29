@@ -23,7 +23,7 @@ else
         'range' => $range,
         'property' => $property,
         'tariff' => 1,
-        'current_loop' => $i,
+        'current_loop' => $current_loop,
     ]);
 }
 
