@@ -1492,6 +1492,10 @@ hr.new5 {
     vertical-align: middle;
     margin-right: 5px;
 }
+.material-checkbox {
+    vertical-align: middle;
+    margin-right: 3px;
+}
 
 .hotelHeading
 {

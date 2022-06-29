@@ -38,7 +38,7 @@ use frontend\models\tariff\roomTariffWeekdayhikeDays;
         <div style="margin-bottom: 30px; background-color: ">
 
             <div class="commonTitle" style="width: 50%;float: left">
-                Enter week day hike</div>
+                Enter week day hike1</div>
 
             <div id="tariffAddmain" style="justify-content: right"  >
                 <div class="margintopcls" style="background-color: #ffffff;text-align: center">
@@ -89,13 +89,15 @@ use frontend\models\tariff\roomTariffWeekdayhikeDays;
 
     
     <input type="hidden" name="room[]" value="<?= $room->id?>" />
+
+
                 <div class="tab-accordion tab-accordiondaterate" >
                     <div class="tab-content " >
                         <div class="tab-pane fade active show">
                             <div class="accordion" id="accordionExample<?= $i ?>" >
                                 <div class="card border-zero" >
                                     <h2 class="mb-0   accordianbg" >
-                                    <button class="btn btn-block text-left" type="button" onclick="functionchange(this);" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                    <button class="btn btn-block text-left" type="button" onclick="functionchange(this);" data-toggle="collapse" data-target="#collapseOne<?= $i ?>" aria-expanded="false" aria-controls="collapseOne<?= $i ?>">
                                         <strong> <?= $i ?>. <?= $room->name ?> - (Day based) </strong>
                                         <div class="float-right">
                                             <i class="fas fa-angle-down rotate-icon"></i>
@@ -103,32 +105,32 @@ use frontend\models\tariff\roomTariffWeekdayhikeDays;
                                     </button>
                                 </h2>
 
-                            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                            <div style="display: inline;margin-top: 4px">
-                                <input type="checkbox" name="room_checked[]" id="room_<?= $room->id?>" value="<?= $room->id?>" <?= ($day_hike != NULL) ? "checked" : "" ?> >
+                            <div id="collapseOne<?= $i ?>" class="collapse <?php if ($i==1): ?> show <?php endif; ?> " aria-labelledby="headingOne" data-parent="#accordionExample<?= $i ?>">
+                            <div style="display: inline;margin-top: 4px;margin-left: 19px">
+                                <input type="checkbox" class="material-checkbox" name="room_checked[]" id="room_<?= $room->id?>" value="<?= $room->id?>" <?= ($day_hike != NULL) ? "checked" : "" ?> >
                                 <label  style="margin: 8px" >Room have week day hike rate </label>
                             </div>
                                     <div class="row " style="margin-left: 15px" >
                                         <div style="display: inline;margin-top: 4px">
-                                            <input id="sun_<?=$room->id?>" type="checkbox" style="margin-left: 4px" value="0" name="week_days_<?=$room->id?>[]" <?= ArrayHelper::isIn( 0 , $days) ? "checked" : "" ?>>
+                                            <input id="sun_<?=$room->id?>" class="material-checkbox" type="checkbox" style="margin-left: 4px" value="0" name="week_days_<?=$room->id?>[]" <?= ArrayHelper::isIn( 0 , $days) ? "checked" : "" ?>>
                                             <label  style="margin: 8px" >Sunday </label>
-                                            <input id="mon_<?=$room->id?>" type="checkbox" value="0" name="week_days_<?=$room->id?>[]" <?= ArrayHelper::isIn( 1 , $days) ? "checked" : "" ?>>
+                                            <input id="mon_<?=$room->id?>" class="material-checkbox" type="checkbox" value="0" name="week_days_<?=$room->id?>[]" <?= ArrayHelper::isIn( 1 , $days) ? "checked" : "" ?>>
                                             <label style="margin: 8px" >Monday </label>
-                                            <input id="tue_<?=$room->id?>" type="checkbox" value="0" name="week_days_<?=$room->id?>[]" <?= ArrayHelper::isIn( 2 , $days) ? "checked" : "" ?>>
+                                            <input id="tue_<?=$room->id?>" class="material-checkbox" type="checkbox" value="0" name="week_days_<?=$room->id?>[]" <?= ArrayHelper::isIn( 2 , $days) ? "checked" : "" ?>>
                                             <label style="margin: 8px"> Tuesday </label>
-                                            <input id="wed_<?=$room->id?>" type="checkbox" value="0" name="week_days_<?=$room->id?>[]" <?= ArrayHelper::isIn( 3 , $days) ? "checked" : "" ?>>
+                                            <input id="wed_<?=$room->id?>" class="material-checkbox" type="checkbox" value="0" name="week_days_<?=$room->id?>[]" <?= ArrayHelper::isIn( 3 , $days) ? "checked" : "" ?>>
                                             <label style="margin: 8px" >Wednesday </label>
-                                            <input id="thu_<?=$room->id?>" type="checkbox" value="0" name="week_days_<?=$room->id?>[]" <?= ArrayHelper::isIn( 4 , $days) ? "checked" : "" ?>>
+                                            <input id="thu_<?=$room->id?>" class="material-checkbox" type="checkbox" value="0" name="week_days_<?=$room->id?>[]" <?= ArrayHelper::isIn( 4 , $days) ? "checked" : "" ?>>
                                             <label style="margin: 8px" >Thursday </label>
-                                            <input id="fri_<?=$room->id?>"  type="checkbox" value="0" name="week_days_<?=$room->id?>[]" <?= ArrayHelper::isIn( 5 , $days) ? "checked" : "" ?>>
+                                            <input id="fri_<?=$room->id?>" class="material-checkbox"  type="checkbox" value="0" name="week_days_<?=$room->id?>[]" <?= ArrayHelper::isIn( 5 , $days) ? "checked" : "" ?>>
                                             <label style="margin: 4px" >Friday </label>
-                                            <input id="sat_<?=$room->id?>"  type="checkbox" value="0" name="week_days_<?=$room->id?>[]" <?= ArrayHelper::isIn( 6 , $days) ? "checked" : "" ?>>
+                                            <input id="sat_<?=$room->id?>" class="material-checkbox"  type="checkbox" value="0" name="week_days_<?=$room->id?>[]" <?= ArrayHelper::isIn( 6 , $days) ? "checked" : "" ?>>
                                             <label  style="margin: 4px" >Saturday </label>
                                         </div>
 
-                                        <table id="customers" class="table2class" style="width: 655px;">
 
-                                            <tr class="thtable" style=" border: 0.5px solid #A32C4F; border-radius: 12px;" >
+                                                <table id="customers " class="table3enquiryclass" >
+                                                    <tr  class="thtableguestcount " >
                                                 <th >Hike Amount Room</th>
                                                 <th >Adult with Extra Bed</th>
                                                 <th >Child With Extra Bed</th>
@@ -136,11 +138,11 @@ use frontend\models\tariff\roomTariffWeekdayhikeDays;
                                                 <th >Single Occupancy</th>
                                             </tr>
                                             <tr>                                                
-                                                <td><input type="text" name="room_rate_<?=$room->id?>" id="weekday_room_rate" class="inputTextClass" style="width: 100px;height: 33px;margin-top: 24px;" value="<?= isset($day_hike->roomTariffSlabWeekdaywises[0]) ? $day_hike->roomTariffSlabWeekdaywises[0]->room_rate : "" ?>" /></td>
-                                                <td><input type="text" name="adult_with_extra_bed_<?=$room->id?>" id="weekday_adult_with_extra_bed" style="width: 100px;height: 33px;margin-top: 24px;" class="inputTextClass" value="<?= isset($day_hike->roomTariffSlabWeekdaywises[0]) ? $day_hike->roomTariffSlabWeekdaywises[0]->adult_with_extra_bed : "" ?>"/></td>
-                                                <td><input type="text" name="child_with_extra_bed_<?=$room->id?>" id="weekday_child_with_extra_bed" style="width: 100px;height: 33px;margin-top: 24px;" class="inputTextClass" value="<?= isset($day_hike->roomTariffSlabWeekdaywises[0]) ? $day_hike->roomTariffSlabWeekdaywises[0]->child_with_extra_bed : "" ?>"/></td>
-                                                <td><input type="text" name="child_sharing_bed_<?=$room->id?>" id="weekday_child_sharing_bed" style="width: 100px;height: 33px;margin-top: 24px;" class="inputTextClass" value="<?= isset($day_hike->roomTariffSlabWeekdaywises[0]) ? $day_hike->roomTariffSlabWeekdaywises[0]->child_sharing_bed : "" ?>" /></td>                    
-                                                <td><input type="text" name="single_occupancy_<?=$room->id?>" id="weekday_single_occupancy" style="width: 100px;height: 33px;margin-top: 24px;" class="inputTextClass" value="<?= isset($day_hike->roomTariffSlabWeekdaywises[0]) ? $day_hike->roomTariffSlabWeekdaywises[0]->single_occupancy : "" ?>" /></td> 
+                                                <td><input type="text" name="room_rate_<?=$room->id?>" id="weekday_room_rate" class="inputTextClass enquiryTable" style="width: 100px;height: 33px;margin-top: 24px;" value="<?= isset($day_hike->roomTariffSlabWeekdaywises[0]) ? $day_hike->roomTariffSlabWeekdaywises[0]->room_rate : "" ?>" /></td>
+                                                <td><input type="text" name="adult_with_extra_bed_<?=$room->id?>" id="weekday_adult_with_extra_bed" style="width: 100px;height: 33px;margin-top: 24px;" class="inputTextClass enquiryTable" value="<?= isset($day_hike->roomTariffSlabWeekdaywises[0]) ? $day_hike->roomTariffSlabWeekdaywises[0]->adult_with_extra_bed : "" ?>"/></td>
+                                                <td><input type="text" name="child_with_extra_bed_<?=$room->id?>" id="weekday_child_with_extra_bed" style="width: 100px;height: 33px;margin-top: 24px;" class="inputTextClass enquiryTable" value="<?= isset($day_hike->roomTariffSlabWeekdaywises[0]) ? $day_hike->roomTariffSlabWeekdaywises[0]->child_with_extra_bed : "" ?>"/></td>
+                                                <td><input type="text" name="child_sharing_bed_<?=$room->id?>" id="weekday_child_sharing_bed" style="width: 100px;height: 33px;margin-top: 24px;" class="inputTextClass enquiryTable" value="<?= isset($day_hike->roomTariffSlabWeekdaywises[0]) ? $day_hike->roomTariffSlabWeekdaywises[0]->child_sharing_bed : "" ?>" /></td>
+                                                <td><input type="text" name="single_occupancy_<?=$room->id?>" id="weekday_single_occupancy" style="width: 100px;height: 33px;margin-top: 24px;" class="inputTextClass enquiryTable" value="<?= isset($day_hike->roomTariffSlabWeekdaywises[0]) ? $day_hike->roomTariffSlabWeekdaywises[0]->single_occupancy : "" ?>" /></td>
             
                                             </tr>                                            
                                         </table>
