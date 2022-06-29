@@ -1,4 +1,5 @@
 <?php
+use yii\bootstrap4\ActiveForm;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use Carbon\Carbon;
@@ -71,10 +72,14 @@ use Carbon\Carbon;
                                 <div ><h6 class="motherdaterange-H6 h7class" >                 <img s src="images/ticksuccess.svg" style="color: #545b62;margin-right: 4px" aria-hidden="true"></img>
                                         <span class="publishform">Not Published</span> </h6></div>
                             </div>
+                            
+                            <?php $form = ActiveForm::begin(['id' => 'tariff_publish_'.$range->id,'enableClientValidation' => true,'method' => 'post','action' => ['tariff/publish']]) ?>
+                            <?= $form->field($range, 'id')->hiddenInput()->label(false); ?>
                             <div id="b" style=" display: flex">
-                                <div style="margin-right: 10px;padding-bottom: 10px"> <BUTTON type="button" class="buttonSaveroomrate"  data-toggle="modal" data-target="#logoutModal"> Publish </BUTTON> <a href="<?= \yii\helpers\Url::to(['/tariff/addmotherdate', 'id' =>  $property->id, 'mother_id' => $range->id]) ?>"> <img s src="images/edit-1-icon.svg" style="color: #545b62;margin-right: 4px" aria-hidden="true"></img>   </a>   <a href="#">   <img s src="images/delete-1-icon.svg" style="color: #545b62;margin-right: 4px" aria-hidden="true"></img>  </a>
+                                <div style="margin-right: 10px;padding-bottom: 10px"> <button type="submit" class="buttonSaveroomrate"  data-toggle="modal" data-target="#logoutModal"> Publish </button> <a href="<?= \yii\helpers\Url::to(['/tariff/addmotherdate', 'id' =>  $property->id, 'mother_id' => $range->id]) ?>"> <img s src="images/edit-1-icon.svg" style="color: #545b62;margin-right: 4px" aria-hidden="true"></img>   </a>   <a href="#">   <img s src="images/delete-1-icon.svg" style="color: #545b62;margin-right: 4px" aria-hidden="true"></img>  </a>
                                 </div>
                             </div>
+                            <?php ActiveForm::end(); ?>
                         </div>
                     </div>                   
 

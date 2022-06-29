@@ -253,7 +253,7 @@ class TariffController extends Controller {
         $date_range = new DateRange();        
         if ($date_range->load(Yii::$app->request->post()) ) { 
             $tariff = Yii::$app->request->post('tariff');
-            if($date_range->isValidChildDateRange()) 
+            if($date_range->isValidChildDateRange($tariff)) 
             {               
                 $mother_date = new TariffDateRange();
                 $mother_date->from_date = $date_range->from_date;
@@ -715,6 +715,27 @@ class TariffController extends Controller {
             'tariff' => $tariff
         ]);
     }
+
+    public function actionPublish(){
+        $id = $_POST ["TariffDateRange"]["id"];
+
+        $mother_range = TariffDateRange::find()
+        ->where(['id' => $id])
+        ->andWhere(['parent' => 0])
+        ->one();
+
+        $rc = new RoomRateValidator($mother_range);
+        
+
+        $errors = NULL;
+        if(!$rc->canPublish()) {            
+            $errors = $rc->getLastErrorMessages();
+        }        
+
+        $this->layout = 'common_published';
+        return $this->render('validation_status', [ 'mother_range' => $mother_range, 'errors' => $errors]);
+    }
+    
 
     public function actionTariffdinner(){
         $this->layout = 'tm_main';

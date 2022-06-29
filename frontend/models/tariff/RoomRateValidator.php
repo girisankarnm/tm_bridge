@@ -16,6 +16,8 @@ class RoomRateValidator {
     public $date_range;
     public $room_names;
     public $error_messages;
+    public $bValidated;
+    public $bCanpublish;
 
     public function getLastError() {
         return $this->errorMessage;
@@ -52,33 +54,64 @@ class RoomRateValidator {
         
     }
 
-    public function validateProperty() {
-        //$this->property
+    public function canPublish() { 
+        $this->bCanpublish = true;     
+
+        $this->validateRoomTariff();        
+        $this->validateMealTariff();
+        $this->validateWeekdayHike();
+        $this->validateMandatoryDinner();
+
+        $child_ranges = TariffDateRange::find()->where(['parent' => $this->date_range->id])->all();
+        foreach ($child_ranges as $range) {
+            $this->date_range = $range;
+            switch ($range->tariff_type)
+            {
+                case 1:
+                        $this->validateRoomTariff();
+                    break;
+                case 2:
+                        $this->validateMealTariff();
+                    break;
+                case 3:
+                        $this->validateWeekdayHike();
+                    break;
+                case 4:
+                        $this->validateMandatoryDinner();
+                    break;    
+            }
+        }
+
+
+        return $this->bCanpublish;
     }
     public function validateRoomTariff() {
-        //ROOM TARIFF VALIDATION
-        if($this->date_range == NULL) {
+        //ROOM TARIFF VALIDATION        
+        if($this->date_range == NULL) {            
+            $this->bCanpublish = false;            
             array_push($this->error_messages, "Date range is NULL");
             return false;
         }
 
-        if (count($this->date_range->roomTariffDatewises) < 0) {            
-            //echo "Not defined any room tariff for date range </br>";;
-            array_push($this->error_messages, "Not defined tariff for any rooms for this date range");
-            return false;
-        }
-
-        if($this->property == NULL) {
+        if($this->property == NULL) {            
+            $this->bCanpublish = false;
             array_push($this->error_messages, "Property is NULL/Invalid");
             return false;
         }
-        
+
+        if (count($this->date_range->roomTariffDatewises) < 0) {
+            $this->bCanpublish = false;
+            array_push($this->error_messages, "Not defined tariff for any rooms for ".Carbon::parse($this->date_range->from_date)->format('d M Y')." - ".Carbon::parse($this->date_range->to_date)->format('d M Y'));
+            return false;
+        }
+
         $rooms = Room::find()
         ->where(['property_id' => $this->property->id])
         ->andWhere(['owner_id' => Yii::$app->user->identity->getOWnerId()])
         ->all();
         
-        if ($rooms == NULL){
+        if ($rooms == NULL){            
+            $this->bCanpublish = false;
             array_push($this->error_messages, "Rooms not availble/NULL/Invalid");
             return false;
         }
@@ -94,16 +127,18 @@ class RoomRateValidator {
             $tariffs = $this->date_range->getRoomTariffDatewises()->andWhere(['room_id' => $room->id])->all();
             if(count($tariffs) == 0 ) {
                 //echo $room->name. ": Room tariff are not defined."."</br>";
-                array_push($this->error_messages, $room->name. ": Tariff not defined.");
+                array_push($this->error_messages, $room->name. ": Tariff not defined.  [". Carbon::parse($this->date_range->from_date)->format('d M Y')." - ".Carbon::parse($this->date_range->to_date)->format('d M Y')."]");
                 $bValidated = false;
+                $this->bCanpublish = false;
                 continue;
             }
 
             //This should not happen as we store tariff for all nationalites together.
             if (count($tariffs) < ($nationality_count + 1)) {
                 //echo $room->name. ": Tariff is not defined for all nationalities."."</br>";
-                array_push($this->error_messages, $room->name. ": Tariff is not defined for all nationalities");
+                array_push($this->error_messages, $room->name. ": Tariff is not defined for all nationalities. [". Carbon::parse($this->date_range->from_date)->format('d M Y')." - ".Carbon::parse($this->date_range->to_date)->format('d M Y')."]");
                 $bValidated = false;
+                $this->bCanpublish = false;
             }            
         }
 
@@ -113,7 +148,8 @@ class RoomRateValidator {
 
     public function validateMealTariff() {
         if (count($this->date_range->supplimentMeals) == 0) {
-            array_push($this->error_messages, "Not defined any meal tariff for date range");
+            $this->bCanpublish = false;
+            array_push($this->error_messages, "Not defined any meal tariff [". Carbon::parse($this->date_range->from_date)->format('d M Y')." - ".Carbon::parse($this->date_range->to_date)->format('d M Y')."]");
             return false;
         }
 
@@ -123,7 +159,8 @@ class RoomRateValidator {
     public function validateWeekdayHike() {
         if ($this->property->have_weekday_hike) {
             if (count($this->date_range->roomTariffWeekdaywises) == 0) {
-                array_push($this->error_messages,"Not defined any week day hike for date range");
+                $this->bCanpublish = false;
+                array_push($this->error_messages,"Not defined week day hike [". Carbon::parse($this->date_range->from_date)->format('d M Y')." - ".Carbon::parse($this->date_range->to_date)->format('d M Y')."]");
                 return false;
             }
         }
@@ -135,7 +172,8 @@ class RoomRateValidator {
         //echo $this->property->provide_compulsory_inclusions;
         if ($this->property->provide_compulsory_inclusions) {
             if (count($this->date_range->roomTariffMandatoryDinners) == 0) {                            
-                array_push($this->error_messages, "Not defined any mandatory dinner for date range");
+                $this->bCanpublish = false;
+                array_push($this->error_messages, "Not defined any mandatory dinner [". Carbon::parse($this->date_range->from_date)->format('d M Y')." - ".Carbon::parse($this->date_range->to_date)->format('d M Y')."]");
                 return false;
             }
         }
