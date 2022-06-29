@@ -1,6 +1,7 @@
 <?php
 
 namespace frontend\models\tariff;
+use frontend\models\property\Property;
 use frontend\models\tariff\TariffNationalityTable;
 
 use Yii;
