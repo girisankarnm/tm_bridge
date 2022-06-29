@@ -732,6 +732,11 @@ input::placeholder {
 .accordianbg {
     background-color: #bcc3f1 ;
 }
+.accordian-open-bg {
+    background-color: #586ada ;
+}
+
+
 .thtableAcoordion {
     padding-top: 12px;
     padding-bottom: 12px;
