@@ -59,7 +59,8 @@ use frontend\models\tariff\TariffDateRange;
                                 echo Yii::$app->controller->renderPartial('_date_range_block', [
                                     'range' => $range, 
                                     'property' => $property,
-                                    'tariff' => 3
+                                    'tariff' => 3,
+                                    'current_loop' => $i,
                                 ]);
 
                                 if($range->getNestingCount() > 0 ) {
@@ -74,7 +75,8 @@ use frontend\models\tariff\TariffDateRange;
                                         echo Yii::$app->controller->renderPartial('_date_range_block', [
                                             'range' => $child_range,
                                             'property' => $property,
-                                            'tariff' => 3
+                                            'tariff' => 3,
+                                            'current_loop' => $i,
                                         ]);        
                                     }
                                 }                 

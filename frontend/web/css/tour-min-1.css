@@ -707,6 +707,25 @@ input::placeholder {
 
 
 }
+
+.p-class-first
+{
+
+    font-size: 11px;
+    font-weight: 500;
+    margin-left: 88px;
+}
+
+.p-class-second
+{
+    font-size: 11px;
+    font-weight: 500;
+    margin-left: 28px;
+    margin-top: -17px;
+}
+
+
+
 .accordianbg:focus-within {
     background-color: #586ada !important;
 }
@@ -1101,6 +1120,19 @@ hr.new2 {
     padding-left: 12px;
     background-color: #fffffff;;
 }
+.tariffBorderbox
+{
+    height: 150px;
+    border: 1px solid #E8E9ED;
+    border-radius: 14px;
+    margin-left: 3px;
+    margin-right: 46px;
+    padding-top: 23px;
+    padding-left: 10px;
+    background-color: #fffffff;
+}
+
+
 
 .publishedBorder
 {
@@ -1109,7 +1141,7 @@ hr.new2 {
     width: 500px;
     height: 500px;
     margin-top: 60px;
-    background-color: #f7f7fb;
+    background-color: #ffffff;
     border: 1px solid #E8E9ED;
     border-radius: 14px;
     margin-bottom: 15px;
@@ -1887,7 +1919,7 @@ select:focus{
 }
 
 #h-border-location div:nth-of-type(2) {
-    flex-basis: 350px;
+    flex-basis: 430px;
     padding-top: 0px;
     line-height: .8rem;
 
@@ -2077,6 +2109,7 @@ select:focus{
     height: 60px;
     flex-wrap: wrap;
     display: flex;
+    margin-left: 137px;
 }
 
 #maintick div {

@@ -12,7 +12,8 @@ if(count($range->roomTariffDatewises) > 0) {
     echo Yii::$app->controller->renderPartial('_date_range_block', [
         'range' => $range,
         'property' => $property,
-        'tariff' => 1
+        'tariff' => 1,
+        'current_loop' => $i,
     ]);
     ?>
 <?php }
@@ -21,7 +22,8 @@ else
     echo Yii::$app->controller->renderPartial('_date_range_block', [
         'range' => $range,
         'property' => $property,
-        'tariff' => 1
+        'tariff' => 1,
+        'current_loop' => $i,
     ]);
 }
 

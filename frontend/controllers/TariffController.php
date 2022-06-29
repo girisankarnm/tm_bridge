@@ -748,6 +748,10 @@ class TariffController extends Controller {
         $this->layout = 'common_published';
         return $this->render('tariff_published', []);
     }
+  public function actionTariffpublishedfailed(){
+        $this->layout = 'common_published';
+        return $this->render('tarif_published_failed', []);
+    }
 
 
 

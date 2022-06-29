@@ -74,7 +74,8 @@ use frontend\models\tariff\TariffDateRange;
                                         echo Yii::$app->controller->renderPartial('_date_range_block', [
                                             'range' => $child_range,
                                             'property' => $property,
-                                            'tariff' => 4
+                                            'tariff' => 4,
+                                            'current_loop' => $i,
                                         ]);        
                                     }
                                 }
