@@ -336,6 +336,7 @@ class TariffController extends Controller {
         $property = $this->getProperty();        
         $room_off_set = (int) Yii::$app->request->get('room_off_set', 0);
         $room_count = Room::find()->where(['property_id' => $property->id])->count();
+        //TODO: if room count is zero, ask the user to create room to proceed
         $tariff = (int) Yii::$app->request->get('tariff', 0);
         
         $mother_id = Yii::$app->request->get('mother_id');
@@ -349,7 +350,7 @@ class TariffController extends Controller {
                 ]);
             }
             else {
-                return $this->redirect(['tariff/home', 'id' => 1]);
+                return $this->redirect(['tariff/home', 'id' => $property->id]);
             }            
         }        
         

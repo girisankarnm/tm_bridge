@@ -16,62 +16,91 @@ use borales\extensions\phoneInput\PhoneInput;
 
 
 </script>
-    <?php $form = ActiveForm::begin(['method' => 'post'] ) ?>
-    <?= $form->field($user, 'user_id')->hiddenInput()->label(false); ?>
+<div class="$content">
+    <div class="container-fluid" style="background-color: white">
+        <div class="card-title">
+            Add New User
+        </div>
+        <div class="card-body" style="border: .12rem solid #dedede; border-radius: 6px;">
 
-    <div class="row">
-        <div class="col-md-6">
-            <?= $form->field($user, 'first_name')->textInput(['class' => 'form-control form-control-sm'])->label('First Name')?>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <?= $form->field($user, 'last_name')->textInput(['class' => 'form-control form-control-sm'])->label('Last Name')?>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <?= $form->field($user, 'email')->textInput(['class' => 'form-control form-control-sm','value'=>null])->label('Email')?>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-        Mobile
-        <?php
-            echo $form->field($user, 'phone')->widget(PhoneInput::className(), [                   
-            'jsOptions' => [
-                'onlyCountries' => ['in'],                      
-            ],
-            'options'=> array('class'=>'form-control form-control-sm', 'placeholder' => '9123456780', 'maxlength' => '12'),
-        ], )->label(false);?>
-        </div>
-    </div>
-    
-    <div class="row">
-        <div class="col-md-6">
-            <?php echo $form->field($user,'user_role')->dropDownList($roles, ['class' => 'form-control form-control-sm shadow', 'prompt' => 'Choose'])->label('Role') ?>
-        </div>
-    </div>
+            <?php $form = ActiveForm::begin(['method' => 'post'] ) ?>
+            <?= $form->field($user, 'user_id')->hiddenInput()->label(false); ?>
 
-    <?php if ($user-> user_type == 1) {
-        ?>
-        <div class="row">
-            <div class="col-md-6">
-            Assign property
-            <?= Html::dropDownList('assigned_properties', $assigned_properties, $properties,  [
-            'multiple'=>'multiple',
-            'id' => 'assigned_properties',
-            'class' => 'form-control form-control-sm shadow'
-            ])
-            ?>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group ">
+                        <label class="Labelclass" style="display: block">First Name</label>
+                        <?= $form->field($user, 'first_name')->textInput(['class' => 'inputLarge'])->label(false)?>
+                    </div>
+                </div>
             </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group ">
+                        <label class="Labelclass" style="display: block">Last Name</label>
+                        <?= $form->field($user, 'last_name')->textInput(['class' => 'inputLarge'])->label(false)?>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group ">
+                        <label class="Labelclass" style="display: block">Email</label>
+                        <?= $form->field($user, 'email')->textInput(['class' => 'inputLarge','value'=>null])->label(false)?>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group ">
+                        <label class="Labelclass" style="display: block">Mobile</label>
+                        <?php
+                    echo $form->field($user, 'phone')->widget(PhoneInput::className(), [
+                        'jsOptions' => [
+                            'onlyCountries' => ['in'],
+                        ],
+                        'options'=> array('class'=>'inputTextClass', 'placeholder' => '9123456780', 'maxlength' => '12'),
+                    ], )->label(false);?>
+                </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group ">
+                        <label class="Labelclass" style="display: block">Role</label>
+                        <?php echo $form->field($user,'user_role')->dropDownList($roles, ['class' => 'inputLarge', 'prompt' => 'Choose'])->label(false) ?>
+                    </div>
+                </div>
+            </div>
+
+            <?php if ($user-> user_type == 1) {
+                ?>
+                <div class="row">
+                    <div class="col-md-6">
+                        Assign property
+                        <?= Html::dropDownList('assigned_properties', $assigned_properties, $properties,  [
+                            'multiple'=>'multiple',
+                            'id' => 'assigned_properties',
+                            'class' => 'form-control form-control-sm shadow'
+                        ])
+                        ?>
+                    </div>
+                </div>
+            <?php } ?>
+
+            <div class="text-center">
+                <?= Html::a('<button type="submit" class="btn btn-sm btn-save">Add user</button>')?>
+            </div>
+            <!--        < ?= Html::hiddenInput('value',1)?>-->
+            <?php ActiveForm::end(); ?>
         </div>
-    <?php } ?>
-    
-    <div class="text-center">
-        <?= Html::a('<button type="submit" class="btn btn-sm btn-save">Add user</button>')?>
     </div>
-    <!--        < ?= Html::hiddenInput('value',1)?>-->
-<?php ActiveForm::end(); ?>
+</div>
+
+
+
+
+
 
 

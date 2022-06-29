@@ -20,15 +20,17 @@ $this->registerCssFile('/css/full-page.css');
     }
 </script>
 
-<div class="content" >
-    <div style="width:32%; margin: auto">
+<!--<div class="content" style="background-image: url(/images/Login.png); background-size: cover; background-position: center; height: 100%">-->
+<!--    <div style="width:32%; margin: auto; background-color: lightpink; border-radius: 15px">-->
+<div class="content" style="height: 100%; background-image: url(/images/Login.png); background-size: cover; background-position: center; background-repeat: no-repeat; margin: 0">
+    <div class="card" style="width:32%; margin:5% auto; background-color: white; border-radius: 20px">
         <?php $form = ActiveForm::begin(['method' => 'post','action' => ['user/signup']]) ?>
 <!--               <div class="" style="width: 100%;height: 100%; margin: auto; padding: 28px; background-color: white ">-->
-               <div class="" style="width: 100%;height: 100%; margin: auto; padding: 28px; background-color: white ">
-                <div >
+               <div class="" style="width: 100%;height: 100%; margin: auto; padding: 28px; ">
+                <div style="display: flex; justify-content: center">
                     <img src="/images/logo.svg" class="logo-small">
                 </div>
-                <div  style="margin-left: 6px; margin-bottom: 10px; font-size: 24px; font-weight: bold">
+                <div  style="display: flex; justify-content: center; margin-bottom: 10px; font-size: 24px; font-weight: bold">
                     Create account
                 </div>
                 <div style="margin-bottom: 20px; margin-left: 6px">

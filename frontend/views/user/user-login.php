@@ -5,13 +5,14 @@ $this->registerCssFile('/css/full-page.css');
 
 <!--<div class="content" style=" height: 100%; background-image: url(/images/Login.png); background-repeat: no-repeat; background-size: 100% 100%; align-content: center">-->
 <div class="content" style="height: 100%; background-image: url(/images/Login.png); background-size: cover; background-position: center; background-repeat: no-repeat; margin: 0">
-    <div style="width:32%; margin:5% auto">
+    <div class="card" style="width:32%; margin:5% auto; background-color: white; border-radius: 20px">
         <?php $form = ActiveForm::begin(['id' => 'login-form', 'class' => 'form-class']); ?>
         <div class="" style="width: 100%;height: 100%; margin: auto; padding: 28px;  ">
-            <div>
+            <div style="display: flex; justify-content: center">
                 <img src="/images/logo.svg" class="logo-small">
             </div>
-            <div  style="margin-left: 6px; margin-bottom: 20px; font-size: 24px; font-weight: bold">
+<!--            <div  style="margin-left: 6px; margin-bottom: 20px; font-size: 24px; font-weight: bold">-->
+            <div  style="display: flex; justify-content: center; margin-bottom: 20px; font-size: 24px; font-weight: bold">
                 Log in
             </div>
             <div style="margin-bottom: 20px; margin-left: 6px; line-height: 10px">
