@@ -66,12 +66,13 @@ if ($user_type == 1) {
 
     <?php $this->head() ?>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js" integrity="sha512-Tn2m0TIpgVyTzzvmxLNuqbSJH3JP8jm+Cy3hvHrW7ndTDcJ1w5mBiksqDBb8GpE2ksktFvDB/ykZ0mDpsZj20w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="/css/tm_bridge.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/form.css">
+    <link rel="stylesheet" href="/css/buttons.css">
 
     <!-- PLEASE FOLLOW CODING STANDARDS https://docs.ckan.org/en/2.9/contributing/html.html -->
 </head>
@@ -85,7 +86,7 @@ if ($user_type == 1) {
                 <a class="navbar-brand" href="#">
                     <img src="/images/logo.svg" alt="" class="img-fluid" alt="logo.svg">
                 </a>
-                <div class="btn-hamburger">
+                <div class="btn-hamburger" role="button">
                     <img src="/images/hamburger.svg" alt="hamburger.svg">
                 </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -183,7 +184,26 @@ if ($user_type == 1) {
             </div>
         </div>
     </div>
+
     <?php $this->endBody() ?>
+
+    <!-- Vendor JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js" integrity="sha512-Tn2m0TIpgVyTzzvmxLNuqbSJH3JP8jm+Cy3hvHrW7ndTDcJ1w5mBiksqDBb8GpE2ksktFvDB/ykZ0mDpsZj20w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <!-- Custom JS -->
+
+    <script>
+        $('.btn-hamburger').on('click', function () {
+            $('.sidebar-contr').width() < 1 ? $('.sidebar-contr').css({ 'width': '253.18px'}) : $('.sidebar-contr').css({ 'width': '0'});
+        });
+        $('.select2').select2({
+            minimumResultsForSearch: -1,
+            dropdownAutoWidth: true,
+        });
+    </script>
 </body>
 </html>
 <?php $this->endPage() ?>
