@@ -13,7 +13,7 @@ if(count($range->roomTariffDatewises) > 0) {
         'range' => $range,
         'property' => $property,
         'tariff' => 1,
-        'current_loop' => $i,
+        'current_loop' => $current_loop,
     ]);
     ?>
 <?php }

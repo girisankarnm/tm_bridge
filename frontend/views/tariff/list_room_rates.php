@@ -57,7 +57,8 @@ use Carbon\Carbon;
                             <?php
                                 echo Yii::$app->controller->renderPartial('_room_rates_datewise', [
                                     'range' => $range, 
-                                    'property' => $property
+                                    'property' => $property,
+                                    'current_loop' => $i,
                                 ]);                    
                             ?>
                         </div>

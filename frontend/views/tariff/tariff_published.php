@@ -76,8 +76,8 @@ $this->registerCssFile('/css/full-page.css');
         <div class="row" style=" margin-bottom: 10px; margin-left: 3px;margin-top: 5px">
             <p class="p-class-first"> Your Tariff for the period is success fully validated </p> <p class="p-class-second"> You shall review the tariff (<a href="#"  ><span style="color: #E40968"> url to tariff report </a>) before you publish the name</p>
         </div>
-        <div class="row" style="  margin-left: 12px;margin-bottom: 12px">
-            <div style="display: block;margin-right: 35px;">
+        <div class="row" style="  margin-left: 23px;margin-bottom: 21px">
+            <div style="display: block;margin-right: 35px;margin-left: ">
                 <button class="buttonSave savebuttonMother" style="color: black;background-color:#ffffff "> Cancel</button>
                 <button class="buttonSave savebuttonMother" style="background-color: blue"> Confirm Publish</button>
             </div>
