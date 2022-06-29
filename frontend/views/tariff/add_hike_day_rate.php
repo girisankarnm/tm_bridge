@@ -87,10 +87,7 @@ use frontend\models\tariff\roomTariffWeekdayhikeDays;
             }
         ?>
 
-    
     <input type="hidden" name="room[]" value="<?= $room->id?>" />
-
-
                 <div class="tab-accordion tab-accordiondaterate" >
                     <div class="tab-content " >
                         <div class="tab-pane fade active show">
