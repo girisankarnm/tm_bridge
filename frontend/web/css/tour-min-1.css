@@ -1097,7 +1097,7 @@ hr.new2 {
     border-radius: 14px;
     margin-left: 3px;
     margin-right: 5px;
-    padding-top: 20px;
+    padding-top: 23px;
     padding-left: 12px;
     background-color: #fffffff;;
 }
@@ -1868,6 +1868,31 @@ select:focus{
 
 }
 
+#h-border-location
+{
+    flex-basis: 350px;
+    height:300px;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+}
+
+
+#h-border-location div:nth-of-type(1) {
+    flex-basis: 350px;
+    height: 20px;
+    padding-top: 2px;
+
+
+}
+
+#h-border-location div:nth-of-type(2) {
+    flex-basis: 350px;
+    padding-top: 0px;
+    line-height: .8rem;
+
+}
+
 
 #main3 {
     padding-top: 34px;
@@ -2150,6 +2175,16 @@ background-color: blue;
 
 }
 
+#collapseOne
+{
+@extend .show;
+}
+#collapseOne div:nth-of-type(1)
+{
+@extend .show;
+}
+
+
 #border-box-location
 {
     flex-basis: 350px;
@@ -2173,4 +2208,9 @@ background-color: blue;
     padding-top: 0px;
     line-height: .8rem;
 
+}
+
+#accordion ul li:first-child div {
+    display:block;
+    border-top:3px solid #FFCDCD;
 }

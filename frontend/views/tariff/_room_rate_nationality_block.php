@@ -14,7 +14,7 @@
                         </button>
                     </h2>
 
-                    <div id="collapseOne<?= $count?>" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample<?= $count?>">
+                    <div id="collapseOne<?= $count?>" class="collapse  <?php if($count == 1):?> show <?php endif; ?>" aria-labelledby="headingOne" data-parent="#accordionExample<?= $count?>">
                         <div class="row roomacord " >
                             <table id="tariff_slab_table_<?= $nationality_id; ?>" class="table3enquiryclass" style="  width: 798px !important;"  >
                                 <tr class="thtableguestcount" >
