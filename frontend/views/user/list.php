@@ -77,40 +77,129 @@ frontend\assets\CommonAsset::register($this);
 <?php endif; ?>
 
 
-<div class="row">
-    <div class="col-md-12">
-        <?= Html::a('<button id="add_user" type="submit" class="btn btn-sm btn-save  float-right">Add New User</button>', ['/user/add']) ?>        
-    </div>
-</div><br>
-<table id="users" class="table table-md responsive">
-    <thead>
-    <th>Name</th>
-    <th>Email</th>
-    <th>Phone Number</th>
-    <th>Status</th>
-    <th>Actions</th>
-    </thead>
+<div class="$content">
+    <div class="container-fluid" style="background-color: white">
+        <div class="card-title">
+           User
+        </div>
+        <div class="card-body" style="border: .12rem solid #dedede; border-radius: 6px;height: 400px">
+            <div class="row">
+                <div class="col-md-12">
+                    <?= Html::a('<button id="add_user" type="submit" class="btn btn-sm btn-save  float-right">Add New User</button>', ['/user/add']) ?>
+                    <?= Html::a('<button id="add_user" type="submit" class="btn button-primary btn-nationality text-white  float-right">Add New User</button>', ['/user/add']) ?>
+                </div>
+            </div><br>
+            <?php  foreach ($users as $user) { ?>
+                <div class="shadow p-3 mb-5 bg-white rounded">
+                    <div class="card-body" style="display: flex; flex-direction: column;">
+                        <div style="font-weight: 600"> <img src="images/user-rounded.svg" alt="user-rounded.svg" style="height: 30px">
+                            <?php echo $user->first_name . " " . $user->last_name?> <?= ($user->id == Yii::$app->user->getId() ) ? '<span style="color: white; padding: 2px; background-color: #04AA6D;font-size: 10px "> It\'s Me</span>' : "" ?>
+                        </div>
+                        <div style="display: flex;flex-direction: row; ">
+                            <div style="display: flex;flex-direction: row;flex: 2;justify-content: space-around;">
+                                <!--                            <div style="background-color: lightblue;display: flex;flex-direction: row;justify-content: space-around;">-->
+                                <div style="margin-top: auto; margin-left: 20px"><img src="images/mail.svg" alt="mail.svg">
+                                    <?php echo $user->email ?>
+                                </div>
+                                <div style="margin-top: auto"><img src="images/phone.svg" alt="phone.svg" style="height: 20px">
+                                    <?php echo $user->phone ?>
+                                </div>
+                                <div style="margin-top: auto; margin-right: 30px">
+                                    <?php if ($user->user_type == 1){ echo  'Hotelier';}
+                                    else  { echo  'Operator'; }
+                                    ?>
+                                </div>
+                            </div>
+                            <div style="display: flex;flex-direction: row;flex: 1;justify-content: space-around;"></div>
+                            <div style="display: flex;flex-direction: row;flex: 1;justify-content: space-between;">
+                                <!--                            <div style="background-color: lightpink;display: flex;flex-direction: row;justify-content: space-around;">-->
+                                <div style="color: green; font-weight: 600; margin-top: auto; padding-right: 30px; "><img src="images/tick-mark.svg" alt="tick-mark.svg">
+                                    <?php if ($user->status == 10){ echo  'Active';}
+                                    elseif ($user->status == 9) { echo  'Inactive'; }
+                                    elseif ($user->status == 0) { echo  'Deleted'; }
+                                    elseif ($user->status == 8) { echo  'Disabled'; }
+                                    else  { echo  'NA'; }
+                                    ?>
+                                </div>
+<!--                                <div style=""><img src="images/edit-1-icon.svg" alt="edit-1-icon.svg" style="height: 25px"></div>-->
+                                <?= Html::a('<img src="images/edit-1-icon.svg" title="Edit" alt="edit-1-icon.svg" style="height: 25px"></i>', Url::toRoute(['/user/add', 'id' => $user->id ])) ?>
+<!--                                <div style=""><img src="images/building-blue.svg" alt="building-blue.svg" style="height: 25px"></div>-->
+                                <?= Html::a('<img src="images/building-blue.svg" title="Enable/Disable" alt="building-blue.svg" style="height: 25px"></i>', null,  ['onclick' => 'return showConfirmMessage(1, "'.$user->first_name.'",'.$user->id.')']) ?>
 
-    <?php  foreach ($users as $user) { ?>
-        <tr>
-            <td><?php echo $user->first_name . " " . $user->last_name?> <?= ($user->id == Yii::$app->user->getId() ) ? '<span style="color: white; padding: 2px; background-color: #04AA6D;font-size: 10px "> It\'s Me</span>' : "" ?> </td>
-            <td><?php echo $user->email ?> </td>
-            <td><?php echo $user->phone ?> </td>
-            <td><?php if ($user->status == 10){ echo  'Active';}
-                elseif ($user->status == 9) { echo  'Inactive'; }
-                elseif ($user->status == 0) { echo  'Deleted'; } 
-                elseif ($user->status == 8) { echo  'Disabled'; }
-                else  { echo  'NA'; }
-                ?> </td>
-            <td>
-                <?= Html::a('<i class="fa fa-edit text-success p-1 t" title="Edit"></i>', Url::toRoute(['/user/add', 'id' => $user->id ])) ?>
-                <?= Html::a('<i class="fa fa-money text-info p-1 t" title="Enable/Disable"></i>', null,  ['onclick' => 'return showConfirmMessage(1, "'.$user->first_name.'",'.$user->id.')']) ?>
-                <?= Html::a('<i class="fa fa-building text-warning p-1 t" title="Reset Password"></i>', null, ['onclick' => 'return showConfirmMessage(2, "'.$user->first_name.'",'.$user->id.')']) ?>
-                <?= Html::a('<i class="fa fa-trash text-danger p-1 t" title="Delete" disabled></i>', null, ['onclick' => 'return showConfirmMessage(3,"'.$user->first_name.'",'.$user->id.')']) ?>
-            </td>
-        </tr>
-    <?php } ?>
-</table>
+<!--                                <div style=""><img src="images/building-blue.svg" alt="building-blue.svg" style="height: 25px"></div>-->
+                                <?= Html::a('<img src="images/building-blue.svg" title="Reset Password" alt="building-blue.svg" style="height: 25px"></i>', null, ['onclick' => 'return showConfirmMessage(2, "'.$user->first_name.'",'.$user->id.')']) ?>
+
+<!--                                <div style=""><img src="images/delete-1-icon.svg" alt="delete-1-icon.svg" style="height: 25px"></div>-->
+                                <?= Html::a('<img src="images/delete-1-icon.svg" alt="delete-1-icon.svg" title="Delete" style="height: 25px" disabled></i>', null, ['onclick' => 'return showConfirmMessage(3,"'.$user->first_name.'",'.$user->id.')']) ?>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            <?php } ?>
+
+
+<!--            <div class="card">-->
+<!--                <div class="card-body">-->
+<!--                    <h1 class="card-title" style="background-color: lightgrey">Anu S</h1>-->
+<!--                    <div style="display: flex; flex-direction: row; justify-content: space-between">-->
+<!--                        <div style="background-color: lightpink; display: flex; flex-direction: row; justify-content: space-between">-->
+<!--                            <div>1</div>-->
+<!--                            <div>2</div>-->
+<!--                            <div>3</div>-->
+<!--                        </div>-->
+<!--                        <div style="background-color: lightblue; display: flex; flex-direction: row; justify-content: space-between">-->
+<!--                            <div>a</div>-->
+<!--                            <div>b</div>-->
+<!--                            <div>c</div>-->
+<!--                            <div>d</div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+            <br>
+
+
+
+
+            <table id="users" class="table table-md responsive">
+                <thead>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Status</th>
+                <th>Actions</th>
+                </thead>
+
+                <?php  foreach ($users as $user) { ?>
+                    <tr>
+                        <td><?php echo $user->first_name . " " . $user->last_name?> <?= ($user->id == Yii::$app->user->getId() ) ? '<span style="color: white; padding: 2px; background-color: #04AA6D;font-size: 10px "> It\'s Me</span>' : "" ?> </td>
+                        <td><?php echo $user->email ?> </td>
+                        <td><?php echo $user->phone ?> </td>
+                        <td><?php if ($user->status == 10){ echo  'Active';}
+                            elseif ($user->status == 9) { echo  'Inactive'; }
+                            elseif ($user->status == 0) { echo  'Deleted'; }
+                            elseif ($user->status == 8) { echo  'Disabled'; }
+                            else  { echo  'NA'; }
+                            ?> </td>
+                        <td>
+                            <?= Html::a('<i class="fa fa-edit text-success p-1 t" title="Edit"></i>', Url::toRoute(['/user/add', 'id' => $user->id ])) ?>
+                            <?= Html::a('<i class="fa fa-money text-info p-1 t" title="Enable/Disable"></i>', null,  ['onclick' => 'return showConfirmMessage(1, "'.$user->first_name.'",'.$user->id.')']) ?>
+                            <?= Html::a('<i class="fa fa-building text-warning p-1 t" title="Reset Password"></i>', null, ['onclick' => 'return showConfirmMessage(2, "'.$user->first_name.'",'.$user->id.')']) ?>
+                            <?= Html::a('<i class="fa fa-trash text-danger p-1 t" title="Delete" disabled></i>', null, ['onclick' => 'return showConfirmMessage(3,"'.$user->first_name.'",'.$user->id.')']) ?>
+                        </td>
+                    </tr>
+                <?php } ?>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+
+
+
 
 <!-- Modal -->
 <div class="modal fade" id="deleteModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
