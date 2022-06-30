@@ -78,11 +78,13 @@ use borales\extensions\phoneInput\PhoneInput;
                 ?>
                 <div class="row">
                     <div class="col-md-6">
-                        Assign property
+<!--                        Assign property-->
+                        <label class="Labelclass" style="display: block">Assign property</label>
                         <?= Html::dropDownList('assigned_properties', $assigned_properties, $properties,  [
                             'multiple'=>'multiple',
                             'id' => 'assigned_properties',
-                            'class' => 'form-control form-control-sm shadow'
+                            'class' => 'inputLarge'
+//                            'class' => 'select2 '
                         ])
                         ?>
                     </div>

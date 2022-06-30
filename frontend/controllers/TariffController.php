@@ -590,7 +590,7 @@ class TariffController extends Controller {
                 $tariff->date_range_id = $_POST["TariffDateRange"]["id"];
                 $tariff->save();
 
-                $week_days = Yii::$app->request->post('week_days_'.$room_id);
+                $week_days = Yii::$app->request->post('week_days_'.$room_id);                
                 if($week_days != NULL) {
                     $slab = new RoomTariffSlabWeekdayhike();
                     $slab->room_rate = Yii::$app->request->post('room_rate_'.$room_id);
@@ -602,8 +602,7 @@ class TariffController extends Controller {
                     $slab->save();
 
                     $day_count = count($week_days);
-                    for ($i = 0; $i < $day_count; $i++ ) {                    
-                        echo "id: ".$room_id." : ".$week_days[$i].'<br/>';
+                    for ($i = 0; $i < $day_count; $i++ ) { 
                         $days = new RoomTariffWeekdayhikeDays();
                         $days->day = $week_days[$i];
                         $days->tariff_id = $tariff->getPrimaryKey();
