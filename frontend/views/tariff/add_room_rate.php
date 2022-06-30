@@ -96,9 +96,8 @@ use Carbon\Carbon;
 
         <div class="row roomButtonRow" >            <div >
             <BUTTON type="button" class="prevbutton" style="width: 80px;height: 30px">  Prev </BUTTON>
-            <BUTTON type="submit" class="buttonSave" style="width: 80px;height: 30px;background-color: #E40968" > Save </BUTTON>
-            <BUTTON type="button" class="buttonSave" style="width: 80px;height: 30px" > Next </BUTTON>
-            <?= Html::a('Next', ['tariff/addroomrate', 'id'=> $property->id, 'room_id'=> $room->id, 'mother_id' => $date_range->id, 'room_off_set' => $room_off_set, 'tariff' => $tariff],  ['class'=>'buttonSave', 'style' => 'width: 80px;height: 30px']) ?>
+            <BUTTON type="submit" class="buttonSave save-border"  > Save </BUTTON>
+            <?= Html::a('Next', ['tariff/addroomrate', 'id'=> $property->id, 'room_id'=> $room->id, 'mother_id' => $date_range->id, 'room_off_set' => $room_off_set, 'tariff' => $tariff],  ['class'=>'buttonNextanchor2', 'style' => 'width: 80px;height: 30px']) ?>
         </div>
         <?php ActiveForm::end(); ?>
         </div>

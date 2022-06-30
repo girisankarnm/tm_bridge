@@ -72,7 +72,7 @@ use Carbon\Carbon;
                                 <div ><h6 class="motherdaterange-H6 h7class" >                 <img s src="images/ticksuccess.svg" style="color: #545b62;margin-right: 4px" aria-hidden="true"></img>
                                         <span class="publishform">Not Published</span> </h6></div>
                             </div>
-                            
+
                             <?php $form = ActiveForm::begin(['id' => 'tariff_publish_'.$range->id,'enableClientValidation' => true,'method' => 'post','action' => ['tariff/publish']]) ?>
                             <?= $form->field($range, 'id')->hiddenInput()->label(false); ?>
                             <div id="b" style=" display: flex">
