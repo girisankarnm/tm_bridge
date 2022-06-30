@@ -1,6 +1,7 @@
 <?php
 
 namespace frontend\controllers;
+use frontend\models\property\CancellationRefundPeriod;
 use frontend\models\Country;
 use frontend\models\Destination;
 use frontend\models\LegalDocsImages;
@@ -820,6 +821,65 @@ class PropertyController extends Controller{
         }
 
         return array('status' => 1,'message' => "Failed to update Pets policy.", 'data' => 0);
+    }
+
+    public function actionSavecancellationcharges(){
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+        if(!isset( $_REQUEST['property_id'])) {
+            return array('status' => 2,'message' => "Invalid input. Property id missing.", 'data' => 0);;
+        }
+
+        $property_id = Yii::$app->request->post('property_id');
+        //Check this prooerty owned by this user
+        if ($property_id != 0) {
+            $property = Property::find()
+                ->where(['id' => $property_id])
+                ->one();
+
+            if ($property == NULL){
+                return array('status' => 2,'message' => "Property (id) doesn't exists", 'data' => 0);
+            }
+        }
+        else {
+            return array('status' => 2,'message' => "Property id cannot zero", 'data' => 0);
+        }
+
+        $property->cancellation_has_period_charge = Yii::$app->request->post('cancellation_has_period_charge');
+        $property->cancellation_has_admin_charge = Yii::$app->request->post('cancellation_has_admin_charge');
+        $property->admin_cancellation_type = Yii::$app->request->post('admin_cancellation_type');
+        $property->cancellation_lumsum_amount = Yii::$app->request->post('cancellation_lumsum_amount');
+        $property->cancellation_percentage_rate = Yii::$app->request->post('cancellation_percentage_rate');
+        $property->cancellation_per_adult_amount = Yii::$app->request->post('cancellation_per_adult_amount');
+        $property->cancellation_per_kids_amount = Yii::$app->request->post('cancellation_per_kids_amount');
+        $property->cancellation_full_refund_days = Yii::$app->request->post('cancellation_full_refund_days');
+        $property->cancellation_no_refund_days = Yii::$app->request->post('cancellation_no_refund_days');
+
+        //Store peridwise rates
+        if ($property->cancellation_has_period_charge) {
+            $period_data = Yii::$app->request->post('period_data');
+            parse_str($period_data, $periodDataArray);
+            $period_count = count($periodDataArray["percentage"]);
+
+            //Delete previous period definition, before adding new period definition
+            if ($period_count > 0 ) {
+                CancellationRefundPeriod::deleteAll(['property_id' => $property_id ]);
+            }
+
+            for ($i = 0; $i < $period_count; $i++ ) {
+                $canellation_period = new CancellationRefundPeriod();
+                $canellation_period->property_id = $property_id;
+                $canellation_period->percentage = $periodDataArray["percentage"][$i];
+                $canellation_period->from_date = $periodDataArray["from_days"][$i];
+                $canellation_period->to_date = $periodDataArray["to_days"][$i];
+
+                $canellation_period->save();
+            }
+        }
+
+        if ($property->save() ) {
+            return array('status' => 0,'message' => "Property Cancellation policy updated successfully", 'data' => 0);
+        }
     }
 
     public function actionSavechildpolicy(){

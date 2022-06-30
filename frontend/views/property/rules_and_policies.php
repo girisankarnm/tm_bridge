@@ -166,7 +166,7 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                                          aria-labelledby="periodCancellation-tab">
                                         <div class="form-group form-checkbox">
                                             <div class="form-material">
-                                                <input type="checkbox" name="" id="cancellation-policy"
+                                                <input <?= ($property->cancellation_has_period_charge == 1) ? "checked" : "" ?> type="checkbox" name="" id="property-cancellation_has_period_charge"
                                                        class="form-input-checkbox">
                                                 <label for="cancellation-policy">
                                                     <strong> Cancellation Policy has Period Based Rates </strong>
@@ -174,57 +174,104 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                                             </div>
                                         </div>
 
-                                        <div class="row checked-cancellation-policy align-items-center mb-2">
-                                            <div class="col-3 fit-width-230px pr-0">
-                                                <p> Full Refund If Cancelled Before </p>
-                                            </div>
-                                            <div class="d-flex col-8 align-items-center">
-                                                <div class="form-group mr-2">
-                                                    <input type="text" name="" id="" class="form-control input-sm">
+                                        <div id="pb_div" style = "display: <?= ($property->cancellation_has_period_charge == 1) ? "block" : "none" ?> ">
+                                            <div class="row checked-cancellation-policy align-items-center mb-2">
+                                                <div class="col-3 fit-width-230px pr-0">
+                                                    <p> Full Refund If Cancelled Before </p>
                                                 </div>
-                                                <p> Days of Arrival Date </p>
-                                            </div>
-                                            <div class="col-3 fit-width-230px pr-0">
-                                                <p> No Refund If Cancelled Less Than </p>
-                                            </div>
-                                            <div class="d-flex col-8 align-items-center">
-                                                <div class="form-group mr-2">
-                                                    <input type="text" name="" id="" class="form-control input-sm">
+                                                <div class="d-flex col-8 align-items-center">
+                                                    <div class="form-group mr-2">
+                                                        <input value="<?= $property->cancellation_full_refund_days?>" type="text" name="cancellation_full_refund_days" id="property-cancellation_full_refund_days" class="form-control input-sm">
+                                                    </div>
+                                                    <p> Days of Arrival Date </p>
                                                 </div>
-                                                <p> Days of Arrival Date </p>
+                                                <div class="col-3 fit-width-230px pr-0">
+                                                    <p> No Refund If Cancelled Less Than </p>
+                                                </div>
+                                                <div class="d-flex col-8 align-items-center">
+                                                    <div class="form-group mr-2">
+                                                        <input value="<?= $property->cancellation_no_refund_days?>" type="text" name="cancellation_no_refund_days" id="property-cancellation_no_refund_days" class="form-control input-sm">
+                                                    </div>
+                                                    <p> Days of Arrival Date </p>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="cancellation-detail">
-                                            <div class="row align-items-center mb-2">
-                                                <div class="col-2 fit-width-112px">
-                                                    <div class="form-group">
-                                                        <input type="text" name="" id="" class="form-control input-sh">
+                                            <div id="period_data">
+                                            <div class="cancellation-detail">
+                                                <?php
+                                                if (count($property->cancellationRefundPeriods) > 0) {
+                                                    $i = 0;
+                                                foreach ($property->cancellationRefundPeriods as $cancellation_rate) {
+                                                ?>
+                                                    <div class="row cancellation-detail-item align-items-center mb-2">
+                                                        <div class="col-2 fit-width-112px">
+                                                            <div class="form-group">
+                                                                <input value="<?=$cancellation_rate->percentage ?>" type="text" name="percentage[]" id="" class="form-control input-sh">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-4 fit-width-215px">
+                                                            <p> of Package amount if Cancelled </p>
+                                                        </div>
+                                                        <div class="d-flex col-2 fit-width-105px align-items-center pr-0">
+                                                            <div class="form-group mr-3">
+                                                                <input  value="<?=$cancellation_rate->from_date ?>"type="text" name="from_days[]" id="" class="form-control input-sh">
+                                                            </div>
+                                                            <p> To </p>
+                                                        </div>
+                                                        <div class="col-2 fit-width-70px">
+                                                            <div class="form-group">
+                                                                <input value="<?=$cancellation_rate->to_date ?>" type="text" name="to_days[]" id="" class="form-control input-sh">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-3">
+                                                            <p> Days Before Arrival Date </p>
+                                                        </div>
+                                                        <?php if ($i > 0) : ?>
+                                                        <div class="col-1 remove-cancellation-detail align-self-start">
+                                                            <div class="delete-icon my-1">
+                                                                <i class="far fa-trash-alt"></i>
+                                                            </div>
+                                                        </div>
+                                                      <?php endif; ?>
+                                                    </div>
+
+                                                <?php  $i++; }
+                                                }
+                                                else
+                                                {
+                                                ?>
+                                                <div class="row align-items-center mb-2">
+                                                    <div class="col-2 fit-width-112px">
+                                                        <div class="form-group">
+                                                            <input type="text" name="percentage[]" id="" class="form-control input-sh">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-4 fit-width-215px">
+                                                        <p>% of Package amount if Cancelled </p>
+                                                    </div>
+                                                    <div class="d-flex col-2 fit-width-105px align-items-center pr-0">
+                                                        <div class="form-group mr-3">
+                                                            <input type="text" name="from_days[]" id="" class="form-control input-sh">
+                                                        </div>
+                                                        <p> To </p>
+                                                    </div>
+                                                    <div class="col-2 fit-width-70px">
+                                                        <div class="form-group">
+                                                            <input type="text" name="to_days[]" id="" class="form-control input-sh">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-3">
+                                                        <p> Days Before Arrival Date </p>
                                                     </div>
                                                 </div>
-                                                <div class="col-4 fit-width-215px">
-                                                    <p> of Package amount if Cancelled </p>
-                                                </div>
-                                                <div class="d-flex col-2 fit-width-105px align-items-center pr-0">
-                                                    <div class="form-group mr-3">
-                                                        <input type="text" name="" id="" class="form-control input-sh">
-                                                    </div>
-                                                    <p> To </p>
-                                                </div>
-                                                <div class="col-2 fit-width-70px">
-                                                    <div class="form-group">
-                                                        <input type="text" name="" id="" class="form-control input-sh">
-                                                    </div>
-                                                </div>
-                                                <div class="col-3">
-                                                    <p> Days Before Arrival Date </p>
-                                                </div>
+                                                <?php } ?>
                                             </div>
-                                        </div>
-                                        <div class="d-flex add-items add-cancellation-detail align-items-center mb-2">
-                                            <div class="add-icon mr-1">
-                                                <i class="fas fa-plus"></i>
+                                            <div class="d-flex add-items add-cancellation-detail align-items-center mb-2">
+                                                <div class="add-icon mr-1">
+                                                    <i class="fas fa-plus"></i>
+                                                </div>
+                                                <p class="mb-0"> Add more </p>
                                             </div>
-                                            <p class="mb-0"> Add more </p>
+                                            </div>
                                         </div>
                                     </div>
 
@@ -232,7 +279,7 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                                          aria-labelledby="adminCancellation-tab">
                                         <div class="form-group form-checkbox mb-4">
                                             <div class="form-material">
-                                                <input type="checkbox" name="" id="admin-rates"
+                                                <input  <?= ($property->cancellation_has_admin_charge == 1) ? "checked" : "" ?> type="checkbox" name="" id="property-cancellation_has_admin_charge"
                                                        class="form-input-checkbox">
                                                 <label for="admin-rates" class="mb-0">
                                                     <strong> Cancellation Policy has Admin Rates </strong>
@@ -240,70 +287,72 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                                             </div>
                                         </div>
 
+                                        <div id="ac_div" style = "display: <?= ($property->cancellation_has_admin_charge == 1) ? "block" : "none" ?> ">
                                         <div class="d-flex form-group align-items-center">
                                             <div class="form-material form-checkout mr-4">
-                                                <input type="radio" name="admin_charge_cancellation_type"
-                                                       value="lump_sum_charges_per_cancellation" id="form-lump-sum"
+                                                <input <?= ($property->admin_cancellation_type == 1) ? "checked" : "" ?> type="radio" name="Property[admin_cancellation_type]"
+                                                       value="1" id="form-lump-sum"
                                                        class="form-radio">
                                                 <label for="form-lump-sum"> Lump Sum Charges per Cancellation </label>
                                             </div>
                                             <div class="form-material form-checkout mr-4">
-                                                <input type="radio" name="admin_charge_cancellation_type"
-                                                       value="zero_percent_package_amount" id="form-package-amount"
+                                                <input <?= ($property->admin_cancellation_type == 2) ? "checked" : "" ?> type="radio" name="Property[admin_cancellation_type]"
+                                                       value="2" id="form-package-amount"
                                                        class="form-radio">
                                                 <label for="form-package-amount"> 0 % Package Amount </label>
                                             </div>
                                             <div class="form-material form-checkout">
-                                                <input type="radio" name="admin_charge_cancellation_type"
-                                                       value="per_basis" id="form-per-basis" class="form-radio">
+                                                <input <?= ($property->admin_cancellation_type == 3) ? "checked" : "" ?> type="radio" name="Property[admin_cancellation_type]"
+                                                       value="3" id="form-per-basis" class="form-radio">
                                                 <label for="form-per-basis"> Per Basis </label>
                                             </div>
                                         </div>
 
                                         <div class="row admin-charges-item lum_sum_amt align-items-center mb-2"
-                                             style="display: none;">
+                                             style="display: <?= ($property->admin_cancellation_type == 1) ? "block" : "none" ?>">
                                             <div class="col-2 mr-2">
                                                 <p> Lum Sum Amount </p>
                                             </div>
                                             <div class="col-3 form-group">
-                                                <input type="text" name="" id="" class="form-control input-sh">
+                                                <input value="<?= $property->cancellation_lumsum_amount?>" type="text" name="cancellation_lumsum_amount" id="property-cancellation_lumsum_amount" class="form-control input-sh">
                                             </div>
                                         </div>
 
                                         <div class="row admin-charges-item package-amt align-items-center mb-2"
-                                             style="display: none;">
+                                             style="display: <?= ($property->admin_cancellation_type == 2) ? "block" : "none" ?>;">
                                             <div class="col-2 mr-2">
                                                 <p> Percentage Rate </p>
                                             </div>
                                             <div class="col-3 form-group">
-                                                <input type="text" name="" id="" class="form-control input-sh">
+                                                <input value="<?= $property->cancellation_percentage_rate?>" type="text" name="cancellation_percentage_rate" id="property-cancellation_percentage_rate" class="form-control input-sh">
                                             </div>
                                         </div>
 
                                         <div class="row admin-charges-item kids-amt align-items-center mb-2"
-                                             style="display: none;">
+                                             style="display: <?= ($property->admin_cancellation_type == 3) ? "block" : "none" ?>;">
                                             <div class="col-2 mr-2">
                                                 <p> Adult Amount </p>
                                             </div>
                                             <div class="col-3 form-group">
-                                                <input type="text" name="" id="" class="form-control input-sh">
+                                                <input value="<?= $property->cancellation_per_adult_amount?>" type="text" name="cancellation_per_adult_amount" id="property-cancellation_per_adult_amount" class="form-control input-sh">
                                             </div>
                                         </div>
 
                                         <div class="row admin-charges-item kids-amt align-items-center mb-2"
-                                             style="display: none;">
+                                             style="display: <?= ($property->admin_cancellation_type == 3) ? "block" : "none" ?>;">
                                             <div class="col-2 mr-2">
                                                 <p> Kids Amount </p>
                                             </div>
                                             <div class="col-3 form-group">
-                                                <input type="text" name="" id="" class="form-control input-sh">
+                                                <input value="<?= $property->cancellation_per_kids_amount?>" type="text" name="cancellation_per_kids_amount" id="property-cancellation_per_kids_amount" class="form-control input-sh">
                                             </div>
+                                        </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <button class="btn btn-primary"> Save </button>
+                        <button id="save_cancellation_policy" class="btn btn-primary"> Save </button>
                     </div>
                 </div>
 
