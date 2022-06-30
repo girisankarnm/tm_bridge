@@ -157,11 +157,16 @@ class RoomRateValidator {
     }
 
     public function validateWeekdayHike() {
+        //TODO: Handle NOT have_weekday_hike case
         if ($this->property->have_weekday_hike) {
-            if (count($this->date_range->roomTariffWeekdaywises) == 0) {
-                $this->bCanpublish = false;
-                array_push($this->error_messages,"Not defined week day hike [". Carbon::parse($this->date_range->from_date)->format('d M Y')." - ".Carbon::parse($this->date_range->to_date)->format('d M Y')."]");
-                return false;
+
+            //TODO: Handle NOT set roomTariffWeekdaywises
+            if(isset($this->date_range->roomTariffWeekdaywises)) {
+                if (count($this->date_range->roomTariffWeekdaywises) == 0) {
+                    $this->bCanpublish = false;
+                    array_push($this->error_messages,"Not defined week day hike [". Carbon::parse($this->date_range->from_date)->format('d M Y')." - ".Carbon::parse($this->date_range->to_date)->format('d M Y')."]");
+                    return false;
+                }
             }
         }
 
