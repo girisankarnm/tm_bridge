@@ -257,6 +257,10 @@ td.paxcount, th.paxcount {
 td.Adults, th.Adults {
     width:          100px !important;
 }
+td.Adults1, th.Adults1 {
+    width:          100px !important;
+    padding-top: 5px;
+}
 
 td.Adultswith, th.Adultswith {
     width:          150px !important;

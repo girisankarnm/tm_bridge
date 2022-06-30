@@ -38,7 +38,7 @@ use frontend\models\tariff\roomTariffWeekdayhikeDays;
         <div style="margin-bottom: 30px; background-color: ">
 
             <div class="commonTitle" style="width: 50%;float: left">
-                Enter week day hike1</div>
+                Enter week day hike</div>
 
             <div id="tariffAddmain" style="justify-content: right"  >
                 <div class="margintopcls" style="background-color: #ffffff;text-align: center">
@@ -159,8 +159,8 @@ use frontend\models\tariff\roomTariffWeekdayhikeDays;
         <div class="row" style="margin-left: 4px;margin-bottom: 12px;">
             <div style="display: block;margin-right: 35px">
                 <BUTTON type="button" class="prevbutton" style="width: 80px;height: 30px" data-toggle="modal" data-target="#logoutModal"> Prev </BUTTON>
-                <BUTTON type="submit" class="buttonSave" style="width: 80px;height: 30px" data-toggle="modal" data-target="#logoutModal"> Save </BUTTON>
-                <?= Html::a('Next', ['tariff/addmandatorydinnner', 'id'=> $property->id, 'mother_id' => $date_range->id],  ['class'=>'buttonSave savebuttonMother']) ?>                    
+                <BUTTON type="submit" class="buttonSave save-border" style="width: 80px;height: 30px" data-toggle="modal" data-target="#logoutModal"> Save </BUTTON>
+                <?= Html::a('Next', ['tariff/addmandatorydinnner', 'id'=> $property->id, 'mother_id' => $date_range->id],  ['class'=>'buttonNextanchor2']) ?>
             </div>
         </div>
 
