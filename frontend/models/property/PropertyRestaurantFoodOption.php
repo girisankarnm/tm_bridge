@@ -5,21 +5,21 @@ namespace frontend\models\property;
 use Yii;
 
 /**
- * This is the model class for table "amenity_group".
+ * This is the model class for table "property_restaurant_food_option".
  *
  * @property int $id
  * @property string|null $name
  *
- * @property Amenity[] $amenities
+ * @property PropertyRestaurantFoodOptionMap[] $propertyRestaurantFoodOptionMaps
  */
-class AmenityGroup extends \yii\db\ActiveRecord
+class PropertyRestaurantFoodOption extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
      */
     public static function tableName()
     {
-        return 'amenity_group';
+        return 'property_restaurant_food_option';
     }
 
     /**
@@ -44,22 +44,12 @@ class AmenityGroup extends \yii\db\ActiveRecord
     }
 
     /**
-     * Gets query for [[Amenities]].
+     * Gets query for [[PropertyRestaurantFoodOptionMaps]].
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getAmenities()
+    public function getPropertyRestaurantFoodOptionMaps()
     {
-        return $this->hasMany(Amenity::className(), ['nest_under_id' => 'id']);
-    }
-
-    /**
-     * Gets query for [[Amenities]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getRoomAmenities()
-    {
-        return $this->hasMany(Amenity::className(), ['nest_under_id' => 'id'])->where(['display_level_id' => 2]);
+        return $this->hasMany(PropertyRestaurantFoodOptionMap::className(), ['food_option_id' => 'id']);
     }
 }
