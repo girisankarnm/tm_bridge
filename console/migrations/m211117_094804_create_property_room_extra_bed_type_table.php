@@ -31,11 +31,6 @@ class m211117_094804_create_property_room_extra_bed_type_table extends Migration
             ]);
     }
 
-    
- 
-
-
-
     /**
      * {@inheritdoc}
      */

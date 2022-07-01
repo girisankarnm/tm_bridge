@@ -3,6 +3,9 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\bootstrap4\ActiveForm;
 use Carbon\Carbon;
+
+$this->registerJsFile('/js/tariff/tariff.js');
+
 ?>
 <div class="$content">
     <div class="container-fluid" style="">
@@ -54,12 +57,7 @@ use Carbon\Carbon;
                 <div class="margintopcls" >  <span class="dateform">From Date</span>
                     <div style="width: 90px;"><h6 class="motherdaterange-H6 h7class" ><?= Carbon::parse($date_range->to_date)->format('d M Y'); ?> </h6></div>
                 </div>
-
-
-
             </div>
-
-
         </div>
 
         <hr class="sidebar-divider">        

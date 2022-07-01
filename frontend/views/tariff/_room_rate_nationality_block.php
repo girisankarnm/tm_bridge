@@ -18,13 +18,13 @@
                         <div class="row roomacord " >
                             <table id="tariff_slab_table_<?= $nationality_id; ?>" class="table3enquiryclass" style="  width: 798px !important;"  >
                                 <tr class="thtableguestcount" >
-                                    <th class="totalguest" >Rate slabs</th>
-                                    <th class="totalguest" >Room rate</th>
-                                    <th class="Adultswith"  >Adult with Extra Bed</th>
-                                    <th class="Adultswith">Child With Extra Bed</th>
-                                    <th class="Adultswith" >Child Sharing Bed</th>
-                                    <th  class="Adultswith">Single Occupancy</th>
-                                    <th class="Adults" >Actions</th>
+                                    <th class="totalguest"> Rate slabs</th>
+                                    <th class="totalguest"> Room rate</th>
+                                    <th class="Adultswith"> Adult with Extra Bed</th>
+                                    <th class="Adultswith"> Child With Extra Bed</th>
+                                    <th class="Adultswith"> Child Sharing Bed</th>
+                                    <th class="Adultswith"> Single Occupancy</th>
+                                    <th class="Adults"> Actions</th>
                                 </tr>
                                 <?php
                                     $slab_count = 0;
@@ -42,6 +42,16 @@
                                         echo Yii::$app->controller->renderPartial('_room_rate_slab_row', ['nationality_id' => $nationality_id, 'slab' => $slab]);
                                     }
                                 ?>
+                                <tfoot >
+                                <tr style="height: 15px">
+                                </tr>
+                                <tr style="background-color: #ffffff">
+                                    <td class="addmoreguestcount" style="width: 200px" >
+                                        <button class="btnAdd" type="button" style="border-radius: 50%; margin-left: 30px;margin-bottom: 15px;height: 23px;width: 23px;" id="add_new_plan_row" onclick="insertSlabRow(<?= $nationality_id; ?>); return true;">><i  class="fa fa-plus" aria-hidden="true"></i></button>
+                                        <span style="padding-left: 3px">Add more </span>
+                                    </td>
+                                </tr>
+                                </tfoot>
                             </table>
                         </div>
 

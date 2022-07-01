@@ -80,10 +80,7 @@ function attachDatePicker() {
                                 </span></div>
                         </div>
                     </div>
-
             </div>
-
-
         </div>
     </div>
 
@@ -111,9 +108,6 @@ function attachDatePicker() {
                 <div class="margintopcls" >  <span class="dateform">From Date</span>
                     <div style="width: 90px;"><h6 class="motherdaterange-H6 h7class" ><?= Carbon::parse($date_range->to_date)->format('d M Y'); ?> </h6></div>
                 </div>
-
-
-
             </div>
 
         </div>
@@ -125,7 +119,7 @@ function attachDatePicker() {
     <input type="hidden" name="tariff" value="<?= $tariff; ?>">
 
         <div class="row">
-            <table id="customers " class="table3enquiryclass" >
+            <table id="dinner_table" class="table3enquiryclass" >
                 <tr  class="thtableguestcount " >
                     <th class="Adults" >Date</th>
                     <th class="Adults">Inclusion Name</th>
@@ -134,7 +128,8 @@ function attachDatePicker() {
                     <th class="Adults"></th>
                 </tr>
                 <?php
-        if( count($dinners) > 0 ) {
+                $i = 0;
+        if( count($dinners) > 0 ) {            
         foreach ($dinners as $dinner)        
         { ?>
             <tr>
@@ -142,9 +137,15 @@ function attachDatePicker() {
                 <td class="Adults"><input type="text" class="inputTextClass" name="event_name[]" value = "<?= $dinner->name ?>" style="width: 100px;height: 33px;margin-top: 24px;" >  </td>
                 <td class="Adults"><input type="number" class="inputTextClass" name="adult_rate[]" value = "<?= $dinner->rate_adult ?>" style="width: 100px;height: 33px;margin-top: 24px;"></td>
                 <td class="Adults"><input type="number" class="inputTextClass" name="child_rate[]" value = "<?= $dinner->rate_child ?>" style="width: 100px;height: 33px;margin-top: 24px;"></td>
-                <td Adults1><i name="compulsory_rem" class="fa fa-minus fa-lg text-danger mt-2 ml-4" onclick="removeRow(this)"></i></td>
+                <td class="Adults1"> 
+                    <?php if($i != 0) { ?>
+                        <i name="compulsory_rem" class="fa fa-minus fa-lg text-danger mt-2 ml-4" onclick="removeRow(this)"></i>
+                    <?php } ?>                
+                </td>
             </tr>
-            <?php } 
+            <?php 
+            $i++;
+            } 
         } else
         {
         ?>
@@ -153,17 +154,11 @@ function attachDatePicker() {
                 <td class="Adults"><input type="text" class="inputTextClass" name="event_name[]" style="width: 100px;height: 33px;margin-top: 24px;"></td>
                 <td class="Adults"><input type="number" class="inputTextClass" name="adult_rate[]" style="width: 100px;height: 33px;margin-top: 24px;"></td>
                 <td class="Adults"><input type="number" class="inputTextClass" name="child_rate[]" style="width: 100px;height: 33px;margin-top: 24px;"></td>
-                <td class="Adults1"><i name="compulsory_rem" class="fa fa-minus fa-lg text-danger mt-2 ml-4" onclick="removeRow(this)"></i></td>
+                <td class="Adults1"></td>
             </tr>
         <?php } ?>
-                
-        <tr > <td> <button class="btnAdd" style="border-radius: 50%;"><i  class="fa fa-plus" aria-hidden="true"></i></button><span style="padding-left: 3px">Add more </span></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
         </table>
+        <button type="button" class="btnAdd" style="border-radius: 50%;" onclick="addRow();  return true;"><i  class="fa fa-plus" aria-hidden="true"></i></button><span style="padding-left: 3px">Add more </span>
         </div>
 
         <div class="row" style="margin-left: 4px;margin-bottom: 12px;">
