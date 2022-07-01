@@ -1390,36 +1390,31 @@ class PropertyController extends Controller{
 
     public function actionCreatecategories(){
         $this->layout = 'tm_main';
-        if(!isset( $_GET['id'])) {
-            echo "Inavlid Input";
-            return;
-        }
+        $property = $this->getProperty();
 
-        $property_id = (int) Yii::$app->request->get('id');
-        if ($property_id != 0) {
-            $property = Property::find()
-                ->where(['id' => $property_id])
-                ->one();
+        $room_id = Yii::$app->request->get('room_id', 0);
+        $room = Room::find()
+            ->where(['id' => $room_id])
+            ->andWhere(['property_id' => $property->id])
+            ->one();
 
-            if ($property == NULL){
-                echo "Property (id) doesn't exists";
-                return;
-            }
+        if ($room == NULL){
+            $room = new Room();    
         }
-        else {
-            echo "Property doesn't exist";
-            return;
-        }
-
-        $room = new Room();
-        $rooms = Room::find()->all();
+        
         $room_types = ArrayHelper::map(RoomType::find()->asArray()->all(), 'id', 'name');
         $room_view_type = ArrayHelper::map(PropertyRoomView::find()->asArray()->all(), 'id', 'name');
         $extra_bed_types = ArrayHelper::map(PropertyRoomExtraBedType::find()->asArray()->all(), 'id', 'name');
         $meal_plans = ArrayHelper::map(PropertyMealPlan::find()->asArray()->all(), 'id', 'name');
 
-
-        return $this->render('room_categories_create',['property' => $property, 'room' => $room, 'room_types' => $room_types, 'room_view_type' => $room_view_type, 'meal_plans' => $meal_plans, 'extra_bed_types' => $extra_bed_types, 'rooms' => $rooms]);
+        return $this->render('room_categories_create',[
+            'property' => $property, 
+            'room' => $room, 
+            'room_types' => $room_types, 
+            'room_view_type' => $room_view_type, 
+            'meal_plans' => $meal_plans, 
+            'extra_bed_types' => $extra_bed_types,             
+        ]);
 //        return $this->render('room_categories_create',['property' => $property, 'room' => $room, 'room_types' => $room_types, 'room_view_type' => $room_view_type, 'meal_plans' => $meal_plans, 'rooms' => $rooms]);
     }
 

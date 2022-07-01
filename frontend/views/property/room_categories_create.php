@@ -3,7 +3,7 @@ use yii\helpers\Html;
 use yii\bootstrap4\ActiveForm;
 $this->registerCssFile('/css/property/room_categories.css');
 $this->registerJsFile('/js/operational_details/room_category.js');
-$this->registerJsFile('/js/property/room_categories/index.js');
+//$this->registerJsFile('/js/property/room_categories/index.js');
 ?>
 
 <h5 class="title"> Room Category </h5>
@@ -29,7 +29,7 @@ $this->registerJsFile('/js/property/room_categories/index.js');
     <div class="tab-content room-categories-content" id="pills-tabContent">
         <div id="room_categories_div" class="tab-pane fade active show">
             <div class="category-item">
-                <?php $form = ActiveForm::begin(['id' => 'operational_form','enableClientValidation' => true, 'method' => 'post','action' => ['property/saveroomcategory']]) ?>
+                <?php $form = ActiveForm::begin(['id' => 'room_categories_form','enableClientValidation' => true, 'method' => 'post','action' => ['property/saveroomcategory']]) ?>
                 <input type="hidden" value="<?= $property->id ?>" name="property_id">
                 <div class="row align-items-center">
                         <div class="col-md-6">
@@ -38,7 +38,7 @@ $this->registerJsFile('/js/property/room_categories/index.js');
                             </h6>
                             <div class="form-group">
                                 <div class="form-material">
-                                    <?php echo $form->field($room,'name')->textInput(['class' => 'form-control', 'id' =>'', 'placeholder' =>'Enter Room Name'])->label(false) ?>
+                                    <?php echo $form->field($room,'name')->textInput(['class' => 'form-control', 'placeholder' =>'Enter Room Name'])->label(false) ?>
 
                                 </div>
                             </div>
