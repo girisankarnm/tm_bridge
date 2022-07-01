@@ -3,6 +3,7 @@
 namespace frontend\models\user;
 
 use Yii;
+use frontend\models\property\Property;
 
 /**
  * This is the model class for table "user_property_map".
