@@ -19,20 +19,20 @@ function addRow(){
    }
  */
    var row_html = '<tr>' + 
-   '<td>' + 
-   '<input type="text" class="form-control form-control-sm" name="dinner_daterange[]" />' + 
+   '<td class="Adults">' +
+   '<input type="text" class="inputTextClass table-td-inputwidth" name="dinner_daterange[]" />' +
    '</td>' + 
-   '<td>' + 
-   '<input type="text" class="form-control form-control-sm" name="event_name[]" >' +
+   '<td class="Adults">' +
+   '<input type="text" class="inputTextClass table-td-inputwidth" name="event_name[]" >' +
    '</td>' +
-   '<td>' + 
-   '<input type="number" class="form-control form-control-sm" name="adult_rate[]">' + 
+   '<td class="Adults">' +
+   '<input type="number" class="inputTextClass table-td-inputwidth" name="adult_rate[]">' +
    '</td>' + 
-   '<td>' + 
-   '<input type="number" class="form-control form-control-sm" name="child_rate[]">' + 
+   '<td class="Adults">' +
+   '<input type="number" class="inputTextClass table-td-inputwidth" name="child_rate[]">' +
    '</td>' + 
-   '<td>' +
-   '<i name="compulsory_rem" class="fa fa-minus fa-lg text-danger mt-2 ml-4" onclick="removeRow(this)"></i>' + 
+   '<td class="Adults">' +
+   '<i name="compulsory_rem" class="fa fa-minus fa-lg text-danger mt-2 ml-4" onclick="removeRow(this)"></i>' +
    '</td> ' + 
    '</tr>';
    
@@ -150,15 +150,24 @@ function attachDatePicker() {
         {
         ?>
             <tr>
-                <td class="Adults"><input type="text" class="inputTextClass" name="dinner_daterange[]" style="width: 100px;height: 33px;margin-top: 24px;"/></td>
-                <td class="Adults"><input type="text" class="inputTextClass" name="event_name[]" style="width: 100px;height: 33px;margin-top: 24px;"></td>
-                <td class="Adults"><input type="number" class="inputTextClass" name="adult_rate[]" style="width: 100px;height: 33px;margin-top: 24px;"></td>
-                <td class="Adults"><input type="number" class="inputTextClass" name="child_rate[]" style="width: 100px;height: 33px;margin-top: 24px;"></td>
+                <td class="Adults"><input type="text" class="inputTextClass table-td-inputwidth" name="dinner_daterange[]" /></td>
+                <td class="Adults"><input type="text" class="inputTextClass table-td-inputwidth" name="event_name[]" ></td>
+                <td class="Adults"><input type="number" class="inputTextClass table-td-inputwidth" name="adult_rate[]" ></td>
+                <td class="Adults"><input type="number" class="inputTextClass table-td-inputwidth" name="child_rate[]" ></td>
                 <td class="Adults1"></td>
             </tr>
+            <tfoot >
+            <tr style="height: 15px">
+
+            </tr>
+            <tr style="background-color: #ffffff">
+                <td class="addmoreguestcount" >                    <button class="btnAdd" type="button" style="border-radius: 50%; margin-left: 0px;margin-bottom: 15px;height: 23px;width: 23px;" id="add_new_plan_row" onclick="addRow();  return true;"><i  style=" padding-top: 4px; margin-bottom: 2px;"  class="fa fa-plus" aria-hidden="true"></i></button>
+                    <span style="padding-left: 3px">Add more </span></td>
+
+            </tr>
+            </tfoot>
         <?php } ?>
         </table>
-        <button type="button" class="btnAdd" style="border-radius: 50%;" onclick="addRow();  return true;"><i  class="fa fa-plus" aria-hidden="true"></i></button><span style="padding-left: 3px">Add more </span>
         </div>
 
         <div class="row" style="margin-left: 4px;margin-bottom: 12px;">

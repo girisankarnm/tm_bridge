@@ -295,7 +295,11 @@ td.fijo, th.fijo {
     width:          39px !important;
 }
 
-
+.table-td-inputwidth {
+    width: 100px !important;
+    height: 33px !important;
+    margin-top: 24px !important;
+}
 .td.addmoreguestcount
 {
 
