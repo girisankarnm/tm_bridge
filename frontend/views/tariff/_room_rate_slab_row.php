@@ -30,19 +30,19 @@ else {
 ?>
     <tr>
     <td>Rack Rate</td>
-    <td>
+    <td class="Adults">
     <input type="text" name="room_rate_<?= $nationality_id; ?>[]" class="inputTextroomtable" required/>
     </td>
-    <td>
+    <td class="Adults">
     <input type="text" name="adult_with_extra_bed_<?= $nationality_id; ?>[]" class="inputTextroomtable" required/>
     </td>
-    <td>
+    <td class="Adults">
     <input type="text" name="child_with_extra_bed_<?= $nationality_id; ?>[]" class="inputTextroomtable" required/>
     </td>
-    <td>
+    <td class="Adults">
     <input type="text" name="child_sharing_bed_<?= $nationality_id; ?>[]" class="inputTextroomtable" required />
     </td>
-    <td>
+    <td class="Adults">
     <input type="text" name="single_occupancy_<?= $nationality_id; ?>[]" class="inputTextroomtable" required/>
     </td>
     <td></td>              
@@ -50,19 +50,19 @@ else {
 
     <tr>
     <td>Slab 1</td>
-    <td>
+    <td class="Adults">
     <input type="text" name="room_rate_<?= $nationality_id; ?>[]" class="inputTextroomtable" required/>
     </td>
-    <td>
+    <td class="Adults">
     <input type="text" name="adult_with_extra_bed_<?= $nationality_id; ?>[]" class="inputTextroomtable" required />
     </td>
-    <td>
+    <td class="Adults">
     <input type="text" name="child_with_extra_bed_<?= $nationality_id; ?>[]" class="inputTextroomtable" required />
     </td>
-    <td>
+    <td class="Adults">
     <input type="text" name="child_sharing_bed_<?= $nationality_id; ?>[]" class="inputTextroomtable" required />
     </td>
-    <td>
+    <td class="Adults">
     <input type="text" name="single_occupancy_<?= $nationality_id; ?>[]" class="inputTextroomtable" required />
     </td>
     <td></td>
