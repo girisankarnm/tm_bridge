@@ -3,6 +3,7 @@
 namespace frontend\models\property;
 
 use frontend\models\operator\EnquiryRoomSelection;
+use frontend\models\user\User;
 use Yii;
 
 /**
