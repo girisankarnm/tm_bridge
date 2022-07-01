@@ -1,6 +1,7 @@
 <?php
 
 namespace frontend\controllers;
+use frontend\models\property\AmenityGroup;
 use frontend\models\property\CancellationRefundPeriod;
 use frontend\models\Country;
 use frontend\models\Destination;
@@ -8,9 +9,25 @@ use frontend\models\LegalDocsImages;
 use frontend\models\Location;
 use frontend\models\property\AddressLocation;
 use frontend\models\property\LegalTaxDocumentation;
+use frontend\models\property\PropertyAmenity;
+use frontend\models\property\PropertyAmenitySuboption;
+use frontend\models\property\PropertyComplimentaryAmenity;
 use frontend\models\property\PropertyLegalStatus;
+use frontend\models\property\PropertyParking;
+use frontend\models\property\PropertyParkingType;
+use frontend\models\property\PropertyParkingTypeMap;
 use frontend\models\property\PropertyPetsPolicy;
+use frontend\models\property\PropertyRestaurant;
+use frontend\models\property\PropertyRestaurantCuisineOption;
+use frontend\models\property\PropertyRestaurantCuisineOptionMap;
+use frontend\models\property\PropertyRestaurantFoodOption;
+use frontend\models\property\PropertyRestaurantFoodOptionMap;
 use frontend\models\property\PropertySmokingPolicy;
+use frontend\models\property\PropertySwimmingPool;
+use frontend\models\property\PropertySwimmingPoolType;
+use frontend\models\property\PropertySwimmingPoolTypeMap;
+use frontend\models\property\RoomAmenity;
+use frontend\models\property\RoomAmenitySuboption;
 use frontend\models\property\TermsConditions;
 use frontend\models\tariff\TariffNationalityGroupName;
 use frontend\models\tariff\TariffNationalityTable;
@@ -1116,6 +1133,386 @@ class PropertyController extends Controller{
         }
     }
 
+
+    //////////////////////////////////Services &Amenities////////////////////////////////
+
+    public function actionServiceamenities(){
+        $property = $this->getProperty();
+
+        $swimming_pool = PropertySwimmingPool::find()
+            ->where(['property_id' => $property->id])
+            ->one();
+
+        if ($swimming_pool == null ){
+            $swimming_pool = new PropertySwimmingPool();
+        }
+
+        $type_id_list = array();
+        foreach ($swimming_pool->propertySwimmingPoolTypeMaps as $type) {
+            array_push($type_id_list, $type->pool_type_id);
+        }
+
+        $restaurant = PropertyRestaurant::find()
+            ->where(['property_id' => $property->id])
+            ->one();
+
+        if ($restaurant == null ){
+            $restaurant = new PropertyRestaurant();
+        }
+
+        $selected_food_options = array();
+        foreach ($restaurant->propertyRestaurantFoodOptionMaps as $option) {
+            array_push($selected_food_options, $option->food_option_id);
+        }
+
+        $selected_cuisine_options = array();
+        foreach ($restaurant->propertyRestaurantCuisineOptionMaps as $option) {
+            array_push($selected_cuisine_options, $option->cuisine_option_id);
+        }
+
+        $parking = PropertyParking::find()
+            ->where(['property_id' => $property->id])
+            ->one();
+
+        if ($parking == null ){
+            $parking = new PropertyParking();
+        }
+
+        $selected_parking_options = array();
+        foreach ($parking->propertyParkingTypeMaps as $option) {
+            array_push($selected_parking_options, $option->parking_type_id);
+        }
+
+        $restaurant_cuisine_options = PropertyRestaurantCuisineOption::find()->all();
+        $restaurant_food_options = PropertyRestaurantFoodOption::find()->all();
+
+        $pool_types = PropertySwimmingPoolType::find()->orderBy('id')->all();
+
+        $parking_types = PropertyParkingType::find()->orderBy('id')->all();
+
+        //$complimentary_amenities = PropertyComplimentaryAmenity::find()->where(['property_id' => $property_id])->all();
+
+        $amenity_groups = AmenityGroup::find()->orderBy('id')->all();
+        $property_amenity = new PropertyAmenity();
+        $room_amenity = new RoomAmenity();
+        $property_amenity_suboption = new PropertyAmenitySuboption();
+        $room_amenity_suboption = new RoomAmenitySuboption();
+
+        $rooms = Room::find()
+            ->where(['property_id' => $property->id])
+            ->all();
+
+        $this->layout = 'tm_main';
+
+        return $this->render('amenities',[
+            'property' => $property, /*'complimentary_amenities' => $complimentary_amenities,*/
+            'swimming_pool' => $swimming_pool,
+            'pool_types' => $pool_types,
+            'type_id_list' => $type_id_list,
+            'restaurant_cuisine_options' => $restaurant_cuisine_options,
+            'restaurant_food_options' => $restaurant_food_options,
+            'restaurant' => $restaurant,
+            'parking_types' => $parking_types,
+            'selected_food_options' => $selected_food_options,
+            'selected_cuisine_options' => $selected_cuisine_options,
+            'selected_parking_options' => $selected_parking_options,
+            'amenity_groups' => $amenity_groups,
+            'rooms' => $rooms,
+            'property_amenity' => $property_amenity,
+            'room_amenity' => $room_amenity,
+            'property_amenity_suboption' => $property_amenity_suboption,
+            'room_amenity_suboption' => $room_amenity_suboption
+        ]);
+    }
+
+    public function actionSavecomplimentaryaminities(){
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+        if(!isset( $_REQUEST['property_id'])) {
+            return array('status' => 2,'message' => "Invalid input. Property missing.", 'data' => 0);;
+        }
+
+        $property_id = Yii::$app->request->post('property_id');
+
+
+        //Check this proerty owned by this user
+        if ($property_id != 0) {
+            $property = Property::find()
+                ->where(['id' => $property_id])
+                ->one();
+
+            if ($property == NULL){
+                return array('status' => 2,'message' => "Property (id) doesn't exists", 'data' => 0);
+            }
+        }
+        else {
+            return array('status' => 2,'message' => "Property id cannot zero", 'data' => 0);
+        }
+        $transaction = Yii::$app->db->beginTransaction();
+        try
+        {
+            $property->have_complimentary_services = Yii::$app->request->post('have_complimentary_services');
+            $property->save();
+            $complimentary_data = Yii::$app->request->post('complimentary_data');
+            parse_str($complimentary_data, $compDataArray);
+            PropertyComplimentaryAmenity::deleteAll(['property_id' => $property_id ]);
+
+            if (isset($compDataArray['complimentary_input'])) {
+                $comp_count = count($compDataArray['complimentary_input']);
+                for ($i = 0; $i < $comp_count; $i++ ) {
+                    $complimentary = new PropertyComplimentaryAmenity();
+                    $complimentary->property_id = $property_id;
+                    $complimentary->name = $compDataArray['complimentary_input'][$i];
+                    if($complimentary->validate()){
+                        $complimentary->save();
+                    }
+                }
+            }
+            $transaction->commit();
+            //TODO: Handling exception in page
+        } catch (\Exception $e) {
+            $transaction->rollBack();
+            return array('status' => 2,'message' => "error", 'data' => $e);
+        } catch (\Throwable $e) {
+            //TODO: Handling exception in page
+            $transaction->rollBack();
+//            throw $e;
+            return array('status' => 2,'message' => "error", 'data' => $e);
+
+        }
+
+        return array('status' => 0,'message' => "Property Amenities updated successfully", 'data' => 0);
+    }
+
+    public function actionSaveswimmingpooldata(){
+
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+        $property_id = Yii::$app->request->post('property_id');
+        //Check this proerty owned by this user
+        if ($property_id != 0 && $property_id != NULL) {
+            $property = Property::find()
+                ->where(['id' => $property_id])
+                ->one();
+
+            if ($property == NULL){
+                return array('status' => 2,'message' => "Property (id) doesn't exists", 'data' => 0);
+            }
+        }
+        else {
+            return array('status' => 2,'message' => "Property id cannot zero", 'data' => 0);
+        }
+        $transaction = Yii::$app->db->beginTransaction();
+        try
+        {
+            $property->have_swimming_pool = Yii::$app->request->post('have_swimming_pool');
+            $property->save();
+
+            $swimming_pool = PropertySwimmingPool::find()
+                ->where(['property_id' => $property_id])
+                ->one();
+            if ($swimming_pool == NULL ){
+                $swimming_pool = new PropertySwimmingPool();
+                $swimming_pool->property_id = $property_id;
+            }
+
+            $swimming_pool->count = Yii::$app->request->post('pool_count');
+
+            if($swimming_pool->validate()){
+                $swimming_pool->save();
+            }
+
+            $pool_type = Yii::$app->request->post('pool_type');
+            parse_str($pool_type, $poolDataArray);
+
+            if (isset($poolDataArray['pool_type'])) {
+                $pool_type_count = count($poolDataArray['pool_type']);
+                for ($i = 0; $i < $pool_type_count; $i++ ) {
+                    $pool_map = new PropertySwimmingPoolTypeMap();
+                    $pool_map->pool_id = $swimming_pool->getPrimaryKey();
+                    $pool_map->pool_type_id = $poolDataArray['pool_type'][$i];
+
+                    if($pool_map->validate()){
+                        $pool_map->save();
+                    }
+                }
+            }
+            $transaction->commit();
+            //TODO: Handling exception in page
+        } catch (\Exception $e) {
+            $transaction->rollBack();
+            return array('status' => 2,'message' => "error", 'data' => $e);
+        } catch (\Throwable $e) {
+            //TODO: Handling exception in page
+            $transaction->rollBack();
+//            throw $e;
+            return array('status' => 2,'message' => "error", 'data' => $e);
+
+        }
+
+
+        return array('status' => 0,'message' => "Property Swimming pool data updated successfully", 'data' => 0);
+    }
+    public function actionSaverestaurantdata(){
+
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+        $property_id = Yii::$app->request->post('property_id');
+        //Check this proerty owned by this user
+        if ($property_id != 0 && $property_id != NULL) {
+            $property = Property::find()
+                ->where(['id' => $property_id])
+                ->one();
+
+            if ($property == NULL){
+                return array('status' => 2,'message' => "Property (id) doesn't exists", 'data' => 0);
+            }
+        }
+        else {
+            return array('status' => 2,'message' => "Property id cannot zero", 'data' => 0);
+        }
+        $transaction = Yii::$app->db->beginTransaction();
+        try
+        {
+            $property->have_restaurant = Yii::$app->request->post('have_restaurant');
+            $property->save();
+
+            $restaurant = PropertyRestaurant::find()
+                ->where(['property_id' => $property_id])
+                ->one();
+
+            if ($restaurant == NULL ){
+                $restaurant = new PropertyRestaurant();
+                $restaurant->property_id = $property_id;
+            }
+
+            $restaurant->count = Yii::$app->request->post('restaurant_count');
+            if($restaurant->validate()){
+                $restaurant->save();
+            }
+
+            PropertyRestaurantFoodOptionMap::deleteAll(['restaurant_id' => $restaurant->getPrimaryKey() ]);
+
+            $food_option = Yii::$app->request->post('food_option');
+            parse_str($food_option, $food_optionDataArray);
+            if (isset($food_optionDataArray['food_option'])) {
+                $food_option_count = count($food_optionDataArray['food_option']);
+                for ($i = 0; $i < $food_option_count; $i++ ) {
+                    $food_option_map = new PropertyRestaurantFoodOptionMap();
+                    $food_option_map->restaurant_id = $restaurant->getPrimaryKey();
+                    $food_option_map->food_option_id = $food_optionDataArray['food_option'][$i];
+
+                    if($food_option_map->validate()){
+                        $food_option_map->save();
+                    }
+                }
+            }
+
+            PropertyRestaurantCuisineOptionMap::deleteAll(['restaurant_id' => $restaurant->getPrimaryKey() ]);
+            $cuisine_option = Yii::$app->request->post('cuisine_option');
+            parse_str($cuisine_option, $cuisine_optionDataArray);
+            if (isset($cuisine_optionDataArray['cuisine_option'])) {
+                $cuisine_option_count = count($cuisine_optionDataArray['cuisine_option']);
+
+                for ($i = 0; $i < $cuisine_option_count; $i++ ) {
+                    $cuisine_option_map = new PropertyRestaurantCuisineOptionMap();
+                    $cuisine_option_map->restaurant_id = $restaurant->getPrimaryKey();
+                    $cuisine_option_map->cuisine_option_id = $cuisine_optionDataArray['cuisine_option'][$i];
+
+                    if($cuisine_option_map->validate()){
+                        $cuisine_option_map->save();
+                    }
+                }
+            }
+            $transaction->commit();
+            //TODO: Handling exception in page
+        } catch (\Exception $e) {
+            $transaction->rollBack();
+            return array('status' => 2,'message' => "error", 'data' => $e);
+        } catch (\Throwable $e) {
+            //TODO: Handling exception in page
+            $transaction->rollBack();
+//            throw $e;
+            return array('status' => 2,'message' => "error", 'data' => $e);
+
+        }
+
+        return array('status' => 0,'message' => "Restaurant data saved successfully", 'data' => 0);
+    }
+
+    public function actionSaveparking(){
+
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+        $property_id = Yii::$app->request->post('property_id');
+        //Check this proerty owned by this user
+        if ($property_id != 0 && $property_id != NULL) {
+            $property = Property::find()
+                ->where(['id' => $property_id])
+                ->one();
+
+            if ($property == NULL){
+                return array('status' => 2,'message' => "Property (id) doesn't exists", 'data' => 0);
+            }
+        }
+        else {
+            return array('status' => 2,'message' => "Property id cannot zero", 'data' => 0);
+        }
+        $transaction = Yii::$app->db->beginTransaction();
+        try
+        {
+            $property->have_parking = Yii::$app->request->post('have_parking');
+            $property->save();
+
+            $parking = PropertyParking::find()
+                ->where(['property_id' => $property_id])
+                ->one();
+
+            if ($parking == NULL ){
+                $parking = new PropertyParking();
+                $parking->property_id = $property_id;
+            }
+
+            if($parking->validate()){
+                $parking->save();
+            }
+
+            PropertyParkingTypeMap::deleteAll(['parking_id' => $parking->getPrimaryKey() ]);
+
+            $parking_type = Yii::$app->request->post('parking_type');
+            parse_str($parking_type, $parkingDataArray);
+
+            if (isset($parkingDataArray['parking_type'])) {
+                $parking_count = count($parkingDataArray['parking_type']);
+
+                for ($i = 0; $i < $parking_count; $i++ ) {
+                    $parking_map = new PropertyParkingTypeMap();
+                    $parking_map->parking_id = $parking->getPrimaryKey();
+                    $parking_map->parking_type_id = $parkingDataArray['parking_type'][$i];
+
+                    if($parking_map->validate()){
+                        $parking_map->save();
+                    }
+                }
+            }
+
+            $transaction->commit();
+            //TODO: Handling exception in page
+        } catch (\Exception $e) {
+            $transaction->rollBack();
+            return array('status' => 2,'message' => "error", 'data' => $e);
+        } catch (\Throwable $e) {
+            //TODO: Handling exception in page
+            $transaction->rollBack();
+//            throw $e;
+            return array('status' => 2,'message' => "error", 'data' => $e);
+
+        }
+
+        return array('status' => 0,'message' => "Parking data updated successfully", 'data' => 0);
+    }
+
+
     public function actionPictures() {
         $this->layout = 'tm_main';
         $property = $this->getProperty();
@@ -1399,21 +1796,21 @@ class PropertyController extends Controller{
             ->one();
 
         if ($room == NULL){
-            $room = new Room();    
+            $room = new Room();
         }
-        
+
         $room_types = ArrayHelper::map(RoomType::find()->asArray()->all(), 'id', 'name');
         $room_view_type = ArrayHelper::map(PropertyRoomView::find()->asArray()->all(), 'id', 'name');
         $extra_bed_types = ArrayHelper::map(PropertyRoomExtraBedType::find()->asArray()->all(), 'id', 'name');
         $meal_plans = ArrayHelper::map(PropertyMealPlan::find()->asArray()->all(), 'id', 'name');
 
         return $this->render('room_categories_create',[
-            'property' => $property, 
-            'room' => $room, 
-            'room_types' => $room_types, 
-            'room_view_type' => $room_view_type, 
-            'meal_plans' => $meal_plans, 
-            'extra_bed_types' => $extra_bed_types,             
+            'property' => $property,
+            'room' => $room,
+            'room_types' => $room_types,
+            'room_view_type' => $room_view_type,
+            'meal_plans' => $meal_plans,
+            'extra_bed_types' => $extra_bed_types,
         ]);
 //        return $this->render('room_categories_create',['property' => $property, 'room' => $room, 'room_types' => $room_types, 'room_view_type' => $room_view_type, 'meal_plans' => $meal_plans, 'rooms' => $rooms]);
     }

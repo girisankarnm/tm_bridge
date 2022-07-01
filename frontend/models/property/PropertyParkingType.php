@@ -5,21 +5,21 @@ namespace frontend\models\property;
 use Yii;
 
 /**
- * This is the model class for table "amenity_group".
+ * This is the model class for table "property_parking_type".
  *
  * @property int $id
  * @property string|null $name
  *
- * @property Amenity[] $amenities
+ * @property PropertyParkingTypeMap[] $propertyParkingTypeMaps
  */
-class AmenityGroup extends \yii\db\ActiveRecord
+class PropertyParkingType extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
      */
     public static function tableName()
     {
-        return 'amenity_group';
+        return 'property_parking_type';
     }
 
     /**
@@ -44,22 +44,12 @@ class AmenityGroup extends \yii\db\ActiveRecord
     }
 
     /**
-     * Gets query for [[Amenities]].
+     * Gets query for [[PropertyParkingTypeMaps]].
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getAmenities()
+    public function getPropertyParkingTypeMaps()
     {
-        return $this->hasMany(Amenity::className(), ['nest_under_id' => 'id']);
-    }
-
-    /**
-     * Gets query for [[Amenities]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getRoomAmenities()
-    {
-        return $this->hasMany(Amenity::className(), ['nest_under_id' => 'id'])->where(['display_level_id' => 2]);
+        return $this->hasMany(PropertyParkingTypeMap::className(), ['parking_type_id' => 'id']);
     }
 }

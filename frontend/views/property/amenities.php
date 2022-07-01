@@ -4,6 +4,7 @@ use yii\bootstrap4\ActiveForm;
 $this->registerCssFile('/css/property/room_categories.css');
 $this->registerCssFile('/css/property/amenities.css');
 $this->registerJsFile('/js/property/amenities/index.js');
+$this->registerJsFile('/js/property/amenities/services_amenities.js');
 ?>
 
 <h5 class="title"> Room Category </h5>
@@ -29,6 +30,7 @@ $this->registerJsFile('/js/property/amenities/index.js');
     <div class="tab-content amenities-contr" id="pills-tabContent">
         <div class="tab-pane fade active show">
             <div class="amenities-content">
+                <input type="hidden" id="property_id" name="property_id" value=<?= $property->id ?>>
                 <div class="accordion" id="myAccordion">
                     <div class="accordion-item">
                         <button type="button" class="btn accordion-top text-left" type="button" data-toggle="collapse"
@@ -43,19 +45,40 @@ $this->registerJsFile('/js/property/amenities/index.js');
 
                                 <div class="form-group form-checkbox">
                                     <div class="form-material">
-                                        <input type="checkbox" name="" id="cancellation-policy" class="form-input-checkbox">
-                                        <label for="cancellation-policy">
+                                        <input type="checkbox" name="" id="complimentary_service" class="form-input-checkbox" <?= $property->have_complimentary_services == 1 ? "checked" : ""; ?>>
+                                        <label for="complimentary_service">
                                             <strong> Cancellation Policy has Period Based Rates </strong>
                                         </label>
                                     </div>
                                 </div>
 
-                                <div class="complimentary-list">
+                                <div id="complimentary_list" style="display: <?= $property->have_complimentary_services == 1 ? "block;" : "none;"; ?>">
+                                <div class="complimentary-list" id="complimentary_data">
+
+                                    <?php if ( count($property->propertyComplimentaryAmenities) > 0 ) { ?>
+
+                                    <?php foreach ($property->propertyComplimentaryAmenities as $amenity) {?>
+
+                                            <div class="d-flex form-group complimentary-item align-items-center">
+                                                <div class="form-material w-100 mr-2">
+                                                    <input value="<?= $amenity->name?>" type="text" name="complimentary_input[]" id="" class="form-control w-100" placeholder="Amenities">
+                                                </div>
+                                                <div class="d-flex remove-complimentary align-self-start" role="button">
+                                                    <div class="delete-icon my-1">
+                                                        <i class="fas fa-minus text-white"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                    <?php } ?>
+                                    <?php } else { ?>
+
                                     <div class="form-group">
                                         <div class="form-material">
-                                            <input type="text" name="" id="" class="form-control" placeholder="Amenities">
+                                            <input type="text" name="complimentary_input[]" id="" class="form-control" placeholder="Amenities">
                                         </div>
                                     </div>
+                                    <?php } ?>
                                 </div>
 
                                 <div class="d-flex add-items add-complimentary add-button align-items-center mb-2" role="button">
@@ -64,8 +87,9 @@ $this->registerJsFile('/js/property/amenities/index.js');
                                     </div>
                                     <p class="mb-0"> Add more </p>
                                 </div>
+                                </div>
                             </div>
-                            <button class="btn btn-primary"> Save </button>
+                            <button id="save_complimentary" class="btn btn-primary"> Save </button>
                         </div>
                     </div>
 
@@ -82,12 +106,13 @@ $this->registerJsFile('/js/property/amenities/index.js');
 
                                 <div class="form-group form-checkbox">
                                     <div class="form-material">
-                                        <input type="checkbox" name="" id="swimming-pool" class="form-input-checkbox">
-                                        <label for="swimming-pool">
+                                        <input <?= $property->have_swimming_pool == 1 ? "checked" : ""; ?> type="checkbox" name="" id="swimming_pool" class="form-input-checkbox">
+                                        <label for="swimming_pool">
                                             <strong> Swimming Pool </strong>
                                         </label>
                                     </div>
                                 </div>
+                                <div id="sm_div" class="mb-4" style="display: <?= $property->have_swimming_pool == 1 ? "block;" : "none;"; ?>">
 
                                 <div class="swimming-details mb-4">
                                     <div class="row align-items-center">
@@ -97,7 +122,7 @@ $this->registerJsFile('/js/property/amenities/index.js');
 
                                         <div class="col-10">
                                             <div class="form-group">
-                                                <input type="text" name="" id="" class="form-control input-sm">
+                                                <input value="<?= $swimming_pool->count ?>" type="text" name="PropertySwimmingPool[count]" id="propertyswimmingpool-count" class="form-control input-sm">
                                             </div>
                                         </div>
 
@@ -106,40 +131,150 @@ $this->registerJsFile('/js/property/amenities/index.js');
                                         </div>
 
                                         <div class="d-flex col-10 align-items-center">
-                                            <div class="form-group form-checkbox mr-4">
-                                                <div class="form-material">
-                                                    <input type="checkbox" name="" id=indoor-type" class="form-input-checkbox">
-                                                    <label for=indoor-type">
-                                                        Indoor
-                                                    </label>
-                                                </div>
-                                            </div>
+
+                                        <?php foreach ($pool_types as $pool_type):?>
 
                                             <div class="form-group form-checkbox mr-4">
                                                 <div class="form-material">
-                                                    <input type="checkbox" name="" id="OutDoor-type" class="form-input-checkbox">
-                                                    <label for="OutDoor-type">
-                                                        Out Door
+                                                    <input type="checkbox" name="pool_type[]" id="<?php echo $pool_type->id ?>" class="form-input-checkbox" value="<?php echo $pool_type->id ?>" name="pool_type[]" <?php echo in_array($pool_type->id, $type_id_list) ? "checked" : ""   ?>>
+                                                    <label for="<?php echo $pool_type->id ?>">
+                                                        <?php echo $pool_type->name; ?>
                                                     </label>
                                                 </div>
                                             </div>
+                                        <?php endforeach; ?>
 
-                                            <div class="form-group form-checkbox mr-4">
-                                                <div class="form-material">
-                                                    <input type="checkbox" name="" id="roof-type" class="form-input-checkbox">
-                                                    <label for="roof-type">
-                                                        Roof Top
-                                                    </label>
-                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+
+                                <button class="btn btn-primary mb-4" id="save_swimming_pool"> Save </button>
+
+                                <div class="form-group form-checkbox">
+                                    <div class="form-material">
+                                        <input <?= $property->have_restaurant == 1 ? "checked" : ""; ?> type="checkbox" name="" id="restaurant" class="form-input-checkbox">
+                                        <label for="restaurant">
+                                            <strong> Swimming Pool </strong>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div id="rs_div" class="mb-4" style="display: <?= $property->have_restaurant == 1 ? "block;" : "none;"; ?>">
+
+                                <div class="swimming-details mb-4">
+                                    <div class="row align-items-center">
+                                        <div class="col-2">
+                                            <p> Number of Restaurants </p>
+                                        </div>
+
+                                        <div class="col-10">
+                                            <div class="form-group">
+                                                <input value="<?= $restaurant->count ?>" type="text" name="PropertyRestaurant[count]" id="propertyrestaurant-count" class="form-control input-sm">
                                             </div>
+                                        </div>
+                                    </div>
+                                    <div class="row align-items-center">
+                                        <div class="col-2">
+                                            <p> Food Options </p>
+                                        </div>
 
-                                            <div class="form-group form-checkbox mr-4">
-                                                <div class="form-material">
-                                                    <input type="checkbox" name="" id="infinity-type" class="form-input-checkbox">
-                                                    <label for="infinity-type">
-                                                        Infinity
-                                                    </label>
-                                                </div>
+                                        <div class="col-5">
+                                            <div class="form-group">
+                                                <select multiple id="food_options" name="food_option[]"  class="select2 w-75" data-placeholder="Type">
+                                                    <?php foreach ($restaurant_food_options as $food):?>
+                                                        <option value="<?php echo $food->id ?>" <?php echo in_array($food->id, $selected_food_options) ? "selected='selected'" : ""   ?>><?php echo $food->name ?></option>
+                                                    <?php endforeach; ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row align-items-center">
+                                        <div class="col-2">
+                                            <p> Cuisine Options </p>
+                                        </div>
+
+                                        <div class="col-5">
+                                            <div class="form-group">
+                                                <select id="cuisine_options" name="cuisine_option[]" multiple  class="select2 w-75" data-placeholder="Type">
+                                                    <?php foreach ($restaurant_cuisine_options as $cuisine):?>
+                                                        <option value="<?php echo $cuisine->id ?>" <?php echo in_array($cuisine->id, $selected_cuisine_options) ? "selected='selected'" : ""   ?>><?php echo $cuisine->name ?></option>
+                                                    <?php endforeach; ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                                <button id="save_restaurant" class="btn btn-primary mb-4"> Save </button>
+
+                                <div class="form-group form-checkbox">
+                                    <div class="form-material">
+                                        <input <?= $property->have_parking == 1 ? "checked" : ""; ?> type="checkbox" name="" id="parking" class="form-input-checkbox">
+                                        <label for="parking">
+                                            <strong> Parking </strong>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div id="pk_div" class="mb-4" style="display: <?= $property->have_parking == 1 ? "block;" : "none;"; ?>">
+                                    <div class="swimming-details mb-4">
+                                        <div class="row align-items-center">
+                                            <div class="col-2">
+                                                <p> Type of Parking </p>
+                                            </div>
+                                            <div class="d-flex col-10 align-items-center">
+
+                                                <?php foreach ($parking_types as $parking_type):?>
+
+                                                    <div class="form-group form-checkbox mr-4">
+                                                        <div class="form-material">
+                                                            <input type="checkbox" name="parking_type[]" id="checkbox-<?php echo $parking_type->id ?>" class="form-input-checkbox" value="<?php echo $parking_type->id ?>" name="parking_type[]" <?php echo in_array($parking_type->id, $selected_parking_options) ? "checked" : ""   ?>>
+                                                            <label for="checkbox-<?php echo $parking_type->id ?>">
+                                                                <?php echo $parking_type->name; ?>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                <?php endforeach; ?>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button id="save_parking" class="btn btn-primary mb-4"> Save </button>
+
+                                <p>
+                                    <strong> Property Features </strong>
+                                </p>
+
+                                <div class="swimming-details mb-4">
+
+
+                                    <div class="row align-items-center">
+                                        <div class="col-2">
+                                            <p> Garden </p>
+                                        </div>
+
+                                        <div class="col-5">
+                                            <div class="form-group">
+                                                <select multiple id="food_options" name="food_option[]"  class="select2 w-75" data-placeholder="Type">
+                                                    <?php foreach ($restaurant_food_options as $food):?>
+                                                        <option value="<?php echo $food->id ?>" <?php echo in_array($food->id, $selected_food_options) ? "selected='selected'" : ""   ?>><?php echo $food->name ?></option>
+                                                    <?php endforeach; ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row align-items-center">
+                                        <div class="col-2">
+                                            <p> Lawn </p>
+                                        </div>
+
+                                        <div class="col-5">
+                                            <div class="form-group">
+                                                <select id="cuisine_options" name="cuisine_option[]" multiple  class="select2 w-75" data-placeholder="Type">
+                                                    <?php foreach ($restaurant_cuisine_options as $cuisine):?>
+                                                        <option value="<?php echo $cuisine->id ?>" <?php echo in_array($cuisine->id, $selected_cuisine_options) ? "selected='selected'" : ""   ?>><?php echo $cuisine->name ?></option>
+                                                    <?php endforeach; ?>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -147,23 +282,6 @@ $this->registerJsFile('/js/property/amenities/index.js');
 
                                 <button class="btn btn-primary mb-4"> Save </button>
 
-                                <div class="form-group form-checkbox">
-                                    <div class="form-material">
-                                        <input type="checkbox" name="" id=restaurant-type" class="form-input-checkbox">
-                                        <label for=restaurant-type" class="mb-0">
-                                            Restaurant
-                                        </label>
-                                    </div>
-                                </div>
-
-                                <div class="form-group form-checkbox">
-                                    <div class="form-material">
-                                        <input type="checkbox" name="" id=parking-type" class="form-input-checkbox">
-                                        <label for=parking-type" class="mb-0">
-                                            Parking
-                                        </label>
-                                    </div>
-                                </div>
 
                                 <p>
                                     <strong> Accessibility </strong>
@@ -180,7 +298,7 @@ $this->registerJsFile('/js/property/amenities/index.js');
                                     </div>
                                     <div class="form-group form-checkbox">
                                         <div class="form-material">
-                                            <select name="type" id="type" class="select2 w-75" data-placeholder="Type">
+                                            <select  class="select2 w-75" data-placeholder="Type">
                                                 <option value=""></option>
                                                 <option value="type-1"> Type 1 </option>
                                             </select>
@@ -199,7 +317,7 @@ $this->registerJsFile('/js/property/amenities/index.js');
                                     </div>
                                     <div class="form-group form-checkbox">
                                         <div class="form-material">
-                                            <select name="type" id="type1" class="select2 w-75" data-placeholder="Type">
+                                            <select  class="select2 w-75" data-placeholder="Type">
                                                 <option value=""></option>
                                                 <option value="type-1"> Type 1 </option>
                                             </select>
