@@ -27,7 +27,7 @@ const MAXIMUM_NUMBER_OF_RATE_SLAB = 15;
     '<td>' +
     '<input type="text" name="single_occupancy_'+ id + '[]" class="inputTextroomtable" required />' +
     '</td>' +
-    '<td><button id="remr" onclick="deleteSlabRow(this,'+id+'); return true;" style="border-radius: 50%"><i class="fa fa-minus"></i></button></td>' +
+    '<td><button id="remr" onclick="deleteSlabRow(this,'+id+'); return true;" style="border-radius: 50%;border: 0px;background-color: #f9f9f9"><i name="compulsory_rem" class="fa fa-minus fa-lg text-danger mt-2 ml-4"></i></button></td>' +
     '</tr>');
 
   }
