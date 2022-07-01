@@ -1,0 +1,10 @@
+.swimming-details {
+    background: #FFFFFF;
+    box-shadow: 0px 4px 39px 9px rgba(81, 69, 159, 0.09);
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.accessibility-contr .select2.select2-container {
+    width: 400px !important;
+}

@@ -1,0 +1,52 @@
+/*
+* @author Jinsan T J
+* Style sheet for Rules And Room and categories page
+ */
+
+.room-categories .category-item {
+    background: #FFFFFF;
+    box-shadow: 0px 4px 39px 9px rgba(81, 69, 159, 0.09);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.room-categories .category-item .categories-icon {
+    text-align: center;
+    background-color: transparent;
+    width: 25px;
+    height: 25px;
+    line-height: 15px;
+    border-radius: 50%;
+    border: 2px solid var(--success-color);
+    padding: 3px;
+}
+
+.room-categories .category-item .categories-icon svg {
+    font-size: 12px !important;
+    color: var(--success-color);
+}
+
+.room-categories .category-item.active {
+    color: var(--white-color);
+    background-color: var(--secondary-color);
+}
+
+.room-categories .category-item.active :where(h6, p) {
+    color: var(--white-color);
+}
+
+.room-categories .category-item.active .categories-icon {
+    border: 2px solid var(--white-color);
+}
+
+.room-categories .category-item.active .categories-icon svg {
+    color: var(--white-color);
+}
+
+.status-list .status-icon {
+    width: 15px;
+}
+
+.status-list .edit-icon {
+    width: 25px;
+}

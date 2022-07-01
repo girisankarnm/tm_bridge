@@ -3,7 +3,7 @@ $(function () {
     <div class="row cancellation-detail-item align-items-center mb-2">
         <div class="col-2 fit-width-112px">
             <div class="form-group">
-                <input type="text" name="" id="" class="form-control input-sh">
+                <input type="text" name="percentage[]" id="" class="form-control input-sh">
             </div>
         </div>
         <div class="col-4 fit-width-215px">
@@ -11,13 +11,13 @@ $(function () {
         </div>
         <div class="d-flex col-2 fit-width-105px align-items-center pr-0">
             <div class="form-group mr-3">
-                <input type="text" name="" id="" class="form-control input-sh">
+                <input type="text" name="from_days[]" id="" class="form-control input-sh">
             </div>
             <p> To </p>
         </div>
         <div class="col-2 fit-width-70px">
             <div class="form-group">
-                <input type="text" name="" id="" class="form-control input-sh">
+                <input type="text" name="to_days[]" id="" class="form-control input-sh">
             </div>
         </div>
         <div class="col-3">
@@ -42,18 +42,22 @@ $(function () {
         });
     }
 
-    $('input[name="admin_charge_cancellation_type"]').on('change',  () => {
-        var value = $('input[name="admin_charge_cancellation_type"]:checked').val();
+    $('input[name="Property[admin_cancellation_type]"]').on('change',  () => {
+        var value = $('input[name="Property[admin_cancellation_type]"]:checked').val();
         console.log(value);
         $('.admin-charges-item').hide();
-        if(value == 'lump_sum_charges_per_cancellation') {
+        if(value == 1) {
             $('.lum_sum_amt').fadeIn();
         }
-        else if(value == 'zero_percent_package_amount') {
+        else if(value == 2) {
             $('.package-amt').fadeIn();
         }
-        else if(value = 'per_basis') {
+        else if(value = 3) {
             $('.kids-amt').fadeIn();
         }
+    });
+
+    $( document ).ready(function() {
+        deleteRow();
     });
 });

@@ -1,6 +1,7 @@
 <?php
 
 namespace frontend\controllers;
+use frontend\models\property\CancellationRefundPeriod;
 use frontend\models\Country;
 use frontend\models\Destination;
 use frontend\models\LegalDocsImages;
@@ -26,6 +27,10 @@ use frontend\models\property\PropertyContacts;
 use frontend\models\property\PropertyPictures;
 use frontend\models\property\RoomPictures;
 use frontend\models\property\Room;
+use frontend\models\property\RoomType;
+use frontend\models\property\PropertyRoomView;
+use frontend\models\property\PropertyMealPlan;
+use frontend\models\property\PropertyRoomExtraBedType;
 use yii\web\ForbiddenHttpException;
 use yii\web\NotFoundHttpException;
 use yii\web\UploadedFile;
@@ -822,6 +827,65 @@ class PropertyController extends Controller{
         return array('status' => 1,'message' => "Failed to update Pets policy.", 'data' => 0);
     }
 
+    public function actionSavecancellationcharges(){
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+        if(!isset( $_REQUEST['property_id'])) {
+            return array('status' => 2,'message' => "Invalid input. Property id missing.", 'data' => 0);;
+        }
+
+        $property_id = Yii::$app->request->post('property_id');
+        //Check this prooerty owned by this user
+        if ($property_id != 0) {
+            $property = Property::find()
+                ->where(['id' => $property_id])
+                ->one();
+
+            if ($property == NULL){
+                return array('status' => 2,'message' => "Property (id) doesn't exists", 'data' => 0);
+            }
+        }
+        else {
+            return array('status' => 2,'message' => "Property id cannot zero", 'data' => 0);
+        }
+
+        $property->cancellation_has_period_charge = Yii::$app->request->post('cancellation_has_period_charge');
+        $property->cancellation_has_admin_charge = Yii::$app->request->post('cancellation_has_admin_charge');
+        $property->admin_cancellation_type = Yii::$app->request->post('admin_cancellation_type');
+        $property->cancellation_lumsum_amount = Yii::$app->request->post('cancellation_lumsum_amount');
+        $property->cancellation_percentage_rate = Yii::$app->request->post('cancellation_percentage_rate');
+        $property->cancellation_per_adult_amount = Yii::$app->request->post('cancellation_per_adult_amount');
+        $property->cancellation_per_kids_amount = Yii::$app->request->post('cancellation_per_kids_amount');
+        $property->cancellation_full_refund_days = Yii::$app->request->post('cancellation_full_refund_days');
+        $property->cancellation_no_refund_days = Yii::$app->request->post('cancellation_no_refund_days');
+
+        //Store peridwise rates
+        if ($property->cancellation_has_period_charge) {
+            $period_data = Yii::$app->request->post('period_data');
+            parse_str($period_data, $periodDataArray);
+            $period_count = count($periodDataArray["percentage"]);
+
+            //Delete previous period definition, before adding new period definition
+            if ($period_count > 0 ) {
+                CancellationRefundPeriod::deleteAll(['property_id' => $property_id ]);
+            }
+
+            for ($i = 0; $i < $period_count; $i++ ) {
+                $canellation_period = new CancellationRefundPeriod();
+                $canellation_period->property_id = $property_id;
+                $canellation_period->percentage = $periodDataArray["percentage"][$i];
+                $canellation_period->from_date = $periodDataArray["from_days"][$i];
+                $canellation_period->to_date = $periodDataArray["to_days"][$i];
+
+                $canellation_period->save();
+            }
+        }
+
+        if ($property->save() ) {
+            return array('status' => 0,'message' => "Property Cancellation policy updated successfully", 'data' => 0);
+        }
+    }
+
     public function actionSavechildpolicy(){
         \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
 
@@ -1319,5 +1383,86 @@ class PropertyController extends Controller{
 
         return $out;
 
+    }
+
+
+    //Room category
+
+    public function actionCreatecategories(){
+        $this->layout = 'tm_main';
+        if(!isset( $_GET['id'])) {
+            echo "Inavlid Input";
+            return;
+        }
+
+        $property_id = (int) Yii::$app->request->get('id');
+        if ($property_id != 0) {
+            $property = Property::find()
+                ->where(['id' => $property_id])
+                ->one();
+
+            if ($property == NULL){
+                echo "Property (id) doesn't exists";
+                return;
+            }
+        }
+        else {
+            echo "Property doesn't exist";
+            return;
+        }
+
+        $room = new Room();
+        $rooms = Room::find()->all();
+        $room_types = ArrayHelper::map(RoomType::find()->asArray()->all(), 'id', 'name');
+        $room_view_type = ArrayHelper::map(PropertyRoomView::find()->asArray()->all(), 'id', 'name');
+        $extra_bed_types = ArrayHelper::map(PropertyRoomExtraBedType::find()->asArray()->all(), 'id', 'name');
+        $meal_plans = ArrayHelper::map(PropertyMealPlan::find()->asArray()->all(), 'id', 'name');
+
+
+        return $this->render('room_categories_create',['property' => $property, 'room' => $room, 'room_types' => $room_types, 'room_view_type' => $room_view_type, 'meal_plans' => $meal_plans, 'extra_bed_types' => $extra_bed_types, 'rooms' => $rooms]);
+//        return $this->render('room_categories_create',['property' => $property, 'room' => $room, 'room_types' => $room_types, 'room_view_type' => $room_view_type, 'meal_plans' => $meal_plans, 'rooms' => $rooms]);
+    }
+
+    public function actionSaveroomcategory(){
+        $property_id = Yii::$app->request->post('property_id');
+        $rooms =  Yii::$app->request->post('Room');
+
+
+        //TODO: Check this proerty owned by this user
+        if ($property_id != 0) {
+            $property = Property::find()
+                ->where(['id' => $property_id])
+                ->one();
+
+            if ($property == NULL){
+                return array('status' => 2,'message' => "Property (id) doesn't exists", 'data' => 0);
+            }
+        }
+        else {
+            return array('status' => 2,'message' => "Property id cannot zero", 'data' => 0);
+        }
+        $room = new Room();
+        $room->name = $rooms['name'];
+        $room->type_id = $rooms['type_id'];
+        $room->view_id = $rooms['view_id'];
+        $room->meal_plan_id = $rooms['meal_plan_id'];
+        $room->count = $rooms['count'];
+        $room->size = $rooms['size'];
+        $room->child_policy_same_as_property = $rooms['child_policy_same_as_property'];
+        $room->restricted_for_child = $rooms['restricted_for_child'];
+        $room->restricted_for_child_below_age = $rooms['restricted_for_child_below_age'];
+        $room->number_of_adults = $rooms['number_of_adults'];
+        $room->number_of_kids_on_sharing = $rooms['number_of_kids_on_sharing'];
+        $room->number_of_extra_beds = $rooms['number_of_extra_beds'];
+//        $room->extra_bed_type_id = $rooms['extra_bed_type_id'];
+//        $room->is_base = Yii::$app->request->post('room_is_base');
+        $room->property_id = $property_id;
+        $room->save();
+//        return ;
+    }
+
+    public function actionAmenities() {
+        $this->layout = 'tm_main';
+        return $this->render('amenities');
     }
 }

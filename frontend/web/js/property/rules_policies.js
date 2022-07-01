@@ -452,3 +452,167 @@ function saveTariffOptions(){
 }
 
 /////////////////End Tariff Option Policy /////////////////////
+
+///////////// Cancellation Policy //////////////////////////
+
+$("#property-cancellation_has_period_charge").click(function () {
+
+    if($(this).is(":checked")) {
+        $("#pb_div").show(300);
+    } else {
+        $("#pb_div").hide(200);
+    }
+});
+
+$("#property-cancellation_has_admin_charge").click(function () {
+    if($(this).is(":checked")) {
+        $("#ac_div").show(300);
+    } else {
+        $("#ac_div").hide(200);
+    }
+});
+
+$('#save_cancellation_policy').click(function(e){
+    e.preventDefault();
+    SaveCancellationPolicy();
+});
+
+function SaveCancellationPolicy() {
+    $("#overlay").fadeIn(300);
+    var bError = validateCancellationPolicy();
+    if(bError){
+        $("#overlay").fadeOut(300);
+        console.log('Validation Error');
+        console.log(bError);
+        return;
+    }
+
+    $.post("index.php?r=property/savecancellationcharges",{
+        property_id:  $('#property_id').val(),
+        cancellation_has_period_charge: $('#property-cancellation_has_period_charge').is(":checked") ? 1 : 0,
+        cancellation_has_admin_charge : $('#property-cancellation_has_admin_charge').is(":checked") ? 1 : 0,
+        cancellation_full_refund_days: $('#property-cancellation_full_refund_days').val(),
+        cancellation_no_refund_days: $('#property-cancellation_no_refund_days').val(),
+        admin_cancellation_type: $('input[name="Property[admin_cancellation_type]"]:checked').val(),
+        cancellation_lumsum_amount: $('#property-cancellation_lumsum_amount').val(),
+        cancellation_percentage_rate: $('#property-cancellation_percentage_rate').val(),
+        cancellation_per_adult_amount: $('#property-cancellation_per_adult_amount').val(),
+        cancellation_per_kids_amount: $('#property-cancellation_per_kids_amount').val(),
+
+        period_data:  $('#period_data :input').serialize()
+    }, function (response) {
+        if ( parseInt(response.status) == 0) {
+            toastr.success("Cancellation policy updated");
+        } else
+        {
+            toastr.error(response.message);
+        }
+        $("#overlay").fadeOut(300);
+    })
+        .fail(function() {
+            $("#overlay").fadeOut(300);
+            toastr.error( "HTTP Error: Unable to connect to Server" );
+        });
+}
+
+function validateCancellationPolicy(){
+    var bError = false;
+
+    if ($('#property-cancellation_has_period_charge').is(":checked"))
+    {
+        if($('#property-cancellation_full_refund_days').val() == '' ||
+            $('#property-cancellation_no_refund_days').val() == ''){
+            bError = true;
+            // toastr.error("Full refund and No refund days should not be empty");
+            return bError;
+        }
+
+        var full_refund_days = parseInt($('#property-cancellation_full_refund_days').val());
+        var no_refund_days = parseInt($('#property-cancellation_no_refund_days').val());
+
+        if (no_refund_days <= 0 || full_refund_days <= 0 ) {
+            bError = true;
+            // toastr.error("Full refund/No refund days is not valid");
+            return bError;
+        }
+
+        if (no_refund_days >= full_refund_days ) {
+            bError = true;
+            // toastr.error("No refund days can't be more than or equal to Full refund Period");
+            return bError;
+        }
+
+        var inpt_from_days = document.getElementsByName('from_days[]');
+        var inpt_to_days = document.getElementsByName('to_days[]');
+        var percentage = document.getElementsByName('percentage[]');
+
+        for (var i = 0; i < inpt_from_days.length; i++) {
+
+            if( !(inpt_to_days[i].value) || (!inpt_from_days[i].value) || (!percentage[i].value) ) {
+                bError = true;
+                // toastr.error("Period's percentage, from days or to days should not be empty");
+                return bError;
+            }
+
+            if ( parseInt(inpt_to_days[i].value) >= (full_refund_days - 1) ) {
+                bError = true;
+                // toastr.error("To date can't higher or equal to full refund days");
+                return bError;
+            }
+
+            if ( parseInt(inpt_to_days[i].value) > (inpt_from_days[i].value) ) {
+                // toastr.error("To date can't higher or equal to input from days");
+                return bError;
+            }
+
+            if ( parseInt(inpt_to_days[i].value) <= (no_refund_days) ) {
+                bError = true;
+                // toastr.error("To date can't lower or equal than No refund days");
+                return bError;
+            }
+        }
+
+        if (parseInt(inpt_to_days[(inpt_from_days.length - 1)].value) != (no_refund_days + 1)) {
+            bError = true;
+            // toastr.error("Period not completed");
+            return bError;
+        }
+        //toastr.success("Period Validation success");
+    }
+
+    if ($('#property-cancellation_has_admin_charge').is(":checked")) {
+        var radio = $('input[name="Property[admin_cancellation_type]"]:checked');
+        if (radio.length == 0) {
+            bError = true;
+            // toastr.error("Select type of admin charge");
+            return bError;
+        }
+
+        var adminChargeType = parseInt($('input[name="Property[admin_cancellation_type]"]:checked').val());
+
+        if (adminChargeType == 1 ){
+            if ( parseInt($('#property-cancellation_lumsum_amount').val().trim()) <= 0 ||
+                $('#property-cancellation_lumsum_amount').val().trim().length == 0) {
+                bError = true;
+                // toastr.error("Invalid lumsum amount");
+            }
+        } else if (adminChargeType == 2){
+            if ( parseInt($('#property-cancellation_percentage_rate').val()) <= 0 ||
+                $('#property-cancellation_percentage_rate').val().trim().length == 0) {
+                bError = true;
+                // toastr.error("Invalid percentage");
+            }
+        } else if (adminChargeType == 3){
+            if ( parseInt($('#property-cancellation_per_adult_amount').val()) <= 0 ||
+                parseInt($('#property-cancellation_per_kids_amount').val()) <= 0 ||
+                $('#property-cancellation_per_adult_amount').val().trim().length == 0 ||
+                $('#property-cancellation_per_kids_amount').val().trim().length == 0)
+            {
+                bError = true;
+                // toastr.error("Invalid Adult/Kids amount");
+            }
+        }
+    }
+
+    return bError;
+}

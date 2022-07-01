@@ -4,14 +4,13 @@ use frontend\models\tariff\TariffDateRange;
 ?>
 
 <?php
-    if(count($range->roomTariffDatewises) > 0) {
-        echo Yii::$app->controller->renderPartial('_date_range_block', [
-            'range' => $range,
-            'property' => $property,
-            'tariff' => 1,
-            'current_loop' => $current_loop,
-        ]);
-    }
+    echo Yii::$app->controller->renderPartial('_date_range_block', [
+        'range' => $range,
+        'property' => $property,
+        'tariff' => 1,
+        'current_loop' => $current_loop,
+    ]);
+    
 
     if($range->getNestingCount() > 0 ) {
         $child_ranges = TariffDateRange::find()

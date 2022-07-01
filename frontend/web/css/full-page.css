@@ -61,6 +61,7 @@
 
 .login-input::placeholder{
     color: grey;
+    text-indent: 14px;
 }
 
 

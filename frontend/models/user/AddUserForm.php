@@ -48,11 +48,11 @@ class AddUserForm extends Model{
         $bAddNewUser = true;
         $user = NULL;
         if($this->user_id != 0) {
-            $user = User::find()->where(['id' => $this->user_id])->one();
+            $user = \frontend\models\user\User::find()->where(['id' => $this->user_id])->one();
         }
 
         if($user == NULL) {
-            $user = new User;           
+            $user = new \frontend\models\user\User();
         } 
         else {
             $bAddNewUser = false;
@@ -67,7 +67,7 @@ class AddUserForm extends Model{
         $user->phone = $this->phone;
         $user->email = $this->email;
         $user->user_type = $this->user_type;        
-        $user->status = User::STATUS_INACTIVE;
+        $user->status = \frontend\models\user\User::STATUS_INACTIVE;
         $user->password_change_on_login = 1;
         $user->parent = $this->parent;
         $user->setPassword($this->password);
