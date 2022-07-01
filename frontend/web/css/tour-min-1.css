@@ -934,11 +934,18 @@ hr.new1 {
 }
 hr.new2 {
     width: 256px;
-
-    border-top: 1px solid black;
-
+    border-top: 1rem snow black;
 }
-
+.margin-top-100px {
+    margin-top: 100px
+}
+.scroll-css
+{
+    height: 200px;
+    overflow-y: auto;
+    scrollbar-width: 20px;
+    overflow-x:hidden;
+}
 .flex-container > div {
     background-color: #fdfdff;
 
@@ -1169,7 +1176,7 @@ hr.new2 {
     border-radius: 14px;
     margin-left: 3px;
     margin-right: 5px;
-    margin-bottom: 15px;
+    margin-bottom: 0px;
     padding-top: 20px;
     padding-left: 12px;
     background-color: #fff;
@@ -2273,7 +2280,7 @@ background-color: blue;
 }
 
 #border-box-location div:nth-of-type(2) {
-    flex-basis: 350px;
+    flex-basis: 450px;
     padding-top: 0px;
     line-height: .8rem;
 
@@ -2282,4 +2289,90 @@ background-color: blue;
 #accordion ul li:first-child div {
     display:block;
     border-top:3px solid #FFCDCD;
+}
+
+#mainmotherdate {
+    padding-top: 9px;
+    width: 300px;
+    height: 10px;
+    flex-wrap: wrap;
+    display: flex;
+}
+
+#mainmotherdate div {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 50px;
+}
+#mainmotherdate div:nth-of-type(1) {
+    flex-basis: 60px;
+}
+
+#mainmotherdate div:nth-of-type(2) {
+    flex-basis: 76px;
+}
+
+#mainmotherdate div:nth-of-type(3) {
+    flex-basis: 20px;
+
+}
+#mainmotherdate div:nth-of-type(4) {
+    110px;
+    align-content: stretch;
+
+}
+#mainmotherdate div:nth-of-type(5) {
+    flex-basis:100%;
+    /*flex-wrap:wrap;*/
+    height: 12px;
+    margin-top: 5px;
+    margin-left: 55px;
+    align-content: stretch;
+
+}
+
+#mainmotherdate div:nth-of-type(6) {
+    flex-basis:100%;
+    flex-wrap:wrap;
+    height: 12px;
+    margin-top: 5px;
+
+    align-content: stretch;
+
+}
+
+
+
+
+#main2motherdate {
+    align-content: stretch;
+    padding-top: 5px;
+    width: 65%;
+    height:20px;
+
+    display: flex;
+}
+
+#main2motherdate div {
+    height: 10px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 60px;
+}
+#main2motherdate div:nth-of-type(1) {
+    flex-basis: 60px;
+    overflow: hidden;
+}
+#main2motherdate div:nth-of-type(2) {
+    flex-basis: 60px;
+    overflow: hidden;
+
+
+}
+#main2motherdate div:nth-of-type(3) {
+    flex-basis: 130px;
+    overflow: hidden;
+}
+#main2motherdate div:nth-of-type(4) {
+    flex-basis: 450px;
 }

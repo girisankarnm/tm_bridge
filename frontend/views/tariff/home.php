@@ -36,7 +36,7 @@ use Carbon\Carbon;
                </div>
                   </div>
                      <div style="display: inline">
-                          <BUTTON type="button" style="float: right" class="motherdateAddButton fontsize-button"  data-toggle="modal" data-target="#logoutModal">  <i class="fa fa-plus-circle plusbuttonspace material-icons " aria-hidden="true"></i><?= Html::a('Add new mother date range', Url::toRoute(['/tariff/addmotherdate', 'id' => $property->id ,'class' => 'fontsize-button' ])) ?>  </BUTTON>
+                          <BUTTON type="button" style="float: right" class="motherdateAddButton fontsize-button"  data-toggle="modal" data-target="#logoutModal">  <i class="fa fa-plus-circle plusbuttonspace material-icons " aria-hidden="true"></i><?= Html::a('Add new mother date range', Url::toRoute(['/tariff/addmotherdate', 'id' => $property->id  ],['class' => 'fontsize-button'])) ?>  </BUTTON>
                      </div>
                   </div>
                 <?php

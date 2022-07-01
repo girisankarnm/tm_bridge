@@ -65,7 +65,7 @@ table, th, td {
             <div id="mainHeding-location"style="height: 43px;">
                 <div > <img style="width: 34px;height: 34px" src="images/building1.png" alt="Matrix"></div>
                 <div >
-                    <div id="border-box-location"\>
+                    <div id="border-box-location">
                         <div  >
                           <span class="hotelHeading" > <?= $property->name ?> <img class="f-star" src="images/Star-1.svg" alt="Matrix">
                            <img class="f-star" style="padding-left: 2px"  src="images/Star-1.svg" alt="Matrix">
@@ -114,87 +114,35 @@ table, th, td {
             </div>
         </div>
         <div class="col-4" >
-            <div class="row" style="height: 350px;  overflow-y: scroll;scrollbar-width: 20px;">
+            <div class="row scroll-css" >
                 <?php
                 $i = 1;
                 foreach ($mother_ranges as $range) { ?>
-                <div class="flex-container flex-container2" >
-                    <div><i style="background-color: white;color: red;font-size: 28px;margin-right: 5px" class="fa fa-check-circle w3-large" aria-hidden="true"></i></div>
-                    <div style=" flex-direction: column-reverse;">
-                        <div><h6 style="padding-top: 7px;margin-right: 8px">From Date</h6></div>
-                        <div><h6 style="padding-top: 0px;margin-right: 8px;    font-size: 10px;
-    line-height: 0;">september 25 2022   </h6></div>
 
+                    <div id="mainmotherdate" class="<?php if($i != 1):?>margin-top-100px <?php endif; ?>" >
+                        <div  style="margin-top: 8px;;text-align: center">
+                            <svg width="37" height="36" viewBox="0 0 43 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="21.5893" cy="21.0307" r="17.2748" transform="rotate(-172.902 21.5893 21.0307)" stroke="#009721" stroke-width="3"/>
+                                <path d="M14.875 21.5339L19.6822 26.3413L30.3058 15.7178" stroke="#009721" stroke-width="3" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div style="margin-top: 8px; ">
+                            <span class="dateform">From Date</span>
+                            <!--                    <div style=" flex-wrap: wrap">-->
+                            <div ><h6 class="motherdaterange-H6 h7class  smallFonts" > <?= Carbon::parse($range->from_date)->format('d M Y'); ?> </h6></div>
+                            <!--                    </div>-->
+                        </div>
+                        <div style="margin-top: 4px"><h6 class="h6class"><hr class="new1 hrtopmargin"> </h6>
+                        </div>
+                        <div style="margin-top: 8px;">  <span class="dateform">To Date</span>
+                            <div style="width: 90px;"><h6 class="motherdaterange-H6 h7class  smallFonts" ><?= Carbon::parse($range->to_date)->format('d M Y'); ?>   </h6></div>
+                        </div>
+                        <div><h6  class="motherdaterange-H6  smallFonts" style="padding-top: 0px; font-size: 10px; line-height: 0;"><img s src="images/user-icon.svg" style="color: #545b62;margin-left: 4px;margin-right: 1px" aria-hidden="true"></img> <?= Yii::$app->user->identity->first_name ?> <img s src="images/callender-icon.svg" style="color: #545b62;margin-left: 4px;margin-right: 1px" aria-hidden="true"></img> december 25 2022
+                            <img s src="images/ticksuccess.svg" style="color: #545b62;margin-left: 4px;margin-right: 1px" aria-hidden="true"></img>
+                                <span class="publishform"> active </span><span class="publishform">  </span> </h6>
+                        </div>
+                     <div>  <hr class="new2" > </div>
                     </div>
-                    <div style=" flex-direction: column-reverse;">
-                        <div><h6 style="padding-top: 7px;margin-right: 8px"><hr class="new1"> </h6></div>
-
-                    </div>
-
-                    <div style=" flex-direction: column-reverse;">
-                        <div><h6 style="padding-top: 7px;margin-right: 8px"> To Date </h6></div>
-                        <div><h6 style="padding-top: 0px;margin-right: 8px;    font-size: 10px;
-    line-height: 0;"> may 25 2022 </h6></div>
-
-                    </div>
-
-
-                </div>
-
-                <hr class="new2" >
-                <div class="flex-container" style="justify-content: right">
-                    <div><i style="background-color: white;color: red;font-size: 28px;margin-right: 5px" class="fa fa-check-circle w3-large" aria-hidden="true"></i></div>
-                    <div style=" flex-direction: column-reverse;">
-                        <div><h6 style="padding-top: 7px;margin-right: 8px">From Date</h6></div>
-                        <div><h6 style="padding-top: 0px;margin-right: 8px;    font-size: 10px;
-    line-height: 0;">may 25 2022   </h6></div>
-
-                    </div>
-                    <div style=" flex-direction: column-reverse;">
-                        <div><h6 style="padding-top: 7px;margin-right: 8px"><hr class="new1"> </h6></div>
-
-                    </div>
-
-                    <div style=" flex-direction: column-reverse;">
-                        <div><h6 style="padding-top: 7px;margin-right: 8px"> To Date </h6></div>
-                        <div><h6 style="padding-top: 0px;margin-right: 8px;    font-size: 10px;
-    line-height: 0;"> may 25 2022 </h6></div>
-
-                    </div>
-
-
-                </div>
-                <hr class="new2" style=" ">
-                <div class="flex-container" style="justify-content: right">
-                    <div><i style="background-color: white;color: red;font-size: 28px;margin-right: 5px" class="fa fa-check-circle w3-large" aria-hidden="true"></i></div>
-                    <div style=" flex-direction: column-reverse;">
-                        <div><h6 style="padding-top: 7px;margin-right: 8px">From Date</h6></div>
-                        <div><h6 style="padding-top: 0px;margin-right: 8px;    font-size: 10px;
-    line-height: 0;">may 25 2022   </h6></div>
-                        <div><h6 style="padding-top: 19px;px;margin-right: 8px;    font-size: 10px;
-    line-height: 0;">ma 25 2022   </h6></div>
-
-
-                    </div>
-                    <div style=" flex-direction: column-reverse;">
-                        <div><h6 style="padding-top: 7px;margin-right: 8px"><hr class="new1"> </h6></div>
-
-                    </div>
-
-                    <div style=" flex-direction: column-reverse;">
-                        <div><h6 style="padding-top: 7px;margin-right: 8px"> To Date </h6></div>
-                        <div><h6 style="padding-top: 0px;margin-right: 8px;    font-size: 10px;
-    line-height: 0;"> may 25 2022 </h6></div>
-
-                    </div>
-
-
-
-
-
-
-                </div>
-                <hr class="new2" >
 
                 <?php } ?>
 
