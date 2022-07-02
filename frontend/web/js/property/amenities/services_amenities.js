@@ -122,7 +122,7 @@ function validateComplimentaryAminities(){
     });
 
     if(bError) {
-        // toastr.error(ErrorMessage);
+        toastr.error(ErrorMessage);
     }
 
     return bError;
@@ -135,14 +135,14 @@ function saveComplimentaryAminities() {
         complimentary_data:  $('#complimentary_data :input').serialize()
     }, function (response) {
         if ( parseInt(response.status) == 0) {
-            // toastr.success("Complimentary items updated");
+            toastr.success("Complimentary items updated");
             console.log("Complimentary items updated");
             console.log(response.data);
         } else
         {
             console.log(response.message);
             console.log(response.data);
-            // toastr.error(response.message);
+            toastr.error(response.message);
         }
         $("#overlay").fadeOut(300);
     })
@@ -166,7 +166,7 @@ function validateSwimmingpoolData(){
     }
 
     if(bError) {
-        // toastr.error(ErrorMessage);
+        toastr.error(ErrorMessage);
     }
 
     return bError;
@@ -182,10 +182,10 @@ function saveSwimmingPoolData() {
         if ( parseInt(response.status) == 0) {
             console.log(response.message);
             console.log(response.data);
-            // toastr.success("Swimming pool updated");
+            toastr.success("Swimming pool updated");
         } else
         {
-            // toastr.error(response.message);
+            toastr.error(response.message);
             console.log(response.message);
             console.log(response.data);
         }
@@ -202,11 +202,11 @@ function saveRestaurantData() {
         cuisine_option: $("select[name='cuisine_option[]']").serialize()
     }, function (response) {
         if ( parseInt(response.status) == 0) {
-            // toastr.success(" Restaurant data updated");
+            toastr.success(" Restaurant data updated");
             console.log(" Restaurant data updated");
         } else
         {
-            // toastr.error(response.message);
+            toastr.error(response.message);
             console.log(response.message);
         }
         $("#overlay").fadeOut(300);
@@ -221,10 +221,10 @@ function saveParkingData() {
         console.log(response);
         if ( parseInt(response.status) == 0) {
             console.log("Parking data updated");
-            // toastr.success("Parking data updated");
+            toastr.success("Parking data updated");
         } else
         {
-            // toastr.error(response.message);
+            toastr.error(response.message);
             console.log(response.message);
         }
         $("#overlay").fadeOut(300);
@@ -248,7 +248,7 @@ function validateRestaurantData(){
         ErrorMessage += '<li>Cuisine Options</li>';
     }
     if(bError) {
-        // toastr.error(ErrorMessage);
+        toastr.error(ErrorMessage);
     }
 
     return bError;
@@ -265,7 +265,7 @@ function validateParkingData(){
         ErrorMessage += '<li>Parking type</li>';
     }
     if(bError) {
-        // toastr.error(ErrorMessage);
+        toastr.error(ErrorMessage);
     }
     return bError;
 }
@@ -313,7 +313,7 @@ function validatePropertyAmenities(){
     });
 
     if(bError) {
-        // toastr.error(ErrorMessage);
+        toastr.error(ErrorMessage);
     }
     return bError;
 }
@@ -346,11 +346,11 @@ function savePropertyAminities() {
     }, function (response) {
         console.log(response);
         if ( parseInt(response.status) == 0) {
-            // toastr.success("Property amenities updated");
+            toastr.success("Property amenities updated");
             console.log("Property amenities updated");
         } else
         {
-            // toastr.error(response.message);
+            toastr.error(response.message);
             console.log(response.message);
         }
         $("#overlay").fadeOut(300);
@@ -380,8 +380,8 @@ function saveRoomAminities(e) {
          }
     });
 
-    //console.log(amenities);
-    //console.log(suboptions);
+    console.log(amenities);
+    console.log(suboptions);
 
     $.post("index.php?r=property/saveroomamenities",{
         room_id: $('#room_id').val(),
@@ -390,16 +390,23 @@ function saveRoomAminities(e) {
     }, function (response) {
         console.log(response);
         if ( parseInt(response.status) == 0) {
+            console.log("Room amenities updated");
+            RemoveRoomAmenitiesForm();
+
             toastr.success("Room amenities updated");
         } else
         {
             toastr.error(response.message);
+            console.log(response.message);
         }
         $("#overlay").fadeOut(300);
     })
 }
 
 function getRoomAmenitiesForm(id) {
+
+    $("#room-categories").hide('slide');
+
 $.get("index.php?r=property/getroomamenitiesform",{room_id: id}, function(data){
         $("#room_amenity_form").html(data);
         $('#room_amenity_form').show('slide');
@@ -409,4 +416,8 @@ $.get("index.php?r=property/getroomamenitiesform",{room_id: id}, function(data){
     .fail(function() {
         alert( "HTTP Error: Unable to connect to Server" );
     });
+}
+function RemoveRoomAmenitiesForm(){
+    $("#room-categories").show('slide');
+    $('#room_amenity_form').hide('slide');
 }

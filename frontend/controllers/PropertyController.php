@@ -1,6 +1,7 @@
 <?php
 
 namespace frontend\controllers;
+
 use frontend\models\property\AmenityGroup;
 use frontend\models\property\CancellationRefundPeriod;
 use frontend\models\Country;
@@ -29,6 +30,7 @@ use frontend\models\property\PropertySwimmingPoolTypeMap;
 use frontend\models\property\RoomAmenity;
 use frontend\models\property\RoomAmenitySuboption;
 use frontend\models\property\TermsConditions;
+use frontend\models\tariff\RoomTariffDatewise;
 use frontend\models\tariff\TariffNationalityGroupName;
 use frontend\models\tariff\TariffNationalityTable;
 use Yii;
@@ -52,8 +54,10 @@ use yii\web\ForbiddenHttpException;
 use yii\web\NotFoundHttpException;
 use yii\web\UploadedFile;
 
-class PropertyController extends Controller{
-    public function beforeAction($action) {
+class PropertyController extends Controller
+{
+    public function beforeAction($action)
+    {
         $this->enableCsrfValidation = false;
 
         if (Yii::$app->user->isGuest) {
@@ -61,116 +65,115 @@ class PropertyController extends Controller{
             return;
         }
 
-        if (Yii::$app->user->identity->user_type != 1){
+        if (Yii::$app->user->identity->user_type != 1) {
             throw new ForbiddenHttpException();
         }
 
         return parent::beforeAction($action);
     }
 
-    private function getProperty() {
-        if(!isset( $_GET['id'])) {
+    private function getProperty()
+    {
+        if (!isset($_GET['id'])) {
             throw new NotFoundHttpException();
         }
 
         $property = NULL;
-        $property_id = (int) Yii::$app->request->get('id');
+        $property_id = (int)Yii::$app->request->get('id');
         if ($property_id != 0) {
-            $property =Property::find()
+            $property = Property::find()
                 ->where(['id' => $property_id])
                 ->andWhere(['owner_id' => Yii::$app->user->identity->getOWnerId()])
                 ->one();
 
-            if ($property == NULL){
+            if ($property == NULL) {
                 throw new NotFoundHttpException();
             }
-        }
-        else {
+        } else {
             throw new NotFoundHttpException();
         }
 
         /*     $property = Property::find()
             ->where(['id' => $property_id])
             ->one(); */
-        if ($property == NULL){
+        if ($property == NULL) {
             throw new NotFoundHttpException();
         }
 
         return $property;
     }
 
-    public function actionHome(){
+    public function actionHome()
+    {
         $this->layout = 'tm_main';
         $roles = Yii::$app->authManager->getRolesByUser(Yii::$app->user->getId());
-        if (ArrayHelper::keyExists('HotelOwner', $roles, false) ){
+        if (ArrayHelper::keyExists('HotelOwner', $roles, false)) {
 
             $properties = Property::find()->where(['owner_id' => Yii::$app->user->identity->getOWnerId()])->all();
-        }
-        else
-        {
+        } else {
             $usr = Yii::$app->user->identity;
             $assigned_properties = $usr->getUserPropertyMaps()->select(['property_id'])->column();
 
             $properties = Property::find()
-            ->where(['owner_id' => Yii::$app->user->identity->getOWnerId()])
-            ->andWhere(['in', 'id', $assigned_properties])
-            ->all();
+                ->where(['owner_id' => Yii::$app->user->identity->getOWnerId()])
+                ->andWhere(['in', 'id', $assigned_properties])
+                ->all();
         }
 
         return $this->render('home', ['properties' => $properties]);
     }
 
-     public function actionBasicdetails(){
-         $this->layout = 'tm_main';
-         $property = NULL;
-         if(isset( $_GET['id']) ) {
-             $property_id = Yii::$app->request->get('id');
-             $property = Property::find()
-                 ->where(['id' => $property_id])
-                 ->andWhere(['owner_id' => Yii::$app->user->getId()])
-                 ->one();
+    public function actionBasicdetails()
+    {
+        $this->layout = 'tm_main';
+        $property = NULL;
+        if (isset($_GET['id'])) {
+            $property_id = Yii::$app->request->get('id');
+            $property = Property::find()
+                ->where(['id' => $property_id])
+                ->andWhere(['owner_id' => Yii::$app->user->getId()])
+                ->one();
 
-             if ($property == NULL){
-                 throw new NotFoundHttpException();
-             }
-         }
+            if ($property == NULL) {
+                throw new NotFoundHttpException();
+            }
+        }
 
-         $basic_details = new BasicDetails();
-         $property_image = new PropertyImage();
-         if ($property == NULL){
-             $property = new Property();
-             $basic_details->id = 0;
-             $property_image->scenario = "create";
-         }
-         else {
-             $basic_details->id = $property->id;
-             $basic_details->name = $property->name;
-             $basic_details->property_type_id = $property->property_type_id;
-             $basic_details->property_category_id = $property->property_category_id;
-             $basic_details->website = $property->website;
-             $basic_details->image = $property->image;
-             $basic_details->logo = $property->logo;
-         }
+        $basic_details = new BasicDetails();
+        $property_image = new PropertyImage();
+        if ($property == NULL) {
+            $property = new Property();
+            $basic_details->id = 0;
+            $property_image->scenario = "create";
+        } else {
+            $basic_details->id = $property->id;
+            $basic_details->name = $property->name;
+            $basic_details->property_type_id = $property->property_type_id;
+            $basic_details->property_category_id = $property->property_category_id;
+            $basic_details->website = $property->website;
+            $basic_details->image = $property->image;
+            $basic_details->logo = $property->logo;
+        }
 
-         $show_terms_tab = true;
-         if ($property->terms_and_conditons1 == 1 &&
-             $property->terms_and_conditons2 == 1 &&
-             $property->terms_and_conditons3 == 1)
-         {
-             $show_terms_tab = false;
-         }
+        $show_terms_tab = true;
+        if ($property->terms_and_conditons1 == 1 &&
+            $property->terms_and_conditons2 == 1 &&
+            $property->terms_and_conditons3 == 1) {
+            $show_terms_tab = false;
+        }
 
-         $property_types = ArrayHelper::map(PropertyType::find()->asArray()->all(), 'id', 'name');
-         $property_categories = ArrayHelper::map(PropertyCategory::find()->asArray()->all(), 'id', 'name');
+        $property_types = ArrayHelper::map(PropertyType::find()->asArray()->all(), 'id', 'name');
+        $property_categories = ArrayHelper::map(PropertyCategory::find()->asArray()->all(), 'id', 'name');
 //         $property_image = new PropertyImage();
-         return $this->render('basic_details',['basic_details' => $basic_details, 'property_types' => $property_types, 'property_categories' => $property_categories,  'property_image' => $property_image, 'show_terms_tab' => $show_terms_tab ]);
+        return $this->render('basic_details', ['basic_details' => $basic_details, 'property_types' => $property_types, 'property_categories' => $property_categories, 'property_image' => $property_image, 'show_terms_tab' => $show_terms_tab]);
 
-     }
+    }
 
-    public function actionSavepropertybasic() {
+    public function actionSavepropertybasic()
+    {
         $basic_details = new BasicDetails();
 
-        if ( !$basic_details->load(Yii::$app->request->post()))  {
+        if (!$basic_details->load(Yii::$app->request->post())) {
             echo "Load failed";
         }
 
@@ -186,12 +189,11 @@ class PropertyController extends Controller{
                 ->where(['id' => $property_id])
                 ->one();
 
-            if ($property == NULL){
+            if ($property == NULL) {
                 //Property (id) doesn't exists
                 throw new NotFoundHttpException();
             }
-        }
-        else {
+        } else {
             $property = new Property();
         }
 
@@ -203,16 +205,15 @@ class PropertyController extends Controller{
 //        $property->owner_id =2;
 
         if ($property_image->proFile != null) {
-            $file_name =  uniqid('', true) . '.' . $property_image->proFile->extension;
-            if ($property_image->upload($property_image->proFile,$file_name)) {
+            $file_name = uniqid('', true) . '.' . $property_image->proFile->extension;
+            if ($property_image->upload($property_image->proFile, $file_name)) {
                 //TODO: Will we allow to proceed if image upload fails
                 $property->image = $file_name;
 
             } else {
 //                echo "Image upload failed";
             }
-        }
-        else {
+        } else {
             if (empty($property->image)) {
 //                echo "Profile image (Mandatory) upload failed";
             }
@@ -220,50 +221,48 @@ class PropertyController extends Controller{
 
         if ($property_image->logoFile != null) {
 
-            $file_namelogo =  uniqid('', true) . '.' . $property_image->logoFile->extension;
+            $file_namelogo = uniqid('', true) . '.' . $property_image->logoFile->extension;
 
-            if ($property_image->upload( $property_image->logoFile,$file_namelogo)) {
+            if ($property_image->upload($property_image->logoFile, $file_namelogo)) {
                 //TODO: Will we allow to proceed if image upload fails
                 $property->logo = $file_namelogo;
 
             } else {
 //                echo "Image upload failed";
             }
-        }
-        else {
+        } else {
             if (empty($property->logo)) {
 //                echo "Profile image (Mandatory) upload failed";
             }
         }
 
 
-
         if ($property->save(false)) {
             Yii::$app->session->setFlash('success', "Property created successfully.");
             return $this->redirect(['property/addressandlocation', 'id' => $property->getPrimaryKey()]);
-        }
-        else {
+        } else {
             Yii::$app->session->setFlash('error', "Property creation failed.");
             $property_types = ArrayHelper::map(PropertyType::find()->asArray()->all(), 'id', 'name');
             $property_categories = ArrayHelper::map(PropertyCategory::find()->asArray()->all(), 'id', 'name');
-            return $this->render('basic_details',['basic_details' => $basic_details, 'property_types' => $property_types, 'property_categories' => $property_categories, 'property_image' => $property_image ]);
+            return $this->render('basic_details', ['basic_details' => $basic_details, 'property_types' => $property_types, 'property_categories' => $property_categories, 'property_image' => $property_image]);
         }
     }
 
-    public function actionAddressandlocation(){
+    public function actionAddressandlocation()
+    {
         $this->layout = 'tm_main';
         $property_id = Yii::$app->request->get('id');
         $property = NULL;
         if ($property_id != 0) {
-            $property =Property::find()
+            $property = Property::find()
                 ->where(['id' => $property_id])
                 ->andWhere(['owner_id' => Yii::$app->user->getId()])
                 ->one();
         }
 
-        if ($property == NULL){
+        if ($property == NULL) {
             //Property (id) doesn't exists
-            return $this->render('__property_not_found',[]);
+            return $this->render('__property_not_found', []);
             //throw new NotFoundHttpException();
         }
 
@@ -283,12 +282,11 @@ class PropertyController extends Controller{
         $show_terms_tab = true;
         if ($property->terms_and_conditons1 == 1 &&
             $property->terms_and_conditons2 == 1 &&
-            $property->terms_and_conditons3 == 1)
-        {
+            $property->terms_and_conditons3 == 1) {
             $show_terms_tab = false;
         }
 
-        return $this->render('address_and_locations',[
+        return $this->render('address_and_locations', [
                 'address_location' => $address_location,
                 'countries' => $countries,
                 'locations' => $locations,
@@ -296,17 +294,17 @@ class PropertyController extends Controller{
                 'show_terms_tab' => $show_terms_tab
             ]
         );
-     }
+    }
 
     public function actionSavepropertyaddresslocation()
     {
         $address_location = new AddressLocation();
-        if ( !$address_location->load(Yii::$app->request->post()))  {
+        if (!$address_location->load(Yii::$app->request->post())) {
             //TODO
             echo "Load failed";
         }
 
-        $property_id =  $address_location->id;
+        $property_id = $address_location->id;
         $property = NULL;
         if ($property_id != 0) {
             $property = Property::find()
@@ -315,17 +313,17 @@ class PropertyController extends Controller{
                 ->one();
         }
 
-        if ($property == NULL){
+        if ($property == NULL) {
             //Property (id) doesn't exists
             throw new NotFoundHttpException();
         }
 
-        if( !$address_location->validate() ) {
+        if (!$address_location->validate()) {
             $countries = ArrayHelper::map(Country::find()->asArray()->all(), 'id', 'name');
             $locations = ArrayHelper::map(Location::find()->where(['country_id' => 1])->asArray()->all(), 'id', 'name');
             $destinations = ArrayHelper::map(Destination::find()->asArray()->all(), 'id', 'name');
 
-            return $this->render('address_location',[
+            return $this->render('address_location', [
                     'address_location' => $address_location,
                     'countries' => $countries,
                     'locations' => $locations,
@@ -345,14 +343,13 @@ class PropertyController extends Controller{
         if ($property->save(false)) {
             Yii::$app->session->setFlash('success', "Address and location updated successfully.");
             return $this->redirect(['property/legaltax', 'id' => $property->getPrimaryKey()]);
-        }
-        else {
+        } else {
             Yii::$app->session->setFlash('error', "Address and location updation failed.");
             $countries = ArrayHelper::map(Country::find()->asArray()->all(), 'id', 'name');
             $locations = ArrayHelper::map(Location::find()->where(['country_id' => 1])->asArray()->all(), 'id', 'name');
             $destinations = ArrayHelper::map(Destination::find()->asArray()->all(), 'id', 'name');
 
-            return $this->render('address_location',[
+            return $this->render('address_location', [
                     'address_location' => $address_location,
                     'countries' => $countries,
                     'locations' => $locations,
@@ -362,19 +359,20 @@ class PropertyController extends Controller{
         }
     }
 
-    public function actionLegaltax(){
+    public function actionLegaltax()
+    {
         $this->layout = 'tm_main';
         $property_id = Yii::$app->request->get('id');
         //Check this prooerty owned by this user
         $property = NULL;
         if ($property_id != 0) {
-            $property =Property::find()
+            $property = Property::find()
                 ->where(['id' => $property_id])
                 ->andWhere(['owner_id' => Yii::$app->user->getId()])
                 ->one();
         }
 
-        if ($property == NULL){
+        if ($property == NULL) {
             //Property (id) doesn't exists
             throw new NotFoundHttpException();
         }
@@ -401,23 +399,23 @@ class PropertyController extends Controller{
         $show_terms_tab = true;
         if ($property->terms_and_conditons1 == 1 &&
             $property->terms_and_conditons2 == 1 &&
-            $property->terms_and_conditons3 == 1)
-        {
+            $property->terms_and_conditons3 == 1) {
             $show_terms_tab = false;
         }
 
-        return $this->render('legal_and_tax',['legal_tax_documentation' => $legal_tax_documentation, 'legal_status' => $legal_status, 'legal_docs_images' => $legal_docs_images, 'show_terms_tab' => $show_terms_tab]);
-     }
+        return $this->render('legal_and_tax', ['legal_tax_documentation' => $legal_tax_documentation, 'legal_status' => $legal_status, 'legal_docs_images' => $legal_docs_images, 'show_terms_tab' => $show_terms_tab]);
+    }
 
-    public function actionSavelegaltax(){
+    public function actionSavelegaltax()
+    {
         $legal_tax_documentation = new LegalTaxDocumentation();
         $legal_tax_documentation->setAttributes($_POST['LegalTaxDocumentation'], false);
-        if ( !$legal_tax_documentation->load(Yii::$app->request->post()))  {
+        if (!$legal_tax_documentation->load(Yii::$app->request->post())) {
             //TODO
             echo "Load failed";
         }
 
-        $property_id =  $legal_tax_documentation->id;
+        $property_id = $legal_tax_documentation->id;
         $property = NULL;
         if ($property_id != 0) {
             $property = Property::find()
@@ -426,7 +424,7 @@ class PropertyController extends Controller{
                 ->one();
         }
 
-        if ($property == NULL){
+        if ($property == NULL) {
             //Property (id) doesn't exists
             throw new NotFoundHttpException();
         }
@@ -452,16 +450,15 @@ class PropertyController extends Controller{
 
         //PAN
         if ($legal_doc_images->pan_image != null) {
-            $file_name =  uniqid('', true) . '.' . $legal_doc_images->pan_image->extension;
-            if ($legal_doc_images->upload($legal_doc_images->pan_image,$file_name)) {
+            $file_name = uniqid('', true) . '.' . $legal_doc_images->pan_image->extension;
+            if ($legal_doc_images->upload($legal_doc_images->pan_image, $file_name)) {
                 //TODO: Will we allow to proceed if image upload fails
                 $property->pan_image = $file_name;
 
             } else {
 //                echo "Image upload failed";
             }
-        }
-        else {
+        } else {
             if (empty($property->pan_image)) {
 //                echo "Profile image (Mandatory) upload failed";
             }
@@ -469,53 +466,49 @@ class PropertyController extends Controller{
 
         //GST
         if ($legal_doc_images->gst_image != null) {
-            $file_name =  uniqid('', true) . '.' . $legal_doc_images->gst_image->extension;
-            if ($legal_doc_images->upload($legal_doc_images->gst_image,$file_name)) {
+            $file_name = uniqid('', true) . '.' . $legal_doc_images->gst_image->extension;
+            if ($legal_doc_images->upload($legal_doc_images->gst_image, $file_name)) {
                 //TODO: Will we allow to proceed if image upload fails
                 $property->gst_image = $file_name;
 
             } else {
 //                echo "Image upload failed";
             }
-        }
-        else {
+        } else {
             if (empty($property->gst_image)) {
 //                echo "Profile image (Mandatory) upload failed";
             }
         }
- //Licence
+        //Licence
         if ($legal_doc_images->business_licence_image != null) {
-            $file_name =  uniqid('', true) . '.' . $legal_doc_images->business_licence_image->extension;
-            if ($legal_doc_images->upload($legal_doc_images->business_licence_image,$file_name)) {
+            $file_name = uniqid('', true) . '.' . $legal_doc_images->business_licence_image->extension;
+            if ($legal_doc_images->upload($legal_doc_images->business_licence_image, $file_name)) {
                 //TODO: Will we allow to proceed if image upload fails
                 $property->business_licence_image = $file_name;
 
             } else {
 //                echo "Image upload failed";
             }
-        }
-        else {
+        } else {
             if (empty($property->business_licence_image)) {
 //                echo "Profile image (Mandatory) upload failed";
             }
         }
 
 
-
-
         if ($property->save(false)) {
             Yii::$app->session->setFlash('success', "Property documents updated successfully.");
             return $this->redirect(['property/contact', 'id' => $property->getPrimaryKey()]);
-        }
-        else {
+        } else {
             Yii::$app->session->setFlash('error', "Property documents updation failed.");
             $legal_status = ArrayHelper::map(PropertyLegalStatus::find()->asArray()->all(), 'id', 'name');
             $legal_docs_images = new LegalDocsImages();
-            return $this->render('legal_and_tax',['legal_tax_documentation' => $legal_tax_documentation, 'legal_status' => $legal_status, 'legal_docs_images' => $legal_docs_images]);
+            return $this->render('legal_and_tax', ['legal_tax_documentation' => $legal_tax_documentation, 'legal_status' => $legal_status, 'legal_docs_images' => $legal_docs_images]);
         }
     }
 
-    public function actionContact(){
+    public function actionContact()
+    {
         $this->layout = 'tm_main';
         $property_id = Yii::$app->request->get('id');
         $property = NULL;
@@ -526,16 +519,16 @@ class PropertyController extends Controller{
                 ->one();
         }
 
-        if ($property == NULL){
+        if ($property == NULL) {
             //Property (id) doesn't exists
             throw new NotFoundHttpException();
         }
 
-        $contact =PropertyContacts::find()
+        $contact = PropertyContacts::find()
             ->where(['property_id' => $property_id])
             ->one();
 
-        if ($contact == NULL){
+        if ($contact == NULL) {
             $contact = new PropertyContacts();
             $contact->property_id = $property_id;
         }
@@ -543,15 +536,15 @@ class PropertyController extends Controller{
         $show_terms_tab = 1;
         if ($property->terms_and_conditons1 == 1 &&
             $property->terms_and_conditons2 == 1 &&
-            $property->terms_and_conditons3 == 1)
-        {
+            $property->terms_and_conditons3 == 1) {
             $show_terms_tab = 0;
         }
 
-        return $this->render('contact_details',['contact' => $contact, 'show_terms_tab' => $show_terms_tab]);
-     }
+        return $this->render('contact_details', ['contact' => $contact, 'show_terms_tab' => $show_terms_tab]);
+    }
 
-    public function actionSavecontactdetails() {
+    public function actionSavecontactdetails()
+    {
         $property_id = $_POST['PropertyContacts']['property_id'];
         $property = NULL;
         if ($property_id != 0) {
@@ -561,99 +554,99 @@ class PropertyController extends Controller{
                 ->one();
         }
 
-        if ($property == NULL){
+        if ($property == NULL) {
             //Property (id) doesn't exists
             throw new NotFoundHttpException();
         }
 
-        $contacts =PropertyContacts::find()
+        $contacts = PropertyContacts::find()
             ->where(['property_id' => $property_id])
             ->one();
 
-        if ($contacts == NULL){
+        if ($contacts == NULL) {
             $contacts = new PropertyContacts();
         }
 
         if (isset($_POST['PropertyContacts'])) {
-            $contacts->sales_name =	$_POST['PropertyContacts']['sales_name'];
-            $contacts->reservation_name	= $_POST['PropertyContacts']['reservation_name'];
-            $contacts->front_office_name= $_POST['PropertyContacts']['front_office_name'];
+            $contacts->sales_name = $_POST['PropertyContacts']['sales_name'];
+            $contacts->reservation_name = $_POST['PropertyContacts']['reservation_name'];
+            $contacts->front_office_name = $_POST['PropertyContacts']['front_office_name'];
             $contacts->accounts_office_name = $_POST['PropertyContacts']['accounts_office_name'];
             $contacts->sales_phone = $_POST['PropertyContacts']['sales_phone'];
             $contacts->reservation_phone = $_POST['PropertyContacts']['reservation_phone'];
-            $contacts->front_office_phone =	$_POST['PropertyContacts']['front_office_phone'];
+            $contacts->front_office_phone = $_POST['PropertyContacts']['front_office_phone'];
             $contacts->accounts_office_phone = $_POST['PropertyContacts']['accounts_office_phone'];
             $contacts->sales_email = $_POST['PropertyContacts']['sales_email'];
             $contacts->reservation_email = $_POST['PropertyContacts']['reservation_email'];
             $contacts->front_office_email = $_POST['PropertyContacts']['front_office_email'];
-            $contacts->accounts_office_email= $_POST['PropertyContacts']['accounts_office_email'];
+            $contacts->accounts_office_email = $_POST['PropertyContacts']['accounts_office_email'];
             $contacts->property_id = $property_id;
 
-            if($contacts->validate()) {
+            if ($contacts->validate()) {
                 $contacts->save();
-                $show_terms_tab =  Yii::$app->request->post('show_terms_tab');
+                $show_terms_tab = Yii::$app->request->post('show_terms_tab');
 //                $redirect_url = 'property/';
 //                $redirect_url .= ($show_terms_tab == 1) ? "terms" : "home";
 //                return $this->redirect([$redirect_url, 'id' => $property_id]);
                 return $this->redirect(['property/termsandconditions', 'id' => $property->getPrimaryKey()]);
 
-            }
-            else {
-                return $this->render('contact_details',['contact' => $contacts]);
+            } else {
+                return $this->render('contact_details', ['contact' => $contacts]);
             }
         }
     }
 
-    public function actionSavecontactdetails1() {
+    public function actionSavecontactdetails1()
+    {
         $property_id = $_POST['PropertyContacts']['property_id'];
 
         $property = NULL;
         if ($property_id != 0) {
-            $property =Property::find()
+            $property = Property::find()
                 ->where(['id' => $property_id])
                 ->andWhere(['owner_id' => Yii::$app->user->identity->getOWnerId()])
                 ->one();
         }
 
-        if ($property == NULL){
+        if ($property == NULL) {
             //Property (id) doesn't exists
             throw new NotFoundHttpException();
         }
 
-        $contacts =PropertyContacts::find()
+        $contacts = PropertyContacts::find()
             ->where(['property_id' => $property_id])
             ->one();
 
-        if ($contacts == NULL){
+        if ($contacts == NULL) {
             $contacts = new PropertyContacts();
         }
 
         if (isset($_POST['PropertyContacts'])) {
-            $contacts->sales_name =	$_POST['PropertyContacts']['sales_name'];
-            $contacts->reservation_name	= $_POST['PropertyContacts']['reservation_name'];
-            $contacts->front_office_name= $_POST['PropertyContacts']['front_office_name'];
+            $contacts->sales_name = $_POST['PropertyContacts']['sales_name'];
+            $contacts->reservation_name = $_POST['PropertyContacts']['reservation_name'];
+            $contacts->front_office_name = $_POST['PropertyContacts']['front_office_name'];
             $contacts->accounts_office_name = $_POST['PropertyContacts']['accounts_office_name'];
             $contacts->sales_phone = $_POST['PropertyContacts']['sales_phone'];
             $contacts->reservation_phone = $_POST['PropertyContacts']['reservation_phone'];
-            $contacts->front_office_phone =	$_POST['PropertyContacts']['front_office_phone'];
+            $contacts->front_office_phone = $_POST['PropertyContacts']['front_office_phone'];
             $contacts->accounts_office_phone = $_POST['PropertyContacts']['accounts_office_phone'];
             $contacts->sales_email = $_POST['PropertyContacts']['sales_email'];
             $contacts->reservation_email = $_POST['PropertyContacts']['reservation_email'];
             $contacts->front_office_email = $_POST['PropertyContacts']['front_office_email'];
-            $contacts->accounts_office_email= $_POST['PropertyContacts']['accounts_office_email'];
+            $contacts->accounts_office_email = $_POST['PropertyContacts']['accounts_office_email'];
             $contacts->property_id = $property_id;
         }
 
         if ($property->save(false)) {
             Yii::$app->session->setFlash('success', "Property documents updated successfully.");
             return $this->redirect(['property/termsandconditions', 'id' => $property->getPrimaryKey()]);
-        }
-        else{
-            return $this->render('contact_details',['contact' => $contacts]);
+        } else {
+            return $this->render('contact_details', ['contact' => $contacts]);
         }
     }
 
-    public function actionTermsandconditions(){
+    public function actionTermsandconditions()
+    {
         $this->layout = 'tm_main';
         $property_id = Yii::$app->request->get('id');
         //Check this property owned by this user
@@ -665,7 +658,7 @@ class PropertyController extends Controller{
                 ->one();
         }
 
-        if ($property == NULL){
+        if ($property == NULL) {
             //Property (id) doesn't exists
             throw new NotFoundHttpException();
         }
@@ -673,8 +666,7 @@ class PropertyController extends Controller{
 
         if ($property->terms_and_conditons1 == 1 &&
             $property->terms_and_conditons2 == 1 &&
-            $property->terms_and_conditons3 == 1)
-        {
+            $property->terms_and_conditons3 == 1) {
             throw new NotFoundHttpException();
         }
 
@@ -684,27 +676,27 @@ class PropertyController extends Controller{
         $terms->terms_and_conditons2 = $property->terms_and_conditons2;
         $terms->terms_and_conditons3 = $property->terms_and_conditons3;
 
-        return $this->render('terms_and_conditions',['terms' => $terms]);
-     }
+        return $this->render('terms_and_conditions', ['terms' => $terms]);
+    }
 
     public function actionSaveterms()
     {
         $terms = new TermsConditions();
-        if ( !$terms->load(Yii::$app->request->post()))  {
+        if (!$terms->load(Yii::$app->request->post())) {
             //TODO
             echo "Load failed";
         }
 
-        $property_id =  $terms->id;
+        $property_id = $terms->id;
         $property = NULL;
         if ($property_id != 0) {
-            $property =Property::find()
+            $property = Property::find()
                 ->where(['id' => $property_id])
                 ->andWhere(['owner_id' => Yii::$app->user->identity->getOWnerId()])
                 ->one();
         }
 
-        if ($property == NULL){
+        if ($property == NULL) {
             //Property (id) doesn't exists
             throw new NotFoundHttpException();
         }
@@ -720,8 +712,7 @@ class PropertyController extends Controller{
         if ($property->save(false)) {
             //Yii::$app->session->setFlash('success', "Property documents updated successfully.");
             return $this->redirect(['property/contact', 'id' => $property->getPrimaryKey()]);
-        }
-        else {
+        } else {
             Yii::$app->session->setFlash('error', "Terms and condition updation failed.");
             $terms = new TermsConditions();
             $terms->id = $property->id;
@@ -729,62 +720,64 @@ class PropertyController extends Controller{
             $terms->terms_and_conditons2 = $property->terms_and_conditons2;
             $terms->terms_and_conditons3 = $property->terms_and_conditons3;
 
-            return $this->render('terms_and_conditions',['terms' => $terms]);
+            return $this->render('terms_and_conditions', ['terms' => $terms]);
         }
     }
 
 
-    public function actionRules() {
+    public function actionRules()
+    {
 
         $this->layout = 'tm_main';
         $property = $this->getProperty();
         $smoking_policy = ArrayHelper::map(PropertySmokingPolicy::find()->asArray()->all(), 'id', 'name');
         $pets_policy = ArrayHelper::map(PropertyPetsPolicy::find()->asArray()->all(), 'id', 'name');
-        return $this->render('rules_and_policies',['property' => $property, 'smoking_policy' => $smoking_policy, 'pets_policy' => $pets_policy]);
+        return $this->render('rules_and_policies', ['property' => $property, 'smoking_policy' => $smoking_policy, 'pets_policy' => $pets_policy]);
     }
 
-    public function actionSavecheckincheckout(){
+    public function actionSavecheckincheckout()
+    {
         \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-        if(!isset( $_REQUEST['property_id'])) {
-            return array('status' => 2,'message' => "Invalid input. Property missing.", 'data' => 0);
+        if (!isset($_REQUEST['property_id'])) {
+            return array('status' => 2, 'message' => "Invalid input. Property missing.", 'data' => 0);
         }
 
         $property_id = Yii::$app->request->post('property_id');
 
         //Check this proerty owned by this user
         if ($property_id != 0) {
-            $property =Property::find()
+            $property = Property::find()
                 ->where(['id' => $property_id])
                 ->one();
 
-            if ($property == NULL){
-                return array('status' => 2,'message' => "Property (id) doesn't exists", 'data' => 0);
+            if ($property == NULL) {
+                return array('status' => 2, 'message' => "Property (id) doesn't exists", 'data' => 0);
             }
-        }
-        else {
-            return array('status' => 2,'message' => "Property id cannot zero", 'data' => 0);
+        } else {
+            return array('status' => 2, 'message' => "Property id cannot zero", 'data' => 0);
         }
 
         $property->twenty_four_hours_check_in = Yii::$app->request->post('twenty_four_hours_check_in');
 //        if ( !$property->twenty_four_hours_check_in ) {
-        if ( $property->twenty_four_hours_check_in ) {
+        if ($property->twenty_four_hours_check_in) {
             $property->check_in_time = Yii::$app->request->post('check_in_time');
-            $property->check_out_time =  Yii::$app->request->post('check_out_time');
+            $property->check_out_time = Yii::$app->request->post('check_out_time');
         }
 
-        if ($property->save() ) {
+        if ($property->save()) {
 //            return Yii::$app->request->post('CSRF');
-            return array('status' => 0,'message' => "Property Checkin/Check out time updated successfully", 'data' => 0);
+            return array('status' => 0, 'message' => "Property Checkin/Check out time updated successfully", 'data' => 0);
         }
 
-        return array('status' => 1,'message' => "Failed to update Checkin/Check out policy.", 'data' => 0);
+        return array('status' => 1, 'message' => "Failed to update Checkin/Check out policy.", 'data' => 0);
     }
 
-    public function actionSavesmokingpolicy(){
+    public function actionSavesmokingpolicy()
+    {
         \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
 
-        if(!isset( $_REQUEST['property_id'])) {
-            return array('status' => 2,'message' => "Invalid input. Property id missing.", 'data' => 0);;
+        if (!isset($_REQUEST['property_id'])) {
+            return array('status' => 2, 'message' => "Invalid input. Property id missing.", 'data' => 0);;
         }
 
         $property_id = Yii::$app->request->post('property_id');
@@ -796,28 +789,28 @@ class PropertyController extends Controller{
                 ->where(['id' => $property_id])
                 ->one();
 
-            if ($property == NULL){
-                return array('status' => 2,'message' => "Property (id) doesn't exists", 'data' => 0);
+            if ($property == NULL) {
+                return array('status' => 2, 'message' => "Property (id) doesn't exists", 'data' => 0);
             }
-        }
-        else {
-            return array('status' => 2,'message' => "Property id cannot zero", 'data' => 0);
+        } else {
+            return array('status' => 2, 'message' => "Property id cannot zero", 'data' => 0);
         }
 
         $property->smoking_policy_id = Yii::$app->request->post('smoking_policy_id');
 
-        if ($property->save() ) {
-            return array('status' => 0,'message' => "Property Smoking policy updated successfully", 'data' => 0);
+        if ($property->save()) {
+            return array('status' => 0, 'message' => "Property Smoking policy updated successfully", 'data' => 0);
         }
 
-        return array('status' => 1,'message' => "Failed to update Smoking policy.", 'data' => 0);
+        return array('status' => 1, 'message' => "Failed to update Smoking policy.", 'data' => 0);
     }
 
-    public function actionSavepetspolicy(){
+    public function actionSavepetspolicy()
+    {
         \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
 
-        if(!isset( $_REQUEST['property_id'])) {
-            return array('status' => 2,'message' => "Invalid input. Property id missing.", 'data' => 0);;
+        if (!isset($_REQUEST['property_id'])) {
+            return array('status' => 2, 'message' => "Invalid input. Property id missing.", 'data' => 0);;
         }
 
         $property_id = Yii::$app->request->post('property_id');
@@ -828,27 +821,27 @@ class PropertyController extends Controller{
                 ->where(['id' => $property_id])
                 ->one();
 
-            if ($property == NULL){
-                return array('status' => 2,'message' => "Property (id) doesn't exists", 'data' => 0);
+            if ($property == NULL) {
+                return array('status' => 2, 'message' => "Property (id) doesn't exists", 'data' => 0);
             }
-        }
-        else {
-            return array('status' => 2,'message' => "Property id cannot zero", 'data' => 0);
+        } else {
+            return array('status' => 2, 'message' => "Property id cannot zero", 'data' => 0);
         }
 
         $property->pets_policy_id = Yii::$app->request->post('pets_policy_id');
-        if ($property->save() ) {
-            return array('status' => 0,'message' => "Property Pets policy updated successfully", 'data' => 0);
+        if ($property->save()) {
+            return array('status' => 0, 'message' => "Property Pets policy updated successfully", 'data' => 0);
         }
 
-        return array('status' => 1,'message' => "Failed to update Pets policy.", 'data' => 0);
+        return array('status' => 1, 'message' => "Failed to update Pets policy.", 'data' => 0);
     }
 
-    public function actionSavecancellationcharges(){
+    public function actionSavecancellationcharges()
+    {
         \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
 
-        if(!isset( $_REQUEST['property_id'])) {
-            return array('status' => 2,'message' => "Invalid input. Property id missing.", 'data' => 0);;
+        if (!isset($_REQUEST['property_id'])) {
+            return array('status' => 2, 'message' => "Invalid input. Property id missing.", 'data' => 0);;
         }
 
         $property_id = Yii::$app->request->post('property_id');
@@ -858,12 +851,11 @@ class PropertyController extends Controller{
                 ->where(['id' => $property_id])
                 ->one();
 
-            if ($property == NULL){
-                return array('status' => 2,'message' => "Property (id) doesn't exists", 'data' => 0);
+            if ($property == NULL) {
+                return array('status' => 2, 'message' => "Property (id) doesn't exists", 'data' => 0);
             }
-        }
-        else {
-            return array('status' => 2,'message' => "Property id cannot zero", 'data' => 0);
+        } else {
+            return array('status' => 2, 'message' => "Property id cannot zero", 'data' => 0);
         }
 
         $property->cancellation_has_period_charge = Yii::$app->request->post('cancellation_has_period_charge');
@@ -883,11 +875,11 @@ class PropertyController extends Controller{
             $period_count = count($periodDataArray["percentage"]);
 
             //Delete previous period definition, before adding new period definition
-            if ($period_count > 0 ) {
-                CancellationRefundPeriod::deleteAll(['property_id' => $property_id ]);
+            if ($period_count > 0) {
+                CancellationRefundPeriod::deleteAll(['property_id' => $property_id]);
             }
 
-            for ($i = 0; $i < $period_count; $i++ ) {
+            for ($i = 0; $i < $period_count; $i++) {
                 $canellation_period = new CancellationRefundPeriod();
                 $canellation_period->property_id = $property_id;
                 $canellation_period->percentage = $periodDataArray["percentage"][$i];
@@ -898,16 +890,17 @@ class PropertyController extends Controller{
             }
         }
 
-        if ($property->save() ) {
-            return array('status' => 0,'message' => "Property Cancellation policy updated successfully", 'data' => 0);
+        if ($property->save()) {
+            return array('status' => 0, 'message' => "Property Cancellation policy updated successfully", 'data' => 0);
         }
     }
 
-    public function actionSavechildpolicy(){
+    public function actionSavechildpolicy()
+    {
         \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
 
-        if(!isset( $_REQUEST['property_id'])) {
-            return array('status' => 2,'message' => "Invalid input. Property id missing.", 'data' => 0);
+        if (!isset($_REQUEST['property_id'])) {
+            return array('status' => 2, 'message' => "Invalid input. Property id missing.", 'data' => 0);
         }
 
         $property_id = Yii::$app->request->post('property_id');
@@ -917,40 +910,39 @@ class PropertyController extends Controller{
                 ->where(['id' => $property_id])
                 ->one();
 
-            if ($property == NULL){
-                return array('status' => 2,'message' => "Property (id) doesn't exists", 'data' => 0);
+            if ($property == NULL) {
+                return array('status' => 2, 'message' => "Property (id) doesn't exists", 'data' => 0);
             }
-        }
-        else {
-            return array('status' => 2,'message' => "Property id cannot zero", 'data' => 0);
+        } else {
+            return array('status' => 2, 'message' => "Property id cannot zero", 'data' => 0);
         }
 
         $property->allow_child_of_all_ages = Yii::$app->request->post('allow_child_of_all_ages');
-        $property->restricted_for_child  = Yii::$app->request->post('restricted_for_child');
+        $property->restricted_for_child = Yii::$app->request->post('restricted_for_child');
         $property->restricted_for_child_below_age = Yii::$app->request->post('restricted_for_child_below_age');
-        $property->allow_complimentary  = Yii::$app->request->post('allow_complimentary');
-        $property->complimentary_from_age  = Yii::$app->request->post('complimentary_from_age');
+        $property->allow_complimentary = Yii::$app->request->post('allow_complimentary');
+        $property->complimentary_from_age = Yii::$app->request->post('complimentary_from_age');
         $property->complimentary_to_age = Yii::$app->request->post('complimentary_to_age');
         $property->allow_child_rate = Yii::$app->request->post('allow_child_rate');
         $property->child_rate_from_age = Yii::$app->request->post('child_rate_from_age');
         $property->child_rate_to_age = Yii::$app->request->post('child_rate_to_age');
         $property->allow_adult_rate = Yii::$app->request->post('allow_adult_rate');
-        $property->adult_rate_age  = Yii::$app->request->post('adult_rate_age');
+        $property->adult_rate_age = Yii::$app->request->post('adult_rate_age');
 
-        if ($property->save() ) {
-            return array('status' => 0,'message' => "Property Cancellation policy updated successfully", 'data' => 0);
-        }
-        else {
-            return array('status' => 5,'message' => "Property Cancellation policy update failed", 'data' => 0);
+        if ($property->save()) {
+            return array('status' => 0, 'message' => "Property Cancellation policy updated successfully", 'data' => 0);
+        } else {
+            return array('status' => 5, 'message' => "Property Cancellation policy update failed", 'data' => 0);
         }
 
     }
 
-    public function actionNationalities(){
+    public function actionNationalities()
+    {
         \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
         $group_id = Yii::$app->request->get('group_id');
         $property_id = Yii::$app->request->get('property_id');
-        $group_names = TariffNationalityGroupName::find()->where(['property_id' => $property_id])->andWhere(['<>','id', $group_id]) ->all();
+        $group_names = TariffNationalityGroupName::find()->where(['property_id' => $property_id])->andWhere(['<>', 'id', $group_id])->all();
 
         $all_linked_nationalities = array();
         $i = 0;
@@ -963,7 +955,7 @@ class PropertyController extends Controller{
 
         //Edit mode?
         $linked_nationalities_in_group = array();
-        if($group_id != 0){
+        if ($group_id != 0) {
             $linked_group = TariffNationalityGroupName::find()->where(['id' => $group_id])->one();
             $i = 0;
             foreach ($linked_group->tariffNationalityTables as $country) {
@@ -972,17 +964,18 @@ class PropertyController extends Controller{
             }
         }
 
-        $countries = Country::find()->where(['not in', 'id', $all_linked_nationalities ])->all();
-        $countries_list = ArrayHelper::toArray($countries, [ 'frontend\models\Country' => ['id', 'name']]);
+        $countries = Country::find()->where(['not in', 'id', $all_linked_nationalities])->all();
+        $countries_list = ArrayHelper::toArray($countries, ['frontend\models\Country' => ['id', 'name']]);
         //return $countries_list;
 
-        $nationality = array('available_countries' => $countries_list,'countries_in_group' => $linked_nationalities_in_group);
+        $nationality = array('available_countries' => $countries_list, 'countries_in_group' => $linked_nationalities_in_group);
         //return $nationality;
 
-        return array('status' => 0,'message' => "Successfully updated nationality.", 'data' => $nationality);
+        return array('status' => 0, 'message' => "Successfully updated nationality.", 'data' => $nationality);
     }
 
-    public function actionSavenationalities(){
+    public function actionSavenationalities()
+    {
         \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
         $group_id = Yii::$app->request->post('group_id');
         $property_id = Yii::$app->request->post('property_id');
@@ -991,37 +984,36 @@ class PropertyController extends Controller{
 
 
         $transaction = Yii::$app->db->beginTransaction();
-        try
-        {
+        try {
 
-        $group_name = null;
-        if($group_id != 0) {
-            $group_name = TariffNationalityGroupName::find()->where(['id' => $group_id])->one();
-        }
+            $group_name = null;
+            if ($group_id != 0) {
+                $group_name = TariffNationalityGroupName::find()->where(['id' => $group_id])->one();
+            }
 
-        if($group_name == null) {
-            $group_name = new TariffNationalityGroupName();
-        }
+            if ($group_name == null) {
+                $group_name = new TariffNationalityGroupName();
+            }
 
-        $country_count = count($nationalities);
-        if ($country_count > 0 ) {
-            TariffNationalityTable::deleteAll(['group_id' => $group_id ]);
-        }
+            $country_count = count($nationalities);
+            if ($country_count > 0) {
+                TariffNationalityTable::deleteAll(['group_id' => $group_id]);
+            }
 
-        $group_name->name = $name;
-        $group_name->property_id = $property_id;
-        $group_name->save();
+            $group_name->name = $name;
+            $group_name->property_id = $property_id;
+            $group_name->save();
 
-        for ($i = 0; $i < $country_count; $i++ ) {
-            $tariff_nationality = new TariffNationalityTable();
-            $tariff_nationality->country_id = $nationalities[$i];
-            $tariff_nationality->group_id = $group_name->getPrimaryKey();
-            $tariff_nationality->save();
-        }
+            for ($i = 0; $i < $country_count; $i++) {
+                $tariff_nationality = new TariffNationalityTable();
+                $tariff_nationality->country_id = $nationalities[$i];
+                $tariff_nationality->group_id = $group_name->getPrimaryKey();
+                $tariff_nationality->save();
+            }
 
-        $property = Property::find()->where(['id'=>$property_id])->one();
-        $property->room_tariff_same_for_all = Yii::$app->request->post('room_tariff_same_for_all');
-        $property->save();
+            $property = Property::find()->where(['id' => $property_id])->one();
+            $property->room_tariff_same_for_all = Yii::$app->request->post('room_tariff_same_for_all');
+            $property->save();
             $transaction->commit();
 
         } catch (\Exception $e) {
@@ -1031,16 +1023,17 @@ class PropertyController extends Controller{
             $transaction->rollBack();
             throw $e;
         }
-       $tableData =  $this->renderPartial('_nationality_based_tariff_table', ['property' => $property]);
+        $tableData = $this->renderPartial('_nationality_based_tariff_table', ['property' => $property]);
 
-        return array('status' => 0,'message' => "Successfully updated nationality.", 'data' => $tableData);
+        return array('status' => 0, 'message' => "Successfully updated nationality.", 'data' => $tableData);
     }
 
-    public function actionSavetariffoption(){
+    public function actionSavetariffoption()
+    {
         \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
 
-        if(!isset( $_REQUEST['property_id'])) {
-            return array('status' => 2,'message' => "Invalid input. Property id missing.", 'data' => 0);;
+        if (!isset($_REQUEST['property_id'])) {
+            return array('status' => 2, 'message' => "Invalid input. Property id missing.", 'data' => 0);;
         }
 
         $property_id = Yii::$app->request->post('property_id');
@@ -1052,27 +1045,27 @@ class PropertyController extends Controller{
                 ->andWhere(['owner_id' => Yii::$app->user->identity->getOWnerId()])
                 ->one();
 
-            if ($property == NULL){
-                return array('status' => 2,'message' => "Property (id) doesn't exists", 'data' => 0);
+            if ($property == NULL) {
+                return array('status' => 2, 'message' => "Property (id) doesn't exists", 'data' => 0);
             }
-        }
-        else {
-            return array('status' => 2,'message' => "Property id cannot zero", 'data' => 0);
+        } else {
+            return array('status' => 2, 'message' => "Property id cannot zero", 'data' => 0);
         }
 
         $property->room_tariff_same_for_all = Yii::$app->request->post('room_tariff_same_for_all');
-        if ($property->save() ) {
-            return array('status' => 0,'message' => "Property Tariff option updated successfully", 'data' => 0);
+        if ($property->save()) {
+            return array('status' => 0, 'message' => "Property Tariff option updated successfully", 'data' => 0);
         } else {
-            return array('status' => 1,'message' => "Failed to update Tariff option", 'data' => 0);
+            return array('status' => 1, 'message' => "Failed to update Tariff option", 'data' => 0);
         }
     }
 
-    public function actionSavemandatorydinneroption(){
+    public function actionSavemandatorydinneroption()
+    {
         \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
 
-        if(!isset( $_REQUEST['property_id'])) {
-            return array('status' => 2,'message' => "Invalid input. Property id missing.", 'data' => 0);;
+        if (!isset($_REQUEST['property_id'])) {
+            return array('status' => 2, 'message' => "Invalid input. Property id missing.", 'data' => 0);;
         }
 
         $property_id = Yii::$app->request->post('property_id');
@@ -1084,28 +1077,28 @@ class PropertyController extends Controller{
                 ->where(['id' => $property_id])
                 ->one();
 
-            if ($property == NULL){
-                return array('status' => 2,'message' => "Property (id) doesn't exists", 'data' => 0);
+            if ($property == NULL) {
+                return array('status' => 2, 'message' => "Property (id) doesn't exists", 'data' => 0);
             }
-        }
-        else {
-            return array('status' => 2,'message' => "Property id cannot zero", 'data' => 0);
+        } else {
+            return array('status' => 2, 'message' => "Property id cannot zero", 'data' => 0);
         }
 
         $property->provide_compulsory_inclusions = Yii::$app->request->post('provide_compulsory_inclusions');
 
-        if ($property->save() ) {
-            return array('status' => 0,'message' => "Property Mandatory dinner option updated successfully", 'data' => 0);
+        if ($property->save()) {
+            return array('status' => 0, 'message' => "Property Mandatory dinner option updated successfully", 'data' => 0);
         } else {
-            return array('status' => 1,'message' => "Failed to update Mandatory dinner option", 'data' => 0);
+            return array('status' => 1, 'message' => "Failed to update Mandatory dinner option", 'data' => 0);
         }
     }
 
-    public function actionSaveweekdayhikeoption(){
+    public function actionSaveweekdayhikeoption()
+    {
         \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
 
-        if(!isset( $_REQUEST['property_id'])) {
-            return array('status' => 2,'message' => "Invalid input. Property id missing.", 'data' => 0);;
+        if (!isset($_REQUEST['property_id'])) {
+            return array('status' => 2, 'message' => "Invalid input. Property id missing.", 'data' => 0);;
         }
 
         $property_id = Yii::$app->request->post('property_id');
@@ -1116,34 +1109,34 @@ class PropertyController extends Controller{
                 ->where(['id' => $property_id])
                 ->one();
 
-            if ($property == NULL){
-                return array('status' => 2,'message' => "Property (id) doesn't exists", 'data' => 0);
+            if ($property == NULL) {
+                return array('status' => 2, 'message' => "Property (id) doesn't exists", 'data' => 0);
             }
-        }
-        else {
-            return array('status' => 2,'message' => "Property id cannot zero", 'data' => 0);
+        } else {
+            return array('status' => 2, 'message' => "Property id cannot zero", 'data' => 0);
         }
 
         $property->have_weekday_hike = Yii::$app->request->post('have_weekday_hike');
 
-        if ($property->save() ) {
-            return array('status' => 0,'message' => "Property Weekday hike option updated successfully", 'data' => 0);
+        if ($property->save()) {
+            return array('status' => 0, 'message' => "Property Weekday hike option updated successfully", 'data' => 0);
         } else {
-            return array('status' => 1,'message' => "Failed to update Weekday hike option", 'data' => 0);
+            return array('status' => 1, 'message' => "Failed to update Weekday hike option", 'data' => 0);
         }
     }
 
 
     //////////////////////////////////Services &Amenities////////////////////////////////
 
-    public function actionServiceamenities(){
+    public function actionServiceamenities()
+    {
         $property = $this->getProperty();
 
         $swimming_pool = PropertySwimmingPool::find()
             ->where(['property_id' => $property->id])
             ->one();
 
-        if ($swimming_pool == null ){
+        if ($swimming_pool == null) {
             $swimming_pool = new PropertySwimmingPool();
         }
 
@@ -1156,7 +1149,7 @@ class PropertyController extends Controller{
             ->where(['property_id' => $property->id])
             ->one();
 
-        if ($restaurant == null ){
+        if ($restaurant == null) {
             $restaurant = new PropertyRestaurant();
         }
 
@@ -1174,7 +1167,7 @@ class PropertyController extends Controller{
             ->where(['property_id' => $property->id])
             ->one();
 
-        if ($parking == null ){
+        if ($parking == null) {
             $parking = new PropertyParking();
         }
 
@@ -1204,7 +1197,7 @@ class PropertyController extends Controller{
 
         $this->layout = 'tm_main';
 
-        return $this->render('amenities',[
+        return $this->render('amenities', [
             'property' => $property, /*'complimentary_amenities' => $complimentary_amenities,*/
             'swimming_pool' => $swimming_pool,
             'pool_types' => $pool_types,
@@ -1225,11 +1218,54 @@ class PropertyController extends Controller{
         ]);
     }
 
-    public function actionSavecomplimentaryaminities(){
+    public function actionDeletenationality()
+    {
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        if (!isset($_REQUEST['group_id'])) {
+            return array('status' => 2, 'message' => "Invalid input. Group id missing.", 'data' => 0);;
+        }
+        if (!isset($_REQUEST['property_id'])) {
+            return array('status' => 2, 'message' => "Invalid input. Property missing.", 'data' => 0);;
+        }
+
+        $property_id = Yii::$app->request->post('property_id');
+
+        $property = Property::find()->where(['id'=>$property_id])->one();
+
+        $group_id = (int)Yii::$app->request->post('group_id');
+        $transaction = Yii::$app->db->beginTransaction();
+        try {
+            $rows = TariffNationalityGroupName::deleteAll(['id' => $group_id]);
+            RoomTariffDatewise::deleteAll(['nationality_id' => $group_id]);
+
+            $transaction->commit();
+            //TODO: Handling exception in page
+        } catch (\Exception $e) {
+            $transaction->rollBack();
+            return array('status' => 2, 'message' => "error", 'data' => $e);
+        } catch (\Throwable $e) {
+            //TODO: Handling exception in page
+            $transaction->rollBack();
+//            throw $e;
+            return array('status' => 2, 'message' => "error", 'data' => $e);
+
+        }
+
+        if ($rows > 0) {
+            $tableData = $this->renderPartial('_nationality_based_tariff_table', ['property' => $property]);
+
+            return array('status' => 0, 'message' => "Deleted natioanlity group", 'data' => $tableData);
+        } else {
+            return array('status' => 1, 'message' => "Delete natioanlity group failed", 'data' => 0);
+        }
+    }
+
+    public function actionSavecomplimentaryaminities()
+    {
         \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
 
-        if(!isset( $_REQUEST['property_id'])) {
-            return array('status' => 2,'message' => "Invalid input. Property missing.", 'data' => 0);;
+        if (!isset($_REQUEST['property_id'])) {
+            return array('status' => 2, 'message' => "Invalid input. Property missing.", 'data' => 0);;
         }
 
         $property_id = Yii::$app->request->post('property_id');
@@ -1241,29 +1277,27 @@ class PropertyController extends Controller{
                 ->where(['id' => $property_id])
                 ->one();
 
-            if ($property == NULL){
-                return array('status' => 2,'message' => "Property (id) doesn't exists", 'data' => 0);
+            if ($property == NULL) {
+                return array('status' => 2, 'message' => "Property (id) doesn't exists", 'data' => 0);
             }
-        }
-        else {
-            return array('status' => 2,'message' => "Property id cannot zero", 'data' => 0);
+        } else {
+            return array('status' => 2, 'message' => "Property id cannot zero", 'data' => 0);
         }
         $transaction = Yii::$app->db->beginTransaction();
-        try
-        {
+        try {
             $property->have_complimentary_services = Yii::$app->request->post('have_complimentary_services');
             $property->save();
             $complimentary_data = Yii::$app->request->post('complimentary_data');
             parse_str($complimentary_data, $compDataArray);
-            PropertyComplimentaryAmenity::deleteAll(['property_id' => $property_id ]);
+            PropertyComplimentaryAmenity::deleteAll(['property_id' => $property_id]);
 
             if (isset($compDataArray['complimentary_input'])) {
                 $comp_count = count($compDataArray['complimentary_input']);
-                for ($i = 0; $i < $comp_count; $i++ ) {
+                for ($i = 0; $i < $comp_count; $i++) {
                     $complimentary = new PropertyComplimentaryAmenity();
                     $complimentary->property_id = $property_id;
                     $complimentary->name = $compDataArray['complimentary_input'][$i];
-                    if($complimentary->validate()){
+                    if ($complimentary->validate()) {
                         $complimentary->save();
                     }
                 }
@@ -1272,19 +1306,20 @@ class PropertyController extends Controller{
             //TODO: Handling exception in page
         } catch (\Exception $e) {
             $transaction->rollBack();
-            return array('status' => 2,'message' => "error", 'data' => $e);
+            return array('status' => 2, 'message' => "error", 'data' => $e);
         } catch (\Throwable $e) {
             //TODO: Handling exception in page
             $transaction->rollBack();
 //            throw $e;
-            return array('status' => 2,'message' => "error", 'data' => $e);
+            return array('status' => 2, 'message' => "error", 'data' => $e);
 
         }
 
-        return array('status' => 0,'message' => "Property Amenities updated successfully", 'data' => 0);
+        return array('status' => 0, 'message' => "Property Amenities updated successfully", 'data' => 0);
     }
 
-    public function actionSaveswimmingpooldata(){
+    public function actionSaveswimmingpooldata()
+    {
 
         \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
 
@@ -1295,30 +1330,28 @@ class PropertyController extends Controller{
                 ->where(['id' => $property_id])
                 ->one();
 
-            if ($property == NULL){
-                return array('status' => 2,'message' => "Property (id) doesn't exists", 'data' => 0);
+            if ($property == NULL) {
+                return array('status' => 2, 'message' => "Property (id) doesn't exists", 'data' => 0);
             }
-        }
-        else {
-            return array('status' => 2,'message' => "Property id cannot zero", 'data' => 0);
+        } else {
+            return array('status' => 2, 'message' => "Property id cannot zero", 'data' => 0);
         }
         $transaction = Yii::$app->db->beginTransaction();
-        try
-        {
+        try {
             $property->have_swimming_pool = Yii::$app->request->post('have_swimming_pool');
             $property->save();
 
             $swimming_pool = PropertySwimmingPool::find()
                 ->where(['property_id' => $property_id])
                 ->one();
-            if ($swimming_pool == NULL ){
+            if ($swimming_pool == NULL) {
                 $swimming_pool = new PropertySwimmingPool();
                 $swimming_pool->property_id = $property_id;
             }
 
             $swimming_pool->count = Yii::$app->request->post('pool_count');
 
-            if($swimming_pool->validate()){
+            if ($swimming_pool->validate()) {
                 $swimming_pool->save();
             }
 
@@ -1327,12 +1360,12 @@ class PropertyController extends Controller{
 
             if (isset($poolDataArray['pool_type'])) {
                 $pool_type_count = count($poolDataArray['pool_type']);
-                for ($i = 0; $i < $pool_type_count; $i++ ) {
+                for ($i = 0; $i < $pool_type_count; $i++) {
                     $pool_map = new PropertySwimmingPoolTypeMap();
                     $pool_map->pool_id = $swimming_pool->getPrimaryKey();
                     $pool_map->pool_type_id = $poolDataArray['pool_type'][$i];
 
-                    if($pool_map->validate()){
+                    if ($pool_map->validate()) {
                         $pool_map->save();
                     }
                 }
@@ -1341,19 +1374,21 @@ class PropertyController extends Controller{
             //TODO: Handling exception in page
         } catch (\Exception $e) {
             $transaction->rollBack();
-            return array('status' => 2,'message' => "error", 'data' => $e);
+            return array('status' => 2, 'message' => "error", 'data' => $e);
         } catch (\Throwable $e) {
             //TODO: Handling exception in page
             $transaction->rollBack();
 //            throw $e;
-            return array('status' => 2,'message' => "error", 'data' => $e);
+            return array('status' => 2, 'message' => "error", 'data' => $e);
 
         }
 
 
-        return array('status' => 0,'message' => "Property Swimming pool data updated successfully", 'data' => 0);
+        return array('status' => 0, 'message' => "Property Swimming pool data updated successfully", 'data' => 0);
     }
-    public function actionSaverestaurantdata(){
+
+    public function actionSaverestaurantdata()
+    {
 
         \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
 
@@ -1364,16 +1399,14 @@ class PropertyController extends Controller{
                 ->where(['id' => $property_id])
                 ->one();
 
-            if ($property == NULL){
-                return array('status' => 2,'message' => "Property (id) doesn't exists", 'data' => 0);
+            if ($property == NULL) {
+                return array('status' => 2, 'message' => "Property (id) doesn't exists", 'data' => 0);
             }
-        }
-        else {
-            return array('status' => 2,'message' => "Property id cannot zero", 'data' => 0);
+        } else {
+            return array('status' => 2, 'message' => "Property id cannot zero", 'data' => 0);
         }
         $transaction = Yii::$app->db->beginTransaction();
-        try
-        {
+        try {
             $property->have_restaurant = Yii::$app->request->post('have_restaurant');
             $property->save();
 
@@ -1381,45 +1414,45 @@ class PropertyController extends Controller{
                 ->where(['property_id' => $property_id])
                 ->one();
 
-            if ($restaurant == NULL ){
+            if ($restaurant == NULL) {
                 $restaurant = new PropertyRestaurant();
                 $restaurant->property_id = $property_id;
             }
 
             $restaurant->count = Yii::$app->request->post('restaurant_count');
-            if($restaurant->validate()){
+            if ($restaurant->validate()) {
                 $restaurant->save();
             }
 
-            PropertyRestaurantFoodOptionMap::deleteAll(['restaurant_id' => $restaurant->getPrimaryKey() ]);
+            PropertyRestaurantFoodOptionMap::deleteAll(['restaurant_id' => $restaurant->getPrimaryKey()]);
 
             $food_option = Yii::$app->request->post('food_option');
             parse_str($food_option, $food_optionDataArray);
             if (isset($food_optionDataArray['food_option'])) {
                 $food_option_count = count($food_optionDataArray['food_option']);
-                for ($i = 0; $i < $food_option_count; $i++ ) {
+                for ($i = 0; $i < $food_option_count; $i++) {
                     $food_option_map = new PropertyRestaurantFoodOptionMap();
                     $food_option_map->restaurant_id = $restaurant->getPrimaryKey();
                     $food_option_map->food_option_id = $food_optionDataArray['food_option'][$i];
 
-                    if($food_option_map->validate()){
+                    if ($food_option_map->validate()) {
                         $food_option_map->save();
                     }
                 }
             }
 
-            PropertyRestaurantCuisineOptionMap::deleteAll(['restaurant_id' => $restaurant->getPrimaryKey() ]);
+            PropertyRestaurantCuisineOptionMap::deleteAll(['restaurant_id' => $restaurant->getPrimaryKey()]);
             $cuisine_option = Yii::$app->request->post('cuisine_option');
             parse_str($cuisine_option, $cuisine_optionDataArray);
             if (isset($cuisine_optionDataArray['cuisine_option'])) {
                 $cuisine_option_count = count($cuisine_optionDataArray['cuisine_option']);
 
-                for ($i = 0; $i < $cuisine_option_count; $i++ ) {
+                for ($i = 0; $i < $cuisine_option_count; $i++) {
                     $cuisine_option_map = new PropertyRestaurantCuisineOptionMap();
                     $cuisine_option_map->restaurant_id = $restaurant->getPrimaryKey();
                     $cuisine_option_map->cuisine_option_id = $cuisine_optionDataArray['cuisine_option'][$i];
 
-                    if($cuisine_option_map->validate()){
+                    if ($cuisine_option_map->validate()) {
                         $cuisine_option_map->save();
                     }
                 }
@@ -1428,19 +1461,20 @@ class PropertyController extends Controller{
             //TODO: Handling exception in page
         } catch (\Exception $e) {
             $transaction->rollBack();
-            return array('status' => 2,'message' => "error", 'data' => $e);
+            return array('status' => 2, 'message' => "error", 'data' => $e);
         } catch (\Throwable $e) {
             //TODO: Handling exception in page
             $transaction->rollBack();
 //            throw $e;
-            return array('status' => 2,'message' => "error", 'data' => $e);
+            return array('status' => 2, 'message' => "error", 'data' => $e);
 
         }
 
-        return array('status' => 0,'message' => "Restaurant data saved successfully", 'data' => 0);
+        return array('status' => 0, 'message' => "Restaurant data saved successfully", 'data' => 0);
     }
 
-    public function actionSaveparking(){
+    public function actionSaveparking()
+    {
 
         \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
 
@@ -1451,16 +1485,14 @@ class PropertyController extends Controller{
                 ->where(['id' => $property_id])
                 ->one();
 
-            if ($property == NULL){
-                return array('status' => 2,'message' => "Property (id) doesn't exists", 'data' => 0);
+            if ($property == NULL) {
+                return array('status' => 2, 'message' => "Property (id) doesn't exists", 'data' => 0);
             }
-        }
-        else {
-            return array('status' => 2,'message' => "Property id cannot zero", 'data' => 0);
+        } else {
+            return array('status' => 2, 'message' => "Property id cannot zero", 'data' => 0);
         }
         $transaction = Yii::$app->db->beginTransaction();
-        try
-        {
+        try {
             $property->have_parking = Yii::$app->request->post('have_parking');
             $property->save();
 
@@ -1468,16 +1500,16 @@ class PropertyController extends Controller{
                 ->where(['property_id' => $property_id])
                 ->one();
 
-            if ($parking == NULL ){
+            if ($parking == NULL) {
                 $parking = new PropertyParking();
                 $parking->property_id = $property_id;
             }
 
-            if($parking->validate()){
+            if ($parking->validate()) {
                 $parking->save();
             }
 
-            PropertyParkingTypeMap::deleteAll(['parking_id' => $parking->getPrimaryKey() ]);
+            PropertyParkingTypeMap::deleteAll(['parking_id' => $parking->getPrimaryKey()]);
 
             $parking_type = Yii::$app->request->post('parking_type');
             parse_str($parking_type, $parkingDataArray);
@@ -1485,12 +1517,12 @@ class PropertyController extends Controller{
             if (isset($parkingDataArray['parking_type'])) {
                 $parking_count = count($parkingDataArray['parking_type']);
 
-                for ($i = 0; $i < $parking_count; $i++ ) {
+                for ($i = 0; $i < $parking_count; $i++) {
                     $parking_map = new PropertyParkingTypeMap();
                     $parking_map->parking_id = $parking->getPrimaryKey();
                     $parking_map->parking_type_id = $parkingDataArray['parking_type'][$i];
 
-                    if($parking_map->validate()){
+                    if ($parking_map->validate()) {
                         $parking_map->save();
                     }
                 }
@@ -1500,45 +1532,188 @@ class PropertyController extends Controller{
             //TODO: Handling exception in page
         } catch (\Exception $e) {
             $transaction->rollBack();
-            return array('status' => 2,'message' => "error", 'data' => $e);
+            return array('status' => 2, 'message' => "error", 'data' => $e);
         } catch (\Throwable $e) {
             //TODO: Handling exception in page
             $transaction->rollBack();
 //            throw $e;
-            return array('status' => 2,'message' => "error", 'data' => $e);
+            return array('status' => 2, 'message' => "error", 'data' => $e);
 
         }
 
-        return array('status' => 0,'message' => "Parking data updated successfully", 'data' => 0);
+        return array('status' => 0, 'message' => "Parking data updated successfully", 'data' => 0);
     }
 
 
-    public function actionPictures() {
+    public function actionSavepropertyamenities()
+    {
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+        $property_id = Yii::$app->request->post('property_id');
+
+        //Check this proerty owned by this user
+        if ($property_id != 0 && $property_id != NULL) {
+            $property = Property::find()
+                ->where(['id' => $property_id])
+                ->one();
+
+            if ($property == NULL) {
+                return array('status' => 2, 'message' => "Property (id) doesn't exists", 'data' => 0);
+            }
+        } else {
+            return array('status' => 2, 'message' => "Property id cannot zero", 'data' => 0);
+        }
+
+        $amenities = Yii::$app->request->post('amenities');
+        $suboptions = Yii::$app->request->post('suboptions');
+
+        $transaction = Yii::$app->db->beginTransaction();
+        try {
+            $amenities_count = count($amenities);
+            PropertyAmenity::deleteAll(['property_id' => $property_id]);
+            for ($i = 0; $i < $amenities_count; $i++) {
+                $property_amenity = new PropertyAmenity();
+                $property_amenity->property_id = $property_id;
+                $property_amenity->amenity_id = $amenities[$i];
+                $property_amenity->save();
+
+                $sub_option_count = count($suboptions[$i]);
+                for ($j = 0; $j < $sub_option_count; $j++) {
+                    $options = $suboptions[$i];
+                    $property_amenity_sub_option = new PropertyAmenitySuboption();
+                    $property_amenity_sub_option->property_amenity_id = $property_amenity->getPrimaryKey();
+                    $property_amenity_sub_option->sub_option_id = $options[$j];
+                    if ($property_amenity_sub_option->validate()) {
+                        $property_amenity_sub_option->save();
+                    }
+                }
+            }
+            $transaction->commit();
+            //TODO: Handling exception in page
+        } catch (\Exception $e) {
+            $transaction->rollBack();
+            return array('status' => 2, 'message' => "error", 'data' => $e);
+        } catch (\Throwable $e) {
+            //TODO: Handling exception in page
+            $transaction->rollBack();
+//            throw $e;
+            return array('status' => 2, 'message' => "error", 'data' => $e);
+
+        }
+
+        return array('status' => 0, 'message' => "Property aminities updated successfully", 'data' => 0);
+
+    }
+
+    public function actionGetroomamenitiesform()
+    {
+        $room_id = Yii::$app->request->get('room_id');
+        if ($room_id != 0 && $room_id != NULL) {
+            $room = Room::find()
+                ->where(['id' => $room_id])
+                ->one();
+
+            if ($room == NULL) {
+                return array('status' => 2, 'message' => "Room (id) doesn't exists", 'data' => 0);
+            }
+        } else {
+            return array('status' => 2, 'message' => "Room id cannot zero", 'data' => 0);
+        }
+
+        $amenity_groups = AmenityGroup::find()->orderBy('id')->all();
+        $room_amenity = RoomAmenity::find()->where(['room_id' => $room_id])->all();
+
+        $room_amenity_suboption = new RoomAmenitySuboption();
+        return Yii::$app->controller->renderPartial('_room_amenity_form', ['room' => $room, 'room_amenity' => $room_amenity, 'amenity_groups' => $amenity_groups, 'room_amenity_suboption' => $room_amenity_suboption]);
+    }
+
+    public function actionSaveroomamenities()
+    {
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        //return Json::encode($suboptions);
+        $room_id = Yii::$app->request->post('room_id');
+        //Check this proerty owned by this user
+        if ($room_id != 0 && $room_id != NULL) {
+            $room = Room::find()
+                ->where(['id' => $room_id])
+                ->one();
+
+            if ($room == NULL) {
+                return array('status' => 2, 'message' => "Room (id) doesn't exists", 'data' => 0);
+            }
+        } else {
+            return array('status' => 2, 'message' => "Room id cannot zero", 'data' => 0);
+        }
+
+        $amenities = Yii::$app->request->post('amenities');
+        $suboptions = Yii::$app->request->post('suboptions');
+
+        $transaction = Yii::$app->db->beginTransaction();
+        try {
+
+            $amenities_count = count($amenities);
+            RoomAmenity::deleteAll(['room_id' => $room_id]);
+            for ($i = 0; $i < $amenities_count; $i++) {
+                $room_amenity = new RoomAmenity();
+                $room_amenity->room_id = $room_id;
+                $room_amenity->amenity_id = $amenities[$i];
+                $room_amenity->save();
+
+                $sub_option_count = count($suboptions[$i]);
+                for ($j = 0; $j < $sub_option_count; $j++) {
+                    $options = $suboptions[$i];
+                    $room_amenity_sub_option = new RoomAmenitySuboption();
+                    $room_amenity_sub_option->room_amenity_id = $room_amenity->getPrimaryKey();
+                    $room_amenity_sub_option->sub_option_id = $options[$j];
+                    if ($room_amenity_sub_option->validate()) {
+                        $room_amenity_sub_option->save();
+                    }
+                }
+            }
+            $transaction->commit();
+            //TODO: Handling exception in page
+        } catch (\Exception $e) {
+            $transaction->rollBack();
+            return array('status' => 2, 'message' => "error", 'data' => $e);
+        } catch (\Throwable $e) {
+            //TODO: Handling exception in page
+            $transaction->rollBack();
+//            throw $e;
+            return array('status' => 2, 'message' => "error", 'data' => $e);
+
+        }
+        return array('status' => 0, 'message' => "Room aminities updated successfully", 'data' => 0);
+    }
+
+
+    public function actionPictures()
+    {
         $this->layout = 'tm_main';
         $property = $this->getProperty();
 
         $pictures = PropertyPictures::find()->where(['property_id' => $property->id])->all();
 
-        $propertyRooms = Room::find()->where(['property_id'=>$property->id])->all();
-        return $this->render('pictures', ['property' => $property, 'pictures' => $pictures,'propertyRooms'=>$propertyRooms]);
+        $propertyRooms = Room::find()->where(['property_id' => $property->id])->all();
+        return $this->render('pictures', ['property' => $property, 'pictures' => $pictures, 'propertyRooms' => $propertyRooms]);
 
     }
 
     // Property pictures
 
-    public function actionUploadpreview(){
+    public function actionUploadpreview()
+    {
         \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
 
         $propertyID = Yii::$app->request->get('propertyID');
         $propertyPictures = PropertyPictures::find()->where(['property_id' => $propertyID])->all();
         $previewdata = array();
 
-        foreach ($propertyPictures as $key => $propertyPicture){
+        foreach ($propertyPictures as $key => $propertyPicture) {
 
-            $previewdata['initialPreview'][$key] = 'http://localhost:8080/uploads/'.$propertyPicture->name ;
-            $previewdata['initialPreviewConfig'][$key]['caption'] = $propertyPicture->description ;
-            $previewdata['initialPreviewConfig'][$key]['downloadUrl'] = 'http://localhost:8080/uploads/'.$propertyPicture->name ;
-            $previewdata['initialPreviewConfig'][$key]['description'] = $propertyPicture->description ;
+            $previewdata['initialPreview'][$key] = 'http://localhost:8080/uploads/' . $propertyPicture->name;
+            $previewdata['initialPreviewConfig'][$key]['caption'] = $propertyPicture->description;
+            $previewdata['initialPreviewConfig'][$key]['downloadUrl'] = 'http://localhost:8080/uploads/' . $propertyPicture->name;
+            $previewdata['initialPreviewConfig'][$key]['description'] = $propertyPicture->description;
             $previewdata['initialPreviewConfig'][$key]['url'] = 'http://localhost:8080/index.php?r=property/deletepicture';
             $previewdata['initialPreviewConfig'][$key]['key'] = $propertyPicture->id;
             $previewdata['caption'][$key]['{TAG_VALUE}'] = $propertyPicture->description;
@@ -1551,21 +1726,23 @@ class PropertyController extends Controller{
         return array('status' => 0, 'message' => "preview data !", 'data' => $previewdata);
     }
 
-    public function actionUpdatecaption(){
+    public function actionUpdatecaption()
+    {
         \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-        $PictureID =  $_POST['pictureID'];
-        $NewCaption =  $_POST['caption'];
-        $PropertyPicture = PropertyPictures::find()->where(['id'=>$PictureID])->one();
-        $PropertyPicture->description = $NewCaption ;
+        $PictureID = $_POST['pictureID'];
+        $NewCaption = $_POST['caption'];
+        $PropertyPicture = PropertyPictures::find()->where(['id' => $PictureID])->one();
+        $PropertyPicture->description = $NewCaption;
         $PropertyPicture->save();
         return array('status' => 0, 'message' => "Caption Updated");
     }
 
-    public function actionDeletepicture(){
+    public function actionDeletepicture()
+    {
 
-        $PictureID =  $_POST['key'];
-        $PropertyPicture = PropertyPictures::find()->where(['id'=>$PictureID])->one();
-        $path =  Yii::getAlias('@frontend') .'/web/uploads/'.$PropertyPicture->name;
+        $PictureID = $_POST['key'];
+        $PropertyPicture = PropertyPictures::find()->where(['id' => $PictureID])->one();
+        $path = Yii::getAlias('@frontend') . '/web/uploads/' . $PropertyPicture->name;
         unlink($path);
         $PropertyPicture->delete();
         return true;
@@ -1587,7 +1764,7 @@ class PropertyController extends Controller{
 
 
 //        $path = '/uploads/'; // your upload path
-        $path =  Yii::getAlias('@frontend') .'/web/uploads/'; // your upload path
+        $path = Yii::getAlias('@frontend') . '/web/uploads/'; // your upload path
         $request = $_POST;
 //        $fp = fopen('lidn.txt', 'w');
 //        fwrite($fp,   $_POST['id']);
@@ -1598,8 +1775,8 @@ class PropertyController extends Controller{
 
             $tmpFilePath = $_FILES[$input]['tmp_name'][$i]; // the temp file path
             $fileName = $_FILES[$input]['name'][$i]; // the file name
-            $extention  = pathinfo($fileName, PATHINFO_EXTENSION);
-            $fileName =  uniqid('', true) . '.' . $extention;
+            $extention = pathinfo($fileName, PATHINFO_EXTENSION);
+            $fileName = uniqid('', true) . '.' . $extention;
 
 //                    $fp = fopen('lidn.txt', 'w');
 //        fwrite($fp,   $extention);
@@ -1607,7 +1784,7 @@ class PropertyController extends Controller{
             $fileSize = $_FILES[$input]['size'][$i]; // the file size
 
             //Make sure we have a file path
-            if ($tmpFilePath != ""){
+            if ($tmpFilePath != "") {
                 //Setup our new file path
                 $newFilePath = $path . $fileName;
 
@@ -1615,7 +1792,7 @@ class PropertyController extends Controller{
 
                 //Upload the file into the new path
 
-                if(move_uploaded_file($tmpFilePath, $newFilePath)) {
+                if (move_uploaded_file($tmpFilePath, $newFilePath)) {
                     $picture_object = new PropertyPictures();
                     $picture_object->property_id = $_POST['propertyID'];
                     $picture_object->name = $fileName;
@@ -1624,7 +1801,7 @@ class PropertyController extends Controller{
 
                     $fileId = $fileName . $i; // some unique key to identify the file
 
-                    $preview[] =  $newFileUrl;
+                    $preview[] = $newFileUrl;
 
                     $config[] = [
                         'key' => $picture_object->id,
@@ -1633,24 +1810,23 @@ class PropertyController extends Controller{
                         'downloadUrl' => $newFileUrl, // the url to download the file
                         'url' => 'http://localhost:8080/index.php?r=property/deletepicture', // server api to delete the file based on key
                     ];
-                    $caption[] = ['{TAG_VALUE}'=> $_POST[$i], '{TAG_CSS_NEW}'=> 'kv-hidden', '{TAG_CSS_INIT}'=> '','{TAG_CSS_ID}'=>$picture_object->id];
+                    $caption[] = ['{TAG_VALUE}' => $_POST[$i], '{TAG_CSS_NEW}' => 'kv-hidden', '{TAG_CSS_INIT}' => '', '{TAG_CSS_ID}' => $picture_object->id];
 
                 } else {
                     $errors[] = $fileName;
                 }
 
-            }
-            else {
+            } else {
                 $errors[] = $fileName;
             }
 
         }
         $out = ['initialPreview' => $preview, 'initialPreviewConfig' => $config,
 
-            'initialPreviewThumbTags'=>$caption,'initialPreviewAsData' => true];
+            'initialPreviewThumbTags' => $caption, 'initialPreviewAsData' => true];
 //        return $out;
         if (!empty($errors)) {
-            $img = count($errors) === 1 ? 'file "' . $error[0]  . '" ' : 'files: "' . implode('", "', $errors) . '" ';
+            $img = count($errors) === 1 ? 'file "' . $error[0] . '" ' : 'files: "' . implode('", "', $errors) . '" ';
             $out['error'] = 'Oh snap! We could not upload the ' . $img . 'now. Please try again later.';
         }
 
@@ -1659,22 +1835,22 @@ class PropertyController extends Controller{
     }
 
 
-
     //Room Images upload and preview
 
-    public function actionRoomimagepreview(){
+    public function actionRoomimagepreview()
+    {
         \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
 
         $roomID = Yii::$app->request->get('roomID');
         $roomPictures = RoomPictures::find()->where(['room_id' => $roomID])->all();
         $previewdata = array();
 
-        foreach ($roomPictures as $key => $roomPicture){
+        foreach ($roomPictures as $key => $roomPicture) {
 
-            $previewdata['initialPreview'][$key] = 'http://localhost:8080/uploads/'.$roomPicture->name ;
-            $previewdata['initialPreviewConfig'][$key]['caption'] = $roomPicture->description ;
-            $previewdata['initialPreviewConfig'][$key]['downloadUrl'] = 'http://localhost:8080/uploads/'.$roomPicture->name ;
-            $previewdata['initialPreviewConfig'][$key]['description'] = $roomPicture->description ;
+            $previewdata['initialPreview'][$key] = 'http://localhost:8080/uploads/' . $roomPicture->name;
+            $previewdata['initialPreviewConfig'][$key]['caption'] = $roomPicture->description;
+            $previewdata['initialPreviewConfig'][$key]['downloadUrl'] = 'http://localhost:8080/uploads/' . $roomPicture->name;
+            $previewdata['initialPreviewConfig'][$key]['description'] = $roomPicture->description;
             $previewdata['initialPreviewConfig'][$key]['url'] = 'http://localhost:8080/index.php?r=property/deleteroompicture';
             $previewdata['initialPreviewConfig'][$key]['key'] = $roomPicture->id;
             $previewdata['caption'][$key]['{TAG_VALUE}'] = $roomPicture->description;
@@ -1687,26 +1863,29 @@ class PropertyController extends Controller{
         return array('status' => 0, 'message' => "preview data !", 'data' => $previewdata);
     }
 
-    public function  actionDeleteroompicture(){
-        $RoomPictureID =  $_POST['key'];
-        $RoomPicture = RoomPictures::find()->where(['id'=>$RoomPictureID])->one();
-        $path =  Yii::getAlias('@frontend') .'/web/uploads/'.$RoomPicture->name;
+    public function actionDeleteroompicture()
+    {
+        $RoomPictureID = $_POST['key'];
+        $RoomPicture = RoomPictures::find()->where(['id' => $RoomPictureID])->one();
+        $path = Yii::getAlias('@frontend') . '/web/uploads/' . $RoomPicture->name;
         unlink($path);
         $RoomPicture->delete();
         return true;
     }
 
-    public function actionUpdateroomcaption(){
+    public function actionUpdateroomcaption()
+    {
         \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-        $PictureID =  $_POST['pictureID'];
-        $NewCaption =  $_POST['caption'];
-        $PropertyPicture = RoomPictures::find()->where(['id'=>$PictureID])->one();
-        $PropertyPicture->description = $NewCaption ;
+        $PictureID = $_POST['pictureID'];
+        $NewCaption = $_POST['caption'];
+        $PropertyPicture = RoomPictures::find()->where(['id' => $PictureID])->one();
+        $PropertyPicture->description = $NewCaption;
         $PropertyPicture->save();
         return array('status' => 0, 'message' => "Caption Updated");
     }
 
-    public function actionUploadroompictures(){
+    public function actionUploadroompictures()
+    {
         \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
         $preview = $config = $errors = array();
 
@@ -1719,7 +1898,7 @@ class PropertyController extends Controller{
 
 
 //        $path = '/uploads/'; // your upload path
-        $path =  Yii::getAlias('@frontend') .'/web/uploads/'; // your upload path
+        $path = Yii::getAlias('@frontend') . '/web/uploads/'; // your upload path
         $request = $_POST;
 
         for ($i = 0; $i < $total; $i++) {
@@ -1727,11 +1906,11 @@ class PropertyController extends Controller{
             $tmpFilePath = $_FILES[$input]['tmp_name'][$i]; // the temp file path
             $fileName = $_FILES[$input]['name'][$i]; // the file name
             $fileSize = $_FILES[$input]['size'][$i]; // the file size
-            $extention  = pathinfo($fileName, PATHINFO_EXTENSION);
-            $fileName =  uniqid('', true) . '.' . $extention; // Changing file name for preventing duplicate entry
+            $extention = pathinfo($fileName, PATHINFO_EXTENSION);
+            $fileName = uniqid('', true) . '.' . $extention; // Changing file name for preventing duplicate entry
 
             //Make sure we have a file path
-            if ($tmpFilePath != ""){
+            if ($tmpFilePath != "") {
                 //Setup our new file path
                 $newFilePath = $path . $fileName;
 
@@ -1739,7 +1918,7 @@ class PropertyController extends Controller{
 
                 //Upload the file into the new path
 
-                if(move_uploaded_file($tmpFilePath, $newFilePath)) {
+                if (move_uploaded_file($tmpFilePath, $newFilePath)) {
                     $picture_object = new RoomPictures();
                     $picture_object->room_id = $_POST['roomID'];
                     $picture_object->name = $fileName;
@@ -1748,7 +1927,7 @@ class PropertyController extends Controller{
 
                     $fileId = $fileName . $i; // some unique key to identify the file
 
-                    $preview[] =  $newFileUrl;
+                    $preview[] = $newFileUrl;
 
                     $config[] = [
                         'key' => $picture_object->id,
@@ -1757,24 +1936,23 @@ class PropertyController extends Controller{
                         'downloadUrl' => $newFileUrl, // the url to download the file
                         'url' => 'http://localhost:8080/index.php?r=property/deleteroompicture', // server api to delete the file based on key
                     ];
-                    $caption[] = ['{TAG_VALUE}'=> $_POST[$i], '{TAG_CSS_NEW}'=> 'kv-hidden', '{TAG_CSS_INIT}'=> '','{TAG_CSS_ID}'=>$picture_object->id];
+                    $caption[] = ['{TAG_VALUE}' => $_POST[$i], '{TAG_CSS_NEW}' => 'kv-hidden', '{TAG_CSS_INIT}' => '', '{TAG_CSS_ID}' => $picture_object->id];
 
                 } else {
                     $errors[] = $fileName;
                 }
 
-            }
-            else {
+            } else {
                 $errors[] = $fileName;
             }
 
         }
         $out = ['initialPreview' => $preview, 'initialPreviewConfig' => $config,
 
-            'initialPreviewThumbTags'=>$caption,'initialPreviewAsData' => true];
+            'initialPreviewThumbTags' => $caption, 'initialPreviewAsData' => true];
 //        return $out;
         if (!empty($errors)) {
-            $img = count($errors) === 1 ? 'file "' . $error[0]  . '" ' : 'files: "' . implode('", "', $errors) . '" ';
+            $img = count($errors) === 1 ? 'file "' . $error[0] . '" ' : 'files: "' . implode('", "', $errors) . '" ';
             $out['error'] = 'Oh snap! We could not upload the ' . $img . 'now. Please try again later.';
         }
 
@@ -1784,16 +1962,18 @@ class PropertyController extends Controller{
 
 
     //Room category
-    public function actionCategories() {
+    public function actionCategories()
+    {
         $this->layout = 'tm_main';
         $property = $this->getProperty();
         $rooms = Room::find()->where(['property_id' => $property->id])->all();
 //        $rooms = Room::find()->all();
 //        return $rooms[1]->mealPlan->name;
-        return $this->render('room_categories',['rooms' => $rooms,]);
+        return $this->render('room_categories', ['rooms' => $rooms,]);
     }
 
-    public function actionCreatecategories(){
+    public function actionCreatecategories()
+    {
         $this->layout = 'tm_main';
         $property = $this->getProperty();
 
@@ -1803,7 +1983,7 @@ class PropertyController extends Controller{
             ->andWhere(['property_id' => $property->id])
             ->one();
 
-        if ($room == NULL){
+        if ($room == NULL) {
             $room = new Room();
         }
 
@@ -1812,7 +1992,7 @@ class PropertyController extends Controller{
         $extra_bed_types = ArrayHelper::map(PropertyRoomExtraBedType::find()->asArray()->all(), 'id', 'name');
         $meal_plans = ArrayHelper::map(PropertyMealPlan::find()->asArray()->all(), 'id', 'name');
 
-        return $this->render('room_categories_create',[
+        return $this->render('room_categories_create', [
             'property' => $property,
             'room' => $room,
             'room_types' => $room_types,
@@ -1823,9 +2003,10 @@ class PropertyController extends Controller{
 //        return $this->render('room_categories_create',['property' => $property, 'room' => $room, 'room_types' => $room_types, 'room_view_type' => $room_view_type, 'meal_plans' => $meal_plans, 'rooms' => $rooms]);
     }
 
-    public function actionSaveroomcategory(){
+    public function actionSaveroomcategory()
+    {
         $property_id = Yii::$app->request->post('property_id');
-        $rooms =  Yii::$app->request->post('Room');
+        $rooms = Yii::$app->request->post('Room');
 //        return $this->asJson($rooms['extra_bed_type_id']);
 
 
@@ -1835,12 +2016,11 @@ class PropertyController extends Controller{
                 ->where(['id' => $property_id])
                 ->one();
 
-            if ($property == NULL){
-                return array('status' => 2,'message' => "Property (id) doesn't exists", 'data' => 0);
+            if ($property == NULL) {
+                return array('status' => 2, 'message' => "Property (id) doesn't exists", 'data' => 0);
             }
-        }
-        else {
-            return array('status' => 2,'message' => "Property id cannot zero", 'data' => 0);
+        } else {
+            return array('status' => 2, 'message' => "Property id cannot zero", 'data' => 0);
         }
         $room = new Room();
         $room->name = $rooms['name'];
@@ -1861,12 +2041,13 @@ class PropertyController extends Controller{
 //        $room->save();
         if ($room->save(false)) {
             Yii::$app->session->setFlash('success', "Room category created successfully.");
-            return $this->redirect(['property/categories',  'id' => $property->getPrimaryKey()]);
+            return $this->redirect(['property/categories', 'id' => $property->getPrimaryKey()]);
         }
 //        return ;
     }
 
-    public function actionAmenities() {
+    public function actionAmenities()
+    {
         $this->layout = 'tm_main';
         return $this->render('amenities');
     }

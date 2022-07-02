@@ -1,3 +1,5 @@
+
+
 const complimentaryHtml = `
     <div class="d-flex form-group complimentary-item align-items-center">
         <div class="form-material w-100 mr-2">
@@ -5,7 +7,8 @@ const complimentaryHtml = `
         </div>
         <div class="d-flex remove-complimentary align-self-start" role="button">
             <div class="delete-icon my-1">
-                <i class="fas fa-minus text-white"></i>
+       <img  src="images/minus.svg" alt="" class="img-fluid">
+
             </div>
         </div>
     </div>

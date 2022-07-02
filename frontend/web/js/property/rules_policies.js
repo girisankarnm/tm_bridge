@@ -301,6 +301,51 @@ function showNationalityEditForm(group_id, group_name){
         });
 }
 
+function showNationalityDeleteConfirm(id, groupName){
+    // $('#nationality_group_id').val(id);
+    // $("#deleteGroupName").html(groupName);
+    // $('#deleteModal').modal('show');
+
+    $.confirm({
+        title: 'Confirmation!',
+        content: 'Are you sure you want to delete the nationality group '+groupName+'?',
+        type: 'red',
+        buttons: {
+            ok: {
+                btnClass: 'btn-primary text-white',
+                keys: ['enter'],
+                action: function(){
+
+                    $.post("index.php?r=property/deletenationality",{
+                        group_id: id, property_id: $('#property_id').val(),
+                    }, function (response) {
+                        if ( parseInt(response.status) == 0) {
+                            $("#nationalityTable tbody").empty();
+                            $("#nationalityTable tbody").append(response.data);
+
+                            toastr.success("Deleted nationality group");
+                        } else
+                        {
+                            toastr.error(response.message);
+                        }
+                    })
+                        .fail(function() {
+
+                            toastr.error("HTTP Error: Unable to connect to Server" );
+                        });
+
+                }
+            },
+            cancel: function(){
+                $.alert('File deletion was aborted! ');
+            }
+        }
+    });
+}
+
+
+
+
 function showNationaliyModal()
 {
     $('#myModal').attr('class', 'modal fade bs-example-modal-sm')
