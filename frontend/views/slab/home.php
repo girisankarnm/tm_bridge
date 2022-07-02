@@ -42,17 +42,17 @@ function onChangeProperty(property){
             <button id="assign_slab" type="submit" class="btn btn-sm btn-save">Assign</button>
         </div>
     </div>
-    <table id="operators_list" class="display" style="width:100%">
+    <table id="operators_list" class="table-slab-class " style="width:100%">
         <thead>
-            <tr>    
-                <th>Select</th>
-                <th>Name</th>
-                <th>Country</th>
-                <th>Location</th>
-                <th>Destination</th>
-                <th>Address</th>
-                
-            </tr>
+        <tr  class="thtablerow-slab " >
+            <th  class="paxcount">Select</th>
+            <th  class="Adults">Name</th>
+            <th  class="Adults">Country</th>
+            <th>Location</th>
+            <th>Destination</th>
+            <th>Address</th>
+
+        </tr>
         </thead>
         <tbody>
         <?php
