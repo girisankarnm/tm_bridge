@@ -55,6 +55,17 @@ function onChangeProperty(property){
         </tr>
         </thead>
         <tbody>
+        <tr>
+            <td><input type="checkbox" class="text-secondary type mt-2" name="operator[]" value="1" ></td>
+            <td>24242</td>
+            <td>424242</td>
+            <td>2242fffs</td>
+            <td>fsfsfsfsffs</td>
+            <td>sffssfsssf</td>
+        </tr>
+
+
+
         <?php
         foreach ($operators as $operator) { 
             ?>

@@ -451,7 +451,7 @@ input::-webkit-inner-spin-button {
     margin-top: 12px;
     width: 100% !important;
     /*height: 150px;*/
-    min-height: 150px;
+    /*min-height: 150px;*/
     /*border-bottom: 0px solid #111 !important;*/
     padding: 0px 0px !important;
     /*!* */
