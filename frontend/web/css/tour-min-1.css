@@ -1260,6 +1260,11 @@ hr.new2 {
     font-weight: 600;
     inline-size: 1px;
 }
+.margin-right-icon{
+    margin: 0px !important;
+    vertical-align: middle;
+    color: #E40968;
+}
 
 .commonTitlesmall
 {height: 15%;
