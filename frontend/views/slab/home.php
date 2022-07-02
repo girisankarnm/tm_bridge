@@ -33,7 +33,7 @@ function onChangeProperty(property){
         <div class="col-md-3 text-center mt-4">
             <?php echo $form->field($slab_assigned, 'property_id')->dropDownList($properties, ['class' => 'form-control form-control-sm h','prompt' => 'Choose', 'onchange' => 'onChangeProperty(this)'])->label(false); ?>
         </div>
-        <div class="col-md-3 text-center mt-4">
+        <div class="col-md-3ext-center mt-4">
             <?php 
              $slabs = ['1' => 'Default', '2' => 'Slab 1', '3' => 'Slab 2', '4' => 'Slab 3', '4' => 'Slab 5'];
             echo $form->field($slab_assigned, 'slab_number')->dropDownList($slabs, ['class' => 'form-control form-control-sm h','prompt' => 'Select slab'])->label(false); ?>
@@ -42,19 +42,30 @@ function onChangeProperty(property){
             <button id="assign_slab" type="submit" class="btn btn-sm btn-save">Assign</button>
         </div>
     </div>
-    <table id="operators_list" class="display" style="width:100%">
+    <table id="operators_list" class="table-slab-class " style="width:100%">
         <thead>
-            <tr>    
-                <th>Select</th>
-                <th>Name</th>
-                <th>Country</th>
-                <th>Location</th>
-                <th>Destination</th>
-                <th>Address</th>
-                
-            </tr>
+        <tr  class="thtablerow-slab " >
+            <th class="table-width-head" >Select</th>
+            <th class="table-width-head" >Name</th>
+            <th class="table-width-head" >Country</th>
+            <th class="table-width-head">Location</th>
+            <th class="table-width-head">Destination</th>
+            <th class="table-width-head">Address</th>
+
+        </tr>
         </thead>
         <tbody>
+        <tr>
+            <td><input type="checkbox" class="text-secondary type mt-2" name="operator[]" value="1" ></td>
+            <td>24242</td>
+            <td>424242</td>
+            <td>2242fffs</td>
+            <td>fsfsfsfsffs</td>
+            <td>sffssfsssf</td>
+        </tr>
+
+
+
         <?php
         foreach ($operators as $operator) { 
             ?>
@@ -63,8 +74,8 @@ function onChangeProperty(property){
                 <td><?= $operator->name; ?></td>
                 <td><?= $operator->country->name; ?></td>
                 <td><?= $operator->location->name; ?></td>
-                <td><?= $operator->destination->name; ?></td>                
-                <td><?= $operator->address; ?></td>                
+                <td><?= $operator->destination->name; ?></td>
+                <td><?= $operator->address; ?></td>
             </tr>
         <?php         
         } ?>
