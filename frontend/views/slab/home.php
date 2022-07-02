@@ -45,9 +45,9 @@ function onChangeProperty(property){
     <table id="operators_list" class="table-slab-class " style="width:100%">
         <thead>
         <tr  class="thtablerow-slab " >
-            <th  class="paxcount">Select</th>
-            <th  class="Adults">Name</th>
-            <th  class="Adults">Country</th>
+            <th  >Select</th>
+            <th >Name</th>
+            <th  >Country</th>
             <th>Location</th>
             <th>Destination</th>
             <th>Address</th>
