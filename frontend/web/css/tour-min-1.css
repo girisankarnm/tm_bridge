@@ -432,6 +432,10 @@ input::-webkit-inner-spin-button {
     /*border-bottom: 0px solid #111 !important;*/
 
 }
+.table-width-head {
+    width: 110px !important;
+    text-align: center !important;
+}
 
 .table-slab-class
 {
@@ -467,7 +471,7 @@ input::-webkit-inner-spin-button {
     /*border-top-left-radius: 20px !important;*/
     /*border-radius: 10px;*/
     /*border-collapse: initial;*/
-    text-align: center;
+    text-align: center !important;
 
 }
 
