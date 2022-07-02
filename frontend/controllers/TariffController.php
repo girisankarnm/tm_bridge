@@ -143,7 +143,7 @@ class TariffController extends Controller {
 
     //Add new mother date screen
     public function actionAddmotherdate(){
-
+        
         $date_range = new DateRange();
         if ($date_range->load(Yii::$app->request->post()) ) {            
             if ($date_range->isValidMotherDateRange() )
@@ -170,15 +170,27 @@ class TariffController extends Controller {
             }            
         } 
                 
-        $property = $this->getProperty();        
+        $property = $this->getProperty();
+        $is_published = 1;
+        $is_add_new_date = 1;
 
-        $mother_id = (int) Yii::$app->request->get('mother_id');        
+        $mother_id = (int) Yii::$app->request->get('mother_id', NULL);        
         $tariff_date_range = NULL;
         if($mother_id != NULL) {
-            $tariff_date_range = TariffDateRange::find()->where(['id' => $mother_id])->one();
+            $tariff_date_range = TariffDateRange::find()
+            ->where(['id' => $mother_id])
+            ->andWhere(['parent' => 0])
+            ->one();
+
+            //TODO: Handle mother date is not existing case
+            if($tariff_date_range == NULL) {
+                throw new NotFoundHttpException();
+            }
         } 
 
-        if($tariff_date_range != NULL) {
+        if($tariff_date_range != NULL) {            
+            $is_add_new_date = false;
+            $is_published = $tariff_date_range->status;
             $date_range->property_id = $tariff_date_range->property->id;
             $date_range->parent = $tariff_date_range->parent;            
             $date_range->from_date = Carbon::parse($tariff_date_range->from_date)->format('d M Y');  
@@ -186,6 +198,10 @@ class TariffController extends Controller {
             $date_range->id = $tariff_date_range->id;
         } 
         else {
+            //Add new mother date 
+            $is_published = 0;
+            $is_add_new_date = true;
+            
             $date_range->property_id = $property->id;
             $date_range->parent = 0;
             $date_range->id = 0;
@@ -201,7 +217,9 @@ class TariffController extends Controller {
         return $this->render('mother_date', [
             'property' => $property, 
             'date_range' => $date_range, 
-            'mother_ranges' => $mother_ranges
+            'mother_ranges' => $mother_ranges,
+            'is_published' => $is_published,
+            'is_add_new_date' => $is_add_new_date
         ]);
     }
 
