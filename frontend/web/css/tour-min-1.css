@@ -1274,6 +1274,18 @@ hr.new2 {
     font-weight: 600;
     inline-size: 1px;
 }
+
+.commonTitlesmall-2
+{height: 15%;
+    font-size: 13px;
+    padding-top: 4px;
+    color: #E40968;
+    font-weight: 600;
+    inline-size: 1px;
+}
+
+
+
 .dateform
 {
 
