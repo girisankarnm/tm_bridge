@@ -1260,6 +1260,11 @@ hr.new2 {
     font-weight: 600;
     inline-size: 1px;
 }
+.margin-right-icon{
+    margin: 0px !important;
+    vertical-align: middle;
+    color: #E40968;
+}
 
 .commonTitlesmall
 {height: 15%;
@@ -1269,6 +1274,18 @@ hr.new2 {
     font-weight: 600;
     inline-size: 1px;
 }
+
+.commonTitlesmall-2
+{height: 15%;
+    font-size: 13px;
+    padding-top: 4px;
+    color: #E40968;
+    font-weight: 600;
+    inline-size: 1px;
+}
+
+
+
 .dateform
 {
 
@@ -1441,6 +1458,10 @@ hr.new2 {
 
     color: #292931;
 
+}
+.card-width-change
+{
+    width: 227px !important;
 }
 .spanrightpadding
 {
@@ -1955,6 +1976,33 @@ select:focus{
     line-height: .8rem;
 
 }
+
+
+#header-same-location
+{
+    flex-basis: 350px;
+    height:300px;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+}
+
+
+#header-same-location div:nth-of-type(1) {
+    flex-basis: 350px;
+    height: 27px;
+    padding-top: 2px;
+
+
+}
+
+#header-same-location div:nth-of-type(2) {
+    flex-basis: 430px;
+    padding-top: 0px;
+    line-height: .8rem;
+
+}
+
 
 
 #main3 {
