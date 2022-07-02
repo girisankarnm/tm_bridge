@@ -103,7 +103,10 @@ $this->registerJsFile('/js/tariff/tariff.js');
             <?php if ($tariff != 1) { ?>
             <BUTTON type="button" class="prevbutton" style="width: 80px;height: 30px"> Prev </BUTTON>
             <?php } ?>
+
+            <?php if ($is_published != 1) { ?>
             <BUTTON type="submit" class="buttonSave save-border"  > Save </BUTTON>
+            <?php } ?>
             
             <?= Html::a('Next', ['tariff/addroomrate', 'id'=> $property->id, 'room_id'=> $room->id, 'mother_id' => $date_range->id, 'room_off_set' => $room_off_set, 'tariff' => $tariff],  ['class'=>'buttonNextanchor2', 'style' => 'width: 80px;height: 30px']) ?>
             
