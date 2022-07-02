@@ -33,14 +33,17 @@ function onChangeProperty(property){
         <div class="col-md-3 text-center mt-4">
             <?php echo $form->field($slab_assigned, 'property_id')->dropDownList($properties, ['class' => 'form-control form-control-sm h','prompt' => 'Choose', 'onchange' => 'onChangeProperty(this)'])->label(false); ?>
         </div>
-        <div class="col-md-3ext-center mt-4">
+        <div class="col-md-3 text-center mt-4" >
             <?php 
              $slabs = ['1' => 'Default', '2' => 'Slab 1', '3' => 'Slab 2', '4' => 'Slab 3', '4' => 'Slab 5'];
             echo $form->field($slab_assigned, 'slab_number')->dropDownList($slabs, ['class' => 'form-control form-control-sm h','prompt' => 'Select slab'])->label(false); ?>
         </div>
-        <div class="col-md-3 text-center mt-4">
-            <button id="assign_slab" type="submit" class="btn btn-sm btn-save">Assign</button>
+        <div class="col-md-3 text-center mt-4"  >
+            <button id="assign_slab" type="submit" class="buttonSaveAssign" >Assign</button>
         </div>
+
+
+
     </div>
     <table id="operators_list" class="table-slab-class " style="width:100%">
         <thead>
@@ -56,12 +59,12 @@ function onChangeProperty(property){
         </thead>
         <tbody>
         <tr>
-            <td><input type="checkbox" class="text-secondary type mt-2" name="operator[]" value="1" ></td>
-            <td>24242</td>
-            <td>424242</td>
-            <td>2242fffs</td>
-            <td>fsfsfsfsffs</td>
-            <td>sffssfsssf</td>
+            <td class="table-width-data-110px"><input type="checkbox" class="text-secondary type mt-2" name="operator[]" value="1" ></td>
+            <td class="table-width-data-110px">24242</td>
+            <td class="table-width-data-110px">424242</td>
+            <td class="table-width-data-110px">2242fffs</td>
+            <td class="table-width-data-110px">fsfsfsfsffs</td>
+            <td class="table-width-data-110px">sffssfsssf</td>
         </tr>
 
 

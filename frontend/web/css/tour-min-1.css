@@ -436,6 +436,13 @@ input::-webkit-inner-spin-button {
     width: 110px !important;
     text-align: center !important;
 }
+.table-width-data-110px {
+    width: 110px !important;
+    text-align: left !important;
+    padding-left: 20px !important;
+}
+
+
 
 .table-slab-class
 {
@@ -917,8 +924,25 @@ input::placeholder {
     border: 0.5px solid #586ADA;
     border-radius: 10px;
 
+}
 
-
+.buttonSaveAssign
+{
+    background-color: #586ADA;
+    color: #ffffff;
+    width: 92px;
+    height: 30px;
+    margin-top: 0px;
+    /*margin-right: 16px;*/
+    /*margin-left: 92px;*/
+    font-family: 'Bw Mitga';
+    font-style: normal;
+    letter-spacing: .04em;
+    font-size: 12px;
+    border: 0.5px solid #586ADA;
+    border-radius: 10px;
+    float: right;
+    justify-content: right;
 }
 
 
