@@ -1,6 +1,8 @@
 <?php
 use yii\helpers\Html;
 use yii\bootstrap4\ActiveForm;
+use frontend\models\property\PropertyAmenity;
+use yii\helpers\ArrayHelper;
 $this->registerCssFile('/css/property/room_categories.css');
 $this->registerCssFile('/css/property/amenities.css');
 $this->registerJsFile('/js/property/amenities/index.js');
@@ -241,91 +243,106 @@ $this->registerJsFile('/js/property/amenities/services_amenities.js');
                                 </div>
                                 <button id="save_parking" class="btn btn-primary mb-4"> Save </button>
 
-                                <p>
-                                    <strong> Property Features </strong>
-                                </p>
+                                <div id="edit_r_amenity" class="mb-4 swimming-details">
+                                    <?php foreach ($amenity_groups as $amenity_group):
+                                        $printed = false;
+                                        foreach ($amenity_group->amenities as $amenity){
+                                            if ($amenity->display_level_id == 2) continue;
+                                            if(!$printed) {
+                                                echo '<p> <strong> ' . $amenity_group->name . ' </strong> </p>';
+                                                $printed = true;
+                                            }
+                                            $selected = PropertyAmenity::find()
+                                                ->where(['amenity_id' => $amenity->id])
+                                                ->andWhere(['property_id' => $property->id])
+                                                ->one();
+                                            ?>
+                                            <div class="row align-items-center mb-2">
+                                                <?php //if( 2 == $amenity->display_level_id){ ?>
+                                                <div class="col-md-3 custom-control custom-checkbox mb-2">
+                                                    <input id="amenity-<?php echo $amenity->id; ?>" name="property_amenity_name[]" type="checkbox" class="custom-control-input" value="<?php echo $amenity->id; ?>" <?= ($selected == NULL) ? "" : "checked"  ?>/>
+                                                    <label class="custom-control-label" for="amenity-<?php echo $amenity->id; ?>"> <?php echo $amenity->name ?> </label>
+                                                </div>
+                                                <?php
+                                                unset($amenity_sub_list);
+                                                $amenity_list = $amenity->amenitySubOptions;
+                                                $amenity_sub_list = ArrayHelper::map($amenity_list, 'id', 'name');;
 
-                                <div class="swimming-details mb-4">
+                                                $values = array();
+                                                if($selected != NULL){
+                                                    foreach ($selected->propertyAmenitySuboptions as $sub_option){
+                                                        array_push($values, $sub_option->sub_option_id);
+                                                    }
+                                                }
 
+                                                if(!empty($amenity_sub_list)) {
+                                                    ?>
+                                                    <div class="col-md-5">
 
-                                    <div class="row align-items-center">
-                                        <div class="col-2">
-                                            <p> Garden </p>
-                                        </div>
+                                                        <?php
+                                                        $form = ActiveForm::begin();
 
-                                        <div class="col-5">
-                                            <div class="form-group">
-                                                <select multiple id="food_options" name="food_option[]"  class="select2 w-75" data-placeholder="Type">
-                                                    <?php foreach ($restaurant_food_options as $food):?>
-                                                        <option value="<?php echo $food->id ?>" <?php echo in_array($food->id, $selected_food_options) ? "selected='selected'" : ""   ?>><?php echo $food->name ?></option>
-                                                    <?php endforeach; ?>
-                                                </select>
+                                                        echo $form->field($property_amenity_suboption, 'sub_option_id')->dropDownList($amenity_sub_list, ['id' => 'sub_option_'.$amenity->id, 'class' => "select2 browser-default form-control property_sub_option w-75", 'name' => 'property_sub_option[]', 'multiple'=> 'multiple', 'value' => $values])->label(false);
+
+                                                        ActiveForm::end();
+                                                        ?>
+
+<!--                                                        <select multiple  class="select2 w-75  browser-default form-control property_sub_option" data-placeholder="Type">-->
+<!--                                                            <option value=""></option>-->
+<!--                                                            <option value="type-1"> Type 1 </option>-->
+<!--                                                        </select>-->
+                                                    </div>
+                                                    <?php
+                                                }
+                                                // } ?>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="row align-items-center">
-                                        <div class="col-2">
-                                            <p> Lawn </p>
-                                        </div>
-
-                                        <div class="col-5">
-                                            <div class="form-group">
-                                                <select id="cuisine_options" name="cuisine_option[]" multiple  class="select2 w-75" data-placeholder="Type">
-                                                    <?php foreach ($restaurant_cuisine_options as $cuisine):?>
-                                                        <option value="<?php echo $cuisine->id ?>" <?php echo in_array($cuisine->id, $selected_cuisine_options) ? "selected='selected'" : ""   ?>><?php echo $cuisine->name ?></option>
-                                                    <?php endforeach; ?>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
+                                        <?php } ?>
+                                    <?php endforeach; ?>
                                 </div>
 
-                                <button class="btn btn-primary mb-4"> Save </button>
+<!--                                <p>-->
+<!--                                    <strong> Accessibility </strong>-->
+<!--                                </p>-->
+<!---->
+<!--                                <div class="d-flex accessibility-contr align-items-center mb-2">-->
+<!--                                    <div class="form-group form-checkbox mr-2">-->
+<!--                                        <div class="form-material">-->
+<!--                                            <input type="checkbox" name="" id=wheelChair-type" class="form-input-checkbox">-->
+<!--                                            <label for=wheelChair-type" class="mb-0">-->
+<!--                                                Wheel Chair-->
+<!--                                            </label>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="form-group form-checkbox">-->
+<!--                                        <div class="form-material">-->
+<!--                                            <select  class="select2 w-75" data-placeholder="Type">-->
+<!--                                                <option value=""></option>-->
+<!--                                                <option value="type-1"> Type 1 </option>-->
+<!--                                            </select>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!---->
+<!--                                <div class="d-flex accessibility-contr align-items-center mb-2">-->
+<!--                                    <div class="form-group form-checkbox mr-2">-->
+<!--                                        <div class="form-material">-->
+<!--                                            <input type="checkbox" name="" id=differently-type" class="form-input-checkbox">-->
+<!--                                            <label for=differently-type" class="mb-0">-->
+<!--                                                Pathway for differently abled-->
+<!--                                            </label>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="form-group form-checkbox">-->
+<!--                                        <div class="form-material">-->
+<!--                                            <select  class="select2 w-75" data-placeholder="Type">-->
+<!--                                                <option value=""></option>-->
+<!--                                                <option value="type-1"> Type 1 </option>-->
+<!--                                            </select>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
 
-
-                                <p>
-                                    <strong> Accessibility </strong>
-                                </p>
-
-                                <div class="d-flex accessibility-contr align-items-center mb-2">
-                                    <div class="form-group form-checkbox mr-2">
-                                        <div class="form-material">
-                                            <input type="checkbox" name="" id=wheelChair-type" class="form-input-checkbox">
-                                            <label for=wheelChair-type" class="mb-0">
-                                                Wheel Chair
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="form-group form-checkbox">
-                                        <div class="form-material">
-                                            <select  class="select2 w-75" data-placeholder="Type">
-                                                <option value=""></option>
-                                                <option value="type-1"> Type 1 </option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="d-flex accessibility-contr align-items-center mb-2">
-                                    <div class="form-group form-checkbox mr-2">
-                                        <div class="form-material">
-                                            <input type="checkbox" name="" id=differently-type" class="form-input-checkbox">
-                                            <label for=differently-type" class="mb-0">
-                                                Pathway for differently abled
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="form-group form-checkbox">
-                                        <div class="form-material">
-                                            <select  class="select2 w-75" data-placeholder="Type">
-                                                <option value=""></option>
-                                                <option value="type-1"> Type 1 </option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <button class="btn btn-primary mb-4"> Save </button>
+                                <button id="save_property_amenity" class="btn btn-primary mb-4"> Save </button>
 
                             </div>
                         </div>

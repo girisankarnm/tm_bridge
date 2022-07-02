@@ -108,8 +108,12 @@ table, th, td {
             </div>
             <div class="row" style="margin-left: 4px;margin-bottom: 12px;margin-left: 28px">
                 <div style="display: block;margin-right: 35px;">
+                    <?php if ($is_published != 1) { ?>
                     <?= \yii\bootstrap4\Html::submitButton('Save & Proceed', ['class' => 'buttonmotherdatesave']); ?>
+                    <?php } ?>
+                    <?php if ($is_add_new_date != 1) { ?>                    
                     <?= Html::a('Next', ['tariff/addroomrate', 'id'=> $property->id, 'mother_id' => $date_range->id, 'tariff' => 1],  ['class'=>'buttonNextanchor']) ?>
+                    <?php } ?>
                 </div>
             </div>
         </div>
@@ -144,7 +148,9 @@ table, th, td {
                      <div>  <hr class="new2" > </div>
                     </div>
 
-                <?php } ?>
+                <?php 
+                $i++;
+                } ?>
 
             </div>
 

@@ -78,31 +78,35 @@ $this->registerJsFile('/js/tariff/tariff.js');
         <?php
             $count = 1;
             $defined_tariff_query = clone $defined_tariff;
-            $tariff = $defined_tariff_query->andWhere(['nationality_id' => 0])->one();
+            $room_tariff = $defined_tariff_query->andWhere(['nationality_id' => 0])->one();
             echo Yii::$app->controller->renderPartial('_room_rate_nationality_block', [
                 'nationality_id' => 0, 
                 'nationality_name' => "General", 
-                'tariff' => $tariff,
+                'tariff' => $room_tariff,
                 'count' => $count
             ]);
 
             foreach ($nationalities as $nationality) {
                 $count++;
                 $defined_tariff_query = clone $defined_tariff;
-                $tariff = $defined_tariff_query->andWhere(['nationality_id' => $nationality->id])->one();
+                $room_tariff = $defined_tariff_query->andWhere(['nationality_id' => $nationality->id])->one();
                 echo Yii::$app->controller->renderPartial('_room_rate_nationality_block', [
                     'nationality_id' => $nationality->id, 
                     'nationality_name' => $nationality->name, 
-                    'tariff' => $tariff,
+                    'tariff' => $room_tariff,
                     'count' => $count
                 ]);
             } 
         ?>
 
-        <div class="row roomButtonRow" >            <div >
-            <BUTTON type="button" class="prevbutton" style="width: 80px;height: 30px">  Prev </BUTTON>
+        <div class="row roomButtonRow"><div >
+            <?php if ($tariff != 1) { ?>
+            <BUTTON type="button" class="prevbutton" style="width: 80px;height: 30px"> Prev </BUTTON>
+            <?php } ?>
             <BUTTON type="submit" class="buttonSave save-border"  > Save </BUTTON>
+            
             <?= Html::a('Next', ['tariff/addroomrate', 'id'=> $property->id, 'room_id'=> $room->id, 'mother_id' => $date_range->id, 'room_off_set' => $room_off_set, 'tariff' => $tariff],  ['class'=>'buttonNextanchor2', 'style' => 'width: 80px;height: 30px']) ?>
+            
         </div>
         <?php ActiveForm::end(); ?>
         </div>

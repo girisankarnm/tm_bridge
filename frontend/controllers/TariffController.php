@@ -143,7 +143,7 @@ class TariffController extends Controller {
 
     //Add new mother date screen
     public function actionAddmotherdate(){
-
+        
         $date_range = new DateRange();
         if ($date_range->load(Yii::$app->request->post()) ) {            
             if ($date_range->isValidMotherDateRange() )
@@ -170,15 +170,27 @@ class TariffController extends Controller {
             }            
         } 
                 
-        $property = $this->getProperty();        
+        $property = $this->getProperty();
+        $is_published = 1;
+        $is_add_new_date = 1;
 
-        $mother_id = (int) Yii::$app->request->get('mother_id');        
+        $mother_id = (int) Yii::$app->request->get('mother_id', NULL);        
         $tariff_date_range = NULL;
         if($mother_id != NULL) {
-            $tariff_date_range = TariffDateRange::find()->where(['id' => $mother_id])->one();
+            $tariff_date_range = TariffDateRange::find()
+            ->where(['id' => $mother_id])
+            ->andWhere(['parent' => 0])
+            ->one();
+
+            //TODO: Handle mother date is not existing case
+            if($tariff_date_range == NULL) {
+                throw new NotFoundHttpException();
+            }
         } 
 
-        if($tariff_date_range != NULL) {
+        if($tariff_date_range != NULL) {            
+            $is_add_new_date = false;
+            $is_published = $tariff_date_range->status;
             $date_range->property_id = $tariff_date_range->property->id;
             $date_range->parent = $tariff_date_range->parent;            
             $date_range->from_date = Carbon::parse($tariff_date_range->from_date)->format('d M Y');  
@@ -186,6 +198,10 @@ class TariffController extends Controller {
             $date_range->id = $tariff_date_range->id;
         } 
         else {
+            //Add new mother date 
+            $is_published = 0;
+            $is_add_new_date = true;
+            
             $date_range->property_id = $property->id;
             $date_range->parent = 0;
             $date_range->id = 0;
@@ -201,7 +217,9 @@ class TariffController extends Controller {
         return $this->render('mother_date', [
             'property' => $property, 
             'date_range' => $date_range, 
-            'mother_ranges' => $mother_ranges
+            'mother_ranges' => $mother_ranges,
+            'is_published' => $is_published,
+            'is_add_new_date' => $is_add_new_date
         ]);
     }
 
@@ -398,7 +416,9 @@ class TariffController extends Controller {
         $date_range_id = $_POST["date_range_id"];
         $property_id = $_POST["property_id"];
         $room_off_set = $_POST["room_off_set"];
-        $tariff = $_POST["tariff"];
+        //$tariff = $_POST["tariff"];
+
+        $tariff = isset($_POST['tariff']) ? $_POST['tariff'] : 0;
 
         $property = NULL;        
         if ($property_id != 0) {
@@ -418,16 +438,16 @@ class TariffController extends Controller {
             
             RoomTariffDatewise::deleteAll(['property_id' => $property->id,'nationality_id' => $nationality ,'room_id' => $room_id, 'date_range_id' => $date_range_id]);    
                         
-            $tariff = new RoomTariffDatewise();
-            $tariff->property_id = $property_id;
-            $tariff->nationality_id = $nationality;
-            $tariff->room_id = $room_id;
-            $tariff->date_range_id = $date_range_id;
+            $room_tariff = new RoomTariffDatewise();
+            $room_tariff->property_id = $property_id;
+            $room_tariff->nationality_id = $nationality;
+            $room_tariff->room_id = $room_id;
+            $room_tariff->date_range_id = $date_range_id;
             //TOTO: Status should be unpublished
-            $tariff->status = 1;
-            $tariff->save();           
+            $room_tariff->status = 1;
+            $room_tariff->save();           
 
-            RoomTariffSlab::deleteAll(['tariff_id' => $tariff->getPrimaryKey() ]);            
+            RoomTariffSlab::deleteAll(['tariff_id' => $room_tariff->getPrimaryKey() ]);            
             for ($i = 0; $i < $slab_count; $i++ ) {
                 $slab = new RoomTariffSlab();
                 $slab->number = $i;
@@ -436,11 +456,11 @@ class TariffController extends Controller {
                 $slab->child_with_extra_bed = $_POST["child_with_extra_bed_".$nationality][$i];
                 $slab->child_sharing_bed = $_POST["child_sharing_bed_".$nationality][$i];
                 $slab->single_occupancy = $_POST["single_occupancy_".$nationality][$i];
-                $slab->tariff_id = $tariff->getPrimaryKey();
+                $slab->tariff_id = $room_tariff->getPrimaryKey();
                 $slab->save();                          
             }
         }
-
+                
         return $this->redirect(['tariff/addroomrate', 
                 'id' => $property_id, 
                 'room_id' => $room_id,

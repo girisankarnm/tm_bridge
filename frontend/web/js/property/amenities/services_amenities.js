@@ -306,14 +306,14 @@ function validatePropertyAmenities(){
 
     $("input[name='property_amenity_name[]']").each(function(){
         if(this.checked){
-            if ($("#property_sub_option_"+ this.value).val() == "") {
+            if ($("#sub_option_"+ this.value).val() == "") {
                 bError = true;
             }
          }
     });
 
     if(bError) {
-        toastr.error(ErrorMessage);
+        // toastr.error(ErrorMessage);
     }
     return bError;
 }
@@ -346,10 +346,12 @@ function savePropertyAminities() {
     }, function (response) {
         console.log(response);
         if ( parseInt(response.status) == 0) {
-            toastr.success("Property amenities updated");
+            // toastr.success("Property amenities updated");
+            console.log("Property amenities updated");
         } else
         {
-            toastr.error(response.message);
+            // toastr.error(response.message);
+            console.log(response.message);
         }
         $("#overlay").fadeOut(300);
     })
