@@ -60,12 +60,13 @@ class Room extends \yii\db\ActiveRecord
         return [
             [['type_id', 'view_id', 'meal_plan_id', 'count', 'size', 'child_policy_same_as_property', 'restricted_for_child', 'restricted_for_child_below_age', 'same_tariff_for_single_occupancy', 'number_of_adults', 'number_of_kids_on_sharing', 'number_of_extra_beds', 'extra_bed_type_id', 'property_id', 'status', 'owner_id'], 'integer'],
             [['name', 'is_base'], 'string', 'max' => 80],
+            [['type_id','name','view_id','meal_plan_id','count'],'required'],
             [['extra_bed_type_id'], 'exist', 'skipOnError' => true, 'targetClass' => PropertyRoomExtraBedType::className(), 'targetAttribute' => ['extra_bed_type_id' => 'id']],
-            [['meal_plan_id'], 'exist', 'skipOnError' => true, 'targetClass' => PropertyMealPlan::className(), 'targetAttribute' => ['meal_plan_id' => 'id']],
+            [['meal_plan_id'], 'exist', 'skipOnError' => false, 'targetClass' => PropertyMealPlan::className(), 'targetAttribute' => ['meal_plan_id' => 'id']],
             [['property_id'], 'exist', 'skipOnError' => true, 'targetClass' => Property::className(), 'targetAttribute' => ['property_id' => 'id']],
-            [['type_id'], 'exist', 'skipOnError' => true, 'targetClass' => RoomType::className(), 'targetAttribute' => ['type_id' => 'id']],
+            [['type_id'], 'exist', 'skipOnError' => false, 'targetClass' => RoomType::className(), 'targetAttribute' => ['type_id' => 'id']],
             [['owner_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['owner_id' => 'id']],
-            [['view_id'], 'exist', 'skipOnError' => true, 'targetClass' => PropertyRoomView::className(), 'targetAttribute' => ['view_id' => 'id']],
+            [['view_id'], 'exist', 'skipOnError' => false, 'targetClass' => PropertyRoomView::className(), 'targetAttribute' => ['view_id' => 'id']],
         ];
     }
 

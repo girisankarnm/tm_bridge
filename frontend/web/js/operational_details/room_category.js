@@ -8,6 +8,7 @@ $('#room_create_save').click(function(e){
     }
 
     console.log('Good Create Room');
+    $('#room_categories_form').submit();
 });
 
 $('#room-number_of_extra_beds').blur(function(){
