@@ -416,7 +416,9 @@ class TariffController extends Controller {
         $date_range_id = $_POST["date_range_id"];
         $property_id = $_POST["property_id"];
         $room_off_set = $_POST["room_off_set"];
-        $tariff = $_POST["tariff"];
+        //$tariff = $_POST["tariff"];
+
+        $tariff = isset($_POST['tariff']) ? $_POST['tariff'] : 0;
 
         $property = NULL;        
         if ($property_id != 0) {
@@ -436,16 +438,16 @@ class TariffController extends Controller {
             
             RoomTariffDatewise::deleteAll(['property_id' => $property->id,'nationality_id' => $nationality ,'room_id' => $room_id, 'date_range_id' => $date_range_id]);    
                         
-            $tariff = new RoomTariffDatewise();
-            $tariff->property_id = $property_id;
-            $tariff->nationality_id = $nationality;
-            $tariff->room_id = $room_id;
-            $tariff->date_range_id = $date_range_id;
+            $room_tariff = new RoomTariffDatewise();
+            $room_tariff->property_id = $property_id;
+            $room_tariff->nationality_id = $nationality;
+            $room_tariff->room_id = $room_id;
+            $room_tariff->date_range_id = $date_range_id;
             //TOTO: Status should be unpublished
-            $tariff->status = 1;
-            $tariff->save();           
+            $room_tariff->status = 1;
+            $room_tariff->save();           
 
-            RoomTariffSlab::deleteAll(['tariff_id' => $tariff->getPrimaryKey() ]);            
+            RoomTariffSlab::deleteAll(['tariff_id' => $room_tariff->getPrimaryKey() ]);            
             for ($i = 0; $i < $slab_count; $i++ ) {
                 $slab = new RoomTariffSlab();
                 $slab->number = $i;
@@ -454,11 +456,11 @@ class TariffController extends Controller {
                 $slab->child_with_extra_bed = $_POST["child_with_extra_bed_".$nationality][$i];
                 $slab->child_sharing_bed = $_POST["child_sharing_bed_".$nationality][$i];
                 $slab->single_occupancy = $_POST["single_occupancy_".$nationality][$i];
-                $slab->tariff_id = $tariff->getPrimaryKey();
+                $slab->tariff_id = $room_tariff->getPrimaryKey();
                 $slab->save();                          
             }
         }
-
+                
         return $this->redirect(['tariff/addroomrate', 
                 'id' => $property_id, 
                 'room_id' => $room_id,
