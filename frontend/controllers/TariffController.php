@@ -383,12 +383,23 @@ class TariffController extends Controller {
         
         $room_off_set++;
         
-        $mother_range = NULL;
+        $date_range = NULL;
         if($mother_id != 0) {
-            $mother_range = TariffDateRange::find()->where(['id' => $mother_id])->one();
+            $date_range = TariffDateRange::find()->where(['id' => $mother_id])->one();
         }
 
-        if ($mother_range == NULL){
+        $is_published = 1;
+        if($date_range->parent != 0 ) {
+            //Nested
+            $mother_range = TariffDateRange::find()->where(['id' => $date_range->parent])->one();
+            $is_published = $mother_range->status;
+
+        } else {            
+            $is_published = $date_range->status;
+        }
+        
+
+        if ($date_range == NULL){
             throw new NotFoundHttpException();
         }
 
@@ -402,12 +413,13 @@ class TariffController extends Controller {
         return $this->render('add_room_rate', [
             'property' => $property, 
             'room' => $room, 
-            'date_range' => $mother_range, 
+            'date_range' => $date_range, 
             'nationalities' => $nationalities,
             'room_off_set' => $room_off_set,
             'room_count' => $room_count,
             'defined_tariff' => $defined_tariff,
-            'tariff' => $tariff
+            'tariff' => $tariff,
+            'is_published' => $is_published
         ]);
     }
 
@@ -460,7 +472,7 @@ class TariffController extends Controller {
                 $slab->save();                          
             }
         }
-                
+
         return $this->redirect(['tariff/addroomrate', 
                 'id' => $property_id, 
                 'room_id' => $room_id,
