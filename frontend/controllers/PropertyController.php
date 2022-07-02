@@ -1784,6 +1784,14 @@ class PropertyController extends Controller{
 
 
     //Room category
+    public function actionCategories() {
+        $this->layout = 'tm_main';
+        $property = $this->getProperty();
+        $rooms = Room::find()->where(['property_id' => $property->id])->all();
+//        $rooms = Room::find()->all();
+//        return $rooms[1]->mealPlan->name;
+        return $this->render('room_categories',['rooms' => $rooms,]);
+    }
 
     public function actionCreatecategories(){
         $this->layout = 'tm_main';
@@ -1818,6 +1826,7 @@ class PropertyController extends Controller{
     public function actionSaveroomcategory(){
         $property_id = Yii::$app->request->post('property_id');
         $rooms =  Yii::$app->request->post('Room');
+//        return $this->asJson($rooms['extra_bed_type_id']);
 
 
         //TODO: Check this proerty owned by this user
@@ -1846,10 +1855,14 @@ class PropertyController extends Controller{
         $room->number_of_adults = $rooms['number_of_adults'];
         $room->number_of_kids_on_sharing = $rooms['number_of_kids_on_sharing'];
         $room->number_of_extra_beds = $rooms['number_of_extra_beds'];
-//        $room->extra_bed_type_id = $rooms['extra_bed_type_id'];
+        $room->extra_bed_type_id = $rooms['extra_bed_type_id'];
 //        $room->is_base = Yii::$app->request->post('room_is_base');
         $room->property_id = $property_id;
-        $room->save();
+//        $room->save();
+        if ($room->save(false)) {
+            Yii::$app->session->setFlash('success', "Room category created successfully.");
+            return $this->redirect(['property/categories',  'id' => $property->getPrimaryKey()]);
+        }
 //        return ;
     }
 
