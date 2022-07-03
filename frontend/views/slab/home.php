@@ -35,7 +35,7 @@ function onChangeProperty(property){
         </div>
         <div class="col-md-3 text-center mt-4" >
             <?php 
-             $slabs = ['1' => 'Default', '2' => 'Slab 1', '3' => 'Slab 2', '4' => 'Slab 3', '4' => 'Slab 5'];
+             $slabs = ['0' => 'Default', '1' => 'Slab 1', '2' => 'Slab 2', '3' => 'Slab 3', '4' => 'Slab 4', '5' => 'Slab 5'];
             echo $form->field($slab_assigned, 'slab_number')->dropDownList($slabs, ['class' => 'form-control form-control-sm h','prompt' => 'Select slab'])->label(false); ?>
         </div>
         <div class="col-md-3 text-center mt-4"  >
