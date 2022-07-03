@@ -361,8 +361,9 @@ function validateGuestCount() {
             }
         });
 
-        return;
         
+        //TODO: Check below code required or not
+        /*        
         for (var key in planAgeBreakupMap) {                    
             var child_count =  Number($('#children_'+key).val());
             console.log("Plan:" + key + " Childs: " + child_count);  
@@ -381,6 +382,7 @@ function validateGuestCount() {
                 console.log("Child breakup correct. Good to go");
             } 
         }
+        */
     }
 
     $("#form_guest_count").submit();
