@@ -106,14 +106,17 @@ class SlabController extends Controller{
             //return;
         }
 
-        PropertySlabAssignment::deleteAll(['property_id' => $slab_assigned->property_id ]);
-
         $operator_count = 0;
         if(isset( $_POST['operator'])) {
             $operator_count = count($_POST["operator"]);
         }
         
         for ($i = 0; $i < $operator_count; $i++ ) {
+            PropertySlabAssignment::deleteAll([
+                'property_id' => $slab_assigned->property_id,  
+                'operator_id' => $_POST["operator"][$i]
+            ]);
+
             $property_slab = new PropertySlabAssignment();
             $property_slab->property_id = $slab_assigned->property_id;
             $property_slab->operator_id = $_POST["operator"][$i];
