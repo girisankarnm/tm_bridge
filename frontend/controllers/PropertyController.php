@@ -53,6 +53,7 @@ use frontend\models\property\PropertyRoomExtraBedType;
 use yii\web\ForbiddenHttpException;
 use yii\web\NotFoundHttpException;
 use yii\web\UploadedFile;
+use yii\helpers\Url;
 
 class PropertyController extends Controller
 {
@@ -1709,10 +1710,9 @@ class PropertyController extends Controller
         $previewdata = array();
 
         foreach ($propertyPictures as $key => $propertyPicture) {
-
-            $previewdata['initialPreview'][$key] = 'http://localhost:8080/uploads/' . $propertyPicture->name;
+            $previewdata['initialPreview'][$key] = Url::to('@web/uploads/'.$propertyPicture->name, 'http');
             $previewdata['initialPreviewConfig'][$key]['caption'] = $propertyPicture->description;
-            $previewdata['initialPreviewConfig'][$key]['downloadUrl'] = 'http://localhost:8080/uploads/' . $propertyPicture->name;
+            $previewdata['initialPreviewConfig'][$key]['downloadUrl'] = Url::to('@web/uploads/'.$propertyPicture->name, 'http');
             $previewdata['initialPreviewConfig'][$key]['description'] = $propertyPicture->description;
             $previewdata['initialPreviewConfig'][$key]['url'] = 'http://localhost:8080/index.php?r=property/deletepicture';
             $previewdata['initialPreviewConfig'][$key]['key'] = $propertyPicture->id;
@@ -1847,9 +1847,9 @@ class PropertyController extends Controller
 
         foreach ($roomPictures as $key => $roomPicture) {
 
-            $previewdata['initialPreview'][$key] = 'http://localhost:8080/uploads/' . $roomPicture->name;
+            $previewdata['initialPreview'][$key] = Url::to('@web/uploads/'.$roomPicture->name, 'http');
             $previewdata['initialPreviewConfig'][$key]['caption'] = $roomPicture->description;
-            $previewdata['initialPreviewConfig'][$key]['downloadUrl'] = 'http://localhost:8080/uploads/' . $roomPicture->name;
+            $previewdata['initialPreviewConfig'][$key]['downloadUrl'] = Url::to('@web/uploads/'.$roomPicture->name, 'http');
             $previewdata['initialPreviewConfig'][$key]['description'] = $roomPicture->description;
             $previewdata['initialPreviewConfig'][$key]['url'] = 'http://localhost:8080/index.php?r=property/deleteroompicture';
             $previewdata['initialPreviewConfig'][$key]['key'] = $roomPicture->id;
