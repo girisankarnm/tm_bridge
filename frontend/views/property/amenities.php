@@ -18,17 +18,18 @@ $this->registerJsFile('/js/property/amenities/services_amenities.js');
 <div class="tab-section amenities_contr">
     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
         <li class="nav-item" role="presentation">
-            <button onclick="location.href='<?= Url::toRoute(['property/rules','id' => $property->id]) ?>'" class="btn nav-link" id="pills-basic-tab" href="#pills-basic"> Rules & Policies
+            <button onclick="location.href='<?= Url::toRoute(['property/rules','id' => $property->id]) ?>'" class="tablinks" id="pills-basic-tab" href="#pills-basic"> Rules & Policies
             </button>
         </li>
         <li class="nav-item" role="presentation">
-            <button onclick="location.href='<?= Url::toRoute(['property/categories','id' => $property->id]) ?>'" class="btn nav-link" id="pills-contact-tab" href="#pills-contact"> Room Category </button>
+            <button onclick="location.href='<?= Url::toRoute(['property/categories','id' => $property->id]) ?>'" class="tablinks" id="pills-contact-tab" href="#pills-contact"> Room Category </button>
         </li>
         <li class="nav-item" role="presentation">
-            <button onclick="location.href='<?= Url::toRoute(['property/serviceamenities','id' => $property->id]) ?>'" class="btn nav-link active text-white" id="pills-guest-tab" href="#pills-guest"> Service & Amenities </button>
+            <button onclick="location.href='<?= Url::toRoute(['property/serviceamenities','id' => $property->id]) ?>'" class="selectedButton" id="pills-guest-tab" href="#pills-guest"> Service & Amenities </button>
+            <hr class="new5" >
         </li>
         <li class="nav-item" role="presentation">
-            <button onclick="location.href='<?= Url::toRoute(['property/pictures','id' => $property->id]) ?>'" class="btn nav-link" id="pills-accommodation-tab" href="#pills-accommodation"> Property pictures
+            <button onclick="location.href='<?= Url::toRoute(['property/pictures','id' => $property->id]) ?>'" class="tablinks" id="pills-accommodation-tab" href="#pills-accommodation"> Property pictures
             </button>
         </li>
     </ul>
