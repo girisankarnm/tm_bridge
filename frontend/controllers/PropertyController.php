@@ -262,7 +262,7 @@ class PropertyController extends Controller
 
         if ($property == NULL) {
             //Property (id) doesn't exists
-            return $this->render('__property_not_found', []);
+            return $this->render('not_found', []);
             //throw new NotFoundHttpException();
         }
 
@@ -315,7 +315,7 @@ class PropertyController extends Controller
 
         if ($property == NULL) {
             //Property (id) doesn't exists
-            throw new NotFoundHttpException();
+            return $this->render('not_found', []);
         }
 
         if (!$address_location->validate()) {
@@ -374,7 +374,7 @@ class PropertyController extends Controller
 
         if ($property == NULL) {
             //Property (id) doesn't exists
-            throw new NotFoundHttpException();
+            return $this->render('not_found', []);
         }
 
         $legal_tax_documentation = new LegalTaxDocumentation();
@@ -426,7 +426,7 @@ class PropertyController extends Controller
 
         if ($property == NULL) {
             //Property (id) doesn't exists
-            throw new NotFoundHttpException();
+            return $this->render('not_found', []);
         }
 
         //Validation success
@@ -521,7 +521,7 @@ class PropertyController extends Controller
 
         if ($property == NULL) {
             //Property (id) doesn't exists
-            throw new NotFoundHttpException();
+            return $this->render('not_found', []);
         }
 
         $contact = PropertyContacts::find()
@@ -660,7 +660,7 @@ class PropertyController extends Controller
 
         if ($property == NULL) {
             //Property (id) doesn't exists
-            throw new NotFoundHttpException();
+            return $this->render('not_found', []);
         }
 
 
