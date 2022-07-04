@@ -28,8 +28,8 @@ class m130524_201442_init extends Migration
             'first_login' => $this->boolean()->defaultValue(1),
             'password_change_on_login' => $this->boolean()->defaultValue(0),
             'parent' => $this->integer(11)->defaultValue(0),
-            'created_at' => $this->integer()->notNull(),
-            'updated_at' => $this->integer()->notNull(),
+            'created_at' => $this->integer()->null(),
+            'updated_at' => $this->integer()->null(),
         ], $tableOptions);
 
         $this->insert('user',[            
@@ -41,7 +41,7 @@ class m130524_201442_init extends Migration
             'user_type' => 1,
             'status' => 10,
             'password_hash' => Yii::$app->security->generatePasswordHash("123456789"),
-            'auth_key' => Yii::$app->security->generateRandomString(),
+            'auth_key' => Yii::$app->security->generateRandomString()          
             
         ]);
 
@@ -54,7 +54,7 @@ class m130524_201442_init extends Migration
             'user_type' => 1,
             'status' => 10,
             'password_hash' => Yii::$app->security->generatePasswordHash("123456789"),
-            'auth_key' => Yii::$app->security->generateRandomString(),            
+            'auth_key' => Yii::$app->security->generateRandomString()                     
         ]);
     }
 
