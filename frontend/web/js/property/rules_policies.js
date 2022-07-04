@@ -35,16 +35,16 @@ function saveCheckinCheckout(){
     }, function (response) {
         console.log(response);
         if ( parseInt(response.status) == 0) {
-            //toastr.success("Check in/Check out policy updated");
+            toastr.success("Check in/Check out policy updated");
         } else
         {
-            // toastr.error(response.message);
+            toastr.error(response.message);
         }
         $("#overlay").fadeOut(300);
     })
         .fail(function() {
             $("#overlay").fadeOut(300);
-            // toastr.error("HTTP Error: Unable to connect to Server");
+            toastr.error("HTTP Error: Unable to connect to Server");
         });
 }
 
@@ -95,15 +95,15 @@ function saveSmokingPolicy(){
         console.log(response);
         $("#overlay").fadeOut(300);
         if ( parseInt(response.status) == 0) {
-            // toastr.success("Smoking policy updated");
+            toastr.success("Smoking policy updated");
         } else
         {
-            // toastr.error(response.message);
+            toastr.error(response.message);
         }
     })
         .fail(function() {
             $("#overlay").fadeOut(300);
-            // toastr.error( "HTTP Error: Unable to connect to Server" );
+            toastr.error( "HTTP Error: Unable to connect to Server" );
         });
 }
 
@@ -128,16 +128,16 @@ function savePetsPolicy(){
     }, function (response) {
         console.log(response);
         if ( parseInt(response.status) == 0) {
-            // toastr.success("Pets policy updated");
+            toastr.success("Pets policy updated");
         } else
         {
-            // toastr.error(response.message);
+            toastr.error(response.message);
         }
         $("#overlay").fadeOut(300);
     })
         .fail(function() {
             $("#overlay").fadeOut(300);
-            // toastr.error( "HTTP Error: Unable to connect to Server" );
+            toastr.error( "HTTP Error: Unable to connect to Server" );
         });
 }
 
@@ -192,7 +192,7 @@ function validateChildPolicy() {
         if ( parseInt($('#property-restricted_for_child_below_age').val().trim()) <= 0 ||
             $('#property-restricted_for_child_below_age').val().trim().length == 0) {
             bError = true;
-            //toastr.error("Invalid Restricted age");
+            toastr.error("Invalid Restricted age");
             ErrorMessage += '<li>Restricted age</li>';
         }
     }
@@ -201,13 +201,13 @@ function validateChildPolicy() {
         if ( parseInt($('#property-complimentary_from_age').val().trim()) <= 0 ||
             $('#property-complimentary_from_age').val().trim().length == 0) {
             bError = true;
-            //toastr.error("Invalid Complimentary age");
+            toastr.error("Invalid Complimentary age");
             ErrorMessage += '<li>Complimentary age</li>';
         }
 
         if ( parseInt($('#property-complimentary_from_age').val().trim()) >  parseInt($('#property-complimentary_to_age').val().trim()) ) {
             bError = true;
-            //toastr.error("Complimentary to age can't greater than from age");
+            toastr.error("Complimentary to age can't greater than from age");
             ErrorMessage += '<li>Complimentary can\'t greater than from age</li>';
         }
     }
@@ -216,13 +216,13 @@ function validateChildPolicy() {
         if ( parseInt($('#property-child_rate_to_age').val().trim()) <= 0 ||
             $('#property-child_rate_to_age').val().trim().length == 0) {
             bError = true;
-            //toastr.error("Invalid Child age");
+            toastr.error("Invalid Child age");
             ErrorMessage += '<li>Child age</li>';
         }
 
         if ( parseInt($('#property-child_rate_from_age').val().trim()) >  parseInt($('#property-child_rate_to_age').val().trim()) ) {
             bError = true;
-            //toastr.error("Child to age can't greater than  from age");
+            toastr.error("Child to age can't greater than  from age");
             ErrorMessage += '<li>Child can\'t greater than  from age</li>';
         }
     }
@@ -232,13 +232,13 @@ function validateChildPolicy() {
         if ( parseInt($('#property-adult_rate_age').val().trim()) <= 0 ||
             $('#property-adult_rate_age').val().trim().length == 0) {
             bError = true;
-            //toastr.error("Invalid Adult age");
+            toastr.error("Invalid Adult age");
             ErrorMessage += '<li>Adult age</li>';
         }
 
         if ( parseInt($('#property-child_rate_to_age').val().trim()) >=  parseInt($('#property-adult_rate_age').val().trim()) ) {
             bError = true;
-            //toastr.error("Adult age can't less or equal to child to age");
+            toastr.error("Adult age can't less or equal to child to age");
             ErrorMessage += '<li>Adult can\'t greater than  from age</li>';
         }
     }
@@ -293,7 +293,7 @@ function showNationalityEditForm(group_id, group_name){
             showNationaliyModal();
         } else
         {
-            // toastr.error(response.message);
+            toastr.error(response.message);
         }
     })
         .fail(function() {
@@ -371,7 +371,7 @@ function validateNationality(){
     }
 
     if(bError) {
-        // toastr.error(ErrorMessage);
+        toastr.error(ErrorMessage);
     }
 
     return bError;
@@ -396,19 +396,19 @@ function saveNationality(){
         console.log(response);
         if ( parseInt(response.status) == 0) {
             console.log(response.data);
-            // toastr.success("Nationality updated");
+            toastr.success("Nationality updated");
             $("#nationalityTable tbody").empty();
             $("#nationalityTable tbody").append(response.data);
             dismissNationaliyModal();
         } else
         {
-            // toastr.error(response.message);
+            toastr.error(response.message);
         }
         $("#overlay").fadeOut(300);
     })
         .fail(function() {
             $("#overlay").fadeOut(300);
-            // toastr.error("HTTP Error: Unable to connect to Server" );
+            toastr.error("HTTP Error: Unable to connect to Server" );
         });
 }
 
@@ -428,16 +428,16 @@ $('#save_mandatory_dinner_option').click(function(e){
     }, function (response) {
         console.log(response);
         if ( parseInt(response.status) == 0) {
-            // toastr.success("Mandatory dinner option updated");
+            toastr.success("Mandatory dinner option updated");
         } else
         {
-            // toastr.error(response.message);
+            toastr.error(response.message);
         }
         $("#overlay").fadeOut(300);
     })
         .fail(function() {
             $("#overlay").fadeOut(300);
-            // toastr.error("HTTP Error: Unable to connect to Server" );
+            toastr.error("HTTP Error: Unable to connect to Server" );
         });
 });
 
@@ -568,7 +568,7 @@ function validateCancellationPolicy(){
         if($('#property-cancellation_full_refund_days').val() == '' ||
             $('#property-cancellation_no_refund_days').val() == ''){
             bError = true;
-            // toastr.error("Full refund and No refund days should not be empty");
+            toastr.error("Full refund and No refund days should not be empty");
             return bError;
         }
 
@@ -577,13 +577,13 @@ function validateCancellationPolicy(){
 
         if (no_refund_days <= 0 || full_refund_days <= 0 ) {
             bError = true;
-            // toastr.error("Full refund/No refund days is not valid");
+            toastr.error("Full refund/No refund days is not valid");
             return bError;
         }
 
         if (no_refund_days >= full_refund_days ) {
             bError = true;
-            // toastr.error("No refund days can't be more than or equal to Full refund Period");
+            toastr.error("No refund days can't be more than or equal to Full refund Period");
             return bError;
         }
 
@@ -595,41 +595,41 @@ function validateCancellationPolicy(){
 
             if( !(inpt_to_days[i].value) || (!inpt_from_days[i].value) || (!percentage[i].value) ) {
                 bError = true;
-                // toastr.error("Period's percentage, from days or to days should not be empty");
+                toastr.error("Period's percentage, from days or to days should not be empty");
                 return bError;
             }
 
             if ( parseInt(inpt_to_days[i].value) >= (full_refund_days - 1) ) {
                 bError = true;
-                // toastr.error("To date can't higher or equal to full refund days");
+                toastr.error("To date can't higher or equal to full refund days");
                 return bError;
             }
 
             if ( parseInt(inpt_to_days[i].value) > (inpt_from_days[i].value) ) {
-                // toastr.error("To date can't higher or equal to input from days");
+                toastr.error("To date can't higher or equal to input from days");
                 return bError;
             }
 
             if ( parseInt(inpt_to_days[i].value) <= (no_refund_days) ) {
                 bError = true;
-                // toastr.error("To date can't lower or equal than No refund days");
+                toastr.error("To date can't lower or equal than No refund days");
                 return bError;
             }
         }
 
         if (parseInt(inpt_to_days[(inpt_from_days.length - 1)].value) != (no_refund_days + 1)) {
             bError = true;
-            // toastr.error("Period not completed");
+            toastr.error("Period not completed");
             return bError;
         }
-        //toastr.success("Period Validation success");
+        toastr.success("Period Validation success");
     }
 
     if ($('#property-cancellation_has_admin_charge').is(":checked")) {
         var radio = $('input[name="Property[admin_cancellation_type]"]:checked');
         if (radio.length == 0) {
             bError = true;
-            // toastr.error("Select type of admin charge");
+            toastr.error("Select type of admin charge");
             return bError;
         }
 
@@ -639,13 +639,13 @@ function validateCancellationPolicy(){
             if ( parseInt($('#property-cancellation_lumsum_amount').val().trim()) <= 0 ||
                 $('#property-cancellation_lumsum_amount').val().trim().length == 0) {
                 bError = true;
-                // toastr.error("Invalid lumsum amount");
+                toastr.error("Invalid lumsum amount");
             }
         } else if (adminChargeType == 2){
             if ( parseInt($('#property-cancellation_percentage_rate').val()) <= 0 ||
                 $('#property-cancellation_percentage_rate').val().trim().length == 0) {
                 bError = true;
-                // toastr.error("Invalid percentage");
+                toastr.error("Invalid percentage");
             }
         } else if (adminChargeType == 3){
             if ( parseInt($('#property-cancellation_per_adult_amount').val()) <= 0 ||
@@ -654,7 +654,7 @@ function validateCancellationPolicy(){
                 $('#property-cancellation_per_kids_amount').val().trim().length == 0)
             {
                 bError = true;
-                // toastr.error("Invalid Adult/Kids amount");
+                toastr.error("Invalid Adult/Kids amount");
             }
         }
     }

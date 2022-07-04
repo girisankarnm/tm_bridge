@@ -35,7 +35,7 @@ function onChangeProperty(property){
         </div>
         <div class="col-md-3 text-center mt-4" >
             <?php 
-             $slabs = ['1' => 'Default', '2' => 'Slab 1', '3' => 'Slab 2', '4' => 'Slab 3', '4' => 'Slab 5'];
+             $slabs = ['0' => 'Rack rate', '1' => 'Slab 1', '2' => 'Slab 2', '3' => 'Slab 3', '4' => 'Slab 4', '5' => 'Slab 5'];
             echo $form->field($slab_assigned, 'slab_number')->dropDownList($slabs, ['class' => 'form-control form-control-sm h','prompt' => 'Select slab'])->label(false); ?>
         </div>
         <div class="col-md-3 text-center mt-4"  >
@@ -58,17 +58,6 @@ function onChangeProperty(property){
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td class="table-width-data-110px"><input type="checkbox" class="text-secondary type mt-2" name="operator[]" value="1" ></td>
-            <td class="table-width-data-110px">24242</td>
-            <td class="table-width-data-110px">424242</td>
-            <td class="table-width-data-110px">2242fffs</td>
-            <td class="table-width-data-110px">fsfsfsfsffs</td>
-            <td class="table-width-data-110px">sffssfsssf</td>
-        </tr>
-
-
-
         <?php
         foreach ($operators as $operator) { 
             ?>

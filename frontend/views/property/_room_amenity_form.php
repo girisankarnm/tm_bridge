@@ -72,7 +72,7 @@ $this->registerCssFile('/css/property/amenities.css');
                 ?>
                 <div class="col-md-4">
                     <?php
-                    echo $form->field($room_amenity_suboption, 'sub_option_id')->dropDownList($amenity_sub_list, ['id' => 'room_sub_option_'.$amenity->id, 'class' => "select2 browser-default  room_sub_option", 'multiple'=> 'multiple', 'name' => 'room_sub_option[]', 'value' => $values, 'prompt' => 'Choose...'])->label(false);
+                    echo $form->field($room_amenity_suboption, 'sub_option_id')->dropDownList($amenity_sub_list, ['id' => 'room_sub_option_'.$amenity->id, 'class' => "select2 browser-default  room_sub_option", 'multiple'=> 'multiple', 'name' => 'room_sub_option[]', 'value' => $values])->label(false);
                     ?>
                 </div>
                 <?php

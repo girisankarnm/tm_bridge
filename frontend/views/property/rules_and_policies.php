@@ -104,7 +104,6 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                         <div class="accordion-content">
 
                             <div class="form-select select2-60">
-                                Room tariff is same for all guests
                                 <?php echo $form->field($property, 'smoking_policy_id')->dropDownList($smoking_policy, ['class' => 'select2','prompt' => 'Choose...'])->label(false); ?>
 
                                 <!--                                <select name="smoking_policy" id="" class="select2">-->
