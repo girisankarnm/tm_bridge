@@ -929,12 +929,13 @@ input::placeholder {
 .buttonSaveAssign
 {
     background-color: #586ADA;
+    border: 1px solid #586ADA !important;
     color: #ffffff;
     width: 92px;
     height: 30px;
     margin-top: 0px;
     /*margin-right: 16px;*/
-    /*margin-left: 92px;*/
+    /*margin-left: 92px;*   /
     font-family: 'Bw Mitga';
     font-style: normal;
     letter-spacing: .04em;
@@ -1128,7 +1129,7 @@ hr.new2 {
     padding-top: 0px;
     margin-right: 4px;
     font-size: 12px;
-    line-height: 0;
+    line-height: 1;
 }
 .fontsize-location
 {
