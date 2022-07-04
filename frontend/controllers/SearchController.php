@@ -586,7 +586,7 @@ class SearchController extends Controller
 
                 //Check Favourite
                 //TODO: Operator ID
-                $operatorID = 1;
+                $operatorID = Yii::$app->user->identity->getOWnerId();
                 $favouriteProperty = PropertyFavourite::find()->where(['property_id' => $property->id])->andWhere(['operator_id' => $operatorID])->one();
                 $favouriteStatus = false;
                 if ($favouriteProperty) {
@@ -860,7 +860,7 @@ class SearchController extends Controller
     public function actionMakepropertyfavourite(){
         // Todo:// Get Operator ID from current users parent ID
 
-        $operatorID  = 1 ;
+        $operatorID  = Yii::$app->user->identity->getOWnerId() ;
         $request = Yii::$app->request ;
         \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
         $property_id = $request->post('property_id');
