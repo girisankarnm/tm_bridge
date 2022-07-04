@@ -1,6 +1,8 @@
 <?php
 use yii\helpers\Html;
 use yii\bootstrap4\ActiveForm;
+use yii\helpers\Url;
+
 $this->registerCssFile('/css/property/room_categories.css');
 $this->registerJsFile('/js/property/room_categories/index.js');
 ?>
@@ -10,18 +12,17 @@ $this->registerJsFile('/js/property/room_categories/index.js');
 <div class="tab-section room_categories_contr">
     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
         <li class="nav-item" role="presentation">
-            <button class="btn nav-link" id="pills-basic-tab" href="#pills-basic"> Rules & Policies
-            </button>
+            <button onclick="location.href='<?= Url::toRoute(['property/rules','id' => $property->id]) ?>'" class="tablinks" id="pills-accommodation-tab" href="#pills-accommodation">  Rules & Policies</button>
         </li>
         <li class="nav-item" role="presentation">
-            <button class="btn nav-link active text-white" id="pills-contact-tab" href="#pills-contact"> Room Category </button>
+            <button onclick="location.href='<?= Url::toRoute(['property/categories','id' => $property->id]) ?>'" class="selectedButton" id="pills-basic-tab" href="#pills-basic">Room Category
+            </button><hr class="new5" >
         </li>
         <li class="nav-item" role="presentation">
-            <button class="btn nav-link" id="pills-guest-tab" href="#pills-guest"> Service & Amenities </button>
+            <button onclick="location.href='<?= Url::toRoute(['property/serviceamenities','id' => $property->id]) ?>'" class="tablinks" id="pills-guest-tab" href="#pills-guest"> Service & Amenities </button>
         </li>
         <li class="nav-item" role="presentation">
-            <button class="btn nav-link" id="pills-accommodation-tab" href="#pills-accommodation"> Property pictures
-            </button>
+            <button onclick="location.href='<?= Url::toRoute(['property/pictures','id' => $property->id]) ?>'" class="tablinks" id="pills-accommodation-tab" href="#pills-accommodation"> Property pictures</button>
         </li>
     </ul>
 
@@ -59,7 +60,7 @@ $this->registerJsFile('/js/property/room_categories/index.js');
                             </div>
                             <p class="mb-0 mr-2"> Active </p>
                             <div class="edit-icon item mr-2">
-                                <img src="<?= Yii::$app->request->baseUrl . 'images/edit-icon.svg' ?>" alt="" class="img-fluid">
+                                <a href="<?= \yii\helpers\Url::to(['/property/createcategories', 'id' =>  $property->id, 'room_id' => $room->id]) ?>"> <img s src="images/edit-icon.svg" style="color: #545b62;margin-right: 4px" aria-hidden="true"></img>   </a>
                             </div>
                         </div>
                     </div>

@@ -1,6 +1,8 @@
 <?php
 use yii\helpers\Html;
 use yii\bootstrap4\ActiveForm;
+use yii\helpers\Url;
+
 $this->registerCssFile('/css/property/room_categories.css');
 $this->registerJsFile('/js/operational_details/room_category.js');
 //$this->registerJsFile('/js/property/room_categories/index.js');
@@ -11,17 +13,17 @@ $this->registerJsFile('/js/operational_details/room_category.js');
 <div class="tab-section room_categories_contr">
     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
         <li class="nav-item" role="presentation">
-            <button class="btn nav-link" id="pills-basic-tab" href="#pills-basic"> Rules & Policies
-            </button>
+            <button onclick="location.href='<?= Url::toRoute(['property/rules','id' => $property->id]) ?>'" class="tablinks" id="pills-guest-tab" href="#pills-guest"> Rules & Policies </button>
         </li>
         <li class="nav-item" role="presentation">
-            <button class="btn nav-link active text-white" id="pills-contact-tab" href="#pills-contact"> Room Category </button>
+            <button onclick="location.href='<?= Url::toRoute(['property/categories','id' => $property->id]) ?>'" class="selectedButton" id="pills-basic-tab" href="#pills-basic"> Room Category
+            </button><hr class="new5" >
         </li>
         <li class="nav-item" role="presentation">
-            <button class="btn nav-link" id="pills-guest-tab" href="#pills-guest"> Service & Amenities </button>
+            <button onclick="location.href='<?= Url::toRoute(['property/serviceamenities','id' => $property->id]) ?>'" class="tablinks" id="pills-guest-tab" href="#pills-guest"> Service & Amenities </button>
         </li>
         <li class="nav-item" role="presentation">
-            <button class="btn nav-link" id="pills-accommodation-tab" href="#pills-accommodation"> Property pictures
+            <button onclick="location.href='<?= Url::toRoute(['property/pictures','id' => $property->id]) ?>'" class="tablinks" id="pills-accommodation-tab" href="#pills-accommodation"> Property pictures
             </button>
         </li>
     </ul>
@@ -118,7 +120,6 @@ $this->registerJsFile('/js/operational_details/room_category.js');
                                 <div class="d-flex form-material">
                                     <?= $form->field($room, 'restricted_for_child')->checkbox(['id' => 'admission-checkbox'])->label("Admission to this room category is restricted for guests under"); ?>
                                     <?php echo $form->field($room,'restricted_for_child_below_age')->textInput(['placeholder' => 'years' ,'class' => "form-control input-sm mr-1"])->label(false) ?>
-
                                 </div>
                             </div>
                         </div>
@@ -141,7 +142,6 @@ $this->registerJsFile('/js/operational_details/room_category.js');
                                     <div class="form-group">
                                         <div class="form-material">
                                             <?php echo $form->field($room,'number_of_adults')->textInput(['class' => 'form-control  input-sm mr-1'])->label(false) ?>
-
                                         </div>
                                     </div>
                                 </div>
@@ -154,7 +154,6 @@ $this->registerJsFile('/js/operational_details/room_category.js');
                                     <div class="form-group">
                                         <div class="form-material">
                                             <?php echo $form->field($room,'number_of_kids_on_sharing')->textInput(['class' => 'form-control input-sm mr-1'])->label(false) ?>
-
                                         </div>
                                     </div>
                                 </div>
@@ -187,7 +186,7 @@ $this->registerJsFile('/js/operational_details/room_category.js');
                     </div>
 
                     <div class="row align-items-center justify-content-start mt-3">
-                        <button  id="room_create_cancel" type="button" class="btn btn-border mr-4"> Cancel </button>
+                        <button onclick="location.href='<?= Url::toRoute(['property/rules','id' => $property->id]) ?>'" class="btn btn-border mr-4" id="room_create_cancel" type="button"> Cancel </button>
                         <button id="room_create_save" type="submit" class="btn button-secondary"> Save </button>
                     </div>
                 <?php ActiveForm::end(); ?>
