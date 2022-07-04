@@ -16,8 +16,8 @@ use frontend\models\property\Room;
 
 use frontend\models\tariff\RoomTariffDatewise;
 use frontend\models\tariff\RoomTariffWeekdayhike;
-use frontend\models\tariff\RoomTariffSupplimentMeal;
-use frontend\models\tariff\RoomTariffMandatoryDinner;
+use frontend\models\tariff\SupplimentMeal;
+use frontend\models\tariff\MandatoryDinner;
 use frontend\models\tariff\TariffNationalityGroupName;
 
 class SlabController extends Controller{
@@ -281,20 +281,20 @@ class SlabController extends Controller{
             $meals_tariff_array[$date->toDateString()] = NULL;
 
             $rows = (new \yii\db\Query())
-            ->select(['room_tariff_suppliment_meal.id', 'DATEDIFF(room_tariff_date_range_suppliment_meal.to_date, room_tariff_date_range_suppliment_meal.from_date) AS date_difference' ])
-            ->from('room_tariff_date_range_suppliment_meal')
-            ->where(['<=', 'room_tariff_date_range_suppliment_meal.from_date', $date->toDateString()])
-            ->andWhere(['>=', 'room_tariff_date_range_suppliment_meal.to_date', $date->toDateString()])
-            ->leftJoin('room_tariff_suppliment_meal', 'room_tariff_date_range_suppliment_meal.tariff_id  = room_tariff_suppliment_meal.id')
-            ->andWhere(['=', 'room_tariff_suppliment_meal.property_id', $property_id])
+            ->select(['suppliment_meal.id', 'DATEDIFF(tariff_date_range.to_date, tariff_date_range.from_date) AS date_difference' ])
+            ->from('tariff_date_range')
+            ->where(['<=', 'tariff_date_range.from_date', $date->toDateString()])
+            ->andWhere(['>=', 'tariff_date_range.to_date', $date->toDateString()])
+            ->leftJoin('suppliment_meal', 'tariff_date_range.id  = suppliment_meal.date_range_id')
+            ->andWhere(['=', 'suppliment_meal.property_id', $property_id])
             ->orderBy('date_difference ASC')
             ->one();
             
             if($rows != false) {            
                 $tariff_id = $rows["id"];
-                $suppliment_meal = RoomTariffSupplimentMeal::findOne(['id' => $tariff_id]);            
+                $suppliment_meal = SupplimentMeal::findOne(['id' => $tariff_id]);            
                 if($suppliment_meal != null) {
-                    $meals_tariff_array[$date->toDateString()] = $suppliment_meal->roomTariffSlabSupplimentMeals;
+                    $meals_tariff_array[$date->toDateString()] = $suppliment_meal->supplimentMealSlabs;
                 }
             }            
             $date->addDays(1);
@@ -304,7 +304,7 @@ class SlabController extends Controller{
 
         $properties_list = ArrayHelper::map(Property::find()->where(['owner_id' => Yii::$app->user->getId()])->all(), 'id', 'name');                
 
-        $this->layout = 'main-tm'; 
+        $this->layout = 'tm_main'; 
 
         
         return $this->render('meals', [
@@ -349,19 +349,21 @@ class SlabController extends Controller{
         
         for ($i = 0; $i < $daysInMonth; $i++ ){
         
-            $dinner_tariff_array[$date->toDateString()] = NULL;
+            $dinner_tariff_array[$date->toDateString()] = NULL;            
+            
             $rows = (new \yii\db\Query())
-            ->select(['room_tariff_mandatory_dinner.id', 'DATEDIFF(room_tariff_mandatory_dinner.to_date, room_tariff_mandatory_dinner.from_date) AS date_difference' ])
-            ->from('room_tariff_mandatory_dinner')
-            ->where(['<=', 'room_tariff_mandatory_dinner.from_date', $date->toDateString()])
-            ->andWhere(['>=', 'room_tariff_mandatory_dinner.to_date', $date->toDateString()])
-            ->andWhere(['=', 'room_tariff_mandatory_dinner.property_id', $property_id])
+            ->select(['mandatory_dinner.id', 'DATEDIFF(tariff_date_range.to_date, tariff_date_range.from_date) AS date_difference' ])
+            ->from('tariff_date_range')
+            ->where(['<=', 'tariff_date_range.from_date', $date->toDateString()])
+            ->andWhere(['>=', 'tariff_date_range.to_date', $date->toDateString()])
+            ->leftJoin('mandatory_dinner', 'tariff_date_range.id  = mandatory_dinner.date_range_id')
+            ->andWhere(['=', 'mandatory_dinner.property_id', $property_id])
             ->orderBy('date_difference ASC')
             ->one();
-            
+
             if($rows != false) {            
                 $tariff_id = $rows["id"];
-                $mandatory_dinner_tariff = RoomTariffMandatoryDinner::findOne(['id' => $tariff_id]);
+                $mandatory_dinner_tariff = MandatoryDinner::findOne(['id' => $tariff_id]);
                 if($mandatory_dinner_tariff != null) {                    
                     $dinner_tariff_array[$date->toDateString()] = $mandatory_dinner_tariff;
                 }
@@ -369,10 +371,9 @@ class SlabController extends Controller{
             $date->addDays(1);
         }
         
-
         $properties_list = ArrayHelper::map(Property::find()->where(['owner_id' => Yii::$app->user->getId()])->all(), 'id', 'name');                
 
-        $this->layout = 'main-tm'; 
+        $this->layout = 'tm_main'; 
         return $this->render('dinner', [
             'property_id' => $property_id,            
             'properties_list' => $properties_list,
