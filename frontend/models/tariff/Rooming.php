@@ -6,6 +6,7 @@ use frontend\models\enquiry\EnquiryGuestCountChildAge;
 use frontend\models\property\Property;
 use frontend\models\property\Room;
 use frontend\models\enquiry\Enquiry;
+use frontend\models\property\PropertySlabAssignment;
 
 use Yii;
 
@@ -82,7 +83,7 @@ class Rooming
     } */
 
     //Use rate_type = 0 for rack rate, rate_type = 1, for default slab
-    public function initialize($accomodation_date, $nationality_id, $room_id, $property_id, $enquiry_id, $rate_type = 1){
+    public function initialize($accomodation_date, $nationality_id, $room_id, $property_id, $enquiry_id, $rate_type = 1){        
         $result = false;
 
         if ($property_id != 0) {
@@ -117,6 +118,22 @@ class Rooming
             $nationality_id = 0;
         }
 
+        if( $rate_type != 0) {
+            $assigned_slab = PropertySlabAssignment::find()
+            ->select('slab_number')
+            ->where(['property_id' => $this->property->id])
+            ->andwhere(['operator_id' => $this->enquiry->owner_id])
+            ->one();
+
+            if($assigned_slab != NULL) {
+                $rate_type = $assigned_slab->slab_number;
+            } 
+            else 
+            {
+                $rate_type = 1;
+            } 
+        }
+
         $rows = (new \yii\db\Query())
         ->select(['room_tariff_datewise.id', 'DATEDIFF(tariff_date_range.to_date, tariff_date_range.from_date) AS date_difference' ])
         ->from('tariff_date_range')
@@ -131,17 +148,38 @@ class Rooming
         if($rows != false) {
             $tariff_id = $rows['id'];
             $room_tariff = RoomTariffDatewise::findOne(['id' => $tariff_id]);
-            if($room_tariff != null) {
-                $this->date_based_slab = $room_tariff->getRoomTariffSlabs()
-                ->where(['=', 'number', $rate_type])
-                ->one();
+            if($room_tariff != null) {                
+                //Get rack rate
+                if( $rate_type === 0) {
+                    $this->date_based_slab = $room_tariff->getRoomTariffSlabs()
+                    ->where(['=', 'number', $rate_type])
+                    ->one();
+                } 
+                else
+                 {                    
+                    //Get assigned slab rate
+                    do {
+                        $this->date_based_slab = $room_tariff->getRoomTariffSlabs()
+                        ->where(['=', 'number', $rate_type])
+                        ->one();
+
+                        $rate_type--;
+                        if($rate_type > 0) { break; };
+                    }
+                    while ($this->date_based_slab != NULL);
+                 }
+
                 if($this->date_based_slab != null) {
-                    $this->room_tariff_datewise_slab_id = $this->date_based_slab->id;
-                    //var_dump($this->date_based_slab);
+                    $this->room_tariff_datewise_slab_id = $this->date_based_slab->id;                    
+                    //Rate available
+                } 
+                else 
+                {                    
+                    //TODO: Rate not available 
+                    //Room rate not available
                 }
             }
         }
-
 
         //Weekday hike
         $rows = (new \yii\db\Query())
