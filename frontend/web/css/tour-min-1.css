@@ -383,6 +383,9 @@ input::-webkit-inner-spin-button {
 
   }
 
+
+
+
 .table3enquiryclass
 {
 
@@ -541,7 +544,22 @@ table {
 }
 
 
+.guestcountpopup {
 
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #586ADA;
+    color: white;
+    border: 1px solid  #586ADA !important;
+    border-radius: revert !important;
+    font-family: 'Bw Mitga';
+    font-style: normal;
+    font-weight: 200;
+    font-size: 11px;
+    height: 33px;
+    text-align: center;
+
+}
 
 .thtableaccomadation {
     padding-top: 12px;
@@ -694,9 +712,10 @@ select:focus
     background-color: #ffffff !important;
     box-sizing: border-box;
     color: #787486!important;
-    width: 94px !important;
+    width: 150px !important;
     height: 34px !important;
     font-size: 13px !important;
+    margin: 7px;
     border: 0.1px solid #c3c3c3!important;
     border-radius: 8px !important;
     flex: none;
@@ -929,6 +948,7 @@ input::placeholder {
 
 .buttonSaveAssign
 {
+    float: right;
     background-color: #586ADA;
     border: 1px solid #586ADA !important;
     color: #ffffff;
@@ -1358,7 +1378,7 @@ hr.new2 {
 }
 .margin-right-icon{
     margin: 0px !important;
-    vertical-align: middle;
+    /*vertical-align: middle;*/
     color: #E40968;
 }
 
@@ -1408,7 +1428,14 @@ hr.new2 {
     font-weight: bold !important;
     Letter spacing: -2% !important;
 }
+.add-mandatorydinner-input
+{
+          width: 100px !important;
+          height: 33px !important;
+          margin-top: 14px !important;
+          margin-bottom: 14px !important;
 
+}
 .hrMother
 {
     margin-top: 1rem;

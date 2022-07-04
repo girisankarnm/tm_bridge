@@ -20,7 +20,7 @@ if ($slab != NULL) {
     </td>
     <td class="Adults">
         <?php if ($slab->number > 1) { ?>
-            <button id="remr" onclick="deleteSlabRow(this,<?= $nationality_id; ?>); return true;" style="border-radius: 50%"><i class="fa fa-minus"></i></button>
+            <button id="remr" onclick="deleteSlabRow(this,<?= $nationality_id; ?>); return true;" style="border-radius: 50%;border: 0px;background-color: #f9f9f9"><img src="images/minus.svg" alt="" ></button>
         <?php } ?>    
     </td>
     </tr>

@@ -217,7 +217,7 @@ $this->registerJsFile('/js/enquiry/guest_count.js');
             </div>
             <div class="modal-body">
                 <input type="hidden" id="plan_id" name="planID" value="0">
-                <table id="age_breakup_table" class="table-sm">
+                <table id="age_breakup_table" class="guestcountpopup">
                     <thead class="text-center">
                     <th>Age (Years)</th>
                     <th>Count</th>
@@ -228,7 +228,7 @@ $this->registerJsFile('/js/enquiry/guest_count.js');
                 </table>
                 <!--                display validation error-->
                 <div id="ageBreakupValidation" style="color: red; font-size: 14px; width: 200px; left: 25%; position: relative"></div>
-                <div><button type="button" id="add_age_count_row" class="btn btn-sm bg-success" style="border-radius: 50%">
+                <div><button type="button" id="add_age_count_row" class="btn btn-sm bg-success" style="border-radius: 50%;margin-top: 7px">
                         <i class="fa fa-plus"></i></button></div>
             </div>
             <div class="modal-footer">
