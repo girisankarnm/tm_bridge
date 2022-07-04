@@ -357,6 +357,7 @@ class TariffController extends Controller {
         //TODO: if room count is zero, ask the user to create room to proceed
         $tariff = (int) Yii::$app->request->get('tariff', 0);
         
+       //TODO: Handle $room_count == 0, if there no room category in a hotel
         $mother_id = Yii::$app->request->get('mother_id');
         if( $room_off_set >= $room_count ) {
             //Rooms over            

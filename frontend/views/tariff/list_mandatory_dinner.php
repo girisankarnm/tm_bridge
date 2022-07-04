@@ -3,7 +3,7 @@ use Carbon\Carbon;
 use frontend\models\tariff\TariffDateRange;
 ?>
 
-<div class="$content">
+<div class="content">
     <div class="container-fluid" >
         <div class="card-title">Tariff</div>
         <div class="tariffBorder">
@@ -36,6 +36,15 @@ use frontend\models\tariff\TariffDateRange;
                 </div>
     </div>
 
+    <?php if(!$property->provide_compulsory_inclusions) { ?>
+        <div>
+            If you wish to define mandatory dinner rate, define Mandatory dinner on Property -> Rules and policies section. TODO: Show link
+        </div>    
+    <?php 
+    } 
+    else 
+    {
+    ?>
 
     <?php 
     $i = 1;
@@ -89,11 +98,8 @@ use frontend\models\tariff\TariffDateRange;
     <?php
     $i++;
     } ?>
-        </div>
-<!--        <script>-->
-<!---->
-<!--            // $( "#collapseOne:first-of-type" ).removeClass( "collapse" );-->
-<!--            $( "#collapseOne:nth-child(1)" ).addClass( "show" );-->
-<!--        </script>-->
-</div>
+    </div>
+
+    </div>
+<?php } ?>
 </div>
