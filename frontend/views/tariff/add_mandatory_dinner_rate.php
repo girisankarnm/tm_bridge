@@ -59,7 +59,7 @@ function attachDatePicker() {
 }
 </script>
 
-<div class="$content">
+<div class="content">
     <div class="container-fluid" style="">
         <div class="card-title">
             Tariff Wizard
