@@ -42,6 +42,8 @@ class m130524_201442_init extends Migration
             'status' => 10,
             'password_hash' => Yii::$app->security->generatePasswordHash("123456789"),
             'auth_key' => Yii::$app->security->generateRandomString(),
+            'created_at' => date(),
+            'updated_at' => date(),
             
         ]);
 
@@ -54,7 +56,9 @@ class m130524_201442_init extends Migration
             'user_type' => 1,
             'status' => 10,
             'password_hash' => Yii::$app->security->generatePasswordHash("123456789"),
-            'auth_key' => Yii::$app->security->generateRandomString(),            
+            'auth_key' => Yii::$app->security->generateRandomString(),
+            'created_at' => date(),
+            'updated_at' => date(),            
         ]);
     }
 
