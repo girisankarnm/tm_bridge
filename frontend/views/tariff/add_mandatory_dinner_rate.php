@@ -133,10 +133,10 @@ function attachDatePicker() {
         foreach ($dinners as $dinner)        
         { ?>
             <tr>
-                <td class="Adults"><input type="text" class="inputTextClass" name="dinner_daterange[]" value = "<?= Carbon::parse($dinner->date)->format('d M Y'); ?>" style="width: 100px;height: 33px;margin-top: 24px;"/></td>
-                <td class="Adults"><input type="text" class="inputTextClass" name="event_name[]" value = "<?= $dinner->name ?>" style="width: 100px;height: 33px;margin-top: 24px;" >  </td>
-                <td class="Adults"><input type="number" class="inputTextClass" name="adult_rate[]" value = "<?= $dinner->rate_adult ?>" style="width: 100px;height: 33px;margin-top: 24px;"></td>
-                <td class="Adults"><input type="number" class="inputTextClass" name="child_rate[]" value = "<?= $dinner->rate_child ?>" style="width: 100px;height: 33px;margin-top: 24px;"></td>
+                <td class="Adults"><input type="text" class="inputTextClass add-mandatorydinner-input"  name="dinner_daterange[]" value = "<?= Carbon::parse($dinner->date)->format('d M Y'); ?>" "/></td>
+                <td class="Adults"><input type="text" class="inputTextClass add-mandatorydinner-input" name="event_name[]" value = "<?= $dinner->name ?>"  >  </td>
+                <td class="Adults"><input type="number" class="inputTextClass add-mandatorydinner-input" name="adult_rate[]" value = "<?= $dinner->rate_adult ?>" ></td>
+                <td class="Adults"><input type="number" class="inputTextClass add-mandatorydinner-input" name="child_rate[]" value = "<?= $dinner->rate_child ?>" ></td>
                 <td class="Adults1"> 
                     <?php if($i != 0) { ?>
                         <i name="compulsory_rem" class="fa fa-minus fa-lg text-danger mt-2 ml-4" onclick="removeRow(this)"></i>
