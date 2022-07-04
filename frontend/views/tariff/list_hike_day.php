@@ -3,7 +3,7 @@ use Carbon\Carbon;
 use frontend\models\tariff\TariffDateRange;
 ?>
 
-<div class="$content">
+<div class="content">
     <div class="container-fluid" >
         <div class="card-title">Tariff</div>
         <div class="tariffBorder">
@@ -33,10 +33,18 @@ use frontend\models\tariff\TariffDateRange;
                                 </span></div>
                         </div>
                     </div>
-
                 </div>
     </div>
 
+    <?php if(!$property->have_weekday_hike) { ?>
+        <div>
+            If you wish to define weekday hike rate, define weekday hike policy on Property -> Rules and policies section. TODO: Show link
+        </div>    
+    <?php 
+    } 
+    else 
+    {
+    ?>
 
     <?php 
     $i = 1;
@@ -91,4 +99,5 @@ use frontend\models\tariff\TariffDateRange;
     } ?>
         </div>
 </div>
+<?php } ?>
 </div>

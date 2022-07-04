@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use Carbon\Carbon;
 ?>
-<div class="$content">
+<div class="content">
     <div class="container-fluid" >
         <div class="card-title">
             Tariff
@@ -14,9 +14,9 @@ use Carbon\Carbon;
                 <div style="display: inline">
                 <a href="<?= \yii\helpers\Url::to(['/tariff/home', 'id' =>  $property->id]) ?>">  <button class="selectedButtonmotherdaterange" onclick="openCity(event, 'London')" >Mother date range</button></a> <hr class="new6" ></div>
                 <a href="<?= \yii\helpers\Url::to(['/tariff/room', 'id' =>  $property->id]) ?>">   <button id="contactBtn" class="tablinks2" onclick="openCity(event, 'Paris')">Room rate</button></a>
-                <a href="<?= \yii\helpers\Url::to(['/tariff/meal', 'id' =>  $property->id]) ?>"> <button class="tablinks2" onclick="openCity(event, 'Tokyo')">Meal rate</button></a>
+                <a href="<?= \yii\helpers\Url::to(['/tariff/meal', 'id' =>  $property->id]) ?>"> <button class="tablinks2" onclick="openCity(event, 'Tokyo')">Meal rate</button></a>                
                 <a href="<?= \yii\helpers\Url::to(['/tariff/hikeday', 'id' =>  $property->id]) ?>"><button class="tablinks2" onclick="openCity(event, 'Tokyo')">Hike day rate</button></a>
-                <a href="<?= \yii\helpers\Url::to(['/tariff/mandatorydinner', 'id' =>  $property->id]) ?>"><button class="tablinks2" onclick="openCity(event, 'Tokyo')">Mandatory dinner</button></a>
+                <a href="<?= \yii\helpers\Url::to(['/tariff/mandatorydinner', 'id' =>  $property->id]) ?>"><button class="tablinks2" onclick="openCity(event, 'Tokyo')">Mandatory dinner</button></a>                
             </div>
             <hr class="sidebar-divider hrdivider">
             <div class="tariffBorder3" style="display: block">

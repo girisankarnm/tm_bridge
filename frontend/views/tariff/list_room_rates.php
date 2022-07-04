@@ -2,7 +2,7 @@
 use Carbon\Carbon;
 ?>
 
-<div class="$content">
+<div class="content">
     <div class="container-fluid" >
         <div class="card-title">Tariff</div>
         <div class="tariffBorder">
