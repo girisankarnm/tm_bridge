@@ -82,6 +82,7 @@ use Carbon\Carbon;
                         <td class="Adults"> <input id="breakfast_rate_child" name="breakfast_rate_child" type="number" class="mealfonttext" value="<?= ($meals_type) ? $meals_type->rate_child : "" ?>" > </td>
                     </tr>
 
+
                     <tr>
                         <?php $meals_type = ($suppliment_meal) ? $suppliment_meal->getSupplimentMealSlabs()->where(['meal_type_id' => 2])->one() : NULL; ?>
                         <td style="font: bold;margin-top: 24px" class="mealinputText Adults">Lunch</td>

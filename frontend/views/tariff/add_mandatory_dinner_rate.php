@@ -31,13 +31,15 @@ function addRow(){
    '<td class="Adults">' +
    '<input type="number" class="inputTextClass table-td-inputwidth" name="child_rate[]">' +
    '</td>' + 
-   '<td class="Adults">' +
-   '<i name="compulsory_rem" class="fa fa-minus fa-lg text-danger mt-2 ml-4" onclick="removeRow(this)"></i>' +
+   '<td class="action-td">' +
+   '<button id="remvr" onclick="removeRow(this)" class="remove-padding-top" style="border-radius: 50%;border: 0px;background-color: #f9f9f9"><img src="images/minus.svg"  ></button>' +
    '</td> ' + 
    '</tr>';
    
    $("#dinner_table").append(row_html);
    attachDatePicker();
+// <button id="remvr" onclick="removeRow(this)" style="border-radius: 50%;border: 0px;background-color: #f9f9f9"><img src="images/minus.svg"  ></button>
+
 }
 
 function removeRow(row) {    
@@ -119,13 +121,13 @@ function attachDatePicker() {
     <input type="hidden" name="tariff" value="<?= $tariff; ?>">
 
         <div class="row">
-            <table id="dinner_table" class="table3enquiryclass" >
+            <table id="dinner_table" class="tableadd-meals-class" >
                 <tr  class="thtableguestcount " >
                     <th class="Adults" >Date</th>
                     <th class="Adults">Inclusion Name</th>
                     <th  class="Adults">Adult Rate</th>
                     <th  class="Adults">Child Rate</th>
-                    <th class="Adults"></th>
+                    <th class="action-td"></th>
                 </tr>
                 <?php
                 $i = 0;
@@ -137,12 +139,26 @@ function attachDatePicker() {
                 <td class="Adults"><input type="text" class="inputTextClass add-mandatorydinner-input" name="event_name[]" value = "<?= $dinner->name ?>"  >  </td>
                 <td class="Adults"><input type="number" class="inputTextClass add-mandatorydinner-input" name="adult_rate[]" value = "<?= $dinner->rate_adult ?>" ></td>
                 <td class="Adults"><input type="number" class="inputTextClass add-mandatorydinner-input" name="child_rate[]" value = "<?= $dinner->rate_child ?>" ></td>
-                <td class="Adults1"> 
+                <td class="action-td">
                     <?php if($i != 0) { ?>
                         <i name="compulsory_rem" class="fa fa-minus fa-lg text-danger mt-2 ml-4" onclick="removeRow(this)"></i>
                     <?php } ?>                
                 </td>
             </tr>
+
+            <tfoot >
+            <tr style="height: 15px">
+
+            </tr>
+            <tr style="background-color: #ffffff">
+                <td class="addmoreguestcount">
+<!--                    <button class="btnAdd" type="button" style="border-radius: 50%; margin-left: 0px;margin-bottom: 15px;height: 23px;width: 23px;" id="add_new_plan_row" onclick="addRow();  return true;"><i  style=" padding-top: 4px; margin-bottom: 2px;"  class="fa fa-plus" aria-hidden="true"></i></button>-->
+<!--                    <span style="padding-left: 3px">Add more </span></td>-->
+                <button class="btnAdd" type="button" style="border-radius: 50%; margin-left: 0px;margin-bottom: 15px;height: 23px;width: 23px;" id="add_new_plan_row" onclick="addRow();return true;"><i  class="fa fa-plus" aria-hidden="true"></i></button>
+                <span style="padding-left: 3px">Add more </span>
+
+            </tr>
+            </tfoot>
             <?php 
             $i++;
             } 

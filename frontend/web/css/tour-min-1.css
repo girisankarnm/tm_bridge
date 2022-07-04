@@ -257,6 +257,9 @@ td.paxcount, th.paxcount {
 td.Adults, th.Adults {
     width:          100px !important;
 }
+td.action-td, th.action-td {
+    width:          50px !important;
+}
 
 td.Column-width-100px, th.Column-width-100px {
     width:          100px !important;
@@ -298,7 +301,7 @@ td.fijo, th.fijo {
 .table-td-inputwidth {
     width: 100px !important;
     height: 33px !important;
-    margin-top: 24px !important;
+    margin-top: 16px !important;
 }
 .td.addmoreguestcount
 {
@@ -388,36 +391,37 @@ input::-webkit-inner-spin-button {
 
 .table3enquiryclass
 {
-
-
     font-family: 'Bw Mitga';
     font-style: normal;
-    /*box-shadow: #51459F17;*/
     alignment: inherit;
     margin-left: 36px;
     margin-right: 12px;
     margin-top: 15px;
-    /*margin-top: 30px;*/
     margin-bottom: 24px;
-    width: 668px !important;
+    width: 600px !important;
     height: fit-content;
-
-    /*transform: rotate(0deg);*/
-    /*border-top-left-radius: 15px !important;*/
-    /*border: 1px solid #586ada !important;*/
     border: 1px solid  #c69500;
-    /*border-top-left-radius: 34px;*/
     perspective: 16px;
-    /*border: 8px solid  #c69500 !important;*/
-
-    /*border-top-right-radius: 24px;*/
-    /*border-collapse: revert;*/
-    /*border-top-left-radius: 20px !important;*/
-    /*border-radius: 10px;*/
-    /*border-collapse: initial;*/
     text-align: center;
-
 }
+
+.tableadd-meals-class
+{
+    font-family: 'Bw Mitga';
+    font-style: normal;
+    alignment: inherit;
+    margin-left: 36px;
+    margin-right: 12px;
+    margin-top: 0px;
+    margin-bottom: 24px;
+    width: 600px !important;
+    height: fit-content;
+    border: 1px solid  #c69500;
+    perspective: 16px;
+    text-align: center;
+}
+
+
 
 .thtablerow-slab {
     padding-top: 12px;
@@ -467,9 +471,10 @@ input::-webkit-inner-spin-button {
     padding: 0px 0px !important;
     /*!* */
     /*transform: rotate(0deg);*/
-    border-top-left-radius: 15px !important;
-    border-top-right-radius: 15px !important;
+    border-top-left-radius: 0px !important;
+    border-top-right-radius: 0px !important;
     border-bottom-left-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
     /*border: 1px solid #586ada !important;*/
     border: 1px solid  #c69500;
 
@@ -487,19 +492,37 @@ input::-webkit-inner-spin-button {
 }
 
 
-table.dataTable thead th, table.dataTable thead td {
+table thead tr th:first-child  {
     padding: 5px 8px !important;
  border-bottom: 0px solid #111 !important;
+    border-top: 0px   !important;
  border-top-left-radius: 0px solid #111 !important;
  border-bottom-right-radius: 0px solid #111 !important;
  border-bottom-left-radius: 0px solid #111 !important;
 }
+
+table.dataTable thead th, table.dataTable thead td {
+    overflow: auto;
+    padding: 5px 8px !important;
+ border-bottom: 0px  solid blue  !important;
+ border-top: 0px   !important;
+ border-top-left-radius: 0px  !important;
+ border-bottom-right-radius: 0px !important;
+ border-bottom-left-radius: 0px  !important;
+}
+
+
+
+
 
 .acco-margintop
 {
   margin-top: 18px !important;
 }
 
+.remove-padding-top {
+    padding-top: 12px !important;
+}
 /*.classradious*/
 /*{*/
 /*    border-top-left-radius: 24px;*/
@@ -516,7 +539,7 @@ table.dataTable thead th, table.dataTable thead td {
 .divtable {
     border: 2px solid #586ada;
     overflow: hidden;
-    border-radius: 10px;
+    /*border-radius: 10px;*/
     transform: rotate(0deg);
 }
 table {
@@ -525,7 +548,7 @@ table {
     width: fit-content%;
     border: 1px solid #586ADA !important;
     overflow: hidden;
-    border-top-radius: 10px;
+    /*border-top-radius: 10px;*/
 
 
 }
@@ -608,12 +631,12 @@ table {
 
 
 input[type='number'] {text-indent:10px;  }
-input[type='text'] {text-indent:10px;  }
-input[type='email'] {text-indent:23px;  }
-input[type='password'] {text-indent:23px;  }
+input[type='text'] {text-indent:11px;  }
+input[type='email'] {text-indent:11px;  }
+input[type='password'] {text-indent:11px;  }
 tr {
     background-color: #F9F9F9;
-    padding: 8px;
+    padding:11px;
     /*text-indent:27px;*/
 
 }
@@ -861,7 +884,7 @@ input::placeholder {
 
     font-size: 12px;
     overflow:hidden ;
-    border-bottom-right-radius: 10px;
+    /*border-bottom-right-radius: 10px;*/
 
 }
 
@@ -1176,9 +1199,14 @@ hr.new2 {
 }
 
 .h6class {
-    padding-top: 7px;
+    padding-top: 2px;
     margin-right: 8px;
 
+}
+
+.img-align
+{
+    vertical-align: baseline !important;
 }
 .motherdateRangeButton {
 
@@ -1263,6 +1291,10 @@ hr.new2 {
     padding-left: 12px;
     background-color: #fffffff;;
 }
+
+
+
+
 .tariffBorderbox
 {
     height: 150px;
@@ -1309,19 +1341,31 @@ hr.new2 {
     background-color: #fff;
 }
 
+.tariff-message-border
+{
+    height:150px;
+    border: 1px solid #E8E9ED;
+    border-radius: 14px;
+    margin-left: 3px;
+    margin-right: 5px;
+    padding-top: 23px;
+    padding-left: 12px;
+    background-color: #fffffff;;
+}
+
 .tableclass{
 
     margin: 15px;
     width: 400px;
     border: 1px solid #586ada;;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
+    /*border-top-right-radius: 10px;*/
+    /*border-top-left-radius: 10px;*/
     border-spacing: 5px 10px;
 }
 
 .tablemealclass{
     border: .01rem  solid #586ADA !important;
-    border-top-left-radius: 25px !important;;
+    /*border-top-left-radius: 25px !important;*/
     /*border-radius: 9px;*/
     width: fit-content;
     height: fit-content;
@@ -1433,7 +1477,7 @@ hr.new2 {
           width: 100px !important;
           height: 33px !important;
           margin-top: 14px !important;
-          margin-bottom: 14px !important;
+          margin-bottom: 0px !important;
 
 }
 .hrMother
@@ -1748,7 +1792,7 @@ hr.new6 {
     color: #787486 !important;
     font-size: 12px;
     border: 0.1px solid #c3c3c3;
-    border-radius: 8px;
+    /*border-radius: 8px;*/
     margin-top: 9px !important;
     margin-bottom: 18px !important;
     margin-left: 0px !important;
