@@ -176,7 +176,7 @@ class RoomRateValidator {
     public function validateMandatoryDinner() {
         //echo $this->property->provide_compulsory_inclusions;
         if ($this->property->provide_compulsory_inclusions) {
-            if (count($this->date_range->roomTariffMandatoryDinners) == 0) {                            
+            if ( (!isset($this->date_range->roomTariffMandatoryDinners)) || count($this->date_range->roomTariffMandatoryDinners) == 0) {                            
                 $this->bCanpublish = false;
                 array_push($this->error_messages, "Not defined any mandatory dinner [". Carbon::parse($this->date_range->from_date)->format('d M Y')." - ".Carbon::parse($this->date_range->to_date)->format('d M Y')."]");
                 return false;
