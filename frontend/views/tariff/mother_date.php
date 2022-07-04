@@ -99,11 +99,11 @@ table, th, td {
             <div class="row" style="margin-left: 3px;margin-bottom: 8px;">
                 <div style="display: block;margin-right: 35px">
                     <label class="labeldateclass" style="display: block;margin-top: 20px" >*From Date</label>                    
-                    <?= $form->field($date_range, 'from_date')->textInput(['class' => 'inputDate'])->label(false); ?>
+                    <?= $form->field($date_range, 'from_date')->textInput(['class' => 'inputDate', ($is_published != 1 ) ? '' : 'disabled' => 'false' ])->label(false); ?>
                 </div>
                 <div style="display: block">
                     <label class="labeldateclass" style="display: block;margin-top: 20px" >*To Date</label>                    
-                    <?= $form->field($date_range, 'to_date')->textInput(['class' => 'inputDate'])->label(false); ?>
+                    <?= $form->field($date_range, 'to_date')->textInput(['class' => 'inputDate', ($is_published != 1 ) ? '' : 'disabled' => 'false' ])->label(false); ?>
                 </div>
             </div>
             <div class="row" style="margin-left: 4px;margin-bottom: 12px;margin-left: 28px">

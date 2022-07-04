@@ -22,7 +22,7 @@
                 </div>
                 <div class="delete-icon item">
                     <img src="<?= Yii::$app->request->baseUrl . 'images/delete-icon.svg' ?>"
-                         alt="" class="img-fluid" onclick="showNationalityDeleteConfirm(<?= $group->id ?>, '<?= $group->name?>')">
+                         alt="" class="img-fluid" onclick="showNationalityDeleteConfirm(<?= $group->id ?>, '<?= $group->name?>',)">
                 </div>
             </div>
         </td>

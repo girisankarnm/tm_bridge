@@ -63,9 +63,9 @@ $this->registerJsFile('/js/tariff/tariff.js');
         <hr class="sidebar-divider">        
 
         <div style="width: 100%;height:80px;display: block;margin-left: 5px">
-            <div class="commonTitle" style="width: 500px"> <?= $room->name ?> <span class="commonTitlesmall"> ( <?= ($room_off_set) ?> of <?= $room_count?> Rooms ) </span></div>
+            <div class="commonTitle" style="width: 500px"> <?= $room->name ?> <span class="commonTitlesmall-2"> ( <?= ($room_off_set) ?> of <?= $room_count?> Rooms ) </span></div>
             <div style="width: 500px;margin-top: 23px;font-size: 12px;font: bold;color: black">
-                <i style="background-color: white;margin-right: 2px" class="fa fa-user " aria-hidden="true"></i><i style="background-color: white;margin-right: 2px" class="fa fa-user" aria-hidden="true"></i><i style="background-color: white;margin-right: 2px" class="fa fa-user" aria-hidden="true"></i> Occupancy AD : 2  Eb : 1 Sb : 1 <span style="margin-right: 5px"> </span> <?= $room->mealPlan->name ?></div>
+                <img  src="images/User-2.svg" alt="Matrix" class="margin-right-icon"> <img  src="images/User-2.svg" alt="Matrix" class="margin-right-icon" > <img  src="images/User-2.svg" alt="Matrix" class="margin-right-icon"  >  <span style="margin-right: 5px;" class="commonTitlesmall"> Occupancy AD : 2  Eb : 1 Sb : 1 </span>  <img  src="images/meal-2.svg" alt="Matrix" class="margin-right-icon" style="margin-right: 5px"><span style="margin-right: 5px;" class="commonTitlesmall"> meal:</span> <span style="margin-right: 5px"  class="commonTitlesmall">  <?= $room->mealPlan->name ?> </span></div>
         </div>
 
         <?php $form = ActiveForm::begin(['id' => 'tariff_step3','enableClientValidation' => true,'method' => 'post','action' => ['tariff/saveroomrates']]); ?>
@@ -103,7 +103,10 @@ $this->registerJsFile('/js/tariff/tariff.js');
             <?php if ($tariff != 1) { ?>
             <BUTTON type="button" class="prevbutton" style="width: 80px;height: 30px"> Prev </BUTTON>
             <?php } ?>
+
+            <?php if ($is_published != 1) { ?>
             <BUTTON type="submit" class="buttonSave save-border"  > Save </BUTTON>
+            <?php } ?>
             
             <?= Html::a('Next', ['tariff/addroomrate', 'id'=> $property->id, 'room_id'=> $room->id, 'mother_id' => $date_range->id, 'room_off_set' => $room_off_set, 'tariff' => $tariff],  ['class'=>'buttonNextanchor2', 'style' => 'width: 80px;height: 30px']) ?>
             

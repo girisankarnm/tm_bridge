@@ -9,9 +9,9 @@ use yii\web\AssetBundle;
  */
 class ToastrAsset extends AssetBundle
 {
-    public $jsOptions = ['position' => \yii\web\View::POS_HEAD];
+//    public $jsOptions = ['position' => \yii\web\View::POS_END];
     public $basePath = '@webroot';
- 
+
     public $css = [
        'https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css'
     ];

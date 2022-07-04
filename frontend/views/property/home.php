@@ -61,7 +61,7 @@ frontend\assets\CommonAsset::register($this);
        <?= Html::a('<i class="fa fa-tasks text-success p-1 t" style="width: 30px; height: 30px" title="Assign Slab"></i>', ['/slab/home','id'=> $property->id ]) ?>            
        <?= Html::a('<i class="fa fa-edit text-success p-1 t" style="width: 30px; height: 30px" title="Edit Basic Details"></i>', Url::toRoute(['/property/basicdetails', 'id' => $property->id ])) ?>
        <?= Html::a('<i class="fa fa-circle-dollar text-info p-1 t" style="width: 30px; height: 30px" title="Edit Tariff"></i>', ['/tariff/home','id'=> $property->id ]) ?>
-       <?= Html::a('<i class="fa fa-building text-warning p-1 t" style="width: 30px; height: 30px" title="Edit Operational Details"></i>', ['/property/rulespolicies','id'=> $property->id]) ?>
+       <?= Html::a('<i class="fa fa-building text-warning p-1 t" style="width: 30px; height: 30px" title="Edit Operational Details"></i>', ['/property/rules','id'=> $property->id]) ?>
      <i class="fa fa-trash text-danger p-1 t" style="width: 30px; height: 30px" title="Delete Property">
         </td>
     </tr>

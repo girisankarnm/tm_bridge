@@ -1,6 +1,7 @@
 <?php
 use yii\helpers\Html;
 use yii\bootstrap4\ActiveForm;
+use yii\helpers\Url;
 frontend\assets\CommonAsset::register($this);
 $this->registerCssFile('/css/property/rules_and_policies.css');
 $this->registerJsFile('/js/property/rules_and_policies/index.js');
@@ -71,17 +72,17 @@ $this->registerJsFile('/js/property_pictures/index.js');
 <div class="tab-section rules_and_policies_contr">
     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
         <li class="nav-item" role="presentation">
-            <button class="tablinks" id="pills-basic-tab" href="#pills-basic"> Rules & Policies
+            <button onclick="location.href='<?= Url::toRoute(['property/rules','id' => $property->id]) ?>'" class="tablinks" id="pills-basic-tab" href="#pills-basic"> Rules & Policies
             </button>
         </li>
         <li class="nav-item" role="presentation">
-            <button class="tablinks" id="pills-contact-tab" href="#pills-contact"> Room Category </button>
+            <button onclick="location.href='<?= Url::toRoute(['property/categories','id' => $property->id]) ?>'" class="tablinks" id="pills-contact-tab" href="#pills-contact"> Room Category </button>
         </li>
         <li class="nav-item" role="presentation">
-            <button class="tablinks" id="pills-guest-tab" href="#pills-guest"> Service & Amenities </button>
+            <button onclick="location.href='<?= Url::toRoute(['property/serviceamenities','id' => $property->id]) ?>'" class="tablinks" id="pills-guest-tab" href="#pills-guest"> Service & Amenities </button>
         </li>
         <li class="nav-item" role="presentation">
-            <button class="selectedButton" id="pills-accommodation-tab" href="#pills-accommodation"> Property pictures
+            <button onclick="location.href='<?= Url::toRoute(['property/pictures','id' => $property->id]) ?>'" class="selectedButton" id="pills-accommodation-tab" href="#pills-accommodation"> Property pictures
             </button><hr class="new5" >
         </li>
     </ul>

@@ -414,10 +414,87 @@ input::-webkit-inner-spin-button {
     text-align: center;
 
 }
-  .acco-margintop
-  {
-      margin-top: 18px !important;
-  }
+
+.thtablerow-slab {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #586ADA;
+    color: white;
+    font-family: 'Bw Mitga';
+    font-style: normal;
+    font-weight: 200;
+    font-size: 15px;
+    height: 33px;
+    text-align: center;
+    border-radius: 0px !important;
+    -moz-border-radius-bottomleft: 0px !important;
+    border-bottom: 0px solid !important;
+    /*border-bottom: 0px solid #111 !important;*/
+
+}
+.table-width-head {
+    width: 110px !important;
+    text-align: center !important;
+}
+.table-width-data-110px {
+    width: 110px !important;
+    text-align: left !important;
+    padding-left: 20px !important;
+}
+
+
+
+.table-slab-class
+{
+
+
+    font-family: 'Bw Mitga';
+    font-style: normal;
+    /*box-shadow: #51459F17;*/
+    alignment: inherit;
+    margin-left: 36px;
+    margin-right: 12px;
+    margin-top: 12px;
+    margin-top: 12px;
+    width: 100% !important;
+    /*height: 150px;*/
+    /*min-height: 150px;*/
+    /*border-bottom: 0px solid #111 !important;*/
+    padding: 0px 0px !important;
+    /*!* */
+    /*transform: rotate(0deg);*/
+    border-top-left-radius: 15px !important;
+    border-top-right-radius: 15px !important;
+    border-bottom-left-radius: 0px !important;
+    /*border: 1px solid #586ada !important;*/
+    border: 1px solid  #c69500;
+
+    /*border-top-left-radius: 34px;*/
+    perspective: 16px;
+    /*border: 8px solid  #c69500 !important;*/
+
+    /*border-top-right-radius: 24px;*/
+    /*border-collapse: revert;*/
+    /*border-top-left-radius: 20px !important;*/
+    /*border-radius: 10px;*/
+    /*border-collapse: initial;*/
+    text-align: center !important;
+
+}
+
+
+table.dataTable thead th, table.dataTable thead td {
+    padding: 5px 8px !important;
+ border-bottom: 0px solid #111 !important;
+ border-top-left-radius: 0px solid #111 !important;
+ border-bottom-right-radius: 0px solid #111 !important;
+ border-bottom-left-radius: 0px solid #111 !important;
+}
+
+.acco-margintop
+{
+  margin-top: 18px !important;
+}
 
 /*.classradious*/
 /*{*/
@@ -460,10 +537,10 @@ table {
     font-size: 11px;
     height: 33px;
     text-align: center;
-
-
-
 }
+
+
+
 
 .thtableaccomadation {
     padding-top: 12px;
@@ -847,8 +924,25 @@ input::placeholder {
     border: 0.5px solid #586ADA;
     border-radius: 10px;
 
+}
 
-
+.buttonSaveAssign
+{
+    background-color: #586ADA;
+    color: #ffffff;
+    width: 92px;
+    height: 30px;
+    margin-top: 0px;
+    /*margin-right: 16px;*/
+    /*margin-left: 92px;*/
+    font-family: 'Bw Mitga';
+    font-style: normal;
+    letter-spacing: .04em;
+    font-size: 12px;
+    border: 0.5px solid #586ADA;
+    border-radius: 10px;
+    float: right;
+    justify-content: right;
 }
 
 
@@ -1260,6 +1354,11 @@ hr.new2 {
     font-weight: 600;
     inline-size: 1px;
 }
+.margin-right-icon{
+    margin: 0px !important;
+    vertical-align: middle;
+    color: #E40968;
+}
 
 .commonTitlesmall
 {height: 15%;
@@ -1269,6 +1368,18 @@ hr.new2 {
     font-weight: 600;
     inline-size: 1px;
 }
+
+.commonTitlesmall-2
+{height: 15%;
+    font-size: 13px;
+    padding-top: 4px;
+    color: #E40968;
+    font-weight: 600;
+    inline-size: 1px;
+}
+
+
+
 .dateform
 {
 
@@ -1441,6 +1552,10 @@ hr.new2 {
 
     color: #292931;
 
+}
+.card-width-change
+{
+    width: 227px !important;
 }
 .spanrightpadding
 {
@@ -1955,6 +2070,33 @@ select:focus{
     line-height: .8rem;
 
 }
+
+
+#header-same-location
+{
+    flex-basis: 350px;
+    height:300px;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+}
+
+
+#header-same-location div:nth-of-type(1) {
+    flex-basis: 350px;
+    height: 27px;
+    padding-top: 2px;
+
+
+}
+
+#header-same-location div:nth-of-type(2) {
+    flex-basis: 430px;
+    padding-top: 0px;
+    line-height: .8rem;
+
+}
+
 
 
 #main3 {

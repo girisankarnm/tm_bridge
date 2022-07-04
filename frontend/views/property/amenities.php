@@ -3,28 +3,33 @@ use yii\helpers\Html;
 use yii\bootstrap4\ActiveForm;
 use frontend\models\property\PropertyAmenity;
 use yii\helpers\ArrayHelper;
+use yii\helpers\Url;
+use frontend\models\property\RoomAmenitySuboption;
+use frontend\models\property\RoomAmenity;
 $this->registerCssFile('/css/property/room_categories.css');
 $this->registerCssFile('/css/property/amenities.css');
 $this->registerJsFile('/js/property/amenities/index.js');
 $this->registerJsFile('/js/property/amenities/services_amenities.js');
 ?>
 
+
 <h5 class="title"> Room Category </h5>
 
 <div class="tab-section amenities_contr">
     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
         <li class="nav-item" role="presentation">
-            <button class="btn nav-link" id="pills-basic-tab" href="#pills-basic"> Rules & Policies
+            <button onclick="location.href='<?= Url::toRoute(['property/rules','id' => $property->id]) ?>'" class="tablinks" id="pills-basic-tab" href="#pills-basic"> Rules & Policies
             </button>
         </li>
         <li class="nav-item" role="presentation">
-            <button class="btn nav-link" id="pills-contact-tab" href="#pills-contact"> Room Category </button>
+            <button onclick="location.href='<?= Url::toRoute(['property/categories','id' => $property->id]) ?>'" class="tablinks" id="pills-contact-tab" href="#pills-contact"> Room Category </button>
         </li>
         <li class="nav-item" role="presentation">
-            <button class="btn nav-link active text-white" id="pills-guest-tab" href="#pills-guest"> Service & Amenities </button>
+            <button onclick="location.href='<?= Url::toRoute(['property/serviceamenities','id' => $property->id]) ?>'" class="selectedButton" id="pills-guest-tab" href="#pills-guest"> Service & Amenities </button>
+            <hr class="new5" >
         </li>
         <li class="nav-item" role="presentation">
-            <button class="btn nav-link" id="pills-accommodation-tab" href="#pills-accommodation"> Property pictures
+            <button onclick="location.href='<?= Url::toRoute(['property/pictures','id' => $property->id]) ?>'" class="tablinks" id="pills-accommodation-tab" href="#pills-accommodation"> Property pictures
             </button>
         </li>
     </ul>
@@ -58,21 +63,24 @@ $this->registerJsFile('/js/property/amenities/services_amenities.js');
                                 <div class="complimentary-list" id="complimentary_data">
 
                                     <?php if ( count($property->propertyComplimentaryAmenities) > 0 ) { ?>
-
+                                        <?php $i = 0; ?>
                                     <?php foreach ($property->propertyComplimentaryAmenities as $amenity) {?>
 
                                             <div class="d-flex form-group complimentary-item align-items-center">
                                                 <div class="form-material w-100 mr-2">
                                                     <input value="<?= $amenity->name?>" type="text" name="complimentary_input[]" id="" class="form-control w-100" placeholder="Amenities">
                                                 </div>
+                                                <?php if ($i > 0) : ?>
                                                 <div class="d-flex remove-complimentary align-self-start" role="button">
                                                     <div class="delete-icon my-1">
-                                                        <i class="fas fa-minus text-white"></i>
+                                                        <img  src="<?= Yii::$app->request->baseUrl . 'images/minus.svg' ?>" alt="" class="img-fluid">
+
                                                     </div>
                                                 </div>
+                                              <?php endif; ?>
                                             </div>
 
-                                    <?php } ?>
+                                    <?php $i++; } ?>
                                     <?php } else { ?>
 
                                     <div class="form-group">
@@ -355,29 +363,30 @@ $this->registerJsFile('/js/property/amenities/services_amenities.js');
                         </button>
                         <div id="collapseThree" class="collapse" data-parent="#myAccordion">
                             <div class="accordion-content">
-                                <div class="room-categories">
-                                    <?php foreach(range(1, 2) as $index => $item) : ?>
-                                        <div class="d-flex category-item <?= $index === 0 ? 'active' : false ?> justify-content-between align-items-start mb-4">
+                                <div class="room-categories" id="room-categories">
+
+                                    <?php foreach ($rooms as $index => $room) : ?>
+                                        <div id="room-<?= $room->id ?>" class="d-flex category-item  justify-content-between align-items-start mb-4">
                                             <div class="d-flex align-items-start">
                                                 <div class="categories-icon mr-2">
                                                     <i class="fas fa-check"></i>
                                                 </div>
                                                 <div class="item">
-                                                    <h6 class="categories-title"> Standard Room </h6>
+                                                    <h6 class="categories-title"> <?= $room->name ?> </h6>
                                                     <div class="d-flex item-content justify-content-between align-items-center">
                                                         <div class="d-flex features-list align-items-center">
                                                             <div class="action-icon mr-1">
                                                                 <img src="<?= Yii::$app->request->baseUrl . 'images/peoples.svg' ?>" alt="" class="img-fluid">
                                                             </div>
-                                                            <p class="value mb-0 mr-4"> Occupancy:  AD: <span> 2 </span>   EB: <span> 1 </span>   SB: <span> 1 </span> </p>
-                                                            <p class="value mb-0 mr-4"> Meal: AP (B + L + D) </p>
-                                                            <p class="value mb-0"> 10 Keys </p>
+                                                            <p class="value mb-0 mr-4"> Occupancy:  DB: <span> <?=$room->number_of_adults ?> </span>   EB: <span> <?=$room->number_of_extra_beds ?> </span>   SB: <span> <?=$room->number_of_kids_on_sharing ?> </span> </p>
+                                                            <p class="value mb-0 mr-4"> <?= $room->mealPlan->name ?> </p>
+                                                            <p class="value mb-0"> <?= $room->count ?> Keys </p>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="d-flex status-list align-items-center align-self-end">
-                                                <div class="edit-icon item mr-2">
+                                                <div class="edit-icon item mr-2" onclick="getRoomAmenitiesForm(<?= $room->id ?>)">
                                                     <img src="<?= Yii::$app->request->baseUrl . 'images/edit-icon.svg' ?>" alt="" class="img-fluid">
                                                 </div>
                                             </div>
@@ -385,171 +394,174 @@ $this->registerJsFile('/js/property/amenities/services_amenities.js');
                                     <?php endforeach; ?>
                                 </div>
 
-                                <p>
-                                    <strong> Room Features </strong>
-                                </p>
+                                <div id="room_amenity_form" class="mb-2" style="display: none" >
 
-                                <div class="row align-items-center mb-4">
-                                    <div class="col-2">
-                                        <div class="form-group form-checkbox">
-                                            <div class="form-material">
-                                                <input type="checkbox" name="" id="air-condition" class="form-input-checkbox">
-                                                <label for="air-condition" class="mb-0">
-                                                    Air Condition
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <select name="" id="" class="select2" data-placeholder="Type 1">
-                                            <option value=""></option>
-                                            <option value="1"> Value 1 </option>
-                                        </select>
-                                    </div>
-                                </div>
+                                    <!-- Room Amenity Form Prints Here -->
+                               </div>
 
-                                <div class="row align-items-center mb-4">
-                                    <div class="col-2">
-                                        <div class="form-group form-checkbox">
-                                            <div class="form-material">
-                                                <input type="checkbox" name="" id="water-heater" class="form-input-checkbox">
-                                                <label for="water-heater" class="mb-0">
-                                                    Water Heater
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <select name="" id="" class="select2" data-placeholder="Type 1">
-                                            <option value=""></option>
-                                            <option value="1"> Value 1 </option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <p>
-                                    <strong> Media & Tech </strong>
-                                </p>
-
-                                <div class="row align-items-center mb-4">
-                                    <div class="col-2">
-                                        <div class="form-group form-checkbox">
-                                            <div class="form-material">
-                                                <input type="checkbox" name="" id="internet" class="form-input-checkbox">
-                                                <label for="internet" class="mb-0">
-                                                    Internet
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <select name="" id="" class="select2" data-placeholder="Type 1">
-                                            <option value=""></option>
-                                            <option value="1"> Value 1 </option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="row align-items-center mb-4">
-                                    <div class="col-2">
-                                        <div class="form-group form-checkbox">
-                                            <div class="form-material">
-                                                <input type="checkbox" name="" id="Wifi" class="form-input-checkbox">
-                                                <label for="Wifi" class="mb-0">
-                                                    Wifi
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <select name="" id="" class="select2" data-placeholder="Type 1">
-                                            <option value=""></option>
-                                            <option value="1"> Value 1 </option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <p>
-                                    <strong> Media & Tech </strong>
-                                </p>
-
-                                <div class="row align-items-center mb-4">
-                                    <div class="col-2">
-                                        <div class="form-group form-checkbox">
-                                            <div class="form-material">
-                                                <input type="checkbox" name="" id="internet" class="form-input-checkbox">
-                                                <label for="internet" class="mb-0">
-                                                    Accessibility
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <select name="" id="" class="select2" data-placeholder="Type 1">
-                                            <option value=""></option>
-                                            <option value="1"> Value 1 </option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="row align-items-center mb-4">
-                                    <div class="col-2">
-                                        <div class="form-group form-checkbox">
-                                            <div class="form-material">
-                                                <input type="checkbox" name="" id="Wifi" class="form-input-checkbox">
-                                                <label for="Wifi" class="mb-0">
-                                                    Wifi
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <select name="" id="" class="select2" data-placeholder="Type 1">
-                                            <option value=""></option>
-                                            <option value="1"> Value 1 </option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="d-flex accessibility-contr align-items-center mb-2">
-                                    <div class="form-group form-checkbox mr-2">
-                                        <div class="form-material">
-                                            <input type="checkbox" name="" id=wheelChair-type-amenities" class="form-input-checkbox">
-                                            <label for=wheelChair-type-amenities" class="mb-0">
-                                                Wheel Chair
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="form-group form-checkbox">
-                                        <div class="form-material">
-                                            <select name="type" id="type" class="select2 w-75" data-placeholder="Type">
-                                                <option value=""></option>
-                                                <option value="type-1"> Type 1 </option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="d-flex accessibility-contr align-items-center mb-2">
-                                    <div class="form-group form-checkbox mr-2">
-                                        <div class="form-material">
-                                            <input type="checkbox" name="" id=differently-type-amenities" class="form-input-checkbox">
-                                            <label for=differently-type-amenities" class="mb-0">
-                                                Pathway for differently abled
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="form-group form-checkbox">
-                                        <div class="form-material">
-                                            <select name="type" id="type1" class="select2 w-75" data-placeholder="Type">
-                                                <option value=""></option>
-                                                <option value="type-1"> Type 1 </option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <button class="btn btn-primary"> Save </button>
+<!--                                <p>-->
+<!--                                    <strong> Room Features </strong>-->
+<!--                                </p>-->
+<!---->
+<!--                                <div class="row align-items-center mb-4">-->
+<!--                                    <div class="col-2">-->
+<!--                                        <div class="form-group form-checkbox">-->
+<!--                                            <div class="form-material">-->
+<!--                                                <input type="checkbox" name="" id="air-condition" class="form-input-checkbox">-->
+<!--                                                <label for="air-condition" class="mb-0">-->
+<!--                                                    Air Condition-->
+<!--                                                </label>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="col-6">-->
+<!--                                        <select name="" id="" class="select2" data-placeholder="Type 1">-->
+<!--                                            <option value=""></option>-->
+<!--                                            <option value="1"> Value 1 </option>-->
+<!--                                        </select>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!---->
+<!--                                <div class="row align-items-center mb-4">-->
+<!--                                    <div class="col-2">-->
+<!--                                        <div class="form-group form-checkbox">-->
+<!--                                            <div class="form-material">-->
+<!--                                                <input type="checkbox" name="" id="water-heater" class="form-input-checkbox">-->
+<!--                                                <label for="water-heater" class="mb-0">-->
+<!--                                                    Water Heater-->
+<!--                                                </label>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="col-6">-->
+<!--                                        <select name="" id="" class="select2" data-placeholder="Type 1">-->
+<!--                                            <option value=""></option>-->
+<!--                                            <option value="1"> Value 1 </option>-->
+<!--                                        </select>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!---->
+<!--                                <p>-->
+<!--                                    <strong> Media & Tech </strong>-->
+<!--                                </p>-->
+<!---->
+<!--                                <div class="row align-items-center mb-4">-->
+<!--                                    <div class="col-2">-->
+<!--                                        <div class="form-group form-checkbox">-->
+<!--                                            <div class="form-material">-->
+<!--                                                <input type="checkbox" name="" id="internet" class="form-input-checkbox">-->
+<!--                                                <label for="internet" class="mb-0">-->
+<!--                                                    Internet-->
+<!--                                                </label>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="col-6">-->
+<!--                                        <select name="" id="" class="select2" data-placeholder="Type 1">-->
+<!--                                            <option value=""></option>-->
+<!--                                            <option value="1"> Value 1 </option>-->
+<!--                                        </select>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!---->
+<!--                                <div class="row align-items-center mb-4">-->
+<!--                                    <div class="col-2">-->
+<!--                                        <div class="form-group form-checkbox">-->
+<!--                                            <div class="form-material">-->
+<!--                                                <input type="checkbox" name="" id="Wifi" class="form-input-checkbox">-->
+<!--                                                <label for="Wifi" class="mb-0">-->
+<!--                                                    Wifi-->
+<!--                                                </label>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="col-6">-->
+<!--                                        <select name="" id="" class="select2" data-placeholder="Type 1">-->
+<!--                                            <option value=""></option>-->
+<!--                                            <option value="1"> Value 1 </option>-->
+<!--                                        </select>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!---->
+<!--                                <p>-->
+<!--                                    <strong> Media & Tech </strong>-->
+<!--                                </p>-->
+<!---->
+<!--                                <div class="row align-items-center mb-4">-->
+<!--                                    <div class="col-2">-->
+<!--                                        <div class="form-group form-checkbox">-->
+<!--                                            <div class="form-material">-->
+<!--                                                <input type="checkbox" name="" id="internet" class="form-input-checkbox">-->
+<!--                                                <label for="internet" class="mb-0">-->
+<!--                                                    Accessibility-->
+<!--                                                </label>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="col-6">-->
+<!--                                        <select name="" id="" class="select2" data-placeholder="Type 1">-->
+<!--                                            <option value=""></option>-->
+<!--                                            <option value="1"> Value 1 </option>-->
+<!--                                        </select>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!---->
+<!--                                <div class="row align-items-center mb-4">-->
+<!--                                    <div class="col-2">-->
+<!--                                        <div class="form-group form-checkbox">-->
+<!--                                            <div class="form-material">-->
+<!--                                                <input type="checkbox" name="" id="Wifi" class="form-input-checkbox">-->
+<!--                                                <label for="Wifi" class="mb-0">-->
+<!--                                                    Wifi-->
+<!--                                                </label>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="col-6">-->
+<!--                                        <select name="" id="" class="select2" data-placeholder="Type 1">-->
+<!--                                            <option value=""></option>-->
+<!--                                            <option value="1"> Value 1 </option>-->
+<!--                                        </select>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!---->
+<!--                                <div class="d-flex accessibility-contr align-items-center mb-2">-->
+<!--                                    <div class="form-group form-checkbox mr-2">-->
+<!--                                        <div class="form-material">-->
+<!--                                            <input type="checkbox" name="" id=wheelChair-type-amenities" class="form-input-checkbox">-->
+<!--                                            <label for=wheelChair-type-amenities" class="mb-0">-->
+<!--                                                Wheel Chair-->
+<!--                                            </label>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="form-group form-checkbox">-->
+<!--                                        <div class="form-material">-->
+<!--                                            <select name="type" id="type" class="select2 w-75" data-placeholder="Type">-->
+<!--                                                <option value=""></option>-->
+<!--                                                <option value="type-1"> Type 1 </option>-->
+<!--                                            </select>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!---->
+<!--                                <div class="d-flex accessibility-contr align-items-center mb-2">-->
+<!--                                    <div class="form-group form-checkbox mr-2">-->
+<!--                                        <div class="form-material">-->
+<!--                                            <input type="checkbox" name="" id=differently-type-amenities" class="form-input-checkbox">-->
+<!--                                            <label for=differently-type-amenities" class="mb-0">-->
+<!--                                                Pathway for differently abled-->
+<!--                                            </label>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="form-group form-checkbox">-->
+<!--                                        <div class="form-material">-->
+<!--                                            <select name="type" id="type1" class="select2 w-75" data-placeholder="Type">-->
+<!--                                                <option value=""></option>-->
+<!--                                                <option value="type-1"> Type 1 </option>-->
+<!--                                            </select>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
                         </div>
                     </div>
                 </div>

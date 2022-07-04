@@ -33,26 +33,29 @@ function onChangeProperty(property){
         <div class="col-md-3 text-center mt-4">
             <?php echo $form->field($slab_assigned, 'property_id')->dropDownList($properties, ['class' => 'form-control form-control-sm h','prompt' => 'Choose', 'onchange' => 'onChangeProperty(this)'])->label(false); ?>
         </div>
-        <div class="col-md-3 text-center mt-4">
+        <div class="col-md-3 text-center mt-4" >
             <?php 
-             $slabs = ['1' => 'Default', '2' => 'Slab 1', '3' => 'Slab 2', '4' => 'Slab 3', '4' => 'Slab 5'];
+             $slabs = ['0' => 'Rack rate', '1' => 'Slab 1', '2' => 'Slab 2', '3' => 'Slab 3', '4' => 'Slab 4', '5' => 'Slab 5'];
             echo $form->field($slab_assigned, 'slab_number')->dropDownList($slabs, ['class' => 'form-control form-control-sm h','prompt' => 'Select slab'])->label(false); ?>
         </div>
-        <div class="col-md-3 text-center mt-4">
-            <button id="assign_slab" type="submit" class="btn btn-sm btn-save">Assign</button>
+        <div class="col-md-3 text-center mt-4"  >
+            <button id="assign_slab" type="submit" class="buttonSaveAssign" >Assign</button>
         </div>
+
+
+
     </div>
-    <table id="operators_list" class="display" style="width:100%">
+    <table id="operators_list" class="table-slab-class " style="width:100%">
         <thead>
-            <tr>    
-                <th>Select</th>
-                <th>Name</th>
-                <th>Country</th>
-                <th>Location</th>
-                <th>Destination</th>
-                <th>Address</th>
-                
-            </tr>
+        <tr  class="thtablerow-slab " >
+            <th class="table-width-head" >Select</th>
+            <th class="table-width-head" >Name</th>
+            <th class="table-width-head" >Country</th>
+            <th class="table-width-head">Location</th>
+            <th class="table-width-head">Destination</th>
+            <th class="table-width-head">Address</th>
+
+        </tr>
         </thead>
         <tbody>
         <?php
@@ -63,8 +66,8 @@ function onChangeProperty(property){
                 <td><?= $operator->name; ?></td>
                 <td><?= $operator->country->name; ?></td>
                 <td><?= $operator->location->name; ?></td>
-                <td><?= $operator->destination->name; ?></td>                
-                <td><?= $operator->address; ?></td>                
+                <td><?= $operator->destination->name; ?></td>
+                <td><?= $operator->address; ?></td>
             </tr>
         <?php         
         } ?>
