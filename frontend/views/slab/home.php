@@ -18,7 +18,7 @@ $this->title = 'Operators';
     $('#operators_list').DataTable();
 } );
 
-function onChangeProperty(property){        
+function onChangeProperty(property){
         window.location.href = "/index.php?r=slab%2Fhome&id="+property.value;
 }
 </script>
@@ -34,7 +34,7 @@ function onChangeProperty(property){
             <?php echo $form->field($slab_assigned, 'property_id')->dropDownList($properties, ['class' => 'form-control form-control-sm h','prompt' => 'Choose', 'onchange' => 'onChangeProperty(this)'])->label(false); ?>
         </div>
         <div class="col-md-3 text-center mt-4" >
-            <?php 
+            <?php
              $slabs = ['0' => 'Rack rate', '1' => 'Slab 1', '2' => 'Slab 2', '3' => 'Slab 3', '4' => 'Slab 4', '5' => 'Slab 5'];
             echo $form->field($slab_assigned, 'slab_number')->dropDownList($slabs, ['class' => 'form-control form-control-sm h','prompt' => 'Select slab'])->label(false); ?>
         </div>
@@ -59,20 +59,20 @@ function onChangeProperty(property){
         </thead>
         <tbody>
         <?php
-        foreach ($operators as $operator) { 
+        foreach ($operators as $operator) {
             ?>
             <tr>
-                <td><input type="checkbox" class="text-secondary type mt-2" name="operator[]" value="<?= $operator->id ?>" <?= ArrayHelper::isIn( $operator->id, $assigned_operators) ? "checked" : ""; ?>></td>
+                <td><input type="checkbox" class="text-secondary type mt-2" name="operator[]" value="<?= $operator->owner_id ?>" <?= ArrayHelper::isIn( $operator->owner_id, $assigned_operators) ? "checked" : ""; ?>></td>
                 <td><?= $operator->name; ?></td>
                 <td><?= $operator->country->name; ?></td>
                 <td><?= $operator->location->name; ?></td>
                 <td><?= $operator->destination->name; ?></td>
                 <td><?= $operator->address; ?></td>
             </tr>
-        <?php         
+        <?php
         } ?>
         </tbody>
     </table>
-    
+
 <?php ActiveForm::end(); ?>
 </div>

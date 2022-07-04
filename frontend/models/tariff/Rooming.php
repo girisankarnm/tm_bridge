@@ -83,7 +83,7 @@ class Rooming
     } */
 
     //Use rate_type = 0 for rack rate, rate_type = 1, for default slab
-    public function initialize($accomodation_date, $nationality_id, $room_id, $property_id, $enquiry_id, $rate_type = 1){        
+    public function initialize($accomodation_date, $nationality_id, $room_id, $property_id, $enquiry_id, $rate_type = 1){
         $result = false;
 
         if ($property_id != 0) {
@@ -127,11 +127,11 @@ class Rooming
 
             if($assigned_slab != NULL) {
                 $rate_type = $assigned_slab->slab_number;
-            } 
-            else 
+            }
+            else
             {
                 $rate_type = 1;
-            } 
+            }
         }
 
         $rows = (new \yii\db\Query())
@@ -148,35 +148,39 @@ class Rooming
         if($rows != false) {
             $tariff_id = $rows['id'];
             $room_tariff = RoomTariffDatewise::findOne(['id' => $tariff_id]);
-            if($room_tariff != null) {                
+
+            if($room_tariff != null) {
                 //Get rack rate
                 if( $rate_type === 0) {
                     $this->date_based_slab = $room_tariff->getRoomTariffSlabs()
                     ->where(['=', 'number', $rate_type])
                     ->one();
-                } 
+                }
                 else
-                 {                    
+                 {
                     //Get assigned slab rate
+                     //$x = $rate_type;
                     do {
                         $this->date_based_slab = $room_tariff->getRoomTariffSlabs()
                         ->where(['=', 'number', $rate_type])
                         ->one();
-
-                        $rate_type--;
-                        if($rate_type > 0) { break; };
+                        $rate_type = $rate_type - 1;
+                        if($this->date_based_slab != NULL) {
+                            break;
+                        };
                     }
-                    while ($this->date_based_slab != NULL);
+                    while ($rate_type > 0);
                  }
 
                 if($this->date_based_slab != null) {
-                    $this->room_tariff_datewise_slab_id = $this->date_based_slab->id;                    
+                    $this->room_tariff_datewise_slab_id = $this->date_based_slab->id;
                     //Rate available
-                } 
-                else 
-                {                    
-                    //TODO: Rate not available 
+                }
+                else
+                {
+                    //TODO: Rate not available
                     //Room rate not available
+
                 }
             }
         }

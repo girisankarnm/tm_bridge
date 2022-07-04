@@ -1,8 +1,9 @@
 <?php
 
 namespace frontend\models\property;
+
+use frontend\models\user\User;
 use Yii;
-use frontend\models\operator\Operator;
 
 /**
  * This is the model class for table "property_slab_assignment".
@@ -13,7 +14,7 @@ use frontend\models\operator\Operator;
  * @property int $slab_number
  * @property string $assigned_date
  *
- * @property Operator $operator
+ * @property User $operator
  * @property Property $property
  */
 class PropertySlabAssignment extends \yii\db\ActiveRecord
@@ -35,8 +36,8 @@ class PropertySlabAssignment extends \yii\db\ActiveRecord
             [['property_id', 'operator_id', 'slab_number', 'assigned_date'], 'required'],
             [['property_id', 'operator_id', 'slab_number'], 'integer'],
             [['assigned_date'], 'safe'],
-            [['operator_id'], 'exist', 'skipOnError' => true, 'targetClass' => Operator::className(), 'targetAttribute' => ['operator_id' => 'id']],
             [['property_id'], 'exist', 'skipOnError' => true, 'targetClass' => Property::className(), 'targetAttribute' => ['property_id' => 'id']],
+            [['operator_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['operator_id' => 'id']],
         ];
     }
 
@@ -61,7 +62,7 @@ class PropertySlabAssignment extends \yii\db\ActiveRecord
      */
     public function getOperator()
     {
-        return $this->hasOne(Operator::className(), ['id' => 'operator_id']);
+        return $this->hasOne(User::className(), ['id' => 'operator_id']);
     }
 
     /**
