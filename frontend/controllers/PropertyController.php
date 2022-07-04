@@ -1968,8 +1968,7 @@ class PropertyController extends Controller
         $property = $this->getProperty();
         $rooms = Room::find()->where(['property_id' => $property->id])->all();
 //        $rooms = Room::find()->all();
-//        return $rooms[1]->mealPlan->name;
-        return $this->render('room_categories', ['rooms' => $rooms,]);
+        return $this->render('room_categories', ['rooms' => $rooms,'property' => $property,]);
     }
 
     public function actionCreatecategories()
