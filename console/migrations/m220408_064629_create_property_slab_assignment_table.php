@@ -5,7 +5,7 @@ use yii\db\Migration;
 /**
  * Handles the creation of table `{{%property_slab_assignment}}`.
  */
-class m220408_064628_create_property_slab_assignment_table extends Migration
+class m220408_064629_create_property_slab_assignment_table extends Migration
 {
     /**
      * {@inheritdoc}
@@ -21,7 +21,7 @@ class m220408_064628_create_property_slab_assignment_table extends Migration
         ]);
 
         $this->addForeignKey('fk_property_slab_assignment','property_slab_assignment','property_id','property','id','CASCADE','CASCADE');
-        $this->addForeignKey('fk_operator_slab_assignment','property_slab_assignment','operator_id','operator','id','CASCADE','CASCADE');        
+        $this->addForeignKey('fk_property_slab_user','property_slab_assignment','operator_id','user','id','CASCADE','CASCADE');
     }
 
     /**
@@ -30,7 +30,7 @@ class m220408_064628_create_property_slab_assignment_table extends Migration
     public function safeDown()
     {
         $this->dropForeignKey('fk_property_slab_assignment','property_slab_assignment');
-        $this->dropForeignKey('fk_operator_slab_assignment','property_slab_assignment');
+        $this->dropForeignKey('fk_property_slab_user','property_slab_assignment');
         $this->dropTable('{{%property_slab_assignment}}');
     }
 }
