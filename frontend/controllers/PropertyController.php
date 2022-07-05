@@ -2050,4 +2050,11 @@ class PropertyController extends Controller
         $this->layout = 'tm_main';
         return $this->render('amenities');
     }
+    public function actionMypropertylist()
+    {
+        $this->layout = 'tm_main';
+        return $this->render('my_properties_list');
+    }
+
+
 }
