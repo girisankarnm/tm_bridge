@@ -1349,15 +1349,16 @@ hr.new2 {
     margin-left: 3px;
     margin-right: 13px;
     margin-bottom: 12px;
+    margin-top: 12px;
     padding-top: 23px;
     padding-left: 12px;
     background-color: #ffffff;;
 }
 .message-style
 {
+    font-size: 13px;
     color: darkgreen;
     border-radius: 5px;
-    font-family: 'Bw Mitga';
     font-style: normal;
     /*margin-right: 40px;*/
     /*margin-left: 28px;*/

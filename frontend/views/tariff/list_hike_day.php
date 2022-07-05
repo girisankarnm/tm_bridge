@@ -37,9 +37,15 @@ use frontend\models\tariff\TariffDateRange;
     </div>
 
     <?php if(!$property->have_weekday_hike) { ?>
-        <div>
-            If you wish to define weekday hike rate, define weekday hike policy on Property -> Rules and policies section. TODO: Show link
-        </div>    
+        <div class="tariff-message-border" >
+            <div id="message-flex">
+                <div> <img src="images/alert-message.png" style="height: 28px;width: 28px"> </div>
+                <div>  <h6 class="message-style">    If you wish to define weekday hike rate, define weekday hike policy on <a href="<?= \yii\helpers\Url::to(['property/rules','id' => $property->id]) ?>"
+                                                                                                                                style="margin-left: 6px;"> <span style="color: #007bff">Property Rules and policies section </span> </a> </h6>   </div>
+
+
+            </div>
+        </div>
     <?php 
     } 
     else 

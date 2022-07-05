@@ -40,8 +40,8 @@ use frontend\models\tariff\TariffDateRange;
         <div class="tariff-message-border" >
           <div id="message-flex">
               <div> <img src="images/alert-message.png" style="height: 28px;width: 28px"> </div>
-              <div>  <h6 class="message-style">   If you wish to define mandatory dinner rate, change Mandatory dinner on Property: <a href="<?= \yii\helpers\Url::to(['property/rules','id' => $property->id]) ?>"
-                                                                                                                                       style="margin-left: 6px;"> <span style="color: #007bff">Rules and policies section </span> </a> </h6>   </div>
+              <div>  <h6 class="message-style">   If you wish to define mandatory dinner rate, change Mandatory dinner on  <a href="<?= \yii\helpers\Url::to(['property/rules','id' => $property->id]) ?>"
+                                                                                                                                       style="margin-left: 6px;"> <span style="color: #007bff">Property Rules and policies section </span> </a> </h6>   </div>
 
 
         </div>
