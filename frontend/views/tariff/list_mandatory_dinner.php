@@ -37,9 +37,18 @@ use frontend\models\tariff\TariffDateRange;
     </div>
 
     <?php if(!$property->provide_compulsory_inclusions) { ?>
-        <div>
-            If you wish to define mandatory dinner rate, define Mandatory dinner on Property -> Rules and policies section. TODO: Show link
-        </div>    
+        <div class="tariff-message-border" >
+          <div id="message-flex">
+              <div> <img src="images/alert-message.png" style="height: 28px;width: 28px"> </div>
+              <div>  <h6 class="message-style">   If you wish to define mandatory dinner rate, change Mandatory dinner on Property: <a href="location.href='#'" style="margin-left: 6px;"> <span style="color: #007bff">Rules and policies section </span> </a> </h6>   </div>
+
+
+        </div>
+        </div>
+
+        <!---->
+<!--            <img src="images/alert-message.png" style="height: 35px;width: 35px"> <h6 class="message-style">  If you wish to define mandatory dinner rate, define Mandatory dinner on Property -> Rules and policies section. TODO: Show link-->
+<!--            </h6>   </div>-->
     <?php 
     } 
     else 
