@@ -114,8 +114,23 @@ class Rooming
         }
 
         //Room rate
+        $nationality_id = 0;
         if($this->property->room_tariff_same_for_all) {
             $nationality_id = 0;
+        } 
+        else {
+            //Find nationality group assoicated with guest country
+            $nationaliy_group = TariffNationalityTable::find()
+            ->select('group_id')
+            ->where(['country_id' => $this->enquiry->nationality_id])
+            ->one();
+            
+            if($nationaliy_group != NULL) {
+                $nationality_id = $nationaliy_group->group_id;
+            }
+            else {
+                $nationality_id = 0;
+            }
         }
 
         if( $rate_type != 0) {
