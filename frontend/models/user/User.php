@@ -2,6 +2,7 @@
 
 namespace frontend\models\user;
 
+use frontend\models\property\PropertySlabAssignment;
 use Yii;
 use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
@@ -130,7 +131,7 @@ class User extends ActiveRecord implements IdentityInterface
      * @param string $token verify email token
      * @return static|null
      */
-    public static function findByVerificationToken($token) 
+    public static function findByVerificationToken($token)
     {
         if (!static::isEmailActivationTokenValid($token)) {
             return null;
@@ -245,18 +246,18 @@ class User extends ActiveRecord implements IdentityInterface
             return $this->getPrimaryKey();
         }
 
-        return $this->parent;        
+        return $this->parent;
     }
 
     public function toggleStatus()
     {
         if($this->status == self::STATUS_ACTIVE) {
             $this->status = self::STATUS_DISABLED;
-        } 
+        }
         else if ($this->status == self::STATUS_DISABLED ){
             $this->status = self::STATUS_ACTIVE;
         }
-        else 
+        else
         {
             return false;
         }
@@ -264,7 +265,7 @@ class User extends ActiveRecord implements IdentityInterface
         return $this->save(false);
     }
 
-    public function deleteMe() 
+    public function deleteMe()
     {
         $this->status = self::STATUS_DELETED;
         return $this->save(false);
@@ -276,14 +277,14 @@ class User extends ActiveRecord implements IdentityInterface
      * @return static|null
      */
     public static function findUsers($user_id, $parent_id)
-    {        
+    {
         if($parent_id != 0) {
             $user_id = $parent_id;
         } else {
             $parent_id = $user_id;
         }
 
-        return static::find()->where("parent =".$parent_id." OR id =".$user_id)->all();        
+        return static::find()->where("parent =".$parent_id." OR id =".$user_id)->all();
     }
 
     /**
@@ -311,5 +312,9 @@ class User extends ActiveRecord implements IdentityInterface
     public function getUserPropertyMaps()
     {
         return $this->hasMany(UserPropertyMap::className(), ['user_id' => 'id']);
+    }
+    public function getUserPropertySlab()
+    {
+        return $this->hasMany(PropertySlabAssignment::className(), ['operator_id' => 'id']);
     }
 }
