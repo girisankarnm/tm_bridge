@@ -84,8 +84,7 @@ class SignupForm extends Model
      * @return bool whether the email was sent
      */
     protected function sendEmail($user)
-    { 
-        return true;
+    {         
         return Yii::$app
             ->mailer
             ->compose(
