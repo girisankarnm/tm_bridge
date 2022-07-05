@@ -31,11 +31,11 @@ function onChangeProperty(property){
             <label>Property</lable>
         </div>
         <div class="col-md-3 text-center mt-4">
-            <?php echo $form->field($slab_assigned, 'property_id')->dropDownList($properties, ['class' => 'form-control form-control-sm h','prompt' => 'Choose', 'onchange' => 'onChangeProperty(this)'])->label(false); ?>
+            <?php echo $form->field($slab_assigned, 'property_id')->dropDownList($properties, ['class' => 'form-control form-control-sm h', 'onchange' => 'onChangeProperty(this)'])->label(false); ?>
         </div>
         <div class="col-md-3 text-center mt-4" >
             <?php
-             $slabs = ['0' => 'Rack rate', '1' => 'Slab 1', '2' => 'Slab 2', '3' => 'Slab 3', '4' => 'Slab 4', '5' => 'Slab 5'];
+             $slabs = [ '1' => 'Slab 1', '2' => 'Slab 2', '3' => 'Slab 3', '4' => 'Slab 4', '5' => 'Slab 5'];
             echo $form->field($slab_assigned, 'slab_number')->dropDownList($slabs, ['class' => 'form-control form-control-sm h','prompt' => 'Select slab'])->label(false); ?>
         </div>
         <div class="col-md-3 text-center mt-4"  >
@@ -50,6 +50,7 @@ function onChangeProperty(property){
         <tr  class="thtablerow-slab " >
             <th class="table-width-head" >Select</th>
             <th class="table-width-head" >Name</th>
+            <th class="table-width-head" >Slab</th>
             <th class="table-width-head" >Country</th>
             <th class="table-width-head">Location</th>
             <th class="table-width-head">Destination</th>
@@ -59,11 +60,12 @@ function onChangeProperty(property){
         </thead>
         <tbody>
         <?php
-        foreach ($operators as $operator) {
+        foreach ($operators as  $operator) {
             ?>
             <tr>
                 <td><input type="checkbox" class="text-secondary type mt-2" name="operator[]" value="<?= $operator->owner_id ?>" <?= ArrayHelper::isIn( $operator->owner_id, $assigned_operators) ? "checked" : ""; ?>></td>
                 <td><?= $operator->name; ?></td>
+                <td><?= $operator['owner']['userPropertySlab'] ? 'SLAB '.$operator['owner']['userPropertySlab'][0]['slab_number'] : 'NO SLAB'  ?></td>
                 <td><?= $operator->country->name; ?></td>
                 <td><?= $operator->location->name; ?></td>
                 <td><?= $operator->destination->name; ?></td>

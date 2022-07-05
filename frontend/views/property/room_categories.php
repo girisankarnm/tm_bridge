@@ -33,6 +33,9 @@ $this->registerJsFile('/js/property/room_categories/index.js');
                     <a href="index.php?r=property/createcategories&id=<?= $property->id; ?>" class="btn button-primary text-white text-right"> <img src="<?= Yii::$app->request->baseUrl . 'images/primary-plus.svg' ?>" alt="" srcset="">  Add Room </a>
 
                 </div>
+                <?php if ($rooms == null) { ?>
+                    <div style="text-align: center; border: 1px solid black; padding: 10px; color: #586ADA">You don't defined room categories yet.</div>
+                <?php } ?>
                 <?php foreach ($rooms as $room) { ?>
                     <div class="d-flex category-item justify-content-between align-items-start mb-4">
                         <div class="d-flex align-items-start">
@@ -59,8 +62,8 @@ $this->registerJsFile('/js/property/room_categories/index.js');
                                 <img src="<?= Yii::$app->request->baseUrl . 'images/tick-mark.svg' ?>" alt="" class="img-fluid">
                             </div>
                             <p class="mb-0 mr-2"> Active </p>
-                            <div class="edit-icon item mr-2">
-                                <a href="<?= \yii\helpers\Url::to(['/property/createcategories', 'id' =>  $property->id, 'room_id' => $room->id]) ?>"> <img s src="images/edit-icon.svg" style="color: #545b62;margin-right: 4px" aria-hidden="true"></img>   </a>
+                            <div class="edit-icon item mr-2" style="margin-bottom: 10px">
+                                <a href="<?= \yii\helpers\Url::to(['/property/createcategories', 'id' =>  $property->id, 'room_id' => $room->id]) ?>"> <img s src="images/edit-icon.svg" style="height:25px; color: #545b62;margin-right: 4px" aria-hidden="true"></img>   </a>
                             </div>
                         </div>
                     </div>

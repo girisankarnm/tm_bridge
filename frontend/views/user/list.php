@@ -96,7 +96,6 @@ frontend\assets\CommonAsset::register($this);
                         </div>
                         <div style="display: flex;flex-direction: row; ">
                             <div style="display: flex;flex-direction: row;flex: 2;justify-content: space-around;">
-                                <!--                            <div style="background-color: lightblue;display: flex;flex-direction: row;justify-content: space-around;">-->
                                 <div style="margin-top: auto; margin-left: 20px"><img src="images/mail.svg" alt="mail.svg">
                                     <?php echo $user->email ?>
                                 </div>
@@ -111,7 +110,6 @@ frontend\assets\CommonAsset::register($this);
                             </div>
                             <div style="display: flex;flex-direction: row;flex: 1;justify-content: space-around;"></div>
                             <div style="display: flex;flex-direction: row;flex: 1;justify-content: space-between;">
-                                <!--                            <div style="background-color: lightpink;display: flex;flex-direction: row;justify-content: space-around;">-->
                                 <div style="color: green; font-weight: 600; margin-top: auto; padding-right: 30px; "><img src="images/tick-mark.svg" alt="tick-mark.svg">
                                     <?php if ($user->status == 10){ echo  'Active';}
                                     elseif ($user->status == 9) { echo  'Inactive'; }
@@ -120,15 +118,9 @@ frontend\assets\CommonAsset::register($this);
                                     else  { echo  'NA'; }
                                     ?>
                                 </div>
-<!--                                <div style=""><img src="images/edit-1-icon.svg" alt="edit-1-icon.svg" style="height: 25px"></div>-->
                                 <?= Html::a('<img src="images/edit-1-icon.svg" title="Edit" alt="edit-1-icon.svg" style="height: 25px"></i>', Url::toRoute(['/user/add', 'id' => $user->id ])) ?>
-<!--                                <div style=""><img src="images/building-blue.svg" alt="building-blue.svg" style="height: 25px"></div>-->
                                 <?= Html::a('<img src="images/building-blue.svg" title="Enable/Disable" alt="building-blue.svg" style="height: 25px"></i>', null,  ['onclick' => 'return showConfirmMessage(1, "'.$user->first_name.'",'.$user->id.')']) ?>
-
-<!--                                <div style=""><img src="images/building-blue.svg" alt="building-blue.svg" style="height: 25px"></div>-->
                                 <?= Html::a('<img src="images/building-blue.svg" title="Reset Password" alt="building-blue.svg" style="height: 25px"></i>', null, ['onclick' => 'return showConfirmMessage(2, "'.$user->first_name.'",'.$user->id.')']) ?>
-
-<!--                                <div style=""><img src="images/delete-1-icon.svg" alt="delete-1-icon.svg" style="height: 25px"></div>-->
                                 <?= Html::a('<img src="images/delete-1-icon.svg" alt="delete-1-icon.svg" title="Delete" style="height: 25px" disabled></i>', null, ['onclick' => 'return showConfirmMessage(3,"'.$user->first_name.'",'.$user->id.')']) ?>
 
                             </div>

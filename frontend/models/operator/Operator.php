@@ -5,6 +5,7 @@ use frontend\models\Country;
 use frontend\models\Location;
 use frontend\models\Destination;
 
+use frontend\models\user\User;
 use Yii;
 
 /**
