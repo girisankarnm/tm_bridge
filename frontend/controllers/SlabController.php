@@ -237,7 +237,7 @@ class SlabController extends Controller{
         $properties_list = ArrayHelper::map(Property::find()->where(['owner_id' => Yii::$app->user->getId()])->all(), 'id', 'name');
         $room_category_list = ArrayHelper::map($rooms, 'id', 'name');
         $tariff_nationality_list = ArrayHelper::map( TariffNationalityGroupName::find()->where(['property_id' => $property->id])->asArray()->all(), 'id', 'name');
-
+//        return $this->asJson($room_dayhike_tariff_array);
         $this->layout = 'tm_main';
         return $this->render('tariff', [
             'property_id' => $property_id,
