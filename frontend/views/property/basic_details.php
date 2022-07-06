@@ -42,7 +42,7 @@ use yii\bootstrap4\ActiveForm;
                         </div>
                     </div>
                     <div class="form-group ">
-                        <label class="Labelclass" style="display: block">*Website</label>
+                        <label class="Labelclass" style="display: block">Website</label>
                         <?php echo $form->field($basic_details,'website')->textInput(['class' => 'inputLarge'])->label(false) ?>
                     </div>
                 </div>
