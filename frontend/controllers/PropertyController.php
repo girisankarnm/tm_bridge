@@ -124,6 +124,84 @@ class PropertyController extends Controller
         return $this->render('home', ['properties' => $properties]);
     }
 
+    public function actionValidate()
+    {
+        $property = $this->getProperty();
+        $basic_details = new BasicDetails();       
+
+        $basic_details->id = $property->id;
+        $basic_details->name = $property->name;
+        $basic_details->property_type_id = $property->property_type_id;
+        $basic_details->property_category_id = $property->property_category_id;
+        $basic_details->website = $property->website;
+        $basic_details->image = $property->image;
+        $basic_details->logo = $property->logo;
+
+        $address_location = new AddressLocation();
+        $address_location->id = $property->id;
+        $address_location->country_id = $property->country_id;
+        $address_location->location_id = $property->location_id;
+        $address_location->destination_id = $property->destination_id;
+        $address_location->address = $property->address;
+        $address_location->postal_code = $property->postal_code;
+        $address_location->locality = $property->locality;
+
+        $legal_tax_documentation = new LegalTaxDocumentation();
+        $legal_tax_documentation->id = $property->id;
+        $legal_tax_documentation->legal_status_id = $property->legal_status_id;
+        $legal_tax_documentation->pan_number = $property->pan_number;
+        $legal_tax_documentation->business_licence_number = $property->business_licence_number;
+        $legal_tax_documentation->gst_number = $property->gst_number;
+        $legal_tax_documentation->bank_name = $property->bank_name;
+        $legal_tax_documentation->bank_account_name = $property->bank_account_name;
+        $legal_tax_documentation->bank_account_number = $property->bank_account_number;
+        $legal_tax_documentation->ifsc_code = $property->ifsc_code;
+        $legal_tax_documentation->swift_code = $property->swift_code;
+        $legal_tax_documentation->pan_image = $property->pan_image;
+        $legal_tax_documentation->business_licence_image = $property->business_licence_image;
+        $legal_tax_documentation->gst_image = $property->gst_image;
+        $legal_tax_documentation->cheque_image = $property->cheque_image;
+               
+
+        $terms = new TermsConditions();
+        $terms->id = $property->id;
+        $terms->terms_and_conditons1 = $property->terms_and_conditons1;
+        $terms->terms_and_conditons2 = $property->terms_and_conditons2;
+        $terms->terms_and_conditons3 = $property->terms_and_conditons3;
+
+        $basic_details_results = NULL;
+        $address_location_results = NULL;
+        $legal_tax_documentation_results = NULL;
+        $terms_results = NULL;
+
+        if( !$basic_details->validate()) {
+            $basic_details_results = $basic_details->errors;
+        }
+
+        if( !$address_location->validate()) {
+            $address_location_results = $address_location->errors;
+        }
+
+        if( !$legal_tax_documentation->validate()) {
+            $legal_tax_documentation_results = $legal_tax_documentation->errors;
+        }
+
+        if( !$terms->validate()) {
+            $terms_results = $terms->errors;
+        }        
+      
+        $this->layout = 'tm_main';
+
+        return $this->render('validation', [
+            'property' => $property,
+            'basic_details' => $basic_details_results,
+            'address_location' => $address_location_results,
+            'legal_tax_documentation' => $legal_tax_documentation_results,
+            'terms' => $terms_results
+        ]);
+
+
+    }
     public function actionBasicdetails()
     {
         $this->layout = 'tm_main';
