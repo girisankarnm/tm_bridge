@@ -25,7 +25,10 @@ class BasicDetails extends Model{
     public function rules()
     {
         return [            
-            [[ 'id', 'name', 'property_type_id' , 'property_category_id', 'website'], 'required'],
+            [[ 'id', 'name', 'property_type_id' , 'property_category_id' ], 'required'],
+            [ 'name', 'string', 'length' => [4, 80]],
+            [['name'], 'trim'],
+            [ 'website', 'safe'],
             [['property_type_id'], 'exist', 'skipOnError' => true, 'targetClass' => \frontend\models\property\PropertyType::className(), 'targetAttribute' => ['property_type_id' => 'id']],
             [['property_category_id'], 'exist', 'skipOnError' => true, 'targetClass' => \frontend\models\property\PropertyCategory::className(), 'targetAttribute' => ['property_category_id' => 'id']],
         ];

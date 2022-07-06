@@ -5,57 +5,56 @@ $this->registerCssFile('/css/full-page.css');
 
 <!--<div class="content" style=" height: 100%; background-image: url(/images/Login.png); background-repeat: no-repeat; background-size: 100% 100%; align-content: center">-->
 <div class="content" style="height: 100%; background-image: url(/images/Login.png); background-size: cover; background-position: center; background-repeat: no-repeat; margin: 0">
-    <div class="card" style="width:32%; margin:5% auto; background-color: white; border-radius: 20px">
-        <?php $form = ActiveForm::begin(['id' => 'login-form', 'class' => 'form-class']); ?>
-        <div class="" style="width: 100%;height: 100%; margin: auto; padding: 28px;  ">
-            <div style="display: flex; justify-content: center">
-                <img src="/images/logo.svg" class="logo-small">
-            </div>
-<!--            <div  style="margin-left: 6px; margin-bottom: 20px; font-size: 24px; font-weight: bold">-->
-            <div  style="display: flex; justify-content: center; margin-bottom: 20px; font-size: 24px; font-weight: bold">
-                Log in
-            </div>
-            <div style="margin-bottom: 20px; margin-left: 6px; line-height: 10px">
-                    <span style="font-size: 11px">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-5 col-xl-4">
+            <div class="card" style="margin:5% auto; background-color: white; border-radius: 20px">
+                <?php $form = ActiveForm::begin(['id' => 'login-form', 'class' => 'form-class']); ?>
+                <div class="" style="padding: 28px;">
+                    <div style="display: flex; justify-content: center">
+                        <img src="/images/logo.svg" class="logo-small">
+                    </div>
+                    <div  style="display: flex; justify-content: center; margin-bottom: 20px; font-size: 24px; font-weight: bold">
+                        Log in
+                    </div>
+                    <div class="col-md-12" style="font-size: 13px; margin-bottom: 20px; text-align: center">
                         Welcome to Tour Matrix Bridge, please put your login credentials below to start using the app
-                    </span>
-            </div>
-            <div class="row" style="margin-left: 6px">
-                <label for="your-input" class="Inline-label">Email</label>
-
-                <?= $form->field($model, 'email')->textInput(['class' => 'login-input','autofocus' => true,'placeholder'=>'Email','value'=>null])->label(false)?>
-
-            </div>
-
-            <div class="row" style=" margin-bottom: 10px; margin-left: 6px">
-                <label for="your-input"  class="Inline-label">Password</label>
-                <?= $form->field($model, 'password')->passwordInput(['class' => 'login-input','placeholder'=>'Password'])->label(false)?>
-            </div>
-            <a href="#" style="float: right; text-decoration: none; color: #831BEE; font-size: 12px; font-weight: bold">Forgot password?</a>
-            <hr class="sidebar-divider" style="margin-top: 40px">
-            <div style="display: flex; flex-direction: row; justify-content: space-between; margin-top: 10px; margin-bottom: 10px; margin-left: 6px; line-height: 25px">
-                <div style="display: flex; flex-direction: column">
-                    <div style="height: 25px;">
-                        <?= $form->field($model, 'rememberMe')->checkbox() ?>
                     </div>
-                    <div style=" font-size: 13px">Dont have an account?  <a href="index.php?r=user%2Fsignup" style="text-decoration: none; color: #E40967; font-weight: bold">Register</a>
+                    <div class="form-group row" >
+                        <div class="col-md-3">
+                            <label for="your-input" class="Inline-label">Email</label>
+                        </div>
+                        <div class="col-md-9">
+                            <?= $form->field($model, 'email')->textInput(['class' => 'login-input','autofocus' => true,'placeholder'=>'Email','value'=>null])->label(false)?>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-3">
+                            <label for="your-input" class="Inline-label">Password</label>
+                        </div>
+                        <div class="col-md-9">
+                            <?= $form->field($model, 'password')->passwordInput(['class' => 'login-input','placeholder'=>'Password'])->label(false)?>
+                        </div>
+                    </div>
+
+                    <a href="#" style="float: right; text-decoration: none; color: #831BEE; font-size: 12px; font-weight: bold">Forgot password?</a>
+                    <hr class="sidebar-divider" style="margin-top: 40px">
+                    <div style="display: flex; flex-direction: row; justify-content: space-between; margin-top: 10px; margin-bottom: 10px; margin-left: 6px; line-height: 25px">
+                        <div style="display: flex; flex-direction: column">
+                            <div style="height: 25px;">
+                                <?= $form->field($model, 'rememberMe')->checkbox() ?>
+                            </div>
+                            <div style=" font-size: 13px">Dont have an account?  <a href="index.php?r=user%2Fsignup" style="text-decoration: none; color: #E40967; font-weight: bold">Register</a>
+                            </div>
+                        </div>
+                        <div>
+                            <BUTTON type="submit" class="login-button" > Login </BUTTON>
+                        </div>
                     </div>
                 </div>
-                <div>
-                    <BUTTON type="submit" class="login-button" > Login </BUTTON>
-                </div>
+                <?php ActiveForm::end(); ?>
             </div>
-
         </div>
-        <?php ActiveForm::end(); ?>
-
-
-
-
-<!--    <div class="container-fluid" style="background-color: lightblue; height: 100%">-->
-<!--        <div class="row" style="background-image: url(/images/background1.jpg); background-repeat: no-repeat; background-size: 100% 100%;">-->
-
-<!--        </div>-->
     </div>
 </div>
 

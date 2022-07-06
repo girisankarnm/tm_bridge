@@ -114,22 +114,29 @@ class Rooming
         }
 
         //Room rate
-        $nationality_id = 0;
+        $nationality_group_id = 0;
         if($this->property->room_tariff_same_for_all) {
-            $nationality_id = 0;
-        } 
+            $nationality_group_id = 0;
+        }
         else {
             //Find nationality group assoicated with guest country
+//            $nationaliy_group = TariffNationalityTable::find()
+//            ->select('group_id')
+//            ->where(['country_id' => $this->enquiry->nationality_id])
+//            ->joinWith('group')->where(['property_id'=>2])
+//            ->one();
             $nationaliy_group = TariffNationalityTable::find()
-            ->select('group_id')
-            ->where(['country_id' => $this->enquiry->nationality_id])
-            ->one();
-            
+                ->select('group_id')
+                ->where(['country_id' => $this->enquiry->nationality_id])
+                ->joinWith('group')->andWhere(['tariff_nationality_group_name.property_id'=>$property_id])
+                ->all();
+
+
             if($nationaliy_group != NULL) {
-                $nationality_id = $nationaliy_group->group_id;
+                $nationality_group_id = $nationaliy_group[0]['group_id'];
             }
             else {
-                $nationality_id = 0;
+                $nationality_group_id = 0;
             }
         }
 
@@ -155,7 +162,7 @@ class Rooming
         ->where(['<=', 'from_date', $accomodation_date])
         ->andWhere(['>=', 'to_date', $accomodation_date])
         ->leftJoin('room_tariff_datewise', 'room_tariff_datewise.date_range_id = tariff_date_range.id' )
-        ->andWhere(['=', 'nationality_id', $nationality_id])
+        ->andWhere(['=', 'nationality_id', $nationality_group_id])
         ->andWhere(['=', 'room_id', $room_id])
         ->orderBy('date_difference ASC')
         ->one();
