@@ -27,15 +27,27 @@
                             <div id="link-properties">
                                 <div>  <img class="margin-left-right-spacing" src="images/message-1.svg"></div>
                                 <div>  <img class="margin-left-right-spacing" src="images/note-1.svg"></div>
-<!--                                <img class="margin-left-right-spacing" src="images/note-1.svg">-->
-<!--                                <img class="margin-left-right-spacing" src="images/note-1.svg">-->
-<!--                                <img class="margin-left-right-spacing" src="images/note-1.svg">-->
+                                <div>  <img class="margin-left-right-spacing" src="images/tick-properties.svg"></div>
+                                <div>  <img class="margin-left-right-spacing" src="images/blocking-icon.svg"></div>
+                                <div>  <img class="margin-left-right-spacing" src="images/booking-icon.svg"></div>
+
+                             </div>
+                             <div id="link-properties-label">
+                                <div><span class="spanText-size">messages</span> </div>
+                                 <div><span class="spanText-size">srr</span> </div>
+                                   <div><span class="spanText-size">Availability</span> </div>
+                                 <div><span class="spanText-size">messages</span> </div>
+                                 <div><span class="spanText-size">messages</span> </div>
+
+                             </div>
+
+                       </div>
+
+
+                            <div>
+
 
                             </div>
-                            </div>
-
-
-                            <div></div>
 
                         </div>
 
