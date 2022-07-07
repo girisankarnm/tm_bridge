@@ -32,18 +32,13 @@ $this->title = 'Operators';
     $(document).ready(function() {
         $('input[name="daterange"]').datepicker({
             opens: 'left',
-            format: "d MM yyyy",
+            format: "M yyyy",
+            startView: "year",
+            minViewMode: "months",
             autoclose: true,
         }, function(start, end, label) {
     });
 
-    $('input[name="daterange"]').on('apply.daterangepicker', function(ev, picker) {
-        $(this).val(picker.startDate.format('d MM yyyy'));
-    });
-
-    $('input[name="daterange"]').on('cancel.daterangepicker', function(ev, picker) {
-        $(this).val('');
-    });
 } );
 
 function onChangeProperty(property){
