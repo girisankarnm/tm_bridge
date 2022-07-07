@@ -172,7 +172,12 @@ class SlabController extends Controller{
             $date = Carbon::now();
         }
         else {
-            $date = Carbon::createFromFormat('d M Y', $date);
+            $dateMonthArray = explode(' ', $date);
+            $month = $dateMonthArray[0];
+            $year = $dateMonthArray[1];
+            $monthNumber = Carbon::parse('1-'.$month)->month ;
+            $date = Carbon::createFromDate($year, $monthNumber, 1);
+//            $date = Carbon::createFromFormat('d M Y', $date);
         }
 
         $room_date_tariff_array = array();
@@ -237,7 +242,7 @@ class SlabController extends Controller{
         $properties_list = ArrayHelper::map(Property::find()->where(['owner_id' => Yii::$app->user->getId()])->all(), 'id', 'name');
         $room_category_list = ArrayHelper::map($rooms, 'id', 'name');
         $tariff_nationality_list = ArrayHelper::map( TariffNationalityGroupName::find()->where(['property_id' => $property->id])->asArray()->all(), 'id', 'name');
-
+//        return $this->asJson($room_dayhike_tariff_array);
         $this->layout = 'tm_main';
         return $this->render('tariff', [
             'property_id' => $property_id,
@@ -246,7 +251,7 @@ class SlabController extends Controller{
             'nationality_list' => $tariff_nationality_list,
             'room_date_tariff_array' => $room_date_tariff_array,
             'room_dayhike_tariff_array' => $room_dayhike_tariff_array,
-            'date' => isset($_POST['daterange']) ? $_POST['daterange'] : Carbon::parse(Carbon::now())->format('d M Y'),
+            'date' => isset($_POST['daterange']) ? $_POST['daterange'] : Carbon::parse(Carbon::now())->format('M Y'),
             'nationality_selected' => isset($_POST['nationality_id']) ? $_POST['nationality_id'] : NULL,
             'room_selected' => isset($_POST['room_category_id']) ? $_POST['room_category_id'] : NULL
         ]);
@@ -275,7 +280,12 @@ class SlabController extends Controller{
             $date = Carbon::now();
         }
         else {
-            $date = Carbon::createFromFormat('d M Y', $date);
+            $dateMonthArray = explode(' ', $date);
+            $month = $dateMonthArray[0];
+            $year = $dateMonthArray[1];
+            $monthNumber = Carbon::parse('1-'.$month)->month ;
+            $date = Carbon::createFromDate($year, $monthNumber, 1);
+//            $date = Carbon::createFromFormat('d M Y', $date);
         }
         $date = Carbon::createFromDate($date->year, $date->month, 1);
 
@@ -317,7 +327,7 @@ class SlabController extends Controller{
             'property_id' => $property_id,
             'properties_list' => $properties_list,
             'meals_tariff_array' => $meals_tariff_array,
-            'date' => isset($_POST['daterange']) ? $_POST['daterange'] : Carbon::parse(Carbon::now())->format('d M Y')
+            'date' => isset($_POST['daterange']) ? $_POST['daterange'] : Carbon::parse(Carbon::now())->format('M Y')
         ]);
     }
 
@@ -341,11 +351,17 @@ class SlabController extends Controller{
 
 
         $date = isset($_POST['daterange']) ? $_POST['daterange'] : NULL;
+
         if($date == NULL) {
             $date = Carbon::now();
         }
         else {
-            $date = Carbon::createFromFormat('d M Y', $date);
+            $dateMonthArray = explode(' ', $date);
+            $month = $dateMonthArray[0];
+            $year = $dateMonthArray[1];
+            $monthNumber = Carbon::parse('1-'.$month)->month ;
+            $date = Carbon::createFromDate($year, $monthNumber, 1);
+//            $date = Carbon::createFromFormat('d M Y', $date);
         }
         $date = Carbon::createFromDate($date->year, $date->month, 1);
 
@@ -355,28 +371,33 @@ class SlabController extends Controller{
 
         for ($i = 0; $i < $daysInMonth; $i++ ){
 
-            $dinner_tariff_array[$date->toDateString()] = NULL;
+            $mandatory_dinner_tariff = MandatoryDinner::find()->where(['date'=>$date->toDateString(),'property_id'=>$property_id])->one();
 
-            $rows = (new \yii\db\Query())
-            ->select(['mandatory_dinner.id', 'DATEDIFF(tariff_date_range.to_date, tariff_date_range.from_date) AS date_difference' ])
-            ->from('tariff_date_range')
-            ->where(['<=', 'tariff_date_range.from_date', $date->toDateString()])
-            ->andWhere(['>=', 'tariff_date_range.to_date', $date->toDateString()])
-            ->leftJoin('mandatory_dinner', 'tariff_date_range.id  = mandatory_dinner.date_range_id')
-            ->andWhere(['=', 'mandatory_dinner.property_id', $property_id])
-            ->orderBy('date_difference ASC')
-            ->one();
-
-            if($rows != false) {
-                $tariff_id = $rows["id"];
-                $mandatory_dinner_tariff = MandatoryDinner::findOne(['id' => $tariff_id]);
-                if($mandatory_dinner_tariff != null) {
-                    $dinner_tariff_array[$date->toDateString()] = $mandatory_dinner_tariff;
-                }
+            if (!$mandatory_dinner_tariff){
+                $dinner_tariff_array[$date->toDateString()] = NULL;
+            }else{
+                $dinner_tariff_array[$date->toDateString()] = $mandatory_dinner_tariff;
             }
+
+//            $rows = (new \yii\db\Query())
+//            ->select(['mandatory_dinner.id', 'DATEDIFF(tariff_date_range.to_date, tariff_date_range.from_date) AS date_difference' ])
+//            ->from('tariff_date_range')
+//            ->where(['<=', 'tariff_date_range.from_date', $date->toDateString()])
+//            ->andWhere(['>=', 'tariff_date_range.to_date', $date->toDateString()])
+//            ->leftJoin('mandatory_dinner', 'tariff_date_range.id  = mandatory_dinner.date_range_id')
+//            ->andWhere(['=', 'mandatory_dinner.property_id', $property_id])
+//            ->orderBy('date_difference ASC')
+//            ->one();
+//            if($rows != false) {
+//                $tariff_id = $rows["id"];
+//                $mandatory_dinner_tariff = MandatoryDinner::findOne(['id' => $tariff_id]);
+//                if($mandatory_dinner_tariff != null) {
+//                    $dinner_tariff_array[$date->toDateString()] = $mandatory_dinner_tariff;
+//                }
+//            }
             $date->addDays(1);
         }
-
+//        return $this->asJson($dinner_tariff_array);
         $properties_list = ArrayHelper::map(Property::find()->where(['owner_id' => Yii::$app->user->getId()])->all(), 'id', 'name');
 
         $this->layout = 'tm_main';
