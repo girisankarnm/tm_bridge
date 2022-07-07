@@ -84,7 +84,9 @@ class SignupForm extends Model
      * @return bool whether the email was sent
      */
     protected function sendEmail($user)
-    {         
+    {    
+        //TODO: Temporialy disabled mail. Enable it
+        return true;     
         return Yii::$app
             ->mailer
             ->compose(
