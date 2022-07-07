@@ -2129,9 +2129,23 @@ class PropertyController extends Controller
         return $this->render('amenities');
     }
     public function actionMypropertylist()
-    {
+    {        
         $this->layout = 'tm_main';
-        return $this->render('my_properties_list');
+        $roles = Yii::$app->authManager->getRolesByUser(Yii::$app->user->getId());
+        if (ArrayHelper::keyExists('HotelOwner', $roles, false)) {
+
+            $properties = Property::find()->where(['owner_id' => Yii::$app->user->identity->getOWnerId()])->all();
+        } else {
+            $usr = Yii::$app->user->identity;
+            $assigned_properties = $usr->getUserPropertyMaps()->select(['property_id'])->column();
+
+            $properties = Property::find()
+                ->where(['owner_id' => Yii::$app->user->identity->getOWnerId()])
+                ->andWhere(['in', 'id', $assigned_properties])
+                ->all();
+        }
+
+        return $this->render('my_properties_list', ['properties' => $properties]);        
     }
 
 
