@@ -123,12 +123,12 @@ class PropertyController extends Controller
 
         return $this->render('home', ['properties' => $properties]);
     }
-
+    
     public function actionValidate()
     {
         $property = $this->getProperty();
-        $basic_details = new BasicDetails();       
 
+        $basic_details = new BasicDetails();
         $basic_details->id = $property->id;
         $basic_details->name = $property->name;
         $basic_details->property_type_id = $property->property_type_id;
@@ -188,7 +188,7 @@ class PropertyController extends Controller
 
         if( !$terms->validate()) {
             $terms_results = $terms->errors;
-        }        
+        }
       
         $this->layout = 'tm_main';
 

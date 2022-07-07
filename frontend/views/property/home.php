@@ -49,7 +49,7 @@ frontend\assets\CommonAsset::register($this);
     foreach ($properties as $property) { ?>
     <tr>
         <td width="100px" valign="top" class="px-1"><img src="uploads/<?php echo $property->image ?>" width="100"></td>
-        <td><?php echo $property->name ?> </td>
+        <td><?php echo $property->name ?> <br> <?php echo $property->validateData() ? "" : Html::a('Profile not completed: View report', ['/property/validate','id'=> $property->id ]) ?> </td>
         <td class="text-center">
             <a href="#" class="btn btn-sm t" title="Messages"><i class="fa fa-file text-secondary"></i><br>Messages</a>
             <a href="#" class="btn btn-sm t" title="Special Rate Request"><i class="fa fa-book text-secondary"></i><br>SRR</a>

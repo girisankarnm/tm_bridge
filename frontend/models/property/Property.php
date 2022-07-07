@@ -503,4 +503,74 @@ class Property extends \yii\db\ActiveRecord
     {
         return $this->hasMany(UserPropertyMap::className(), ['property_id' => 'id']);
     }
+
+    public function validateData() {
+        $basic_details = new BasicDetails();       
+
+        $basic_details->id = $this->id;
+        $basic_details->name = $this->name;
+        $basic_details->property_type_id = $this->property_type_id;
+        $basic_details->property_category_id = $this->property_category_id;
+        $basic_details->website = $this->website;
+        $basic_details->image = $this->image;
+        $basic_details->logo = $this->logo;
+
+        $address_location = new AddressLocation();
+        $address_location->id = $this->id;
+        $address_location->country_id = $this->country_id;
+        $address_location->location_id = $this->location_id;
+        $address_location->destination_id = $this->destination_id;
+        $address_location->address = $this->address;
+        $address_location->postal_code = $this->postal_code;
+        $address_location->locality = $this->locality;
+
+        $legal_tax_documentation = new LegalTaxDocumentation();
+        $legal_tax_documentation->id = $this->id;
+        $legal_tax_documentation->legal_status_id = $this->legal_status_id;
+        $legal_tax_documentation->pan_number = $this->pan_number;
+        $legal_tax_documentation->business_licence_number = $this->business_licence_number;
+        $legal_tax_documentation->gst_number = $this->gst_number;
+        $legal_tax_documentation->bank_name = $this->bank_name;
+        $legal_tax_documentation->bank_account_name = $this->bank_account_name;
+        $legal_tax_documentation->bank_account_number = $this->bank_account_number;
+        $legal_tax_documentation->ifsc_code = $this->ifsc_code;
+        $legal_tax_documentation->swift_code = $this->swift_code;
+        $legal_tax_documentation->pan_image = $this->pan_image;
+        $legal_tax_documentation->business_licence_image = $this->business_licence_image;
+        $legal_tax_documentation->gst_image = $this->gst_image;
+        $legal_tax_documentation->cheque_image = $this->cheque_image;               
+
+        $terms = new TermsConditions();
+        $terms->id = $this->id;
+        $terms->terms_and_conditons1 = $this->terms_and_conditons1;
+        $terms->terms_and_conditons2 = $this->terms_and_conditons2;
+        $terms->terms_and_conditons3 = $this->terms_and_conditons3;
+
+        $basic_details_validated = false;
+        $address_location_validated  = false;
+        $legal_tax_documentation_validated  = false;
+        $terms_results_validated = false;
+
+        if( $basic_details->validate()) {
+            $basic_details_validated = true;
+        }
+
+        if( $address_location->validate()) {
+            $address_location_validated = true;
+        }
+
+        if( $legal_tax_documentation->validate()) {
+            $legal_tax_documentation_validated = true;
+        }
+
+        if( $terms->validate()) {
+            $terms_results_validated = true;
+        }
+
+        return ( $basic_details_validated && 
+                $address_location_validated &&
+                $legal_tax_documentation_validated && 
+                $terms_results_validated );
+
+    }
 }
