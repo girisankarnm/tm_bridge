@@ -4,7 +4,7 @@ namespace frontend\models\tariff;
 
 use Yii;
 use frontend\models\tariff\TariffDateRange;
-use frontend\models\TariffNationalityGroupName;
+use frontend\models\tariff\TariffNationalityGroupName;
 use frontend\models\property\Room;
 use frontend\models\property\Property;
 use Carbon\Carbon;
@@ -30,6 +30,7 @@ class RoomRateValidator {
     function __construct($date_range) {
         $this->room_names = array();
         $this->error_messages = array();
+        $this->error_messages2 = array();
 
         if($date_range != NULL) {
             $this->date_range = $date_range;
@@ -106,8 +107,7 @@ class RoomRateValidator {
         }
 
         $rooms = Room::find()
-        ->where(['property_id' => $this->property->id])
-        ->andWhere(['owner_id' => Yii::$app->user->identity->getOWnerId()])
+        ->where(['property_id' => $this->property->id])        
         ->all();
         
         if ($rooms == NULL){            
@@ -126,7 +126,7 @@ class RoomRateValidator {
         foreach($rooms as $room) {
             $tariffs = $this->date_range->getRoomTariffDatewises()->andWhere(['room_id' => $room->id])->all();
             if(count($tariffs) == 0 ) {
-                //echo $room->name. ": Room tariff are not defined."."</br>";
+                
                 array_push($this->error_messages, $room->name. ": Tariff not defined.  [". Carbon::parse($this->date_range->from_date)->format('d M Y')." - ".Carbon::parse($this->date_range->to_date)->format('d M Y')."]");
                 $bValidated = false;
                 $this->bCanpublish = false;
@@ -159,7 +159,6 @@ class RoomRateValidator {
     public function validateWeekdayHike() {
         //TODO: Handle NOT have_weekday_hike case
         if ($this->property->have_weekday_hike) {
-
             //TODO: Handle NOT set roomTariffWeekdaywises
             if(isset($this->date_range->roomTariffWeekdaywises)) {
                 if (count($this->date_range->roomTariffWeekdaywises) == 0) {
@@ -167,6 +166,11 @@ class RoomRateValidator {
                     array_push($this->error_messages,"Not defined week day hike [". Carbon::parse($this->date_range->from_date)->format('d M Y')." - ".Carbon::parse($this->date_range->to_date)->format('d M Y')."]");
                     return false;
                 }
+            }
+            else {
+                $this->bCanpublish = false;
+                array_push($this->error_messages,"Not defined week day hike [". Carbon::parse($this->date_range->from_date)->format('d M Y')." - ".Carbon::parse($this->date_range->to_date)->format('d M Y')."]");
+                return false;
             }
         }
 

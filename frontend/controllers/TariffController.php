@@ -71,6 +71,11 @@ class TariffController extends Controller {
 
     public function actionHome(){
         $property = $this->getProperty();
+
+        //TODO: enable this
+        /* if(!$property->validateData()) {            
+            return $this->redirect(['property/validate', 'id' => $property->getPrimaryKey()]);            
+        } */
         
         $mother_ranges = TariffDateRange::find()
         ->orderBy(['from_date' => SORT_DESC])
@@ -79,11 +84,10 @@ class TariffController extends Controller {
         ->all();
     
         $this->layout = 'tm_main';
-       return $this->render('home', 
-       [
-        'mother_ranges' => $mother_ranges, 
-        'property' => $property
-        ]);
+        return $this->render('home',[
+            'mother_ranges' => $mother_ranges, 
+            'property' => $property
+            ]);
     }
 
     public function actionRoom(){
@@ -749,15 +753,20 @@ class TariffController extends Controller {
     }
 
     public function actionPublish(){
-        $id = $_POST ["TariffDateRange"]["id"];
+        //$id = $_POST["TariffDateRange"]["id"];
+        $id = $_REQUEST["id"];        
 
+        //TODO: Make sure that this date range is owned by this user
         $mother_range = TariffDateRange::find()
         ->where(['id' => $id])
         ->andWhere(['parent' => 0])
         ->one();
 
-        $rc = new RoomRateValidator($mother_range);
-        
+        if($mother_range == NULL) {
+            throw new NotFoundHttpException();
+        }
+
+        $rc = new RoomRateValidator($mother_range);        
 
         $errors = NULL;
         if(!$rc->canPublish()) {            
@@ -768,6 +777,26 @@ class TariffController extends Controller {
         return $this->render('validation_status', [ 'mother_range' => $mother_range, 'errors' => $errors]);
     }
     
+
+    public function actionPublished(){
+        //var_dump($_POST);
+        $id = $_POST["TariffDateRange"]["id"];
+
+        //TODO: Make sure that this date range is owned by this user
+        $mother_range = TariffDateRange::find()
+        ->where(['id' => $id])
+        ->andWhere(['parent' => 0])
+        ->one();
+
+        if($mother_range == NULL) {
+            throw new NotFoundHttpException();
+        }
+
+        $mother_range->status = 1;
+        $mother_range->save();
+
+        echo "Published". $id;
+    }
 
     public function actionTariffdinner(){
         $this->layout = 'tm_main';
