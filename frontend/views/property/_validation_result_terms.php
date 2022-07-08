@@ -13,5 +13,13 @@
             <img src="images/rectangle-tick.svg" class="chckbox-class">  <span class="Validation-Heading"><?= $name ?> : Validation Success</span>
         <?php      }
         ?>
+
+        <div id="edit-flex">
+            <div> </div>
+            <div>
+                <a href="<?= \yii\helpers\Url::to(['/slab/home', 'id' =>  1]) ?>" > <img  src="images/blue-edit.svg"  style="margin-right: 2px; vertical-align:text-top" > <span style="color: blue"> edit  <?= $name ?>  </span></a>
+            </div>
+        </div>
+
     </div>
 </div>

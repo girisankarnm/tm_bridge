@@ -3304,3 +3304,32 @@ text-align: right;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+
+#edit-flex {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+    height: 20px;
+    display: flex;
+    text-align: right;
+
+
+}
+#edit-flex div:nth-of-type(1) {
+    flex-basis: 0px;
+    height: 20px;
+    margin-right: 10px;
+    padding-left: 30px;
+    text-align: right;
+
+
+}
+#edit-flex div:nth-of-type(2) {
+    flex-basis: 400px;
+    height: 20px;
+    padding-top: 0px;
+    margin-right: 10px;
+    padding-left: 30px;
+    text-align: right;
+
+}
