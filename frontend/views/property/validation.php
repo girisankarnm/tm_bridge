@@ -9,7 +9,7 @@ use yii\helpers\Html;
             Property validation Result
         </div>
 
-        <div class="tariffBorder1" style="line-height: 0px; height:80px;">
+        <div class="ValidationBorder1">
             <div id="mainHeding-location"style="height: 43px;">
                 <div > <img style="width: 34px;height: 34px" src="images/building1.png" alt="Matrix"></div>
                 <div >
