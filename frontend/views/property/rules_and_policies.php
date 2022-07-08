@@ -115,7 +115,7 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                                 <!--                                </select>-->
                             </div>
                         </div>
-                        <button class="btn btn-primary" id="save_smoking_policy"> Save </button>
+                        <button class="buttonSave" style="width: 85px; border-radius: 5px" id="save_smoking_policy"> Save </button>
                     </div>
                 </div>
 
@@ -140,7 +140,7 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                                 <!--                                </select>-->
                             </div>
                         </div>
-                        <button class="btn btn-primary" id="save_pets_policy"> Save </button>
+                        <button class="buttonSave" style="width: 85px; border-radius: 5px" id="save_pets_policy"> Save </button>
                     </div>
                 </div>
 
@@ -356,7 +356,7 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                                 </div>
                             </div>
                         </div>
-                        <button id="save_cancellation_policy" class="btn btn-primary"> Save </button>
+                        <button id="save_cancellation_policy" class="buttonSave" style="width: 85px; border-radius: 5px"> Save </button>
                     </div>
                 </div>
 
@@ -501,7 +501,7 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                                 </table>
                             </div>
                         </div>
-                        <button class="btn btn-primary" id="save_child_policy"> Save </button>
+                        <button class="buttonSave" style="width: 85px; border-radius: 5px" id="save_child_policy"> Save </button>
                     </div>
                 </div>
 
@@ -553,7 +553,7 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                                 <!--                                </button>-->
                             </div>
                         </div>
-                        <button class="btn btn-primary" id="save_tariff_option"> Save </button>
+                        <button class="buttonSave" style="width: 85px; border-radius: 5px" id="save_tariff_option"> Save </button>
                     </div>
                 </div>
 
@@ -577,7 +577,7 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                                 </div>
                             </div>
                         </div>
-                        <button class="btn btn-primary" id="save_mandatory_dinner_option"> Save </button>
+                        <button class="buttonSave" style="width: 85px; border-radius: 5px" id="save_mandatory_dinner_option"> Save </button>
                     </div>
                 </div>
 
@@ -600,7 +600,7 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                                 </div>
                             </div>
                         </div>
-                        <button class="btn btn-primary" id="save_weekday_hike_option"> Save </button>
+                        <button class="buttonSave" style="width: 85px; border-radius: 5px" id="save_weekday_hike_option"> Save </button>
                     </div>
                     </dpv>
                 </div>

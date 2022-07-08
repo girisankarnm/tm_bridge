@@ -84,4 +84,4 @@ $this->registerCssFile('/css/property/amenities.css');
     <?php ActiveForm::end(); ?>
 </div>
 </div>
-<button id="save_room_amenity" class="btn btn-primary"> Save </button>
+<button id="save_room_amenity" class="buttonSave mb-4" style="width: 85px; border-radius: 5px"> Save </button>
