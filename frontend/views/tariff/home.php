@@ -73,10 +73,17 @@ use Carbon\Carbon;
                                         <span class="publishform"> <?= ($range->status == 1) ? "Published" : "Not Published" ?></span> </h6></div>
                             </div>
 
-                            <?php $form = ActiveForm::begin(['id' => 'tariff_publish_'.$range->id,'enableClientValidation' => true,'method' => 'post','action' => ['tariff/publish']]) ?>
+                            <?php $form = ActiveForm::begin(['id' => 'tariff_publish_'.$range->id,'enableClientValidation' => true,'method' => 'post','action' => ['tariff/publish', 'id' => $range->id]]) ?>
                             <?= $form->field($range, 'id')->hiddenInput()->label(false); ?>
                             <div id="b" style=" display: flex">
-                                <div style="margin-right: 10px;padding-bottom: 10px"> <button type="submit" class="buttonSaveroomrate"  data-toggle="modal" data-target="#logoutModal"> Publish </button> <a href="<?= \yii\helpers\Url::to(['/tariff/addmotherdate', 'id' =>  $property->id, 'mother_id' => $range->id]) ?>"> <img s src="images/edit-1-icon.svg" style="color: #545b62;margin-right: 4px" aria-hidden="true"></img>   </a>   <a href="#">   <img s src="images/delete-1-icon.svg" style="color: #545b62;margin-right: 4px" aria-hidden="true"></img>  </a>
+                                <div style="margin-right: 10px;padding-bottom: 10px"> 
+                                
+                                <?php if($range->status != 1) { ?>
+                                <button type="submit" class="buttonSaveroomrate"  data-toggle="modal" data-target="#logoutModal"> Publish </button> 
+                                <?php } ?>
+                                <a href="<?= \yii\helpers\Url::to(['/tariff/addmotherdate', 'id' =>  $property->id, 'mother_id' => $range->id]) ?>"> 
+                                <img s src="images/edit-1-icon.svg" style="color: #545b62;margin-right: 4px" aria-hidden="true"></img></a>   
+                                <a href="#"> <img s src="images/delete-1-icon.svg" style="color: #545b62;margin-right: 4px" aria-hidden="true"></img></a>
                                 </div>
                             </div>
                             <?php ActiveForm::end(); ?>

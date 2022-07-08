@@ -1,5 +1,6 @@
 <?php
 use Carbon\Carbon;
+use yii\bootstrap4\ActiveForm;
 $this->registerCssFile('/css/full-page.css');
 ?>
 
@@ -77,8 +78,11 @@ $this->registerCssFile('/css/full-page.css');
         </div>
         <div class="row" style="  margin-left: 3px">
             <div style="display: block;margin-right: 35px;">
+                <?php $form = ActiveForm::begin(['id' => 'tariff_published_'.$mother_range->id,'enableClientValidation' => true,'method' => 'post','action' => ['tariff/published']]) ?>
+                <?= $form->field($mother_range, 'id')->hiddenInput()->label(false); ?>
                 <button class="buttonSave savebuttonMother" style="color: black;background-color:#ffffff "> Cancel</button>
-                <button class="buttonSave savebuttonMother" style="background-color: blue"> Confirm Publish</button>
+                <button type="submit" class="buttonSave savebuttonMother" style="background-color: blue"> Confirm Publish</button>
+                <?php ActiveForm::end(); ?>
             </div>
         </div>
         <?php } 

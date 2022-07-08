@@ -27,7 +27,7 @@ $this->registerCssFile('/css/full-page.css');
                 <?php $form = ActiveForm::begin(['method' => 'post','action' => ['user/signup']]) ?>
                 <div class="" style="width: 100%;height: 100%; margin: auto; padding: 28px; ">
                     <div style="display: flex; justify-content: center">
-                        <img src="/images/logo.svg" class="logo-small">
+                        <img src="/images/tm_bridge_logo.svg" class="logo-small">
                     </div>
                     <div  style="display: flex; justify-content: center;   font-weight: bold">
                         Create account

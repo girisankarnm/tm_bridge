@@ -99,7 +99,7 @@ $this->registerJsFile('/js/property/amenities/services_amenities.js');
                                 </div>
                                 </div>
                             </div>
-                            <button id="save_complimentary" class="btn btn-primary"> Save </button>
+                            <button id="save_complimentary" class="buttonSave" style="width: 85px; border-radius: 5px"> Save </button>
                         </div>
                     </div>
 
@@ -159,7 +159,7 @@ $this->registerJsFile('/js/property/amenities/services_amenities.js');
                                 </div>
                                 </div>
 
-                                <button class="btn btn-primary mb-4" id="save_swimming_pool"> Save </button>
+                                <button class="buttonSave mb-4" style="width: 85px; border-radius: 5px"  id="save_swimming_pool"> Save </button>
 
                                 <div class="form-group form-checkbox">
                                     <div class="form-material">
@@ -215,7 +215,7 @@ $this->registerJsFile('/js/property/amenities/services_amenities.js');
                                     </div>
                                 </div>
                                 </div>
-                                <button id="save_restaurant" class="btn btn-primary mb-4"> Save </button>
+                                <button id="save_restaurant" class="buttonSave mb-4" style="width: 85px; border-radius: 5px"> Save </button>
 
                                 <div class="form-group form-checkbox">
                                     <div class="form-material">
@@ -249,7 +249,7 @@ $this->registerJsFile('/js/property/amenities/services_amenities.js');
                                         </div>
                                     </div>
                                 </div>
-                                <button id="save_parking" class="btn btn-primary mb-4"> Save </button>
+                                <button id="save_parking" class="buttonSave mb-4" style="width: 85px; border-radius: 5px"> Save </button>
 
                                 <div id="edit_r_amenity" class="mb-4 swimming-details">
                                     <?php foreach ($amenity_groups as $amenity_group):
@@ -350,7 +350,7 @@ $this->registerJsFile('/js/property/amenities/services_amenities.js');
 <!--                                    </div>-->
 <!--                                </div>-->
 
-                                <button id="save_property_amenity" class="btn btn-primary mb-4"> Save </button>
+                                <button id="save_property_amenity" class="buttonSave mb-4" style="width: 85px; border-radius: 5px"> Save </button>
 
                             </div>
                         </div>

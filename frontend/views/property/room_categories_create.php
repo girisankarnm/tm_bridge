@@ -33,6 +33,7 @@ $this->registerJsFile('/js/operational_details/room_category.js');
             <div class="category-item">
                 <?php $form = ActiveForm::begin(['id' => 'room_categories_form','enableClientValidation' => true, 'method' => 'post','action' => ['property/saveroomcategory']]) ?>
                 <input type="hidden" value="<?= $property->id ?>" name="property_id">
+                <input type="hidden" value="<?= $room->id ?>" name="room_id">
                 <div class="row align-items-center">
                         <div class="col-md-6">
                             <h6 class="heading">
@@ -135,58 +136,69 @@ $this->registerJsFile('/js/operational_details/room_category.js');
                                 </div>
                             </div>
                             <div class="row align-items-center mt-1">
-                                <div class="col-md-10 input-field">
-                                    <p class="mb-0">No. of Adults allowed (without extra bed / mattress)</p>
-                                </div>
-                                <div class="col-md-2 input-field">
+                                <div class="col-md-12">
                                     <div class="form-group">
                                         <div class="form-material">
-                                            <?php echo $form->field($room,'number_of_adults')->textInput(['class' => 'form-control  input-sm mr-1'])->label(false) ?>
+                                        <label class="Labelclass" style="display: block">No. of Adults allowed (without extra bed / mattress)</label>
+                                        <div class="form-material">
+                                            <?php echo $form->field($room,'number_of_adults')->textInput(['class' => 'form-control '])->label(false) ?>
+                                        </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row align-items-center mt-1">
-                                <div class="col-md-10 input-field">
-                                    <p class="mb-0">No. of Children allowed on bed sharing basis</p>
-                                </div>
-                                <div class="col-md-2 input-field">
-                                    <div class="form-group">
-                                        <div class="form-material">
-                                            <?php echo $form->field($room,'number_of_kids_on_sharing')->textInput(['class' => 'form-control input-sm mr-1'])->label(false) ?>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row align-items-center mt-1">
-                                <div class="col-md-10 input-field">
-                                    <p class="mb-0">No. of extra bed / mattress allowed in room</p>
-                                </div>
-                                <div class="col-md-2 input-field">
-                                    <div class="form-group">
-                                        <div class="form-material">
-                                            <?php echo $form->field($room,'number_of_extra_beds')->textInput(['class' => 'form-control input-sm mr-1'])->label(false) ?>
 
+                            </div>
+                            <div class="row align-items-center mt-1">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <div class="form-material">
+                                            <label class="Labelclass" style="display: block">No. of Children allowed on bed sharing basis</label>
+                                            <div class="form-material">
+                                                <?php echo $form->field($room,'number_of_kids_on_sharing')->textInput(['class' => 'form-control '])->label(false) ?>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row align-items-center mt-1">
-                                <div class="col-md-4 input-field"><p class="mb-0">Extra bed type</p></div>
-                                <div class="col-md-8 input-field">
+                                <div class="col-md-12">
                                     <div class="form-group">
                                         <div class="form-material">
-                                            <?php echo $form->field($room, 'extra_bed_type_id')->dropDownList($extra_bed_types, ['class' => 'form-control select2','prompt' => 'Bed type', 'disabled' => 'disabled'])->label(false); ?>
+                                            <label class="Labelclass" style="display: block">No. of extra bed / mattress allowed in room</label>
+                                            <div class="form-material">
+                                                <?php echo $form->field($room,'number_of_extra_beds')->textInput(['class' => 'form-control'])->label(false) ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row align-items-center mt-1">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <div class="form-material">
+                                            <label class="Labelclass" style="display: block">Extra bed type</label>
+                                            <div class="form-material">
+                                                <?php
+                                                if ($room->number_of_extra_beds != null) {
+                                                    echo $form->field($room, 'extra_bed_type_id')->dropDownList($extra_bed_types, ['class' => 'form-control select2', ])->label(false);
 
+                                                } else {
+                                                    echo $form->field($room, 'extra_bed_type_id')->dropDownList($extra_bed_types, ['class' => 'form-control select2', 'disabled' => 'disabled'])->label(false);
+
+                                                }
+                                                ?>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+
                     </div>
 
                     <div class="row align-items-center justify-content-start mt-3">
-                        <button onclick="location.href='<?= Url::toRoute(['property/rules','id' => $property->id]) ?>'" class="btn btn-border mr-4" id="room_create_cancel" type="button"> Cancel </button>
+                        <button onclick="location.href='<?= Url::toRoute(['property/categories','id' => $property->id]) ?>'" class="btn btn-border mr-4" id="room_create_cancel" type="button"> Cancel </button>
                         <button id="room_create_save" type="submit" class="btn button-secondary"> Save </button>
                     </div>
                 <?php ActiveForm::end(); ?>
