@@ -2130,8 +2130,10 @@ class PropertyController extends Controller
     }
     public function actionMypropertylist()
     {
+
+        $properties_list = Property::find()->all();
         $this->layout = 'tm_main';
-        return $this->render('my_properties_list');
+        return $this->render('my_properties_list', ['properties' => $properties_list]);
     }
 
 
