@@ -40,9 +40,16 @@ class OperatorController extends Controller{
         $this->layout = 'tm_main';
 
         $operator = NULL;
-        $operator = Operator::find()
-            ->where(['owner_id' => Yii::$app->user->getId()])
-            ->one();
+        if(isset( $_GET['id']) ) {
+            $operator_id = Yii::$app->request->get('id');
+            $operator = Operator::find()
+                ->where(['id' => $operator_id])
+                ->andWhere(['owner_id' => Yii::$app->user->getId()])
+                ->one();
+            if ($operator == NULL){
+                throw new NotFoundHttpException();
+            }
+        }
 
         $basic_details = new BasicDetails();
         $operator_image = new OperatorImage();
