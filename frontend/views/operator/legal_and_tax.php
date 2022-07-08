@@ -45,13 +45,26 @@ use yii\bootstrap4\ActiveForm;
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label class="Labelclass">*Pancard</label>
+                            <?php
+                            if(!$legal_tax_documentation->pan_image) {
+                                echo "<img id='operatorPanImage' src='images/pan.png' class='imagePreview' style='height: 120px; width: 100%;  border: 2px #808080 dashed; border-radius: 6px'>";
+                            } else {
+                                echo "<img id='operatorPanImage' src='uploads/$legal_tax_documentation->pan_image' class='imagePreview' style='height: 120px; width: 100%;  border: 2px #808080 dashed; border-radius: 6px'>";
+                            }?>
+
                             <?= $form->field($legal_docs_images, 'pan_image')->fileInput(['class' => 'btn btn-sm img uploadFile', 'accept' => "image/*", 'id'=>"uploadPanImage"])->label(false); ?>
-                            <img id="operatorPanImage" src="uploads/<?php echo $legal_tax_documentation->pan_image; ?>" class="imagePreview  <?php if($legal_tax_documentation->pan_image == null): ?> default-preview <?php endif; ?> " style="height: 120px; width: 100%;  border: 2px #808080 dashed; border-radius: 6px">
                         </div>
                         <div class="form-group col-md-6 ">
                             <label for="inputEmail4" class="Labelclass">*GST</label>
+                            <?php
+                            if(!$legal_tax_documentation->gst_image) {
+                                echo "<img id='operatorGstImage' src='images/GST.png' class='imagePreview' style='height: 120px; width:100%;  border: 2px #808080 dashed; border-radius: 6px'>";
+                            } else {
+                                echo "<img id='operatorGstImage' src='uploads/$legal_tax_documentation->gst_image' class='imagePreview' style='height: 120px; width:100%;  border: 2px #808080 dashed; border-radius: 6px'>";
+                            }?>
+
+
                             <?= $form->field($legal_docs_images, 'gst_image')->fileInput(['class' => 'btn btn-sm img uploadFile', 'accept' => "image/*", 'id'=>"uploadGstImage"])->label(false); ?>
-                            <img id="operatorGstImage" src="uploads/<?php echo $legal_tax_documentation->gst_image; ?>" class="imagePreview  <?php if($legal_tax_documentation->gst_image == null): ?> default-preview <?php endif; ?> " style="height: 120px; width:100%;  border: 2px #808080 dashed; border-radius: 6px">
                         </div>
                     </div>
                 </div>
@@ -110,7 +123,7 @@ use yii\bootstrap4\ActiveForm;
         background-size: cover;
         /*-webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);*/
         display: inline-block;
-        background-image: url('http://via.placeholder.com/350x150');
+        /*background-image: url('http://via.placeholder.com/350x150');*/
         /*border: 2px gray dashed;*/
     }
     .imagePreviewLogo {

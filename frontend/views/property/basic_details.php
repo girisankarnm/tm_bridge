@@ -1,5 +1,7 @@
 <?php
 use yii\bootstrap4\ActiveForm;
+$this->registerJsFile('/js/common.js');
+
 ?>
 <div class="$content">
     <div class="container-fluid" style="background-color: white">
@@ -41,29 +43,58 @@ use yii\bootstrap4\ActiveForm;
                             </div>
                         </div>
                     </div>
+
                     <div class="form-group ">
                         <label class="Labelclass" style="display: block">Website</label>
-                        <?php echo $form->field($basic_details,'website')->textInput(['class' => 'inputLarge'])->label(false) ?>
+                        <?php
+                        if ($basic_details->website != null) {
+                            echo $form->field($basic_details, 'website')->textInput(['class' => 'inputLarge'])->label(false);
+
+                        } else {
+                            echo $form->field($basic_details, 'website')->textInput(['class' => 'inputLarge', 'value' => 'http://'])->label(false);
+
+                        }
+                        ?>
+
+
                     </div>
+
+
+
                 </div>
                 <div class="col-md-6 ">
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label class="Labelclass" style="display: block;" >*Property Photo</label>
-                            <img id="imagePreview" src="uploads/<?php echo $basic_details->image; ?>" class="imagePreview <?php if(!$basic_details->id): ?> default-preview <?php endif; ?> "  style="height: 200px; width:100%;  border: 2px #808080 dashed; border-radius: 6px"/>
+
+                            <?php
+                            if(!$basic_details->id) {
+                                echo "<img id='imagePreview' src='images/property picture.png' class='imagePreview' style='height: 200px; width:100%;  border: 2px #808080 dashed; border-radius: 6px'>";
+                            } else {
+                                echo "<img id='imagePreview' src='uploads/$basic_details->image' class='imagePreview' style='height: 200px; width:100%;  border: 2px #808080 dashed; border-radius: 6px'>";
+                            }?>
+
+                            <!--                            <label class="Labelclass" style="display: block;" >*Property Photo</label>-->
                             <?= $form->field($property_image, 'proFile')->fileInput(['class' => 'btn btn-sm img uploadFile', 'accept' => "image/*", 'id'=>"uploadFile"])->label(false); ?>
 
                         </div>
                         <div class="form-group col-md-6">
                             <label class="Labelclass" style="display: block;" >*Property Logo</label>
 
-                            <img id="imagePreview-logo" src="uploads/<?php echo $basic_details->logo; ?>" class="imagePreviewLogo <?php if(!$basic_details->id): ?> default-preview <?php endif; ?>" style="height: 200px; width:100%;  border: 2px #808080 dashed; border-radius: 6px" />
+                            <?php
+                            if(!$basic_details->id) {
+                                echo "<img id='imagePreview-logo' src='images/property logo.png' class='imagePreviewLogo' style='height: 200px; width:100%;  border: 2px #808080 dashed; border-radius: 6px'>";
+                            } else {
+                                echo "<img id='imagePreview-logo' src='uploads/$basic_details->logo' class='imagePreviewLogo' style='height: 200px; width:100%;  border: 2px #808080 dashed; border-radius: 6px'>";
+                            }?>
+
 
                             <!--                        <input id="uploadFile-logo" type="file" name="property_logo" class="img uploadFile" />-->
                             <?= $form->field($property_image, 'logoFile')->fileInput(['class' => 'btn btn-sm img uploadFile', 'accept' => "image/*", 'id'=>"uploadFile-logo"])->label(false); ?>
 
                         </div>
                     </div>
+
                 </div>
             </div>
             <div style="display: block;margin-right: 35px; margin-left: 10px">
@@ -86,7 +117,7 @@ use yii\bootstrap4\ActiveForm;
         background-size: cover;
         /*-webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);*/
         display: inline-block;
-        background-image: url('http://via.placeholder.com/350x150');
+        /*background-image: url('http://via.placeholder.com/350x150');*/
         /*border: 2px gray dashed;*/
     }
     .imagePreviewLogo {
@@ -100,7 +131,7 @@ use yii\bootstrap4\ActiveForm;
         background-size: cover;
         /*-webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);*/
         display: inline-block;
-        background-image: url('http://via.placeholder.com/350x150');
+        /*background-image: url('http://via.placeholder.com/350x150');*/
     }
     .default-preview{
         border: 2px gray dashed;

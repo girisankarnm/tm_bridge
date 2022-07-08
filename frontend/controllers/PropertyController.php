@@ -2083,8 +2083,8 @@ class PropertyController extends Controller
     public function actionSaveroomcategory()
     {
         $property_id = Yii::$app->request->post('property_id');
+        $room_id = Yii::$app->request->post('room_id');
         $rooms = Yii::$app->request->post('Room');
-//        return $this->asJson($rooms['extra_bed_type_id']);
 
 
         //TODO: Check this proerty owned by this user
@@ -2099,7 +2099,15 @@ class PropertyController extends Controller
         } else {
             return array('status' => 2, 'message' => "Property id cannot zero", 'data' => 0);
         }
-        $room = new Room();
+
+        $room = Room::find()
+            ->where(['id' => $room_id])
+            ->andWhere(['property_id' => $property_id])
+            ->one();
+        if ($room == NULL) {
+            $room = new Room();
+        }
+
         $room->name = $rooms['name'];
         $room->type_id = $rooms['type_id'];
         $room->view_id = $rooms['view_id'];
@@ -2112,15 +2120,15 @@ class PropertyController extends Controller
         $room->number_of_adults = $rooms['number_of_adults'];
         $room->number_of_kids_on_sharing = $rooms['number_of_kids_on_sharing'];
         $room->number_of_extra_beds = $rooms['number_of_extra_beds'];
-        $room->extra_bed_type_id = $rooms['extra_bed_type_id'];
+        if (array_key_exists('extra_bed_type_id', $rooms)){
+            $room->extra_bed_type_id = $rooms['extra_bed_type_id'];
+        }
 //        $room->is_base = Yii::$app->request->post('room_is_base');
         $room->property_id = $property_id;
-//        $room->save();
         if ($room->save(false)) {
             Yii::$app->session->setFlash('success', "Room category created successfully.");
             return $this->redirect(['property/categories', 'id' => $property->getPrimaryKey()]);
         }
-//        return ;
     }
 
     public function actionAmenities()

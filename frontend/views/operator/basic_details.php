@@ -1,6 +1,8 @@
 <?php
 
 use yii\bootstrap4\ActiveForm;
+$this->registerJsFile('/js/common.js');
+
 
 ?>
 
@@ -35,28 +37,59 @@ use yii\bootstrap4\ActiveForm;
                     </div>
                     <div class="form-group ">
                         <label class="Labelclass">*Website</label>
-                        <?php echo $form->field($basic_details,'website')->textInput(['class' => 'inputLarge', 'placeholder'=>'Please provide website if available'])->label(false) ?>
+                        <?php
+                        if ($basic_details->website != null) {
+                            echo $form->field($basic_details, 'website')->textInput(['class' => 'inputLarge'])->label(false);
+
+                        } else {
+                            echo $form->field($basic_details, 'website')->textInput(['class' => 'inputLarge', 'value' => 'http://'])->label(false);
+
+                        }
+                        ?>
+
                     </div>
+
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label class="Labelclass" style="display: block;margin-top: 22px" >*Upload Vcard</label>
-                            <img src="uploads/<?php echo $basic_details->v_card_image_front; ?>" id="v-card-front"  class="v-card  <?php if($basic_details->v_card_image_front == null): ?> default-preview <?php endif; ?> "  style="height: 150px; width: 100%;  border: 2px #cacaca dashed; border-radius: 6px"/>
+                            <?php
+                            if(!$basic_details->v_card_image_front) {
+                                echo "<img id='v-card-front' src='images/Company visiting card front.png' class='v-card' style='height: 150px; width: 100%;  border: 2px #cacaca dashed; border-radius: 6px'>";
+                            } else {
+                                echo "<img id='v-card-front' src='uploads/$basic_details->v_card_image_front' class='v-card' style='height: 150px; width: 100%;  border: 2px #cacaca dashed; border-radius: 6px'>";
+                            }?>
+
                             <?= $form->field($operator_image, 'v_card_image_front')->fileInput(['class' => 'btn btn-sm img uploadFile', 'accept' => "image/*", 'id'=>"operator-v-card-front"])->label(false); ?>
 
                         </div>
                         <div class="form-group col-md-6">
                             <label class="Labelclass" style="display: block;margin-top: 22px" ></label>
-<!--                            <input id="operator-v-card-front" type="file" name="property_photo" class="img uploadFile" />-->
-                            <img src="uploads/<?php echo $basic_details->v_card_image_back; ?>" id="v-card-back"  class="v-card  <?php if($basic_details->v_card_image_back == null): ?> default-preview <?php endif; ?> " style="height: 150px; width: 100%;  border: 2px #cacaca dashed; border-radius: 6px"/>
+                            <?php
+                            if(!$basic_details->v_card_image_front) {
+                                echo "<img id='v-card-back' src='images/Company visiting card back.png' class='v-card' style='height: 150px; width: 100%;  border: 2px #cacaca dashed; border-radius: 6px'>";
+                            } else {
+                                echo "<img id='v-card-back' src='uploads/$basic_details->v_card_image_back' class='v-card' style='height: 150px; width: 100%;  border: 2px #cacaca dashed; border-radius: 6px'>";
+                            }?>
+
+                            <!--                            <input id="operator-v-card-front" type="file" name="property_photo" class="img uploadFile" />-->
                             <?= $form->field($operator_image, 'v_card_image_back')->fileInput(['class' => 'btn btn-sm img uploadFile', 'accept' => "image/*", 'id'=>"operator-v-card-back"])->label(false); ?>
 
                         </div>
                     </div>
+
+
                 </div>
                 <div class="col-md-6 ">
                     <div class="form-group ">
                         <label class="Labelclass" style="display: block" >*Upload Logo</label>
-                        <img src="uploads/<?php echo $basic_details->logo_image; ?>" id="imagePreview-logo"  class="imagePreview-logo  <?php if($basic_details->logo_image == null): ?> default-preview <?php endif; ?> " style="height: 220px; width: 100%;  border: 2px #cacaca dashed; border-radius: 6px" />
+
+                        <?php
+                        if(!$basic_details->logo_image) {
+                            echo "<img id='imagePreview-logo' src='images/Company logo.png' class='imagePreview-logo' style='height: 220px; width: 100%;  border: 2px #cacaca dashed; border-radius: 6px'>";
+                        } else {
+                            echo "<img id='imagePreview-logo' src='uploads/$basic_details->logo_image' class='imagePreview-logo' style='height: 220px; width: 100%;  border: 2px #cacaca dashed; border-radius: 6px'>";
+                        }?>
+
                         <?= $form->field($operator_image, 'logo_image')->fileInput(['class' => 'btn btn-sm img uploadFile ', 'accept' => "image/*", 'id'=>"operator-logo", ])->label(false); ?>
 
 

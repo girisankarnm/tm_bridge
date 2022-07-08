@@ -1,5 +1,5 @@
 
-$('#room_create_save').click(function(e){
+$('#room_create_save1').click(function(e){
     e.preventDefault();
     
     var bError = validateRoomCategory();        
@@ -11,7 +11,7 @@ $('#room_create_save').click(function(e){
     $('#room_categories_form').submit();
 });
 
-$('#room-number_of_extra_beds').blur(function(){
+$('#room-number_of_extra_beds').on('input',function(){
     if( parseInt($('#room-number_of_extra_beds').val().trim()) > 0 ){
         $('#room-extra_bed_type_id').removeAttr('disabled');
     }
