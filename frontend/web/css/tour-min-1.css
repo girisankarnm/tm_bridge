@@ -1133,8 +1133,16 @@ hr.new2 {
     inline-size:2px;
     padding-left: 0px;
     font-size: 11px;
-
 }
+
+.small-text
+{
+
+    font-size: 13px;
+    color: #292931;
+}
+
+
 .icon {
     position: relative;
     /* Adjust these values accordingly */
@@ -1281,18 +1289,56 @@ hr.new2 {
     background-color:#fdfdff;
 }
 .tariffBorder1
+ {
+     height:150px;
+     border: 1px solid #E8E9ED;
+     border-radius: 14px;
+     margin-left: 3px;
+     margin-right: 5px;
+     padding-top: 23px;
+     padding-left: 12px;
+     background-color: #fffffff;;
+ }
+
+
+.validationBorder1
 {
-    height:150px;
+    height:40px !important;
     border: 1px solid #E8E9ED;
     border-radius: 14px;
     margin-left: 3px;
     margin-right: 5px;
-    padding-top: 23px;
-    padding-left: 12px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 23px;
+    background-color: #fffffff;;
+}
+
+.validationBorder-error
+{
+    height:fit-content !important;
+
+    border: 1px solid #E8E9ED;
+    border-radius: 14px;
+    margin-left: 3px;
+    margin-right: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    padding-top: 11px;
     background-color: #fffffff;;
 }
 
 
+
+
+
+.chckbox-class
+{
+margin-left: 17px;
+margin-right: 5px;
+    vertical-align: middle;
+}
 
 
 .tariffBorderbox
@@ -1615,28 +1661,36 @@ hr.new2 {
 {
     margin-top: 22px;
     margin-bottom: 1.75rem !important;
-    /*width: 99px;*/
-    width: 200px;
+    width: 400px;
     height: 22px;
     left: 316px;
-
-    /*text-decoration: underline;*/
-    /*text-underline-position: under;*/
-
-    /*text-underline-offset: 7px;*/
-
-    /*font-family: 'Bw Mitga';*/
     font-style: normal;
     font-weight: 600;
     font-size: 20px;
     line-height: 22px;
-    /* identical to box height */
-
     letter-spacing: -0.02em;
-
     color: #292931;
 
 }
+.card-title-middle
+{
+    margin-top: 22px;
+    margin-bottom: 1.75rem !important;
+    width:100% !important;
+    text-align: center !important;
+    height: 22px;
+    left: 316px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 22px;
+    letter-spacing: -0.02em;
+    color: #E40968;
+
+}
+
+
+
 .card-width-change
 {
     width: 227px !important;
@@ -1780,6 +1834,27 @@ font-size: 9px;
     font-weight: 700;
     inline-size: 1px;
     margin-right: 3px;
+}
+
+
+.Validation-Heading
+{
+    font-size: 16px;
+    padding-top: 4px;
+    color: #009721;
+    inline-size: 1px;
+    margin-right: 3px;
+    font-weight: 500;
+}
+.Validation-Heading-Error
+{
+    font-size: 16px;
+    padding-top: 4px;
+    margin-bottom: 12px;
+    color: #E40968;
+    inline-size: 1px;
+    margin-right: 3px;
+    font-weight: 649;
 }
 
 hr.new6 {
@@ -2857,9 +2932,10 @@ text-align: right;
 
 .margin-left-right-spacing
 {
-    /*margin-left: 5px;*/
+    margin-left: 40px;
     /*margin-right: 5px;*/
 }
+
 
 #link-properties {
 
