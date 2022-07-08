@@ -11,9 +11,9 @@ $this->registerCssFile('/css/full-page.css');
                 <?php $form = ActiveForm::begin(['id' => 'login-form', 'class' => 'form-class']); ?>
                 <div class="" style="padding: 28px;">
                     <div style="display: flex; justify-content: center">
-                        <img src="/images/logo.svg" class="logo-small">
+                        <img src="/images/tm_bridge_logo.svg" class="logo-small">
                     </div>
-                    <div  style="display: flex; justify-content: center; margin-bottom: 20px; font-size: 24px; font-weight: bold">
+                    <div  style="display: flex; justify-content: center; margin-bottom: 20px; font-size: 22px; font-weight: bold">
                         Log in
                     </div>
                     <div class="col-md-12" style="font-size: 13px; margin-bottom: 20px; text-align: center">

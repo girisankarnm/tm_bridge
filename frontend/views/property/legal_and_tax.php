@@ -48,18 +48,37 @@ use yii\bootstrap4\ActiveForm;
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label class="Labelclass">*Pancard</label>
-                            <img id="panImage" src="uploads/<?php echo $legal_tax_documentation->pan_image; ?>" class="imagePreview <?php if(!$legal_tax_documentation->id): ?> default-preview <?php endif; ?> " style="height: 120px; width: 100%;  border: 2px #808080 dashed; border-radius: 6px"/>
+                            <?php
+                            if(!$legal_tax_documentation->pan_image) {
+                                echo "<img id='panImage' src='images/pan.png' class='imagePreview' style='height: 120px; width: 100%;  border: 2px #808080 dashed; border-radius: 6px'>";
+                            } else {
+                                echo "<img id='panImage' src='uploads/$legal_tax_documentation->pan_image' class='imagePreview' style='height: 120px; width: 100%;  border: 2px #808080 dashed; border-radius: 6px'>";
+                            }?>
                             <?= $form->field($legal_docs_images, 'pan_image')->fileInput(['class' => 'btn btn-sm img uploadFile', 'accept' => "image/*", 'id'=>"uploadPan"])->label(false); ?>
                         </div>
                         <div class="form-group col-md-6 ">
                             <label class="Labelclass">*License</label>
-                            <img id="licenseImage" src="uploads/<?php echo $legal_tax_documentation->pan_image; ?>"  class="imagePreview  <?php if($legal_tax_documentation->pan_image == null): ?> default-preview <?php endif; ?> " style="height: 120px; width: 100%;  border: 2px #808080 dashed; border-radius: 6px">
+
+                            <?php
+                            if(!$legal_tax_documentation->business_licence_image) {
+                                echo "<img id='licenseImage' src='images/license.png' class='imagePreview' style='height: 120px; width: 100%;  border: 2px #808080 dashed; border-radius: 6px'>";
+                            } else {
+                                echo "<img id='licenseImage' src='uploads/$legal_tax_documentation->business_licence_image' class='imagePreview' style='height: 120px; width: 100%;  border: 2px #808080 dashed; border-radius: 6px'>";
+                            }?>
+
                             <?= $form->field($legal_docs_images, 'business_licence_image')->fileInput(['class' => 'btn btn-sm img uploadFile', 'accept' => "image/*", 'id'=>"uploadLicense"])->label(false); ?>
                         </div>
                     </div>
                         <div class="form-group col-md-6">
                             <label class="Labelclass">*GST</label>
-                            <img id="gstImage" src="uploads/<?php echo $legal_tax_documentation->business_licence_image; ?>" class="gst_image  <?php if($legal_tax_documentation->gst_image == null): ?> default-preview <?php endif; ?> " style="height: 120px; width:100%;  border: 2px #808080 dashed; border-radius: 6px">
+
+                            <?php
+                            if(!$legal_tax_documentation->gst_image) {
+                                echo "<img id='gstImage' src='images/GST.png' class='gst_image' style='height: 120px; width:100%;  border: 2px #808080 dashed; border-radius: 6px'>";
+                            } else {
+                                echo "<img id='gstImage' src='uploads/$legal_tax_documentation->gst_image' class='gst_image' style='height: 120px; width:100%;  border: 2px #808080 dashed; border-radius: 6px'>";
+                            }?>
+
                             <?= $form->field($legal_docs_images, 'gst_image')->fileInput(['class' => 'btn btn-sm img uploadFile', 'accept' => "image/*", 'id'=>"uploadGst"])->label(false); ?>
                         </div>
                 </div>
@@ -112,7 +131,7 @@ use yii\bootstrap4\ActiveForm;
         background-size: cover;
         /*-webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);*/
         display: inline-block;
-        background-image: url('http://via.placeholder.com/350x150');
+        /*background-image: url('http://via.placeholder.com/350x150');*/
         /*border: 2px gray dashed;*/
     }
     .imagePreviewLogo {
@@ -126,7 +145,7 @@ use yii\bootstrap4\ActiveForm;
         background-size: cover;
         /*-webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);*/
         display: inline-block;
-        background-image: url('http://via.placeholder.com/350x150');
+        /*background-image: url('http://via.placeholder.com/350x150');*/
     }
     .default-preview{
         border: 2px gray dashed;
