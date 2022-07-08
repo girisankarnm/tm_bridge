@@ -371,24 +371,22 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                             <div class="form-group form-checkbox mb-2">
                                 <div class="form-material" >
 
-                                    <?= $form->field($property, 'allow_child_of_all_ages')->checkbox(['name' => 'child_age',  'onclick' => "onlyOne(this)" ])->label("Our property welcomes child of all age if accompanied by adults"); ?>
 
-                                    <!--                                    <input type="checkbox" name="" id="property-child" class="form-input-checkbox">-->
-                                    <!---->
-                                    <!--                                    <label for="property-child" class="mb-0">-->
-                                    <!--                                        Our property welcomes child of all age if accompanied by adults-->
-                                    <!--                                    </label>-->
+                                                                        <input <?php if($property['allow_child_of_all_ages'] == 1): ?> checked <?php endif ?>  type="checkbox" name="" id="property-allow_child_of_all_ages" class="form-input-checkbox child-checkbox">
+
+                                                                        <label for="property-allow_child_of_all_ages" class="mb-0">
+                                                                            Our property welcomes child of all age if accompanied by adults
+                                                                        </label>
                                 </div>
                             </div>
 
                             <div class="d-flex form-group form-checkbox align-items-center mb-4">
                                 <div class="form-material mr-2">
-                                    <?= $form->field($property, 'restricted_for_child')->checkbox(['name' => 'child_age', 'onclick' => "onlyOne(this)"])->label("Admission in our property is 'Restricted' for child below"); ?>
 
-                                    <!--                                    <input type="checkbox" name="" id="property-child" class="form-input-checkbox">-->
-                                    <!--                                    <label for="property-child" class="mb-0">-->
-                                    <!--                                        Our property welcomes child of all age if accompanied by adults-->
-                                    <!--                                    </label>-->
+                                                                        <input <?php if($property['restricted_for_child'] == 1): ?> checked <?php endif ?> type="checkbox" name="child_age" id="property-restricted_for_child" class="form-input-checkbox child-checkbox">
+                                                                        <label for="property-restricted_for_child" class="mb-0">
+                                                                            Admission in our property is 'Restricted' for child below
+                                                                        </label>
                                 </div>
                                 <div class="form-input mr-2"><?= $form->field($property, 'restricted_for_child_below_age')->textInput(['type' => 'text','class' => 'form-control input-sm'])->label(false) ?>
 
