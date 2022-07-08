@@ -1,70 +1,141 @@
-<?php
-use yii\helpers\Html;
-use yii\helpers\Url;
-use yii\bootstrap4\ActiveForm;
-$this->title = 'My Properties';
-rmrevin\yii\fontawesome\AssetBundle::register($this);
-frontend\assets\CommonAsset::register($this);
 
-?>
-<style>
-    #properties th,#properties td {
-        border: 1px solid #9cacad;
-    }
-    #properties {
-        color: #636363;
-        /*background: #2a3f54;*/
-        font-family: "Helvetica Neue",Roboto,Arial,"Droid Sans",sans-serif;
-        font-size: 13px;
-        height: 0%;
-    }
-    a:hover {
-        background-color: #1dd5ff;
-    }
-    i:hover {
-        background-color: #1dd5ff;
-    }
-</style>
+<div class="content">
+
+<div class="container-fluid" >
+    <div class="card-title">My properties</div>
+    <?php
+    $i = 1;
+    foreach ($properties as $property) {
+    ?>
+        <div class="card property-card-list shadow-div" >
+
+            <div id="mainHeding-location-listing"style="height: 43px">
+                <div > <img class="image-property img-property" src="uploads/<?php echo $property->image ?>" alt="Matrix"></div>
+                <div >
+                    <div id="column-2-listing">
+                    <div>
+
+                      <span class="hotelHeading" > <span class="cut-text" style="display: inline"><?= $property->name?><span/> <img class="f-star" src="images/Star-1.svg" alt="Matrix">
+                       <img class="f-star" style="padding-left: 2px"  src="images/Star-1.svg" alt="Matrix">
+                       <img  class="f-star" style="padding-left: 2px" src="images/Star-1.svg" alt="Matrix">
+                       </span>
+
+                    </div>
+                     <div> <small  class="smallFonts fontsize-location"><i  class="fa fa-map-marker locatiospace" aria-hidden="true"></i> <?= $property->location->name?>, <?= $property->destination->name?>, <?= $property->country->name?></small></div>
+                    </div>
+                </div>
+                <div >
+                    <div id="column-3links-listing">
+
+                        <div id="link-properties-notification">
+                          <div>  <span class="icon-button__badge">2</span></div>
+                          <div>  <span class="icon-button__badge">2</span></div>
+                          <div>  <span class="icon-button__badge">2</span></div>
+                          <div>  <span class="icon-button__badge">2</span></div>
+                          <div>  <span class="icon-button__badge">2</span></div>
+
+                        </div>
+                        <div id="link-properties">
+
+                            <div>  <img class="margin-left-right-spacing" src="images/message-1.svg"></div>
+                            <div>  <img class="margin-left-right-spacing" src="images/note-1.svg"></div>
+                            <div>  <img class="margin-left-right-spacing" src="images/tick-properties.svg"></div>
+                            <div>  <img class="margin-left-right-spacing" src="images/blocking-icon.svg"></div>
+                            <div>  <img class="margin-left-right-spacing" src="images/booking-icon.svg"></div>
+
+                         </div>
+                         <div id="link-properties-label">
+                            <div><span class="spanText-size">messages</span> </div>
+                             <div><span class="spanText-size" >srr</span> </div>
+                               <div><span class="spanText-size">Availability</span> </div>
+                             <div><span class="spanText-size">blocking</span> </div>
+                             <div><span class="spanText-size">booking</span> </div>
+
+                         </div>
+                   </div>
+                        <div>
+                        </div>
+                    </div>
+
+
+                  <div >
+
+
+                      <div id="column-4links-listing">
+                          <div id="link-properties-action">
+                              <div>  <a href="#"> <img class="margin-left-right-spacing dropbtn-edit" onclick="myFunctionEdit(<?=$i?>)" src="images/edit-details.svg"></a>
+
+                                  <div id="myDropdownEdit<?=$i?>" class="dropdown-content-edit" style="height: 120px; background-color: #586ADA; margin-left: -90px; margin-top: 10px;">
+                                      <a href="<?= \yii\helpers\Url::to(['/property/basicdetails', 'id' => $property->id]) ?>" class="dro"><img  src="images/edit-sub-menue-icon.svg" style="margin-right: 2px;"> <span style="color: white">Edit Basic Details</span></a>
+                                      <a href="<?= \yii\helpers\Url::to(['/property/rules', 'id' =>  $property->id]) ?>" class="dro"><img  src="images/edit-sub-menue-icon.svg" style="margin-right: 2px;"> <span style="color: white"> Edit Operational Details</span></a>
+                                      <a href="<?= \yii\helpers\Url::to(['/tariff/home', 'id' =>  $property->id]) ?>" class="dro"><img  src="images/edit-sub-menue-icon.svg" style="margin-right: 2px;"> <span style="color: white"> Edit tariff</span></a>
+                                  </div>
+
+                              </div>
+                              <div> <img class="margin-left-right-spacing dropbtn-basic"  onclick="myFunctionBasic(<?=$i?>)"  src="images/basic-details.svg" ></a>
+                                  <div id="myDropdown-basic<?=$i?>" class="dropdown-content-basic-details" style="height: 120px; background-color: #586ADA; margin-left: -67px; margin-top: 10px;">
+                                      <a href="<?= \yii\helpers\Url::to(['/slab/home', 'id' =>  $property->id]) ?>" class="dro"> <img  src="images/edit-sub-menue-icon.svg"  style="margin-right: 2px;" > <span style="color: white">  Assign Slab </span></a>
+                                      <a href="<?= \yii\helpers\Url::to(['/property/basicdetails', 'id' =>  $property->id]) ?>" class="dro"><img  src="images/edit-sub-menue-icon.svg" style="margin-right: 2px;"> <span style="color: white"> Campaign </span></a>
+                                  </div>
+                              </div>
+
+
+                              <div>  <a href="<?= \yii\helpers\Url::to(['/property/basicdetails', 'id' =>  $property->id]) ?>"> <img class="margin-left-right-spacing "  src="images/eye-view-icon.svg"></a></div>
+                              <div>  <a href="<?= \yii\helpers\Url::to(['/property/basicdetails', 'id' =>  $property->id]) ?>"> <img class="margin-left-right-spacing" src="images/delete-1-icon.svg"></a></div>
+
+
+                          </div>
+
+                      </div>
+
+                   </div>
+           </div>
+
+
+
+
+            </div>
+        <?php
+        $i++;
+    } ?>
+</div>
+
+</div>
+
 <script>
-    $(function () {
-        $('.t').tooltip()
-    });
+
+ function myFunctionBasic(id) {
+    document.getElementById("myDropdown-basic"+id).classList.toggle("show-content");
+}
+function myFunctionEdit(id) {
+    document.getElementById("myDropdownEdit"+id).classList.toggle("show-content");
+}
+
+window.onclick = function(event) {
+
+    if (!event.target.matches('.dropbtn-edit')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content-edit");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show-content')) {
+                openDropdown.classList.remove('show-content');
+            }
+        }
+    }
+    if (!event.target.matches('.dropbtn-basic')) {
+        var dropdownedit = document.getElementsByClassName("dropdown-content-basic-details");
+        var i;
+        for (i = 0; i < dropdownedit.length; i++) {
+            var openDropdownedit = dropdownedit[i];
+            if (openDropdownedit.classList.contains('show-content')) {
+                openDropdownedit.classList.remove('show-content');
+            }
+        }
+    }
+
+}
+
 </script>
-<div class="row">
-    <div class="col-md-12">
-        <?= Html::a('<button id="tariff_add_row" type="submit" class="btn btn-sm btn-save  float-right">Add New Property</button>', ['/property/basicdetails']) ?>
-<!--        <button id="tariff_add_row" type="submit" class="btn btn-primary btn-sm  float-right">Add New Property</button>-->
-    </div>
-</div><br>
-<table id="properties" class="table table-md responsive">
-    <thead>
-    <th>Photo</th>
-    <th>Name</th>
-    <th>Quick Report</th>
-    <th>Actions</th>
-    </thead>
 
-    <?php  
-    
-    foreach ($properties as $property) { ?>
-    <tr>
-        <td width="100px" valign="top" class="px-1"><img src="uploads/<?php echo $property->image ?>" width="100"></td>
-        <td><?php echo $property->name ?> <br> <?php echo $property->validateData() ? "" : Html::a('Profile not completed: View report', ['/property/validate','id'=> $property->id ]) ?> </td>
-        <td class="text-center">
-            <a href="#" class="btn btn-sm t" title="Messages"><i class="fa fa-file text-secondary"></i><br>Messages</a>
-            <a href="#" class="btn btn-sm t" title="Special Rate Request"><i class="fa fa-book text-secondary"></i><br>SRR</a>
-            <a href="#" class="btn btn-sm t" title="Availability"><i class="fa fa-file text-secondary"></i><br>Availability</a>
-            <a href="#" class="btn btn-sm t" title="Blocking"><i class="fa fa-book text-secondary"></i><br>Blocking</a>
-            <a href="#" class="btn btn-sm t" title="Booking"><i class="fa fa-file text-secondary"></i><br>Booking</a>            
-        </td>
-        <td>
-       <?= Html::a('<i class="fa fa-tasks text-success p-1 t" style="width: 30px; height: 30px" title="Assign Slab"></i>', ['/slab/home','id'=> $property->id ]) ?>            
-       <?= Html::a('<i class="fa fa-edit text-success p-1 t" style="width: 30px; height: 30px" title="Edit Basic Details"></i>', Url::toRoute(['/property/basicdetails', 'id' => $property->id ])) ?>
-       <?= Html::a('<i class="fa fa-circle-dollar text-info p-1 t" style="width: 30px; height: 30px" title="Edit Tariff"></i>', ['/tariff/home','id'=> $property->id ]) ?>
-       <?= Html::a('<i class="fa fa-building text-warning p-1 t" style="width: 30px; height: 30px" title="Edit Operational Details"></i>', ['/property/rules','id'=> $property->id]) ?>
-     <i class="fa fa-trash text-danger p-1 t" style="width: 30px; height: 30px" title="Delete Property">
-        </td>
-    </tr>
-
-    <?php } ?>
-</table>
+</div>
