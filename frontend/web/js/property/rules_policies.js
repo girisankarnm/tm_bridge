@@ -661,3 +661,7 @@ function validateCancellationPolicy(){
 
     return bError;
 }
+$('.child-checkbox').click(function() {
+    $('.child-checkbox').not(this).prop('checked', false);
+});
+
