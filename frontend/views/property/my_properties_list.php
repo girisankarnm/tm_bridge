@@ -37,11 +37,11 @@
                             </div>
                             <div id="link-properties">
 
-                                <div>  <img class="margin-left-right-spacing" src="images/message-1.svg"></div>
-                                <div>  <img class="margin-left-right-spacing" src="images/note-1.svg"></div>
-                                <div>  <img class="margin-left-right-spacing" src="images/tick-properties.svg"></div>
-                                <div>  <img class="margin-left-right-spacing" src="images/blocking-icon.svg"></div>
-                                <div>  <img class="margin-left-right-spacing" src="images/booking-icon.svg"></div>
+                                <div>  <img  src="images/message-1.svg"></div>
+                                <div>  <img  src="images/note-1.svg"></div>
+                                <div>  <img  src="images/tick-properties.svg"></div>
+                                <div>  <img src="images/blocking-icon.svg"></div>
+                                <div>  <img src="images/booking-icon.svg"></div>
 
                              </div>
                              <div id="link-properties-label">

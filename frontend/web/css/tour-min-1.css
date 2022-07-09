@@ -2942,6 +2942,11 @@ text-align: right;
 
 .margin-left-right-spacing
 {
+    /*margin-left: 40px;*/
+    /*margin-right: 5px;*/
+}
+.margin-left-right-spacing-2
+{
     margin-left: 40px;
     /*margin-right: 5px;*/
 }
