@@ -176,15 +176,15 @@ $currentUrlPrefix = Yii::$app->controller->id ;
                 <?php  } ?>
 
                 <a class="sidebar-item" href="#">
-                    <img src="/images/Shared_with_me.svg" alt="properties.svg">
+                    <img src="/images/Shared_with_me.svg" alt="report.svg">
                     <p class="mb-0"> Report </p>
                 </a>
                 <a class="sidebar-item" href="#">
-                    <img src="/images/Shared_with_me.svg" alt="properties.svg">
-                    <p class="mb-0"> Support Tickets </p>
+                    <img src="/images/Events.svg" alt="ticket.svg">
+                    <p class="mb-0"> Support Ticket </p>
                 </a>
                 <a class="sidebar-item" href="#">
-                    <img src="/images/settings.svg" alt="properties.svg">
+                    <img src="/images/settings.svg" alt="settings.svg">
                     <p class="mb-0"> Settings </p>
                 </a>
             </div>
