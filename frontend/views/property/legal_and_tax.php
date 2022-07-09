@@ -48,39 +48,41 @@ use yii\bootstrap4\ActiveForm;
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label class="Labelclass">*Pancard</label>
-                            <?php
+                                <?php
                             if(!$legal_tax_documentation->pan_image) {
-                                echo "<img id='panImage' src='images/pan.png' class='imagePreview' style='height: 120px; width: 100%;  border: 2px #808080 dashed; border-radius: 6px'>";
+                                echo "<div id='panId' class='image-border'><img id='panImage' src='images/pan.png' class='imagedisplay'></div>";
                             } else {
-                                echo "<img id='panImage' src='uploads/$legal_tax_documentation->pan_image' class='imagePreview' style='height: 120px; width: 100%;  border: 2px #808080 dashed; border-radius: 6px'>";
+                                echo "<div id='panId' class='borderless-image'><img id='panImage' src='uploads/$legal_tax_documentation->pan_image' class='imagePreview'></div>";
                             }?>
-                            <?= $form->field($legal_docs_images, 'pan_image')->fileInput(['class' => 'btn btn-sm img uploadFile', 'accept' => "image/*", 'id'=>"uploadPan"])->label(false); ?>
-                        </div>
+                                <?= $form->field($legal_docs_images, 'pan_image')->fileInput(['class' => 'btn btn-sm img uploadFile', 'accept' => "image/*", 'id'=>"uploadPan"])->label(false); ?>
+                            </div>
                         <div class="form-group col-md-6 ">
                             <label class="Labelclass">*License</label>
+                                <?php
+                                if(!$legal_tax_documentation->business_licence_image) {
+                                    echo "<div id='licenseId' class='image-border'><img id='licenseImage' src='images/license.png' class='imagedisplay'></div>";
+                                } else {
+                                    echo "<div id='licenseId' class='borderless-image'><img id='licenseImage' src='uploads/$legal_tax_documentation->business_licence_image' class='imagePreview'></div>";
+                                }?>
 
-                            <?php
-                            if(!$legal_tax_documentation->business_licence_image) {
-                                echo "<img id='licenseImage' src='images/license.png' class='imagePreview' style='height: 120px; width: 100%;  border: 2px #808080 dashed; border-radius: 6px'>";
-                            } else {
-                                echo "<img id='licenseImage' src='uploads/$legal_tax_documentation->business_licence_image' class='imagePreview' style='height: 120px; width: 100%;  border: 2px #808080 dashed; border-radius: 6px'>";
-                            }?>
-
-                            <?= $form->field($legal_docs_images, 'business_licence_image')->fileInput(['class' => 'btn btn-sm img uploadFile', 'accept' => "image/*", 'id'=>"uploadLicense"])->label(false); ?>
+                                <?= $form->field($legal_docs_images, 'business_licence_image')->fileInput(['class' => 'btn btn-sm img uploadFile', 'accept' => "image/*", 'id'=>"uploadLicense"])->label(false); ?>
                         </div>
                     </div>
+                    <div class="row">
                         <div class="form-group col-md-6">
                             <label class="Labelclass">*GST</label>
+                                <?php
+                                if(!$legal_tax_documentation->gst_image) {
+                                    echo "<div id='gstId' class='image-border'><img id='gstImage' src='images/GST.png' class='imagedisplay'></div>";
+                                } else {
+                                    echo "<div id='gstId' class='borderless-image'><img id='gstImage' src='uploads/$legal_tax_documentation->gst_image' class='imagePreview'></div>";
+                                }?>
 
-                            <?php
-                            if(!$legal_tax_documentation->gst_image) {
-                                echo "<img id='gstImage' src='images/GST.png' class='gst_image' style='height: 120px; width:100%;  border: 2px #808080 dashed; border-radius: 6px'>";
-                            } else {
-                                echo "<img id='gstImage' src='uploads/$legal_tax_documentation->gst_image' class='gst_image' style='height: 120px; width:100%;  border: 2px #808080 dashed; border-radius: 6px'>";
-                            }?>
-
-                            <?= $form->field($legal_docs_images, 'gst_image')->fileInput(['class' => 'btn btn-sm img uploadFile', 'accept' => "image/*", 'id'=>"uploadGst"])->label(false); ?>
+                                <?= $form->field($legal_docs_images, 'gst_image')->fileInput(['class' => 'btn btn-sm img uploadFile', 'accept' => "image/*", 'id'=>"uploadGst"])->label(false); ?>
                         </div>
+
+                    </div>
+
                 </div>
             </div>
             <div class="row align-items-start">
@@ -120,13 +122,29 @@ use yii\bootstrap4\ActiveForm;
 </div>
 
 <style>
+    .image-border {
+        height: 120px;
+        width: 100%;
+        border: 2px #808080 dashed;
+        border-radius: 6px;
+        position: relative
+    }
+    .borderless-image {
+        height: 120px;
+        width: 100%;
+        /*border: 2px #808080 dashed;*/
+        border-radius: 6px;
+        position: relative
+    }
+
+
     .imagePreview {
         max-width:100%;
         max-height:100%;
-        width: 200px;
-        height: auto;
         /*width: 200px;*/
-        /*height: 200px;*/
+        /*height: auto;*/
+        width: 100%;
+        height: 100%;
         background-position: center center;
         background-size: cover;
         /*-webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);*/
@@ -134,18 +152,16 @@ use yii\bootstrap4\ActiveForm;
         /*background-image: url('http://via.placeholder.com/350x150');*/
         /*border: 2px gray dashed;*/
     }
-    .imagePreviewLogo {
-        max-width:100%;
-        max-height:100%;
-        width: 240px;
-        height: auto;
-        /*width: 240px;*/
-        /*height: 200px;*/
-        background-position: center center;
-        background-size: cover;
-        /*-webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);*/
-        display: inline-block;
-        /*background-image: url('http://via.placeholder.com/350x150');*/
+
+    .imagedisplay{
+        width: 80px;
+        height: 80px;
+        /*margin: 0;*/
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
     }
     .default-preview{
         border: 2px gray dashed;
@@ -174,9 +190,9 @@ use yii\bootstrap4\ActiveForm;
 
                 reader.onloadend = function(){ // set image data as background of div
 
-                    $('#panImage').removeClass('default-preview');
                     $("#panImage").attr("src", reader.result);
-                    // $("#imagePreview").css("background-image", "url("+this.result+")");
+                    document.getElementById("panId").className = "borderless-image";
+                    document.getElementById("panImage").className = "imagePreview";
                 }
             }
         });
@@ -201,6 +217,8 @@ use yii\bootstrap4\ActiveForm;
 
                 reader.onloadend = function(){ // set image data as background of div
                     $('#licenseImage').removeClass('default-preview');
+                    document.getElementById("licenseId").className = "borderless-image";
+                    document.getElementById("licenseImage").className = "imagePreview";
                     // $("#imagePreview-logo").css("background-image", "url("+this.result+")");
                     $("#licenseImage").attr("src", reader.result);
                 }
@@ -226,9 +244,9 @@ use yii\bootstrap4\ActiveForm;
 
                 reader.onloadend = function(){ // set image data as background of div
 
-                    $('#gstImage').removeClass('default-preview');
+                    document.getElementById("gstId").className = "borderless-image";
+                    document.getElementById("gstImage").className = "imagePreview";
                     $("#gstImage").attr("src", reader.result);
-                    // $("#imagePreview").css("background-image", "url("+this.result+")");
                 }
             }
         });

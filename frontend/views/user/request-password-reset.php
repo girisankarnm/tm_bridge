@@ -6,45 +6,49 @@ $this->registerCssFile('/css/full-page.css');
 
 ?>
 
-<div class="content">
+<div class="content" style="height: 100%; background-image: url(/images/tm_welcome.png); background-size: cover; background-position: center; background-repeat: no-repeat; margin: 0">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-5 col-xl-4">
+            <div class="card" style="margin:5% auto; background-color: white; border-radius: 20px">
+                <form action="" >
+                    <div class="" style="padding: 28px;">
+                        <div style="display: flex; justify-content: center">
+                            <img src="/images/tm_bridge_logo.svg" class="logo-small">
+                        </div>
+                        <div  style="display: flex; justify-content: center; margin-bottom: 20px; font-size: 22px; font-weight: bold">
+                            Password recovery
+                        </div>
+                        <div class="col-md-12" style="font-size: 13px; margin-bottom: 20px; text-align: center">
+                            Please fill in the email you've used to create account and we'll send you a rest link
+                        </div>
+                        <div class="form-group row" >
+                            <div class="col-md-3">
+                                <label for="your-input" class="Inline-label">Email</label>
+                            </div>
+                            <div class="col-md-9">
+                                <input type="email" id="your-input" class="login-input" />
+                            </div>
+                        </div>
 
-    <div class="container-fluid">
-        <form action="" >
-        <div class="row" >
-            <div class="" style="width: 40%; margin: auto; padding-left: 28px; padding-right: 28px; background-color: white ">
-                <div style="margin-top: 20px">
-                    <img src="/images/logo.svg" class="logo-small">
-                </div>
-                <div  style="margin-left: 6px; margin-bottom: 10px; font-size: 24px; font-weight: bold">
-                    Password recovery
-                </div>
-                <div style="margin-bottom: 20px; margin-left: 6px; line-height: 20px">
-                    <span style="font-size: 13px">
-                      Please fill in the email you've used to create account and we'll send you a rest link
-                    </span>
-                </div>
 
 
-                <div style="display: inline-block; margin-bottom: 10px; margin-left: 6px">
-                    <label for="your-input" class="Labelclass">Email</label>
-                    <input type="email" id="your-input" class="login-input" />
-                </div>
+<!--                        <a href="#" style="float: right; text-decoration: none; color: #831BEE; font-size: 12px; font-weight: bold">Forgot password?</a>-->
+                        <hr class="sidebar-divider" style="margin-top: 40px">
+                        <div style="display: flex; flex-direction: row; justify-content: space-between; margin-top: 10px; margin-left: 6px">
+                            <a href="#" style="text-decoration: none; color: #E40967; font-weight: bold">Back to Login</a>
+                            <div>
+                                <BUTTON type="submit" class="login-button-large" > Reset my password </BUTTON>
 
-                <hr class="sidebar-divider" style="margin-top: 30px">
-                <div style="display: flex; flex-direction: row; justify-content: space-between; margin-top: 10px; margin-left: 6px">
-<!--                    <div style="color: #E40967; font-weight: bold">Back to Login-->
-<!--                    </div>-->
-                    <a href="#" style="text-decoration: none; color: #E40967; font-weight: bold">Back to Login</a>
-                    <div>
-                        <BUTTON type="submit" class="login-button-large" > Reset my password </BUTTON>
+                            </div>
+                        </div>
 
                     </div>
-                </div>
+                </form>
 
             </div>
         </div>
-        </form>
     </div>
 </div>
+
 
 
