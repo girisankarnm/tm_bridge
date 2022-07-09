@@ -66,28 +66,32 @@ $this->registerJsFile('/js/common.js');
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label class="Labelclass" style="display: block;" >*Property Photo</label>
+                            <div style='height: 200px; width:100%;  border: 2px #808080 dashed; border-radius: 6px; position: relative'>
+                                <?php
+                                if(!$basic_details->id) {
+//                                echo "<img id='imagePreview' src='images/property picture.png' class='imagePreview' style='height: 200px; width:100%;  border: 2px #808080 dashed; border-radius: 6px'>";
+                                    echo "<img id='imagePreview' src='images/property picture.png' class='imagedisplay' >";
+                                } else {
+                                    echo "<img id='imagePreview' src='uploads/$basic_details->image' class='imagePreview'>";
+                                }?>
 
-                            <?php
-                            if(!$basic_details->id) {
-                                echo "<img id='imagePreview' src='images/property picture.png' class='imagePreview' style='height: 200px; width:100%;  border: 2px #808080 dashed; border-radius: 6px'>";
-                            } else {
-                                echo "<img id='imagePreview' src='uploads/$basic_details->image' class='imagePreview' style='height: 200px; width:100%;  border: 2px #808080 dashed; border-radius: 6px'>";
-                            }?>
+                                <!--                            <label class="Labelclass" style="display: block;" >*Property Photo</label>-->
+                                <?= $form->field($property_image, 'proFile')->fileInput(['class' => 'btn btn-sm img uploadFile', 'accept' => "image/*", 'id'=>"uploadFile"])->label(false); ?>
 
-                            <!--                            <label class="Labelclass" style="display: block;" >*Property Photo</label>-->
-                            <?= $form->field($property_image, 'proFile')->fileInput(['class' => 'btn btn-sm img uploadFile', 'accept' => "image/*", 'id'=>"uploadFile"])->label(false); ?>
+                            </div>
 
                         </div>
                         <div class="form-group col-md-6">
                             <label class="Labelclass" style="display: block;" >*Property Logo</label>
-
-                            <?php
-                            if(!$basic_details->id) {
-                                echo "<img id='imagePreview-logo' src='images/property logo.png' class='imagePreviewLogo' style='height: 200px; width:100%;  border: 2px #808080 dashed; border-radius: 6px'>";
-                            } else {
-                                echo "<img id='imagePreview-logo' src='uploads/$basic_details->logo' class='imagePreviewLogo' style='height: 200px; width:100%;  border: 2px #808080 dashed; border-radius: 6px'>";
-                            }?>
-
+                            <div style='height: 200px; width:100%;  border: 2px #808080 dashed; border-radius: 6px; position: relative '>
+                                <?php
+                                if(!$basic_details->id) {
+//                                echo "<img id='imagePreview-logo' src='images/property logo.png' class='imagePreviewLogo' style='height: 200px; width:100%;  border: 2px #808080 dashed; border-radius: 6px'>";
+                                    echo "<img id='imagePreview-logo' src='images/property logo.png' class='imagedisplay'>";
+                                } else {
+                                    echo "<img id='imagePreview-logo' src='uploads/$basic_details->logo' class='imagePreviewLogo' >";
+                                }?>
+                            </div>
 
                             <!--                        <input id="uploadFile-logo" type="file" name="property_logo" class="img uploadFile" />-->
                             <?= $form->field($property_image, 'logoFile')->fileInput(['class' => 'btn btn-sm img uploadFile', 'accept' => "image/*", 'id'=>"uploadFile-logo"])->label(false); ?>
@@ -109,10 +113,10 @@ $this->registerJsFile('/js/common.js');
     .imagePreview {
         max-width:100%;
         max-height:100%;
-        width: 200px;
-        height: auto;
+        width: 100%;
+        /*height: auto;*/
         /*width: 200px;*/
-        /*height: 200px;*/
+        height: 100%;
         background-position: center center;
         background-size: cover;
         /*-webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);*/
@@ -123,16 +127,28 @@ $this->registerJsFile('/js/common.js');
     .imagePreviewLogo {
         max-width:100%;
         max-height:100%;
-        width: 240px;
-        height: auto;
         /*width: 240px;*/
-        /*height: 200px;*/
+        /*height: auto;*/
+        width: 100%;
+        height: 100%;
         background-position: center center;
         background-size: cover;
         /*-webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);*/
         display: inline-block;
         /*background-image: url('http://via.placeholder.com/350x150');*/
     }
+
+    .imagedisplay{
+        width: 130px;
+        height: 130px;
+        /*margin: 0;*/
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+
     .default-preview{
         border: 2px gray dashed;
     }
@@ -150,7 +166,7 @@ $this->registerJsFile('/js/common.js');
     $(function() {
         $("#uploadFile").on("change", function()
         {
-
+            document.getElementById("imagePreview").className = "imagePreview";
             var files = !!this.files ? this.files : [];
             if (!files.length || !window.FileReader) return; // no file selected, or no FileReader support
 
@@ -171,12 +187,13 @@ $this->registerJsFile('/js/common.js');
 
 
     $('#imagePreview-logo').click(function(){
-
         $('#uploadFile-logo').click();
     });
     $(function() {
         $("#uploadFile-logo").on("change", function()
         {
+            // alert('ok');
+            document.getElementById("imagePreview-logo").className = "imagePreview";
 
             var files = !!this.files ? this.files : [];
             if (!files.length || !window.FileReader) return; // no file selected, or no FileReader support
