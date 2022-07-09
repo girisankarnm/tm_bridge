@@ -8,7 +8,7 @@
             if($result != NULL)
             { ?>
                 <img src="images/rectangle-cross.svg"  class="chckbox-class" > <span class="Validation-Heading-Error"><?= $name ?> : Failed</span>
-                 <ul class="margin-left-right-spacing">
+                 <ul class="margin-left-right-spacing-2">
              <?php
                 foreach($result as $attribute => $error)
                 {
