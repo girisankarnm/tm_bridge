@@ -64,30 +64,33 @@ use Carbon\Carbon;
                                 <div style="width: 90px;"><h6 class="motherdaterange-H6 h7class  smallFonts" > <?= Carbon::parse($range->to_date)->format('d M Y'); ?> </h6></div>
                             </div>
                         </div>
-                        <div style="display: flex">
-                            <div id="main2"  >
-                                <div></div>
-                                <div ><h6  class="motherdaterange-H6  smallFonts" style="padding-top: 0px; font-size: 10px; line-height: 0;"><img s src="images/user-icon.svg" style="color: #545b62;margin-right: 4px" aria-hidden="true"></img><?= Yii::$app->user->identity->first_name ?></h6></div>
-                                <div ><h6 class="motherdaterange-H6 h7class  smallFonts" ><img s src="images/callender-icon.svg" style="color: #545b62;margin-right: 4px" aria-hidden="true"></img> december 25 2022 </h6></div>
-                                <div ><h6 class="motherdaterange-H6 h7class" >                 <img s src="images/ticksuccess.svg" style="color: #545b62;margin-right: 4px" aria-hidden="true"></img>
-                                        <span class="publishform"> <?= ($range->status == 1) ? "Published" : "Not Published" ?></span> </h6></div>
-                            </div>
+                        <div id="main-link" >
+                            <div>
+                                <div id="main-link-div-1"  >
+                                    <div></div>
+                                    <div ><h6  class="motherdaterange-H6  smallFonts" style="padding-top: 0px; font-size: 10px; line-height: 0;"><img s src="images/user-icon.svg" style="color: #545b62;margin-right: 4px" aria-hidden="true"></img><?= Yii::$app->user->identity->first_name ?></h6></div>
+                                    <div ><h6 class="motherdaterange-H6 h7class  smallFonts" ><img s src="images/callender-icon.svg" style="color: #545b62;margin-right: 4px" aria-hidden="true"></img> december 25 2022 </h6></div>
+                                    <div ><h6 class="motherdaterange-H6 h7class" >                 <img s src="images/ticksuccess.svg" style="color: #545b62;margin-right: 4px" aria-hidden="true"></img>
+                                            <span class="publishform"> <?= ($range->status == 1) ? "Published" : "Not Published" ?></span> </h6></div>
 
-                            <?php $form = ActiveForm::begin(['id' => 'tariff_publish_'.$range->id,'enableClientValidation' => true,'method' => 'post','action' => ['tariff/publish', 'id' => $range->id]]) ?>
-                            <?= $form->field($range, 'id')->hiddenInput()->label(false); ?>
-                            <div id="b" style=" display: flex">
-                                <div style="margin-right: 10px;padding-bottom: 10px"> 
-                                
+                                </div>
+                            </div>
+                            <div >
+
+                                <div style="margin-right: 10px;padding-bottom: 10px">
                                 <?php if($range->status != 1) { ?>
-                                <button type="submit" class="buttonSaveroomrate"  data-toggle="modal" data-target="#logoutModal"> Publish </button> 
+                                <button type="submit" class="buttonSaveroomrate"  data-toggle="modal" data-target="#logoutModal"> Publish </button>
                                 <?php } ?>
-                                <a href="<?= \yii\helpers\Url::to(['/tariff/addmotherdate', 'id' =>  $property->id, 'mother_id' => $range->id]) ?>"> 
-                                <img s src="images/edit-1-icon.svg" style="color: #545b62;margin-right: 4px" aria-hidden="true"></img></a>   
+                                <a href="<?= \yii\helpers\Url::to(['/tariff/addmotherdate', 'id' =>  $property->id, 'mother_id' => $range->id]) ?>">
+                                <img s src="images/edit-1-icon.svg" style="color: #545b62;margin-right: 4px" aria-hidden="true"></img></a>
                                 <a href="#"> <img s src="images/delete-1-icon.svg" style="color: #545b62;margin-right: 4px" aria-hidden="true"></img></a>
                                 </div>
                             </div>
-                            <?php ActiveForm::end(); ?>
+
+
                         </div>
+
+
                     </div>                   
 
                     <?php

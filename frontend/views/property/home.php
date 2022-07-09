@@ -18,6 +18,8 @@
                       <span class="hotelHeading" > <span class="cut-text" style="display: inline"><?= $property->name?><span/> <img class="f-star" src="images/Star-1.svg" alt="Matrix">
                        <img class="f-star" style="padding-left: 2px"  src="images/Star-1.svg" alt="Matrix">
                        <img  class="f-star" style="padding-left: 2px" src="images/Star-1.svg" alt="Matrix">
+                       <img  class="f-star" style="padding-left: 2px" src="images/Star-1.svg" alt="Matrix">
+                       <img  class="f-star" style="padding-left: 2px" src="images/Star-1.svg" alt="Matrix">
                        </span>
 
                     </div>

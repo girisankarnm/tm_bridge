@@ -65,7 +65,7 @@ $this->registerJsFile('/js/tariff/tariff.js');
         <div style="width: 100%;height:80px;display: block;margin-left: 5px">
             <div class="commonTitle" style="width: 500px"> <?= $room->name ?> <span class="commonTitlesmall-2"> ( <?= ($room_off_set) ?> of <?= $room_count?> Rooms ) </span></div>
             <div style="width: 500px;margin-top: 23px;font-size: 12px;font: bold;color: black">
-                <img  src="images/User-2.svg" alt="Matrix" class="margin-right-icon" > <img  src="images/User-2.svg" alt="Matrix" class="margin-right-icon" > <img  src="images/User-2.svg" alt="Matrix" class="margin-right-icon"  >  <span style="margin-right: 5px;" class="commonTitlesmall"> Occupancy AD : 2  Eb : 1 Sb : 1 </span>  <img  src="images/meal-2.svg" alt="Matrix" class="margin-right-icon" style="margin-right: 5px"><span style="margin-right: 5px;" class="commonTitlesmall"> meal:</span> <span style="margin-right: 5px"  class="commonTitlesmall">  <?= $room->mealPlan->name ?> </span></div>
+                <img  src="images/User-2.svg" class="margin-right-icon-user" > <img  src="images/User-2.svg"  class="margin-right-icon-user" > <img  src="images/User-2.svg"  class="margin-right-icon-user"  >  <span style="margin-right: 5px;margin-left: 5px" class="commonTitlesmall"> Occupancy AD : 2  Eb : 1 Sb : 1 </span>  <img  src="images/meal-2.svg" alt="Matrix" class="margin-right-icon" style="margin-right: 5px"><span style="margin-right: 5px;" class="commonTitlesmall"> meal :</span> <span style="margin-right: 5px"  class="commonTitlesmall">  <?= $room->mealPlan->name ?> </span></div>
         </div>
 
         <?php $form = ActiveForm::begin(['id' => 'tariff_step3','enableClientValidation' => true,'method' => 'post','action' => ['tariff/saveroomrates']]); ?>
