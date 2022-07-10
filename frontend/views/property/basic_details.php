@@ -49,53 +49,33 @@ $this->registerJsFile('/js/common.js');
                         <?php
                         if ($basic_details->website != null) {
                             echo $form->field($basic_details, 'website')->textInput(['class' => 'inputLarge'])->label(false);
-
                         } else {
                             echo $form->field($basic_details, 'website')->textInput(['class' => 'inputLarge', 'value' => 'http://'])->label(false);
-
                         }
                         ?>
-
-
                     </div>
-
-
-
                 </div>
                 <div class="col-md-6 ">
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label class="Labelclass" style="display: block;" >*Property Photo</label>
-                            <div style='height: 200px; width:100%;  border: 2px #808080 dashed; border-radius: 6px; position: relative'>
                                 <?php
                                 if(!$basic_details->id) {
-//                                echo "<img id='imagePreview' src='images/property-picture.png' class='imagePreview' style='height: 200px; width:100%;  border: 2px #808080 dashed; border-radius: 6px'>";
-                                    echo "<img id='imagePreview' src='images/property-picture.png' class='imagedisplay' >";
+                                    echo "<div id='photoId' class='basic-details-image-border'><img id='imagePreview' src='images/property-picture.png' class='imagedisplay' ></div>";
                                 } else {
-                                    echo "<img id='imagePreview' src='uploads/$basic_details->image' class='imagePreview'>";
+                                    echo "<div id='photoId' class='basic-details-borderless-image'><img id='imagePreview' src='uploads/$basic_details->image' class='imagePreview'></div>";
                                 }?>
-
-                                <!--                            <label class="Labelclass" style="display: block;" >*Property Photo</label>-->
                                 <?= $form->field($property_image, 'proFile')->fileInput(['class' => 'btn btn-sm img uploadFile', 'accept' => "image/*", 'id'=>"uploadFile"])->label(false); ?>
-
-                            </div>
-
                         </div>
                         <div class="form-group col-md-6">
                             <label class="Labelclass" style="display: block;" >*Property Logo</label>
-                            <div style='height: 200px; width:100%;  border: 2px #808080 dashed; border-radius: 6px; position: relative '>
                                 <?php
                                 if(!$basic_details->id) {
-//                                echo "<img id='imagePreview-logo' src='images/property-logo.png' class='imagePreviewLogo' style='height: 200px; width:100%;  border: 2px #808080 dashed; border-radius: 6px'>";
-                                    echo "<img id='imagePreview-logo' src='images/property-logo.png' class='imagedisplay'>";
+                                    echo "<div id='logoId' class='basic-details-image-border'><img id='imagePreview-logo' src='images/property-logo.png' class='imagedisplay'></div>";
                                 } else {
-                                    echo "<img id='imagePreview-logo' src='uploads/$basic_details->logo' class='imagePreviewLogo' >";
+                                    echo "<div id='logoId' class='basic-details-borderless-image'><img id='imagePreview-logo' src='uploads/$basic_details->logo' class='imagePreviewLogo' ></div>";
                                 }?>
-                            </div>
-
-                            <!--                        <input id="uploadFile-logo" type="file" name="property_logo" class="img uploadFile" />-->
                             <?= $form->field($property_image, 'logoFile')->fileInput(['class' => 'btn btn-sm img uploadFile', 'accept' => "image/*", 'id'=>"uploadFile-logo"])->label(false); ?>
-
                         </div>
                     </div>
 
@@ -110,6 +90,21 @@ $this->registerJsFile('/js/common.js');
     </div>
 </div>
 <style>
+    .basic-details-image-border {
+        height: 200px;
+        width:100%;
+        border: 2px #808080 dashed;
+        border-radius: 6px;
+        position: relative
+    }
+    .basic-details-borderless-image {
+        height: 200px;
+        width:100%;
+        /*border: 2px #808080 dashed;*/
+        border-radius: 6px;
+        position: relative
+    }
+
     .imagePreview {
         max-width:100%;
         max-height:100%;
@@ -119,9 +114,7 @@ $this->registerJsFile('/js/common.js');
         height: 100%;
         background-position: center center;
         background-size: cover;
-        /*-webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);*/
         display: inline-block;
-        /*background-image: url('http://via.placeholder.com/350x150');*/
         /*border: 2px gray dashed;*/
     }
     .imagePreviewLogo {
@@ -133,9 +126,7 @@ $this->registerJsFile('/js/common.js');
         height: 100%;
         background-position: center center;
         background-size: cover;
-        /*-webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);*/
         display: inline-block;
-        /*background-image: url('http://via.placeholder.com/350x150');*/
     }
 
     .imagedisplay{
@@ -166,7 +157,6 @@ $this->registerJsFile('/js/common.js');
     $(function() {
         $("#uploadFile").on("change", function()
         {
-            document.getElementById("imagePreview").className = "imagePreview";
             var files = !!this.files ? this.files : [];
             if (!files.length || !window.FileReader) return; // no file selected, or no FileReader support
 
@@ -177,8 +167,10 @@ $this->registerJsFile('/js/common.js');
                 reader.onloadend = function(){ // set image data as background of div
 
                     $('#imagePreview').removeClass('default-preview');
+                    document.getElementById("photoId").className = "basic-details-borderless-image";
+                    document.getElementById("imagePreview").className = "imagePreview";
+
                     $("#imagePreview").attr("src", reader.result);
-                    // $("#imagePreview").css("background-image", "url("+this.result+")");
                 }
             }
         });
@@ -192,9 +184,6 @@ $this->registerJsFile('/js/common.js');
     $(function() {
         $("#uploadFile-logo").on("change", function()
         {
-            // alert('ok');
-            document.getElementById("imagePreview-logo").className = "imagePreview";
-
             var files = !!this.files ? this.files : [];
             if (!files.length || !window.FileReader) return; // no file selected, or no FileReader support
 
@@ -204,7 +193,10 @@ $this->registerJsFile('/js/common.js');
 
                 reader.onloadend = function(){ // set image data as background of div
                     $('#imagePreview-logo').removeClass('default-preview');
-                    // $("#imagePreview-logo").css("background-image", "url("+this.result+")");
+
+                    document.getElementById("logoId").className = "basic-details-borderless-image";
+                    document.getElementById("imagePreview-logo").className = "imagePreview";
+
                     $("#imagePreview-logo").attr("src", reader.result);
                 }
             }
