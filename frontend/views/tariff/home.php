@@ -76,15 +76,17 @@ use Carbon\Carbon;
                                 </div>
                             </div>
                             <div >
-
+                                <?php $form = ActiveForm::begin(['id' => 'tariff_publish_'.$range->id,'enableClientValidation' => true,'method' => 'post','action' => ['tariff/publish', 'id' => $range->id]]) ?>
                                 <div style="margin-right: 10px;padding-bottom: 10px">
-                                <?php if($range->status != 1) { ?>
-                                <button type="submit" class="buttonSaveroomrate"  data-toggle="modal" data-target="#logoutModal"> Publish </button>
+                                <?php if($range->status != 1) { ?>                                    
+                                    <?= $form->field($range, 'id')->hiddenInput()->label(false); ?>
+                                    <button type="submit" class="buttonSaveroomrate"  data-toggle="modal" data-target="#logoutModal"> Publish </button>
                                 <?php } ?>
                                 <a href="<?= \yii\helpers\Url::to(['/tariff/addmotherdate', 'id' =>  $property->id, 'mother_id' => $range->id]) ?>">
                                 <img s src="images/edit-1-icon.svg" style="color: #545b62;margin-right: 4px" aria-hidden="true"></img></a>
                                 <a href="#"> <img s src="images/delete-1-icon.svg" style="color: #545b62;margin-right: 4px" aria-hidden="true"></img></a>
                                 </div>
+                                <?php ActiveForm::end(); ?>
                             </div>
 
 

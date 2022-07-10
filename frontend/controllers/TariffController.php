@@ -795,7 +795,8 @@ class TariffController extends Controller {
         $mother_range->status = 1;
         $mother_range->save();
 
-        echo "Published". $id;
+        $this->layout = 'tm_main';
+        return $this->render('published', ['mother_range' => $mother_range]);
     }
 
     public function actionTariffdinner(){
