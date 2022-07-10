@@ -24,36 +24,37 @@
 
                     </div>
                      <div> <small  class="smallFonts fontsize-location"><i  class="fa fa-map-marker locatiospace" aria-hidden="true"></i> <?= $property->location->name?>, <?= $property->destination->name?>, <?= $property->country->name?></small></div>
+                        <div> <span class="badge-properties shadow-div">Profile is not completed</span></div>
                     </div>
                 </div>
                 <div >
                     <div id="column-3links-listing">
 
                         <div id="link-properties-notification">
-                          <div>  <span class="icon-button__badge">2</span></div>
-                          <div>  <span class="icon-button__badge">2</span></div>
-                          <div>  <span class="icon-button__badge">2</span></div>
-                          <div>  <span class="icon-button__badge">2</span></div>
-                          <div>  <span class="icon-button__badge">2</span></div>
+<!--                          <div>  <span class="icon-button__badge">2</span></div>-->
+<!--                          <div>  <span class="icon-button__badge">2</span></div>-->
+<!--                          <div>  <span class="icon-button__badge">2</span></div>-->
+<!--                          <div>  <span class="icon-button__badge">2</span></div>-->
+<!--                          <div>  <span class="icon-button__badge">2</span></div>-->
 
                         </div>
                         <div id="link-properties">
 
-                            <div>  <img class="margin-left-right-spacing" src="images/message-1.svg"></div>
-                            <div>  <img class="margin-left-right-spacing" src="images/note-1.svg"></div>
-                            <div>  <img class="margin-left-right-spacing" src="images/tick-properties.svg"></div>
-                            <div>  <img class="margin-left-right-spacing" src="images/blocking-icon.svg"></div>
-                            <div>  <img class="margin-left-right-spacing" src="images/booking-icon.svg"></div>
+                            <div><span class="icon-button__badge">2</span> <div class="action-icon">   <img class="margin-left-right-spacing action-icon" src="images/message-1.svg"> <div class="action-text action-icon"><span class="spanText-size">messages</span> </div></div></div>
+                            <div><span class="icon-button__badge">2</span> <div class="action-icon">  <span class="icon-button__badge">2</span> <img class="margin-left-right-spacing action-icon" src="images/note-1.svg">  <div class="action-text"><span class="spanText-size" >srr</span> </div></div></div>
+                            <div><span class="icon-button__badge">2</span><div class="action-icon"> <span class="icon-button__badge">2</span>  <img class="margin-left-right-spacing action-icon" src="images/tick-properties.svg">  <div class="action-text"><span class="spanText-size">Availability</span> </div></div></div>
+                            <div><span class="icon-button__badge">2</span><div class="action-icon"> <span class="icon-button__badge">2</span>  <img class="margin-left-right-spacing action-icon" src="images/blocking-icon.svg">  <div class="action-text"><span class="spanText-size">blocking</span> </div></div></div>
+                            <div><span class="icon-button__badge">2</span> <div class="action-icon">  <span class="icon-button__badge">2</span> <img class="margin-left-right-spacing action-icon" src="images/booking-icon.svg"> <div class="action-text"><span class="spanText-size">booking</span> </div></div></div>
 
                          </div>
-                         <div id="link-properties-label">
-                            <div><span class="spanText-size">messages</span> </div>
-                             <div><span class="spanText-size" >srr</span> </div>
-                               <div><span class="spanText-size">Availability</span> </div>
-                             <div><span class="spanText-size">blocking</span> </div>
-                             <div><span class="spanText-size">booking</span> </div>
-
-                         </div>
+<!--                         <div id="link-properties-label">-->
+<!--                            <div class="action-text action-icon"><span class="spanText-size">messages</span> </div>-->
+<!--                             <div class="action-text"><span class="spanText-size" >srr</span> </div>-->
+<!--                               <div class="action-text"><span class="spanText-size">Availability</span> </div>-->
+<!--                             <div class="action-text"><span class="spanText-size">blocking</span> </div>-->
+<!--                             <div class="action-text"><span class="spanText-size">booking</span> </div>-->
+<!---->
+<!--                         </div>-->
                    </div>
                         <div>
                         </div>
