@@ -6,28 +6,28 @@ $this->title = 'User List';
 rmrevin\yii\fontawesome\AssetBundle::register($this);
 frontend\assets\CommonAsset::register($this);
 ?>
-<style>
-    #users th,#users td {
-        border: 1px solid #9cacad;
-        text-align: left;
-    }
-    #users {
-        color: #636363;
-        /*background: #2a3f54;*/
-        font-family: "Helvetica Neue",Roboto,Arial,"Droid Sans",sans-serif;
-        font-size: 13px;
-    }
-    a:hover {
-        background-color: #1dd5ff;
-    }
-    i:hover {
-        background-color: #1dd5ff;
-    }
-    table td {
-        text-align: left !important;
-        vertical-align: middle !important;
-    }
-</style>
+<!--<style>-->
+<!--    #users th,#users td {-->
+<!--        border: 1px solid #9cacad;-->
+<!--        text-align: left;-->
+<!--    }-->
+<!--    #users {-->
+<!--        color: #636363;-->
+<!--        /*background: #2a3f54;*/-->
+<!--        font-family: "Helvetica Neue",Roboto,Arial,"Droid Sans",sans-serif;-->
+<!--        font-size: 13px;-->
+<!--    }-->
+<!--    a:hover {-->
+<!--        background-color: #1dd5ff;-->
+<!--    }-->
+<!--    i:hover {-->
+<!--        background-color: #1dd5ff;-->
+<!--    }-->
+<!--    table td {-->
+<!--        text-align: left !important;-->
+<!--        vertical-align: middle !important;-->
+<!--    }-->
+<!--</style>-->
 <script>
     function showConfirmMessage(action, userName, id){
 
@@ -45,11 +45,11 @@ frontend\assets\CommonAsset::register($this);
         default:
             return;
         }
-    
-        $('#message_text').html(message);        
+
+        $('#message_text').html(message);
         $('#action_id').val(action);
         $('#user_id').val(id);
-        $("#actionUserName").html(userName);        
+        $("#actionUserName").html(userName);
         $('#deleteModal').modal('show');
         return false;
     }
