@@ -25,6 +25,7 @@ if ($user_type == 1) {
     //TODO: Change icon
     $icon = "/images/properties.svg";
 }
+$currentUrlPrefix = Yii::$app->controller->id ;
 ?>
 
 <?php $this->beginPage() ?>
@@ -156,27 +157,35 @@ if ($user_type == 1) {
         <div class="row content-contr">
             <!-- Sidebar Menu -->
             <div class="col-2 sidebar-contr">
-                <a class="sidebar-item" href="<?= $url ?>">
+                <a class="sidebar-item <?php if($currentUrlPrefix == 'property' || $currentUrlPrefix == 'enquiry' ): ?> active <?php endif; ?>" href="<?= $url ?>">
                     <img src="<?= $icon ?>" alt="<?= $menuText ?>">
                     <p class="mb-0"><?= $menuText ?></p>
                 </a>
 
-                <a class="sidebar-item active" href="index.php?r=user/list">
+                <a class="sidebar-item <?php if($currentUrlPrefix == 'user'): ?> active <?php endif; ?>" href="index.php?r=user/list">
                     <img src="/images/user.svg" alt="user.svg">
                     <p class="mb-0"> Users </p>
                 </a>
 
                 <!-- Operator only -->
                 <?php if ($user_type == 2) { ?>
-                <a class="sidebar-item" href="index.php?r=operator/basicdetails">
+                <a class="sidebar-item <?php if($currentUrlPrefix == 'operator'): ?> active <?php endif; ?>" href="index.php?r=operator/basicdetails">
                     <img src="/images/properties.svg" alt="properties.svg">
                     <p class="mb-0"> My profile </p>
                 </a>
                 <?php  } ?>
 
                 <a class="sidebar-item" href="#">
-                    <img src="/images/properties.svg" alt="properties.svg">
-                    <p class="mb-0"> Properties </p>
+                    <img src="/images/Shared_with_me.svg" alt="report.svg">
+                    <p class="mb-0"> Report </p>
+                </a>
+                <a class="sidebar-item" href="#">
+                    <img src="/images/Events.svg" alt="ticket.svg">
+                    <p class="mb-0"> Support Ticket </p>
+                </a>
+                <a class="sidebar-item" href="#">
+                    <img src="/images/settings.svg" alt="settings.svg">
+                    <p class="mb-0"> Settings </p>
                 </a>
             </div>
             <div class="col-10 data-content">
