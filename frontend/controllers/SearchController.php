@@ -48,7 +48,7 @@ class SearchController extends Controller
     }
     public function actionCreate()
     {
-        $this->layout = 'main-search';
+        $this->layout = 'tm_main';
         $request = Yii::$app->request;
 
         $enquiry_id = $request->get('enquiryID');
@@ -205,7 +205,7 @@ class SearchController extends Controller
 
             $Rooms = $Rooms->where(['property_id' => $totalPropID])->all();
 //            $Rooms = $Rooms->all();
-//        return $this->asJson($totalPropID);
+//        return $this->asJson($Rooms);
 
             $enquiry = Enquiry::find()->where(['id' => $enquiry_id])->with(['enquiryAccommodations' => function ($query) use ($property_destination, $enquiry_accommodation) {
                 $query->Where(['destination_id' => $property_destination])->andwhere(['id' => $enquiry_accommodation]);
@@ -236,7 +236,13 @@ class SearchController extends Controller
                 $ageRestriction = $Room->restricted_for_child_below_age;
                 if ($Room->child_policy_same_as_property == 1) {
                  // if child age policy is same as property
-                    $ageRestriction = $Room->property->restricted_for_child_below_age;
+                    // Check Property allows Child of all age
+
+                    if ($Room->property->allow_child_of_all_ages == 1){
+                        $ageRestriction = 0;
+                    }else{
+                        $ageRestriction = $Room->property->restricted_for_child_below_age;
+                    }
                 }
 
                 if ($EnquiryMinChildAge > $ageRestriction) {
