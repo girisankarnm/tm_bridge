@@ -54,7 +54,7 @@ $this->registerJsFile('/js/common.js');
                             <label class="Labelclass" style="display: block;margin-top: 22px" >*Upload Vcard</label>
                             <?php
                             if(!$basic_details->v_card_image_front) {
-                                echo "<img id='v-card-front' src='images/Company visiting card front.png' class='v-card' style='height: 150px; width: 100%;  border: 2px #cacaca dashed; border-radius: 6px'>";
+                                echo "<img id='v-card-front' src='images/Company-visiting-card-front.png' class='v-card' style='height: 150px; width: 100%;  border: 2px #cacaca dashed; border-radius: 6px'>";
                             } else {
                                 echo "<img id='v-card-front' src='uploads/$basic_details->v_card_image_front' class='v-card' style='height: 150px; width: 100%;  border: 2px #cacaca dashed; border-radius: 6px'>";
                             }?>
@@ -66,7 +66,7 @@ $this->registerJsFile('/js/common.js');
                             <label class="Labelclass" style="display: block;margin-top: 22px" ></label>
                             <?php
                             if(!$basic_details->v_card_image_front) {
-                                echo "<img id='v-card-back' src='images/Company visiting card back.png' class='v-card' style='height: 150px; width: 100%;  border: 2px #cacaca dashed; border-radius: 6px'>";
+                                echo "<img id='v-card-back' src='images/Company-visiting-card-back.png' class='v-card' style='height: 150px; width: 100%;  border: 2px #cacaca dashed; border-radius: 6px'>";
                             } else {
                                 echo "<img id='v-card-back' src='uploads/$basic_details->v_card_image_back' class='v-card' style='height: 150px; width: 100%;  border: 2px #cacaca dashed; border-radius: 6px'>";
                             }?>
@@ -85,7 +85,7 @@ $this->registerJsFile('/js/common.js');
 
                         <?php
                         if(!$basic_details->logo_image) {
-                            echo "<img id='imagePreview-logo' src='images/Company logo.png' class='imagePreview-logo' style='height: 220px; width: 100%;  border: 2px #cacaca dashed; border-radius: 6px'>";
+                            echo "<img id='imagePreview-logo' src='images/Company-logo.png' class='imagePreview-logo' style='height: 220px; width: 100%;  border: 2px #cacaca dashed; border-radius: 6px'>";
                         } else {
                             echo "<img id='imagePreview-logo' src='uploads/$basic_details->logo_image' class='imagePreview-logo' style='height: 220px; width: 100%;  border: 2px #cacaca dashed; border-radius: 6px'>";
                         }?>

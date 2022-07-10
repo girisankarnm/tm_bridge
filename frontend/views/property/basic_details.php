@@ -69,8 +69,8 @@ $this->registerJsFile('/js/common.js');
                             <div style='height: 200px; width:100%;  border: 2px #808080 dashed; border-radius: 6px; position: relative'>
                                 <?php
                                 if(!$basic_details->id) {
-//                                echo "<img id='imagePreview' src='images/property picture.png' class='imagePreview' style='height: 200px; width:100%;  border: 2px #808080 dashed; border-radius: 6px'>";
-                                    echo "<img id='imagePreview' src='images/property picture.png' class='imagedisplay' >";
+//                                echo "<img id='imagePreview' src='images/property-picture.png' class='imagePreview' style='height: 200px; width:100%;  border: 2px #808080 dashed; border-radius: 6px'>";
+                                    echo "<img id='imagePreview' src='images/property-picture.png' class='imagedisplay' >";
                                 } else {
                                     echo "<img id='imagePreview' src='uploads/$basic_details->image' class='imagePreview'>";
                                 }?>
@@ -86,8 +86,8 @@ $this->registerJsFile('/js/common.js');
                             <div style='height: 200px; width:100%;  border: 2px #808080 dashed; border-radius: 6px; position: relative '>
                                 <?php
                                 if(!$basic_details->id) {
-//                                echo "<img id='imagePreview-logo' src='images/property logo.png' class='imagePreviewLogo' style='height: 200px; width:100%;  border: 2px #808080 dashed; border-radius: 6px'>";
-                                    echo "<img id='imagePreview-logo' src='images/property logo.png' class='imagedisplay'>";
+//                                echo "<img id='imagePreview-logo' src='images/property-logo.png' class='imagePreviewLogo' style='height: 200px; width:100%;  border: 2px #808080 dashed; border-radius: 6px'>";
+                                    echo "<img id='imagePreview-logo' src='images/property-logo.png' class='imagedisplay'>";
                                 } else {
                                     echo "<img id='imagePreview-logo' src='uploads/$basic_details->logo' class='imagePreviewLogo' >";
                                 }?>
