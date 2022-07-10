@@ -55,9 +55,6 @@ use Carbon\Carbon;
                     <div class="margintopcls" >  <span class="dateform">From Date</span>
                         <div style="width: 90px;"><h6 class="motherdaterange-H6 h7class" ><?= Carbon::parse($date_range->to_date)->format('d M Y'); ?> </h6></div>
                     </div>
-
-
-
                 </div>
             </div>
             <hr class="sidebar-divider">
@@ -100,8 +97,16 @@ use Carbon\Carbon;
             <div class="row" style="margin-left: 4px;margin-bottom: 12px;">
                 <div style="display: block;margin-right: 35px">
                     <BUTTON type="button" class="prevbutton" style="width: 80px;height: 30px" > Prev </BUTTON>
+                    <?php if ($is_published != 1) { ?>
                     <BUTTON type="submit" class="buttonSave save-border"  > Save </BUTTON>
-                    <?= Html::a('Next', ['tariff/addhikedayrate', 'id'=> $property->id, 'mother_id' => $date_range->id],  ['class'=>'buttonNextanchor2']) ?>
+                    <?php } ?>
+                    <?php if ($tariff != 0) { ?>
+                        <?= Html::a('Next', ['tariff/home', 'id'=> $property->id,],  ['class'=>'buttonNextanchor2']) ?>    
+                    <?php } 
+                        else {                    
+                    ?>
+                    <?= Html::a('Next', ['tariff/addhikedayrate', 'id'=> $property->id, 'mother_id' => $date_range->id, 'tariff' => $tariff],  ['class'=>'buttonNextanchor2']) ?>
+                    <?php } ?>
                 </div>
 
             </div>

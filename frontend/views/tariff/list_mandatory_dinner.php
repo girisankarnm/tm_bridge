@@ -79,6 +79,7 @@ use frontend\models\tariff\TariffDateRange;
                                     'property' => $property,
                                     'tariff' => 4,
                                     'current_loop' => $i,
+                                    'is_published' => $range->status
                                 ]);
                                 
                                 if($range->getNestingCount() > 0 ) {
@@ -95,6 +96,7 @@ use frontend\models\tariff\TariffDateRange;
                                             'property' => $property,
                                             'tariff' => 4,
                                             'current_loop' => $i,
+                                            'is_published' => $range->status
                                         ]);        
                                     }
                                 }

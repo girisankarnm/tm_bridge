@@ -159,8 +159,10 @@ use frontend\models\tariff\roomTariffWeekdayhikeDays;
         <div class="row" style="margin-left: 4px;margin-bottom: 12px;">
             <div style="display: block;margin-right: 35px">
                 <BUTTON type="button" class="prevbutton" style="width: 80px;height: 30px" data-toggle="modal" data-target="#logoutModal"> Prev </BUTTON>
+                <?php if ($is_published != 1) { ?>
                 <BUTTON type="submit" class="buttonSave save-border" style="width: 80px;height: 30px" data-toggle="modal" data-target="#logoutModal"> Save </BUTTON>
-                <?= Html::a('Next', ['tariff/addmandatorydinnner', 'id'=> $property->id, 'mother_id' => $date_range->id],  ['class'=>'buttonNextanchor2']) ?>
+                <?php } ?>
+                <?= Html::a('Next', ['tariff/addmandatorydinnner', 'id'=> $property->id, 'mother_id' => $date_range->id, 'tariff' => $tariff],  ['class'=>'buttonNextanchor2']) ?>
             </div>
         </div>
 

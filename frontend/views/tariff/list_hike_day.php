@@ -29,8 +29,8 @@ use frontend\models\tariff\TariffDateRange;
                            <img  class="f-star" style="padding-left: 2px" src="images/Star-1.svg" alt="Matrix">
                            </span>
                             </div>
-                            <div>   <small  class="smallFonts fontsize-location"><i  class="fa fa-map-marker locatiospace" aria-hidden="true"></i><?= $property->location->name?>, <?= $property->destination->name?>, <?= $property->country->name?></small>
-                                </span></div>
+                            <div><small  class="smallFonts fontsize-location"><i  class="fa fa-map-marker locatiospace" aria-hidden="true"></i><?= $property->location->name?>, <?= $property->destination->name?>, <?= $property->country->name?></small>
+                            </span></div>
                         </div>
                     </div>
                 </div>
@@ -75,6 +75,7 @@ use frontend\models\tariff\TariffDateRange;
                                     'property' => $property,
                                     'tariff' => 3,
                                     'current_loop' => $i,
+                                    'is_published' => $range->status
                                 ]);
 
                                 if($range->getNestingCount() > 0 ) {
@@ -91,6 +92,7 @@ use frontend\models\tariff\TariffDateRange;
                                             'property' => $property,
                                             'tariff' => 3,
                                             'current_loop' => $i,
+                                            'is_published' => $range->status
                                         ]);        
                                     }
                                 }                 

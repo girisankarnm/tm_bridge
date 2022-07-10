@@ -4,11 +4,13 @@ use frontend\models\tariff\TariffDateRange;
 ?>
 
 <?php
+    $is_published = $range->status;
     echo Yii::$app->controller->renderPartial('_date_range_block', [
         'range' => $range,
         'property' => $property,
         'tariff' => 1,
         'current_loop' => $current_loop,
+        'is_published' => $is_published
     ]);
     
 
@@ -26,6 +28,7 @@ use frontend\models\tariff\TariffDateRange;
                 'property' => $property,
                 'tariff' => 1,
                 'current_loop' => $current_loop,
+                'is_published' => $is_published
             ]);        
         }
     }

@@ -369,7 +369,8 @@ class TariffController extends Controller {
             if($tariff == 0) {                
                 return $this->redirect(['tariff/addmealrate', 
                     'id' => $property->id,         
-                    'mother_id' => $mother_id,            
+                    'mother_id' => $mother_id,
+                    'tariff' => $tariff
                 ]);
             }
             else {
@@ -510,6 +511,16 @@ class TariffController extends Controller {
             throw new NotFoundHttpException();
         }
       
+        $is_published = 1;
+        if($date_range->parent != 0 ) {
+            //Nested
+            $mother_range = TariffDateRange::find()->where(['id' => $date_range->parent])->one();
+            $is_published = $mother_range->status;
+
+        } else {            
+            $is_published = $date_range->status;
+        }
+
         $suppliment_meal = NULL;
         $suppliment_meal = SupplimentMeal::find()
         ->where(['property_id' => $property->id ])
@@ -522,7 +533,8 @@ class TariffController extends Controller {
             'date_range' => $date_range,
             'property' => $property,            
             'suppliment_meal' => $suppliment_meal,
-            'tariff' => $tariff
+            'tariff' => $tariff,
+            'is_published' => $is_published
         ]);        
     }
 
@@ -570,7 +582,8 @@ class TariffController extends Controller {
 
         return $this->redirect(['tariff/addhikedayrate', 
                 'id' => $date_range->property_id,                 
-                'mother_id' => $meal_tariff->date_range_id,                
+                'mother_id' => $meal_tariff->date_range_id,
+                'tariff' => $tariff
                 ]);
     }
 
@@ -594,6 +607,20 @@ class TariffController extends Controller {
 
         $date_range_id = Yii::$app->request->get('mother_id');
         $date_range = TariffDateRange::find()->where(['id' => $date_range_id])->one();
+        if ($date_range == NULL){
+            throw new NotFoundHttpException();
+        }
+
+        $is_published = 1;
+        if($date_range->parent != 0 ) {
+            //Nested
+            $mother_range = TariffDateRange::find()->where(['id' => $date_range->parent])->one();
+            $is_published = $mother_range->status;
+
+        } else {            
+            $is_published = $date_range->status;
+        }
+
         $tariff = (int) Yii::$app->request->get('tariff');
         
         $this->layout = 'tm_main';
@@ -601,7 +628,8 @@ class TariffController extends Controller {
             'date_range' => $date_range,
             'property' => $property,            
             'rooms' => $rooms,
-            'tariff' => $tariff
+            'tariff' => $tariff,
+            'is_published' => $is_published
         ]);        
     }
 
@@ -723,6 +751,19 @@ class TariffController extends Controller {
 
         $date_range_id = Yii::$app->request->get('mother_id');
         $mother_date_range = TariffDateRange::find()->where(['id' => $date_range_id])->one();
+        if ($mother_date_range == NULL){
+            throw new NotFoundHttpException();
+        }
+
+        $is_published = 1;
+        if($mother_date_range->parent != 0 ) {
+            //Nested
+            $mother_range = TariffDateRange::find()->where(['id' => $date_range->parent])->one();
+            $is_published = $mother_range->status;
+
+        } else {            
+            $is_published = $mother_date_range->status;
+        }
 
         if($mother_date_range != NULL) {
             $date_range->property_id = $mother_date_range->property_id;
@@ -748,7 +789,8 @@ class TariffController extends Controller {
             'date_range' => $date_range,
             'property' => $property,
             'dinners' => $mandatory_dinner,
-            'tariff' => $tariff
+            'tariff' => $tariff,
+            'is_published' => $is_published
         ]);
     }
 
