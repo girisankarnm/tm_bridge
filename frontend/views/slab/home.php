@@ -22,7 +22,7 @@ function onChangeProperty(property){
         window.location.href = "/index.php?r=slab%2Fhome&id="+property.value;
 }
 </script>
-<link href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" rel="stylesheet">
+<!--<link href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" rel="stylesheet">-->
 
 <div class="d_dark shadow p-2 ml-2">
 <?php $form = ActiveForm::begin(['id' => 'assign_slab','enableClientValidation' => true,'method' => 'post','action' => ['slab/assign']]) ?>
