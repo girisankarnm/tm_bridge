@@ -74,7 +74,7 @@ $this->registerCssFile('/css/full-page.css');
                                     'jsOptions' => [
                                         'onlyCountries' => ['in'],
                                     ],
-                                    'options'=> array('class'=>'phone-input', 'placeholder' => '9123456780', 'maxlength' => '12'),
+                                    'options'=> array('class'=>'phone-input', 'placeholder' => 'Phone', 'maxlength' => '12'),
                                 ], )->label(false);?>
                             </div>
                         </div>
