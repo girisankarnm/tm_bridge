@@ -603,13 +603,19 @@ class TariffController extends Controller {
             throw new NotFoundHttpException();
         }
 
-        $rooms = Room::find()->where(['property_id' => $property->id])->all();
-
         $date_range_id = Yii::$app->request->get('mother_id');
         $date_range = TariffDateRange::find()->where(['id' => $date_range_id])->one();
         if ($date_range == NULL){
             throw new NotFoundHttpException();
         }
+
+        if (!$property->have_weekday_hike) {
+            return $this->redirect(['tariff/hikeday', 
+            'id' => $date_range->property_id]);
+        }
+
+        //TODO: If no rooms?
+        $rooms = Room::find()->where(['property_id' => $property->id])->all();
 
         $is_published = 1;
         if($date_range->parent != 0 ) {
@@ -753,6 +759,11 @@ class TariffController extends Controller {
         $mother_date_range = TariffDateRange::find()->where(['id' => $date_range_id])->one();
         if ($mother_date_range == NULL){
             throw new NotFoundHttpException();
+        }
+
+        if (!$property->provide_compulsory_inclusions) {
+            return $this->redirect(['tariff/mandatorydinner', 
+            'id' => $mother_date_range->property_id]);
         }
 
         $is_published = 1;

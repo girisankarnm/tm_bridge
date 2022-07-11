@@ -100,12 +100,14 @@ use Carbon\Carbon;
                     <?php if ($is_published != 1) { ?>
                     <BUTTON type="submit" class="buttonSave save-border"  > Save </BUTTON>
                     <?php } ?>
-                    <?php if ($tariff != 0) { ?>
+                    <?php 
+                    
+                    if ($tariff != 0) { ?>
                         <?= Html::a('Next', ['tariff/home', 'id'=> $property->id,],  ['class'=>'buttonNextanchor2']) ?>    
                     <?php } 
                         else {                    
                     ?>
-                    <?= Html::a('Next', ['tariff/addhikedayrate', 'id'=> $property->id, 'mother_id' => $date_range->id, 'tariff' => $tariff],  ['class'=>'buttonNextanchor2 tooltip']) ?>
+                    <?= Html::a('Next', ['tariff/addhikedayrate', 'id'=> $property->id, 'mother_id' => $date_range->id, 'tariff' => $tariff],  ['class'=>'buttonNextanchor2']) ?>
                     <?php } ?>
                 </div>
 

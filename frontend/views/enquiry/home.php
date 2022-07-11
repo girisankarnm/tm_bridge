@@ -25,14 +25,15 @@ frontend\assets\DataTableAsset::register($this);
         </div>
     </div>
 </div><br>
-<table id="enquiries" class="table table-md responsive">
+<table id="enquiries" class="table-slab-class">
     <thead>
-
+    <tr  class="thtablerow-slab " >
     <th>Name</th>
     <th>Nationality</th>
     <th>Phone</th>
     <th>Quick Report</th>
     <th>Actions</th>
+    </tr>
     </thead>
 
     <?php  foreach ($enquiries as $enquiry) { ?>

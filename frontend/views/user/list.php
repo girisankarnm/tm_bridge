@@ -6,29 +6,13 @@ $this->title = 'User List';
 rmrevin\yii\fontawesome\AssetBundle::register($this);
 frontend\assets\CommonAsset::register($this);
 ?>
-<!--<style>-->
-<!--    #users th,#users td {-->
-<!--        border: 1px solid #9cacad;-->
-<!--        text-align: left;-->
-<!--    }-->
-<!--    #users {-->
-<!--        color: #636363;-->
-<!--        /*background: #2a3f54;*/-->
-<!--        font-family: "Helvetica Neue",Roboto,Arial,"Droid Sans",sans-serif;-->
-<!--        font-size: 13px;-->
-<!--    }-->
-<!--    a:hover {-->
-<!--        background-color: #1dd5ff;-->
-<!--    }-->
-<!--    i:hover {-->
-<!--        background-color: #1dd5ff;-->
-<!--    }-->
-<!--    table td {-->
-<!--        text-align: left !important;-->
-<!--        vertical-align: middle !important;-->
-<!--    }-->
-<!--</style>-->
+<!-- load the third party plugin assets (jquery-confirm) -->
+<link href="//cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css" rel="stylesheet" type="text/css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
 <script>
+    $(function () {
+        $('.t').tooltip()
+    });
     function showConfirmMessage(action, userName, id){
 
         var message = "";
@@ -46,11 +30,33 @@ frontend\assets\CommonAsset::register($this);
             return;
         }
 
-        $('#message_text').html(message);
-        $('#action_id').val(action);
-        $('#user_id').val(id);
-        $("#actionUserName").html(userName);
-        $('#deleteModal').modal('show');
+
+        $.confirm({
+            title: 'Confirmation!',
+            content: ''+message+' '+userName,
+            type: 'red',
+            buttons: {
+                ok: {
+                    btnClass: 'btn-primary text-white',
+                    keys: ['enter'],
+                    action: function(){
+                        $('#action_id').val(action);
+                        $('#user_id').val(id);
+                        $('#user-action').submit();
+                    }
+                },
+                cancel: function(){
+                    $.alert('Action aborted!');
+                }
+            }
+        });
+
+
+        // $('#message_text').html(message);
+        // $('#action_id').val(action);
+        // $('#user_id').val(id);
+        // $("#actionUserName").html(userName);
+        // $('#deleteModal').modal('show');
         return false;
     }
 
@@ -118,11 +124,15 @@ frontend\assets\CommonAsset::register($this);
                                     else  { echo  'NA'; }
                                     ?>
                                 </div>
-                                <?= Html::a('<img src="images/edit-1-icon.svg" title="Edit" alt="edit-1-icon.svg" style="height: 25px"></i>', Url::toRoute(['/user/add', 'id' => $user->id ])) ?>
-                                <?= Html::a('<img src="images/building-blue.svg" title="Enable/Disable" alt="building-blue.svg" style="height: 25px"></i>', null,  ['onclick' => 'return showConfirmMessage(1, "'.$user->first_name.'",'.$user->id.')']) ?>
-                                <?= Html::a('<img src="images/building-blue.svg" title="Reset Password" alt="building-blue.svg" style="height: 25px"></i>', null, ['onclick' => 'return showConfirmMessage(2, "'.$user->first_name.'",'.$user->id.')']) ?>
-                                <?= Html::a('<img src="images/delete-1-icon.svg" alt="delete-1-icon.svg" title="Delete" style="height: 25px" disabled></i>', null, ['onclick' => 'return showConfirmMessage(3,"'.$user->first_name.'",'.$user->id.')']) ?>
+                                <?= Html::a('<img src="images/edit-1-icon.svg"  alt="edit-1-icon.svg" style="height: 25px;"></i>', Url::toRoute(['/user/add', 'id' => $user->id ]),["title"=>"Edit",'class'=>'t']) ?>
 
+                                <?php if ($user->status == 10) : ?>
+                                <?= Html::a('<img  src="images/testIcons/disable-user.png"  alt="building-blue.svg" style="height: 25px;cursor: pointer"></i>', null,  ['onclick' => 'return showConfirmMessage(1, "'.$user->first_name.'",'.$user->id.')',"title"=>"Disable User",'class'=>'t']) ?>
+                                <?php elseif($user->status == 8) : ?>
+                                    <?= Html::a('<img src="images/testIcons/enable-user.png"  alt="building-blue.svg" style="height: 25px;cursor: pointer"></i>', null,  ['onclick' => 'return showConfirmMessage(1, "'.$user->first_name.'",'.$user->id.')',"title"=>"Enable User",'class'=>'t']) ?>
+                                <?php endif; ?>
+                                <?= Html::a('<img src="images/reset_password.svg"  alt="reset_password.svg" style="height: 25px;cursor: pointer"></i>', null, ['onclick' => 'return showConfirmMessage(2, "'.$user->first_name.'",'.$user->id.')',"title"=>"Reset Password",'class'=>'t']) ?>
+                                <?= Html::a('<img src="images/delete-1-icon.svg" alt="delete-1-icon.svg"  style="height: 25px;cursor: pointer" disabled></i>', null, ['onclick' => 'return showConfirmMessage(3,"'.$user->first_name.'",'.$user->id.')',"title"=>"Delete",'class'=>'t']) ?>
                             </div>
                         </div>
                     </div>
@@ -146,7 +156,7 @@ frontend\assets\CommonAsset::register($this);
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <?php $form = ActiveForm::begin(['method' => 'post', 'action' => ['user/manage']] ) ?>
+      <?php $form = ActiveForm::begin(['method' => 'post', 'id'=>"user-action", 'action' => ['user/manage']] ) ?>
       <input type="hidden" id="user_id" name="user_id" value="0" >
       <input type="hidden" id="action_id" name="action_id" value="0" >
       <div class="modal-body">
