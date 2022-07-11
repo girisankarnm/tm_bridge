@@ -101,7 +101,7 @@ $this->registerCssFile('/css/full-page.css');
                         <div style="font-size: 13px; ">
                             Already have an account? <a href="index.php?r=user%2Flogin" style="text-decoration: none; color: #E40967; font-weight: bold">Sign in</a>
                         </div>
-                        <div id="save_data" style="display: none;">
+                        <div id="save_data" style="display:<?= empty($register->user_type) ? "none" : "block" ?>">
                             <BUTTON type="text" class="login-button" style="margin-top:0"> Register </BUTTON>
                         </div>
                     </div>
