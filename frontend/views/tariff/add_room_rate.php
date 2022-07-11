@@ -99,10 +99,8 @@ $this->registerJsFile('/js/tariff/tariff.js');
             } 
         ?>
 
-        <div class="row roomButtonRow"><div >
-            <?php if ($tariff != 1) { ?>
-            <BUTTON type="button" class="prevbutton" style="width: 80px;height: 30px"> Prev </BUTTON>
-            <?php } ?>
+        <div class="row roomButtonRow"><div >            
+            <!-- <BUTTON type="button" class="prevbutton" style="width: 80px;height: 30px"> Prev </BUTTON> -->           
 
             <?php if ($is_published != 1) { ?>
             <BUTTON type="submit" class="buttonSave save-border"  > Save </BUTTON>
