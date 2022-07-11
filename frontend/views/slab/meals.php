@@ -26,6 +26,12 @@ $this->title = 'Operators';
       border-top-right-radius: 0px;
       border-bottom-right-radius: 0px;
   }
+  table thead tr {
+      color: #FFFFFF;
+      background-color: var(--secondary-color);
+      /*height: 45px;*/
+      height: 31px;
+  }
 </style>
 
 <script>
