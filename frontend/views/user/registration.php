@@ -19,6 +19,11 @@ $this->registerCssFile('/css/full-page.css');
         $('#registration_form').show('slide');
     }
 </script>
+<style>
+    .invalid-feedback {
+        display: block;
+    }
+</style>
 
 <div class="content">
     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -34,7 +39,7 @@ $this->registerCssFile('/css/full-page.css');
                     </div>
 
                     <div style=" margin-left: 6px; display: flex; flex-direction: row; justify-content: center">
-                            I am a <?= $form->field($register, 'user_type')->inline()->radioList([1 => 'Hotelier', 2 => 'Tour Operator'],['class' => 'text-secondary type',])->label(false); ?>
+                            I am a <?= $form->field($register, 'user_type')->inline()->radioList([1 => 'Hotelier', 2 => 'Operator'],['class' => 'text-secondary type',])->label(false); ?>
                     </div>
                     <div id="registration_form" style="display:<?= empty($register->user_type) ? "none" : "block" ?>">
                         <div class="form-group row no-margin" >
