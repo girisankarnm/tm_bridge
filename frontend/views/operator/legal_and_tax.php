@@ -47,9 +47,9 @@ use yii\bootstrap4\ActiveForm;
                             <label class="Labelclass">*Pancard</label>
                             <?php
                             if(!$legal_tax_documentation->pan_image) {
-                                echo "<img id='operatorPanImage' src='images/pan.png' class='imagePreview' style='height: 120px; width: 100%;  border: 2px #808080 dashed; border-radius: 6px'>";
+                                echo "<div id='operatorPanId' class='image-border'><img id='operatorPanImage' src='images/pan.png' class='imagedisplay' ></div>";
                             } else {
-                                echo "<img id='operatorPanImage' src='uploads/$legal_tax_documentation->pan_image' class='imagePreview' style='height: 120px; width: 100%;  border: 2px #808080 dashed; border-radius: 6px'>";
+                                echo "<div id='operatorPanId' class='borderless-image'><img id='operatorPanImage' src='uploads/$legal_tax_documentation->pan_image' class='imagePreview' ></div>";
                             }?>
 
                             <?= $form->field($legal_docs_images, 'pan_image')->fileInput(['class' => 'btn btn-sm img uploadFile', 'accept' => "image/*", 'id'=>"uploadPanImage"])->label(false); ?>
@@ -58,9 +58,9 @@ use yii\bootstrap4\ActiveForm;
                             <label for="inputEmail4" class="Labelclass">*GST</label>
                             <?php
                             if(!$legal_tax_documentation->gst_image) {
-                                echo "<img id='operatorGstImage' src='images/GST.png' class='imagePreview' style='height: 120px; width:100%;  border: 2px #808080 dashed; border-radius: 6px'>";
+                                echo "<div id='operatorGstId' class='image-border'><img id='operatorGstImage' src='images/GST.png' class='imagedisplay'></div>";
                             } else {
-                                echo "<img id='operatorGstImage' src='uploads/$legal_tax_documentation->gst_image' class='imagePreview' style='height: 120px; width:100%;  border: 2px #808080 dashed; border-radius: 6px'>";
+                                echo "<div id='operatorGstId' class='borderless-image'><img id='operatorGstImage' src='uploads/$legal_tax_documentation->gst_image' class='imagePreview'></div>";
                             }?>
 
 
@@ -112,13 +112,28 @@ use yii\bootstrap4\ActiveForm;
 </style>
 
 <style>
+    .image-border {
+        height: 120px;
+        width: 100%;
+        border: 2px #808080 dashed;
+        border-radius: 6px;
+        position: relative
+    }
+    .borderless-image {
+        height: 120px;
+        width: 100%;
+        /*border: 2px #808080 dashed;*/
+        border-radius: 6px;
+        position: relative
+    }
+
     .imagePreview {
         max-width:100%;
         max-height:100%;
-        width: 200px;
-        height: auto;
         /*width: 200px;*/
-        /*height: 200px;*/
+        /*height: auto;*/
+        width: 100%;
+        height: 100%;
         background-position: center center;
         background-size: cover;
         /*-webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);*/
@@ -126,18 +141,17 @@ use yii\bootstrap4\ActiveForm;
         /*background-image: url('http://via.placeholder.com/350x150');*/
         /*border: 2px gray dashed;*/
     }
-    .imagePreviewLogo {
-        max-width:100%;
-        max-height:100%;
-        width: 240px;
-        height: auto;
-        /*width: 240px;*/
-        /*height: 200px;*/
-        background-position: center center;
-        background-size: cover;
-        /*-webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);*/
-        display: inline-block;
-        background-image: url('http://via.placeholder.com/350x150');
+
+
+    .imagedisplay{
+        width: 80px;
+        height: 80px;
+        /*margin: 0;*/
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
     }
     .default-preview{
         border: 2px gray dashed;
@@ -166,7 +180,9 @@ use yii\bootstrap4\ActiveForm;
 
                 reader.onloadend = function(){ // set image data as background of div
 
-                    $('#operatorPanImage').removeClass('default-preview');
+                    // $('#operatorPanImage').removeClass('default-preview');
+                    document.getElementById("operatorPanId").className = "borderless-image";
+                    document.getElementById("operatorPanImage").className = "imagePreview";
                     $("#operatorPanImage").attr("src", reader.result);
                     // $("#imagePreview").css("background-image", "url("+this.result+")");
                 }
@@ -192,7 +208,9 @@ use yii\bootstrap4\ActiveForm;
                 reader.readAsDataURL(files[0]); // read the local file
 
                 reader.onloadend = function(){ // set image data as background of div
-                    $('#operatorGstImage').removeClass('default-preview');
+                    // $('#operatorGstImage').removeClass('default-preview');
+                    document.getElementById("operatorGstId").className = "borderless-image";
+                    document.getElementById("operatorGstImage").className = "imagePreview";
                     // $("#imagePreview-logo").css("background-image", "url("+this.result+")");
                     $("#operatorGstImage").attr("src", reader.result);
                 }

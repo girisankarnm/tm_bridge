@@ -54,9 +54,9 @@ $this->registerJsFile('/js/common.js');
                             <label class="Labelclass" style="display: block;margin-top: 22px" >*Upload Vcard</label>
                             <?php
                             if(!$basic_details->v_card_image_front) {
-                                echo "<img id='v-card-front' src='images/Company-visiting-card-front.png' class='v-card' style='height: 150px; width: 100%;  border: 2px #cacaca dashed; border-radius: 6px'>";
+                                echo "<div id='vcardId' class='image-border'><img id='v-card-front' src='images/Company-visiting-card-front.png' class='imagedisplay'></div>";
                             } else {
-                                echo "<img id='v-card-front' src='uploads/$basic_details->v_card_image_front' class='v-card' style='height: 150px; width: 100%;  border: 2px #cacaca dashed; border-radius: 6px'>";
+                                echo "<div id='vcardId' class='borderless-image'><img id='v-card-front' src='uploads/$basic_details->v_card_image_front' class='v-card' ></div>";
                             }?>
 
                             <?= $form->field($operator_image, 'v_card_image_front')->fileInput(['class' => 'btn btn-sm img uploadFile', 'accept' => "image/*", 'id'=>"operator-v-card-front"])->label(false); ?>
@@ -65,10 +65,10 @@ $this->registerJsFile('/js/common.js');
                         <div class="form-group col-md-6">
                             <label class="Labelclass" style="display: block;margin-top: 22px" ></label>
                             <?php
-                            if(!$basic_details->v_card_image_front) {
-                                echo "<img id='v-card-back' src='images/Company-visiting-card-back.png' class='v-card' style='height: 150px; width: 100%;  border: 2px #cacaca dashed; border-radius: 6px'>";
+                            if(!$basic_details->v_card_image_back) {
+                                echo "<div id='vcardBackId' class='image-border'><img id='v-card-back' src='images/Company-visiting-card-back.png' class='imagedisplay' ></div>";
                             } else {
-                                echo "<img id='v-card-back' src='uploads/$basic_details->v_card_image_back' class='v-card' style='height: 150px; width: 100%;  border: 2px #cacaca dashed; border-radius: 6px'>";
+                                echo "<div id='vcardBackId' class='borderless-image'><img id='v-card-back' src='uploads/$basic_details->v_card_image_back' class='v-card' ></div>";
                             }?>
 
                             <!--                            <input id="operator-v-card-front" type="file" name="property_photo" class="img uploadFile" />-->
@@ -85,9 +85,9 @@ $this->registerJsFile('/js/common.js');
 
                         <?php
                         if(!$basic_details->logo_image) {
-                            echo "<img id='imagePreview-logo' src='images/Company-logo.png' class='imagePreview-logo' style='height: 220px; width: 100%;  border: 2px #cacaca dashed; border-radius: 6px'>";
+                            echo "<div id='operatorLogoId' class='logo-border'><img id='imagePreview-logo' src='images/Company-logo.png' class='logodisplay' ></div>";
                         } else {
-                            echo "<img id='imagePreview-logo' src='uploads/$basic_details->logo_image' class='imagePreview-logo' style='height: 220px; width: 100%;  border: 2px #cacaca dashed; border-radius: 6px'>";
+                            echo "<div id='operatorLogoId' class='borderless-logo'><img id='imagePreview-logo' src='uploads/$basic_details->logo_image' class='imagePreview-logo' ></div>";
                         }?>
 
                         <?= $form->field($operator_image, 'logo_image')->fileInput(['class' => 'btn btn-sm img uploadFile ', 'accept' => "image/*", 'id'=>"operator-logo", ])->label(false); ?>
@@ -111,30 +111,84 @@ $this->registerJsFile('/js/common.js');
     </div>
 </div>
 <style>
+    .image-border {
+        height: 150px;
+        width: 100%;
+        border: 2px #cacaca dashed;
+        border-radius: 6px;
+        position: relative
+    }
+    .borderless-image {
+        height: 150px;
+        width: 100%;
+        /*border: 2px #cacaca dashed;*/
+        border-radius: 6px;
+        position: relative
+    }
+    .logo-border {
+        height: 220px;
+        width: 100%;
+        border: 2px #cacaca dashed;
+        border-radius: 6px;
+        position: relative
+    }
+    .borderless-logo {
+        height: 150px;
+        width: 100%;
+        border-radius: 6px;
+        position: relative
+    }
+
+
     .imagePreview-logo {
         max-width:100%;
         max-height:100%;
-        width: 200px;
-        height: auto;
-        /*background-position: center center;*/
-        /*background-size: cover;*/
+        /*width: 200px;*/
+        /*height: auto;*/
+        width: 100%;
+        height: 100%;
+        background-position: center center;
+        background-size: cover;
         /*-webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);*/
-        /*display: inline-block;*/
+        display: inline-block;
         /*background-image: url('http://via.placeholder.com/350x150');*/
         /*border: 2px gray dashed;*/
     }
     .v-card {
         max-width:100%;
         max-height:100%;
-        width: 200px;
-        height: 200px;
-        /*background-position: center center;*/
-        /*background-size: cover;*/
+        /*width: 200px;*/
+        /*height: 200px;*/
+        width: 100%;
+        height: 100%;
+        background-position: center center;
+        background-size: cover;
         /*-webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);*/
-        /*display: inline-block;*/
+        display: inline-block;
         /*background-image: url('http://via.placeholder.com/350x150');*/
         /*border: 2px gray dashed;*/
     }
+    .imagedisplay{
+        width: 160px;
+        height: 90px;
+        /*margin: 0;*/
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+    .logodisplay{
+        width: 150px;
+        height: 150px;
+        /*margin: 0;*/
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+
 
     .default-preview{
         border: 2px #808080 dashed;
@@ -163,6 +217,8 @@ $this->registerJsFile('/js/common.js');
                 reader.onloadend = function(){ // set image data as background of div
 
                     $('#imagePreview-logo').removeClass('default-preview');
+                    document.getElementById("operatorLogoId").className = "borderless-logo";
+                    document.getElementById("imagePreview-logo").className = "imagePreview-logo";
                     $("#imagePreview-logo").attr("src", reader.result);
 
                 }
@@ -178,7 +234,6 @@ $this->registerJsFile('/js/common.js');
     $(function() {
         $("#operator-v-card-front").on("change", function()
         {
-
             var files = !!this.files ? this.files : [];
             if (!files.length || !window.FileReader) return; // no file selected, or no FileReader support
 
@@ -188,7 +243,9 @@ $this->registerJsFile('/js/common.js');
 
                 reader.onloadend = function(){ // set image data as background of div
 
-                    $('#v-card-front').removeClass('default-preview');
+                    // $('#v-card-front').removeClass('default-preview');
+                    document.getElementById("vcardId").className = "borderless-image";
+                    document.getElementById("v-card-front").className = "v-card";
                     $("#v-card-front").attr("src", reader.result);
 
                 }
@@ -204,7 +261,6 @@ $this->registerJsFile('/js/common.js');
     $(function() {
         $("#operator-v-card-back").on("change", function()
         {
-
             var files = !!this.files ? this.files : [];
             if (!files.length || !window.FileReader) return; // no file selected, or no FileReader support
 
@@ -215,6 +271,8 @@ $this->registerJsFile('/js/common.js');
                 reader.onloadend = function(){ // set image data as background of div
 
                     $('#v-card-back').removeClass('default-preview');
+                    document.getElementById("vcardBackId").className = "borderless-image";
+                    document.getElementById("v-card-back").className = "v-card";
                     $("#v-card-back").attr("src", reader.result);
 
                 }
