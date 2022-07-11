@@ -5,6 +5,14 @@ frontend\assets\CommonAsset::register($this);
 rmrevin\yii\fontawesome\AssetBundle::register($this);
 $this->registerJsFile('/js/enquiry/guest_count.js');
 ?>
+<style>
+    table thead tr {
+        color: #FFFFFF;
+        background-color: var(--secondary-color);
+        /*height: 45px;*/
+        height: 31px;
+    }
+</style>
 
 <link rel="stylesheet" type="text/css" href="/css/tour-min-1.css" />
 
