@@ -73,33 +73,33 @@ h6 {
     line-height: 29px;
 }
 
-.table-responsive {
-    background: #FFFFFF;
-    box-shadow: 0px 4px 39px 9px rgba(81, 69, 159, 0.09);
-    border-radius: 10px;
-}
+/*.table-responsive {*/
+/*    background: #FFFFFF;*/
+/*    box-shadow: 0px 4px 39px 9px rgba(81, 69, 159, 0.09);*/
+/*    border-radius: 10px;*/
+/*}*/
 
-/*changes*/
-table thead tr {
-    color: #FFFFFF;
-    background-color: var(--secondary-color);
-    /*height: 45px;*/
-    height: 31px;
-}
+/*!*changes*!*/
+/*table thead tr {*/
+/*    color: #FFFFFF;*/
+/*    background-color: var(--secondary-color);*/
+/*    !*height: 45px;*!*/
+/*    height: 31px;*/
+/*}*/
 
-table thead tr th:first-child {
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-}
+/*table thead tr th:first-child {*/
+/*    border-top-left-radius: 10px;*/
+/*    border-bottom-left-radius: 10px;*/
+/*}*/
 
-table thead tr th:last-child {
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
+/*table thead tr th:last-child {*/
+/*    border-top-right-radius: 10px;*/
+/*    border-bottom-right-radius: 10px;*/
+/*}*/
 
-table td {
-    margin-bottom: 10px;
-}
+/*table td {*/
+/*    margin-bottom: 10px;*/
+/*}*/
 
 a {
     color: inherit !important;

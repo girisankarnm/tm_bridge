@@ -29,12 +29,12 @@ class AddUserForm extends Model{
             ['email', 'required'],
             ['email', 'email'],
             ['email', 'string', 'max' => 255],
-            ['email', 'unique', 'targetClass' => '\frontend\models\User', 'message' => 'This email address has already been taken.'],
+            ['email', 'unique', 'targetClass' => '\frontend\models\user\User', 'message' => 'This email address has already been taken.'],
 
             ['phone', 'trim'],
             ['phone', 'required'],
             ['phone', 'string', 'max' => 255],
-            ['phone', 'unique', 'targetClass' => '\frontend\models\User', 'message' => 'This phone has already been taken.'],            
+            ['phone', 'unique', 'targetClass' => '\frontend\models\user\User', 'message' => 'This phone has already been taken.'],
         ];
     }
 
@@ -44,7 +44,7 @@ class AddUserForm extends Model{
      * @return bool whether the creating new account was successful and email was sent
      */
     public function save()
-    {          
+    {
         $bAddNewUser = true;
         $user = NULL;
         if($this->user_id != 0) {
@@ -53,20 +53,20 @@ class AddUserForm extends Model{
 
         if($user == NULL) {
             $user = new \frontend\models\user\User();
-        } 
+        }
         else {
             $bAddNewUser = false;
         }
 
         //Generate a random password
         $this->password = random_int(11111, 99999);
-        
+
         $user->username = $this->email;
         $user->first_name = $this->first_name;
         $user->last_name = $this->last_name;
         $user->phone = $this->phone;
         $user->email = $this->email;
-        $user->user_type = $this->user_type;        
+        $user->user_type = $this->user_type;
         $user->status = \frontend\models\user\User::STATUS_INACTIVE;
         $user->password_change_on_login = 1;
         $user->parent = $this->parent;
@@ -74,19 +74,19 @@ class AddUserForm extends Model{
         $user->generateAuthKey();
         $user->generateEmailVerificationToken();
 
-        if (!$user->validate()) {            
+        if (!$user->validate()) {
             return false;
         }
 
         if($bAddNewUser) {
-            if (!$user->save(false) ) {           
+            if (!$user->save(false) ) {
                 return false;
             }
         } else {
-            if (!$user->update(false) ) {           
+            if (!$user->update(false) ) {
                 return false;
-            }            
-        }        
+            }
+        }
 
         $this->user_id = $user->getPrimaryKey();
         //Assign role to user
@@ -94,8 +94,8 @@ class AddUserForm extends Model{
         $auth->revokeAll($user->getId());
         $userRole = $auth->getRole($this->user_role);
         $auth->assign($userRole, $user->getId());
-        
-        //send mail if adding new user. Do not send mail for edit user        
+
+        //send mail if adding new user. Do not send mail for edit user
         return ($bAddNewUser) ? $this->sendEmail($user, $this->password) : true;
     }
 

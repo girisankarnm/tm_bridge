@@ -14,8 +14,9 @@ $this->registerCssFile('/css/full-page.css');
 
 <!--            <div class="card col-12 mr-1 c_border" >-->
                 <div class="card-header p-0 text-center">
+<!--                    TODO : Set card header background as white-->
                     <div class="login-logo">
-                        <a href="<?=Yii::$app->homeUrl?>"><img  src="<?= Yii::$app->request->baseUrl . 'images/tmprologo.jpg' ?>" alt="" width="200" height="100"></a>
+                        <a href="<?=Yii::$app->homeUrl?>"><img  src="<?= Yii::$app->request->baseUrl . '/images/tm_bridge_logo.svg' ?>" alt="" width="200" height="100"></a>
                     </div>
                     <!--    <h5 class="text-secondary">Onboarding</h5>-->
                 </div>

@@ -16,6 +16,11 @@ use borales\extensions\phoneInput\PhoneInput;
 
 
 </script>
+<style>
+    .invalid-feedback{
+        display: block;
+    }
+</style>
 <div class="$content">
     <div class="container-fluid" style="background-color: white">
         <div class="card-title">
@@ -48,8 +53,9 @@ use borales\extensions\phoneInput\PhoneInput;
                         'jsOptions' => [
                             'onlyCountries' => ['in'],
                         ],
-                        'options'=> array('class'=>'inputTextClass form-control', 'placeholder' => 'Mobile Number', 'maxlength' => '12'),
-                    ] )->label(false);?>                </div>
+                        'options'=> array('class'=>'inputTextClass ', 'placeholder' => 'Mobile Number', 'maxlength' => '12'),
+                    ] )->label(false);?>
+                   </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-4">
@@ -74,7 +80,7 @@ use borales\extensions\phoneInput\PhoneInput;
                     ?>                </div>
                 <?php } ?>
             </div>
-            <button type="submit" class="btn btn-primary btn-save">Sign in</button>
+            <button type="submit" class="btn btn-primary btn-save">Save</button>
 
             <?php ActiveForm::end(); ?>
         </div>
