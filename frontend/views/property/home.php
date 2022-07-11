@@ -1,3 +1,6 @@
+<?php
+use yii\helpers\Html;
+?>
 
 <div class="content">
 
@@ -24,7 +27,7 @@
 
                     </div>
                      <div> <small  class="smallFonts fontsize-location"><i  class="fa fa-map-marker locatiospace" aria-hidden="true"></i> <?= $property->location->name?>, <?= $property->destination->name?>, <?= $property->country->name?></small></div>
-                        <div> <span class="badge-properties shadow-div">Profile is not completed</span></div>
+                        <div> <span class="badge-properties shadow-div"> <?php echo $property->validateData() ? "" : Html::a('Profile not completed: View report', ['/property/validate','id'=> $property->id ]) ?></span></div>
                     </div>
                 </div>
                 <div >
@@ -40,11 +43,11 @@
                         </div>
                         <div id="link-properties">
 
-                            <div><span class="icon-button__badge">2</span> <div class="action-icon">   <img class="margin-left-right-spacing action-icon" src="images/message-1.svg"> <div class="action-text action-icon"><span class="spanText-size">messages</span> </div></div></div>
-                            <div><span class="icon-button__badge">2</span> <div class="action-icon">  <span class="icon-button__badge">2</span> <img class="margin-left-right-spacing action-icon" src="images/note-1.svg">  <div class="action-text"><span class="spanText-size" >srr</span> </div></div></div>
+                            <div><span class="icon-button__badge">2</span> <div class="action-icon">   <img class="margin-left-right-spacing action-icon" src="images/message-1.svg"> <div class="action-text action-icon"><span class="spanText-size">Messages</span> </div></div></div>
+                            <div><span class="icon-button__badge">2</span> <div class="action-icon">  <span class="icon-button__badge">2</span> <img class="margin-left-right-spacing action-icon" src="images/note-1.svg">  <div class="action-text"><span class="spanText-size" >SRR</span> </div></div></div>
                             <div><span class="icon-button__badge">2</span><div class="action-icon"> <span class="icon-button__badge">2</span>  <img class="margin-left-right-spacing action-icon" src="images/tick-properties.svg">  <div class="action-text"><span class="spanText-size">Availability</span> </div></div></div>
-                            <div><span class="icon-button__badge">2</span><div class="action-icon"> <span class="icon-button__badge">2</span>  <img class="margin-left-right-spacing action-icon" src="images/blocking-icon.svg">  <div class="action-text"><span class="spanText-size">blocking</span> </div></div></div>
-                            <div><span class="icon-button__badge">2</span> <div class="action-icon">  <span class="icon-button__badge">2</span> <img class="margin-left-right-spacing action-icon" src="images/booking-icon.svg"> <div class="action-text"><span class="spanText-size">booking</span> </div></div></div>
+                            <div><span class="icon-button__badge">2</span><div class="action-icon"> <span class="icon-button__badge">2</span>  <img class="margin-left-right-spacing action-icon" src="images/blocking-icon.svg">  <div class="action-text"><span class="spanText-size">Blocking</span> </div></div></div>
+                            <div><span class="icon-button__badge">2</span> <div class="action-icon">  <span class="icon-button__badge">2</span> <img class="margin-left-right-spacing action-icon" src="images/booking-icon.svg"> <div class="action-text"><span class="spanText-size">Booking</span> </div></div></div>
 
                          </div>
 <!--                         <div id="link-properties-label">-->
