@@ -59,7 +59,7 @@ use frontend\models\tariff\RoomRateValidator;
                 <div ><h6  class="motherdaterange-H6  smallFonts" style="padding-top: 0px; font-size: 10px; line-height: 0;"><img s src="images/user-icon.svg" style="color: #545b62;margin-right: 0px" aria-hidden="true"></img> <?= Yii::$app->user->identity->first_name ?> </h6></div>
                 <div ><h6 class="motherdaterange-H6 h7class  smallFonts" ><img s src="images/callender-icon.svg" style="color: #545b62;margin-right: 0px" aria-hidden="true"></img> december 25 2022 </h6></div>
                 <div ><h6 class="motherdaterange-H6 h7class" >                  <img s src="images/ticksuccess.svg" style="color: #545b62;margin-right: 0px" aria-hidden="true"></img>
-                        <span class="publishform"> Not published  </span><span class="publishform">Tariff validation: <?= (!$bValidated) ? "Failed - ".implode(",", $rc->getLastErrorMessages()) : "Success" ?>   </span> </h6></div>
+                        <span class="publishform"><?= ($is_published == 1) ? "Published" : "Not Published" ?> </span><span class="publishform"> | Tariff validation: <?= (!$bValidated) ? "Failed - ".implode(",", $rc->getLastErrorMessages()) : "Success" ?>   </span> </h6></div>
             </div>
             <div id="b" style=" display: flex">
                 <div style="margin-right: 10px;padding-bottom: 10px">
