@@ -35,7 +35,7 @@ $this->registerCssFile('/css/full-page.css');
 <!--                        <a href="#" style="float: right; text-decoration: none; color: #831BEE; font-size: 12px; font-weight: bold">Forgot password?</a>-->
                         <hr class="sidebar-divider" style="margin-top: 30px">
                         <div style="display: flex; flex-direction: row; justify-content: space-between; margin-top: 10px; margin-left: 6px">
-                            <a href="index.php?r=user%2Flogin" style="text-decoration: none; color: #E40967; font-weight: bold">Back to Login</a>
+                            <a href="index.php?r=user%2Flogin" style="text-decoration: none; color: #E40967; font-weight: bold">Back to Sign in</a>
                             <div>
                                 <BUTTON type="submit" class="login-button-large" > Reset my password </BUTTON>
                             </div>

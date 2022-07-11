@@ -49,7 +49,7 @@ $this->registerCssFile('/css/full-page.css');
                             </div>
                         </div>
                         <div>
-                            <BUTTON type="submit" class="login-button" > Login </BUTTON>
+                            <BUTTON type="submit" class="login-button" > Sign in </BUTTON>
                         </div>
                     </div>
                 </div>

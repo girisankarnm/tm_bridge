@@ -126,15 +126,15 @@ $this->registerJsFile('/js/common.js');
         position: relative
     }
     .logo-border {
-        height: 220px;
-        width: 100%;
+        height: 180px;
+        width: 50%;
         border: 2px #cacaca dashed;
         border-radius: 6px;
         position: relative
     }
     .borderless-logo {
-        height: 150px;
-        width: 100%;
+        height: 180px;
+        width: 50%;
         border-radius: 6px;
         position: relative
     }
@@ -179,8 +179,8 @@ $this->registerJsFile('/js/common.js');
         transform: translate(-50%, -50%);
     }
     .logodisplay{
-        width: 150px;
-        height: 150px;
+        width: 120px;
+        height: 120px;
         /*margin: 0;*/
         position: absolute;
         top: 50%;
