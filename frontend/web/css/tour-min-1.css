@@ -978,8 +978,6 @@ input::placeholder {
     width: 92px;
     height: 30px;
     margin-top: 0px;
-    /*margin-right: 16px;*/
-    /*margin-left: 92px;*   /
     font-family: 'Bw Mitga';
     font-style: normal;
     letter-spacing: .04em;
@@ -989,6 +987,8 @@ input::placeholder {
     float: right;
     justify-content: right;
 }
+
+
 
 
 
@@ -3477,7 +3477,7 @@ text-align: right;
 #title-main {
     padding-top: 5px;
     width: 100%;
-    height:33px;
+    height:40px;
     text-align: left;
     display: flex;
 }
