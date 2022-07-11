@@ -213,22 +213,25 @@ class UserController extends Controller
         
         if (Yii::$app->user->identity->user_type == 1)
         {
-            //$this->layout = 'message';
-            return $this->render('onboarding_hotel', ['user' => Yii::$app->user->identity]);
+            $this->layout = 'common';
+//            return $this->render('onboarding_hotel', ['user' => Yii::$app->user->identity]);
+            return $this->render('onboarding_hotel_message', ['user' => Yii::$app->user->identity]);
         }
         else if (Yii::$app->user->identity->user_type == 2 ) 
         {
-            //$this->layout = 'message';
-            return $this->render('onboarding_operator', ['user' => Yii::$app->user->identity]);
-        } 
+            $this->layout = 'common';
+//            return $this->render('onboarding_operator', ['user' => Yii::$app->user->identity]);
+            return $this->render('onboarding_operator_message', ['user' => Yii::$app->user->identity]);
+        }
         else {
             throw new ForbiddenHttpException();
         }         
     }
 
     public function actionRegistrationSuccess(){
-        //$this->layout = 'message';
-        return $this->render('registration_success', []);
+        $this->layout = 'common';
+//        return $this->render('registration_success', []);
+        return $this->render('registration_success_message', []);
     }
 
     public function actionDone() {
