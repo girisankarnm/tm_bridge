@@ -22,7 +22,7 @@ AppAsset::register($this);
         <title><?= Html::encode($this->title) ?></title>
         <?php $this->head() ?>
     </head>
-    <body class="d-flex flex-column h-100" style="justify-content: center">
+    <body class="d-flex flex-column h-100" style="justify-content: center; height: 100%; background-image: url(/images/tm_welcome.png); background-size: cover; background-position: center; background-repeat: no-repeat; margin: 0">
     <?php $this->beginBody() ?>
     <?= $content ?>
 

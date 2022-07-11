@@ -7,7 +7,7 @@ $this->registerCssFile('/css/full-page.css');
 
 
 ?>
-<div class="content" style="height: 100%; background-image: url(/images/tm_welcome.png); background-size: cover; background-position: center; background-repeat: no-repeat; margin: 0">
+<div class="content">
     <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-12 col-md-8 col-lg-5 col-xl-4">
             <div class="card" style="margin:5% auto; background-color: white; border-radius: 20px">
