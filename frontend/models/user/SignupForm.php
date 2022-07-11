@@ -65,6 +65,8 @@ class SignupForm extends Model
         $user->phone = $this->phone;
         $user->email = $this->email;
         $user->user_type = $this->user_type;
+        //TODO : Set email verification and change status
+        $user->status = 10;
         $user->setPassword($this->password);
         $user->generateAuthKey();
         $user->generateEmailVerificationToken();
