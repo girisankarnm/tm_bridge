@@ -7,16 +7,16 @@ $this->registerCssFile('/css/full-page.css');
 <div class="content" >
 
     <div class="publishedBorder" >
-        <div class="" style="width: 100%;height: 100%; margin: auto; padding-top: 16px;padding-bottom: 10px;padding-left: 28px; background-color: white ">
+<!--        <div class="" style="width: 100%;height: 100%; margin: auto; padding-top: 16px;padding-bottom: 10px;padding-left: 28px; background-color: white ">-->
             <div>
                 <img src="/images/logo.svg" class="logo-small">
             </div>
-            <div  style="margin-left: 6px; margin-bottom: 10px; font-size: 24px; font-weight: bold">
+            <div style="margin-left: 6px; margin-bottom: 10px; font-size: 24px; font-weight: bold">
                 TourMatrix Publish Tariff
             </div>
             <div  style="line-height: 0px; height:80px;">
                 <div style="display: inline">
-                    <img style="width: 34px;height: 34px" src="images/building1.png" alt="Matrix">
+                    <img style="width: 34px;height: 34px" src="images/building1s.png" alt="Matrix">
                     <span style="font-size: 20px;padding-top:  4px;color: black;font-weight: 700;inline-size: 1px">
                  Misty Rock Resort<i style="font-size: 13px;color: gold;padding-left: 4px" class="fa fa-star" aria-hidden="true"></i>
                                          <i style="font-size: 13px;color: gold;padding-left: 2px" class="fa fa-star" aria-hidden="true"></i>
@@ -25,19 +25,33 @@ $this->registerCssFile('/css/full-page.css');
                                      <div style="display: inline">  <small  class="smallclass"><i style="font-size: 10px;color: red;top: 0px;margin-right: 2px" class="fa fa-map-marker" aria-hidden="true"></i>wyanad,kerala,india</small>
 </span></div>
             </div>
-            <div id="publishmain" style="margin-left: 4px;line-height: 27px" >
-                <div class="margintopcls" >
-                    <span class="dateform">From Date</span>
-                    <!--                    <div style=" flex-wrap: wrap">-->
-                    <div ><h6 class="motherdaterange-H6 h7class" > 22-05-2022</h6></div>
+        <div id="main-link" >
+            <div>
+                <div id="main-link-div-1"  >
+                    <div></div>
+                    <div ><h6  class="motherdaterange-H6  smallFonts" style="padding-top: 0px; font-size: 10px; line-height: 0;"><img s src="images/user-icon.svg" style="color: #545b62;margin-right: 4px" aria-hidden="true"></img><?= Yii::$app->user->identity->first_name ?></h6></div>
+                    <div ><h6 class="motherdaterange-H6 h7class  smallFonts" ><img s src="images/callender-icon.svg" style="color: #545b62;margin-right: 4px" aria-hidden="true"></img> december 25 2022 </h6></div>
+                    <div ><h6 class="motherdaterange-H6 h7class" >                 <img s src="images/ticksuccess.svg" style="color: #545b62;margin-right: 4px" aria-hidden="true"></img>
+                            <span class="publishform"> <?= (1 == 1) ? "Published" : "Not Published" ?></span> </h6></div>
 
                 </div>
-                <div style="margin-top: 4px"><h6 class="h6class"><hr class="new1 hrtopmargin"> </h6>
-                </div>
-                <div class="margintopcls" >  <span class="dateform">To Date</span>
-                    <div style="width: 90px;"><h6 class="motherdaterange-H6 h7class" >24-05-2022 </h6></div>
-                </div>
             </div>
+            <div >
+                <?php $form = ActiveForm::begin(['id' => 'tariff_publish_'.$range->id,'enableClientValidation' => true,'method' => 'post','action' => ['tariff/publish', 'id' => $range->id]]) ?>
+                <div style="margin-right: 10px;padding-bottom: 10px">
+                    <?php if($range->status != 1) { ?>
+                        <?= $form->field($range, 'id')->hiddenInput()->label(false); ?>
+                        <button type="submit" class="buttonSaveroomrate"  data-toggle="modal" data-target="#logoutModal"> Publish </button>
+                    <?php } ?>
+                    <a href="<?= \yii\helpers\Url::to(['/tariff/addmotherdate', 'id' =>  $property->id, 'mother_id' => $range->id]) ?>">
+                        <img s src="images/edit-1-icon.svg" style="color: #545b62;margin-right: 4px" aria-hidden="true"></img></a>
+                    <a href="#"> <img s src="images/delete-1-icon.svg" style="color: #545b62;margin-right: 4px" aria-hidden="true"></img></a>
+                </div>
+                <?php ActiveForm::end(); ?>
+            </div>
+
+
+        </div>
         </div>
 
 

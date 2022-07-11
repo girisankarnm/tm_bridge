@@ -1,5 +1,6 @@
 <?php
 use yii\helpers\Html;
+use yii\helpers\Url;
 ?>
 
 <div class="content">
@@ -7,7 +8,7 @@ use yii\helpers\Html;
 <div class="container-fluid" >
     <div id="title-main">
         <div class="property-title-name">My properties</div>
-         <div >  <button style="width: 100px;"  id="add-property" type="submit" class="buttonSaveAssign" >Add Property</button></div>
+         <div >  <button style="width: 100px;"  onclick="location.href='<?= Url::toRoute(['/property/basicdetails']) ?>'" id="add-property" type="submit" class="buttonSaveAssign" >Add Property</button></div>
 
     </div>
     <?php

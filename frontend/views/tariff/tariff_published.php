@@ -7,7 +7,7 @@ $this->registerCssFile('/css/full-page.css');
 <div class="content" >
 
     <div class="publishedBorder" style="height: fit-content"  >
-            <div  style="width: 100%;height: 43%; margin: auto; padding-top: 16px;padding-bottom: 10px;padding-left: 28px; background-color: white ">
+            <div  style="width: 100%;height: 43%; margin: auto; padding-top: 16px;padding-bottom: 0px;padding-left: 28px; background-color: white ">
                 <div>
                     <img src="/images/logo.svg" class="logo-small" style="margin-left: 147px">
                 </div>
@@ -48,18 +48,10 @@ $this->registerCssFile('/css/full-page.css');
                 </div>
           <div class="row" style="margin-left: 47px;margin-top: 0px;" >
                     <h6 class="motherdaterange-H6 h7class smallFonts" ><img s src="images/user-icon.svg" style="color: #545b62;margin-right: 4px" aria-hidden="true"></img>jhone</h6>
-
+              <h6 class="motherdaterange-H6 h7class smallFonts" ><img s src="images/callender-icon.svg" style="color: #545b62;margin-right: 4px" aria-hidden="true"></img>15 feb 2022</h6>
+              <img s src="images/ticksuccess.svg" style="color: #545b62;margin-right: 4px;margin-bottom: 7px" aria-hidden="true"></img>
+              <span class="publishform">Not Published</span>
                 </div>
-         <div class="row" style="margin-left: 47px;">
-            <h6 class="motherdaterange-H6 h7class smallFonts" ><img s src="images/callender-icon.svg" style="color: #545b62;margin-right: 4px" aria-hidden="true"></img>15 feb 2022</h6>
-
-        </div>
-         <div class="row" style="margin-left: 47px;">
-             <h6 class="motherdaterange-H6 h7class" >
-                 <img s src="images/ticksuccess.svg" style="color: #545b62;margin-right: 4px" aria-hidden="true"></img>
-                <span class="publishform">Not Published</span>
-             </h6>
-           </div>
          <div class="row" style="  margin-left: 3px;margin-top: 5px">
     <div id="maintick"  >
         <div class="margintopcls" style="background-color: #ffffff;text-align: left">
@@ -73,7 +65,7 @@ $this->registerCssFile('/css/full-page.css');
 
         </div>
         </div>
-        <div class="row" style=" margin-bottom: 10px; margin-left: 3px;margin-top: 5px">
+        <div class="row" style=" margin-bottom: 0px; margin-left: 3px;margin-top: 5px">
             <p class="p-class-first"> Your Tariff for the period is success fully validated </p> <p class="p-class-second"> You shall review the tariff (<a href="#"  ><span style="color: #E40968"> url to tariff report </a>) before you publish the name</p>
         </div>
         <div class="row" style="  margin-left: 23px;margin-bottom: 21px">

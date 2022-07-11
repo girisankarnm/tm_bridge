@@ -996,7 +996,7 @@ input::placeholder {
 
 
 .hrtopmargin{
-    margin-top: 0.71rem !important;
+    margin-top: 0.91rem !important;
 }
 
 
@@ -1382,7 +1382,7 @@ margin-right: 5px;
     margin-left: 30%;
     /*margin-right: 15%;*/
     width: 500px;
-    height: 500px;
+    height: fit-content;
     margin-top: 60px;
     background-color: #ffffff;
     border: 1px solid #E8E9ED;
@@ -3494,7 +3494,7 @@ text-align: right;
 
 }
 #title-main div:nth-of-type(2) {
-    flex-basis: 22%;
+    flex-basis: 21%;
     overflow: hidden;
 
 }
