@@ -35,28 +35,30 @@ $this->registerJsFile('/js/enquiry/accomodation.js');
                 if( isset($enquiry->enquiryAccommodations) && count($enquiry->enquiryAccommodations) > 0 ) {
                     $accomodation_status = ['1' => 'Required', '0' => 'Not Required'];
                     $i = 0;
-                    foreach ($enquiry->enquiryAccommodations as $accomodation){                        
+                    foreach ($enquiry->enquiryAccommodations as $accomodation){
                         ?>
                         <tr class="">
                             <td class="Adults">
-                                <input type="text" name="day[]"  value="<?php echo date('Y-m-d', strtotime($accomodation->day)); ?>" class="inputTextClassaccomadation enquiryTable acco-margintop daytextindent" readonly />
+                                <div class="form-group">
+                                <input type="text" name="day[]"  value="<?php echo date('d-M-Y', strtotime($accomodation->day)); ?>" class="inputTextClassaccomadation accommodation-input acco-margintop daytextindent" readonly />
+                                </div>
                             </td>
                             <td class="Adults">
-                                <?php echo $form->field($accomodation,'status')->dropDownList($accomodation_status,['row_id' => $i, 'name' => 'accommodation_status[]','class' => 'inputTextClassaccomadation enquiryTable acco-margintop' ])->label(false) ?>
+                                <?php echo $form->field($accomodation,'status')->dropDownList($accomodation_status,['row_id' => $i, 'name' => 'accommodation_status[]','class' => 'inputTextClassaccomadation accommodation-input acco-margintop' ])->label(false) ?>
                             </td >
                             <td class="Adults"  >
-                                <?php echo $form->field($accomodation,'destination_id')->dropDownList($destinations,['id' => 'destination_'.$i , 'name' => 'destination_id[]','class' => 'inputTextClassaccomadation enquiryTable acco-margintop' ])->label(false) ?>
+                                <?php echo $form->field($accomodation,'destination_id')->dropDownList($destinations,['id' => 'destination_'.$i , 'name' => 'destination_id[]','class' => 'inputTextClassaccomadation accommodation-input acco-margintop' ])->label(false) ?>
                             </td>
                             <td class="Adults">
-                                <?php echo $form->field($accomodation,'meal_plan_id')->dropDownList($meal_plans,['id' => 'meal_plan_'.$i, 'name' => 'meal_plan_id[]','class' => 'inputTextClassaccomadation enquiryTable acco-margintop'])->label(false) ?>
+                                <?php echo $form->field($accomodation,'meal_plan_id')->dropDownList($meal_plans,['id' => 'meal_plan_'.$i, 'name' => 'meal_plan_id[]','class' => 'inputTextClassaccomadation accommodation-input acco-margintop'])->label(false) ?>
                             </td>
                             <td  class="Adults">
                                 <?php if ($enquiry->guest_count_same_on_all_days == 1){
                                     $model->guest_count_plan_id = 1;
-                                    echo $form->field($accomodation,'guest_count_plan_id')->dropDownList($pax_count_plans,['id' => 'plan_'.$i, 'name' => 'guest_count_plan_id[]','class' => 'inputTextClassaccomadation enquiryTable acco-margintop', 'readonly' => 'readonly'])->label(false);
+                                    echo $form->field($accomodation,'guest_count_plan_id')->dropDownList($pax_count_plans,['id' => 'plan_'.$i, 'name' => 'guest_count_plan_id[]','class' => 'inputTextClassaccomadation accommodation-input acco-margintop', 'readonly' => 'readonly'])->label(false);
                                 }
                                 else
-                                    echo $form->field($accomodation,'guest_count_plan_id')->dropDownList($pax_count_plans,['id' => 'plan_'.$i, 'name' => 'guest_count_plan_id[]','class' => 'inputTextClassaccomadation enquiryTable acco-margintop' ])->label(false);
+                                    echo $form->field($accomodation,'guest_count_plan_id')->dropDownList($pax_count_plans,['id' => 'plan_'.$i, 'name' => 'guest_count_plan_id[]','class' => 'inputTextClassaccomadation accommodation-input acco-margintop' ])->label(false);
                                 ?>
                             </td>
                         </tr>
