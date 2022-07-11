@@ -31,7 +31,13 @@ use yii\helpers\Html;
 
                     </div>
                      <div> <small  class="smallFonts fontsize-location"><i  class="fa fa-map-marker locatiospace" aria-hidden="true"></i> <?= $property->location->name?>, <?= $property->destination->name?>, <?= $property->country->name?></small></div>
-                        <div> <span class="badge-properties shadow-div"> <?php echo $property->validateData() ? "" : Html::a('Profile not completed: View report', ['/property/validate','id'=> $property->id ]) ?></span></div>
+                     <?php 
+                     $is_validated = $property->validateData(); 
+                     if(!$is_validated) {
+                     ?>
+                        <div> <span class="badge-properties shadow-div"> <?php echo $is_validated ? "" : Html::a('Profile not completed: View report', ['/property/validate','id'=> $property->id ]) ?></span></div>
+                    <?php } ?>
+
                     </div>
                 </div>
                 <div >
