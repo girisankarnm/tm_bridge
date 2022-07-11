@@ -348,4 +348,50 @@ class UserController extends Controller
         ]);
     }
 
+    public function actionManage(){
+        $action =  $_POST["action_id"];
+
+        $user = User::find()
+        ->where(['id' => $_POST["user_id"]])
+        ->andWhere(['parent' => Yii::$app->user->identity->getOWnerId()])
+        ->one();
+
+        if (!$user) {
+            Yii::$app->session->setFlash('error', 'Unable to perform the operation. Contact support.');
+            return $this->redirect(['user/list']);
+        }
+
+        switch($action) {
+        case 1:            
+            if ($user->toggleStatus()) {
+                Yii::$app->session->setFlash('success', ($user->status == User::STATUS_ACTIVE) ? 'Enabled user '.$user->first_name : 'Disabled user '.$user->first_name);
+            } else {
+                Yii::$app->session->setFlash('error', 'Unable to perform the operation. Contact support.');
+            }
+            break;
+        case 2:
+            $model = new PasswordResetRequestForm();
+            $model->email = $user->email;
+            if (!$model->validate()) {                
+                Yii::$app->session->setFlash('error', 'Unable to reset password. Contact support');
+            }
+            else if (!$model->sendEmail()) {
+                Yii::$app->session->setFlash('error', 'Unable to reset password. Contact support');
+            } else {
+                Yii::$app->session->setFlash('success', 'Password change initiated. Ask user to check email for further instructions.');
+            }
+
+            break;
+        case 3:
+            if ($user->deleteMe()) {
+                Yii::$app->session->setFlash('success', 'Deleted user '.$user->first_name);
+            } else {
+                Yii::$app->session->setFlash('error', 'Unable to delete the user. Contact support.');
+            }
+            break;        
+        }
+
+        return $this->redirect(['user/list']);
+    }
+
 }
