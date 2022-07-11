@@ -101,7 +101,7 @@ $this->registerCssFile('/css/full-page.css');
                 <div class="row" style="  margin-left: 23px;margin-bottom: 21px">
                     <div style="display: block;margin-right: 35px;margin-left: ">
                         <button class="buttonSave savebuttonMother" style="color: black;background-color:#ffffff "> Cancel</button>
-                        <button class="buttonSave savebuttonMother" style="background-color: blue"> Confirm Publish</button>
+
                     </div>
 
                 </div>
