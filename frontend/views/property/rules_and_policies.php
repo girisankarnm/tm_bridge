@@ -19,6 +19,14 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
     $i++;
 }
 ?>
+<style>
+    table thead tr {
+        color: #FFFFFF;
+        background-color: var(--secondary-color);
+        /*height: 45px;*/
+        height: 31px;
+    }
+</style>
 
 <!-- load the third party plugin assets (jquery-confirm) -->
 <link href="//cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css" rel="stylesheet" type="text/css" />
