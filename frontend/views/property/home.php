@@ -5,7 +5,11 @@ use yii\helpers\Html;
 <div class="content">
 
 <div class="container-fluid" >
-    <div class="card-title">My properties</div>
+    <div id="title-main">
+        <div class="property-title-name">My properties</div>
+         <div >  <button style="width: 100px;"  id="add-property" type="submit" class="buttonSaveAssign" >Add Property</button></div>
+
+    </div>
     <?php
     $i = 1;
     foreach ($properties as $property) {
