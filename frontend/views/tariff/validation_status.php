@@ -42,7 +42,7 @@ $this->registerCssFile('/css/full-page.css');
                 <div style="margin-top: 4px"><h6 class="h6class"><hr class="new1 hrtopmargin"> </h6>
                 </div>
                 <div class="margintopcls" >  <span class="dateform">To Date</span>
-                    <div style="width: 90px;"><h6 class="motherdaterange-H6 h7class" ><?= \Carbon\Carbon::parse($mother_range->from_date)->format('d M Y'); ?> </h6></div>
+                    <div style="width: 90px;"><h6 class="motherdaterange-H6 h7class" ><?= \Carbon\Carbon::parse($mother_range->to_date)->format('d M Y'); ?> </h6></div>
                 </div>
             </div>
         </div>
@@ -82,20 +82,32 @@ $this->registerCssFile('/css/full-page.css');
             else
             {
                 ?>
-                <div class="row" style=" margin-bottom: 10px; margin-left: 3px;margin-top: 5px">
-                    <p style="font-size: 11px;font-weight: 500"> Tariff validation failed. <br> You may review and correct the tariff and try publish again <br>
-                        <?php
-                        foreach ($errors as $error) {
-                            echo $error.'<br/>';
-                        }
+
+
+                <div class="row" style=" margin-bottom: 10px; margin-left: 18px;margin-top: 5px">
+                    <p class="p-class-first-failed"> Tariff validation failed.</p> <p class="p-class-second-failed"> You may review and correct the tariff and try publish again</p>
+                </div>
+                <div class="row" style=" margin-bottom: 5px; margin-left: 18px;margin-top: 0px">
+                    <ul class="margin-left-right-spacing-2">
+                        <?php foreach ($errors as $error) { ?>
+
+             <li class="small-text"><img src="images/circle-exclamation-mark.svg"  class="chckbox-class" ><?=$error?></li>
+                        <?php }
                         ?>
-                    </p>
+                    </ul>
                 </div>
-                <div class="row" style="  margin-left: 3px">
-                    <div style="display: block;margin-right: 35px;">
+
+
+                <div class="row" style="  margin-left: 23px;margin-bottom: 21px">
+                    <div style="display: block;margin-right: 35px;margin-left: ">
                         <button class="buttonSave savebuttonMother" style="color: black;background-color:#ffffff "> Cancel</button>
+                        <button class="buttonSave savebuttonMother" style="background-color: blue"> Confirm Publish</button>
                     </div>
+
                 </div>
+
+
+
             <?php } ?>
 
 
