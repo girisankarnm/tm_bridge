@@ -36,13 +36,13 @@ $this->registerCssFile('/css/full-page.css');
                 <div class="margintopcls" >
                     <span class="dateform">From Date</span>
                     <!--                    <div style=" flex-wrap: wrap">-->
-                    <div ><h6 class="motherdaterange-H6 h7class" >  <?= Carbon::parse($mother_range->from_date)->format('d M Y'); ?></h6></div>
+                    <div ><h6 class="motherdaterange-H6 h7class" >  <?= \Carbon\Carbon::parse($mother_range->from_date)->format('d M Y'); ?></h6></div>
 
                 </div>
                 <div style="margin-top: 4px"><h6 class="h6class"><hr class="new1 hrtopmargin"> </h6>
                 </div>
                 <div class="margintopcls" >  <span class="dateform">To Date</span>
-                    <div style="width: 90px;"><h6 class="motherdaterange-H6 h7class" ><?= Carbon::parse($mother_range->from_date)->format('d M Y'); ?> </h6></div>
+                    <div style="width: 90px;"><h6 class="motherdaterange-H6 h7class" ><?= \Carbon\Carbon::parse($mother_range->from_date)->format('d M Y'); ?> </h6></div>
                 </div>
             </div>
         </div>
