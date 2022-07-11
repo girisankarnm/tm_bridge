@@ -8,12 +8,7 @@ $this->registerCssFile('/css/full-page.css');
 
     <div class="publishedBorder" style="height: fit-content"  >
             <div  style="width: 100%;height: 43%; margin: auto; padding-top: 16px;padding-bottom: 10px;padding-left: 28px; background-color: white ">
-                <div>
-                    <img src="/images/logo.svg" class="logo-small" style="margin-left: 147px">
-                </div>
-                <div  style="margin-left: 150px; margin-bottom: 6px; font-size: 20px; font-weight: bold;font-size: 11px;">
-                  TourMatrix Publish Tariff
-                </div>
+
                 <div class="tariffBorderbox" style="line-height: 4px; height:80px;">
                     <div id="mainHeding-location"style="height: 33px">
                         <div > <img style="width: 34px;height: 34px" src="images/building1.png" alt="Matrix"></div>
@@ -66,7 +61,7 @@ $this->registerCssFile('/css/full-page.css');
             <i  class="fa fa-check-circle w3-large tickpublish item circleicon" aria-hidden="true"></i>
         </div>
         <div class="margintopcls" >
-            <span class="dateform">Tariff Validation</span>
+            <span class="dateform">Published</span>
             <!--                    <div style=" flex-wrap: wrap">-->
             <div ><h6 class="dateform" style="color: #18a136;;line-height: 13px;" >Success </h6></div>
 
@@ -74,7 +69,7 @@ $this->registerCssFile('/css/full-page.css');
         </div>
         </div>
         <div class="row" style=" margin-bottom: 10px; margin-left: 3px;margin-top: 5px">
-            <p class="p-class-first"> Your Tariff for the period is success fully validated </p> <p class="p-class-second"> You shall review the tariff (<a href="#"  ><span style="color: #E40968"> url to tariff report </a>) before you publish the name</p>
+            <p class="p-class-first"> Your Tariff for the period is success fully validated111 </p> <p class="p-class-second"> You shall review the tariff (<a href="#"  ><span style="color: #E40968"> url to tariff report </a>) before you publish the name</p>
         </div>
         <div class="row" style="  margin-left: 23px;margin-bottom: 21px">
             <div style="display: block;margin-right: 35px;margin-left: ">
