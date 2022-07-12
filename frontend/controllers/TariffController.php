@@ -818,7 +818,16 @@ class TariffController extends Controller {
         if($mother_range == NULL) {
             throw new NotFoundHttpException();
         }
+        
+        $property = Property::find()
+        ->where(['id' => $mother_range->property_id])
+        ->andWhere(['owner_id' => Yii::$app->user->identity->getOWnerId()])
+        ->one();
 
+        if ($property == NULL){
+            throw new NotFoundHttpException();
+        }        
+        
         $rc = new RoomRateValidator($mother_range);        
 
         $errors = NULL;
@@ -827,7 +836,11 @@ class TariffController extends Controller {
         }        
 
         $this->layout = 'common_published';
-        return $this->render('validation_status', [ 'mother_range' => $mother_range, 'errors' => $errors]);
+        return $this->render('validation_status', [
+             'mother_range' => $mother_range, 
+             'property' => $property,
+             'errors' => $errors,
+            ]);
     }
     
 
@@ -845,11 +858,23 @@ class TariffController extends Controller {
             throw new NotFoundHttpException();
         }
 
+        $property = Property::find()
+        ->where(['id' => $mother_range->property_id])
+        ->andWhere(['owner_id' => Yii::$app->user->identity->getOWnerId()])
+        ->one();
+
+        if ($property == NULL){
+            throw new NotFoundHttpException();
+        }        
+        
         $mother_range->status = 1;
         $mother_range->save();
 
-        $this->layout = 'tm_main';
-        return $this->render('published', ['mother_range' => $mother_range]);
+        $this->layout = 'common_published';
+        return $this->render('published', [
+            'mother_range' => $mother_range,
+            'property' => $property
+        ]);
     }
 
     public function actionTariffdinner(){
