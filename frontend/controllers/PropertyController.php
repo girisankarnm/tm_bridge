@@ -2157,4 +2157,10 @@ class PropertyController extends Controller
     }
 
 
+    public function actionCreateproperty()
+    {
+        $this->layout = 'tm_main';
+        return $this->render('create_property.php', []);
+    }
+
 }

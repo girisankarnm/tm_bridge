@@ -819,6 +819,27 @@ input::placeholder {
     flex-grow: 0;
 
 }
+.title-card-property{
+font-size: 14px;
+    text-align: center;
+    line-height: 23px !important;
+}
+
+.property-button
+{
+    color: white;
+    background: #E40967;
+    border: 1px solid #E40967;
+    width: 261px;
+    height: 33px;
+    margin-right: 74px;
+    margin-top: 16px;
+}
+.height-image
+{
+    height: 85px;
+    line-height: 0px;
+}
 ::placeholder {
     color: grey;
 }
@@ -1195,11 +1216,40 @@ hr.new2 {
     padding-top: 0px;
     margin-right: 4px;
     font-size: 12px;
-    line-height: 1;
+
+}
+.h8class {
+    padding-top: 0px;
+    margin-right: 4px;
+    font-size: 12px;
+    line-height: 14px !important;
+}
+.padding-4px
+{
+    text-align: center;
+    white-space: initial;
+    word-wrap: break-word;
+}
+.card-resize
+{
+    height: 155px;
+    width: 167px;
+    background: #F9F3FF;
+}
+.color-anchor
+{
+    color: #586ADA !important;
+}
+.image-top-left-property
+{
+    z-index: 1;
+    top: 0;
+    left: 0;
+    position: absolute;
 }
 .fontsize-location
 {
-    font-size: 11px;
+   text-align: center;
 }
 
 .fontsize-button
@@ -1210,6 +1260,7 @@ hr.new2 {
 {
     color: #787486 !important;
     font-style: normal !important;
+
 }
 
 .h9class {

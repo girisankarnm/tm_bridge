@@ -14,7 +14,7 @@ use Carbon\Carbon;
                     <div > <img style="width: 34px;height: 34px" src="images/building1.png" alt="Matrix"></div>
                     <div >
                         <div id="h-border-location"  >
-                            <div  >
+                            <div>
                           <span class="hotelHeading" ><?= $property->name ?><img class="f-star" src="images/Star-1.svg" alt="Matrix">
                            <img class="f-star" style="padding-left: 2px"  src="images/Star-1.svg" alt="Matrix">
                            <img  class="f-star" style="padding-left: 2px" src="images/Star-1.svg" alt="Matrix">
@@ -62,9 +62,6 @@ use Carbon\Carbon;
                     <button type="submit" class="buttonSave savebuttonMother" style="background-color: blue"> OK </button>
                     <form>
                 </div>
-
-
-                <!--                <hr class="sidebar-divider" style="margin-top: 20px">-->
 
             </div>
         </div>
