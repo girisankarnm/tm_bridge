@@ -54,7 +54,7 @@ $this->registerJsFile('/js/property/amenities/services_amenities.js');
                                     <div class="form-material">
                                         <input type="checkbox" name="" id="complimentary_service" class="form-input-checkbox" <?= $property->have_complimentary_services == 1 ? "checked" : ""; ?>>
                                         <label for="complimentary_service">
-                                            <strong> Cancellation Policy has Period Based Rates </strong>
+                                            <strong> Property have complimentary services for guests </strong>
                                         </label>
                                     </div>
                                 </div>
