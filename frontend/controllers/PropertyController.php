@@ -244,7 +244,12 @@ class PropertyController extends Controller
         $property_types = ArrayHelper::map(PropertyType::find()->asArray()->all(), 'id', 'name');
         $property_categories = ArrayHelper::map(PropertyCategory::find()->asArray()->all(), 'id', 'name');
 //         $property_image = new PropertyImage();
-        return $this->render('basic_details', ['basic_details' => $basic_details, 'property_types' => $property_types, 'property_categories' => $property_categories, 'property_image' => $property_image, 'show_terms_tab' => $show_terms_tab]);
+        return $this->render('basic_details', [
+            'basic_details' => $basic_details, 
+            'property_types' => $property_types, 
+            'property_categories' => $property_categories, 
+            'property_image' => $property_image, 
+            'show_terms_tab' => $show_terms_tab]);
 
     }
 
