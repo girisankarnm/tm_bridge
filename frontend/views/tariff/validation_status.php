@@ -75,7 +75,7 @@ $this->registerCssFile('/css/full-page.css');
                     <div style="display: block;margin-right: 35px;">
                         <?php $form = ActiveForm::begin(['id' => 'tariff_published_'.$mother_range->id,'enableClientValidation' => true,'method' => 'post','action' => ['tariff/published']]) ?>
                         <?= $form->field($mother_range, 'id')->hiddenInput()->label(false); ?>
-                        <button type="button" class="buttonSave savebuttonMother" style="color: black;background-color:#ffffff "> Cancel</button>
+                        <button type="button" class="buttonSave savebuttonMother" style="color: black;background-color:#ffffff " onclick="window.history.go(-1); return false;"> Cancel</button>
                         <button type="submit" class="buttonSave savebuttonMother" style="background-color: blue"> Confirm Publish</button>
                         <?php ActiveForm::end(); ?>
                     </div>
@@ -102,7 +102,7 @@ $this->registerCssFile('/css/full-page.css');
 
                 <div class="row" style="  margin-left: 23px;margin-bottom: 21px">
                     <div style="display: block;margin-right: 35px;margin-left: ">
-                        <button class="buttonSave savebuttonMother" style="color: black;background-color:#ffffff "> Cancel</button>
+                        <button class="buttonSave savebuttonMother" style="color: black;background-color:#ffffff" onclick="window.history.go(-1); return false;">  Cancel</button>
 
                     </div>
 
