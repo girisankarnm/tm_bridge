@@ -449,8 +449,21 @@ class TariffController extends Controller {
         if($property == NULL) {
             throw new NotFoundHttpException();
         }
-        //TODO: Check room is owned by user
 
+        //TODO: Check room is owned by user
+        $room = NULL;        
+        if ($room_id != 0) {
+            $room = Room::find()
+            ->where(['id' => $room_id])
+            //->andWhere(['owner_id' => Yii::$app->user->identity->getOWnerId()])
+            ->one();
+        }
+
+        if($room == NULL) {
+            throw new NotFoundHttpException();
+        }
+        
+        //TODO: Add transaction - commit and rollback
         foreach( $_POST["nationality"] as $nationality ) {
             $slab_count = count($_POST["room_rate_".$nationality]);
             
@@ -461,7 +474,7 @@ class TariffController extends Controller {
             $room_tariff->nationality_id = $nationality;
             $room_tariff->room_id = $room_id;
             $room_tariff->date_range_id = $date_range_id;
-            //TOTO: Status should be unpublished
+            //TODO: Status should be unpublished
             $room_tariff->status = 1;
             $room_tariff->save();           
 
@@ -472,8 +485,8 @@ class TariffController extends Controller {
                 $slab->room_rate = $_POST["room_rate_".$nationality][$i];
                 $slab->adult_with_extra_bed = $_POST["adult_with_extra_bed_".$nationality][$i];
                 $slab->child_with_extra_bed = $_POST["child_with_extra_bed_".$nationality][$i];
-                $slab->child_sharing_bed = $_POST["child_sharing_bed_".$nationality][$i];
-                $slab->single_occupancy = $_POST["single_occupancy_".$nationality][$i];
+                $slab->child_sharing_bed = $_POST["child_sharing_bed_".$nationality][$i];                
+                $slab->single_occupancy = ($room->same_tariff_for_single_occupancy != 1) ? $_POST["single_occupancy_".$nationality][$i] : NULL;
                 $slab->tariff_id = $room_tariff->getPrimaryKey();
                 $slab->save();                          
             }

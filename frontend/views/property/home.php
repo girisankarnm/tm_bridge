@@ -22,16 +22,14 @@ use yii\helpers\Url;
                 <div >
                     <div id="column-2-listing">
                     <div>
-
                       <span class="hotelHeading" > <span class="cut-text" style="display: inline"><?= $property->name?><span/> <img class="f-star" src="images/Star-1.svg" alt="Matrix">
                        <img class="f-star" style="padding-left: 2px"  src="images/Star-1.svg" alt="Matrix">
                        <img  class="f-star" style="padding-left: 2px" src="images/Star-1.svg" alt="Matrix">
                        <img  class="f-star" style="padding-left: 2px" src="images/Star-1.svg" alt="Matrix">
                        <img  class="f-star" style="padding-left: 2px" src="images/Star-1.svg" alt="Matrix">
                        </span>
-
                     </div>
-                     <div> <small  class="smallFonts fontsize-location"><i  class="fa fa-map-marker locatiospace" aria-hidden="true"></i> <?= $property->location->name?>, <?= $property->destination->name?>, <?= $property->country->name?></small></div>
+                     <div> <small class="smallFonts fontsize-location"><i  class="fa fa-map-marker locatiospace" aria-hidden="true"></i> <?= isset($property->location) ? $property->location->name : "" ?>, <?= isset($property->destination) ? $property->destination->name : "" ?>, <?= isset($property->country) ? $property->country->name : "" ?></small></div>
                      <?php
                      $is_validated = $property->validateData();
                      if(!$is_validated) {

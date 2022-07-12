@@ -129,9 +129,8 @@ $this->registerJsFile('/js/operational_details/room_category.js');
                             <h6>Room Occupancy</h6>
                             <div class="row">
                                 <div class="form-group">
-                                    <div class="form-material" style="margin-left: 15px">
-                                        <input type="checkbox" name="" id="adults-checkbox" class="form-input-checkbox mr-1">
-                                        <label for="adults-checkbox" class="mb-0"> Same tariff for single occupancy </label>
+                                    <div class="form-material" style="margin-left: 15px">                                        
+                                        <?= $form->field($room, 'same_tariff_for_single_occupancy')->checkbox(['id' => 'same-tariff-single-checkbox'])->label("Same tariff for single occupancy"); ?>
                                     </div>
                                 </div>
                             </div>

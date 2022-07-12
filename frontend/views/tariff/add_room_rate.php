@@ -83,7 +83,8 @@ $this->registerJsFile('/js/tariff/tariff.js');
                 'nationality_id' => 0, 
                 'nationality_name' => "General", 
                 'tariff' => $room_tariff,
-                'count' => $count
+                'count' => $count,
+                'room' => $room
             ]);
 
             foreach ($nationalities as $nationality) {
@@ -94,7 +95,8 @@ $this->registerJsFile('/js/tariff/tariff.js');
                     'nationality_id' => $nationality->id, 
                     'nationality_name' => $nationality->name, 
                     'tariff' => $room_tariff,
-                    'count' => $count
+                    'count' => $count,
+                    'room' => $room
                 ]);
             } 
         ?>

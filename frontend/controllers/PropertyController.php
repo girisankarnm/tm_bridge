@@ -244,7 +244,12 @@ class PropertyController extends Controller
         $property_types = ArrayHelper::map(PropertyType::find()->asArray()->all(), 'id', 'name');
         $property_categories = ArrayHelper::map(PropertyCategory::find()->asArray()->all(), 'id', 'name');
 //         $property_image = new PropertyImage();
-        return $this->render('basic_details', ['basic_details' => $basic_details, 'property_types' => $property_types, 'property_categories' => $property_categories, 'property_image' => $property_image, 'show_terms_tab' => $show_terms_tab]);
+        return $this->render('basic_details', [
+            'basic_details' => $basic_details, 
+            'property_types' => $property_types, 
+            'property_categories' => $property_categories, 
+            'property_image' => $property_image, 
+            'show_terms_tab' => $show_terms_tab]);
 
     }
 
@@ -664,10 +669,10 @@ class PropertyController extends Controller
             if ($contacts->validate()) {
                 $contacts->save();
                 $show_terms_tab = Yii::$app->request->post('show_terms_tab');
-//                $redirect_url = 'property/';
-//                $redirect_url .= ($show_terms_tab == 1) ? "terms" : "home";
-//                return $this->redirect([$redirect_url, 'id' => $property_id]);
-                return $this->redirect(['property/termsandconditions', 'id' => $property->getPrimaryKey()]);
+                $redirect_url = 'property/';
+                $redirect_url .= ($show_terms_tab == 1) ? "terms" : "home";
+                return $this->redirect([$redirect_url, 'id' => $property_id]);
+//                return $this->redirect(['property/termsandconditions', 'id' => $property->getPrimaryKey()]);
 
             } else {
                 return $this->render('contact_details', ['contact' => $contacts]);
@@ -790,7 +795,7 @@ class PropertyController extends Controller
 
         if ($property->save(false)) {
             //Yii::$app->session->setFlash('success', "Property documents updated successfully.");
-            return $this->redirect(['property/contact', 'id' => $property->getPrimaryKey()]);
+            return $this->redirect(['property/home', 'id' => $property->getPrimaryKey()]);
         } else {
             Yii::$app->session->setFlash('error', "Terms and condition updation failed.");
             $terms = new TermsConditions();
@@ -2123,7 +2128,8 @@ class PropertyController extends Controller
         if (array_key_exists('extra_bed_type_id', $rooms)){
             $room->extra_bed_type_id = $rooms['extra_bed_type_id'];
         }
-//        $room->is_base = Yii::$app->request->post('room_is_base');
+
+        $room->same_tariff_for_single_occupancy =  $rooms['same_tariff_for_single_occupancy'];
         $room->property_id = $property_id;
         if ($room->save(false)) {
             Yii::$app->session->setFlash('success', "Room category created successfully.");

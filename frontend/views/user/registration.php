@@ -31,12 +31,10 @@ $this->registerCssFile('/css/full-page.css');
             <div class="card" style="margin:5% auto; background-color: white; border-radius: 20px">
                 <?php $form = ActiveForm::begin(['method' => 'post','action' => ['user/signup']]) ?>
                 <div class="" style="width: 100%;height: 100%; margin: auto; padding: 28px; ">
-                    <div style="display: flex; justify-content: center">
+                    <div style="display: flex; justify-content: center; margin-bottom: 10px">
                         <img src="/images/tm_bridge_logo.svg" class="logo-small">
                     </div>
-                    <div  style="display: flex; justify-content: center;   font-weight: bold">
-                        Create account
-                    </div>
+
 
                     <div style=" margin-left: 6px; display: flex; flex-direction: row; justify-content: center">
                             I am a <?= $form->field($register, 'user_type')->inline()->radioList([1 => 'Hotelier', 2 => 'Operator'],['class' => 'text-secondary type',])->label(false); ?>
