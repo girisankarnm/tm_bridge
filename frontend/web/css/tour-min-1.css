@@ -820,7 +820,7 @@ input::placeholder {
 
 }
 ::placeholder {
-    color: deeppink;
+    color: grey;
 }
 .example1 {
     border: 2px solid red;
