@@ -2123,7 +2123,8 @@ class PropertyController extends Controller
         if (array_key_exists('extra_bed_type_id', $rooms)){
             $room->extra_bed_type_id = $rooms['extra_bed_type_id'];
         }
-//        $room->is_base = Yii::$app->request->post('room_is_base');
+
+        $room->same_tariff_for_single_occupancy =  $rooms['same_tariff_for_single_occupancy'];
         $room->property_id = $property_id;
         if ($room->save(false)) {
             Yii::$app->session->setFlash('success', "Room category created successfully.");
