@@ -664,10 +664,10 @@ class PropertyController extends Controller
             if ($contacts->validate()) {
                 $contacts->save();
                 $show_terms_tab = Yii::$app->request->post('show_terms_tab');
-//                $redirect_url = 'property/';
-//                $redirect_url .= ($show_terms_tab == 1) ? "terms" : "home";
-//                return $this->redirect([$redirect_url, 'id' => $property_id]);
-                return $this->redirect(['property/termsandconditions', 'id' => $property->getPrimaryKey()]);
+                $redirect_url = 'property/';
+                $redirect_url .= ($show_terms_tab == 1) ? "terms" : "home";
+                return $this->redirect([$redirect_url, 'id' => $property_id]);
+//                return $this->redirect(['property/termsandconditions', 'id' => $property->getPrimaryKey()]);
 
             } else {
                 return $this->render('contact_details', ['contact' => $contacts]);
@@ -790,7 +790,7 @@ class PropertyController extends Controller
 
         if ($property->save(false)) {
             //Yii::$app->session->setFlash('success', "Property documents updated successfully.");
-            return $this->redirect(['property/contact', 'id' => $property->getPrimaryKey()]);
+            return $this->redirect(['property/home', 'id' => $property->getPrimaryKey()]);
         } else {
             Yii::$app->session->setFlash('error', "Terms and condition updation failed.");
             $terms = new TermsConditions();
