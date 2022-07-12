@@ -15,9 +15,11 @@ if ($slab != NULL) {
     <td class="Adults">
     <input type="text" name="child_sharing_bed_<?= $nationality_id; ?>[]" class="inputTextroomtable" value="<?= $slab->child_sharing_bed ?>" />
     </td>
+    <?php if($room->same_tariff_for_single_occupancy != 1)  { ?>
     <td class="Adults">
     <input type="text" name="single_occupancy_<?= $nationality_id; ?>[]" class="inputTextroomtable" value="<?= $slab->single_occupancy ?>"/>
     </td>
+    <?php } ?>
     <td class="Adults">
         <?php if ($slab->number > 1) { ?>
             <button id="remr" onclick="deleteSlabRow(this,<?= $nationality_id; ?>); return true;" style="border-radius: 50%;border: 0px;background-color: #f9f9f9"><img src="images/minus.svg" alt="" ></button>
@@ -42,9 +44,11 @@ else {
     <td class="Adults">
     <input type="text" name="child_sharing_bed_<?= $nationality_id; ?>[]" class="inputTextroomtable" required />
     </td>
+    <?php if($room->same_tariff_for_single_occupancy != 1)  { ?>
     <td class="Adults">
     <input type="text" name="single_occupancy_<?= $nationality_id; ?>[]" class="inputTextroomtable" required/>
     </td>
+    <?php } ?>
     <td></td>              
     </tr>
 
@@ -62,9 +66,11 @@ else {
     <td class="Adults">
     <input type="text" name="child_sharing_bed_<?= $nationality_id; ?>[]" class="inputTextroomtable" required />
     </td>
+    <?php if($room->same_tariff_for_single_occupancy != 1)  { ?>
     <td class="Adults">
     <input type="text" name="single_occupancy_<?= $nationality_id; ?>[]" class="inputTextroomtable" required />
     </td>
+    <?php } ?>
     <td></td>
     </tr>    
 <?php 
