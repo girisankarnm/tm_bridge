@@ -1,7 +1,8 @@
 <?php
-
+use yii\bootstrap4\ActiveForm;
+use yii\helpers\Html;
+use Carbon\Carbon;
 $this->registerCssFile('/css/full-page.css');
-
 ?>
 
 <div class="content" >
@@ -20,12 +21,12 @@ $this->registerCssFile('/css/full-page.css');
                     <div >
                         <div id="h-border-location"  >
                             <div  >
-                          <span class="hotelHeading" >  Misty Rock Resort <img class="f-star" src="images/Star-1.svg" alt="Matrix">
+                          <span class="hotelHeading" ><?= $property->name ?> <img class="f-star" src="images/Star-1.svg" alt="Matrix">
                            <img class="f-star" style="padding-left: 2px"  src="images/Star-1.svg" alt="Matrix">
                            <img  class="f-star" style="padding-left: 2px" src="images/Star-1.svg" alt="Matrix">
                            </span>
                             </div>
-                            <div style="display: inline">  <small  class="smallclass"> <img style="width: 14px;height: 14px" src="images/location-1.svg" alt="Matrix"> wyanad,kerala,india</small>
+                            <div style="display: inline">  <small  class="smallclass"> <img style="width: 14px;height: 14px" src="images/location-1.svg" alt="Matrix"> <?= $property->location->name?>, <?= $property->destination->name?>, <?= $property->country->name?></small>
                                 </span></div>
                         </div>
                     </div>
@@ -67,7 +68,8 @@ $this->registerCssFile('/css/full-page.css');
             </div>
             <?php if($errors == NULL) { ?>
                 <div class="row" style=" margin-bottom: 10px; margin-left: 3px;margin-top: 5px">
-                    <p style="font-size: 11px;font-weight: 500"> Your Tariff for the period is successfully validated <br>You shall review the tariff (<a href="#"  ><span style="color: #E40968"> url to tariff report </a>) before you publish the name</p>
+                    <p style="font-size: 11px;font-weight: 500"> Your Tariff for the period is successfully validated <br>
+                    You shall review the <?= Html::a('tariff report', ['slab/tariff', 'id' => $property->id],  []) ?> before you publish the name</p>
                 </div>
                 <div class="row" style="  margin-left: 3px">
                     <div style="display: block;margin-right: 35px;">
