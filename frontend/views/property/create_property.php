@@ -1,4 +1,7 @@
-
+<?php
+use yii\helpers\Html;
+use yii\helpers\Url;
+?>
 <!doctype html>
 <html lang="en">
 
@@ -72,7 +75,7 @@
     </div>
 
 
-    <div style="text-align: center; border: 0px solid black; padding: 10px; color: #586ADA;margin-top: 12px"><button class="property-button">Create property</button></div>
+    <div style="text-align: center; border: 0px solid black; padding: 10px; color: #586ADA;margin-top: 12px"><button class="property-button" onclick="location.href='<?= Url::toRoute(['/property/basicdetails']) ?>'">Create property</button></div>
 
 </main>
 </body>
