@@ -391,6 +391,7 @@ input::-webkit-inner-spin-button {
 
 .table3enquiryclass
 {
+    width:760px !important;
     font-family: 'Bw Mitga';
     font-style: normal;
     alignment: inherit;
@@ -398,7 +399,6 @@ input::-webkit-inner-spin-button {
     margin-right: 12px;
     margin-top: 15px;
     margin-bottom: 24px;
-    width: 600px !important;
     height: fit-content;
     border: 1px solid  #c69500;
     perspective: 16px;
@@ -517,7 +517,7 @@ table.dataTable thead th, table.dataTable thead td {
 
 .acco-margintop
 {
-  margin-top: 18px !important;
+  margin-top: 10px !important;
 }
 
 .remove-padding-top {
@@ -2637,6 +2637,10 @@ select:focus{
     margin-bottom: 2ch;
 }
 
+.margin-bottom-2px-acco
+{
+    margin-bottom: rem !important;
+}
 #publishmain
 {
     padding-top: 0px;

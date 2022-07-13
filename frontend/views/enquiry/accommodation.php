@@ -39,7 +39,7 @@ $this->registerJsFile('/js/enquiry/accomodation.js');
                         ?>
                         <tr class="">
                             <td class="Adults">
-                                <div class="form-group">
+                                <div class="form-group margin-bottom-2px-acco">
                                 <input type="text" name="day[]"  value="<?php echo date('d-M-Y', strtotime($accomodation->day)); ?>" class="inputTextClassaccomadation accommodation-input acco-margintop daytextindent" readonly />
                                 </div>
                             </td>
@@ -72,12 +72,12 @@ $this->registerJsFile('/js/enquiry/accomodation.js');
                     for ($i = 0; $i <= $enquiry->tour_duration; $i++){ ?>
                         <tr>
                             <td class="Adults">
-                                <div class="form-group field-destination_0 required">
+                                <div class="form-group margin-bottom-2px-acco field-destination_0 required">
                                 <input type="text"  name="day[]"  value="<?php echo date('Y-m-d', strtotime($enquiry->tour_start_date. ' + ' .$i. 'days')); ?>" class="inputTextClassaccomadation acco-margintop daytextindent" readonly />
                                 </div>
                             </td>
                             <td class="Adults">
-                                <div class="form-group field-destination_0 required">
+                                <div class="form-group margin-bottom-2px-acco field-destination_0 required">
                                 <select  style="margin-top: 18px"  row_id="<?= $i?>" class="inputTextClassaccomadation tableinput acco-margintop" name="accommodation_status[]">
                                     <option value="1">Required</option>
                                     <option value="0">Not Required</option>

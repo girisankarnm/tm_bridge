@@ -98,7 +98,7 @@ $this->registerJsFile('/js/enquiry/guest_count.js');
         <!-- start guest_count_differnt  -->
         <div id="guest_count_differnt" style="display: <?= $enquiry->guest_count_same_on_all_days == 0 ? "block;" : "none;"; ?>">
             <div class="row">
-                <table id="guest_count_differnt_table" class="table3enquiryclass  " >
+                <table id="guest_count_differnt_table" class="table3enquiryclass " >
                     <tr  class="thtableguestcount " >
                         <th class="paxcount"  >Pax Count Plan </th>
                         <th class="Adults" >Adults</th>
