@@ -1023,6 +1023,27 @@ font-size: 14px;
     justify-content: right;
 }
 
+.buttonAddproperty
+{
+    margin-top: 2px;
+    float: right;
+    background-color: #586ADA;
+    border: 1px solid #586ADA !important;
+    color: #ffffff;
+    width: 144px;
+    padding-right: 34px;
+    padding-left: 27px;
+    height: 33px;
+    font-family: 'Bw Mitga';
+    font-style: normal;
+    letter-spacing: .04em;
+    font-size: 12px;
+    border: 0.5px solid #586ADA;
+    border-radius: 0px;
+    float: right;
+    justify-content: right;
+}
+
 .buttonAddUser
 {
     margin-top: 22px;

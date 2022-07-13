@@ -8,7 +8,7 @@ use yii\helpers\Url;
 <div class="container-fluid" >
     <div id="title-main">
         <div class="property-title-name">My properties</div>
-         <div >  <button style="width: 100px;"  onclick="location.href='<?= Url::toRoute(['/property/basicdetails']) ?>'" id="add-property" type="submit" class="buttonSaveAssign" >Add Property</button></div>
+         <div >  <button   onclick="location.href='<?= Url::toRoute(['/property/basicdetails']) ?>'" id="add-property" type="submit" class="buttonAddproperty" ><img src="images/plus-add.svg"> Property</button></div>
 
     </div>
     <?php
