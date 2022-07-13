@@ -19,7 +19,7 @@ div.content-wrapper {
 }
 
 .search-header-filters .filter-main {
-    background: var(--content-color) !important;
+    background: #f4f1eb !important;
     max-height: 50px;
     border: 1px solid #d8d8d8 !important;
     border-radius: 8px;
@@ -28,6 +28,7 @@ div.content-wrapper {
 
 .search-header-filters .filter-main label {
     font-weight: 600 !important;
+    color: #e77d27 !important;
     margin-bottom: 0 !important;
 }
 .search-header-filters .filter-main .form-control {
@@ -50,32 +51,19 @@ div.content-wrapper {
     margin-top: 0 !important;
 }
 
-.select2-container--default .select2-selection--single .select2-selection__placeholder {
-    font-size: 12px !important;
-}
-
 .btn.btn-filter {
-    color: var(--font-primary-color) !important;
-    background-color: var(--tertiary-color);
+    background-color: #f19153;
     padding: 5px 20px;
     transition: all 250ms ease-in-out;
 }
 
-.custom-control-label {
-    font-size: 12px !important;
-}
-
 .btn.btn-filter:hover {
-    background-color: var(--tertiary-color);
+    background-color: #bd6f3a;
 }
 
-.search-content p {
-    font-size: 12px !important;
-}
-
-/*
+/* 
 * *******************************************************************
-* Bootstrap tooltip
+* Bootstrap tooltip 
 * *******************************************************************
  */
 
@@ -85,13 +73,13 @@ div.content-wrapper {
 }
 
 
-/*
+/* 
 * *******************************************************************
 * Destination Modal
 * *******************************************************************
  */
 
-.destination-days {
+ .destination-days {
     background: #ffffff;
     border: 1px solid #d8d8d8 !important;
     /* box-shadow: 0px 18px 17px rgba(0, 0, 0, 0.06); */
@@ -106,7 +94,7 @@ div.content-wrapper {
 }
 
 .destination-days .destination-table {
-    background: var(--content-color);
+    background: #f4f1eb;
     border-radius: 5px;
     padding: 15px;
 }
@@ -116,7 +104,6 @@ div.content-wrapper {
 }
 
 .destination-days .destination-table thead th {
-    color: var(--white-color);
     border-bottom: 1px solid #dee2e6 !important;
     padding: 7px !important;
 }
@@ -137,7 +124,8 @@ div.content-wrapper {
 }
 
 .destination-days .destination-action .btn-cancel {
-    border: 1px solid var(--tertiary-color);
+    color: #e88433 !important;
+    border: 1px solid #e88433;
     border-radius: 6px;
     padding: 10px 25px !important;
     transition: all 250ms ease-in;
@@ -145,11 +133,13 @@ div.content-wrapper {
 
 .destination-days .destination-action .btn-cancel:active,
 .destination-days .destination-action .btn-cancel:hover {
-    background: var(--tertiary-color) !important;
+    color: #ffffff !important;
+    background: #e88433 !important;
 }
 
 .destination-days .destination-action .btn-apply {
-    background: var(--tertiary-color);
+    color: #ffffff !important;
+    background: #e88433;
     border-radius: 6px;
     padding: 10px 25px !important;
     transition: all 250ms ease-in;
@@ -157,12 +147,12 @@ div.content-wrapper {
 
 .destination-days .destination-action .btn-apply:active,
 .destination-days .destination-action .btn-apply:hover {
-    background: var(--tertiary-color) !important;
+    background: #b66a2c !important;
 }
 
-/*
+/* 
 * *******************************************************************
-* Search Filter
+* Search Filter 
 * *******************************************************************
  */
 
@@ -173,7 +163,7 @@ div.content-wrapper {
 }
 
 .search-content .search-filter .filter-group .filter-input {
-    background: var(--content-color);
+    background: #f4f1eb;
     border: 1px solid #d8d8d8;
     border-radius: 8px;
 }
@@ -191,11 +181,11 @@ div.content-wrapper {
 }
 
 .search-filter
-.filter-group
-.filter-input
-.select2-container--default
-.select2-selection--single
-.select2-selection__rendered {
+    .filter-group
+    .filter-input
+    .select2-container--default
+    .select2-selection--single
+    .select2-selection__rendered {
     font-size: 14px !important;
     color: 55505C !important;
     line-height: 1.2;
@@ -203,7 +193,7 @@ div.content-wrapper {
 }
 
 .search-filter .divider {
-    background-color: var(--content-color);
+    background-color: #f4f1eb;
     height: 3px;
     margin: 20px 0;
 }
@@ -214,7 +204,7 @@ div.content-wrapper {
 }
 
 .search-filter .filter-group .filter-accordion .card {
-    background: var(--content-color);
+    background: #f4f1eb;
     border: 1px solid #d8d8d8;
     border-radius: 8px;
     margin-bottom: 10px;
@@ -231,25 +221,24 @@ div.content-wrapper {
 }
 
 .search-filter
-.filter-group
-.filter-accordion
-.card
-.card-body
-.custom-control-input:checked
-~ .custom-control-label::before {
-    background-color: var(--tertiary-color) !important;
-    border-color: var(--tertiary-color) !important;
+    .filter-group
+    .filter-accordion
+    .card
+    .card-body
+    .custom-control-input:checked
+    ~ .custom-control-label::before {
+    background-color: #e88433 !important;
+    border-color: #e88433 !important;
 }
 
-/*
+/* 
 * *******************************************************************
-* Main Search Filter
+* Main Search Filter 
 * *******************************************************************
  */
 
-.search-filter,
 .search-main {
-    max-height: calc(100vh - 250px);
+    max-height: calc(144vh - 100px);
     overflow: auto;
 }
 
@@ -262,7 +251,7 @@ div.content-wrapper {
 }
 
 .search-main .search-main-header .search-periods {
-    background: var(--content-color);
+    background: #f4f1eb;
     border: 1px solid #d8d8d8;
     border-radius: 8px;
     padding: 10px;
@@ -298,7 +287,7 @@ div.content-wrapper {
 }
 
 .search-main .search-main-header .search-property {
-    background: var(--content-color);
+    background: #f4f1eb;
     border: 1px solid #d8d8d8;
     border-radius: 8px;
     padding: 5px;
@@ -337,7 +326,7 @@ div.content-wrapper {
 }
 
 .search-main .search-main-header .sort-contr .search-sort .sort-icon {
-    background-color: var(--content-color);
+    background-color: #f4f1eb;
     border: 1px solid #d8d8d8;
     border-radius: 5px;
     padding: 5px 7px;
@@ -359,7 +348,7 @@ div.content-wrapper {
 
 .search-main .search-main-header .sort-contr .dropdown-menu .dropdown-item:hover,
 .search-main .search-main-header .sort-contr .dropdown-menu .dropdown-item.current {
-    background: var(--content-color) !important;
+    background: #f4f1eb !important;
 }
 
 .search-main .search-main-header .sort-contr .search-sort p {
@@ -373,14 +362,14 @@ div.content-wrapper {
 
 .search-main .result-start .selected-count {
     text-align: center;
-    background: var(--content-color);
+    background: #f4f1eb;
     border: 2px solid #d8d8d8;
     border-radius: 6px;
     padding: 2px 7px;
     margin-left: 10px;
 }
 
-/*
+/* 
 * *******************************************************************
 * Search Results
 * *******************************************************************
@@ -401,15 +390,14 @@ div.content-wrapper {
 }
 
 .search-main .search-results .result-header .result-name .name {
-    font-size: 16px;
-    color: var(--font-primary-color) !important;
+    color: #bd6f3a !important;
 }
 
 /* .search-main .search-results .result-header .result-heading {
     display: grid;
     place-items: center;
     text-align: center;
-    background: var(--content-color);
+    background: #f4f1eb;
     border: 1px solid #d8d8d8;
     border-radius: 6px;
     height: 41px;
@@ -428,7 +416,7 @@ div.content-wrapper {
 .search-main .search-results .result-header .result-heading p {
     margin-bottom: 0;
 }
-/*
+/* 
 .search-main .search-results .result-header .result-action .favorite-icon svg {
     width: 25px;
     margin-left: auto;
@@ -685,7 +673,7 @@ svg #main-circ {
 }
 
 .search-main .search-results .divider {
-    background-color: var(--content-color);
+    background-color: #f4f1eb;
     width: 100%;
     height: 3px;
     margin: 10px 0;
@@ -704,7 +692,7 @@ svg #main-circ {
 }
 
 .search-main .search-results .result-content {
-    background: var(--tertiary-color);
+    background: rgba(248, 159, 114, 0.3);
     border: 2px solid transparent;
     border-radius: 8px;
     padding: 10px;
@@ -713,7 +701,7 @@ svg #main-circ {
 }
 
 .search-main .search-results .result-content.active {
-    border: 2px solid var(--border-light);
+    border: 2px solid #e88433;
 }
 
 .search-main .search-results .result-content .result-data .custom-control-label::after,
@@ -728,11 +716,11 @@ svg #main-circ {
 }
 
 .custom-control-input:checked ~ .custom-control-label::before {
-    border-color: var(--secondary-color) !important;
-    background-color: var(--secondary-color) !important;
+    border-color: #e88433 !important;
+    background-color: #e88433 !important;
 }
 
-/*
+/* 
 * *******************************************************************
 * Result Hotel
 * *******************************************************************
@@ -773,8 +761,8 @@ svg #main-circ {
 
 .search-main .search-results .result-content .result-hotel .price-contr {
     min-width: max-content;
-    flex: 0 0 27%;
-    max-width: 27%;
+    flex: 0 0 31.333333%;
+    max-width: 31.333333%;
 }
 
 .search-main .search-results .result-content .result-hotel .price-contr .price {
@@ -798,18 +786,18 @@ svg #main-circ {
     font-size: 18px !important;
     line-height: 37px;
     text-align: right;
-    color: var(--tertiary-color) !important;
+    color: #e88433 !important;
 }
 
 .search-main
-.search-results
-.result-content
-.result-hotel
-.filter-accordion
-.card
-.card-anchor
-.price
-.accordion-caret {
+    .search-results
+    .result-content
+    .result-hotel
+    .filter-accordion
+    .card
+    .card-anchor
+    .price
+    .accordion-caret {
     align-self: flex-start;
     width: 16px;
     height: 16px;
@@ -820,20 +808,20 @@ svg #main-circ {
 }
 
 .search-main
-.search-results
-.result-content
-.result-hotel
-.filter-accordion
-.card
-.card-anchor.collapsed
-.price
-.accordion-caret {
+    .search-results
+    .result-content
+    .result-hotel
+    .filter-accordion
+    .card
+    .card-anchor.collapsed
+    .price
+    .accordion-caret {
     margin-top: 10px;
     padding-right: 5px;
     transform: rotate(180deg);
 }
 
-/*
+/* 
 * *******************************************************************
 * Result Hotel Accordion
 * *******************************************************************
@@ -854,8 +842,8 @@ svg #main-circ {
 }
 
 .search-main .search-results .result-content .result-hotel .filter-accordion .hotel-info .meal-info {
-    flex: 0 0 20% !important;
-    max-width: 20% !important;
+    flex: 0 0 17.666667% !important;
+    max-width: 17.666667% !important;
 }
 
 .search-main .search-results .result-content .result-hotel .filter-accordion .card .card-anchor.collapsed .person-info,
@@ -869,7 +857,7 @@ svg #main-circ {
 }
 
 .search-main .search-results .result-content .result-hotel .filter-accordion .card .hotel-booking {
-    background: var(--content-color);
+    background: #f4f1eb;
     border-radius: 8px;
     padding: 10px;
 }
@@ -882,10 +870,6 @@ svg #main-circ {
     border-spacing: 4px !important;
     border-collapse: separate;
     text-align: center;
-}
-
-.search-main .search-results .result-content .result-hotel .filter-accordion .card .hotel-booking table tbody tr td {
-    font-size: 12px !important;
 }
 
 .search-main .search-results .result-content .result-hotel .filter-accordion .card .hotel-booking table tbody tr td,
@@ -903,55 +887,55 @@ svg #main-circ {
 }
 
 .search-main
-.search-results
-.result-content
-.result-hotel
-.filter-accordion
-.card
-.hotel-booking
-table
-tbody
-tr
-td
-.child-icon,
+    .search-results
+    .result-content
+    .result-hotel
+    .filter-accordion
+    .card
+    .hotel-booking
+    table
+    tbody
+    tr
+    td
+    .child-icon,
 .search-main
-.search-results
-.result-content
-.result-hotel
-.filter-accordion
-.card
-.hotel-booking
-table
-tbody
-tr
-td
-.adult-icon,
+    .search-results
+    .result-content
+    .result-hotel
+    .filter-accordion
+    .card
+    .hotel-booking
+    table
+    tbody
+    tr
+    td
+    .adult-icon,
 .search-main
-.search-results
-.result-content
-.result-hotel
-.filter-accordion
-.card
-.hotel-booking
-table
-tbody
-tr
-td
-.warning-icon {
+    .search-results
+    .result-content
+    .result-hotel
+    .filter-accordion
+    .card
+    .hotel-booking
+    table
+    tbody
+    tr
+    td
+    .warning-icon {
     width: 13px;
 }
 
 .search-main
-.search-results
-.result-content
-.result-hotel
-.filter-accordion
-.card
-.hotel-booking
-table
-tbody
-tr
-.table-action {
+    .search-results
+    .result-content
+    .result-hotel
+    .filter-accordion
+    .card
+    .hotel-booking
+    table
+    tbody
+    tr
+    .table-action {
     background: transparent;
     border: 0;
     border-radius: 0;
@@ -959,43 +943,43 @@ tr
 }
 
 .search-main
-.search-results
-.result-content
-.result-hotel
-.filter-accordion
-.card
-.hotel-booking
-table
-tbody
-tr
-.table-action
-.custom-checkbox
-.custom-control-label::before,
+    .search-results
+    .result-content
+    .result-hotel
+    .filter-accordion
+    .card
+    .hotel-booking
+    table
+    tbody
+    tr
+    .table-action
+    .custom-checkbox
+    .custom-control-label::before,
 .search-main
-.search-results
-.result-content
-.result-hotel
-.filter-accordion
-.card
-.hotel-booking
-table
-tbody
-tr
-.table-action
-.custom-checkbox
-.custom-control-label::after,
+    .search-results
+    .result-content
+    .result-hotel
+    .filter-accordion
+    .card
+    .hotel-booking
+    table
+    tbody
+    tr
+    .table-action
+    .custom-checkbox
+    .custom-control-label::after,
 .search-main
-.search-results
-.result-content
-.result-hotel
-.filter-accordion
-.card
-.hotel-booking
-table
-tbody
-tr
-.table-action
-.warning-icon {
+    .search-results
+    .result-content
+    .result-hotel
+    .filter-accordion
+    .card
+    .hotel-booking
+    table
+    tbody
+    tr
+    .table-action
+    .warning-icon {
     width: 22px;
     height: 22px;
 }
@@ -1008,7 +992,7 @@ tr
     padding: 5px;
 }
 
-/*
+/* 
 * *******************************************************************
 * Result Hotel Footer
 * *******************************************************************
@@ -1024,23 +1008,23 @@ tr
 }
 
 .search-main
-.search-results
-.result-content
-.hotel-footer
-.check-meal
-.custom-control-input
-.custom-control-label::after {
+    .search-results
+    .result-content
+    .hotel-footer
+    .check-meal
+    .custom-control-input
+    .custom-control-label::after {
     width: 22px;
     height: 22px;
 }
 
 .search-main
-.search-results
-.result-content
-.hotel-footer
-.check-meal
-.custom-control-input:checked
-~ .custom-control-label::before {
+    .search-results
+    .result-content
+    .hotel-footer
+    .check-meal
+    .custom-control-input:checked
+    ~ .custom-control-label::before {
     color: #fff;
     border-color: #6b9eff !important;
     background-color: #6b9eff !important;
