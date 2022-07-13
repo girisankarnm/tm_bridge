@@ -1010,19 +1010,23 @@ font-size: 14px;
     background-color: #586ADA;
     border: 1px solid #586ADA !important;
     color: #ffffff;
-    width: 92px;
-    height: 30px;
+    width: 102px;
+    padding-right: 4px;
+    height: 33px;
     margin-top: 0px;
     font-family: 'Bw Mitga';
     font-style: normal;
     letter-spacing: .04em;
     font-size: 12px;
     border: 0.5px solid #586ADA;
-    border-radius: 10px;
+    border-radius: 4px;
     float: right;
     justify-content: right;
 }
-
+.image-margin-2px
+{
+    margin-right: 2px !important;
+}
 .buttonAddproperty
 {
     margin-top: 2px;

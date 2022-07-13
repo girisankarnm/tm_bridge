@@ -39,7 +39,7 @@ function onChangeProperty(property){
             echo $form->field($slab_assigned, 'slab_number')->dropDownList($slabs, ['class' => 'form-control form-control-sm h','prompt' => 'Select slab'])->label(false); ?>
         </div>
         <div class="col-md-3 text-center mt-4"  >
-            <button id="assign_slab" type="submit" class="buttonSaveAssign" >Assign</button>
+            <button id="assign_slab" type="submit" class="buttonSaveAssign" > <img src="images/plus-add.svg" class="image-margin-2px">Assign</button>
         </div>
 
 
