@@ -394,6 +394,10 @@ class TariffController extends Controller {
             $date_range = TariffDateRange::find()->where(['id' => $mother_id])->one();
         }
 
+        if ($date_range == NULL){
+            throw new NotFoundHttpException();
+        }
+
         $is_published = 1;
         if($date_range->parent != 0 ) {
             //Nested
@@ -403,12 +407,13 @@ class TariffController extends Controller {
         } else {            
             $is_published = $date_range->status;
         }
+
+        $is_allow_skip = false;
+        $tariffs = $date_range->getRoomTariffDatewises()->andWhere(['room_id' => $room->id])->all();        
+        if(count($tariffs) > 0 ) {
+            $is_allow_skip = true;
+        }        
         
-
-        if ($date_range == NULL){
-            throw new NotFoundHttpException();
-        }
-
         $defined_tariff = RoomTariffDatewise::find()
         ->where(['date_range_id' => $mother_id])
         ->andWhere(['room_id' => $room->id]);
@@ -425,7 +430,8 @@ class TariffController extends Controller {
             'room_count' => $room_count,
             'defined_tariff' => $defined_tariff,
             'tariff' => $tariff,
-            'is_published' => $is_published
+            'is_published' => $is_published,
+            'is_allow_skip' => $is_allow_skip
         ]);
     }
 
@@ -540,6 +546,12 @@ class TariffController extends Controller {
         ->andWhere(['date_range_id' => $date_range->id ])
         ->one();
         
+        $is_allow_skip = false;
+        if($suppliment_meal !=  NULL) {
+            $is_allow_skip = true;
+        }        
+        
+
         $tariff = (int) Yii::$app->request->get('tariff', 0);     
         $this->layout = 'tm_main';
         return $this->render('add_meal_rate', [
@@ -547,7 +559,8 @@ class TariffController extends Controller {
             'property' => $property,            
             'suppliment_meal' => $suppliment_meal,
             'tariff' => $tariff,
-            'is_published' => $is_published
+            'is_published' => $is_published,
+            'is_allow_skip' => $is_allow_skip
         ]);        
     }
 
