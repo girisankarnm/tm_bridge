@@ -674,10 +674,8 @@ class PropertyController extends Controller
                 $contacts->save();
                 $show_terms_tab = Yii::$app->request->post('show_terms_tab');
                 $redirect_url = 'property/';
-                $redirect_url .= ($show_terms_tab == 1) ? "terms" : "home";
+                $redirect_url .= ($show_terms_tab == 1) ? "termsandconditions" : "home";
                 return $this->redirect([$redirect_url, 'id' => $property_id]);
-//                return $this->redirect(['property/termsandconditions', 'id' => $property->getPrimaryKey()]);
-
             } else {
                 return $this->render('contact_details', ['contact' => $contacts]);
             }
