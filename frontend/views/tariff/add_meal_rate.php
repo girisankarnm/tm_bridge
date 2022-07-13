@@ -95,7 +95,7 @@ use Carbon\Carbon;
                 </table>
             </div>
             <div class="row" style="margin-left: 4px;margin-bottom: 12px;">
-                <div style="display: block;margin-right: 35px">
+                <div style="display: block;margin-right: 35px;margin-top: 10px">
                     <!-- <BUTTON type="button" class="prevbutton" style="width: 80px;height: 30px" > Prev </BUTTON> -->
                     <?php if ($is_published != 1) { ?>
                     <BUTTON type="submit" class="buttonSave save-border"  > Save </BUTTON>
