@@ -121,7 +121,11 @@ class PropertyController extends Controller
                 ->all();
         }
 
-        return $this->render('home', ['properties' => $properties]);
+        if (count($properties) > 0 ) {
+            return $this->render('home', ['properties' => $properties]);
+        }
+
+        return $this->render('empty', []);        
     }
     
     public function actionValidate()
@@ -2166,7 +2170,7 @@ class PropertyController extends Controller
     public function actionCreateproperty()
     {
         $this->layout = 'tm_main';
-        return $this->render('create_property.php', []);
+        return $this->render('create_property', []);
     }
 
 }
