@@ -59,14 +59,6 @@ use yii\helpers\Url;
                             <div><span class="icon-button__badge">2</span> <div class="action-icon">  <span class="icon-button__badge">2</span> <img class="margin-left-right-spacing action-icon" src="images/booking-icon.svg"> <div class="action-text"><span class="spanText-size">Booking</span> </div></div></div>
 
                          </div>
-<!--                         <div id="link-properties-label">-->
-<!--                            <div class="action-text action-icon"><span class="spanText-size">messages</span> </div>-->
-<!--                             <div class="action-text"><span class="spanText-size" >srr</span> </div>-->
-<!--                               <div class="action-text"><span class="spanText-size">Availability</span> </div>-->
-<!--                             <div class="action-text"><span class="spanText-size">blocking</span> </div>-->
-<!--                             <div class="action-text"><span class="spanText-size">booking</span> </div>-->
-<!---->
-<!--                         </div>-->
                    </div>
                         <div>
                         </div>
@@ -78,16 +70,16 @@ use yii\helpers\Url;
 
                       <div id="column-4links-listing">
                           <div id="link-properties-action">
-                              <div>  <a href="#"> <img class="margin-left-right-spacing dropbtn-edit" onclick="myFunctionEdit(<?=$i?>)" src="images/edit-details.svg"></a>
+                              <div>  <a href="#"> <img class="margin-left-right-spacing dropbtn-edit action-icon" onclick="myFunctionEdit(<?=$i?>)" src="images/edit-details.svg"></a>
 
-                                  <div id="myDropdownEdit<?=$i?>" class="dropdown-content-edit" style="height: auto; background-color: #586ADA; margin-left: -90px; margin-top: 10px;">
+                                  <div id="myDropdownEdit<?=$i?>" class="dropdown-content-edit action-icon" style="height: auto; background-color: #586ADA; margin-left: -90px; margin-top: 10px;">
                                       <a href="<?= \yii\helpers\Url::to(['/property/basicdetails', 'id' => $property->id]) ?>" class="dro"><img  src="images/edit-sub-menue-icon.svg" style="margin-right: 2px;"> <span style="color: white">Edit Basic Details</span></a>
                                       <a href="<?= \yii\helpers\Url::to(['/property/rules', 'id' =>  $property->id]) ?>" class="dro"><img  src="images/edit-sub-menue-icon.svg" style="margin-right: 2px;"> <span style="color: white"> Edit Operational Details</span></a>
                                       <a href="<?= \yii\helpers\Url::to(['/tariff/home', 'id' =>  $property->id]) ?>" class="dro"><img  src="images/edit-sub-menue-icon.svg" style="margin-right: 2px;"> <span style="color: white"> Edit tariff</span></a>
                                   </div>
 
                               </div>
-                              <div> <img class="margin-left-right-spacing dropbtn-basic"  onclick="myFunctionBasic(<?=$i?>)"  src="images/basic-details.svg" >
+                              <div> <img class="margin-left-right-spacing dropbtn-basic action-icon"  onclick="myFunctionBasic(<?=$i?>)"  src="images/basic-details.svg" >
                                   <div id="myDropdown-basic<?=$i?>" class="dropdown-content-basic-details" style="height: auto; background-color: #586ADA; margin-left: -67px; margin-top: 10px;">
                                       <a href="<?= \yii\helpers\Url::to(['/slab/home', 'id' =>  $property->id]) ?>" class="dro"> <img  src="images/edit-sub-menue-icon.svg"  style="margin-right: 2px;" > <span style="color: white">  Assign Slab </span></a>
                                       <a href="<?= \yii\helpers\Url::to(['/property/basicdetails', 'id' =>  $property->id]) ?>" class="dro"><img  src="images/edit-sub-menue-icon.svg" style="margin-right: 2px;"> <span style="color: white"> Campaign </span></a>
@@ -96,7 +88,7 @@ use yii\helpers\Url;
 
 
                               <div>
-                                   <img class="margin-left-right-spacing dropbtn-view" onclick="myFunctionView(<?=$i?>)"  src="images/eye-view-icon.svg">
+                                   <img class="margin-left-right-spacing dropbtn-view action-icon" onclick="myFunctionView(<?=$i?>)"  src="images/eye-view-icon.svg">
                                   <div id="myDropdown-view<?=$i?>" class="dropdown-content-view" style="height: auto; background-color: #586ADA; margin-left: -67px; margin-top: 10px;">
                                       <a href="<?= \yii\helpers\Url::to(['/property/basicdetails', 'id' =>  $property->id]) ?>" class="dro"> <img  src="images/edit-sub-menue-icon.svg"  style="margin-right: 2px;" > <span style="color: white">  Details </span></a>
                                       <a href="<?= \yii\helpers\Url::to(['/slab/tariff', 'id' =>  $property->id]) ?>" class="dro"> <img  src="images/edit-sub-menue-icon.svg"  style="margin-right: 2px;" > <span style="color: white">  Slab Report </span></a>
@@ -104,7 +96,7 @@ use yii\helpers\Url;
                                       <a href="<?= \yii\helpers\Url::to(['/slab/dinner', 'id' =>  $property->id]) ?>" class="dro"> <img  src="images/edit-sub-menue-icon.svg"  style="margin-right: 2px;" > <span style="color: white">  Dinner Report </span></a>
                                   </div>
                               </div>
-                              <div>  <a href="<?= \yii\helpers\Url::to(['/property/basicdetails', 'id' =>  $property->id]) ?>"> <img class="margin-left-right-spacing" src="images/delete-1-icon.svg"></a></div>
+                              <div>  <a href="<?= \yii\helpers\Url::to(['/property/basicdetails', 'id' =>  $property->id]) ?>"> <img class="margin-left-right-spacing action-icon" src="images/delete-1-icon.svg"></a></div>
 
 
                           </div>

@@ -74,6 +74,7 @@ $currentUrlPrefix = Yii::$app->controller->id ;
     <link rel="stylesheet" href="/css/layout.css">
     <link rel="stylesheet" href="/css/form.css">
     <link rel="stylesheet" href="/css/buttons.css">
+    <link rel="stylesheet" href="/css/table-css.css">
 
     <!-- PLEASE FOLLOW CODING STANDARDS https://docs.ckan.org/en/2.9/contributing/html.html -->
 </head>

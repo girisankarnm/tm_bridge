@@ -35,11 +35,11 @@ use borales\extensions\phoneInput\PhoneInput;
             </div>
 
             <div class="row">
-                <div class="form-group col-md-4">
+                <div class="form-group margin-contacts col-md-4">
                     <label class="Labelclass" style="display: block" >*Name</label>
                     <?= $form->field($contact,'sales_name')->textInput(['class' => 'inputTextClass'])->label(false) ?>
                 </div>
-                <div class="form-group col-md-4">
+                <div class="form-group margin-contacts col-md-4">
                     <label class="Labelclass" style="display: block" >*Phone</label>
                     <?php
                     echo $form->field($contact, 'sales_phone')->widget(PhoneInput::className(), [
@@ -50,7 +50,7 @@ use borales\extensions\phoneInput\PhoneInput;
                     ], )->label(false);?>
 
                 </div>
-                <div class="form-group col-md-4">
+                <div class="form-group margin-contacts col-md-4">
                     <label class="Labelclass" style="display: block" >*Email</label>
                     <?= $form->field($contact,'sales_email')->textInput(['class' => 'inputTextClass'])->label(false) ?>
                 </div>
@@ -59,11 +59,11 @@ use borales\extensions\phoneInput\PhoneInput;
                 <h6 style=" color: black; font-size: 12px; padding: 3px; margin-left: 10px">Reservation</h6>
             </div>
             <div class="row">
-                <div class="form-group col-md-4">
+                <div class="form-group margin-contacts col-md-4">
                     <label class="Labelclass" style="display: block" >*Name</label>
                     <?= $form->field($contact,'reservation_name')->textInput(['class' => 'inputTextClass'])->label(false) ?>
                 </div>
-                <div class="form-group col-md-4">
+                <div class="form-group margin-contacts col-md-4">
                     <label class="Labelclass" style="display: block" >*Phone</label>
                     <?php
                     echo $form->field($contact, 'reservation_phone')->widget(PhoneInput::className(), [
@@ -73,7 +73,7 @@ use borales\extensions\phoneInput\PhoneInput;
                         'options'=> array('class'=>'inputTextClass', 'placeholder' => '9123456780', 'maxlength' => '12'),
                     ], )->label(false);?>
                 </div>
-                <div class="form-group col-md-4">
+                <div class="form-group margin-contacts col-md-4">
                     <label class="Labelclass" style="display: block" >*Email</label>
                     <?= $form->field($contact,'reservation_email')->textInput(['class' => 'inputTextClass'])->label(false) ?>
                 </div>
