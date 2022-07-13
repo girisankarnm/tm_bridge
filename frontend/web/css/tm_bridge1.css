@@ -5,33 +5,12 @@
  * https://docs.ckan.org/en/2.9/contributing/css.html
  */
 
-@font-face {
-    font-family: "bw_mitiga_bold";
-    src: url("../fonts/bw_mitga_bold.ttf") format("opentype");
-    font-weight: 500;
-}
-
-@font-face {
-    font-family: "bw_mitiga_regular";
-    src: url("../fonts/bw_mitga_regular.ttf") format("truetype");
-    font-weight: normal;
-}
-
 :root {
     --primary-color: #E40967;
     --secondary-color: #586ADA;
-    --tertiary-color: #BCC3F1;
     --optional-color: #831BEE;
     --white-color: #FFFFFF;
-    --success-color: #009721;
-    --content-color: #F9F9F9;
-    --font-primary-color: #292931;
-    --font-light: #787486;
-    --font-heading: "bw_mitiga_bold";
-    --font-content: "bw_mitiga_regular";
-    --font-default: sans-serif;
-    --border-dark: #292931;
-    --border-light: #787486;
+    --font-primary-color: ##292931;
 }
 
 * {
@@ -59,14 +38,12 @@
 
 html {
     font-size: 100%;
-    font-family: var(--font-heading), var(--font-content), var(--font-default) !important;
     scroll-behavior: smooth;
     overflow-x: hidden;
 }
 
 body {
-    color: var(--font-primary-color);
-    font-family: var(--font-heading), var(--font-content), var(--font-default) !important;
+    color: #292931;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
@@ -79,17 +56,10 @@ background-primary {
 }
 
 p,
-select,
-option,
-table,
-table th,
-table td,
-input,
-label,
-button {
-    font-size: 14px !important;
-    font-family: var(--font-content), var(--font-default) !important;
-    color: var(--font-primary-color);
+a,
+label {
+    font-size: 14px;
+    color: #292931;
 }
 
 h1,
@@ -98,39 +68,18 @@ h3,
 h4,
 h5,
 h6 {
-    color: var(--font-primary-color);
-    font-family: var(--font-heading), var(--font-default) !important;
+    color: #292931;
     letter-spacing: -0.02em;
     line-height: 29px;
 }
 
-::-webkit-input-placeholder {
-    font-family: var(--font-content) !important;
-}
+/*.table-responsive {*/
+/*    background: #FFFFFF;*/
+/*    box-shadow: 0px 4px 39px 9px rgba(81, 69, 159, 0.09);*/
+/*    border-radius: 10px;*/
+/*}*/
 
-:-ms-input-placeholder {
-    font-family: var(--font-content) !important;
-}
-
-:-moz-placeholder {
-    font-family: var(--font-content) !important;
-}
-
-::-moz-placeholder {
-    font-family: var(--font-content) !important;
-}
-
-.table-responsive {
-    background: var(--white-color);
-    box-shadow: 0px 4px 39px 9px rgba(81, 69, 159, 0.09);
-    border-radius: 10px;
-}
-
-.background-secondary {
-    background-color: var(--secondary-color);
-}
-
-/*changes*/
+/*!*changes*!*/
 /*table thead tr {*/
 /*    color: #FFFFFF;*/
 /*    background-color: var(--secondary-color);*/
@@ -172,16 +121,16 @@ li {
 }
 
 .navbar {
-    height: 60px;
+    min-height: 88px;
     border-bottom: 1px solid #E8E9ED;
 }
 
 .navbar .navbar-brand {
-    height: 50px;
+    height: 73px;
 }
 
 .navbar .btn-hamburger {
-    width: 25px;
+    width: 33.44px;
 }
 
 .navbar .btn-hamburger img {
@@ -231,27 +180,6 @@ li {
     padding: 7px;
     border-radius: 5px;
     transition: all 250ms ease-in;
-}
-
-.navbar .profile-dropdown .dropdown-menu {
-    background: #FFFFFF;
-    border-radius: 3px;
-    min-width: 12rem;
-    padding: 10px 0;
-    -webkit-box-shadow: 0 5px 25px rgb(34 41 47 / 20%);
-    box-shadow: 0 5px 25px rgb(34 41 47 / 20%);
-    z-index: 2;
-    -webkit-transition: all 450ms ease-in;
-    transition: all 450ms ease-in;
-}
-
-.navbar .profile-dropdown .dropdown-menu .nav-link:hover,
-.navbar .profile-dropdown .dropdown-menu .nav-link:active,
-.navbar .profile-dropdown .dropdown-menu .nav-link.active {
-    color: var(--secondary-color) !important;
-    text-decoration: none;
-    /* background-color: rgba(95, 199, 210, 0.12); */
-    background-color: #eeeeee;
 }
 
 .navbar .profile-dropdown:hover .profile-nav {
@@ -305,12 +233,10 @@ li {
 
 .content-contr {
     display: flex;
-    margin: 0;
-    padding: 0;
 }
 
 .content-contr .sidebar-contr {
-    width: 195px;
+    width: 253.18px;
     background: #F7F7F9;
     height: calc(100vh - 100px);
     padding-top: 45px;
@@ -325,7 +251,7 @@ li {
     align-items: center;
     margin-bottom: 14px;
     padding: 10px;
-    padding-left: 35px;
+    padding-left: 45px;
 }
 
 .content-contr .sidebar-contr .sidebar-item::before {
@@ -512,13 +438,12 @@ li {
 }
 
 .data-content .modal .modal-content .modal-header  {
-    color: var(--white-color);
     background: var(--secondary-color);
 }
 
-.data-content .modal .modal-content .modal-header :where(.modal-title, .title, p) {
-    font-size: 14px !important;
-    color: var(--white-color) !important;
+.data-content .modal .modal-content .modal-header .modal-title {
+    font-size: 16px;
+    color: var(--white-color);
 }
 
 .modal-backdrop {

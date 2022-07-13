@@ -1,53 +1,49 @@
 <?php
 
-/* @var $this yii\web\View */
+    /* @var $this yii\web\View */
 
-use frontend\assets\CommonAsset;
-use frontend\assets\DatePickerAsset;
-use yii\helpers\Html;
-use yii\web\View;
-
-frontend\assets\CommonAsset::register($this);
-frontend\assets\DatePickerAsset::register($this);
-$this->registerCssFile('/css/search.css');
-$this->registerJsFile('/js/search/index.js');
-$this->title = 'Search History';
+    use yii\helpers\Html;
+    frontend\assets\CommonAsset::register($this);
+    frontend\assets\DatePickerAsset::register($this);
+    $this->registerCssFile('/css/search.css');
+    $this->registerJsFile('/js/search/index.js');
+    $this->title = 'Search History';
 ?>
 
 <link href="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/css/select2.min.css" rel="stylesheet"/>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>
 
 <div class="search-container">
-    <div class="search-header">
+    <div class="search-header mb-3">
         <a href="#" class="text-link mb-2">
             <strong>  Enquiry Details </strong>
         </a>
-        <div class="row search-header-filters justify-content-between align-items-center m-0 mt-2">
+        <div class="row search-header-filters justify-content-between align-items-center m-0">
             <div class="col-md-1 filter-main mb-2">
                 <label for="enq"> ENQ </label>
-                <p class="mb-0"> 1234 </p>
+                <p> 1234 </p>
             </div>
             <div class="col-md-3 filter-main mb-2">
                 <label for="name"> Guest Name </label>
                 <!-- <input type="text" name="name" id="name" class="form-control"> -->
-                <p class="mb-0">John Doe </p>
+                <p>John Doe </p>
             </div>
             <div class="col-md-2 filter-main mb-2">
                 <label for="checkIn"> Check-In </label>
                 <!-- <input type="text" name="checkIn" id="checkIn" class="form-control datepicker" readOnly> -->
-                <p class="mb-0"> Wed, 2 Mar 2022 </p>
+                <p> Wed, 2 Mar 2022 </p>
             </div>
             <div class="col-md-2 filter-main mb-2">
                 <label for="checkOut"> Check-Out </label>
                 <!-- <input type="text" name="checkOut" id="checkOut" class="form-control datepicker" readOnly> -->
-                <p class="mb-0"> Wed, 3 Mar 2022 </p>
+                <p> Wed, 3 Mar 2022 </p>
             </div>
             <div class="col-md-3 filter-main mb-2">
                 <label for="duration"> Stay Duration </label>
                 <!-- <select name="duration" id="duration" class="select2 form-control browser-default">
                     <option value=""> 3 Nights (split stay) </option>
                 </select> -->
-                <p class="mb-0"> 3 Nights (split stay) </p>
+                <p> 3 Nights (split stay) </p>
             </div>
         </div>
     </div>
@@ -181,11 +177,11 @@ $this->title = 'Search History';
 
                             <div class="row col-md-10 align-items-center">
                                 <?php foreach(range(1, 10) as $index => $item): ?>
-                                    <div class="d-flex col-md-2 date-range justify-content-between text-center">
-                                        <p>
-                                            <strong> 11 Mar 2022 <?php echo ($index !== 9) ? ',' : false;  ?> </strong>
-                                        </p>
-                                    </div>
+                                <div class="d-flex col-md-2 date-range justify-content-between text-center">
+                                    <p>
+                                    <strong> 11 Mar 2022 <?php echo ($index !== 9) ? ',' : false;  ?> </strong>
+                                    </p>
+                                </div>
 
                                 <?php endforeach; ?>
                             </div>
@@ -226,17 +222,17 @@ $this->title = 'Search History';
                         </div>
                     </div>
                     <div class="col-md-2 sort-contr dropdown">
-                        <div class="d-flex search-sort justify-content-md-end align-items-center dropdown-toggle" id="sortMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <p> Sort </p>
-                            <div class="sort-icon">
-                                <i class="fas fa-filter"></i>
+                            <div class="d-flex search-sort justify-content-md-end align-items-center dropdown-toggle" id="sortMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <p> Sort </p>
+                                <div class="sort-icon">
+                                    <i class="fas fa-filter"></i>
+                                </div>
                             </div>
-                        </div>
-                        <div class="dropdown-menu" aria-labelledby="sortMenuButton">
-                            <a class="dropdown-item mb-1" href="#">Action</a>
-                            <a class="dropdown-item current mb-1" href="#">Another action</a>
-                            <a class="dropdown-item mb-1" href="#">Something else here</a>
-                        </div>
+                            <div class="dropdown-menu" aria-labelledby="sortMenuButton">
+                                <a class="dropdown-item mb-1" href="#">Action</a>
+                                <a class="dropdown-item current mb-1" href="#">Another action</a>
+                                <a class="dropdown-item mb-1" href="#">Something else here</a>
+                            </div>
                     </div>
                 </div>
             </div>
@@ -246,9 +242,9 @@ $this->title = 'Search History';
                     <h5 class="mb-1"> Results </h5>
                 </div>
                 <div class="d-flex col-md-3 justify-content-end align-items-center">
-                    <p class="mb-0"> Selected </p>
+                    <h6> Selected </h6>
                     <div class="selected-count">
-                        <p class="mb-0"> 2/10 </p>
+                        <h6> 2/10 </h6>
                     </div>
                 </div>
             </div>
@@ -310,43 +306,43 @@ $this->title = 'Search History';
                             <label for="favorite-1">
                                 <svg id="heart-svg" viewBox="467 392 58 57" xmlns="http://www.w3.org/2000/svg">
                                     <g id="Group" fill="none" fill-rule="evenodd" transform="translate(467 392)">
-                                        <path d="M29.144 20.773c-.063-.13-4.227-8.67-11.44-2.59C7.63 28.795 28.94 43.256 29.143 43.394c.204-.138 21.513-14.6 11.44-25.213-7.214-6.08-11.377 2.46-11.44 2.59z" id="heart" fill="#AAB8C2"/>
-                                        <circle id="main-circ" fill="#E2264D" opacity="0" cx="29.5" cy="29.5" r="1.5"/>
+                                    <path d="M29.144 20.773c-.063-.13-4.227-8.67-11.44-2.59C7.63 28.795 28.94 43.256 29.143 43.394c.204-.138 21.513-14.6 11.44-25.213-7.214-6.08-11.377 2.46-11.44 2.59z" id="heart" fill="#AAB8C2"/>
+                                    <circle id="main-circ" fill="#E2264D" opacity="0" cx="29.5" cy="29.5" r="1.5"/>
 
-                                        <g id="grp7" opacity="0" transform="translate(7 6)">
-                                            <circle id="oval1" fill="#9CD8C3" cx="2" cy="6" r="2"/>
-                                            <circle id="oval2" fill="#8CE8C3" cx="5" cy="2" r="2"/>
-                                        </g>
+                                    <g id="grp7" opacity="0" transform="translate(7 6)">
+                                        <circle id="oval1" fill="#9CD8C3" cx="2" cy="6" r="2"/>
+                                        <circle id="oval2" fill="#8CE8C3" cx="5" cy="2" r="2"/>
+                                    </g>
 
-                                        <g id="grp6" opacity="0" transform="translate(0 28)">
-                                            <circle id="oval1" fill="#CC8EF5" cx="2" cy="7" r="2"/>
-                                            <circle id="oval2" fill="#91D2FA" cx="3" cy="2" r="2"/>
-                                        </g>
+                                    <g id="grp6" opacity="0" transform="translate(0 28)">
+                                        <circle id="oval1" fill="#CC8EF5" cx="2" cy="7" r="2"/>
+                                        <circle id="oval2" fill="#91D2FA" cx="3" cy="2" r="2"/>
+                                    </g>
 
-                                        <g id="grp3" opacity="0" transform="translate(52 28)">
-                                            <circle id="oval2" fill="#9CD8C3" cx="2" cy="7" r="2"/>
-                                            <circle id="oval1" fill="#8CE8C3" cx="4" cy="2" r="2"/>
-                                        </g>
+                                    <g id="grp3" opacity="0" transform="translate(52 28)">
+                                        <circle id="oval2" fill="#9CD8C3" cx="2" cy="7" r="2"/>
+                                        <circle id="oval1" fill="#8CE8C3" cx="4" cy="2" r="2"/>
+                                    </g>
 
-                                        <g id="grp2" opacity="0" transform="translate(44 6)">
-                                            <circle id="oval2" fill="#CC8EF5" cx="5" cy="6" r="2"/>
-                                            <circle id="oval1" fill="#CC8EF5" cx="2" cy="2" r="2"/>
-                                        </g>
+                                    <g id="grp2" opacity="0" transform="translate(44 6)">
+                                        <circle id="oval2" fill="#CC8EF5" cx="5" cy="6" r="2"/>
+                                        <circle id="oval1" fill="#CC8EF5" cx="2" cy="2" r="2"/>
+                                    </g>
 
-                                        <g id="grp5" opacity="0" transform="translate(14 50)">
-                                            <circle id="oval1" fill="#91D2FA" cx="6" cy="5" r="2"/>
-                                            <circle id="oval2" fill="#91D2FA" cx="2" cy="2" r="2"/>
-                                        </g>
+                                    <g id="grp5" opacity="0" transform="translate(14 50)">
+                                        <circle id="oval1" fill="#91D2FA" cx="6" cy="5" r="2"/>
+                                        <circle id="oval2" fill="#91D2FA" cx="2" cy="2" r="2"/>
+                                    </g>
 
-                                        <g id="grp4" opacity="0" transform="translate(35 50)">
-                                            <circle id="oval1" fill="#F48EA7" cx="6" cy="5" r="2"/>
-                                            <circle id="oval2" fill="#F48EA7" cx="2" cy="2" r="2"/>
-                                        </g>
+                                    <g id="grp4" opacity="0" transform="translate(35 50)">
+                                        <circle id="oval1" fill="#F48EA7" cx="6" cy="5" r="2"/>
+                                        <circle id="oval2" fill="#F48EA7" cx="2" cy="2" r="2"/>
+                                    </g>
 
-                                        <g id="grp1" opacity="0" transform="translate(24)">
-                                            <circle id="oval1" fill="#9FC7FA" cx="2.5" cy="3" r="2"/>
-                                            <circle id="oval2" fill="#9FC7FA" cx="7.5" cy="2" r="2"/>
-                                        </g>
+                                    <g id="grp1" opacity="0" transform="translate(24)">
+                                        <circle id="oval1" fill="#9FC7FA" cx="2.5" cy="3" r="2"/>
+                                        <circle id="oval2" fill="#9FC7FA" cx="7.5" cy="2" r="2"/>
+                                    </g>
                                     </g>
                                 </svg>
                             </label>
@@ -409,7 +405,7 @@ $this->title = 'Search History';
                                                     <p class="mb-0"> DB: X | EB: X | SB:X</p>
                                                 </div>
 
-                                                <div class="d-flex col-md-3 price justify-content-end align-items-center">
+                                                <div class="d-flex col-md-4 price justify-content-end align-items-center">
                                                     <div class="exact-price mr-1">
                                                         <p class="mb-0"> ₹ 10,900 </p>
                                                     </div>
@@ -428,95 +424,95 @@ $this->title = 'Search History';
                                             <div class="table-responsive mb-2">
                                                 <table class="table table-sm table-borderless">
                                                     <tbody>
-                                                    <tr>
-                                                        <td colspan="2">
-                                                            <p> Day 1 | 10 Aug 2022 </p>
-                                                        </td>
-                                                        <td colspan="3">
-                                                            <div class="d-flex justify-content-center align-items-center">
-                                                                <p class="mr-1 mb-0"> In Enq: </p>
-                                                                <div class="meal-icon mr-1">
-                                                                    <img src="<?= Yii::$app->request->baseUrl . 'images/meal.svg' ?>" alt="" class="img-fluid">
-                                                                </div>
+                                                        <tr>
+                                                            <td colspan="2">
+                                                                <p> Day 1 | 10 Aug 2022 </p>
+                                                            </td>
+                                                            <td colspan="3">
+                                                                <div class="d-flex justify-content-center align-items-center">
+                                                                    <p class="mr-1 mb-0"> In Enq: </p>
+                                                                    <div class="meal-icon mr-1">
+                                                                        <img src="<?= Yii::$app->request->baseUrl . 'images/meal.svg' ?>" alt="" class="img-fluid">
+                                                                    </div>
 
-                                                                <p class="mr-1 mb-0"> Map </p>
-                                                                <div class="warning-icon mr-1">
+                                                                    <p class="mr-1 mb-0"> Map </p>
+                                                                    <div class="warning-icon mr-1">
+                                                                        <img src="<?= Yii::$app->request->baseUrl . 'images/warning.svg' ?>" alt="" class="img-fluid">
+                                                                    </div>
+                                                                    <div class="adult-icon mr-1">
+                                                                        <img src="<?= Yii::$app->request->baseUrl . 'images/adult.svg' ?>" alt="" class="img-fluid">
+                                                                    </div>
+
+                                                                    <p class="mr-1 mb-0"> 99 </p>
+                                                                    <div class="adult-icon mr-1">
+                                                                        <img src="<?= Yii::$app->request->baseUrl . 'images/adult.svg' ?>" alt="" class="img-fluid">
+                                                                    </div>
+                                                                    <p class="mr-1 mb-0"> 50 </p>
+                                                                </div>
+                                                            </td>
+                                                            <td colspan="3">
+                                                                <div class="d-flex justify-content-center align-items-center">
+                                                                    <p class="mr-1 mb-0"> In Tariff: </p>
+                                                                    <div class="meal-icon mr-1">
+                                                                        <img src="<?= Yii::$app->request->baseUrl . 'images/meal.svg' ?>" alt="" class="img-fluid">
+                                                                    </div>
+
+                                                                    <p class="mr-1 mb-0"> Map </p>
+                                                                    <div class="adult-icon mr-1">
+                                                                        <img src="<?= Yii::$app->request->baseUrl . 'images/adult.svg' ?>" alt="" class="img-fluid">
+                                                                    </div>
+
+                                                                    <p class="mr-1 mb-0"> 99 </p>
+                                                                    <div class="adult-icon mr-1">
+                                                                        <img src="<?= Yii::$app->request->baseUrl . 'images/adult.svg' ?>" alt="" class="img-fluid">
+                                                                    </div>
+
+                                                                    <p class="mr-1 mb-0"> 50 </p>
+                                                                    <div class="child-icon mr-1">
+                                                                        <img src="<?= Yii::$app->request->baseUrl . 'images/child.svg' ?>" alt="" class="img-fluid">
+                                                                    </div>
+                                                                    <p class="mr-1 mb-0"> 50 </p>
+                                                                </div>
+                                                            </td>
+                                                            <td class="table-action">
+                                                                <div class="custom-control custom-checkbox">
+                                                                    <input id="hotel-result1" type="checkbox" class="custom-control-input"/>
+                                                                    <label class="custom-control-label ml-1" for="hotel-result1"> </label>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td> Rooms </td>
+                                                            <td class="active"> EBA </td>
+                                                            <td> CWB </td>
+                                                            <td class="active"> CNB </td>
+                                                            <td> SGL </td>
+                                                            <td>
+                                                                <div class="d-flex justify-content-center align-items-center">
+                                                                    <div class="child-icon mr-1">
+                                                                        <img src="<?= Yii::$app->request->baseUrl . 'images/child.svg' ?>" alt="" class="img-fluid">
+                                                                    </div>
+                                                                    FOC
+                                                                </div>
+                                                            </td>
+                                                            <td> Dinner </td>
+                                                            <td class="active"> Day Total </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="active"> 7 * 350000 </td>
+                                                            <td class="active"> 7 * 350000 </td>
+                                                            <td class="active"> 7 * 350000 </td>
+                                                            <td class="active"> 7 * 350000 </td>
+                                                            <td class="active"> 7 * 350000 </td>
+                                                            <td class="active"> 7 * 350000 </td>
+                                                            <td class="active"> 7 * 350000 </td>
+                                                            <td class="active"> 7 * 350000 </td>
+                                                            <td class="table-action">
+                                                                <div class="warning-icon m-auto">
                                                                     <img src="<?= Yii::$app->request->baseUrl . 'images/warning.svg' ?>" alt="" class="img-fluid">
                                                                 </div>
-                                                                <div class="adult-icon mr-1">
-                                                                    <img src="<?= Yii::$app->request->baseUrl . 'images/adult.svg' ?>" alt="" class="img-fluid">
-                                                                </div>
-
-                                                                <p class="mr-1 mb-0"> 99 </p>
-                                                                <div class="adult-icon mr-1">
-                                                                    <img src="<?= Yii::$app->request->baseUrl . 'images/adult.svg' ?>" alt="" class="img-fluid">
-                                                                </div>
-                                                                <p class="mr-1 mb-0"> 50 </p>
-                                                            </div>
-                                                        </td>
-                                                        <td colspan="3">
-                                                            <div class="d-flex justify-content-center align-items-center">
-                                                                <p class="mr-1 mb-0"> In Tariff: </p>
-                                                                <div class="meal-icon mr-1">
-                                                                    <img src="<?= Yii::$app->request->baseUrl . 'images/meal.svg' ?>" alt="" class="img-fluid">
-                                                                </div>
-
-                                                                <p class="mr-1 mb-0"> Map </p>
-                                                                <div class="adult-icon mr-1">
-                                                                    <img src="<?= Yii::$app->request->baseUrl . 'images/adult.svg' ?>" alt="" class="img-fluid">
-                                                                </div>
-
-                                                                <p class="mr-1 mb-0"> 99 </p>
-                                                                <div class="adult-icon mr-1">
-                                                                    <img src="<?= Yii::$app->request->baseUrl . 'images/adult.svg' ?>" alt="" class="img-fluid">
-                                                                </div>
-
-                                                                <p class="mr-1 mb-0"> 50 </p>
-                                                                <div class="child-icon mr-1">
-                                                                    <img src="<?= Yii::$app->request->baseUrl . 'images/child.svg' ?>" alt="" class="img-fluid">
-                                                                </div>
-                                                                <p class="mr-1 mb-0"> 50 </p>
-                                                            </div>
-                                                        </td>
-                                                        <td class="table-action">
-                                                            <div class="custom-control custom-checkbox">
-                                                                <input id="hotel-result1" type="checkbox" class="custom-control-input"/>
-                                                                <label class="custom-control-label ml-1" for="hotel-result1"> </label>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td> Rooms </td>
-                                                        <td class="active"> EBA </td>
-                                                        <td> CWB </td>
-                                                        <td class="active"> CNB </td>
-                                                        <td> SGL </td>
-                                                        <td>
-                                                            <div class="d-flex justify-content-center align-items-center">
-                                                                <div class="child-icon mr-1">
-                                                                    <img src="<?= Yii::$app->request->baseUrl . 'images/child.svg' ?>" alt="" class="img-fluid">
-                                                                </div>
-                                                                FOC
-                                                            </div>
-                                                        </td>
-                                                        <td> Dinner </td>
-                                                        <td class="active"> Day Total </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="active"> 7 * 350000 </td>
-                                                        <td class="active"> 7 * 350000 </td>
-                                                        <td class="active"> 7 * 350000 </td>
-                                                        <td class="active"> 7 * 350000 </td>
-                                                        <td class="active"> 7 * 350000 </td>
-                                                        <td class="active"> 7 * 350000 </td>
-                                                        <td class="active"> 7 * 350000 </td>
-                                                        <td class="active"> 7 * 350000 </td>
-                                                        <td class="table-action">
-                                                            <div class="warning-icon m-auto">
-                                                                <img src="<?= Yii::$app->request->baseUrl . 'images/warning.svg' ?>" alt="" class="img-fluid">
-                                                            </div>
-                                                        </td>
-                                                    </tr>
+                                                            </td>
+                                                        </tr>
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -526,92 +522,92 @@ $this->title = 'Search History';
                                             <div class="table-responsive mb-2">
                                                 <table class="table table-sm table-borderless">
                                                     <tbody>
-                                                    <tr>
-                                                        <td colspan="2">
-                                                            <p> Day 1 | 10 Aug 2022 </p>
-                                                        </td>
-                                                        <td colspan="3">
-                                                            <div class="d-flex justify-content-center align-items-center">
-                                                                <p class="mr-1 mb-0"> In Enq: </p>
-                                                                <div class="meal-icon mr-1">
-                                                                    <img src="<?= Yii::$app->request->baseUrl . 'images/meal.svg' ?>" alt="" class="img-fluid">
-                                                                </div>
+                                                        <tr>
+                                                            <td colspan="2">
+                                                                <p> Day 1 | 10 Aug 2022 </p>
+                                                            </td>
+                                                            <td colspan="3">
+                                                                <div class="d-flex justify-content-center align-items-center">
+                                                                    <p class="mr-1 mb-0"> In Enq: </p>
+                                                                    <div class="meal-icon mr-1">
+                                                                        <img src="<?= Yii::$app->request->baseUrl . 'images/meal.svg' ?>" alt="" class="img-fluid">
+                                                                    </div>
 
-                                                                <p class="mr-1 mb-0"> Map </p>
-                                                                <div class="adult-icon mr-1">
-                                                                    <img src="<?= Yii::$app->request->baseUrl . 'images/adult.svg' ?>" alt="" class="img-fluid">
-                                                                </div>
+                                                                    <p class="mr-1 mb-0"> Map </p>
+                                                                    <div class="adult-icon mr-1">
+                                                                        <img src="<?= Yii::$app->request->baseUrl . 'images/adult.svg' ?>" alt="" class="img-fluid">
+                                                                    </div>
 
-                                                                <p class="mr-1 mb-0"> 99 </p>
-                                                                <div class="adult-icon mr-1">
-                                                                    <img src="<?= Yii::$app->request->baseUrl . 'images/adult.svg' ?>" alt="" class="img-fluid">
+                                                                    <p class="mr-1 mb-0"> 99 </p>
+                                                                    <div class="adult-icon mr-1">
+                                                                        <img src="<?= Yii::$app->request->baseUrl . 'images/adult.svg' ?>" alt="" class="img-fluid">
+                                                                    </div>
+                                                                    <p class="mr-1 mb-0"> 50 </p>
                                                                 </div>
-                                                                <p class="mr-1 mb-0"> 50 </p>
-                                                            </div>
-                                                        </td>
-                                                        <td colspan="3">
-                                                            <div class="d-flex justify-content-center align-items-center">
-                                                                <p class="mr-1 mb-0"> In Tariff: </p>
-                                                                <div class="meal-icon mr-1">
-                                                                    <img src="<?= Yii::$app->request->baseUrl . 'images/meal.svg' ?>" alt="" class="img-fluid">
-                                                                </div>
+                                                            </td>
+                                                            <td colspan="3">
+                                                                <div class="d-flex justify-content-center align-items-center">
+                                                                    <p class="mr-1 mb-0"> In Tariff: </p>
+                                                                    <div class="meal-icon mr-1">
+                                                                        <img src="<?= Yii::$app->request->baseUrl . 'images/meal.svg' ?>" alt="" class="img-fluid">
+                                                                    </div>
 
-                                                                <p class="mr-1 mb-0"> Map </p>
-                                                                <div class="adult-icon mr-1">
-                                                                    <img src="<?= Yii::$app->request->baseUrl . 'images/adult.svg' ?>" alt="" class="img-fluid">
-                                                                </div>
+                                                                    <p class="mr-1 mb-0"> Map </p>
+                                                                    <div class="adult-icon mr-1">
+                                                                        <img src="<?= Yii::$app->request->baseUrl . 'images/adult.svg' ?>" alt="" class="img-fluid">
+                                                                    </div>
 
-                                                                <p class="mr-1 mb-0"> 99 </p>
-                                                                <div class="adult-icon mr-1">
-                                                                    <img src="<?= Yii::$app->request->baseUrl . 'images/adult.svg' ?>" alt="" class="img-fluid">
-                                                                </div>
+                                                                    <p class="mr-1 mb-0"> 99 </p>
+                                                                    <div class="adult-icon mr-1">
+                                                                        <img src="<?= Yii::$app->request->baseUrl . 'images/adult.svg' ?>" alt="" class="img-fluid">
+                                                                    </div>
 
-                                                                <p class="mr-1 mb-0"> 50 </p>
-                                                                <div class="child-icon mr-1">
-                                                                    <img src="<?= Yii::$app->request->baseUrl . 'images/child.svg' ?>" alt="" class="img-fluid">
+                                                                    <p class="mr-1 mb-0"> 50 </p>
+                                                                    <div class="child-icon mr-1">
+                                                                        <img src="<?= Yii::$app->request->baseUrl . 'images/child.svg' ?>" alt="" class="img-fluid">
+                                                                    </div>
+                                                                    <p class="mr-1 mb-0"> 50 </p>
                                                                 </div>
-                                                                <p class="mr-1 mb-0"> 50 </p>
-                                                            </div>
-                                                        </td>
-                                                        <td class="table-action">
-                                                            <div class="custom-control custom-checkbox">
-                                                                <input id="hotel-result2" type="checkbox" class="custom-control-input"/>
-                                                                <label class="custom-control-label ml-1" for="hotel-result2"> </label>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td> Rooms </td>
-                                                        <td> EBA </td>
-                                                        <td> CWB </td>
-                                                        <td> CNB </td>
-                                                        <td> SGL </td>
-                                                        <td>
-                                                            <div class="d-flex justify-content-center align-items-center">
-                                                                <div class="child-icon mr-1">
-                                                                    <img src="<?= Yii::$app->request->baseUrl . 'images/child.svg' ?>" alt="" class="img-fluid">
+                                                            </td>
+                                                            <td class="table-action">
+                                                                <div class="custom-control custom-checkbox">
+                                                                    <input id="hotel-result2" type="checkbox" class="custom-control-input"/>
+                                                                    <label class="custom-control-label ml-1" for="hotel-result2"> </label>
                                                                 </div>
-                                                                FOC
-                                                            </div>
-                                                        </td>
-                                                        <td> Dinner </td>
-                                                        <td> Day Total </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="active"> 7 * 350000 </td>
-                                                        <td class="active"> 7 * 350000 </td>
-                                                        <td class="active"> 7 * 350000 </td>
-                                                        <td class="active"> 7 * 350000 </td>
-                                                        <td class="active"> 7 * 350000 </td>
-                                                        <td class="active"> 7 * 350000 </td>
-                                                        <td class="active"> 7 * 350000 </td>
-                                                        <td class="active"> 7 * 350000 </td>
-                                                        <td class="table-action">
-                                                            <div class="warning-icon m-auto">
-                                                                <img src="<?= Yii::$app->request->baseUrl . 'images/warning.svg' ?>" alt="" class="img-fluid">
-                                                            </div>
-                                                        </td>
-                                                    </tr>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td> Rooms </td>
+                                                            <td> EBA </td>
+                                                            <td> CWB </td>
+                                                            <td> CNB </td>
+                                                            <td> SGL </td>
+                                                            <td>
+                                                                <div class="d-flex justify-content-center align-items-center">
+                                                                    <div class="child-icon mr-1">
+                                                                        <img src="<?= Yii::$app->request->baseUrl . 'images/child.svg' ?>" alt="" class="img-fluid">
+                                                                    </div>
+                                                                    FOC
+                                                                </div>
+                                                            </td>
+                                                            <td> Dinner </td>
+                                                            <td> Day Total </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="active"> 7 * 350000 </td>
+                                                            <td class="active"> 7 * 350000 </td>
+                                                            <td class="active"> 7 * 350000 </td>
+                                                            <td class="active"> 7 * 350000 </td>
+                                                            <td class="active"> 7 * 350000 </td>
+                                                            <td class="active"> 7 * 350000 </td>
+                                                            <td class="active"> 7 * 350000 </td>
+                                                            <td class="active"> 7 * 350000 </td>
+                                                            <td class="table-action">
+                                                                <div class="warning-icon m-auto">
+                                                                    <img src="<?= Yii::$app->request->baseUrl . 'images/warning.svg' ?>" alt="" class="img-fluid">
+                                                                </div>
+                                                            </td>
+                                                        </tr>
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -686,43 +682,43 @@ $this->title = 'Search History';
                             <label for="favorite-2">
                                 <svg id="heart-svg" viewBox="467 392 58 57" xmlns="http://www.w3.org/2000/svg">
                                     <g id="Group" fill="none" fill-rule="evenodd" transform="translate(467 392)">
-                                        <path d="M29.144 20.773c-.063-.13-4.227-8.67-11.44-2.59C7.63 28.795 28.94 43.256 29.143 43.394c.204-.138 21.513-14.6 11.44-25.213-7.214-6.08-11.377 2.46-11.44 2.59z" id="heart" fill="#AAB8C2"/>
-                                        <circle id="main-circ" fill="#E2264D" opacity="0" cx="29.5" cy="29.5" r="1.5"/>
+                                    <path d="M29.144 20.773c-.063-.13-4.227-8.67-11.44-2.59C7.63 28.795 28.94 43.256 29.143 43.394c.204-.138 21.513-14.6 11.44-25.213-7.214-6.08-11.377 2.46-11.44 2.59z" id="heart" fill="#AAB8C2"/>
+                                    <circle id="main-circ" fill="#E2264D" opacity="0" cx="29.5" cy="29.5" r="1.5"/>
 
-                                        <g id="grp7" opacity="0" transform="translate(7 6)">
-                                            <circle id="oval1" fill="#9CD8C3" cx="2" cy="6" r="2"/>
-                                            <circle id="oval2" fill="#8CE8C3" cx="5" cy="2" r="2"/>
-                                        </g>
+                                    <g id="grp7" opacity="0" transform="translate(7 6)">
+                                        <circle id="oval1" fill="#9CD8C3" cx="2" cy="6" r="2"/>
+                                        <circle id="oval2" fill="#8CE8C3" cx="5" cy="2" r="2"/>
+                                    </g>
 
-                                        <g id="grp6" opacity="0" transform="translate(0 28)">
-                                            <circle id="oval1" fill="#CC8EF5" cx="2" cy="7" r="2"/>
-                                            <circle id="oval2" fill="#91D2FA" cx="3" cy="2" r="2"/>
-                                        </g>
+                                    <g id="grp6" opacity="0" transform="translate(0 28)">
+                                        <circle id="oval1" fill="#CC8EF5" cx="2" cy="7" r="2"/>
+                                        <circle id="oval2" fill="#91D2FA" cx="3" cy="2" r="2"/>
+                                    </g>
 
-                                        <g id="grp3" opacity="0" transform="translate(52 28)">
-                                            <circle id="oval2" fill="#9CD8C3" cx="2" cy="7" r="2"/>
-                                            <circle id="oval1" fill="#8CE8C3" cx="4" cy="2" r="2"/>
-                                        </g>
+                                    <g id="grp3" opacity="0" transform="translate(52 28)">
+                                        <circle id="oval2" fill="#9CD8C3" cx="2" cy="7" r="2"/>
+                                        <circle id="oval1" fill="#8CE8C3" cx="4" cy="2" r="2"/>
+                                    </g>
 
-                                        <g id="grp2" opacity="0" transform="translate(44 6)">
-                                            <circle id="oval2" fill="#CC8EF5" cx="5" cy="6" r="2"/>
-                                            <circle id="oval1" fill="#CC8EF5" cx="2" cy="2" r="2"/>
-                                        </g>
+                                    <g id="grp2" opacity="0" transform="translate(44 6)">
+                                        <circle id="oval2" fill="#CC8EF5" cx="5" cy="6" r="2"/>
+                                        <circle id="oval1" fill="#CC8EF5" cx="2" cy="2" r="2"/>
+                                    </g>
 
-                                        <g id="grp5" opacity="0" transform="translate(14 50)">
-                                            <circle id="oval1" fill="#91D2FA" cx="6" cy="5" r="2"/>
-                                            <circle id="oval2" fill="#91D2FA" cx="2" cy="2" r="2"/>
-                                        </g>
+                                    <g id="grp5" opacity="0" transform="translate(14 50)">
+                                        <circle id="oval1" fill="#91D2FA" cx="6" cy="5" r="2"/>
+                                        <circle id="oval2" fill="#91D2FA" cx="2" cy="2" r="2"/>
+                                    </g>
 
-                                        <g id="grp4" opacity="0" transform="translate(35 50)">
-                                            <circle id="oval1" fill="#F48EA7" cx="6" cy="5" r="2"/>
-                                            <circle id="oval2" fill="#F48EA7" cx="2" cy="2" r="2"/>
-                                        </g>
+                                    <g id="grp4" opacity="0" transform="translate(35 50)">
+                                        <circle id="oval1" fill="#F48EA7" cx="6" cy="5" r="2"/>
+                                        <circle id="oval2" fill="#F48EA7" cx="2" cy="2" r="2"/>
+                                    </g>
 
-                                        <g id="grp1" opacity="0" transform="translate(24)">
-                                            <circle id="oval1" fill="#9FC7FA" cx="2.5" cy="3" r="2"/>
-                                            <circle id="oval2" fill="#9FC7FA" cx="7.5" cy="2" r="2"/>
-                                        </g>
+                                    <g id="grp1" opacity="0" transform="translate(24)">
+                                        <circle id="oval1" fill="#9FC7FA" cx="2.5" cy="3" r="2"/>
+                                        <circle id="oval2" fill="#9FC7FA" cx="7.5" cy="2" r="2"/>
+                                    </g>
                                     </g>
                                 </svg>
                             </label>
@@ -800,98 +796,98 @@ $this->title = 'Search History';
                                         <div class="table-responsive mb-2">
                                             <table class="table table-sm table-borderless">
                                                 <tbody>
-                                                <tr>
-                                                    <td colspan="2">
-                                                        <p> Day 1 | 10 Aug 2022 </p>
-                                                    </td>
-                                                    <td colspan="3">
-                                                        <div class="d-flex justify-content-center align-items-center" data-toggle="tooltip" data-placement="top" title="Meal Plan, Pax Count (Adult & Child) as specified in enquiry.">
-                                                            <p class="mr-1 mb-0"> In Enq: </p>
-                                                            <div class="meal-icon mr-1">
-                                                                <img src="<?= Yii::$app->request->baseUrl . 'images/meal.svg' ?>" alt="" class="img-fluid">
-                                                            </div>
+                                                    <tr>
+                                                        <td colspan="2">
+                                                            <p> Day 1 | 10 Aug 2022 </p>
+                                                        </td>
+                                                        <td colspan="3">
+                                                            <div class="d-flex justify-content-center align-items-center" data-toggle="tooltip" data-placement="top" title="Meal Plan, Pax Count (Adult & Child) as specified in enquiry.">
+                                                                <p class="mr-1 mb-0"> In Enq: </p>
+                                                                <div class="meal-icon mr-1">
+                                                                    <img src="<?= Yii::$app->request->baseUrl . 'images/meal.svg' ?>" alt="" class="img-fluid">
+                                                                </div>
 
-                                                            <p class="mr-1 mb-0"> Map </p>
-                                                            <div class="warning-icon mr-1">
-                                                                <img src="<?= Yii::$app->request->baseUrl . 'images/warning.svg' ?>" alt="" class="img-fluid">
-                                                            </div>
-                                                            <div class="adult-icon mr-1">
-                                                                <img src="<?= Yii::$app->request->baseUrl . 'images/adult.svg' ?>" alt="" class="img-fluid">
-                                                            </div>
-
-                                                            <p class="mr-1 mb-0"> 99 </p>
-                                                            <div class="adult-icon mr-1">
-                                                                <img src="<?= Yii::$app->request->baseUrl . 'images/adult.svg' ?>" alt="" class="img-fluid">
-                                                            </div>
-                                                            <p class="mr-1 mb-0"> 50 </p>
-                                                        </div>
-                                                    </td>
-                                                    <td colspan="3">
-                                                        <div class="d-flex justify-content-center align-items-center">
-                                                            <p class="mr-1 mb-0"> In Tariff: </p>
-                                                            <div class="meal-icon mr-1" data-toggle="tooltip" data-placement="top" title="Meal plan on which the room’s tariff for the day is calculated.">
-                                                                <img src="<?= Yii::$app->request->baseUrl . 'images/meal.svg' ?>" alt="" class="img-fluid">
-                                                            </div>
-
-                                                            <div class="d-flex justify-content-center align-items-center" data-toggle="tooltip" data-placement="top" title="Meal plan in enquiry has been overridden by room’s default meal plan.">
                                                                 <p class="mr-1 mb-0"> Map </p>
+                                                                <div class="warning-icon mr-1">
+                                                                    <img src="<?= Yii::$app->request->baseUrl . 'images/warning.svg' ?>" alt="" class="img-fluid">
+                                                                </div>
                                                                 <div class="adult-icon mr-1">
                                                                     <img src="<?= Yii::$app->request->baseUrl . 'images/adult.svg' ?>" alt="" class="img-fluid">
                                                                 </div>
-                                                            </div>
 
-                                                            <div class="d-flex justify-content-center align-items-center" data-toggle="tooltip" data-placement="top" title="Children in enquiry reclassified as Infant & Child based on the property’s policy.">
                                                                 <p class="mr-1 mb-0"> 99 </p>
                                                                 <div class="adult-icon mr-1">
                                                                     <img src="<?= Yii::$app->request->baseUrl . 'images/adult.svg' ?>" alt="" class="img-fluid">
                                                                 </div>
                                                                 <p class="mr-1 mb-0"> 50 </p>
+                                                            </div>
+                                                        </td>
+                                                        <td colspan="3">
+                                                            <div class="d-flex justify-content-center align-items-center">
+                                                                <p class="mr-1 mb-0"> In Tariff: </p>
+                                                                <div class="meal-icon mr-1" data-toggle="tooltip" data-placement="top" title="Meal plan on which the room’s tariff for the day is calculated.">
+                                                                    <img src="<?= Yii::$app->request->baseUrl . 'images/meal.svg' ?>" alt="" class="img-fluid">
+                                                                </div>
+
+                                                                <div class="d-flex justify-content-center align-items-center" data-toggle="tooltip" data-placement="top" title="Meal plan in enquiry has been overridden by room’s default meal plan.">
+                                                                    <p class="mr-1 mb-0"> Map </p>
+                                                                    <div class="adult-icon mr-1">
+                                                                        <img src="<?= Yii::$app->request->baseUrl . 'images/adult.svg' ?>" alt="" class="img-fluid">
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="d-flex justify-content-center align-items-center" data-toggle="tooltip" data-placement="top" title="Children in enquiry reclassified as Infant & Child based on the property’s policy.">
+                                                                    <p class="mr-1 mb-0"> 99 </p>
+                                                                    <div class="adult-icon mr-1">
+                                                                        <img src="<?= Yii::$app->request->baseUrl . 'images/adult.svg' ?>" alt="" class="img-fluid">
+                                                                    </div>
+                                                                    <p class="mr-1 mb-0"> 50 </p>
+                                                                    <div class="child-icon mr-1">
+                                                                        <img src="<?= Yii::$app->request->baseUrl . 'images/child.svg' ?>" alt="" class="img-fluid">
+                                                                    </div>
+                                                                    <p class="mr-1 mb-0"> 50 </p>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td class="table-action">
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input id="hotel-result3" type="checkbox" class="custom-control-input"/>
+                                                                <label class="custom-control-label ml-1" for="hotel-result3"> </label>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td> Rooms </td>
+                                                        <td> EBA </td>
+                                                        <td> CWB </td>
+                                                        <td> CNB </td>
+                                                        <td> SGL </td>
+                                                        <td>
+                                                            <div class="d-flex justify-content-center align-items-center">
                                                                 <div class="child-icon mr-1">
                                                                     <img src="<?= Yii::$app->request->baseUrl . 'images/child.svg' ?>" alt="" class="img-fluid">
                                                                 </div>
-                                                                <p class="mr-1 mb-0"> 50 </p>
+                                                                FOC
                                                             </div>
-                                                        </div>
-                                                    </td>
-                                                    <td class="table-action">
-                                                        <div class="custom-control custom-checkbox">
-                                                            <input id="hotel-result3" type="checkbox" class="custom-control-input"/>
-                                                            <label class="custom-control-label ml-1" for="hotel-result3"> </label>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td> Rooms </td>
-                                                    <td> EBA </td>
-                                                    <td> CWB </td>
-                                                    <td> CNB </td>
-                                                    <td> SGL </td>
-                                                    <td>
-                                                        <div class="d-flex justify-content-center align-items-center">
-                                                            <div class="child-icon mr-1">
-                                                                <img src="<?= Yii::$app->request->baseUrl . 'images/child.svg' ?>" alt="" class="img-fluid">
+                                                        </td>
+                                                        <td> Dinner </td>
+                                                        <td> Day Total </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td> 7 * 350000 </td>
+                                                        <td> 7 * 350000 </td>
+                                                        <td> 7 * 350000 </td>
+                                                        <td> 7 * 350000 </td>
+                                                        <td> 7 * 350000 </td>
+                                                        <td> 7 * 350000 </td>
+                                                        <td> 7 * 350000 </td>
+                                                        <td> 7 * 350000 </td>
+                                                        <td class="table-action">
+                                                            <div class="warning-icon m-auto">
+                                                                <img src="<?= Yii::$app->request->baseUrl . 'images/warning.svg' ?>" alt="" class="img-fluid">
                                                             </div>
-                                                            FOC
-                                                        </div>
-                                                    </td>
-                                                    <td> Dinner </td>
-                                                    <td> Day Total </td>
-                                                </tr>
-                                                <tr>
-                                                    <td> 7 * 350000 </td>
-                                                    <td> 7 * 350000 </td>
-                                                    <td> 7 * 350000 </td>
-                                                    <td> 7 * 350000 </td>
-                                                    <td> 7 * 350000 </td>
-                                                    <td> 7 * 350000 </td>
-                                                    <td> 7 * 350000 </td>
-                                                    <td> 7 * 350000 </td>
-                                                    <td class="table-action">
-                                                        <div class="warning-icon m-auto">
-                                                            <img src="<?= Yii::$app->request->baseUrl . 'images/warning.svg' ?>" alt="" class="img-fluid">
-                                                        </div>
-                                                    </td>
-                                                </tr>
+                                                        </td>
+                                                    </tr>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -901,92 +897,92 @@ $this->title = 'Search History';
                                         <div class="table-responsive mb-2">
                                             <table class="table table-sm table-borderless">
                                                 <tbody>
-                                                <tr>
-                                                    <td colspan="2">
-                                                        <p> Day 1 | 10 Aug 2022 </p>
-                                                    </td>
-                                                    <td colspan="3">
-                                                        <div class="d-flex justify-content-center align-items-center">
-                                                            <p class="mr-1 mb-0"> In Enq: </p>
-                                                            <div class="meal-icon mr-1">
-                                                                <img src="<?= Yii::$app->request->baseUrl . 'images/meal.svg' ?>" alt="" class="img-fluid">
-                                                            </div>
+                                                    <tr>
+                                                        <td colspan="2">
+                                                            <p> Day 1 | 10 Aug 2022 </p>
+                                                        </td>
+                                                        <td colspan="3">
+                                                            <div class="d-flex justify-content-center align-items-center">
+                                                                <p class="mr-1 mb-0"> In Enq: </p>
+                                                                <div class="meal-icon mr-1">
+                                                                    <img src="<?= Yii::$app->request->baseUrl . 'images/meal.svg' ?>" alt="" class="img-fluid">
+                                                                </div>
 
-                                                            <p class="mr-1 mb-0"> Map </p>
-                                                            <div class="adult-icon mr-1">
-                                                                <img src="<?= Yii::$app->request->baseUrl . 'images/adult.svg' ?>" alt="" class="img-fluid">
-                                                            </div>
+                                                                <p class="mr-1 mb-0"> Map </p>
+                                                                <div class="adult-icon mr-1">
+                                                                    <img src="<?= Yii::$app->request->baseUrl . 'images/adult.svg' ?>" alt="" class="img-fluid">
+                                                                </div>
 
-                                                            <p class="mr-1 mb-0"> 99 </p>
-                                                            <div class="adult-icon mr-1">
-                                                                <img src="<?= Yii::$app->request->baseUrl . 'images/adult.svg' ?>" alt="" class="img-fluid">
+                                                                <p class="mr-1 mb-0"> 99 </p>
+                                                                <div class="adult-icon mr-1">
+                                                                    <img src="<?= Yii::$app->request->baseUrl . 'images/adult.svg' ?>" alt="" class="img-fluid">
+                                                                </div>
+                                                                <p class="mr-1 mb-0"> 50 </p>
                                                             </div>
-                                                            <p class="mr-1 mb-0"> 50 </p>
-                                                        </div>
-                                                    </td>
-                                                    <td colspan="3">
-                                                        <div class="d-flex justify-content-center align-items-center">
-                                                            <p class="mr-1 mb-0"> In Tariff: </p>
-                                                            <div class="meal-icon mr-1">
-                                                                <img src="<?= Yii::$app->request->baseUrl . 'images/meal.svg' ?>" alt="" class="img-fluid">
-                                                            </div>
+                                                        </td>
+                                                        <td colspan="3">
+                                                            <div class="d-flex justify-content-center align-items-center">
+                                                                <p class="mr-1 mb-0"> In Tariff: </p>
+                                                                <div class="meal-icon mr-1">
+                                                                    <img src="<?= Yii::$app->request->baseUrl . 'images/meal.svg' ?>" alt="" class="img-fluid">
+                                                                </div>
 
-                                                            <p class="mr-1 mb-0"> Map </p>
-                                                            <div class="adult-icon mr-1">
-                                                                <img src="<?= Yii::$app->request->baseUrl . 'images/adult.svg' ?>" alt="" class="img-fluid">
-                                                            </div>
+                                                                <p class="mr-1 mb-0"> Map </p>
+                                                                <div class="adult-icon mr-1">
+                                                                    <img src="<?= Yii::$app->request->baseUrl . 'images/adult.svg' ?>" alt="" class="img-fluid">
+                                                                </div>
 
-                                                            <p class="mr-1 mb-0"> 99 </p>
-                                                            <div class="adult-icon mr-1">
-                                                                <img src="<?= Yii::$app->request->baseUrl . 'images/adult.svg' ?>" alt="" class="img-fluid">
-                                                            </div>
+                                                                <p class="mr-1 mb-0"> 99 </p>
+                                                                <div class="adult-icon mr-1">
+                                                                    <img src="<?= Yii::$app->request->baseUrl . 'images/adult.svg' ?>" alt="" class="img-fluid">
+                                                                </div>
 
-                                                            <p class="mr-1 mb-0"> 50 </p>
-                                                            <div class="child-icon mr-1">
-                                                                <img src="<?= Yii::$app->request->baseUrl . 'images/child.svg' ?>" alt="" class="img-fluid">
+                                                                <p class="mr-1 mb-0"> 50 </p>
+                                                                <div class="child-icon mr-1">
+                                                                    <img src="<?= Yii::$app->request->baseUrl . 'images/child.svg' ?>" alt="" class="img-fluid">
+                                                                </div>
+                                                                <p class="mr-1 mb-0"> 50 </p>
                                                             </div>
-                                                            <p class="mr-1 mb-0"> 50 </p>
-                                                        </div>
-                                                    </td>
-                                                    <td class="table-action">
-                                                        <div class="custom-control custom-checkbox">
-                                                            <input id="hotel-result4" type="checkbox" class="custom-control-input"/>
-                                                            <label class="custom-control-label ml-1" for="hotel-result4"> </label>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td> Rooms </td>
-                                                    <td> EBA </td>
-                                                    <td> CWB </td>
-                                                    <td> CNB </td>
-                                                    <td> SGL </td>
-                                                    <td>
-                                                        <div class="d-flex justify-content-center align-items-center">
-                                                            <div class="child-icon mr-1">
-                                                                <img src="<?= Yii::$app->request->baseUrl . 'images/child.svg' ?>" alt="" class="img-fluid">
+                                                        </td>
+                                                        <td class="table-action">
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input id="hotel-result4" type="checkbox" class="custom-control-input"/>
+                                                                <label class="custom-control-label ml-1" for="hotel-result4"> </label>
                                                             </div>
-                                                            FOC
-                                                        </div>
-                                                    </td>
-                                                    <td> Dinner </td>
-                                                    <td> Day Total </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="active"> 7 * 350000 </td>
-                                                    <td class="active"> 7 * 350000 </td>
-                                                    <td class="active"> 7 * 350000 </td>
-                                                    <td class="active"> 7 * 350000 </td>
-                                                    <td class="active"> 7 * 350000 </td>
-                                                    <td class="active"> 7 * 350000 </td>
-                                                    <td class="active"> 7 * 350000 </td>
-                                                    <td class="active"> 7 * 350000 </td>
-                                                    <td class="table-action">
-                                                        <div class="warning-icon m-auto">
-                                                            <img src="<?= Yii::$app->request->baseUrl . 'images/warning.svg' ?>" alt="" class="img-fluid">
-                                                        </div>
-                                                    </td>
-                                                </tr>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td> Rooms </td>
+                                                        <td> EBA </td>
+                                                        <td> CWB </td>
+                                                        <td> CNB </td>
+                                                        <td> SGL </td>
+                                                        <td>
+                                                            <div class="d-flex justify-content-center align-items-center">
+                                                                <div class="child-icon mr-1">
+                                                                    <img src="<?= Yii::$app->request->baseUrl . 'images/child.svg' ?>" alt="" class="img-fluid">
+                                                                </div>
+                                                                FOC
+                                                            </div>
+                                                        </td>
+                                                        <td> Dinner </td>
+                                                        <td> Day Total </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="active"> 7 * 350000 </td>
+                                                        <td class="active"> 7 * 350000 </td>
+                                                        <td class="active"> 7 * 350000 </td>
+                                                        <td class="active"> 7 * 350000 </td>
+                                                        <td class="active"> 7 * 350000 </td>
+                                                        <td class="active"> 7 * 350000 </td>
+                                                        <td class="active"> 7 * 350000 </td>
+                                                        <td class="active"> 7 * 350000 </td>
+                                                        <td class="table-action">
+                                                            <div class="warning-icon m-auto">
+                                                                <img src="<?= Yii::$app->request->baseUrl . 'images/warning.svg' ?>" alt="" class="img-fluid">
+                                                            </div>
+                                                        </td>
+                                                    </tr>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -1009,7 +1005,7 @@ $this->title = 'Search History';
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>                
             </div>
         </div>
     </div>
@@ -1026,61 +1022,61 @@ $this->title = 'Search History';
                 <div class="table-responsive destination-table mb-4">
                     <table class="table table-sm table-bordered">
                         <thead class="text-left">
-                        <tr>
-                            <th width="100px">
-                                <strong> Day </strong>
-                            </th>
-                            <th width="300px">
-                                <strong> Date </strong>
-                            </th>
-                            <th width="300px">
-                                <strong> Status </strong>
-                            </th>
-                            <th width="100px">
-                                <strong> Select </strong>
-                            </th>
-                        </tr>
+                            <tr>
+                                <th width="100px">
+                                    <strong> Day </strong>
+                                </th>
+                                <th width="300px">
+                                    <strong> Date </strong>
+                                </th>
+                                <th width="300px">
+                                    <strong> Status </strong>
+                                </th>
+                                <th width="100px">
+                                    <strong> Select </strong>
+                                </th>
+                            </tr>
                         </thead>
                         <tbody class="text-left">
-                        <tr>
-                            <td> 1 </td>
-                            <td> DD MMM | YY - WK Day </td>
-                            <td> Required | Not Required </td>
-                            <td>
-                                <div class="custom-control custom-checkbox">
-                                    <input id="destination-1" type="checkbox" class="custom-control-input"/>
-                                    <label class="custom-control-label ml-1" for="destination-1"> </label>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr class="invalid">
-                            <td> 2 </td>
-                            <td> DD MMM | YY - WK Day </td>
-                            <td> Not Required </td>
-                            <td> </td>
-                        </tr>
-                        <tr>
-                            <td> 3 </td>
-                            <td> DD MMM | YY - WK Day </td>
-                            <td> Required | Not Required </td>
-                            <td>
-                                <div class="custom-control custom-checkbox">
-                                    <input id="destination-3" type="checkbox" class="custom-control-input"/>
-                                    <label class="custom-control-label ml-1" for="destination-3"> </label>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td> 4 </td>
-                            <td> DD MMM | YY - WK Day </td>
-                            <td> Required | Not Required </td>
-                            <td>
+                            <tr>
+                                <td> 1 </td>
+                                <td> DD MMM | YY - WK Day </td>
+                                <td> Required | Not Required </td>
+                                <td>
+                                    <div class="custom-control custom-checkbox">
+                                        <input id="destination-1" type="checkbox" class="custom-control-input"/>
+                                        <label class="custom-control-label ml-1" for="destination-1"> </label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="invalid">
+                                <td> 2 </td>
+                                <td> DD MMM | YY - WK Day </td>
+                                <td> Not Required </td>
+                                <td> </td>
+                            </tr>
+                            <tr>
+                                <td> 3 </td>
+                                <td> DD MMM | YY - WK Day </td>
+                                <td> Required | Not Required </td>
+                                <td>
+                                    <div class="custom-control custom-checkbox">
+                                        <input id="destination-3" type="checkbox" class="custom-control-input"/>
+                                        <label class="custom-control-label ml-1" for="destination-3"> </label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> 4 </td>
+                                <td> DD MMM | YY - WK Day </td>
+                                <td> Required | Not Required </td>
+                                <td>
                                 <div class="custom-control custom-checkbox">
                                     <input id="destination-4" type="checkbox" class="custom-control-input"/>
                                     <label class="custom-control-label ml-1" for="destination-4"> </label>
                                 </div>
-                            </td>
-                        </tr>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>

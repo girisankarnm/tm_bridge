@@ -107,7 +107,9 @@ use Carbon\Carbon;
                     <?php } 
                         else {                    
                     ?>
-                    <?= Html::a('Next', ['tariff/addhikedayrate', 'id'=> $property->id, 'mother_id' => $date_range->id, 'tariff' => $tariff],  ['class'=>'buttonNextanchor2']) ?>
+                        <?php if($is_allow_skip == true) { ?>
+                        <?= Html::a('Next', ['tariff/addhikedayrate', 'id'=> $property->id, 'mother_id' => $date_range->id, 'tariff' => $tariff],  ['class'=>'buttonNextanchor2']) ?>
+                        <?php } ?>
                     <?php } ?>
                 </div>
 
