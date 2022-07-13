@@ -125,9 +125,9 @@ class PropertyController extends Controller
             return $this->render('home', ['properties' => $properties]);
         }
 
-        return $this->render('empty', []);        
+        return $this->render('empty', []);
     }
-    
+
     public function actionValidate()
     {
         $property = $this->getProperty();
@@ -165,7 +165,7 @@ class PropertyController extends Controller
         $legal_tax_documentation->business_licence_image = $property->business_licence_image;
         $legal_tax_documentation->gst_image = $property->gst_image;
         $legal_tax_documentation->cheque_image = $property->cheque_image;
-               
+
 
         $terms = new TermsConditions();
         $terms->id = $property->id;
@@ -193,7 +193,7 @@ class PropertyController extends Controller
         if( !$terms->validate()) {
             $terms_results = $terms->errors;
         }
-      
+
         $this->layout = 'tm_main';
 
         return $this->render('validation', [
@@ -249,10 +249,10 @@ class PropertyController extends Controller
         $property_categories = ArrayHelper::map(PropertyCategory::find()->asArray()->all(), 'id', 'name');
 //         $property_image = new PropertyImage();
         return $this->render('basic_details', [
-            'basic_details' => $basic_details, 
-            'property_types' => $property_types, 
-            'property_categories' => $property_categories, 
-            'property_image' => $property_image, 
+            'basic_details' => $basic_details,
+            'property_types' => $property_types,
+            'property_categories' => $property_categories,
+            'property_image' => $property_image,
             'show_terms_tab' => $show_terms_tab]);
 
     }
@@ -674,10 +674,8 @@ class PropertyController extends Controller
                 $contacts->save();
                 $show_terms_tab = Yii::$app->request->post('show_terms_tab');
                 $redirect_url = 'property/';
-                $redirect_url .= ($show_terms_tab == 1) ? "terms" : "home";
+                $redirect_url .= ($show_terms_tab == 1) ? "termsandconditions" : "home";
                 return $this->redirect([$redirect_url, 'id' => $property_id]);
-//                return $this->redirect(['property/termsandconditions', 'id' => $property->getPrimaryKey()]);
-
             } else {
                 return $this->render('contact_details', ['contact' => $contacts]);
             }
@@ -1801,7 +1799,8 @@ class PropertyController extends Controller
             $previewdata['initialPreviewConfig'][$key]['caption'] = $propertyPicture->description;
             $previewdata['initialPreviewConfig'][$key]['downloadUrl'] = Url::to('@web/uploads/'.$propertyPicture->name, 'http');
             $previewdata['initialPreviewConfig'][$key]['description'] = $propertyPicture->description;
-            $previewdata['initialPreviewConfig'][$key]['url'] = 'http://localhost:8080/index.php?r=property/deletepicture';
+//            $previewdata['initialPreviewConfig'][$key]['url'] = 'http://localhost:8080/index.php?r=property/deletepicture';
+            $previewdata['initialPreviewConfig'][$key]['url'] = Url::to('index.php?r=property/deletepicture', true);
             $previewdata['initialPreviewConfig'][$key]['key'] = $propertyPicture->id;
             $previewdata['caption'][$key]['{TAG_VALUE}'] = $propertyPicture->description;
             $previewdata['caption'][$key]['{TAG_CSS_NEW}'] = 'kv-hidden';
@@ -1875,7 +1874,8 @@ class PropertyController extends Controller
                 //Setup our new file path
                 $newFilePath = $path . $fileName;
 
-                $newFileUrl = 'http://localhost:8080/uploads/' . $fileName;
+                $newFileUrl = Url::to('@web/uploads/'.$fileName, 'http');
+//                $newFileUrl = 'http://localhost:8080/uploads/' . $fileName;
 
                 //Upload the file into the new path
 
@@ -1895,7 +1895,8 @@ class PropertyController extends Controller
                         'caption' => $fileName,
                         'size' => $fileSize,
                         'downloadUrl' => $newFileUrl, // the url to download the file
-                        'url' => 'http://localhost:8080/index.php?r=property/deletepicture', // server api to delete the file based on key
+//                        'url' => 'http://localhost:8080/index.php?r=property/deletepicture', // server api to delete the file based on key
+                        'url' => Url::to('index.php?r=property/deletepicture', true) // server api to delete the file based on key
                     ];
                     $caption[] = ['{TAG_VALUE}' => $_POST[$i], '{TAG_CSS_NEW}' => 'kv-hidden', '{TAG_CSS_INIT}' => '', '{TAG_CSS_ID}' => $picture_object->id];
 
@@ -1938,7 +1939,8 @@ class PropertyController extends Controller
             $previewdata['initialPreviewConfig'][$key]['caption'] = $roomPicture->description;
             $previewdata['initialPreviewConfig'][$key]['downloadUrl'] = Url::to('@web/uploads/'.$roomPicture->name, 'http');
             $previewdata['initialPreviewConfig'][$key]['description'] = $roomPicture->description;
-            $previewdata['initialPreviewConfig'][$key]['url'] = 'http://localhost:8080/index.php?r=property/deleteroompicture';
+//            $previewdata['initialPreviewConfig'][$key]['url'] = 'http://localhost:8080/index.php?r=property/deleteroompicture';
+            $previewdata['initialPreviewConfig'][$key]['url'] = Url::to('index.php?r=property/deleteroompicture', true);
             $previewdata['initialPreviewConfig'][$key]['key'] = $roomPicture->id;
             $previewdata['caption'][$key]['{TAG_VALUE}'] = $roomPicture->description;
             $previewdata['caption'][$key]['{TAG_CSS_NEW}'] = 'kv-hidden';
@@ -2001,7 +2003,8 @@ class PropertyController extends Controller
                 //Setup our new file path
                 $newFilePath = $path . $fileName;
 
-                $newFileUrl = 'http://localhost:8080/uploads/' . $fileName;
+                $newFileUrl = Url::to('@web/uploads/'.$fileName, 'http');
+//                $newFileUrl = 'http://localhost:8080/uploads/' . $fileName;
 
                 //Upload the file into the new path
 
@@ -2021,7 +2024,8 @@ class PropertyController extends Controller
                         'caption' => $fileName,
                         'size' => $fileSize,
                         'downloadUrl' => $newFileUrl, // the url to download the file
-                        'url' => 'http://localhost:8080/index.php?r=property/deleteroompicture', // server api to delete the file based on key
+//                        'url' => 'http://localhost:8080/index.php?r=property/deleteroompicture', // server api to delete the file based on key
+                        'url' => Url::to('index.php?r=property/deleteroompicture', true), // server api to delete the file based on key
                     ];
                     $caption[] = ['{TAG_VALUE}' => $_POST[$i], '{TAG_CSS_NEW}' => 'kv-hidden', '{TAG_CSS_INIT}' => '', '{TAG_CSS_ID}' => $picture_object->id];
 
@@ -2147,7 +2151,7 @@ class PropertyController extends Controller
         return $this->render('amenities');
     }
     public function actionMypropertylist()
-    {        
+    {
         $this->layout = 'tm_main';
         $roles = Yii::$app->authManager->getRolesByUser(Yii::$app->user->getId());
         if (ArrayHelper::keyExists('HotelOwner', $roles, false)) {
@@ -2163,7 +2167,7 @@ class PropertyController extends Controller
                 ->all();
         }
 
-        return $this->render('my_properties_list', ['properties' => $properties]);        
+        return $this->render('my_properties_list', ['properties' => $properties]);
     }
 
 

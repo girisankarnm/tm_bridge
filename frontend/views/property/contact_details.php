@@ -28,13 +28,11 @@ use borales\extensions\phoneInput\PhoneInput;
             <?php $form = ActiveForm::begin(['id' => 'contact_details','enableClientValidation' => true, 'method' => 'post','action' => ['property/savecontactdetails']]) ?>
             <?= $form->field($contact, 'id')->hiddenInput()->label(false); ?>
             <?= $form->field($contact, 'property_id')->hiddenInput()->label(false); ?>
+            <input type="hidden" name="show_terms_tab" value="<?= $show_terms_tab ?>">
 
             <div class="contact-head col-md-11" >
                 <h6 style=" color: black; font-size: 12px; padding: 3px; margin-left: 10px">Particulars Sales</h6>
             </div>
-
-
-
 
             <div class="row">
                 <div class="form-group col-md-4">

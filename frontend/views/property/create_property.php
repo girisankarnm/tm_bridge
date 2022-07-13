@@ -65,10 +65,7 @@ use yii\helpers\Url;
                 <h5 class="title-card-property">Published</h5>
                 <h6 class="h8class smallFonts padding-4px ">Share it with operators</h6>
 
-<!--                <div class="card-body">-->
-<!--                                     <h5 class="card-title">Card title that wraps to a new line</h5>-->
-<!--                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>-->
-<!--                </div>-->
+
             </div>
         </div>
 
