@@ -2681,9 +2681,9 @@ background-color: blue;
 .buttonNextanchor {
     background: #586ADA;
     padding: 10px;
-    padding-right: 35px;
+    padding-right: 49px;
     padding-top: 11px;
-    padding-left: 32px;
+    padding-left: 52px;
     text-align: center;
     font-family: 'Bw Mitga';
     font-style: normal;
@@ -2738,7 +2738,7 @@ background-color: blue;
 {
     color: #ffffff;
     height: 35px;
-    width: 92px;
+    width: 120px;
     font-family: 'Bw Mitga';
     font-style: normal;
     font-size: 12px;
