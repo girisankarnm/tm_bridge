@@ -150,7 +150,6 @@ use Carbon\Carbon;
                 <?php
                 $i = 1;
                 foreach ($mother_ranges as $range) { ?>
-
                     <div id="mainmotherdate" class="<?php if($i != 1):?>margin-top-100px <?php endif; ?>" >
                         <div  style="margin-top: 8px;;text-align: center">
                             <svg width="37" height="36" viewBox="0 0 43 42" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -175,10 +174,6 @@ use Carbon\Carbon;
                         </div>
                      <div>  <hr class="new2" > </div>
                     </div>
-
-
-
-
                 <?php
                 $i++;
                 } ?>

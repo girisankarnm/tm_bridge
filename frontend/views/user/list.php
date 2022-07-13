@@ -85,15 +85,20 @@ frontend\assets\CommonAsset::register($this);
 
 <div class="$content">
     <div class="container-fluid" style="background-color: white">
-        <div class="card-title">
-           User
+
+      <div class="row">
+          <div class="col-md-7 text-center " >
+        <div class="card-title-user" > User</div>
         </div>
+
+          <div class="col-md-5 text-center " >
+              <div style="float: right">
+                  <?= Html::a(' <button id="add_user" type="submit" class="buttonAddUser" ><img src="images/plus-add.svg"> New User</button>', ['/user/add']) ?>
+          </div>
+          </div>
+
+      </div>
         <div class="card-body" style="border: .12rem solid #dedede; border-radius: 6px;">
-            <div class="row">
-                <div class="col-md-12">
-                    <?= Html::a('<button id="add_user" type="submit" class="btn button-primary btn-nationality text-white  float-right">Add New User</button>', ['/user/add']) ?>
-                </div>
-            </div><br>
             <?php  foreach ($users as $user) { ?>
                 <div class="shadow p-3 mb-5 bg-white rounded">
                     <div class="card-body" style="display: flex; flex-direction: column;">
