@@ -549,7 +549,8 @@ class Property extends \yii\db\ActiveRecord
         $basic_details_validated = false;
         $address_location_validated  = false;
         $legal_tax_documentation_validated  = false;
-        $terms_results_validated = false;
+        $terms_validated = false;
+        $rooms_validated  = false;
 
         if( $basic_details->validate()) {
             $basic_details_validated = true;
@@ -563,14 +564,19 @@ class Property extends \yii\db\ActiveRecord
             $legal_tax_documentation_validated = true;
         }
 
-        if( $terms->validate()) {
-            $terms_results_validated = true;
+        if( ($terms->terms_and_conditons1 && $terms->terms_and_conditons2 && $terms->terms_and_conditons1) ) {  
+            $terms_validated = true;
         }
-
+        
+        if( count($this->rooms) > 0 ) {
+            $rooms_validated = true;
+        } 
+               
         return ( $basic_details_validated && 
                 $address_location_validated &&
                 $legal_tax_documentation_validated && 
-                $terms_results_validated );
-
+                $terms_validated &&
+                $rooms_validated
+            );
     }
 }

@@ -5,7 +5,7 @@
         { ?>
             <img src="images/rectangle-cross.svg"  class="chckbox-class" > <span class="Validation-Heading-Error"><?= $name ?>: Failed</span>
             <ul class="margin-left-right-spacing-2">
-                <li class="small-text">    <img src="images/circle-exclamation-mark.svg"  class="chckbox-class" > Terms and condition not accepted</li>
+                <li class="small-text">    <img src="images/circle-exclamation-mark.svg"  class="chckbox-class" > Terms and conditions not accepted</li>
             </ul>
         <?php }
         else
