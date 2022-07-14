@@ -92,3 +92,19 @@ function validateRoomCategory() {
 
     return bError;
 }
+
+$('.room-category').click(function() {
+    $('.room-category').not(this).prop('checked', false);
+});
+
+$('#admission-checkbox').click(function () {
+    if ($('#admission-checkbox').prop("checked") == false) {
+        $(this).prop('checked', true);
+    }
+});
+
+$('#child-checkbox').click(function () {
+    if ($('#child-checkbox').prop("checked") == false) {
+        $(this).prop('checked', true);
+    }
+});

@@ -72,7 +72,7 @@ class TariffController extends Controller {
     public function actionHome(){
         $property = $this->getProperty();
 
-        //TODO: enable this
+        //TODO: Check operational data validation
          if(!$property->validateData()) {            
             return $this->redirect(['property/validate', 'id' => $property->getPrimaryKey()]);            
         } 
@@ -367,7 +367,13 @@ class TariffController extends Controller {
         $property = $this->getProperty();        
         $room_off_set = (int) Yii::$app->request->get('room_off_set', 0);
         $room_count = Room::find()->where(['property_id' => $property->id])->count();
+
         //TODO: if room count is zero, ask the user to create room to proceed
+        $this->layout = 'tm_main';
+        if($room_count <= 0) {
+            return $this->render('empty_room', ['property' => $property]);
+        }
+        
         $tariff = (int) Yii::$app->request->get('tariff', 0);
         
        //TODO: Handle $room_count == 0, if there no room category in a hotel
@@ -428,8 +434,7 @@ class TariffController extends Controller {
         ->andWhere(['room_id' => $room->id]);
                 
         $nationalities = TariffNationalityGroupName::find()->where(['property_id' => $property->id])->all();
-
-        $this->layout = 'tm_main';
+        
         return $this->render('add_room_rate', [
             'property' => $property, 
             'room' => $room, 

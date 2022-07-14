@@ -181,7 +181,7 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                                                 <input <?= ($property->cancellation_has_period_charge == 1) ? "checked" : "" ?> type="checkbox" name="" id="property-cancellation_has_period_charge"
                                                        class="form-input-checkbox">
                                                 <label for="cancellation-policy">
-                                                    <strong> Cancellation Policy has Period Based Rates </strong>
+                                                    <strong> Cancellation policy has period based rates </strong>
                                                 </label>
                                             </div>
                                         </div>
@@ -189,22 +189,22 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                                         <div id="pb_div" style = "display: <?= ($property->cancellation_has_period_charge == 1) ? "block" : "none" ?> ">
                                             <div class="row checked-cancellation-policy align-items-center mb-2">
                                                 <div class="col-3 fit-width-230px pr-0">
-                                                    <p> Full Refund If Cancelled Before </p>
+                                                    <p> Full refund if cancelled before </p>
                                                 </div>
                                                 <div class="d-flex col-8 align-items-center">
                                                     <div class="form-group mr-2">
                                                         <input value="<?= $property->cancellation_full_refund_days?>" type="text" name="cancellation_full_refund_days" id="property-cancellation_full_refund_days" class="form-control input-sm">
                                                     </div>
-                                                    <p> Days of Arrival Date </p>
+                                                    <p> days of arrival date </p>
                                                 </div>
                                                 <div class="col-3 fit-width-230px pr-0">
-                                                    <p> No Refund If Cancelled Less Than </p>
+                                                    <p> No refund if cancelled less than </p>
                                                 </div>
                                                 <div class="d-flex col-8 align-items-center">
                                                     <div class="form-group mr-2">
                                                         <input value="<?= $property->cancellation_no_refund_days?>" type="text" name="cancellation_no_refund_days" id="property-cancellation_no_refund_days" class="form-control input-sm">
                                                     </div>
-                                                    <p> Days of Arrival Date </p>
+                                                    <p> days of arrival date </p>
                                                 </div>
                                             </div>
                                             <div id="period_data">
@@ -221,13 +221,13 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                                                             </div>
                                                         </div>
                                                         <div class="col-4 fit-width-215px">
-                                                            <p> of Package amount if Cancelled </p>
+                                                            <p> of package amount if cancelled </p>
                                                         </div>
                                                         <div class="d-flex col-2 fit-width-105px align-items-center pr-0">
                                                             <div class="form-group mr-3">
                                                                 <input  value="<?=$cancellation_rate->from_date ?>"type="text" name="from_days[]" id="" class="form-control input-sh">
                                                             </div>
-                                                            <p> To </p>
+                                                            <p> to </p>
                                                         </div>
                                                         <div class="col-2 fit-width-70px">
                                                             <div class="form-group">
@@ -235,7 +235,7 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                                                             </div>
                                                         </div>
                                                         <div class="col-3">
-                                                            <p> Days Before Arrival Date </p>
+                                                            <p> days before arrival date </p>
                                                         </div>
                                                         <?php if ($i > 0) : ?>
                                                         <div class="col-1 remove-cancellation-detail align-self-start">
@@ -380,7 +380,7 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                                 <div class="form-material" >
 
 
-                                                                        <input <?php if($property['allow_child_of_all_ages'] == 1): ?> checked <?php endif ?>  type="checkbox" name="" id="property-allow_child_of_all_ages" class="form-input-checkbox child-checkbox">
+                                                                        <input <?php if($property['allow_child_of_all_ages'] == 1): ?> checked <?php endif ?>  type="checkbox" name="" id="property-allow_child_of_all_ages"  class="form-input-checkbox child-checkbox">
 
                                                                         <label for="property-allow_child_of_all_ages" class="mb-0">
                                                                             Our property welcomes child of all age if accompanied by adults
@@ -431,7 +431,7 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                                         </td>
                                         <td>
                                             <div class="form-group mr-2">
-                                                <?= $form->field($property, 'complimentary_from_age')->textInput(['type' => 'number','class' => 'form-control input-md','placeholder' => ''])->label(false) ?>
+                                                <?= $form->field($property, 'complimentary_from_age')->textInput(['type' => 'number', 'readonly' => 'readonly', 'class' => 'form-control input-md','placeholder' => ''])->label(false) ?>
 
                                                 <!--                                                    <input type="text" name="" id="" class="form-control input-md">-->
                                             </div>
@@ -461,7 +461,7 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                                         </td>
                                         <td>
                                             <div class="form-group mr-2">
-                                                <?= $form->field($property, 'child_rate_from_age')->textInput(['type' => 'number','class' => 'form-control input-md','placeholder' => ''])->label(false) ?>
+                                                <?= $form->field($property, 'child_rate_from_age')->textInput(['type' => 'number',  'readonly' => 'readonly','class' => 'form-control input-md','placeholder' => ''])->label(false) ?>
 
                                                 <!--                                                    <input type="text" name="" id="" class="form-control input-md">-->
                                             </div>
@@ -491,7 +491,7 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                                         </td>
                                         <td>
                                             <div class="form-group mr-2">
-                                                <?= $form->field($property, 'adult_rate_age')->textInput(['type' => 'number','class' => 'form-control input-md','placeholder' => ''])->label(false) ?>
+                                                <?= $form->field($property, 'adult_rate_age')->textInput(['type' => 'number', 'readonly' => 'readonly', 'class' => 'form-control input-md','placeholder' => ''])->label(false) ?>
 
                                                 <!--                                                    <input type="text" name="" id="" class="form-control input-md">-->
                                             </div>
