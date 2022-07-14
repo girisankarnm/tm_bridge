@@ -20,17 +20,17 @@ use frontend\models\Destination;
 use frontend\models\property\PropertyMealPlan;
 
 class EnquiryController extends Controller{
-    
+
     public function beforeAction($action) {
         //$this->enableCsrfValidation = false;
         if (Yii::$app->user->isGuest) {
             Yii::$app->user->loginRequired();
             return;
         }
-        
+
         if (Yii::$app->user->identity->user_type != 2){
             throw new ForbiddenHttpException();
-        } 
+        }
 
         return parent::beforeAction($action);
     }
@@ -85,7 +85,7 @@ class EnquiryController extends Controller{
             $basic_details->tour_duration = $enquiry->tour_duration;
             $tour_end_date = $start_date->addDays($enquiry->tour_duration)->format('d M Y');
         }
-        
+
         $countries = ArrayHelper::map(Country::find()->asArray()->all(), 'id', 'nationality');
         $this->layout = 'tm_main';
         return $this->render('basic_details',[
@@ -98,8 +98,8 @@ class EnquiryController extends Controller{
     public function actionSavebasicdetails(){
         $basic_details = new  BasicDetails();
         if ( $basic_details->load(Yii::$app->request->post()))  {
-            
-            if( $basic_details->validate() ) {            
+
+            if( $basic_details->validate() ) {
                 $enquiry_id = Yii::$app->request->post('enquiry_id');
                 if ($enquiry_id != 0) {
                     $enquiry = Enquiry::find()
@@ -111,6 +111,21 @@ class EnquiryController extends Controller{
                 }
                 else {
                     $enquiry = new Enquiry();
+                    $owner_id = Yii::$app->user->identity->getOWnerId();
+                    $Latestenquiry = Enquiry::find()->where(['owner_id'=>$owner_id,'id'=> SORT_DESC])->one();
+                    $now = Carbon::now();
+                    $current_year = $now->year;
+                    $LatestenquiryNo = $Latestenquiry->enquiry_no;
+                    $lastEnqNO = strtok($LatestenquiryNo, '/');
+                    $lastEnqYr = substr($LatestenquiryNo, strpos($LatestenquiryNo, "/") + 1);
+                   if ($current_year == $lastEnqYr)
+                   {
+                       $enquiry_no = $lastEnqNO + 1 .'/'.$current_year;
+                   }else{
+
+                       $enquiry_no = 1 .'/'.$current_year;
+                   }
+                    $enquiry->enquiry_no = $enquiry_no;
                 }
 
                 $enquiry->guest_name = $basic_details->guest_name;
@@ -124,12 +139,12 @@ class EnquiryController extends Controller{
                 if ($enquiry->save(false)) {
                     Yii::$app->session->setFlash('success', "Enquiry created successfully.");
                     return $this->redirect(['enquiry/contactdetails',  'id' => $enquiry->getPrimaryKey()]);
-                }                
-            }                       
+                }
+            }
         }
 
         //TODO: Manage flash message in view
-        Yii::$app->session->setFlash('error', "Enquiry creation failed.");            
+        Yii::$app->session->setFlash('error', "Enquiry creation failed.");
         $this->layout = 'tm_main';
         $countries = ArrayHelper::map(Country::find()->asArray()->all(), 'id', 'nationality');
         return $this->render('basic_details',[
@@ -137,16 +152,16 @@ class EnquiryController extends Controller{
             'countries' => $countries,
             'tour_end_date' => $tour_end_date
         ]);
-        
+
     }
     public function actionContactdetails(){
-        $enquiry = $this->getEnquiry();        
+        $enquiry = $this->getEnquiry();
 
         $this->layout = 'tm_main';
         return $this->render('contact_details', ['enquiry' => $enquiry]);
     }
-    
-    
+
+
     public function actionSavecontactdetails(){
         $enquiry_id = Yii::$app->request->post('enquiry_id');
         if ($enquiry_id != 0) {
@@ -167,7 +182,7 @@ class EnquiryController extends Controller{
     }
 
     public function actionGuestcount(){
-        $enquiry = $this->getEnquiry(); 
+        $enquiry = $this->getEnquiry();
 
         $plan_age_breakup = array();
         if (isset($enquiry->enquiryGuestCounts)) {
@@ -181,18 +196,18 @@ class EnquiryController extends Controller{
         }
 
         //var_dump($plan_age_breakup);
-        $age_breakup  = Json::encode($plan_age_breakup, true);        
+        $age_breakup  = Json::encode($plan_age_breakup, true);
 
         $this->layout = 'tm_main';
         return $this->render('guest_count', [
-            'enquiry' => $enquiry,  
+            'enquiry' => $enquiry,
             'age_breakup' => $age_breakup
         ]);
     }
 
 
 
-    public function actionSaveguestcount(){        
+    public function actionSaveguestcount(){
         //TODO: Check this proerty owned by this user
         $enquiry_id = Yii::$app->request->post('enquiry_id');
         $enquiry = NULL;
@@ -224,12 +239,12 @@ class EnquiryController extends Controller{
 
         $transaction = Yii::$app->db->beginTransaction();
 
-        try {            
+        try {
             $enquiry->guest_count_same_on_all_days = isset($_POST["Enquiry"]["guest_count_same_on_all_days"]) ? $_POST["Enquiry"]["guest_count_same_on_all_days"] : 1;
             if(!$enquiry->save() ) {
                 throw new Exception("Unable to save Enquiry details");
             }
-            
+
             EnquiryGuestCount::deleteAll(['enquiry_id' => $enquiry_id]);
 
             if (isset($guestCountDataArray['adults'])) {
@@ -249,9 +264,9 @@ class EnquiryController extends Controller{
                     if(!$guest_count->save()) {
                         throw new Exception("Unable to save Guest count");
                     }
-                    
+
                     $child_break_up_array = $childBreakupArray[$guestCountDataArray['plan_uid'][$i]];
-                    foreach ($child_break_up_array as $key => $value) {                
+                    foreach ($child_break_up_array as $key => $value) {
                         $enquiry_guest_count_child_age = new EnquiryGuestCountChildAge();
                         $enquiry_guest_count_child_age->age = $key;
                         $enquiry_guest_count_child_age->count = $value;
@@ -266,7 +281,7 @@ class EnquiryController extends Controller{
             //TODO: Handling exception in page
         } catch (\Exception $e) {
             $transaction->rollBack();
-            echo $e->getMessage();            
+            echo $e->getMessage();
             throw $e;
         } catch (\Throwable $e) {
             //TODO: Handling exception in page
@@ -277,15 +292,15 @@ class EnquiryController extends Controller{
 
         return $this->redirect(['enquiry/accommodation',  'id' => $enquiry->getPrimaryKey()]);
     }
-    
+
     public function actionAccommodation(){
-        $enquiry = $this->getEnquiry(); 
+        $enquiry = $this->getEnquiry();
 
         $accommodation = new EnquiryAccommodation();
         $destinations = ArrayHelper::map(Destination::find()->asArray()->all(), 'id', 'name');
         $meal_plans = ArrayHelper::map(PropertyMealPlan::find()->all(), 'id', 'name');
-        $pax_count_plans = ArrayHelper::map(EnquiryGuestCount::find()->where(['enquiry_id' => $enquiry->id])->all(), 'id', function($model) 
-        {            
+        $pax_count_plans = ArrayHelper::map(EnquiryGuestCount::find()->where(['enquiry_id' => $enquiry->id])->all(), 'id', function($model)
+        {
             $plan = ($model->enquiry->guest_count_same_on_all_days == 1) ? "Plan: " : "Plan: ".($model['plan'] + 1);
             return $plan.' [Adults:'.$model['adults'].' | Children:'.$model['children'].']';
         });
@@ -297,11 +312,11 @@ class EnquiryController extends Controller{
             'meal_plans' => $meal_plans,
             'pax_count_plans' => $pax_count_plans,
             'model' => $accommodation
-        ]);        
+        ]);
     }
 
-    public function actionSaveaccommodation(){       
-        
+    public function actionSaveaccommodation(){
+
         $enquiry_id = Yii::$app->request->post('enquiry_id');
         if ($enquiry_id != 0) {
             $enquiry = Enquiry::find()
@@ -320,7 +335,7 @@ class EnquiryController extends Controller{
             EnquiryAccommodation::deleteAll(['enquiry_id' => $enquiry_id]);
             if (isset($_POST["day"])) {
                 $plan_count = count($_POST["day"]);
-                for ($i = 0; $i < $plan_count; $i++ ) {                
+                for ($i = 0; $i < $plan_count; $i++ ) {
                     $accommodation = new EnquiryAccommodation();
                     $accommodation->day =  $_POST["day"][$i];
                     $accommodation->status = $_POST["accommodation_status"][$i];
@@ -335,14 +350,28 @@ class EnquiryController extends Controller{
             $transaction->commit();
             //TODO: Handling exception in page
         } catch (\Exception $e) {
-            $transaction->rollBack();            
+            $transaction->rollBack();
             throw $e;
         } catch (\Throwable $e) {
             //TODO: Handling exception in page
-            $transaction->rollBack();            
+            $transaction->rollBack();
             throw $e;
         }
 
         return $this->redirect(['enquiry/home',]);
+    }
+
+    public function actionDetails(){
+        $this->layout = 'tm_main';
+        $enquiry_id = Yii::$app->request->get('id');
+        $owner_id = Yii::$app->user->identity->getOWnerId();
+        $enquiry = Enquiry::find()
+            ->where(['id' => $enquiry_id])
+            ->andWhere(['owner_id' => $owner_id])
+            ->one();
+
+        $accommodation_details = EnquiryAccommodation::find()->where(['enquiry_id' => $enquiry_id])->all();
+
+        return $this->render('details', ['enquiry' => $enquiry, 'accommodation_details' => $accommodation_details ]);
     }
 }

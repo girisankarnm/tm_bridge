@@ -103,7 +103,7 @@ class TariffDateRange extends \yii\db\ActiveRecord
      */
     public function getRoomTariffWeekdayhikes()
     {
-        return $this->hasMany(RoomTariffWeekdayhike::className(), ['range_id' => 'id']);
+        return $this->hasMany(RoomTariffWeekdayhike::className(), ['date_range_id' => 'id']);
     }
 
     /**

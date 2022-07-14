@@ -668,6 +668,18 @@ class TariffController extends Controller {
         }
 
         $tariff = (int) Yii::$app->request->get('tariff');
+
+       /*  $is_allow_skip = false;
+        if($suppliment_meal !=  NULL) {
+            $is_allow_skip = true;
+        }    */
+
+        $is_allow_skip = false;
+        if(isset($date_range->roomTariffWeekdayhikes)) {
+            if (count($date_range->roomTariffWeekdayhikes) > 0) {
+                $is_allow_skip = true;
+            }
+        }        
         
         $this->layout = 'tm_main';
         return $this->render('add_hike_day_rate', [
@@ -675,7 +687,8 @@ class TariffController extends Controller {
             'property' => $property,            
             'rooms' => $rooms,
             'tariff' => $tariff,
-            'is_published' => $is_published
+            'is_published' => $is_published,
+            'is_allow_skip' => $is_allow_skip
         ]);        
     }
 
@@ -729,10 +742,10 @@ class TariffController extends Controller {
             return $this->redirect(['tariff/home', 
             'id' => $date_range->property_id]);  
         }
-
+        
         return $this->redirect(['tariff/addmandatorydinnner', 
                 'id' => $date_range->property_id,                 
-                'mother_id' => $date_range->id,                
+                'mother_id' => $_POST["TariffDateRange"]["id"],                
                 ]);
     }
 
@@ -835,13 +848,20 @@ class TariffController extends Controller {
         ->all();
 
         $tariff = (int) Yii::$app->request->get('tariff');
+
+        $is_allow_skip = false;        
+        if (count($mandatory_dinner) > 0) {
+            $is_allow_skip = true;
+        }                
+
         $this->layout = 'tm_main';
         return $this->render('add_mandatory_dinner_rate', [
             'date_range' => $date_range,
             'property' => $property,
             'dinners' => $mandatory_dinner,
             'tariff' => $tariff,
-            'is_published' => $is_published
+            'is_published' => $is_published,
+            'is_allow_skip' => $is_allow_skip
         ]);
     }
 

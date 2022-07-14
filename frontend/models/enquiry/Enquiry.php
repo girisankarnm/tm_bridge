@@ -1,7 +1,6 @@
 <?php
 
 namespace frontend\models\enquiry;
-
 use frontend\models\enquiry\EnquiryAccommodation;
 use frontend\models\enquiry\EnquiryGuestCount;
 use frontend\models\tariff\TariffNationalityGroupName;
@@ -14,6 +13,7 @@ use Yii;
  * This is the model class for table "enquiry".
  *
  * @property int $id
+ * @property string $enquiry_no
  * @property string $guest_name
  * @property int|null $nationality_id
  * @property string|null $tour_start_date
@@ -27,6 +27,8 @@ use Yii;
  *
  * @property EnquiryAccommodation[] $enquiryAccommodations
  * @property EnquiryGuestCount[] $enquiryGuestCounts
+ * @property EnquiryPropertySelection[] $enquiryPropertySelections
+ * @property EnquiryRoomSelection[] $enquiryRoomSelections
  * @property Country $nationality
  * @property User $owner
  */
@@ -46,10 +48,10 @@ class Enquiry extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['guest_name'], 'required'],
+            [['enquiry_no', 'guest_name'], 'required'],
             [['nationality_id', 'tour_duration', 'guest_count_same_on_all_days', 'owner_id'], 'integer'],
             [['tour_start_date'], 'safe'],
-            [['guest_name'], 'string', 'max' => 80],
+            [['enquiry_no', 'guest_name'], 'string', 'max' => 80],
             [['email1', 'email2'], 'string', 'max' => 255],
             [['contact1', 'contact2'], 'string', 'max' => 15],
             [['nationality_id'], 'exist', 'skipOnError' => true, 'targetClass' => Country::className(), 'targetAttribute' => ['nationality_id' => 'id']],
@@ -64,6 +66,7 @@ class Enquiry extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
+            'enquiry_no' => 'Enquiry No',
             'guest_name' => 'Guest Name',
             'nationality_id' => 'Nationality ID',
             'tour_start_date' => 'Tour Start Date',
@@ -95,6 +98,26 @@ class Enquiry extends \yii\db\ActiveRecord
     public function getEnquiryGuestCounts()
     {
         return $this->hasMany(EnquiryGuestCount::className(), ['enquiry_id' => 'id']);
+    }
+
+    /**
+     * Gets query for [[EnquiryPropertySelections]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getEnquiryPropertySelections()
+    {
+        return $this->hasMany(EnquiryPropertySelection::className(), ['enquiry_id' => 'id']);
+    }
+
+    /**
+     * Gets query for [[EnquiryRoomSelections]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getEnquiryRoomSelections()
+    {
+        return $this->hasMany(EnquiryRoomSelection::className(), ['enquiry_id' => 'id']);
     }
 
     /**
