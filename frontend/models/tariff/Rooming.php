@@ -1493,9 +1493,7 @@ class Rooming
 
     public function _25A(){
         $result = 0;
-        if ($this->_1C() > 0) {
             $result = ceil($this->_1A() / ($this->_2A() + $this->_2B()));
-        }
         return $result;
     }
 

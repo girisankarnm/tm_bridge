@@ -5,14 +5,6 @@ frontend\assets\CommonAsset::register($this);
 rmrevin\yii\fontawesome\AssetBundle::register($this);
 $this->registerJsFile('/js/enquiry/guest_count.js');
 ?>
-<style>
-    table thead tr {
-        color: #FFFFFF;
-        background-color: var(--secondary-color);
-        /*height: 45px;*/
-        height: 31px;
-    }
-</style>
 
 <link rel="stylesheet" type="text/css" href="/css/tour-min-1.css" />
 
@@ -189,7 +181,7 @@ $this->registerJsFile('/js/enquiry/guest_count.js');
 
                     </tr>
                     <tr style="background-color: #ffffff">
-                        <td class="addmoreguestcount" >                    <button class="btnAdd" type="button" style="border-radius: 50%; margin-left: 30px;margin-bottom: 15px;height: 23px;width: 23px;" id="add_new_plan_row"><i  style=" padding-top: 4px;" class="fa fa-plus" aria-hidden="true"></i></button>
+                        <td class="addmoreguestcount" >                    <button class="btnAdd" type="button" style="border-radius: 50%; margin-left: 30px;margin-bottom: 15px;height: 23px;width: 23px;" id="add_new_plan_row"><img src="images/plus-add.svg" style="padding: 4px"></button>
                             <span style="padding-left: 3px">Add more </span></td>
 
                     </tr>

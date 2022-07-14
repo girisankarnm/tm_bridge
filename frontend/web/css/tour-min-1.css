@@ -426,8 +426,8 @@ input::-webkit-inner-spin-button {
 .thtablerow-slab {
     padding-top: 12px;
     padding-bottom: 12px;
-    background-color: #586ADA;
-    color: white;
+    background-color: #586ADA !important;
+    color: white !important;
     font-family: 'Bw Mitga';
     font-style: normal;
     font-weight: 200;
@@ -509,6 +509,8 @@ table.dataTable thead th, table.dataTable thead td {
  border-top-left-radius: 0px  !important;
  border-bottom-right-radius: 0px !important;
  border-bottom-left-radius: 0px  !important;
+    background: #586ADA !important;
+    color: #FFFFFF !important;
 }
 
 
@@ -554,9 +556,10 @@ table {
 }
 
 .thtableguestcount {
+    color: #FFFFFF !important;
     padding-top: 12px;
     padding-bottom: 12px;
-    background-color: #586ADA;
+    background-color: #586ADA !important;
     color: white;
     font-family: 'Bw Mitga';
     font-style: normal;
@@ -1023,6 +1026,27 @@ font-size: 14px;
     float: right;
     justify-content: right;
 }
+
+
+.buttonEnquiry-add {
+    float: right;
+    background-color: #586ADA;
+    border: 1px solid #586ADA !important;
+    color: #ffffff;
+    width: 120px;
+    padding-right: 4px;
+    height: 33px;
+    margin-top: 0px;
+    font-family: 'Bw Mitga';
+    font-style: normal;
+    letter-spacing: .04em;
+    font-size: 12px;
+    border: 0.5px solid #586ADA;
+    border-radius: 4px;
+    float: right;
+    justify-content: right;
+}
+
 .image-margin-2px
 {
     margin-right: 2px !important;
