@@ -5,3 +5,61 @@
 /*    background: #586ADA !important;*/
 /*    color: white !important;*/
 /*}*/
+
+/*table th  {*/
+/*    color: #FFFFFF;*/
+/*    background-color: var(--secondary-color);*/
+/*    !*height: 45px;*!*/
+/*    height: 31px;*/
+/*}*/
+
+.thtablerow-slab {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #586ADA !important;
+    color: white !important;
+    font-family: 'Bw Mitga';
+    font-style: normal;
+    font-weight: 200;
+    font-size: 15px;
+    height: 33px;
+    text-align: center;
+    border-radius: 0px !important;
+    -moz-border-radius-bottomleft: 0px !important;
+    border-bottom: 0px solid !important;
+    /*border-bottom: 0px solid #111 !important;*/
+
+}
+
+
+
+.select2-container .select2-search--inline .select2-search__field
+{
+    height: 22px !important;
+}
+
+.thtableguestcount {
+    color: #FFFFFF !important;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #586ADA !important;
+    color: white;
+    font-family: 'Bw Mitga';
+    font-style: normal;
+    font-weight: 200;
+    font-size: 11px;
+    height: 33px;
+    text-align: center;
+}
+
+
+.thtableguestcount th {
+    background-color: #586ADA !important;
+    color: white;
+
+}
+
+.thtableaccomadation th{
+    background-color: #586ADA !important;
+    color: white;
+}

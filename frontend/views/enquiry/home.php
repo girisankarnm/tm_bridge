@@ -21,7 +21,7 @@ frontend\assets\DataTableAsset::register($this);
 <div class="row">
     <div class="col-md-12">
         <div class="col-md-3 text-center mt-4 float-right" >
-            <button style="width: 100px;" onclick="location.href='<?= Url::toRoute(['/enquiry/basicdetails']) ?>'" id="add-enquiry" type="submit" class="buttonSaveAssign" >Add Enquiry</button>
+            <button  onclick="location.href='<?= Url::toRoute(['/enquiry/basicdetails']) ?>'" id="add-enquiry" type="submit" class="buttonEnquiry-add" > <img src="images/plus-add.svg" class="image-margin-2px">Add Enquiry</button>
         </div>
     </div>
 </div><br>
