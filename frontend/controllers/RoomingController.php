@@ -46,6 +46,10 @@ class RoomingController extends Controller
         $this->layout = 'main-search';
         return $this->render('search5');
     }
+    public function actionSearchhotel() {
+        $this->layout = 'main-search';
+        return $this->render('search_hotel');
+        }
 
     public function actionProfile() {
         $this->layout = 'guest';

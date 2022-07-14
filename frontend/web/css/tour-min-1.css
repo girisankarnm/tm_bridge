@@ -391,7 +391,7 @@ input::-webkit-inner-spin-button {
 
 .table3enquiryclass
 {
-    width:760px !important;
+    width:990px !important;
     font-family: 'Bw Mitga';
     font-style: normal;
     alignment: inherit;
@@ -3090,13 +3090,10 @@ message-flex div:nth-of-type(3) {
 #column-2-listing div:nth-of-type(1) {
     flex-basis: 100%;
     height: 20px;
-
 }
 #column-2-listing div:nth-of-type(2) {
     flex-basis: 100%;
     height: 20px;
-
-
 }
 #column-2-listing div:nth-of-type(3) {
     flex-basis: 100%;
@@ -3734,9 +3731,152 @@ text-align: right;
 }
 
 
+#mainHeding-search-listing {
+    padding-top: 8px;
+    width:100%;
+    height: 109px;
+    display: flex;
+}
+
+#mainHeding-search-listing div {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 60px;
+}
+#mainHeding-search-listing div:nth-of-type(1) {
+    flex-basis: 10%;
+    height: 100px;
+
+}
+#mainHeding-search-listing div:nth-of-type(2) {
+    flex-basis: 35%;
+    height: 90px;
+
+}
+#mainHeding-search-listing div:nth-of-type(3) {
+    flex-basis:45% ;
+    height: 90px;
+    text-align: right;
+
+}
+
+#mainHeding-search-listing div:nth-of-type(4) {
+    flex-basis: 10%;
+    height: 90px;
+
+}
+
+#column-2-serching-listing {
+    padding-top: 28px;
+    padding-bottom: 18px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: white;
+    overflow: hidden;
+    line-height: .5rem;
+}
+#column-2-serching-listing div:nth-of-type(1) {
+    flex-basis: 100%;
+    height: 20px;
+
+}
+#column-2-serching-listing div:nth-of-type(2) {
+    flex-basis: 100%;
+    height: 16px;
+
+
+}
+#column-2-serching-listing div:nth-of-type(3) {
+    flex-basis: 100%;
+    height: 25px;
+    padding-top: 4px;
+
+}
+.img-fluid-search {
+    max-width: 24px;
+    height: 19px;
+}
+
+
+#hotel-properties {
+
+    width: 28%;
+    height: 100%;
+    display: flex;
+    text-align: right;
+
+
+}
+
+#hotel-properties div:nth-of-type(1) {
+    flex-basis: 30px;
+    height: 30px;
+    margin-right: 10px;
+    margin-left: 10px;
+    text-align: center;
+
+
+}
+#hotel-properties div:nth-of-type(2) {
+    flex-basis: 30px;
+    height: 30px;
+    padding-top: 0px;
+    margin-right: 10px;
+    margin-right: 10px;
+    text-align: center;
+}
+#hotel-properties div:nth-of-type(3) {
+    flex-basis: 30px;
+    height: 20px;
+    padding-top: 0px;
+    margin-right: 10px;
+    margin-right: 10px;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
 /* .Add-mother-date {*/
 /*     display: inline-block;*/
 /* }*/
+
+#price-flex {
+
+    width: 100%;
+    height: 100%;
+    display: flex;
+    text-align: right;
+
+
+}
+#price-flex div:nth-of-type(1) {
+    flex-basis: 100px;
+    height: 30px;
+    margin-right: 10px;
+    margin-left: 10px;
+    text-align: right;
+
+
+}
+#price-flex div:nth-of-type(2) {
+    flex-basis: 100px;
+    height: 30px;
+    padding-top: 0px;
+    text-align: left;
+
+}
+
+
+
+
+
 
 
 /*.tooltiptext {*/

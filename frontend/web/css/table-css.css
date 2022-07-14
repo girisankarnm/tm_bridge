@@ -104,3 +104,12 @@
 .table-responsive {
     border-radius: 0px !important;
 }
+
+.table3enquiryclass th
+{
+    font-size: 12px !important;
+}
+.button-font-size-12
+{
+    font-size: 12px !important;
+}
