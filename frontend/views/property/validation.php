@@ -20,7 +20,7 @@ use yii\helpers\Html;
                            <img  class="f-star" style="padding-left: 2px" src="images/Star-1.svg" alt="Matrix">
                            </span>
                         </div>
-                        <div>   <small  class="smallFonts fontsize-location"><i  class="fa fa-map-marker locatiospace" aria-hidden="true"></i><?= $property->location->name?>, <?= $property->destination->name?>, <?= $property->country->name?></small>
+                        <div>   <small  class="smallFonts fontsize-location"><i  class="fa fa-map-marker locatiospace" aria-hidden="true"></i><?= isset($property->location) ? $property->location->name : "" ?>, <?= isset($property->destination) ? $property->destination->name : "" ?>, <?= isset($property->country) ? $property->country->name : "" ?></small>
                             </span></div>
                     </div>
                 </div>

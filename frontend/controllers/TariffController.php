@@ -73,9 +73,9 @@ class TariffController extends Controller {
         $property = $this->getProperty();
 
         //TODO: enable this
-        /* if(!$property->validateData()) {            
+         if(!$property->validateData()) {            
             return $this->redirect(['property/validate', 'id' => $property->getPrimaryKey()]);            
-        } */
+        } 
         
         $mother_ranges = TariffDateRange::find()
         ->orderBy(['from_date' => SORT_DESC])
@@ -175,6 +175,16 @@ class TariffController extends Controller {
         } 
                 
         $property = $this->getProperty();
+
+        $rooms = Room::find()
+        ->where(['property_id' => $property->id])
+        ->all();
+
+        $this->layout = 'tm_main';
+        if (count($rooms) <= 0 ) {
+            return $this->render('empty_room', ['property' => $property]);
+        }
+
         $is_published = 1;
         $is_add_new_date = 1;
 
@@ -216,8 +226,7 @@ class TariffController extends Controller {
         ->where(['property_id' => $date_range->property_id])
         ->andWhere(['parent' => 0])
         ->all();
-
-        $this->layout = 'tm_main';
+        
         return $this->render('mother_date', [
             'property' => $property, 
             'date_range' => $date_range, 
