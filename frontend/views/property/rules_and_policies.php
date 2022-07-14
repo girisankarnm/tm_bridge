@@ -553,7 +553,7 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                                     </tbody>
                                 </table>
 
-                                    <button type="button" class="btn button-primary text-white btn-nationality " data-toggle="modal" id="define_nationality" data-target="#nationalityModal"> Define Nationality
+                                    <button type="button" class="btn button-primary text-white btn-nationality button-color " data-toggle="modal" id="define_nationality" data-target="#nationalityModal"> Define Nationality
                                     </button>
                                 <!--                                <button id="define_nationality" class="btn button-primary btn-nationality text-white" data-toggle="modal" > Define Nationality-->
                                 <!--                                </button>-->
@@ -663,7 +663,7 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                         <div class="d-flex align-items-center mb-2">
                             <!--                        <button type="button" class="btn btn-border mr-2" data-dismiss="modal"> Close </button>-->
                             <!--                        <button type="button" class="btn button-secondary"> Save Nationality </button>-->
-                            <button type="button" class="btn btn-border mr-2" onclick="dismissNationaliyModal()">Close</button>
+                            <button type="button" class="btn btn-border mr-2 button-color button-color-text" onclick="dismissNationaliyModal()">Close</button>
                             <button type="button" class="btn button-secondary" onclick="saveNationality()">Save Nationality</button>
 
                         </div>

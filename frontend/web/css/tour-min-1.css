@@ -1026,7 +1026,14 @@ font-size: 14px;
     float: right;
     justify-content: right;
 }
-
+.button-color-text
+{
+    color: #FFFFFF !important;
+}
+.button-color
+{
+    background: #586ADA!important;
+}
 
 .buttonEnquiry-add {
     float: right;
