@@ -258,7 +258,7 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                                                         </div>
                                                     </div>
                                                     <div class="col-4 fit-width-215px">
-                                                        <p>% of Package amount if Cancelled </p>
+                                                        <p>% of package amount if cancelled </p>
                                                     </div>
                                                     <div class="d-flex col-2 fit-width-105px align-items-center pr-0">
                                                         <div class="form-group mr-3">
@@ -272,7 +272,7 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                                                         </div>
                                                     </div>
                                                     <div class="col-3">
-                                                        <p> Days Before Arrival Date </p>
+                                                        <p> days before arrival date </p>
                                                     </div>
                                                 </div>
                                                 <?php } ?>
