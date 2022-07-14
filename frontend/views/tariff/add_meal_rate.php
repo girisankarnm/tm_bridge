@@ -100,15 +100,14 @@ use Carbon\Carbon;
                     <?php if ($is_published != 1) { ?>
                     <BUTTON type="submit" class="buttonSave save-border"  > Save </BUTTON>
                     <?php } ?>
-                    <?php 
-                    
-                    if ($tariff != 0) { ?>
-                        <?= Html::a('Next', ['tariff/home', 'id'=> $property->id,],  ['class'=>'buttonNextanchor2']) ?>    
+
+                    <?php if ($tariff != 0) { ?>
+                        <?= Html::a('Skip', ['tariff/home', 'id'=> $property->id,],  ['class'=>'buttonNextanchor2']) ?>    
                     <?php } 
                         else {                    
                     ?>
                         <?php if($is_allow_skip == true) { ?>
-                        <?= Html::a('Next', ['tariff/addhikedayrate', 'id'=> $property->id, 'mother_id' => $date_range->id, 'tariff' => $tariff],  ['class'=>'buttonNextanchor2']) ?>
+                            <?= Html::a('Skip', ['tariff/addhikedayrate', 'id'=> $property->id, 'mother_id' => $date_range->id, 'tariff' => $tariff],  ['class'=>'buttonNextanchor2']) ?>
                         <?php } ?>
                     <?php } ?>
                 </div>

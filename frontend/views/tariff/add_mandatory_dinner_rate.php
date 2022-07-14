@@ -188,12 +188,14 @@ function attachDatePicker() {
         </div>
 
         <div class="row" style="margin-left: 4px;margin-bottom: 12px;">
-            <div style="display: block;margin-right: 35px;margin-left: 16px;">
-                <!-- <BUTTON type="button" class="prevbutton" style="width: 80px;height: 30px" data-toggle="modal" data-target="#logoutModal"> Prev </BUTTON> -->
+            <div style="display: block;margin-right: 35px;margin-left: 16px;">                
                 <?php if ($is_published != 1) { ?>
-                <BUTTON type="submit" class="buttonSave save-border" style="width: 80px;height: 30px" data-toggle="modal" data-target="#logoutModal"> Save </BUTTON>
+                    <BUTTON type="submit" class="buttonSave save-border" style="width: 80px;height: 30px" data-toggle="modal" data-target="#logoutModal"> Save </BUTTON>
                 <?php } ?>
-                <?= Html::a('Next', ['tariff/home', 'id'=> $property->id],  ['class'=>'buttonNextanchor2']) ?>
+                
+                <?php if($is_allow_skip == true) { ?>
+                    <?= Html::a('Skip', ['tariff/home', 'id'=> $property->id],  ['class'=>'buttonNextanchor2']) ?>
+                <?php } ?>
             </div>
 
         </div>
