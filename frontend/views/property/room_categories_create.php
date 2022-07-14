@@ -3,11 +3,11 @@ use yii\helpers\Html;
 use yii\bootstrap4\ActiveForm;
 use yii\helpers\Url;
 
+$this->registerCssFile('/css/form.css');
 $this->registerCssFile('/css/property/room_categories.css');
 $this->registerJsFile('/js/operational_details/room_category.js');
 //$this->registerJsFile('/js/property/room_categories/index.js');
 ?>
-
 <h5 class="title"> Room Category </h5>
 
 <div class="tab-section room_categories_contr">
@@ -144,7 +144,7 @@ $this->registerJsFile('/js/operational_details/room_category.js');
                             <h6>Room Occupancy</h6>
                             <div class="row">
                                 <div class="form-group">
-                                    <div class="form-material" style="margin-left: 15px">                                        
+                                    <div class="form-material" style="margin-left: 15px">
                                         <?= $form->field($room, 'same_tariff_for_single_occupancy')->checkbox(['id' => 'same-tariff-single-checkbox'])->label("Same tariff for single occupancy"); ?>
                                     </div>
                                 </div>

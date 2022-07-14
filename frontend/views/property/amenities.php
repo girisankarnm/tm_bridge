@@ -6,6 +6,7 @@ use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
 use frontend\models\property\RoomAmenitySuboption;
 use frontend\models\property\RoomAmenity;
+$this->registerCssFile('/css/form.css');
 $this->registerCssFile('/css/property/room_categories.css');
 $this->registerCssFile('/css/property/amenities.css');
 $this->registerJsFile('/js/property/amenities/index.js');
@@ -130,11 +131,14 @@ $this->registerJsFile('/js/property/amenities/services_amenities.js');
                                             <p> Number of Pools </p>
                                         </div>
 
-                                        <div class="col-10">
+                                        <div class="col-5">
                                             <div class="form-group">
                                                 <input value="<?= $swimming_pool->count ?>" type="text" name="PropertySwimmingPool[count]" id="propertyswimmingpool-count" class="form-control input-sm">
                                             </div>
                                         </div>
+
+                                    </div>
+                                    <div class="row align-items-center">
 
                                         <div class="col-2">
                                             <p> Pool Type </p>
@@ -142,19 +146,20 @@ $this->registerJsFile('/js/property/amenities/services_amenities.js');
 
                                         <div class="d-flex col-10 align-items-center">
 
-                                        <?php foreach ($pool_types as $pool_type):?>
+                                            <?php foreach ($pool_types as $pool_type):?>
 
-                                            <div class="form-group form-checkbox mr-4">
-                                                <div class="form-material">
-                                                    <input type="checkbox" name="pool_type[]" id="<?php echo $pool_type->id ?>" class="form-input-checkbox" value="<?php echo $pool_type->id ?>" name="pool_type[]" <?php echo in_array($pool_type->id, $type_id_list) ? "checked" : ""   ?>>
-                                                    <label for="<?php echo $pool_type->id ?>">
-                                                        <?php echo $pool_type->name; ?>
-                                                    </label>
+                                                <div class="form-group form-checkbox mr-4">
+                                                    <div class="form-material">
+                                                        <input type="checkbox" name="pool_type[]" id="<?php echo $pool_type->id ?>" class="form-input-checkbox" value="<?php echo $pool_type->id ?>" name="pool_type[]" <?php echo in_array($pool_type->id, $type_id_list) ? "checked" : ""   ?>>
+                                                        <label for="<?php echo $pool_type->id ?>">
+                                                            <?php echo $pool_type->name; ?>
+                                                        </label>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        <?php endforeach; ?>
+                                            <?php endforeach; ?>
 
                                         </div>
+
                                     </div>
                                 </div>
                                 </div>
@@ -165,7 +170,7 @@ $this->registerJsFile('/js/property/amenities/services_amenities.js');
                                     <div class="form-material">
                                         <input <?= $property->have_restaurant == 1 ? "checked" : ""; ?> type="checkbox" name="" id="restaurant" class="form-input-checkbox">
                                         <label for="restaurant">
-                                            <strong> Swimming Pool </strong>
+                                            <strong> Restaurants </strong>
                                         </label>
                                     </div>
                                 </div>
@@ -177,7 +182,7 @@ $this->registerJsFile('/js/property/amenities/services_amenities.js');
                                             <p> Number of Restaurants </p>
                                         </div>
 
-                                        <div class="col-10">
+                                        <div class="col-5">
                                             <div class="form-group">
                                                 <input value="<?= $restaurant->count ?>" type="text" name="PropertyRestaurant[count]" id="propertyrestaurant-count" class="form-control input-sm">
                                             </div>
