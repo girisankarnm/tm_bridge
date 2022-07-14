@@ -25,7 +25,7 @@ frontend\assets\DataTableAsset::register($this);
         </div>
     </div>
 </div><br>
-<table id="enquiries" class="table-slab-class">
+<table id="enquiries" class="table-slab-class table-sm table">
     <thead>
     <tr  class="thtablerow-slab " >
     <th>Name</th>
@@ -50,6 +50,7 @@ frontend\assets\DataTableAsset::register($this);
             <?= Html::a('<img style="height: 24px; width: 24px" class="margin-left-right-spacing "  src="images/testIcons/icons8-search.svg">', Url::toRoute(['/search/create', 'enquiryID' => $enquiry->id ]),["title"=>"Search Rooms",'class'=>'t']) ?>
 <!--            <i class="fa fa-edit text-secondary p-1 t" title="Edit Property"></i>-->
             <?= Html::a('<img class="margin-left-right-spacing "  src="images/basic-details.svg">', Url::toRoute(['/enquiry/basicdetails', 'id' => $enquiry->id ]),["title"=>"Edit Basic Details",'class'=>'t']) ?>
+            <?= Html::a('<img class="margin-left-right-spacing "  src="images/eye-view-icon.svg">', Url::toRoute(['/enquiry/details', 'id' => $enquiry->id ]),["title"=>"Enquiry Details",'class'=>'t']) ?>
 <!--            <i id="myButton" class="fa fa-plus text-success p-1 t" title="Add Property"></i>-->
 <!--            <i class="fa fa-money text-info p-1 t" title="Tariff"></i>-->
         </td>

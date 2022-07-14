@@ -2,6 +2,7 @@
 use yii\helpers\Html;
 use yii\bootstrap4\ActiveForm;
 use yii\helpers\Url;
+$this->registerCssFile('/css/form.css');
 $this->registerCssFile('/css/property/rules_and_policies.css');
 $this->registerJsFile('/js/property/rules_and_policies/index.js');
 $this->registerJsFile('/js/property/rules_policies.js');
@@ -27,7 +28,6 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
         height: 31px;
     }
 </style>
-
 <!-- load the third party plugin assets (jquery-confirm) -->
 <link href="//cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css" rel="stylesheet" type="text/css" />
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
