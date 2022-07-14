@@ -14,6 +14,7 @@ class m220205_075523_create_enquiry_table extends Migration
     {
         $this->createTable('{{%enquiry}}', [
             'id' => $this->primaryKey(),
+            'enquiry_no' => $this->string(80)->notNull(),
             'guest_name' => $this->string(80)->notNull(),
             'nationality_id' =>  $this->integer(11)->defaultValue(0),
             'tour_start_date' => $this->date()->notNull()->defaultValue(null),

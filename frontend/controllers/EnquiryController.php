@@ -111,6 +111,21 @@ class EnquiryController extends Controller{
                 }
                 else {
                     $enquiry = new Enquiry();
+                    $owner_id = Yii::$app->user->identity->getOWnerId();
+                    $Latestenquiry = Enquiry::find()->where(['owner_id'=>$owner_id,'id'=> SORT_DESC])->one();
+                    $now = Carbon::now();
+                    $current_year = $now->year;
+                    $LatestenquiryNo = $Latestenquiry->enquiry_no;
+                    $lastEnqNO = strtok($LatestenquiryNo, '/');
+                    $lastEnqYr = substr($LatestenquiryNo, strpos($LatestenquiryNo, "/") + 1);
+                   if ($current_year == $lastEnqYr)
+                   {
+                       $enquiry_no = $lastEnqNO + 1 .'/'.$current_year;
+                   }else{
+
+                       $enquiry_no = 1 .'/'.$current_year;
+                   }
+                    $enquiry->enquiry_no = $enquiry_no;
                 }
 
                 $enquiry->guest_name = $basic_details->guest_name;
