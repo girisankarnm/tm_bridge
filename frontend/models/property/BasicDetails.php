@@ -33,4 +33,17 @@ class BasicDetails extends Model{
             [['property_category_id'], 'exist', 'skipOnError' => true, 'targetClass' => \frontend\models\property\PropertyCategory::className(), 'targetAttribute' => ['property_category_id' => 'id']],
         ];
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function attributeLabels()
+    {
+        return [
+            'id' => 'ID',
+            'name' => 'Name',
+            'property_type_id' => 'Property type',
+            'property_category_id' => 'Property category',
+        ];
+    }
 }

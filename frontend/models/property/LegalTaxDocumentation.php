@@ -31,4 +31,15 @@ class LegalTaxDocumentation extends Model{
             [['legal_status_id'], 'exist', 'skipOnError' => true, 'targetClass' => PropertyLegalStatus::className(), 'targetAttribute' => ['legal_status_id' => 'id']],
         ];
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function attributeLabels()
+    {
+        return [
+            'legal_status_id' => 'Legal Status',
+            'ifsc_code' => 'IFSC Code'
+        ];
+    }
 }
