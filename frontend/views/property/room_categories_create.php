@@ -113,13 +113,28 @@ $this->registerJsFile('/js/operational_details/room_category.js');
 
                             <div class="form-group">
                                 <div class="d-flex form-material">
-                                    <?= $form->field($room, 'child_policy_same_as_property')->checkbox(['id' => 'child-checkbox'])->label("Room’s child & infant policy is same as set under property rules & policies"); ?>
+                                    <?php
+                                    if(($room['child_policy_same_as_property'] == 1) || ($room['id'] == null)) {
+
+                                        echo $form->field($room, 'child_policy_same_as_property')->checkbox(['id' => 'child-checkbox', 'checked' => 'checked', 'class' => 'custom-control-input room-category'])->label("Room’s child & infant policy is same as set under property rules & policies");
+
+                                    } else {
+                                        echo $form->field($room, 'child_policy_same_as_property')->checkbox(['id' => 'child-checkbox', 'class' => 'custom-control-input room-category'])->label("Room’s child & infant policy is same as set under property rules & policies");
+
+                                    }?>
+
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <div class="d-flex form-material">
-                                    <?= $form->field($room, 'restricted_for_child')->checkbox(['id' => 'admission-checkbox'])->label("Admission to this room category is restricted for guests under"); ?>
+                                    <?php
+                                    if($room['restricted_for_child'] == 1) {
+                                        echo $form->field($room, 'restricted_for_child')->checkbox(['id' => 'admission-checkbox', 'checked' => 'checked', 'class' => 'custom-control-input room-category'])->label("Admission to this room category is restricted for guests under");
+                                    } else {
+                                        echo $form->field($room, 'restricted_for_child')->checkbox(['id' => 'admission-checkbox', 'class' => 'custom-control-input room-category'])->label("Admission to this room category is restricted for guests under");
+                                    }?>
+
                                     <?php echo $form->field($room,'restricted_for_child_below_age')->textInput(['placeholder' => 'years' ,'class' => "form-control input-sm mr-1"])->label(false) ?>
                                 </div>
                             </div>

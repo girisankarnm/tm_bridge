@@ -166,7 +166,6 @@ class PropertyController extends Controller
         $legal_tax_documentation->gst_image = $property->gst_image;
         $legal_tax_documentation->cheque_image = $property->cheque_image;
 
-
         $terms = new TermsConditions();
         $terms->id = $property->id;
         $terms->terms_and_conditons1 = $property->terms_and_conditons1;
@@ -190,12 +189,16 @@ class PropertyController extends Controller
             $legal_tax_documentation_results = $legal_tax_documentation->errors;
         }
 
-        if( !$terms->validate()) {
-            $terms_results = $terms->errors;
+        if( !($terms->terms_and_conditons1 && $terms->terms_and_conditons2 && $terms->terms_and_conditons1) ) {            
+            $terms->addError('rooms', "Terms and conditions not accepted");
+            $terms_results = $terms->errors;            
+        }
+       
+        if( count($property->rooms) == 0) {
+            $property->addError('rooms', "Not defined room categories");
         }
 
         $this->layout = 'tm_main';
-
         return $this->render('validation', [
             'property' => $property,
             'basic_details' => $basic_details_results,

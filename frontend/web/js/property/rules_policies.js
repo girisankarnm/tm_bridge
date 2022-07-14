@@ -184,11 +184,56 @@ function saveChildPolicy(){
         });
 }
 
+$('#property-restricted_for_child').click(function () {
+    if ($('#property-restricted_for_child').prop("checked") == false) {
+        $(this).prop('checked', true);
+    }
+    if ($('#property-restricted_for_child').prop("checked") == true) {
+        $('#property-complimentary_from_age').val(parseInt($('#property-restricted_for_child_below_age').val()));
+    }
+});
+
+$('#property-allow_child_of_all_ages').click(function () {
+    if ($('#property-allow_child_of_all_ages').prop("checked") == false) {
+        $(this).prop('checked', true);
+    }
+    if ($('#property-allow_child_of_all_ages').prop("checked") == true) {
+        $('#property-complimentary_from_age').val(0);
+    }
+});
+
+
+$('#property-allow_complimentary').click(function () {
+    $(this).prop('checked', true);
+});
+$('#property-allow_child_rate').click(function () {
+    $(this).prop('checked', true);
+});
+
+$('#property-allow_adult_rate').click(function () {
+    $(this).prop('checked', true);
+});
+
+
+$('#property-complimentary_to_age').change(function () {
+    $('#property-child_rate_from_age').val(parseInt($('#property-complimentary_to_age').val()) + 1);
+});
+$('#property-child_rate_to_age').change(function () {
+    $('#property-adult_rate_age').val(parseInt($('#property-child_rate_to_age').val()) + 1);
+});
+
+$('#property-restricted_for_child_below_age').change(function () {
+    if ($('#property-restricted_for_child').prop("checked") == true) {
+        $('#property-complimentary_from_age').val(parseInt($('#property-restricted_for_child_below_age').val()));
+    }
+});
+
 function validateChildPolicy() {
     var bError = false;
     var ErrorMessage = "Please fix the below fields";
 
     if ($('#property-restricted_for_child').is(":checked")) {
+        // $('#property-restricted_for_child').disabled=false;
         if ( parseInt($('#property-restricted_for_child_below_age').val().trim()) <= 0 ||
             $('#property-restricted_for_child_below_age').val().trim().length == 0) {
             bError = true;
@@ -197,18 +242,21 @@ function validateChildPolicy() {
         }
     }
 
+
+
+
     if ($('#property-allow_complimentary').is(":checked")) {
-        if ( parseInt($('#property-complimentary_from_age').val().trim()) <= 0 ||
+        if ( parseInt($('#property-complimentary_from_age').val().trim()) < 0 ||
             $('#property-complimentary_from_age').val().trim().length == 0) {
             bError = true;
             toastr.error("Invalid Complimentary age");
             ErrorMessage += '<li>Complimentary age</li>';
         }
 
-        if ( parseInt($('#property-complimentary_from_age').val().trim()) >  parseInt($('#property-complimentary_to_age').val().trim()) ) {
+        if ( parseInt($('#property-complimentary_from_age').val().trim()) >=  parseInt($('#property-complimentary_to_age').val().trim()) ) {
             bError = true;
-            toastr.error("Complimentary to age can't greater than from age");
-            ErrorMessage += '<li>Complimentary can\'t greater than from age</li>';
+            toastr.error("Complimentary to age can't greater than or equal to from age");
+            // ErrorMessage += '<li>Complimentary to age can\'t greater than or equal to from age</li>';
         }
     }
 
@@ -220,10 +268,10 @@ function validateChildPolicy() {
             ErrorMessage += '<li>Child age</li>';
         }
 
-        if ( parseInt($('#property-child_rate_from_age').val().trim()) >  parseInt($('#property-child_rate_to_age').val().trim()) ) {
+        if ( parseInt($('#property-child_rate_from_age').val().trim()) >=  parseInt($('#property-child_rate_to_age').val().trim()) ) {
             bError = true;
-            toastr.error("Child to age can't greater than  from age");
-            ErrorMessage += '<li>Child can\'t greater than  from age</li>';
+            toastr.error("Child to age can't greater than or equal to from age");
+            // ErrorMessage += '<li>Child can\'t greater than  from age</li>';
         }
     }
 
@@ -610,19 +658,19 @@ function validateCancellationPolicy(){
                 return bError;
             }
 
-            if ( parseInt(inpt_to_days[i].value) <= (no_refund_days) ) {
+            if ( parseInt(inpt_to_days[i].value) < (no_refund_days) ) {
                 bError = true;
-                toastr.error("To date can't lower or equal than No refund days");
+                toastr.error("To date can't lower than No refund days");
                 return bError;
             }
         }
 
-        if (parseInt(inpt_to_days[(inpt_from_days.length - 1)].value) != (no_refund_days + 1)) {
+        if (parseInt(inpt_to_days[(inpt_from_days.length - 1)].value) != (no_refund_days)) {
             bError = true;
             toastr.error("Period not completed");
             return bError;
         }
-        toastr.success("Period Validation success");
+        // toastr.success("Period Validation success");
     }
 
     if ($('#property-cancellation_has_admin_charge').is(":checked")) {

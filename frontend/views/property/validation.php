@@ -42,14 +42,17 @@ use yii\helpers\Html;
 
         <?php
             echo Yii::$app->controller->renderPartial('_validation_result_block', ['result' => $legal_tax_documentation,  'name' => 'Legal and Tax data', 'action' => 'legaltax', 'id' => $property->id ]);
-        ?>
+        ?>        
 
         <?php
             echo Yii::$app->controller->renderPartial('_validation_result_terms', ['result' => $terms,  'name' => 'Terms and Conditions', 'action' => 'termsandconditions', 'id' => $property->id ]);
         ?>
 
-        <div style="height: 30px">
+        <?php
+            echo Yii::$app->controller->renderPartial('_validation_result_block', ['result' => $property->errors,  'name' => 'Operational details', 'action' => 'createcategories', 'id' => $property->id ]);
+        ?>
 
+        <div style="height: 30px">
 
         </div>
 
