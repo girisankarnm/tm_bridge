@@ -405,7 +405,7 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                             </div>
                             <div class="child-policy-table table-responsive">
                                 <table class="display table-sm">
-                                    <thead>
+                                    <thead class="child-policy-property-table">
                                     <tr>
                                         <th width="60%"> Tariff Category </th>
                                         <th width="20%"> From </th>
@@ -539,7 +539,7 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                             </div>
                             <div class="room-tariff-table table-responsive" id="nationality_div" <?php if ($property['room_tariff_same_for_all'] == 1): ?> style="display:none" <?php endif ; ?>>
                                 <table class="display table-sm" id="nationalityTable">
-                                    <thead>
+                                    <thead class="nationalityTable-th-class" >
                                     <tr>
                                         <th width="20%"> Group Name </th>
                                         <th width="60%"> Countries </th>
