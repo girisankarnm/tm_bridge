@@ -1,6 +1,7 @@
 
     var preview;
 
+    $.fn.fileinputBsVersion = "4.6.1"; // if not set, this will be auto-derived
 
 // Initialize Property pictures on load (kartik file input - Widjet)
     $( document ).ready(function() {
@@ -33,8 +34,9 @@
     uploadAsync: false,
     minFileCount: 1,
     maxFileCount: 5,
-    showBrowse: false,
-    browseOnZoneClick: true,
+    allowedFileExtensions: ["jpg", "png", "jpeg"],
+    showBrowse: true,
+    browseOnZoneClick: false,
     layoutTemplates: {footer: footerTemplate},
     otherActionButtons: btns,
     // configure other plugin settings
@@ -207,8 +209,9 @@
     uploadAsync: false,
     minFileCount: 1,
     maxFileCount: 5,
-    showBrowse: false,
-    browseOnZoneClick: true,
+    allowedFileExtensions: ["jpg", "png", "jpeg"],
+    showBrowse: true,
+    browseOnZoneClick: false,
     layoutTemplates: {footer: footerTemplate},
     otherActionButtons: btns,
 
