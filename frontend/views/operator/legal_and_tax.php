@@ -77,16 +77,16 @@ use yii\bootstrap4\ActiveForm;
                         <?php echo $form->field($legal_tax_documentation,'bank_name')->textInput(['class' => 'inputLarge'])->label(false) ?>
                     </div>
                     <div class="form-group ">
-                        <label class="Labelclass" style="display: block" >*Bank Name</label>
-                        <?php echo $form->field($legal_tax_documentation,'bank_name')->textInput(['class' => 'inputLarge'])->label(false) ?>
+                        <label class="Labelclass" style="display: block" >*Account Number</label>
+                        <?php echo $form->field($legal_tax_documentation,'bank_account_number')->textInput(['class' => 'inputLarge'])->label(false) ?>
                     </div>
                 </div>
 
 
                 <div class="col-md-6 ">
                     <div class="form-group ">
-                        <label class="Labelclass" style="display: block" >*Account Number</label>
-                        <?php echo $form->field($legal_tax_documentation,'bank_account_number')->textInput(['class' => 'inputLarge'])->label(false) ?>
+                        <label class="Labelclass" style="display: block" >*Account Name</label>
+                        <?php echo $form->field($legal_tax_documentation,'bank_account_name')->textInput(['class' => 'inputLarge'])->label(false) ?>
                     </div>
                     <div class="form-group ">
                         <label class="Labelclass" style="display: block" >*IFSC Code</label>
