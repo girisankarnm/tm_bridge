@@ -632,7 +632,7 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                                 <label for="group-name">
                                     <strong> Group name </strong>
                                 </label>
-                                <input type="text" name="" id="group_name" class="form-control" placeholder="Enter group name">
+                                <input type="text" name="" id="group_name" class="form-control " placeholder="Enter group name">
                             </div>
                         </div>
                         <div class="form-group">

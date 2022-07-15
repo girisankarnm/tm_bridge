@@ -114,8 +114,17 @@
     font-size: 12px !important;
 }
 
+input::placeholder {
 
-
+    font-family: 'Bw Mitga' !important;
+    font-style: normal !important;
+    font-size: 15px !important;
+    padding-bottom: 16px !important;
+}
 .btn {
     color: white!important;
 }
+/*label {*/
+/*    font-size: 12px !important;*/
+/*    font-family: var(--font-content), var(--font-default) !important;*/
+/*}*/
