@@ -17,8 +17,8 @@ class PropertyImage extends Model
     {
         return [
             [['proFile', 'logoFile'], 'required', 'on'=>['create']],
-            [['proFile'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, jpeg'],
-            [['logoFile'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, jpeg'],
+            [['proFile'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, jpeg', 'maxSize' => 1024 * 1024 * 2],
+            [['logoFile'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, jpeg', 'maxSize' => 1024 * 1024 * 2],
         ];
     }
 
@@ -44,11 +44,15 @@ class PropertyImage extends Model
         }
     }
 
-//    public function attributeLabels()
-//    {
-//        return [
-//            'imageFile' => 'Property picture',
-//        ];
-//    }
+    /**
+     * {@inheritdoc}
+     */
+    public function attributeLabels()
+    {
+        return [            
+            'proFile' => 'Property photo',
+            'logoFile' => 'Property logo'
+        ];
+    }
 }
 ?>
