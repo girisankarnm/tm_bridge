@@ -27,7 +27,7 @@ class LegalTaxDocumentation extends Model{
     public function rules()
     {
         return [
-            [['legal_status_id' , 'pan_number', 'bank_account_number', 'bank_account_name', 'bank_name', 'ifsc_code', 'id'], 'required'],
+            [['legal_status_id' , 'pan_number', 'bank_account_number', 'bank_account_name', 'bank_name', 'ifsc_code', 'id', 'gst_number'], 'required'],
             [['legal_status_id'], 'exist', 'skipOnError' => true, 'targetClass' => PropertyLegalStatus::className(), 'targetAttribute' => ['legal_status_id' => 'id']],
         ];
     }

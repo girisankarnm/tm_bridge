@@ -48,9 +48,13 @@ function removeRow(row) {
 }
 
 function attachDatePicker() {
+    //var startdate = $("#daterange-from_date").val();
+    //$("#daterange-to_date").datepicker('setStartDate', startdate);
+
     $('input[name="dinner_daterange[]"]').datepicker({
         format: "d MM yyyy",        
-        //startDate: startDay,
+        startDate: '<?= Carbon::parse($date_range->from_date)->format('d M Y'); ?>',
+        endDate: '<?= Carbon::parse($date_range->to_date)->format('d M Y'); ?>',
         autoclose: true,       
         }).on("changeDate", function (e) 
         {            
