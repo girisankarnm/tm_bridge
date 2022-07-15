@@ -758,7 +758,7 @@ input:focus
     /*outline-color: #5a60ff;*/
 }
 input::placeholder {
-    font: 12px/3 sans-serif;
+
     font-family: 'Bw Mitga';
     font-style: normal;
     padding-left: 3px;
