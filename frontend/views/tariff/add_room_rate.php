@@ -88,6 +88,7 @@ $this->registerJsFile('/js/tariff/tariff.js');
             ]);
 
             foreach ($nationalities as $nationality) {
+
                 $count++;
                 $defined_tariff_query = clone $defined_tariff;
                 $room_tariff = $defined_tariff_query->andWhere(['nationality_id' => $nationality->id])->one();

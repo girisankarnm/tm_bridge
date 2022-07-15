@@ -5,7 +5,7 @@
                 <div class="card border-zero" style="margin-left: 5px">
 
                     <h2 class="mb-0 <?php if($count == 1):?> accordian-open-bg <?php  else: ?> accordianbg  <?php endif; ?>">
-                        <button class="btn btn-block text-left" type="button" onclick="functionchange(this);" data-toggle="collapse" data-target="#collapseOne<?= $count?>" aria-expanded="false" aria-controls="collapseOne<?= $count?>">
+                        <button class="btn btn-block text-left accordianstyle accordion-toggle" type="button" onclick="functionchange(this);" data-toggle="collapse" data-target="#collapseOne<?= $count?>" aria-expanded="false" aria-controls="collapseOne<?= $count?>">
                             <strong> <?= $count?>. Nationality - <?= $nationality_name ?> </strong>
                             <input type="hidden" name="nationality[]" value="<?= $nationality_id; ?>">
                             <div class="float-right">
