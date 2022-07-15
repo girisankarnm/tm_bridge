@@ -47,7 +47,7 @@ use frontend\models\tariff\TariffDateRange;
                     <div class="accordion" id="accordionExample<?= $i ?>" >
                         <div class="card border-zero" >
                             <h2 class="mb-0    <?php if($i == 1):?> accordian-open-bg <?php  else: ?> accordianbg  <?php endif; ?> " >
-                                <button class="btn btn-block text-left  accordianstyle accordion-toggle" type="button" onclick="functionchange(this);" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                <button class="btn btn-block text-left  accordianstyle accordion-toggle" type="button" onclick="functionchange(this);" data-toggle="collapse" data-target="#collapseOne<?= $i ?>" aria-expanded="false" aria-controls="collapseOne<?= $i ?>">
                                     <strong class="accordianText"> <?= Carbon::parse($range->from_date)->format('d M Y');  ?> <span> -</span> <?= Carbon::parse($range->to_date)->format('d M Y'); ?>  </strong>   <strong  class="accordianText" style="color: #ffffff;text-align: center;margin-left: 25%;position: static"> Published </strong>
                                     <div class="float-right">
                                         <i class="fas fa-angle-down rotate-icon"></i>
