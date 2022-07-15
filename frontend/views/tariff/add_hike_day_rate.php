@@ -94,7 +94,7 @@ use frontend\models\tariff\roomTariffWeekdayhikeDays;
                             <div class="accordion" id="accordionExample<?= $i ?>" >
                                 <div class="card border-zero" >
                                     <h2 class="mb-0   accordianbg" >
-                                    <button class="btn btn-block text-left" type="button" onclick="functionchange(this);" data-toggle="collapse" data-target="#collapseOne<?= $i ?>" aria-expanded="false" aria-controls="collapseOne<?= $i ?>">
+                                    <button class="btn btn-block text-left  accordianstyle accordion-toggle btn-white-letter" type="button" onclick="functionchange(this);" data-toggle="collapse" data-target="#collapseOne<?= $i ?>" aria-expanded="false" aria-controls="collapseOne<?= $i ?>">
                                         <strong> <?= $i ?>. <?= $room->name ?> - (Day based) </strong>
                                         <div class="float-right">
                                             <i class="fas fa-angle-down rotate-icon"></i>
