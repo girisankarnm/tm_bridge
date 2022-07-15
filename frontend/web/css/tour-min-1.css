@@ -391,11 +391,11 @@ input::-webkit-inner-spin-button {
 
 .table3enquiryclass
 {
-    width:990px !important;
+    width:750px !important;
     font-family: 'Bw Mitga';
     font-style: normal;
     alignment: inherit;
-    margin-left: 36px;
+    margin-left: 16px;
     margin-right: 12px;
     margin-top: 15px;
     margin-bottom: 24px;
@@ -903,7 +903,7 @@ font-size: 14px;
     background-color: #586ada !important;
 }
 .accordianbg {
-    background-color: #bcc3f1 ;
+    background-color: #03238399 ;
 }
 .accordian-open-bg {
     background-color: #586ada ;

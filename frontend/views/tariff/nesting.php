@@ -64,15 +64,22 @@ table, th, td {
         </div>
 
         <div class="tariffBorder1" style="line-height: 0px; height:80px;">
-            <div style="display: inline">
-                <img style="width: 34px;height: 34px" src="images/building1.png" alt="Matrix">
-                <span style="font-size: 20px;padding-top:  4px;color: black;font-weight: 700;inline-size: 1px">
-                <?= $property->name ?>  <i style="font-size: 13px;color: gold;padding-left: 4px" class="fa fa-star" aria-hidden="true"></i>
-    <i style="font-size: 13px;color: gold;padding-left: 2px" class="fa fa-star" aria-hidden="true"></i>
-    <i style="font-size: 13px;color: gold;padding-left: 2px" class="fa fa-star" aria-hidden="true"></i>
-<br>
-  <div style="display: inline">  <small  class="smallclass"><i style="font-size: 10px;color: red;top: 0px" class="fa fa-map-marker" aria-hidden="true"></i><?= $property->location->name?>, <?= $property->destination->name?>, <?= $property->country->name?></small>
-</span></div>
+            <div id="mainHeding-location"style="height: 43px">
+                <div > <img style="width: 34px;height: 34px" src="images/building1.png" alt="Matrix"></div>
+                <div >
+                    <div id="h-border-location"  >
+                        <div  >
+                          <span class="hotelHeading" > <?= $property->name ?> <img class="f-star" src="images/Star-1.svg" alt="Matrix">
+                           <img class="f-star" style="padding-left: 2px"  src="images/Star-1.svg" alt="Matrix">
+                           <img  class="f-star" style="padding-left: 2px" src="images/Star-1.svg" alt="Matrix">
+                           </span>
+                        </div>
+                        <div>   <small  class="smallFonts fontsize-location"><i  class="fa fa-map-marker locatiospace" aria-hidden="true"></i><?= $property->location->name?>, <?= $property->destination->name?>, <?= $property->country->name?></small>
+                            </span></div>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
     
@@ -116,30 +123,42 @@ table, th, td {
         </div>
 
         <div class="col-4" >
-            <div class="row" style="height: 350px;  overflow-y: scroll;scrollbar-width: 20px;">
-                <?php 
-                $i = 1;
-                foreach ($defined_ranges as $range) { ?>
-                <div class="flex-container flex-container2" style="justify-content: right">
-                    <div><i style="background-color: white;color: red;font-size: 28px;margin-right: 5px" class="fa fa-check-circle w3-large" aria-hidden="true"></i></div>
-                    <div style=" flex-direction: column-reverse;">
-                        <div><h6 style="padding-top: 7px;margin-right: 8px">From Date</h6></div>
-                        <div><h6 style="padding-top: 0px;margin-right: 8px;    font-size: 10px; line-height: 0;"><?= Carbon::parse($range->from_date)->format('d M Y');  ?>   </h6></div>
+            <div class="row" >
+                <div class=" scroll-css">
+                    <?php
+                    $i = 1;
+                    foreach ($defined_ranges as $range) { ?>
+                        <div id="mainmotherdate" class="<?php if($i != 1):?>margin-top-100px <?php endif; ?>" >
+                            <div  style="margin-top: 8px;;text-align: center">
+                                <svg width="37" height="36" viewBox="0 0 43 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="21.5893" cy="21.0307" r="17.2748" transform="rotate(-172.902 21.5893 21.0307)" stroke="#009721" stroke-width="3"/>
+                                    <path d="M14.875 21.5339L19.6822 26.3413L30.3058 15.7178" stroke="#009721" stroke-width="3" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            <div style="margin-top: 8px; ">
+                                <span class="dateform">From Date</span>
+                                <!--                    <div style=" flex-wrap: wrap">-->
+                                <div ><h6 class="motherdaterange-H6 h7class  smallFonts" > <?= Carbon::parse($range->from_date)->format('d M Y'); ?> </h6></div>
+                                <!--                    </div>-->
+                            </div>
+                            <div style="margin-top: 4px"><h6 class="h6class"><hr class="new1 hrtopmargin"> </h6>
+                            </div>
+                            <div style="margin-top: 8px;">  <span class="dateform">To Date</span>
+                                <div style="width: 90px;"><h6 class="motherdaterange-H6 h7class  smallFonts" ><?= Carbon::parse($range->to_date)->format('d M Y'); ?>   </h6></div>
+                            </div>
+                            <div><h6  class="motherdaterange-H6  smallFonts" style="padding-top: 0px; font-size: 10px; line-height: 0;"><img s src="images/user-icon.svg" style="color: #545b62;margin-left: 4px;margin-right: 1px" aria-hidden="true"></img> <?= Yii::$app->user->identity->first_name ?> <img s src="images/callender-icon.svg" style="color: #545b62;margin-left: 4px;margin-right: 1px" aria-hidden="true"></img> december 25 2022
+                                    <img s src="images/ticksuccess.svg" style="color: #545b62;margin-left: 4px;margin-right: 1px" aria-hidden="true"></img>
+                                    <span class="publishform"> active </span><span class="publishform">  </span> </h6>
+                            </div>
+                            <div>  <hr class="new2" > </div>
+                        </div>
+                        <?php
+                        $i++;
+                    } ?>
 
-                    </div>
-                    <div style=" flex-direction: column-reverse;">
-                        <div><h6 style="padding-top: 7px;margin-right: 8px"><hr class="new1"> </h6></div>
-
-                    </div>
-
-                    <div style=" flex-direction: column-reverse;">
-                        <div><h6 style="padding-top: 7px;margin-right: 8px"> To Date </h6></div>
-                        <div><h6 style="padding-top: 0px;margin-right: 8px;    font-size: 10px; line-height: 0;"> <?= Carbon::parse($range->to_date)->format('d M Y'); ?> </h6></div>
-                    </div>
                 </div>
-                <hr class="new2" >
-                <?php } ?>
             </div>
+
         </div>
     </div>
     <?php ActiveForm::end(); ?>

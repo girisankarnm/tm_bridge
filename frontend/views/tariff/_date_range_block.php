@@ -53,7 +53,7 @@ use frontend\models\tariff\RoomRateValidator;
                 <div style="width: 90px;"><h6 class="motherdaterange-H6 h7class  smallFonts" ><?= Carbon::parse($range->to_date)->format('d M Y'); ?>   </h6></div>
             </div>
         </div>
-        <div style="display: flex">
+        <div style="  display: flex">
             <div id="main2"  >
                 <div></div>
                 <div ><h6  class="motherdaterange-H6  smallFonts" style="padding-top: 0px; font-size: 10px; line-height: 0;"><img s src="images/user-icon.svg" style="color: #545b62;margin-right: 0px" aria-hidden="true"></img> <?= Yii::$app->user->identity->first_name ?> </h6></div>
