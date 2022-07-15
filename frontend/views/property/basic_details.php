@@ -52,7 +52,7 @@ $this->registerJsFile('/js/common.js');
                         if ($basic_details->website != null) {
                             echo $form->field($basic_details, 'website')->textInput(['class' => 'inputLarge'])->label(false);
                         } else {
-                            echo $form->field($basic_details, 'website')->textInput(['class' => 'inputLarge', 'value' => 'http://'])->label(false);
+                            echo $form->field($basic_details, 'website')->textInput(['class' => 'inputLarge', 'value' => 'https://'])->label(false);
                         }
                         ?>
                     </div>
