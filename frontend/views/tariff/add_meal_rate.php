@@ -75,22 +75,22 @@ use Carbon\Carbon;
                     <tr>
                         <?php $meals_type = ($suppliment_meal) ? $suppliment_meal->getSupplimentMealSlabs()->where(['meal_type_id' => 1])->one() : NULL; ?>
                         <td style="font: bold;margin-top: 24px" class="class="Adults mealinputText">Break Fast</td>
-                        <td class="Adults"> <input id="breakfast_rate_adult" name="breakfast_rate_adult" type="number" class="mealfonttext" value="<?= ($meals_type) ? $meals_type->rate_adult : "" ?>" > </td>
-                        <td class="Adults"> <input id="breakfast_rate_child" name="breakfast_rate_child" type="number" class="mealfonttext" value="<?= ($meals_type) ? $meals_type->rate_child : "" ?>" > </td>
+                        <td class="Adults"> <input id="breakfast_rate_adult" name="breakfast_rate_adult" type="number" class="mealfonttext" value="<?= ($meals_type) ? $meals_type->rate_adult : 0 ?>" required  > </td>
+                        <td class="Adults"> <input id="breakfast_rate_child" name="breakfast_rate_child" type="number" class="mealfonttext" value="<?= ($meals_type) ? $meals_type->rate_child : 0 ?>"  required > </td>
                     </tr>
 
 
                     <tr>
                         <?php $meals_type = ($suppliment_meal) ? $suppliment_meal->getSupplimentMealSlabs()->where(['meal_type_id' => 2])->one() : NULL; ?>
                         <td style="font: bold;margin-top: 24px" class="mealinputText Adults">Lunch</td>
-                        <td class="Adults">  <input id="lunch_rate_adult" name="lunch_rate_adult" type="number" class="mealfonttext" value="<?= ($meals_type) ? $meals_type->rate_adult : ""?>"/></td>
-                        <td class="Adults">  <input id="lunch_rate_child" name="lunch_rate_child"  type="number" class="mealfonttext"  value="<?= ($meals_type) ? $meals_type->rate_child : "" ?>"/> </td>
+                        <td class="Adults">  <input id="lunch_rate_adult" name="lunch_rate_adult" type="number" class="mealfonttext" value="<?= ($meals_type) ? $meals_type->rate_adult : 0 ?>" required /></td>
+                        <td class="Adults">  <input id="lunch_rate_child" name="lunch_rate_child"  type="number" class="mealfonttext"  value="<?= ($meals_type) ? $meals_type->rate_child : 0 ?>" required /> </td>
                     </tr>
                     <tr>
                         <?php $meals_type = ($suppliment_meal) ? $suppliment_meal->getSupplimentMealSlabs()->where(['meal_type_id' => 3])->one() : NULL; ?>
                         <td style="font: bold;margin-top: 24px" >Dinner</td>
-                        <td class="Adults">  <input id="dinner_rate_adult" name="dinner_rate_adult"  type="number" class="mealfonttext" value="<?= ($meals_type) ? $meals_type->rate_adult : "" ?>"/></td>
-                        <td class="Adults">  <input id="dinner_rate_child" name="dinner_rate_child"  type="number" class="mealfonttext" value="<?= ($meals_type) ? $meals_type->rate_child : "" ?>"/></td>
+                        <td class="Adults">  <input id="dinner_rate_adult" name="dinner_rate_adult"  type="number" class="mealfonttext" value="<?= ($meals_type) ? $meals_type->rate_adult : 0 ?>" required /></td>
+                        <td class="Adults">  <input id="dinner_rate_child" name="dinner_rate_child"  type="number" class="mealfonttext" value="<?= ($meals_type) ? $meals_type->rate_child : 0 ?>" required /></td>
                     </tr>
                 </table>
             </div>
