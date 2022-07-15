@@ -64,9 +64,8 @@ class SignupForm extends Model
         $user->last_name = $this->last_name;
         $user->phone = $this->phone;
         $user->email = $this->email;
-        $user->user_type = $this->user_type;
-        //TODO : Set email verification and change status
-        $user->status = 10;
+        $user->user_type = $this->user_type;        
+        $user->status = User::STATUS_INACTIVE;;
         $user->setPassword($this->password);
         $user->generateAuthKey();
         $user->generateEmailVerificationToken();
@@ -86,9 +85,7 @@ class SignupForm extends Model
      * @return bool whether the email was sent
      */
     protected function sendEmail($user)
-    {    
-        //TODO: Temporialy disabled mail. Enable it
-        return true;     
+    {   
         return Yii::$app
             ->mailer
             ->compose(
