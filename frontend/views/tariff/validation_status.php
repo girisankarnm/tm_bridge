@@ -56,27 +56,30 @@ $this->registerCssFile('/css/full-page.css');
         <div class="row" style="  margin-left: 3px;margin-top: 5px">
             <div id="maintick"  >
                 <div class="margintopcls" style="background-color: #ffffff;text-align: left">
-                    <i  class="fa fa-check-circle w3-large tickpublish item circleicon" aria-hidden="true"></i>
+                   <?php if($errors == NULL) { ?>
+                       <i  class="fa fa-check-circle w3-large tickpublish item circleicon" aria-hidden="true"></i>
+                    <?php } else { ?>
+                    <img s src="images/failed.svg" > <?php
+                     } ?>
                 </div>
                 <div class="margintopcls" >
                     <span class="dateform">Tariff Validation</span>
                     <!--                    <div style=" flex-wrap: wrap">-->
                     <div ><h6 class="dateform" style="color: <?= ($errors == NULL) ? "#18a136" : "#ff0000" ?>;line-height: 13px;" > <?= ($errors == NULL) ? "Success" : "Failed" ?> </h6></div>
 
-
                 </div>
             </div>
             <?php if($errors == NULL) { ?>
-                <div class="row" style=" margin-bottom: 10px; margin-left: 3px;margin-top: 5px">
-                    <p style="font-size: 11px;font-weight: 500"> Your Tariff for the period is successfully validated <br>
+                <div class="row" style=" margin-bottom: 10px; margin-left: 18px;margin-top: 5px">
+                    <p class="p-class-first-success"> Your Tariff for the period is successfully validated</p> <p class="p-class-second-success">
                     You shall review the <?= Html::a('tariff report', ['slab/tariff', 'id' => $property->id],  []) ?> before you publish the name</p>
                 </div>
                 <div class="row" style="  margin-left: 3px">
                     <div style="display: block;margin-right: 35px;">
                         <?php $form = ActiveForm::begin(['id' => 'tariff_published_'.$mother_range->id,'enableClientValidation' => true,'method' => 'post','action' => ['tariff/published']]) ?>
                         <?= $form->field($mother_range, 'id')->hiddenInput()->label(false); ?>
-                        <button type="button" class="buttonSave savebuttonMother" style="color: black;background-color:#ffffff " onclick="window.history.go(-1); return false;"> Cancel</button>
-                        <button type="submit" class="buttonSave savebuttonMother" style="background-color: blue"> Confirm Publish</button>
+                        <button type="button" class="buttonSave savebuttonPublished" style="color: black;background-color:#ffffff " onclick="window.history.go(-1); return false;"> Cancel</button>
+                        <button type="submit" class="buttonSave savebuttonPublished" style="background-color: blue"> Confirm Publish</button>
                         <?php ActiveForm::end(); ?>
                     </div>
                 </div>
@@ -102,7 +105,7 @@ $this->registerCssFile('/css/full-page.css');
 
                 <div class="row" style="  margin-left: 23px;margin-bottom: 21px">
                     <div style="display: block;margin-right: 35px;margin-left: ">
-                        <button class="buttonSave savebuttonMother" style="color: black;background-color:#ffffff" onclick="window.history.go(-1); return false;">  Cancel</button>
+                        <button class="buttonSave savebuttonPublished" style="color: black;background-color:#ffffff" onclick="window.history.go(-1); return false;">  Cancel</button>
 
                     </div>
 
