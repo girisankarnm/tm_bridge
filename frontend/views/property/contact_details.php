@@ -36,11 +36,11 @@ use borales\extensions\phoneInput\PhoneInput;
 
             <div class="row">
                 <div class="form-group margin-contacts col-md-4">
-                    <label class="Labelclass" style="display: block" >*Name</label>
+                    <label class="Labelclass" style="display: block" >Name</label>
                     <?= $form->field($contact,'sales_name')->textInput(['class' => 'inputTextClass'])->label(false) ?>
                 </div>
                 <div class="form-group margin-contacts col-md-4">
-                    <label class="Labelclass" style="display: block" >*Phone</label>
+                    <label class="Labelclass" style="display: block" >Phone</label>
                     <?php
                     echo $form->field($contact, 'sales_phone')->widget(PhoneInput::className(), [
                         'jsOptions' => [
@@ -51,7 +51,7 @@ use borales\extensions\phoneInput\PhoneInput;
 
                 </div>
                 <div class="form-group margin-contacts col-md-4">
-                    <label class="Labelclass" style="display: block" >*Email</label>
+                    <label class="Labelclass" style="display: block" >Email</label>
                     <?= $form->field($contact,'sales_email')->textInput(['class' => 'inputTextClass'])->label(false) ?>
                 </div>
             </div>
@@ -60,11 +60,11 @@ use borales\extensions\phoneInput\PhoneInput;
             </div>
             <div class="row">
                 <div class="form-group margin-contacts col-md-4">
-                    <label class="Labelclass" style="display: block" >*Name</label>
+                    <label class="Labelclass" style="display: block" >Name</label>
                     <?= $form->field($contact,'reservation_name')->textInput(['class' => 'inputTextClass'])->label(false) ?>
                 </div>
                 <div class="form-group margin-contacts col-md-4">
-                    <label class="Labelclass" style="display: block" >*Phone</label>
+                    <label class="Labelclass" style="display: block" >Phone</label>
                     <?php
                     echo $form->field($contact, 'reservation_phone')->widget(PhoneInput::className(), [
                         'jsOptions' => [
@@ -74,7 +74,7 @@ use borales\extensions\phoneInput\PhoneInput;
                     ], )->label(false);?>
                 </div>
                 <div class="form-group margin-contacts col-md-4">
-                    <label class="Labelclass" style="display: block" >*Email</label>
+                    <label class="Labelclass" style="display: block" >Email</label>
                     <?= $form->field($contact,'reservation_email')->textInput(['class' => 'inputTextClass'])->label(false) ?>
                 </div>
             </div>
@@ -83,11 +83,11 @@ use borales\extensions\phoneInput\PhoneInput;
             </div>
             <div class="row">
                 <div class="form-group col-md-4">
-                    <label class="Labelclass" style="display: block" >*Name</label>
+                    <label class="Labelclass" style="display: block" >Name</label>
                     <?= $form->field($contact,'front_office_name')->textInput(['class' => 'inputTextClass'])->label(false) ?>
                 </div>
                 <div class="form-group col-md-4">
-                    <label class="Labelclass" style="display: block" >*Phone</label>
+                    <label class="Labelclass" style="display: block" >Phone</label>
                     <?php
                     echo $form->field($contact, 'front_office_phone')->widget(PhoneInput::className(), [
                         'jsOptions' => [
@@ -97,7 +97,7 @@ use borales\extensions\phoneInput\PhoneInput;
                     ], )->label(false);?>
                 </div>
                 <div class="form-group col-md-4">
-                    <label class="Labelclass" style="display: block" >*Email</label>
+                    <label class="Labelclass" style="display: block" >Email</label>
                     <?= $form->field($contact,'front_office_email')->textInput(['class' => 'inputTextClass'])->label(false) ?>
                 </div>
             </div>
@@ -106,11 +106,11 @@ use borales\extensions\phoneInput\PhoneInput;
             </div>
             <div class="row">
                 <div class="form-group col-md-4">
-                    <label class="Labelclass" style="display: block" >*Name</label>
+                    <label class="Labelclass" style="display: block" >Name</label>
                     <?= $form->field($contact,'accounts_office_name')->textInput(['class' => 'inputTextClass'])->label(false) ?>
                 </div>
                 <div class="form-group col-md-4">
-                    <label class="Labelclass" style="display: block" >*Phone</label>
+                    <label class="Labelclass" style="display: block" >Phone</label>
                     <?php
                     echo $form->field($contact, 'accounts_office_phone')->widget(PhoneInput::className(), [
                         'jsOptions' => [
@@ -120,7 +120,7 @@ use borales\extensions\phoneInput\PhoneInput;
                     ], )->label(false);?>
                 </div>
                 <div class="form-group col-md-4">
-                    <label class="Labelclass" style="display: block" >*Email</label>
+                    <label class="Labelclass" style="display: block" >Email</label>
                     <?= $form->field($contact,'accounts_office_email')->textInput(['class' => 'inputTextClass'])->label(false) ?>
                 </div>
             </div>
