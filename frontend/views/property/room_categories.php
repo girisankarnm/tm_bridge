@@ -63,7 +63,10 @@ $this->registerJsFile('/js/property/room_categories/index.js');
                             </div>
                             <p class="mb-0 mr-2"> Active </p>
                             <div class="edit-icon item mr-2" style="margin-bottom: 10px">
-                                <a href="<?= \yii\helpers\Url::to(['/property/createcategories', 'id' =>  $property->id, 'room_id' => $room->id]) ?>"> <img s src="images/edit-icon.svg" style="height:25px; color: #545b62;margin-right: 4px" aria-hidden="true"></img>   </a>
+                                <a href="<?= \yii\helpers\Url::to(['/property/createcategories', 'id' =>  $property->id, 'room_id' => $room->id]) ?>"> <img src="images/edit-icon.svg" style="height:25px; color: #545b62;margin-right: 4px" aria-hidden="true"></img>   </a>
+                            </div>
+                            <div class="edit-icon item mr-2" style="margin-bottom: 10px">
+                                <a href="<?= \yii\helpers\Url::to(['/property/createcategories', 'id' =>  $property->id, 'room_id' => $room->id]) ?>"> <img src="images/delete-1-icon.svg" style="height:25px; color: #545b62;margin-right: 4px" aria-hidden="true"></img>   </a>
                             </div>
                         </div>
                     </div>
