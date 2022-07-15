@@ -91,9 +91,9 @@ use yii\helpers\Url;
                                    <img class="margin-left-right-spacing dropbtn-view action-icon" onclick="myFunctionView(<?=$i?>)"  src="images/eye-view-icon.svg">
                                   <div id="myDropdown-view<?=$i?>" class="dropdown-content-view" style="height: auto; background-color: #586ADA; margin-left: -67px; margin-top: 10px;">
                                       <a href="<?= \yii\helpers\Url::to(['/property/basicdetails', 'id' =>  $property->id]) ?>" class="dro"> <img  src="images/edit-sub-menue-icon.svg"  style="margin-right: 2px;" > <span style="color: white">  Details </span></a>
-                                      <a href="<?= \yii\helpers\Url::to(['/slab/tariff', 'id' =>  $property->id]) ?>" class="dro"> <img  src="images/edit-sub-menue-icon.svg"  style="margin-right: 2px;" > <span style="color: white">  Slab Report </span></a>
-                                      <a href="<?= \yii\helpers\Url::to(['/slab/meals', 'id' =>  $property->id]) ?>" class="dro"> <img  src="images/edit-sub-menue-icon.svg"  style="margin-right: 2px;" > <span style="color: white">  Meal Report </span></a>
-                                      <a href="<?= \yii\helpers\Url::to(['/slab/dinner', 'id' =>  $property->id]) ?>" class="dro"> <img  src="images/edit-sub-menue-icon.svg"  style="margin-right: 2px;" > <span style="color: white">  Dinner Report </span></a>
+                                      <a href="<?= \yii\helpers\Url::to(['/slab/tariff', 'id' =>  $property->id]) ?>" class="dro"> <img  src="images/edit-sub-menue-icon.svg"  style="margin-right: 2px;" > <span style="color: white">  Room rates </span></a>
+                                      <a href="<?= \yii\helpers\Url::to(['/slab/meals', 'id' =>  $property->id]) ?>" class="dro"> <img  src="images/edit-sub-menue-icon.svg"  style="margin-right: 2px;" > <span style="color: white">  Meal rates </span></a>
+                                      <a href="<?= \yii\helpers\Url::to(['/slab/dinner', 'id' =>  $property->id]) ?>" class="dro"> <img  src="images/edit-sub-menue-icon.svg"  style="margin-right: 2px;" > <span style="color: white">  Dinner rates </span></a>
                                   </div>
                               </div>
                               <div>  <a href="<?= \yii\helpers\Url::to(['/property/basicdetails', 'id' =>  $property->id]) ?>"> <img class="margin-left-right-spacing action-icon" src="images/delete-1-icon.svg"></a></div>
