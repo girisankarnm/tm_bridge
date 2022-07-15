@@ -394,4 +394,10 @@ class UserController extends Controller
         return $this->redirect(['user/list']);
     }
 
+    public function actionActivationSuccess(){
+        
+        $this->layout = 'common';
+        return $this->render('activation_success', []);
+    }
+
 }
