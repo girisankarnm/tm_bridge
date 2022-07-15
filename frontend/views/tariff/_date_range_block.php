@@ -62,11 +62,13 @@ use frontend\models\tariff\RoomRateValidator;
                         <span class="publishform"><?= ($is_published == 1) ? "Published" : "Not Published" ?> </span><span class="publishform"> | Tariff validation: <?= (!$bValidated) ? "Failed - ".implode(",", $rc->getLastErrorMessages()) : "Success" ?>   </span> </h6></div>
             </div>
             <div id="b" style=" display: flex">
-                <div style="margin-right: 10px;padding-bottom: 10px">
-                    <a href="<?= \yii\helpers\Url::to([ $edit_url, 'id' =>  $property->id, 'mother_id' => $range->id, 'tariff' => $tariff]) ?>"> <img s src="images/edit-1-icon.svg" style="color: #545b62;margin-right: 0px" aria-hidden="true"></img></a>   
-                    <a href="#"> <img s src="images/delete-1-icon.svg" style="color: #545b62;margin-right: 4px" aria-hidden="true"></img>   </a>
+                <div style="margin-right: 10px;padding-bottom: 10px">                    
                     <?php if ($is_published != 1) { ?>
-                    <a href="<?= \yii\helpers\Url::to(['/tariff/nesting', 'id' =>  $property->id, 'mother_range_id' => $range->id, 'tariff' => $tariff]) ?>"> <BUTTON type="button" class="buttonSaveroomrate" > Nesting </BUTTON> </a> 
+                        <a href="<?= \yii\helpers\Url::to(['/tariff/nesting', 'id' =>  $property->id, 'mother_range_id' => $range->id, 'tariff' => $tariff]) ?>"> <BUTTON type="button" class="buttonSaveroomrate" > Nesting </BUTTON> </a> 
+                        <a href="<?= \yii\helpers\Url::to([ $edit_url, 'id' =>  $property->id, 'mother_id' => $range->id, 'tariff' => $tariff]) ?>"> <img s src="images/edit-1-icon.svg" style="color: #545b62;margin-right: 0px" aria-hidden="true"></img></a>   
+                        <a href="#"> <img s src="images/delete-1-icon.svg" style="color: #545b62;margin-right: 4px" aria-hidden="true"></img>   </a>
+                    <?php } else { ?>
+                        <a href="<?= \yii\helpers\Url::to([ $edit_url, 'id' =>  $property->id, 'mother_id' => $range->id, 'tariff' => $tariff]) ?>"> <img s src="images/eye-view-icon.svg" style="color: #545b62;margin-right: 0px" aria-hidden="true"></img></a>   
                     <?php } ?>
                 </div>
             </div>

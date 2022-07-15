@@ -139,7 +139,7 @@ use Carbon\Carbon;
                     <?= \yii\bootstrap4\Html::submitButton('Save & Proceed', ['class' => 'buttonmotherdatesave']); ?>
                     <?php } ?>
                     <?php if ($is_add_new_date != 1) { ?>
-                    <?= Html::a('Next', ['tariff/addroomrate', 'id'=> $property->id, 'mother_id' => $date_range->id, 'tariff' => 0],  ['class'=>'buttonNextanchor']) ?>
+                    <?= Html::a('Skip', ['tariff/addroomrate', 'id'=> $property->id, 'mother_id' => $date_range->id, 'tariff' => 0],  ['class'=>'buttonNextanchor']) ?>
                     <?php } ?>
                 </div>
             </div>
