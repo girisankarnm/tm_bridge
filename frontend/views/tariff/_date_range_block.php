@@ -31,7 +31,7 @@ use frontend\models\tariff\RoomRateValidator;
         break;
     }
 ?>
-<div id="collapseOne" class="collapse  <?php if($current_loop == 1):?> show <?php endif; ?>" aria-labelledby="headingOne" data-parent="#accordionExample1">
+<div id="collapseOne<?= $current_loop ?>" class="collapse  <?php if($current_loop == 1):?> show <?php endif; ?>" aria-labelledby="headingOne" data-parent="#accordionExample<?= $current_loop ?>">
 
     <div class="card matherdaterangecard" >
         <div id="main"  >
