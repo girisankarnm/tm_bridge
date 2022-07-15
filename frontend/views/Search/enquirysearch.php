@@ -20,39 +20,38 @@ $this->title = 'Search History';
 
 
 <div class="search-container">
-    <div class="search-header mb-3">
-        <h5 class="title">
-            <a target="_blank" href="<?= Url::toRoute(['/enquiry/details', 'id' => $enquiry->id ]) ?>" class="text-link mb-2">
-                <strong>  Enquiry Details </strong>
-            </a> </h5>
-        <div class="row search-header-filters justify-content-between align-items-center m-0">
+    <div class="search-header">
+        <a target="_blank" href="<?= Url::toRoute(['/enquiry/details', 'id' => $enquiry->id ]) ?>" class="text-link mb-2">
+        <strong>  Enquiry Details </strong>
+        </a>
+        <div class="row search-header-filters justify-content-between align-items-center m-0 mt-2">
             <div class="col-md-1 filter-main mb-2">
                 <label for="enq"> ENQ </label>
-                <p> <?= $enquiry->id ?> </p>
+                <p class="mb-0"> <?= $enquiry->id ?> </p>
             </div>
             <input hidden type="text" name="enquiry_id" id="enquiry_id" class="form-control"
                    value="<?= $enquiry->id ?>">
             <div class="col-md-3 filter-main mb-2">
                 <label for="name"> Guest Name </label>
                 <!-- <input type="text" name="name" id="name" class="form-control"> -->
-                <p><?= $enquiry->guest_name ?></p>
+                <p class="mb-0"><?= $enquiry->guest_name ?> </p>
             </div>
             <div class="col-md-2 filter-main mb-2">
                 <label for="checkIn"> Check-In </label>
                 <!-- <input type="text" name="checkIn" id="checkIn" class="form-control datepicker" readOnly> -->
-                <p> <?= date('d-M-Y', strtotime($enquiry->tour_start_date)) ?> </p>
+                <p class="mb-0"> <?= date('d-M-Y', strtotime($enquiry->tour_start_date)) ?> </p>
             </div>
             <div class="col-md-2 filter-main mb-2">
                 <label for="checkOut"> Check-Out </label>
                 <!-- <input type="text" name="checkOut" id="checkOut" class="form-control datepicker" readOnly> -->
-                <p> <?= date('d-M-Y', strtotime($enquiry->tour_start_date . ' + ' . $enquiry->tour_duration . 'days')) ?> </p>
+                <p class="mb-0"> <?= date('d-M-Y', strtotime($enquiry->tour_start_date . ' + ' . $enquiry->tour_duration . 'days')) ?> </p>
             </div>
             <div class="col-md-3 filter-main mb-2">
                 <label for="duration"> Stay Duration </label>
                 <!-- <select name="duration" id="duration" class="select2 form-control browser-default">
                     <option value=""> 3 Nights (split stay) </option>
                 </select> -->
-                <p>  <?= $enquiry->tour_duration ?> Nights (split stay) </p>
+                <p class="mb-0"> <?= $enquiry->tour_duration ?> Nights (split stay) </p>
             </div>
         </div>
     </div>
@@ -281,7 +280,7 @@ $this->title = 'Search History';
                             </div>
                             <div class="search-icon">
                                 <button class="btn" type="submit">
-                                    <img src="<?= Yii::$app->request->baseUrl . 'images/search.svg' ?>" alt="" class="img-fluid">
+                                    <img src="<?= Yii::$app->request->baseUrl . 'images/testIcons/icons8-search.svg' ?>" alt="" class="img-fluid">
                                 </button>
                             </div>
                         </div>
@@ -293,17 +292,17 @@ $this->title = 'Search History';
                                 <img src="<?= Yii::$app->request->baseUrl . 'images/explore-more.svg' ?>" alt="" class="img-fluid">
                             </div>
                         </div> -->
-                        <div class="col-md-4 d-flex justify-content-between align-items-center mb-2">
-                            <a href="#" class="text-link">
-                                <strong>  Enquiry Details </strong>
-                            </a>
-                        </div>
+<!--                        <div class="col-md-4 d-flex justify-content-between align-items-center mb-2">-->
+<!--                            <a href="#" class="text-link">-->
+<!--                                <strong>  Enquiry Details </strong>-->
+<!--                            </a>-->
+<!--                        </div>-->
                     </div>
                     <div class="col-md-2 sort-contr dropdown">
                         <div class="d-flex search-sort justify-content-md-end align-items-center dropdown-toggle" id="sortMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <p> Sort </p>
                             <div class="sort-icon">
-                                <img src="<?= Yii::$app->request->baseUrl . 'images/sort.svg' ?>" alt="" class="img-fluid">
+                                <i class="fas fa-filter"></i>
                             </div>
                         </div>
                         <input type="hidden" class="sort-value" name="sort_property">
@@ -323,11 +322,11 @@ $this->title = 'Search History';
                     <h5 class="mb-1"> Results </h5>
                 </div>
                 <div class="d-flex col-md-3 justify-content-end align-items-center">
-                    <h6><a target="_blank" href="<?= Url::toRoute(['/search/selectedproperty', 'enquiryID' => $enquiry->id,'destinationID' => $property_destinationID, ]) ?>" class="text-link mb-2">
-                        <strong>  Selected Properties</strong>
-                    </a></h6>
+                    <p class="mb-0"> Selected Properties</p>
                     <div class="selected-count">
-                        <h6> <?= $totalPropSelected ?>/10 </h6>
+                        <a target="_blank" href="<?= Url::toRoute(['/search/selectedproperty', 'enquiryID' => $enquiry->id,'destinationID' => $property_destinationID, ]) ?>" class="text-link mb-2">
+                        <p class="mb-0"> <?= $totalPropSelected ?>/10 </p>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -502,12 +501,18 @@ $this->title = 'Search History';
 
                                             <div class="col-md-3 price-contr mb-mb-2">
                                                 <div class="d-flex price justify-content-end align-items-center">
+                                                    <?php if($rooms['total_rate'] != 0) : ?>
                                                     <div class="exact-price mr-1" data-toggle="tooltip" data-placement="top" title="Tariff based on room’s published Rack Rate for total stay duration.">
                                                         <p> ₹ <?= $rooms['total_rack_rate'] ?> </p>
                                                     </div>
                                                     <div class="offer-price mr-2" data-toggle="tooltip" data-placement="top" title="Tariff based on special rate for Tour Operators for total stay duration.">
                                                         <p> ₹ <?= $rooms['total_rate'] ?> </p>
                                                     </div>
+                                                    <?php else : ?>
+                                                        <div class="offer-price mr-2" data-toggle="tooltip" data-placement="top" title="Rate Not Available">
+                                                            <p> Rate Not Available </p>
+                                                        </div>
+                                                    <?php endif; ?>
                                                     <div class="accordion-caret">
                                                         <img src="<?= Yii::$app->request->baseUrl . 'images/arrow-down.svg' ?>" alt="" class="img-fluid">
                                                     </div>
