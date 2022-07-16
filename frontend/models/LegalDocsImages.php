@@ -16,7 +16,7 @@ class LegalDocsImages extends Model
     public function rules()
     {
         return [
-            [['pan_image', 'business_licence_image'], 'required', 'on'=>['create']],
+            [['pan_image', 'business_licence_image', 'gst_image'], 'required', 'on'=>['create']],
             [['pan_image'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, jpeg', 'maxSize' => 1024 * 1024 * 2],
             [['business_licence_image'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, jpeg', 'maxSize' => 1024 * 1024 * 2],
             [['gst_image'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, jpeg', 'maxSize' => 1024 * 1024 * 2],

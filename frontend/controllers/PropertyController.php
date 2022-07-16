@@ -487,6 +487,17 @@ class PropertyController extends Controller
         $legal_status = ArrayHelper::map(PropertyLegalStatus::find()->asArray()->all(), 'id', 'name');
         $legal_docs_images = new LegalDocsImages();
 
+        //TODO: If any of the image is empty, the scenario will be 'create' and require to upload all the images.
+        //TOFIX: create separate model for PAN, BLN and GST Images and if empty set scenario 'create' for that model only
+        //TODO: move LegalDocsImages to property folder
+        if($property->pan_image == NULL ||  
+            $property->business_licence_image == NULL || 
+            $property->gst_image == NULL ) {
+            
+            $legal_docs_images->scenario = "create";
+        }
+        
+
         $show_terms_tab = true;
         if ($property->terms_and_conditons1 == 1 &&
             $property->terms_and_conditons2 == 1 &&
