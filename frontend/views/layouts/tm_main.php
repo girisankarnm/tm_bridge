@@ -86,7 +86,7 @@ $currentUrlPrefix = Yii::$app->controller->id ;
         <nav class="navbar navbar-expand-lg bg-white">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                    <img src="/images/logo.svg" alt="" class="img-fluid" alt="logo.svg">
+                    <img src="/images/tm_bridge_logo.svg" alt="" class="img-fluid" alt="tm_bridge_logo.svg">
                 </a>
                 <div class="btn-hamburger" role="button">
                     <img src="/images/hamburger.svg" alt="hamburger.svg">

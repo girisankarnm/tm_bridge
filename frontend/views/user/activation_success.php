@@ -7,12 +7,12 @@ use yii\helpers\ArrayHelper;
 ?>
 
 
-<div class="card col-12 mr-1 c_border" <!--style="background-color: hsl(61, 69%, 77%)-->">
+<div class="card" style="background-color: white; border-radius: 20px">
+<!--<div class="card col-12 mr-1 c_border">-->
 <div class="card-header p-0 text-center">
     <div class="login-logo">
-        <a href="<?=Yii::$app->homeUrl?>"><img  src="<?= Yii::$app->request->baseUrl . 'images/tmprologo.jpg' ?>" alt="" width="200" height="100"></a>
+        <a href="<?=Yii::$app->homeUrl?>"><img  src="<?= Yii::$app->request->baseUrl . '/images/tm_bridge_logo.svg' ?>" alt="" width="200" height="100"></a>
     </div>
-<!--    <h5 class="text-secondary">Onboarding</h5>-->
 </div>
 <div class="card-body mt-3">
 
@@ -24,8 +24,10 @@ use yii\helpers\ArrayHelper;
     <div class="text-center">
         <?= Html::a('Login', ['user/login'], ['class'=>'btn btn-primary btn-sm mt-3']) ?>
     </div>
-</div>
+
 <?php ActiveForm::end(); ?>
+</div>
+</div>
 
 
 

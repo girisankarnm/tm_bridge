@@ -22,9 +22,11 @@ AppAsset::register($this);
         <title><?= Html::encode($this->title) ?></title>
         <?php $this->head() ?>
     </head>
-    <body class="d-flex flex-column h-100" style="justify-content: center; height: 100%; max-width: 100%; overflow-x: hidden; overflow-y: hidden; background-image: url(/images/tm_welcome.png); background-size: cover; background-position: center; background-repeat: no-repeat; margin: 0">
+    <body class="d-flex flex-wrap align-content-center  justify-content-center h-100" style="max-width: 100%; overflow-x: hidden; overflow-y: hidden; background-image: url(/images/tm_welcome.png); background-size: cover; background-position: center; background-repeat: no-repeat; margin: 0">
     <?php $this->beginBody() ?>
-    <?= $content ?>
+    <div class="col-12 col-md-8 col-lg-5 col-xl-4" style="width: 40%;">
+        <?= $content ?>
+    </div>
 
 
     <?php $this->endBody() ?>

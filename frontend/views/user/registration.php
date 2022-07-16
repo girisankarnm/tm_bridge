@@ -25,10 +25,7 @@ $this->registerCssFile('/css/full-page.css');
     }
 </style>
 
-<div class="content">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-12 col-md-8 col-lg-5 col-xl-4">
-            <div class="card" style="margin:5% auto; background-color: white; border-radius: 20px">
+<div class="card" style="background-color: white; border-radius: 20px">
                 <?php $form = ActiveForm::begin(['method' => 'post','action' => ['user/signup']]) ?>
                 <div class="" style="width: 100%;height: 100%; margin: auto; padding: 28px; ">
                     <div style="display: flex; justify-content: center; margin-bottom: 10px">
@@ -111,8 +108,5 @@ $this->registerCssFile('/css/full-page.css');
                 </div>
                 <?php ActiveForm::end(); ?>
             </div>
-        </div>
-    </div>
-</div>
 
 

@@ -41,7 +41,7 @@ use yii\bootstrap4\ActiveForm;
             <div class="row">
                 <div class="form-group col-md-4">
                     <label class="Labelclass" style="display: block" >*Address</label>
-                    <?php echo $form->field($address_location,'address')->textInput(['class' => 'inputTextClass', 'placeholder'=>'Please enter official address of the business'])->label(false) ?>
+                    <?php echo $form->field($address_location,'address')->textInput(['class' => 'inputTextClass'])->label(false) ?>
                 </div>
                 <div class="form-group col-md-4">
                     <label class="Labelclass" style="display: block" >*Zip Code</label>
@@ -49,7 +49,7 @@ use yii\bootstrap4\ActiveForm;
                 </div>
                 <div class="form-group col-md-4">
                     <label class="Labelclass" style="display: block" >*Locality</label>
-                    <?php echo $form->field($address_location,'locality')->textInput(['class' => 'inputTextClass', 'placeholder'=>'Enter locality where the business is situated'])->label(false) ?>
+                    <?php echo $form->field($address_location,'locality')->textInput(['class' => 'inputTextClass'])->label(false) ?>
                 </div>
             </div>
 

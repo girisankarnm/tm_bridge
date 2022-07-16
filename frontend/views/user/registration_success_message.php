@@ -7,10 +7,7 @@ $this->registerCssFile('/css/full-page.css');
 
 
 ?>
-<div class="content">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-12 col-md-8 col-lg-5 col-xl-4">
-            <div class="card" style="margin:5% auto; background-color: white; border-radius: 20px">
+<div class="card" style="background-color: white; border-radius: 20px">
 
 <!--            <div class="card col-12 mr-1 c_border" >-->
                 <div class="card-header p-0 text-center">
@@ -18,7 +15,6 @@ $this->registerCssFile('/css/full-page.css');
                     <div class="login-logo">
                         <a href="<?=Yii::$app->homeUrl?>"><img  src="<?= Yii::$app->request->baseUrl . '/images/tm_bridge_logo.svg' ?>" alt="" width="200" height="100"></a>
                     </div>
-                    <!--    <h5 class="text-secondary">Onboarding</h5>-->
                 </div>
                 <div class="card-body mt-3">
 
@@ -36,10 +32,6 @@ $this->registerCssFile('/css/full-page.css');
                     </div>
                 </div>
                 <?php ActiveForm::end(); ?>
-
-            </div>
-        </div>
-    </div>
 </div>
 
 

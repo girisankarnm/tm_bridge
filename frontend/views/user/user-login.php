@@ -3,12 +3,7 @@ use yii\bootstrap4\ActiveForm;
 $this->registerCssFile('/css/full-page.css');
 ?>
 
-<!--<div class="content" style=" height: 100%; background-image: url(/images/Login.png); background-repeat: no-repeat; background-size: 100% 100%; align-content: center">-->
-<!--<div class="content" style="height: 100%; background-image: url(/images/tm_welcome.png); background-size: cover; background-position: center; background-repeat: no-repeat; margin: 0">-->
-<div class="content">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-12 col-md-8 col-lg-5 col-xl-4">
-            <div class="card" style="margin:5% auto; background-color: white; border-radius: 20px">
+<div class="card" style=" background-color: white; border-radius: 20px">
                 <?php $form = ActiveForm::begin(['id' => 'login-form', 'class' => 'form-class']); ?>
                 <div class="" style="padding: 28px;">
                     <div style="display: flex; justify-content: center">
@@ -55,8 +50,5 @@ $this->registerCssFile('/css/full-page.css');
                 </div>
                 <?php ActiveForm::end(); ?>
             </div>
-        </div>
-    </div>
-</div>
 
 

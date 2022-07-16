@@ -400,4 +400,9 @@ class UserController extends Controller
         return $this->render('activation_success', []);
     }
 
+    public function actionActivationFailed(){
+        $this->layout = 'common';
+        return $this->render('activation_failed', []);
+    }
+
 }

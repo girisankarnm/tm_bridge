@@ -17,15 +17,18 @@ use yii\bootstrap4\ActiveForm;
                 <a href="index.php?r=operator%2Faddressandlocation&id=<?= $contact->operator_id; ?>"> <button class="tablinks btnunder">Address & Location</button></a>
                 <a  href="index.php?r=operator%2Flegaltax&id=<?= $contact->operator_id; ?>"> <button class="tablinks btnunder">Legal Tax</button></a>
                 <div style="display: inline">   <a href="index.php?r=operator%2Fcontact&id=<?= $contact->operator_id ?>">  <button class="selectedButton">Contact Details</button></a> <hr class="new5" ></div>
-                <a href="index.php?r=operator%2Ftermsandconditions&id=<?= $contact->operator_id; ?>"> <button class="tablinks">Terms & Conditions</button></a>
+                <?php if($show_terms_tab) { ?>
+                    <a href="index.php?r=operator%2Ftermsandconditions&id=<?= $contact->operator_id;?>"><button class="tablinks" >Terms & Conditions</button></a>
+                <?php } ?>
             </div>
             <hr class="sidebar-divider">
             <?php $form = ActiveForm::begin(['id' => 'contact_details','enableClientValidation' => true, 'method' => 'post','action' => ['operator/savecontactdetails']]) ?>
             <?= $form->field($contact, 'id')->hiddenInput()->label(false); ?>
             <?= $form->field($contact, 'operator_id')->hiddenInput()->label(false); ?>
+            <input type="hidden" name="show_terms_tab" value="<?= $show_terms_tab ?>">
 
             <div class="contact-head col-md-11">
-                <h6 style=" color: black; font-size: 12px; padding: 3px; margin-left: 10px">Contact 1</h6>
+                <h6 style=" color: black; font-size: 14px; padding: 3px; margin-left: 10px; font-weight: bold">Contact 1</h6>
             </div>
             <div class="row">
                 <div class="form-group col-md-4">
@@ -48,7 +51,7 @@ use yii\bootstrap4\ActiveForm;
                 </div>
             </div>
             <div class="contact-head col-md-11">
-                <h6 style=" color: black; font-size: 12px; padding: 3px; margin-left: 10px">Contact 2</h6>
+                <h6 style=" color: black; font-size: 14px; padding: 3px; margin-left: 10px; font-weight: bold">Contact 2</h6>
             </div>
             <div class="row">
                 <div class="form-group col-md-4">

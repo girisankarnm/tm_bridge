@@ -51,12 +51,6 @@ frontend\assets\CommonAsset::register($this);
             }
         });
 
-
-        // $('#message_text').html(message);
-        // $('#action_id').val(action);
-        // $('#user_id').val(id);
-        // $("#actionUserName").html(userName);
-        // $('#deleteModal').modal('show');
         return false;
     }
 
@@ -106,7 +100,7 @@ frontend\assets\CommonAsset::register($this);
                             <?php echo $user->first_name . " " . $user->last_name?> <?= ($user->id == Yii::$app->user->getId() ) ? '<span style="color: white; padding: 2px; background-color: #04AA6D;font-size: 10px "> It\'s Me</span>' : "" ?>
                         </div>
                         <div style="display: flex;flex-direction: row; ">
-                            <div style="display: flex;flex-direction: row;flex: 2;justify-content: space-around;">
+                            <div style="display: flex;flex-direction: row;flex: 3;justify-content: space-around;">
                                 <div style="margin-top: auto; margin-left: 20px"><img src="images/mail.svg" alt="mail.svg">
                                     <?php echo $user->email ?>
                                 </div>
@@ -119,8 +113,7 @@ frontend\assets\CommonAsset::register($this);
                                     ?>
                                 </div>
                             </div>
-                            <div style="display: flex;flex-direction: row;flex: 1;justify-content: space-around;"></div>
-                            <div style="display: flex;flex-direction: row;flex: 1;justify-content: space-between;">
+                            <div style="display: flex;flex-direction: row;flex: 1;justify-content: space-between;margin-left: 20px">
                                 <div style="color: green; font-weight: 600; margin-top: auto; padding-right: 30px; "><img src="images/tick-mark.svg" alt="tick-mark.svg">
                                     <?php if ($user->status == 10){ echo  'Active';}
                                     elseif ($user->status == 9) { echo  'Inactive'; }

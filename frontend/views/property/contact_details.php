@@ -31,7 +31,7 @@ use borales\extensions\phoneInput\PhoneInput;
             <input type="hidden" name="show_terms_tab" value="<?= $show_terms_tab ?>">
 
             <div class="contact-head col-md-11" >
-                <h6 style=" color: black; font-size: 12px; padding: 3px; margin-left: 10px">Particulars Sales</h6>
+                <h6 style=" color: black; font-size: 14px; padding: 3px; margin-left: 10px; font-weight: bold">Sales</h6>
             </div>
 
             <div class="row">
@@ -56,7 +56,7 @@ use borales\extensions\phoneInput\PhoneInput;
                 </div>
             </div>
             <div class="contact-head col-md-11" >
-                <h6 style=" color: black; font-size: 12px; padding: 3px; margin-left: 10px">Reservation</h6>
+                <h6 style=" color: black; font-size: 14px; padding: 3px; margin-left: 10px; font-weight: bold">Reservation</h6>
             </div>
             <div class="row">
                 <div class="form-group margin-contacts col-md-4">
@@ -79,7 +79,7 @@ use borales\extensions\phoneInput\PhoneInput;
                 </div>
             </div>
             <div class="contact-head col-md-11" >
-                <h6 style=" color: black; font-size: 12px; padding: 3px; margin-left: 10px">Front Office</h6>
+                <h6 style=" color: black; font-size: 14px; padding: 3px; margin-left: 10px; font-weight: bold">Front Office</h6>
             </div>
             <div class="row">
                 <div class="form-group col-md-4">
@@ -102,7 +102,7 @@ use borales\extensions\phoneInput\PhoneInput;
                 </div>
             </div>
             <div class="contact-head col-md-11" >
-                <h6 style=" color: black; font-size: 12px; padding: 3px; margin-left: 10px">Accounts</h6>
+                <h6 style=" color: black; font-size: 14px; padding: 3px; margin-left: 10px; font-weight: bold">Accounts</h6>
             </div>
             <div class="row">
                 <div class="form-group col-md-4">
