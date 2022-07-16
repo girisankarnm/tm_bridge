@@ -262,15 +262,15 @@ class UserController extends Controller
             $model = new VerifyEmailForm($token);
         } catch (InvalidArgumentException $e) {
             //throw new BadRequestHttpException($e->getMessage());
-            return $this->redirect(['onboarding/activation-failed']);
+            return $this->redirect(['user/activation-failed']);
         }
         if (($user = $model->verifyEmail()) && Yii::$app->user->login($user)) {
             Yii::$app->session->setFlash('success', 'Your email has been confirmed!');
-            return $this->redirect(['onboarding/activation-success']);
+            return $this->redirect(['user/activation-success']);
         }
 
         Yii::$app->session->setFlash('error', 'Sorry, we are unable to verify your account with provided token.');
-        return $this->redirect(['onboarding/activation-failed']);
+        return $this->redirect(['user/activation-failed']);
     }
 
     /**
@@ -394,8 +394,7 @@ class UserController extends Controller
         return $this->redirect(['user/list']);
     }
 
-    public function actionActivationSuccess(){
-        
+    public function actionActivationSuccess(){        
         $this->layout = 'common';
         return $this->render('activation_success', []);
     }
