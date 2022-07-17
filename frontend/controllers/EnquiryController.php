@@ -112,19 +112,24 @@ class EnquiryController extends Controller{
                 else {
                     $enquiry = new Enquiry();
                     $owner_id = Yii::$app->user->identity->getOWnerId();
-                    $Latestenquiry = Enquiry::find()->where(['owner_id'=>$owner_id,'id'=> SORT_DESC])->one();
+
+                    $latest_enquiry_no = "0/0000";
+                    $latest_enquiry = Enquiry::find()->where(['owner_id'=>$owner_id,'id'=> SORT_DESC])->one();                    
+                    if($latest_enquiry != NULL) {
+                        $latest_enquiry_no = $latest_enquiry->enquiry_no;
+                    }
+                    
                     $now = Carbon::now();
                     $current_year = $now->year;
-                    $LatestenquiryNo = $Latestenquiry->enquiry_no;
-                    $lastEnqNO = strtok($LatestenquiryNo, '/');
-                    $lastEnqYr = substr($LatestenquiryNo, strpos($LatestenquiryNo, "/") + 1);
-                   if ($current_year == $lastEnqYr)
-                   {
-                       $enquiry_no = $lastEnqNO + 1 .'/'.$current_year;
-                   }else{
-
-                       $enquiry_no = 1 .'/'.$current_year;
-                   }
+                    
+                    $last_enquiry_no = strtok($latest_enquiry_no, '/');
+                    $last_enquiry_year = substr($latest_enquiry_no, strpos($latest_enquiry_no, "/") + 1);
+                    if ($current_year == $last_enquiry_year)
+                    {
+                        $enquiry_no = $last_enquiry_no + 1 .'/'.$current_year;
+                    }else{
+                        $enquiry_no = 1 .'/'.$current_year;
+                    }
                     $enquiry->enquiry_no = $enquiry_no;
                 }
 
