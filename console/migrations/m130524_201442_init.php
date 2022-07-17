@@ -51,7 +51,7 @@ class m130524_201442_init extends Migration
             'phone' => '+919785978456',
             'username' => 'op@a.com',
             'email' => 'op@a.com',
-            'user_type' => 1,
+            'user_type' => 2,
             'status' => 10,
             'password_hash' => Yii::$app->security->generatePasswordHash("123456789"),
             'auth_key' => Yii::$app->security->generateRandomString()                     
