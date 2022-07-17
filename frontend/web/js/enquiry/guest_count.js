@@ -29,7 +29,12 @@ $(document).ready(function() {
     
     $('#save_guest_count').click(function(e){
         e.preventDefault();
-        validateGuestCount();
+        if (validateGuestCount() ) {
+            console.log("Validation success");
+            //$("#form_guest_count").submit();
+        } else {
+            console.log("Validation error");
+        }
     });
 
     unique_plan_id = $('#current_unique_plan_id').val();
@@ -296,11 +301,13 @@ function validateGuestCount() {
     var guest_count_same = $('input[name="Enquiry[guest_count_same_on_all_days]"]:checked').val();     
     console.log(planAgeBreakupMap);
     var childAgeBreakupValid = true;
+    var guestCountValid = true;
 
     if(guest_count_same == 1) {
         if( parseInt($('#adults_0').val()) <= 0 ){
             //Error, adult is mandatory
             console.log("Error, adult is mandatory");
+            guestCountValid = false;
         }
         var child_count = parseInt($('#children_0').val());
         if( child_count > 0 )
@@ -317,6 +324,7 @@ function validateGuestCount() {
 
                 if(sumofChildCount != child_count) {
                     childAgeBreakupValid = false;
+                    guestCountValid = false;
                     console.log("Incorrect child breakup");
                 }
                 else {                        
@@ -325,8 +333,9 @@ function validateGuestCount() {
             }
             else
             {
-                childAgeBreakupValid = false;
                 console.log("Error Child age break up not defined");
+                childAgeBreakupValid = false;
+                guestCountValid = false;                
             }
         } 
     }
@@ -334,29 +343,36 @@ function validateGuestCount() {
     {
         //console.log(planAgeBreakupMap);
         $('input[name^="children"]').each(function () {            
-            var uid = $(this).attr('uid');
-            
+            var uid = $(this).attr('uid');            
             var child_count = Number(this.value);
+            console.log("child_count")
             if(uid != 0) {
-                if (planAgeBreakupMap.hasOwnProperty(uid) ) {
-                    var sumofChildCount = 0;
-                    var ageBreakupMap = planAgeBreakupMap[uid];                
-                    for (var key in ageBreakupMap) {
-                        sumofChildCount += parseInt(ageBreakupMap[key]);                
-                    }
+                if(Number($('#children_'+uid).val()) > 0) {                    
+                    if (planAgeBreakupMap.hasOwnProperty(uid) ) {
+                        var sumofChildCount = 0;
+                        var ageBreakupMap = planAgeBreakupMap[uid];                
+                        for (var key in ageBreakupMap) {
+                            sumofChildCount += parseInt(ageBreakupMap[key]);                
+                        }
 
-                    if(sumofChildCount != child_count) {
-                        childAgeBreakupValid = false;
-                        console.log("Incorrect child breakup");
+                        if(sumofChildCount != child_count) {
+                            childAgeBreakupValid = false;
+                            guestCountValid = false;
+                            console.log("Incorrect child breakup");
+                        }
+                        else {                        
+                            console.log("Child breakup correct. Good to go2");
+                        }                
                     }
-                    else {                        
-                        console.log("Child breakup correct. Good to go2");
-                    }                
+                    else
+                    {
+                        childAgeBreakupValid = false;
+                        guestCountValid = false;
+                        console.log("Error Child age break up not defined");
+                    }
                 }
-                else
-                {
-                    childAgeBreakupValid = false;
-                    console.log("Error Child age break up not defined");
+                else {
+                    console.log(uid + ": No kids" );
                 }
             }
         });
@@ -385,5 +401,6 @@ function validateGuestCount() {
         */
     }
 
-    $("#form_guest_count").submit();
+    return guestCountValid;
+   // $("#form_guest_count").submit();
 }

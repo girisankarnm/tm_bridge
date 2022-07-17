@@ -124,7 +124,7 @@ $this->registerJsFile('/js/enquiry/guest_count.js');
                                     <span id="total_guests_<?=$i ?>" style="color: red;font-size: 12px;display: inline" id="span_child_validation_"<?=$i ?>> NA </span>
                                 </td>
                                 <td class="letterpad">
-                                    <span id="span_child_validation_<?=$i ?>" style="color: red;font-size: 12px;display: inline">Age Validated</span>
+                                    <span id="span_child_validation_<?=$i ?>" style="color: red;font-size: 12px;display: inline">NA</span>
                                 </td>
                             </tr>
                             <?php
@@ -150,7 +150,7 @@ $this->registerJsFile('/js/enquiry/guest_count.js');
                                 <span id="total_guests_1" style="color: red;font-size: 12px;display: inline" id="span_child_validation_0"> NA </span>
                             </td>
                             <td class="letterpad" >
-                                <span id="span_child_validation_1" style="color: red;font-size: 12px;display: inline">Age Validated</span>
+                                <span id="span_child_validation_1" style="color: red;font-size: 12px;display: inline">NA</span>
                             </td>
                         </tr>
                         <tr >
@@ -170,7 +170,7 @@ $this->registerJsFile('/js/enquiry/guest_count.js');
                                 <span id="total_guests_2" style="color: red;font-size: 12px;   "> NA </span>
                             </td>
                             <td class="letterpad">
-                                <span id="span_child_validation_2" style="color: red;font-size: 12px;display: inline">Age Validated</span>
+                                <span id="span_child_validation_2" style="color: red;font-size: 12px;display: inline">NA</span>
                             </td>
                         </tr>
                         <?php
