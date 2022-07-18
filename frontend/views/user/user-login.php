@@ -11,7 +11,7 @@ $this->registerCssFile('/css/full-page.css');
                     </div>
 
                     <div class="col-md-12" style="font-size: 13px; margin-bottom: 15px; text-align: center">
-                        Welcome to Tour Matrix --BRIDGE!<br>
+                        Welcome to Tour Matrix - BRIDGE!<br>
                         Please Login | Register to continue
                     </div>
                     <div class="form-group row no-margin" >
