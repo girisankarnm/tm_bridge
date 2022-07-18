@@ -149,10 +149,6 @@ table thead tr {
     color: black !important;
 }
 
-.is-invalid~.invalid-feedback,.is-invalid~.invalid-tooltip, .was-validated :invalid~.invalid-feedback, .was-validated :invalid~.invalid-tooltip
-{
-    margin-left: 24px !important;
-}
 
 .badge-secondary {
     color: #fff !important;

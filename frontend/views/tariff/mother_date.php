@@ -82,6 +82,13 @@ use Carbon\Carbon;
     });
 </script>
 
+<style>
+    .is-invalid~.invalid-feedback,.is-invalid~.invalid-tooltip, .was-validated :invalid~.invalid-feedback, .was-validated :invalid~.invalid-tooltip
+    {
+        margin-left: 24px !important;
+    }
+
+</style>
 <div class="$content">
     <div class="container-fluid" style="">
         <div class="card-title">
