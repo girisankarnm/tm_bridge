@@ -193,3 +193,19 @@ table thead tr {
     margin-right: 1.5rem!important;
     margin-bottom: -16px !important;
 }
+/*#content-close {*/
+/*    position: relative;*/
+/*}*/
+/*#content-close img {*/
+
+/*    position: absolute;*/
+/*    top: 0px;*/
+/*    right: 0px;*/
+/*}*/
+.image-close-pos
+{
+    height: 25px !important;
+    margin-top: -54px !important;
+    margin-right: -29p !important;
+    margin-left: 105px;
+}

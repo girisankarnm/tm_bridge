@@ -6,7 +6,7 @@ use frontend\models\property\RoomAmenity;
 $this->registerCssFile('/css/property/room_categories.css');
 $this->registerCssFile('/css/property/amenities.css');
 ?>
-<div class="room-categories">
+<div class="room-categories" >
     <div  class="active d-flex category-item justify-content-between align-items-start mb-4" >
         <div class="d-flex align-items-start">
             <div class="categories-icon mr-2">
@@ -26,12 +26,16 @@ $this->registerCssFile('/css/property/amenities.css');
                 </div>
             </div>
         </div>
-        <div class="d-flex status-list align-items-center align-self-end">
-            <div class="edit-icon item mr-2" onclick="RemoveRoomAmenitiesForm(<?= $room->id ?>)">
-                <img src="<?= Yii::$app->request->baseUrl . 'images/Flat_cross_icon.png' ?>" alt="" class="img-fluid">
+
+<!--        <div class="d-flex status-list align-items-center align-self-end">-->
+            <div class="edit-icon item mr-2" style="width: 100px;z-index: 1" onclick="RemoveRoomAmenitiesForm(<?= $room->id ?>)">
+                <img src="<?= Yii::$app->request->baseUrl . 'images/Flat_cross_icon.png' ?>" alt="" id="content-close" class="img-fluid image-close-pos" style="height: 20px">
             </div>
-        </div>
+<!--        </div>-->
+
+
     </div>
+
 </div>
 <div  class="mb-4 swimming-details">
     <?php $form = ActiveForm::begin(['id' => 'room_amenities','enableClientValidation' => false]) ?>
