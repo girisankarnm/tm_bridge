@@ -14,9 +14,10 @@ class OperatorImage extends Model{
     public function rules()
     {
         return [
-            [['logo_image'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, jpeg'],
-            [['v_card_image_front'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, jpeg'],
-            [['v_card_image_back'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, jpeg'],
+            [['logo_image', 'v_card_image_front', 'v_card_image_back'], 'required', 'on'=>['create']],
+            [['logo_image'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, jpeg', 'maxSize' => 1024 * 1024 * 2,'on'=>['create','update']],
+            [['v_card_image_front'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, jpeg', 'maxSize' => 1024 * 1024 * 2,'on'=>['create','update']],
+            [['v_card_image_back'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, jpeg', 'maxSize' => 1024 * 1024 * 2,'on'=>['create','update']],
         ];
     }
 

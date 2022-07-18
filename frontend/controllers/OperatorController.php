@@ -302,6 +302,11 @@ class OperatorController extends Controller{
 
         $legal_status = ArrayHelper::map(PropertyLegalStatus::find()->asArray()->all(), 'id', 'name');
         $legal_docs_images = new LegalDocsImages();
+        
+        if($legal_tax_documentation->pan_image == NULL ||  
+        $legal_tax_documentation->gst_image == NULL ) {            
+            $legal_docs_images->scenario = "create";
+        }
 
         $show_terms_tab = true;
         if ($operator->terms_and_conditons == 1)
