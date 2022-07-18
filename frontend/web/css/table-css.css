@@ -1,18 +1,4 @@
 
-
-/*table th*/
-/*{*/
-/*    background: #586ADA !important;*/
-/*    color: white !important;*/
-/*}*/
-
-/*table th  {*/
-/*    color: #FFFFFF;*/
-/*    background-color: var(--secondary-color);*/
-/*    !*height: 45px;*!*/
-/*    height: 31px;*/
-/*}*/
-
 .thtablerow-slab {
     padding-top: 12px;
     padding-bottom: 12px;
@@ -153,4 +139,9 @@ table thead tr {
 .is-invalid~.invalid-feedback,.is-invalid~.invalid-tooltip, .was-validated :invalid~.invalid-feedback, .was-validated :invalid~.invalid-tooltip
 {
     margin-left: 24px !important;
+}
+
+.badge-secondary {
+    color: #fff !important;
+    background-color: #02a917 !important;
 }
