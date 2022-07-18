@@ -113,7 +113,9 @@ input::placeholder {
 
 .tariff_table { border-collapse: collapse; margin: auto;
     width: 100% !important; }
-.tariff_table th, .tariff_table td { padding: 5px; border: solid 1px #777; }
+.tariff_table th { text-align: right; border: solid 1px #777; }
+
+.tariff_table td { border: solid 1px #777; }
 .tariff_table th { background-color: #586ADA !important;
     color: white !important;
     top: 0 !important;
