@@ -17,23 +17,21 @@ $this->title = 'Operators';
       width: 100% !important; }
   .tariff_table th, .tariff_table td { padding: 5px; border: solid 1px #777; }
   .tariff_table th { background-color: #586ADA; }
-  table thead tr th:first-child {
-      border-top-left-radius: 0px;
-      border-bottom-left-radius: 0px;
-  }
 
-  table thead tr th:last-child {
-      border-top-right-radius: 0px;
-      border-bottom-right-radius: 0px;
-  }
 
    table thead tr {
        color: #FFFFFF;
-       background-color: var(--secondary-color);
+       background-color: var(--secondary-color),!important;
        /*height: 45px;*/
        height: 31px;
    }
+  .tariff_table          { overflow: auto; height: 100px; }
+  .tariff_table thead th { position: sticky; top: 0; z-index: 1; }
 
+  /* Just common table stuff. Really. */
+  table  { border-collapse: collapse; width: 100%; }
+  th, td { padding: 8px 16px; }
+  th     { background:#eee; }
 
 </style>
 
@@ -97,7 +95,7 @@ function onChangeProperty(property){
      <div class="card">
     <div class="card-body">
 
-        <table class="tariff_table justify-content-center" id="tariff_list">
+        <table class="tariff_table justify-content-center " id="tariff_list">
             <thead>
             <tr>
                 <th>Date</th>
@@ -141,11 +139,11 @@ function onChangeProperty(property){
                     }
                     ?>
                     <td><?= $slab_number ?></td>
-                    <td><?= $slab->room_rate ?></td>
-                    <td><?= $slab->adult_with_extra_bed ?></td>
-                    <td><?= $slab->child_with_extra_bed ?></td>
-                    <td><?= $slab->child_sharing_bed ?></td>
-                    <td><?= $slab->single_occupancy ?> </td>
+                    <td class="text-right"><?= number_format($slab->room_rate) ?></td>
+                    <td class="text-right"><?= number_format($slab->adult_with_extra_bed) ?></td>
+                    <td class="text-right"><?= number_format($slab->child_with_extra_bed) ?></td>
+                    <td class="text-right"><?= number_format($slab->child_sharing_bed) ?></td>
+                    <td class="text-right"><?= number_format($slab->single_occupancy) ?> </td>
                 </tr>
             <?php } ?>
             <?php
@@ -157,11 +155,11 @@ function onChangeProperty(property){
             ?>
             <tr>
                 <td>Weekday hike</td>
-                <td><?= $dayhike_slab->room_rate ?></td>
-                <td><?= $dayhike_slab->adult_with_extra_bed ?></td>
-                <td><?= $dayhike_slab->child_with_extra_bed ?></td>
-                <td><?= $dayhike_slab->child_sharing_bed ?></td>
-                <td><?= $dayhike_slab->single_occupancy ?> </td>
+                <td class="text-right"><?= number_format($dayhike_slab->room_rate) ?></td>
+                <td class="text-right"><?= number_format($dayhike_slab->adult_with_extra_bed) ?></td>
+                <td class="text-right"><?= number_format($dayhike_slab->child_with_extra_bed) ?></td>
+                <td class="text-right"><?= number_format($dayhike_slab->child_sharing_bed) ?></td>
+                <td class="text-right"><?= number_format($dayhike_slab->single_occupancy) ?> </td>
             <tr>
                 <?php } ?>
             </tbody>

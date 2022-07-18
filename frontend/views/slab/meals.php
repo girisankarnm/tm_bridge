@@ -117,12 +117,12 @@ function onChangeProperty(property){
                 ?>
                 <tr>
                 <td><?= Carbon::parse($key)->format('d M Y')?> <br/> <?= Carbon::parse($key)->format('l') ?></td>
-                <td><?= $bf_adult ?></td>
-                <td><?= $bf_child ?></td>
-                <td><?= $lunch_adult ?></td>
-                <td><?= $lunch_child ?></td>
-                <td><?= $dinner_adult ?> </td>
-                <td><?= $dinner_child ?> </td>
+                <td class="text-right"><?= number_format($bf_adult) ?></td>
+                <td class="text-right"><?= number_format($bf_child) ?></td>
+                <td class="text-right"><?= number_format($lunch_adult) ?></td>
+                <td class="text-right"><?= number_format($lunch_child) ?></td>
+                <td class="text-right"><?= number_format($dinner_adult) ?> </td>
+                <td class="text-right"><?= number_format($dinner_child) ?> </td>
                 </tr>
             <?php } ?>
         </tbody>
