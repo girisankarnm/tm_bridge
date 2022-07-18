@@ -565,6 +565,47 @@ $("#property-cancellation_has_admin_charge").click(function () {
     }
 });
 
+
+// new code
+$(document).on('keyup', '#property-cancellation_full_refund_days', function(){
+    var inps = document.getElementsByName('from_days[]');
+    var first_from_day = inps[0];
+
+    var temp = parseInt( $('#property-cancellation_full_refund_days').val()) - 1;
+    if ( temp > 0) {
+        first_from_day.value =  parseInt( $('#property-cancellation_full_refund_days').val()) - 1;
+    }
+    else {
+        first_from_day.value = 0;
+    }
+});
+
+$(document).on('blur', '#property-cancellation_no_refund_days', function(){
+    //validateCancellationPolicy();
+    var full_refund_days = parseInt($('#property-cancellation_full_refund_days').val());
+
+    if(full_refund_days <= 0) {
+        toastr.error("Invalid full refund days");
+        return;
+    }
+
+    var no_refund_days = parseInt($('#property-cancellation_no_refund_days').val());
+    if (no_refund_days >= full_refund_days ) {
+        toastr.error("No refund days can't be more than or equal to Full refund Period");
+        return;
+    }
+});
+
+$(document).on('keyup', 'input[name^="to_days"]', function(){
+    var inpt_from_days = document.getElementsByName('from_days[]');
+    var inpt_to_days = document.getElementsByName('to_days[]');
+
+    for (var i = 1; i < inpt_from_days.length; i++) {
+        inpt_from_days[i].value = parseInt(inpt_to_days[i - 1].value) - 1;
+    }
+});
+
+
 $('#save_cancellation_policy').click(function(e){
     e.preventDefault();
     SaveCancellationPolicy();

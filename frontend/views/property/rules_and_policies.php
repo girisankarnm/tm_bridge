@@ -225,7 +225,7 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                                                         </div>
                                                         <div class="d-flex col-2 fit-width-105px align-items-center pr-0">
                                                             <div class="form-group mr-3">
-                                                                <input  value="<?=$cancellation_rate->from_date ?>"type="text" name="from_days[]" id="" class="form-control input-sh">
+                                                                <input  value="<?=$cancellation_rate->from_date ?>"type="text" name="from_days[]" id="" readonly="readonly" class="form-control input-sh">
                                                             </div>
                                                             <p> to </p>
                                                         </div>
