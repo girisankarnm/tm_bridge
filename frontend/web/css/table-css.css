@@ -115,7 +115,9 @@ input::placeholder {
     width: 100% !important; }
 .tariff_table th, .tariff_table td { padding: 5px; border: solid 1px #777; }
 .tariff_table th { background-color: #586ADA !important;
-    color: white !important;}
+    color: white !important;
+    top: 0 !important;
+}
 table thead tr th:first-child {
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
@@ -144,4 +146,8 @@ table thead tr {
 .badge-secondary {
     color: #fff !important;
     background-color: #02a917 !important;
+}
+
+.form-input-padding {
+    margin-bottom: 0.2rem;
 }
