@@ -7,31 +7,19 @@ use yii\helpers\ArrayHelper;
 frontend\assets\CommonAsset::register($this);
 frontend\assets\DataTableAsset::register($this);
 frontend\assets\DatePickerAsset::register($this);
+$this->registerCssFile('/css/tariff-report/tariff-report.css');
+$this->registerJsFile('/js/tariff/report.js');
 
 use Carbon\Carbon;
-$this->title = 'Operators';
+//$this->title = 'Operators';
 ?>
-
 <style>
-  .tariff_table { border-collapse: collapse; margin: auto;
-      width: 100% !important; }
-  .tariff_table th, .tariff_table td { padding: 5px; border: solid 1px #777; }
-  .tariff_table th { background-color: #586ADA; }
-  table thead tr th:first-child {
-      border-top-left-radius: 0px;
-      border-bottom-left-radius: 0px;
-  }
-
-  table thead tr th:last-child {
-      border-top-right-radius: 0px;
-      border-bottom-right-radius: 0px;
-  }
-  table thead tr {
-      color: #FFFFFF;
-      background-color: var(--secondary-color);
-      /*height: 45px;*/
-      height: 31px;
-  }
+    .btn-search-tariff {
+        background-color: #586ADA; color: white;
+    }
+    .btn-print-tariff {
+        background-color: #e40e6a; color: white;
+    }
 </style>
 
 <script>
@@ -68,7 +56,7 @@ function onChangeProperty(property){
 
             </div>
         </div>
-        <button id="assign_slab" type="submit" class="btn btn-primary">Search</button>
+        <button id="assign_slab" type="submit" class="btn btn-search-tariff">Search</button>
 
         <?php ActiveForm::end(); ?>
 
@@ -78,7 +66,10 @@ function onChangeProperty(property){
 
 
     <div class="card">
-        <div class="card-body">
+        <div class="col-12" style="padding-top: 10px;">
+            <button id="print" onclick="Print(2);" class="btn btn-print-tariff  btn-sm float-right"><i class="fa fa-print"></i> Print</button>
+        </div>
+        <div class="card-body" id="tariff_print">
 
   <table class="tariff_table" id="tariff_list">
     <thead>

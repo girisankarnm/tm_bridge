@@ -3,37 +3,14 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\bootstrap4\ActiveForm;
 use yii\helpers\ArrayHelper;
-
 frontend\assets\CommonAsset::register($this);
 frontend\assets\DataTableAsset::register($this);
 frontend\assets\DatePickerAsset::register($this);
-
+$this->registerCssFile('/css/tariff-report/tariff-report.css');
+$this->registerJsFile('/js/tariff/report.js');
 use Carbon\Carbon;
-$this->title = 'Operators';
+//$this->title = 'Operators';
 ?>
-
-<style>
-  .tariff_table { border-collapse: collapse;  margin: auto;
-      width: 100% !important; }
-  .tariff_table th, .tariff_table td { padding: 5px; border: solid 1px #777; }
-  .tariff_table th { background-color: #586ADA; }
-
-
-   table thead tr {
-       color: #FFFFFF;
-       background-color: var(--secondary-color),!important;
-       /*height: 45px;*/
-       height: 31px;
-   }
-  .tariff_table          { overflow: auto; height: 100px; }
-  .tariff_table thead th { position: sticky; top: 0; z-index: 1; }
-
-  /* Just common table stuff. Really. */
-  table  { border-collapse: collapse; width: 100%; }
-  th, td { padding: 8px 16px; }
-  th     { background:#eee; }
-
-</style>
 
 <script>
 
@@ -59,8 +36,16 @@ $this->title = 'Operators';
 function onChangeProperty(property){
        window.location.href = "/index.php?r=slab%2Ftariff&id="+property.value;
 }
-</script>
 
+</script>
+<style>
+    .btn-search-tariff {
+        background-color: #586ADA; color: white;
+    }
+    .btn-print-tariff {
+        background-color: #e40e6a; color: white;
+    }
+</style>
 
 <div class="card">
     <div class="card-body">
@@ -85,16 +70,18 @@ function onChangeProperty(property){
                     <?= Html::dropDownList('nationality_id', $nationality_selected, $nationality_list, ['onchange' => '' , 'prompt'=>'NA','class'=>'form-control']) ?>
                 </div>
             </div>
-            <button id="assign_slab" type="submit" class="btn btn-primary float-lg-right">Search</button>
+            <button id="assign_slab" type="submit"  class="btn btn-search-tariff  float-lg-right">Search</button>
 
         <?php ActiveForm::end(); ?>
 
 
     </div>
 </div>
-     <div class="card">
-    <div class="card-body">
-
+     <div class="card ">
+         <div class="col-12" style="padding-top: 10px;">
+             <button id="print" onclick="Print(1);" class="btn btn-print-tariff  btn-sm float-right"><i class="fa fa-print"></i> Print</button>
+         </div>
+    <div class="card-body" id="tariff_print">
         <table class="tariff_table justify-content-center " id="tariff_list">
             <thead>
             <tr>
