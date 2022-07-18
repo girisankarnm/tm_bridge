@@ -13,14 +13,6 @@ $this->registerJsFile('/js/tariff/report.js');
 use Carbon\Carbon;
 //$this->title = 'Operators';
 ?>
-<style>
-    .btn-search-tariff {
-        background-color: #586ADA; color: white;
-    }
-    .btn-print-tariff {
-        background-color: #e40e6a; color: white;
-    }
-</style>
 
 <script>
     $(document).ready(function() {

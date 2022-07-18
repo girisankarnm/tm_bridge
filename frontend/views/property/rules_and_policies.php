@@ -64,13 +64,13 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                         1. Check In | Check Out
                     </button>
                     <div id="collapseOne" class="collapse show" data-parent="#myAccordion">
-                        <div class="accordion-content">
+                        <div class="accordion-content form-checkin-out-content">
                             <input type="hidden" value="<?= $property->id ?>" name="property_id" id="property_id">
 
 
                             <div class="d-flex form-group align-items-center">
 
-                                <div class="form-material form-checkout mr-4">
+                                <div class="form-material form-checkout   mr-4 m4r">
                                     <?= $form->field($property, 'twenty_four_hours_check_in')->inline()->radioList([1 => '24 hour check out', 2 => 'Check in / check out as follows'],['class' => 'form-radio','style' => 'margin-left: -0.7rem'])->label(false); ?>
 
 
@@ -89,7 +89,7 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                                     <?php echo $form->field($property, 'check_in_time')->dropDownList($time_slot, ['class' => 'time_c','prompt' => 'Check in'])->label(false); ?>
 
                                 </div>
-                                <div class="d-flex form-material form-checkin align-items-center">
+                                <div class="d-flex form-material form-checkin align-items-center margin-left-check">
                                     <!--                                    <p class="checkin-text mb-0"> Check Out </p>-->
                                     <!--                                    <input type="time" name="" id="" class="form-control form-date-input" value="12:00">-->
                                     <?php echo $form->field($property, 'check_out_time')->dropDownList($time_slot, ['class' => 'time_c','prompt' => 'Check out'])->label(false); ?>
