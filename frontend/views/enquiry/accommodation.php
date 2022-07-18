@@ -4,6 +4,9 @@ $this->registerJsFile('/js/enquiry/accomodation.js');
 ?>
 
 <link rel="stylesheet" type="text/css" href="/css/tour-min-1.css" />
+<!-- load the third party plugin assets (jquery-confirm) -->
+<link href="//cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css" rel="stylesheet" type="text/css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
 <style>
     .form-group {
         margin-bottom: 0.02rem;
