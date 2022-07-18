@@ -4,6 +4,30 @@ use yii\bootstrap4\ActiveForm;
 
 ?>
 
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#save_legal').bind("click",function() 
+    {   
+        if($('#legaltaxdocumentation-gst_number').val().trim().length != 0 && $('#gst_image_is_there').val() != 1 ) {
+            var imgVal = $('#uploadGst').val();
+            if(imgVal == '') 
+            { 
+                var field = $('#uploadGst');        
+                let immediateSibling = field.next();
+                if (immediateSibling.hasClass('invalid-feedback')) {
+                    immediateSibling.text("GST Image is required");
+                    immediateSibling.show();        
+                }
+
+                return false; 
+            }
+        }
+
+        return true;
+    }); 
+});
+</script>
+
 <div class="$content">
     <div class="container-fluid" >
         <div class="card-title">
@@ -23,6 +47,7 @@ use yii\bootstrap4\ActiveForm;
             <hr class="sidebar-divider">
             <?php $form = ActiveForm::begin(['id' => 'address_location','enableClientValidation' => true, 'method' => 'post','action' => ['property/savelegaltax']]) ?>
             <?= $form->field($legal_tax_documentation, 'id')->hiddenInput()->label(false); ?>
+            <input type="hidden" id="gst_image_is_there" name="gst_image_is_there" value="<?=  $gst_image_is_there; ?>" >
 
             <div class="row align-items-start">
                 <div class="col-md-6 ">
@@ -113,7 +138,7 @@ use yii\bootstrap4\ActiveForm;
 
             </div>
             <div style="display: block;margin-right: 35px; margin-left: 10px">
-                <BUTTON type="text" class="buttonSave" style="width: 85px; border-radius: 5px"> Save </BUTTON>
+                <BUTTON type="submit" class="buttonSave" style="width: 85px; border-radius: 5px" id="save_legal"> Save </BUTTON>
             </div>
 
             <?php ActiveForm::end(); ?>

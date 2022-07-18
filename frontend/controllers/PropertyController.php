@@ -491,21 +491,31 @@ class PropertyController extends Controller
         //TOFIX: create separate model for PAN, BLN and GST Images and if empty set scenario 'create' for that model only
         //TODO: move LegalDocsImages to property folder
         if($property->pan_image == NULL ||  
-            $property->business_licence_image == NULL || 
-            $property->gst_image == NULL ) {
-            
+            $property->business_licence_image == NULL ) {
+                
             $legal_docs_images->scenario = "create";
         }
-        
+
+        $gst_image_is_there = 0;
+        if( $property->gst_image != NULL) {
+            //GST image required during edit
+            $gst_image_is_there = 1;
+        }
 
         $show_terms_tab = true;
         if ($property->terms_and_conditons1 == 1 &&
             $property->terms_and_conditons2 == 1 &&
             $property->terms_and_conditons3 == 1) {
-            $show_terms_tab = false;
+            $show_terms_tab = false;            
         }
 
-        return $this->render('legal_and_tax', ['legal_tax_documentation' => $legal_tax_documentation, 'legal_status' => $legal_status, 'legal_docs_images' => $legal_docs_images, 'show_terms_tab' => $show_terms_tab]);
+        return $this->render('legal_and_tax', [
+            'legal_tax_documentation' => $legal_tax_documentation, 
+            'legal_status' => $legal_status, 
+            'legal_docs_images' => $legal_docs_images, 
+            'show_terms_tab' => $show_terms_tab,
+            'gst_image_is_there' => $gst_image_is_there
+        ]);
     }
 
     public function actionSavelegaltax()
