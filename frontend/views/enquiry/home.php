@@ -28,6 +28,7 @@ frontend\assets\DataTableAsset::register($this);
 <table id="enquiries" class="table-slab-class table-sm table">
     <thead>
     <tr  class="thtablerow-slab " >
+    <th>Enq NO.</th>
     <th>Name</th>
     <th>Nationality</th>
     <th>Phone</th>
@@ -38,6 +39,7 @@ frontend\assets\DataTableAsset::register($this);
 
     <?php  foreach ($enquiries as $enquiry) { ?>
     <tr>
+        <td><?php echo $enquiry->enquiry_no ?>  </td>
         <td><?php echo $enquiry->guest_name ?>  </td>
         <td><?= $enquiry->nationality['nationality'] ?></td>
         <td><?= $enquiry->contact1 ?></td>
