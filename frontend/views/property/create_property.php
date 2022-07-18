@@ -18,7 +18,7 @@ use yii\helpers\Url;
             <div class="card card-resize" >
                 <img src="images/one-property.svg" class="image-top-left-property" >
                 <img src="images/create_property.svg" class="height-image">
-                                   <h5 class="title-card-property">Create Your property</h5>
+                                   <h5 class="title-card-property">Create your property</h5>
                 <h6 class="h8class smallFonts padding-4px ">Name. Location, GST...</h6>
 
             </div>

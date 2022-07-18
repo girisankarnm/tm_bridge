@@ -145,6 +145,10 @@ table thead tr {
     /*height: 45px;*/
     height: 31px;
 }
+.datepicker th{
+    background: #FFFFFF !important;
+    color: black !important;
+}
 /*label {*/
 /*    font-size: 12px !important;*/
 /*    font-family: var(--font-content), var(--font-default) !important;*/
