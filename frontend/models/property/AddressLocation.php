@@ -29,6 +29,8 @@ class AddressLocation extends Model{
             [['country_id'], 'exist', 'skipOnError' => true, 'targetClass' => Country::className(), 'targetAttribute' => ['country_id' => 'id']],
             [['location_id'], 'exist', 'skipOnError' => true, 'targetClass' => Location::className(), 'targetAttribute' => ['location_id' => 'id']],
             [['destination_id'], 'exist', 'skipOnError' => true, 'targetClass' => Destination::className(), 'targetAttribute' => ['destination_id' => 'id']],
+            [['postal_code',], 'number', 'min' => 5,  ],
+            [['postal_code',], 'number', 'max' => 6, ]
         ];
     }
 }

@@ -6,18 +6,17 @@ $this->registerCssFile('/css/full-page.css');
 <div class="card" style=" background-color: white; border-radius: 20px">
                 <?php $form = ActiveForm::begin(['id' => 'login-form', 'class' => 'form-class']); ?>
                 <div class="" style="padding: 28px;">
-                    <div style="display: flex; justify-content: center">
+                    <div style="display: flex; justify-content: center; margin-bottom: 10px;">
                         <img src="/images/tm_bridge_logo.svg" class="logo-small">
                     </div>
-                    <div  style="display: flex; justify-content: center; margin-bottom: 15px; font-size: 22px; font-weight: bold">
-                        Sign in
-                    </div>
+
                     <div class="col-md-12" style="font-size: 13px; margin-bottom: 15px; text-align: center">
-                        Welcome to Tour Matrix Bridge, please put your login credentials below to start using the app
+                        Welcome to Tour Matrix --BRIDGE!<br>
+                        Please Login | Register to continue
                     </div>
                     <div class="form-group row no-margin" >
                         <div class="col-md-3">
-                            <label for="your-input" class="Inline-label">Email</label>
+                            <label for="your-input" class="Inline-label">Email<span style="color: red">*</span></label>
                         </div>
                         <div class="col-md-9">
                             <?= $form->field($model, 'email')->textInput(['class' => 'login-input','autofocus' => true,'placeholder'=>'Email','value'=>null])->label(false)?>
@@ -26,7 +25,7 @@ $this->registerCssFile('/css/full-page.css');
 
                     <div class="form-group row no-margin">
                         <div class="col-md-3">
-                            <label for="your-input" class="Inline-label">Password</label>
+                            <label for="your-input" class="Inline-label">Password<span style="color: red">*</span></label>
                         </div>
                         <div class="col-md-9">
                             <?= $form->field($model, 'password')->passwordInput(['class' => 'login-input','placeholder'=>'Password'])->label(false)?>
