@@ -29,11 +29,10 @@ $(document).ready(function() {
     
     $('#save_guest_count').click(function(e){
         e.preventDefault();
-        if (validateGuestCount() ) {
-            console.log("Validation success");
-            //$("#form_guest_count").submit();
+        if (validateGuestCount() ) {            
+            $("#form_guest_count").submit();
         } else {
-            console.log("Validation error");
+            //toastr.error("Validation error");            
         }
     });
 
@@ -299,21 +298,18 @@ function deletePlanRow(row)
 function validateGuestCount() {
 
     var guest_count_same = $('input[name="Enquiry[guest_count_same_on_all_days]"]:checked').val();     
-    console.log(planAgeBreakupMap);
-    var childAgeBreakupValid = true;
     var guestCountValid = true;
+    var ErrorMessage = "";
 
     if(guest_count_same == 1) {
-        if( parseInt($('#adults_0').val()) <= 0 ){
-            //Error, adult is mandatory
-            console.log("Error, adult is mandatory");
+        if( parseInt($('#adults_0').val()) <= 0  || $('#adults_0').val().trim().length == 0 ){            
+            ErrorMessage = "An adult member is required in Plan";
             guestCountValid = false;
         }
         var child_count = parseInt($('#children_0').val());
         if( child_count > 0 )
         {
-            //Check Check child breakup
-            console.log("Check child breakup");
+            //Check Check child breakup            
             if (planAgeBreakupMap.hasOwnProperty(0) ) {
                 var sumofChildCount = 0;
                 var ageBreakupMap = planAgeBreakupMap[0];
@@ -322,19 +318,17 @@ function validateGuestCount() {
                     sumofChildCount += parseInt(ageBreakupMap[key]);                
                 }
 
-                if(sumofChildCount != child_count) {
-                    childAgeBreakupValid = false;
-                    guestCountValid = false;
-                    console.log("Incorrect child breakup");
+                if(sumofChildCount != child_count) {                    
+                    guestCountValid = false;                    
+                    ErrorMessage += '<li>Incorrect child age breakup</li>';
                 }
                 else {                        
-                    console.log("Child breakup correct. Good to go");
+                    //console.log("Child breakup correct. Good to go");
                 }                
             }
             else
-            {
-                console.log("Error Child age break up not defined");
-                childAgeBreakupValid = false;
+            {                
+                ErrorMessage += '<li>Not defined child age breakup</li>';                
                 guestCountValid = false;                
             }
         } 
@@ -345,8 +339,14 @@ function validateGuestCount() {
         $('input[name^="children"]').each(function () {            
             var uid = $(this).attr('uid');            
             var child_count = Number(this.value);
-            console.log("child_count")
+            
             if(uid != 0) {
+                if( parseInt($('#adults_'+ uid).val()) <= 0 || $('#adults_'+ uid).val().trim().length == 0 ){
+                    //Error, adult is mandatory            
+                    ErrorMessage = "An adult member is required in Plan";
+                    guestCountValid = false;
+                }
+
                 if(Number($('#children_'+uid).val()) > 0) {                    
                     if (planAgeBreakupMap.hasOwnProperty(uid) ) {
                         var sumofChildCount = 0;
@@ -355,50 +355,30 @@ function validateGuestCount() {
                             sumofChildCount += parseInt(ageBreakupMap[key]);                
                         }
 
-                        if(sumofChildCount != child_count) {
-                            childAgeBreakupValid = false;
+                        if(sumofChildCount != child_count) {                            
                             guestCountValid = false;
-                            console.log("Incorrect child breakup");
+                            ErrorMessage += '<li>Incorrect child age breakup</li>';
                         }
                         else {                        
-                            console.log("Child breakup correct. Good to go2");
+                            //console.log("Child breakup correct. Good to go2");
                         }                
                     }
                     else
-                    {
-                        childAgeBreakupValid = false;
+                    {                        
                         guestCountValid = false;
-                        console.log("Error Child age break up not defined");
+                        ErrorMessage += '<li>Error Child age break up not defined</li>';                        
                     }
                 }
                 else {
-                    console.log(uid + ": No kids" );
+                    //No kids
                 }
             }
-        });
-
+        });       
         
-        //TODO: Check below code required or not
-        /*        
-        for (var key in planAgeBreakupMap) {                    
-            var child_count =  Number($('#children_'+key).val());
-            console.log("Plan:" + key + " Childs: " + child_count);  
+    }
 
-            let age_break_up = planAgeBreakupMap[key];
-            var sumofChildCount = 0;
-            for (var key2 in age_break_up) {
-                sumofChildCount += Number(age_break_up[key2]);               
-            }
-            
-            if(sumofChildCount != child_count) {
-                childAgeBreakupValid = false;
-                console.log("Incorrect child breakup");
-            }
-            else {                        
-                console.log("Child breakup correct. Good to go");
-            } 
-        }
-        */
+    if(!guestCountValid) {
+        toastr.error(ErrorMessage);
     }
 
     return guestCountValid;
