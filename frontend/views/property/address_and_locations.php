@@ -26,30 +26,30 @@ use yii\bootstrap4\ActiveForm;
 
             <div class="row">
                 <div class="form-group col-md-4">
-                    <label class="Labelclass" style="display: block" >*Country</label>
+                    <label class="Labelclass" style="display: block" >Country<span style="color: red; font-size: 18px">*</span></label>
                     <?php echo $form->field($address_location,'country_id')->dropDownList($countries,['class' => 'inputTextClass', 'prompt' => 'Choose'])->label(false) ?>
                 </div>
                 <div class="form-group col-md-4">
-                    <label class="Labelclass" style="display: block" >*Location</label>
+                    <label class="Labelclass" style="display: block" >Location<span style="color: red; font-size: 18px">*</span></label>
                     <?php echo $form->field($address_location,'location_id')->dropDownList($locations,['class' => 'inputTextClass', 'prompt' => 'Choose'])->label(false) ?>
                 </div>
                 <div class="form-group col-md-4">
-                    <label class="Labelclass" style="display: block" >*Destination</label>
+                    <label class="Labelclass" style="display: block" >Destination<span style="color: red; font-size: 18px">*</span></label>
                     <?php echo $form->field($address_location,'destination_id')->dropDownList($destinations,['class' => 'inputTextClass', 'prompt' => 'Choose'])->label(false) ?>
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-md-4">
-                    <label class="Labelclass" style="display: block" >*Address</label>
-                    <?php echo $form->field($address_location,'address')->textInput(['class' => 'inputTextClass'])->label(false) ?>
+                    <label class="Labelclass" style="display: block" >Address<span style="color: red; font-size: 18px">*</span></label>
+                    <?php echo $form->field($address_location,'address')->textarea(['rows' => '5', 'class' =>'inputTextArea','placeholder' => 'Enter official address'])->label(false) ?>
                 </div>
                 <div class="form-group col-md-4">
-                    <label class="Labelclass" style="display: block" >*Zip Code</label>
-                    <?php echo $form->field($address_location,'postal_code')->textInput(['class' => 'inputTextClass'])->label(false) ?>
+                    <label class="Labelclass" style="display: block" >Pin Code<span style="color: red; font-size: 18px">*</span></label>
+                    <?php echo $form->field($address_location,'postal_code')->textInput(['class' => 'inputTextClass', ])->label(false) ?>
                 </div>
                 <div class="form-group col-md-4">
-                    <label class="Labelclass" style="display: block" >*Locality</label>
-                    <?php echo $form->field($address_location,'locality')->textInput(['class' => 'inputTextClass'])->label(false) ?>
+                    <label class="Labelclass" style="display: block" >Locality<span style="color: red; font-size: 18px">*</span></label>
+                    <?php echo $form->field($address_location,'locality')->textInput(['class' => 'inputTextClass', 'placeholder' => 'Locality of the business'])->label(false) ?>
                 </div>
             </div>
 

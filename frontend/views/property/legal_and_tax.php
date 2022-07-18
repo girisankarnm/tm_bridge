@@ -4,6 +4,30 @@ use yii\bootstrap4\ActiveForm;
 
 ?>
 
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#save_legal').bind("click",function() 
+    {   
+        if($('#legaltaxdocumentation-gst_number').val().trim().length != 0 && $('#gst_image_is_there').val() != 1 ) {
+            var imgVal = $('#uploadGst').val();
+            if(imgVal == '') 
+            { 
+                var field = $('#uploadGst');        
+                let immediateSibling = field.next();
+                if (immediateSibling.hasClass('invalid-feedback')) {
+                    immediateSibling.text("GST Image is required");
+                    immediateSibling.show();        
+                }
+
+                return false; 
+            }
+        }
+
+        return true;
+    }); 
+});
+</script>
+
 <div class="$content">
     <div class="container-fluid" >
         <div class="card-title">
@@ -23,23 +47,24 @@ use yii\bootstrap4\ActiveForm;
             <hr class="sidebar-divider">
             <?php $form = ActiveForm::begin(['id' => 'address_location','enableClientValidation' => true, 'method' => 'post','action' => ['property/savelegaltax']]) ?>
             <?= $form->field($legal_tax_documentation, 'id')->hiddenInput()->label(false); ?>
+            <input type="hidden" id="gst_image_is_there" name="gst_image_is_there" value="<?=  $gst_image_is_there; ?>" >
 
             <div class="row align-items-start">
                 <div class="col-md-6 ">
                     <div class="form-group ">
-                        <label class="Labelclass">*Legal Status</label>
+                        <label class="Labelclass">Legal Status<span style="color: red; font-size: 18px">*</span></label>
                         <?php echo $form->field($legal_tax_documentation, 'legal_status_id')->dropDownList($legal_status,['class' => 'inputLarge', 'prompt' => 'Choose'])->label(false) ?>
                     </div>
                     <div class="form-group">
-                                <label class="Labelclass">*Pan Number</label>
+                                <label class="Labelclass">Pan Number<span style="color: red; font-size: 18px">*</span></label>
                                 <?php echo $form->field($legal_tax_documentation,'pan_number')->textInput(['class' => 'inputLarge'])->label(false) ?>
                     </div>
                     <div class="form-group">
-                        <label class="Labelclass" style="display: block" >*Business License Number</label>
+                        <label class="Labelclass" style="display: block" >Business License Number<span style="color: red; font-size: 18px">*</span></label>
                         <?php echo $form->field($legal_tax_documentation,'business_licence_number')->textInput(['class' => 'inputLarge'])->label(false) ?>
                     </div>
                     <div class="form-group">
-                        <label class="Labelclass">*GST Number</label>
+                        <label class="Labelclass">GST Number</label>
                         <?php echo $form->field($legal_tax_documentation,'gst_number')->textInput(['class' => 'inputLarge'])->label(false) ?>
                     </div>
 
@@ -47,7 +72,7 @@ use yii\bootstrap4\ActiveForm;
                 <div class="col-md-6 ">
                     <div class="row">
                         <div class="form-group col-md-6">
-                            <label class="Labelclass">*Pancard</label>
+                            <label class="Labelclass">Upload Pan Card<span style="color: red; font-size: 18px">*</span></label>
                                 <?php
                             if(!$legal_tax_documentation->pan_image) {
                                 echo "<div id='panId' class='image-border'><img id='panImage' src='images/pan.png' class='imagedisplay'></div>";
@@ -57,7 +82,7 @@ use yii\bootstrap4\ActiveForm;
                                 <?= $form->field($legal_docs_images, 'pan_image')->fileInput(['class' => 'btn btn-sm img uploadFile', 'accept' => "image/*", 'id'=>"uploadPan"])->label(false); ?>
                             </div>
                         <div class="form-group col-md-6 ">
-                            <label class="Labelclass">*License</label>
+                            <label class="Labelclass">Upload Business License<span style="color: red; font-size: 18px">*</span></label>
                                 <?php
                                 if(!$legal_tax_documentation->business_licence_image) {
                                     echo "<div id='licenseId' class='image-border'><img id='licenseImage' src='images/license.png' class='imagedisplay'></div>";
@@ -70,7 +95,7 @@ use yii\bootstrap4\ActiveForm;
                     </div>
                     <div class="row">
                         <div class="form-group col-md-6">
-                            <label class="Labelclass">*GST</label>
+                            <label class="Labelclass">Upload GST Certificate<span style="color: red; font-size: 18px">*</span></label>
                                 <?php
                                 if(!$legal_tax_documentation->gst_image) {
                                     echo "<div id='gstId' class='image-border'><img id='gstImage' src='images/GST.png' class='imagedisplay'></div>";
@@ -89,11 +114,11 @@ use yii\bootstrap4\ActiveForm;
 
                 <div class="col-md-6 ">
                     <div class="form-group ">
-                        <label class="Labelclass" style="display: block" >*Bank Name</label>
+                        <label class="Labelclass" style="display: block" >Bank Name<span style="color: red; font-size: 18px">*</span></label>
                         <?php echo $form->field($legal_tax_documentation,'bank_name')->textInput(['class' => 'inputLarge'])->label(false) ?>
                     </div>
                     <div class="form-group ">
-                        <label class="Labelclass" style="display: block" >*Account Number</label>
+                        <label class="Labelclass" style="display: block" >Account Number<span style="color: red; font-size: 18px">*</span></label>
                         <?php echo $form->field($legal_tax_documentation,'bank_account_number')->textInput(['class' => 'inputLarge'])->label(false) ?>
                         </div>
                 </div>
@@ -101,19 +126,19 @@ use yii\bootstrap4\ActiveForm;
 
                 <div class="col-md-6 ">
                     <div class="form-group ">
-                        <label class="Labelclass" style="display: block" >*Account Name</label>
+                        <label class="Labelclass" style="display: block" >Account Name<span style="color: red; font-size: 18px">*</span></label>
                         <?php echo $form->field($legal_tax_documentation,'bank_account_name')->textInput(['class' => 'inputLarge'])->label(false) ?>
 
                     </div>
                     <div class="form-group ">
-                        <label class="Labelclass" style="display: block" >*IFSC Code</label>
+                        <label class="Labelclass" style="display: block" >IFSC Code<span style="color: red; font-size: 18px">*</span></label>
                         <?php echo $form->field($legal_tax_documentation,'ifsc_code')->textInput(['class' => 'inputLarge'])->label(false) ?>
                     </div>
                 </div>
 
             </div>
             <div style="display: block;margin-right: 35px; margin-left: 10px">
-                <BUTTON type="text" class="buttonSave" style="width: 85px; border-radius: 5px"> Save </BUTTON>
+                <BUTTON type="submit" class="buttonSave" style="width: 85px; border-radius: 5px" id="save_legal"> Save </BUTTON>
             </div>
 
             <?php ActiveForm::end(); ?>
