@@ -2423,7 +2423,6 @@ select:focus{
     width: 100%;
     margin-top: 0.25rem;
     font-size: 70% !important;
-    color: #586ADA !important;
 }
 .break {
     flex-basis: 100%;
