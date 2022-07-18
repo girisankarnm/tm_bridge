@@ -2681,7 +2681,7 @@ select:focus{
 
 #main {
     padding-top: 9px;
-    width: 350px;
+    width: 460px;
     height: 60px;
     flex-wrap: wrap;
     display: flex;
@@ -2704,7 +2704,14 @@ select:focus{
     flex-basis: 20px;
 }
 #main div:nth-of-type(4) {
-    110px;
+    flex-basis: 110px;
+    /*background: #00C900;*/
+}
+#main div:nth-of-type(5) {
+    flex-basis: 110px;
+    padding-top: 5px;
+    text-align: left;
+    /*background: #6f42c1;*/
 }
 
 #b {
@@ -2717,7 +2724,7 @@ select:focus{
 
 .margin-bottom-2px-acco
 {
-    margin-bottom: rem !important;
+    margin-bottom: .3rem !important;
 }
 #publishmain
 {

@@ -4,7 +4,11 @@ $this->registerJsFile('/js/enquiry/accomodation.js');
 ?>
 
 <link rel="stylesheet" type="text/css" href="/css/tour-min-1.css" />
-
+<style>
+    .form-group {
+        margin-bottom: 0.02rem;
+    }
+</style>
 <div class="$content">
     <div class="container-fluid" >
         <div class="card-title">

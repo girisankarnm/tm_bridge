@@ -33,7 +33,7 @@ use frontend\models\tariff\RoomRateValidator;
 ?>
 <div id="collapseOne<?= $current_loop ?>" class="collapse  <?php if($current_loop == 1):?> show <?php endif; ?>" aria-labelledby="headingOne" data-parent="#accordionExample<?= $current_loop ?>">
 
-    <div class="card matherdaterangecard" >
+    <div class="card matherdaterangecard">
         <div id="main"  >
             <div  style="margin-top: 8px;background-color: #ffffff;text-align: center">
                 <svg width="37" height="36" viewBox="0 0 43 42" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -51,6 +51,10 @@ use frontend\models\tariff\RoomRateValidator;
             </div>
             <div style="margin-top: 8px;">  <span class="dateform">To Date</span>
                 <div style="width: 90px;"><h6 class="motherdaterange-H6 h7class  smallFonts" ><?= Carbon::parse($range->to_date)->format('d M Y'); ?>   </h6></div>
+            </div>
+            <div>
+<!--                <span class="badge badge-info">Mother Date</span>-->
+                <span class="badge badge-pill badge-secondary">Mother Date</span>
             </div>
         </div>
         <div style="  display: flex">

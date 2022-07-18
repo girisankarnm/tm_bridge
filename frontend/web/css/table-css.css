@@ -1,18 +1,4 @@
 
-
-/*table th*/
-/*{*/
-/*    background: #586ADA !important;*/
-/*    color: white !important;*/
-/*}*/
-
-/*table th  {*/
-/*    color: #FFFFFF;*/
-/*    background-color: var(--secondary-color);*/
-/*    !*height: 45px;*!*/
-/*    height: 31px;*/
-/*}*/
-
 .thtablerow-slab {
     padding-top: 12px;
     padding-bottom: 12px;
@@ -129,7 +115,9 @@ input::placeholder {
     width: 100% !important; }
 .tariff_table th, .tariff_table td { padding: 5px; border: solid 1px #777; }
 .tariff_table th { background-color: #586ADA !important;
-    color: white !important;}
+    color: white !important;
+    top: 0 !important;
+}
 table thead tr th:first-child {
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
@@ -153,4 +141,13 @@ table thead tr {
 .is-invalid~.invalid-feedback,.is-invalid~.invalid-tooltip, .was-validated :invalid~.invalid-feedback, .was-validated :invalid~.invalid-tooltip
 {
     margin-left: 24px !important;
+}
+
+.badge-secondary {
+    color: #fff !important;
+    background-color: #02a917 !important;
+}
+
+.form-input-padding {
+    margin-bottom: 0.2rem;
 }
