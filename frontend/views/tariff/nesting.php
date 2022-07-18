@@ -7,17 +7,7 @@ frontend\assets\CommonAsset::register($this);
 frontend\assets\DatePickerAsset::register($this);
 use Carbon\Carbon;
 ?>
-<style>
-    .datepicker {
-    border-radius: 0;
-    padding: 0;
-}
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-  padding: 10px;
-}
-</style>
+
 <script>
     $(document).ready(function() { 
         
