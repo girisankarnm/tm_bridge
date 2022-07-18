@@ -12,7 +12,27 @@ use Carbon\Carbon;
 $this->title = 'Operators';
 ?>
 
+<style>
+  .tariff_table { border-collapse: collapse; margin: auto;
+      width: 100% !important; }
+  .tariff_table th, .tariff_table td { padding: 5px; border: solid 1px #777; }
+  .tariff_table th { background-color: #586ADA; }
+  table thead tr th:first-child {
+      border-top-left-radius: 0px;
+      border-bottom-left-radius: 0px;
+  }
 
+  table thead tr th:last-child {
+      border-top-right-radius: 0px;
+      border-bottom-right-radius: 0px;
+  }
+  table thead tr {
+      color: #FFFFFF;
+      background-color: var(--secondary-color);
+      /*height: 45px;*/
+      height: 31px;
+  }
+</style>
 
 <script>
     $(document).ready(function() {
@@ -97,12 +117,12 @@ function onChangeProperty(property){
                 ?>
                 <tr>
                 <td><?= Carbon::parse($key)->format('d M Y')?> <br/> <?= Carbon::parse($key)->format('l') ?></td>
-                <td><?= $bf_adult ?></td>
-                <td><?= $bf_child ?></td>
-                <td><?= $lunch_adult ?></td>
-                <td><?= $lunch_child ?></td>
-                <td><?= $dinner_adult ?> </td>
-                <td><?= $dinner_child ?> </td>
+                <td class="text-right"><?= number_format($bf_adult) ?></td>
+                <td class="text-right"><?= number_format($bf_child) ?></td>
+                <td class="text-right"><?= number_format($lunch_adult) ?></td>
+                <td class="text-right"><?= number_format($lunch_child) ?></td>
+                <td class="text-right"><?= number_format($dinner_adult) ?> </td>
+                <td class="text-right"><?= number_format($dinner_child) ?> </td>
                 </tr>
             <?php } ?>
         </tbody>
