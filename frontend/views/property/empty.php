@@ -53,7 +53,7 @@ use yii\helpers\Url;
            <div class="col-sm-6 col-lg-2 mb-3">
             <div class="card card-resize" >
                 <img src="images/four-property.svg" class="image-top-left-property" >
-                <img src="images/create_property.svg"  class="height-image">
+                <img src="images/publish_property.svg"  class="height-image">
                 <h5 class="title-card-property">Published</h5>
                 <h6 class="h8class smallFonts padding-4px ">Share it with operators</h6>
             </div>

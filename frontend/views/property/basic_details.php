@@ -28,19 +28,19 @@ $this->registerJsFile('/js/common.js');
             <div class="row align-items-start">
                 <div class="col-md-6 ">
                     <div class="form-group ">
-                        <label class="Labelclass" style="display: block">*Property Name</label>
+                        <label class="Labelclass" style="display: block">Property Name<span style="color: red; font-size: 18px">*</span></label>
                         <?php echo $form->field($basic_details,'name')->textInput(['class' => 'inputLarge'])->label(false) ?>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group ">
-                                <label class="Labelclass" style="display: block">*Property Type</label>
+                                <label class="Labelclass" style="display: block">Property Type<span style="color: red; font-size: 18px">*</span></label>
                                 <?php echo $form->field($basic_details, 'property_type_id')->dropDownList($property_types, ['class' => 'inputTextClass','style' => 'width: 200px','prompt' => 'Choose'])->label(false); ?>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group ">
-                                <label class="Labelclass" style="display: block">*Property Rating</label>
+                                <label class="Labelclass" style="display: block">Property Rating<span style="color: red; font-size: 18px">*</span></label>
                                 <?php echo $form->field($basic_details, 'property_category_id')->dropDownList($property_categories, ['class' => 'inputTextClass','style' => 'width: 200px','prompt' => 'Choose'])->label(false); ?>
                             </div>
                         </div>
@@ -60,7 +60,7 @@ $this->registerJsFile('/js/common.js');
                 <div class="col-md-6 ">
                     <div class="row">
                         <div class="form-group col-md-6">
-                            <label class="Labelclass" style="display: block;" >*Property Photo</label>
+                            <label class="Labelclass" style="display: block;" >Upload profile picture<span style="color: red; font-size: 18px">*</span></label>
                                 <?php
                                 if(!$basic_details->id) {
                                     echo "<div id='photoId' class='basic-details-image-border'><img id='imagePreview' src='images/property-picture.png' class='imagedisplay' ></div>";
@@ -70,7 +70,7 @@ $this->registerJsFile('/js/common.js');
                                 <?= $form->field($property_image, 'proFile')->fileInput(['class' => 'btn btn-sm img uploadFile', 'accept' => "image/*", 'id'=>"uploadFile"])->label(false); ?>
                         </div>
                         <div class="form-group col-md-6">
-                            <label class="Labelclass" style="display: block;" >*Property Logo</label>
+                            <label class="Labelclass" style="display: block;" >Upload Logo<span style="color: red; font-size: 18px">*</span></label>
                                 <?php
                                 if(!$basic_details->id) {
                                     echo "<div id='logoId' class='basic-details-image-border'><img id='imagePreview-logo' src='images/property-logo.png' class='imagedisplay'></div>";

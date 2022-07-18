@@ -1328,7 +1328,6 @@ hr.new2 {
 }
 .card-resize
 {
-    height: 155px;
     width: 167px;
     background: #F9F3FF;
 }
@@ -2180,6 +2179,33 @@ hr.new6 {
 {
     padding-left:11px;
 }
+
+/*text area*/
+
+.inputTextArea:focus{
+    outline-color:#586ADA;
+    outline-width: thin;
+}
+
+.inputTextArea
+{
+    background-color: #ffffff;
+    box-sizing: border-box;
+    color: #787486!important;
+    width: 227px;
+    /*height: 34px;*/
+    font-size: 14px;
+
+
+    /*background: #e9e9e9;;*/
+    border: 0.1px solid #c3c3c3;
+    border-radius: 8px;
+
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+}
+
 .inputTextClass
 {
     background-color: #ffffff;
@@ -2423,7 +2449,6 @@ select:focus{
     width: 100%;
     margin-top: 0.25rem;
     font-size: 70% !important;
-    color: #586ADA !important;
 }
 .break {
     flex-basis: 100%;

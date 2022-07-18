@@ -93,8 +93,8 @@ function onChangeProperty(property){
                 <tr>
                 <td><?= Carbon::parse($key)->format('d M Y')?> <br/> <?= Carbon::parse($key)->format('l') ?></td>
                 <td><?= $slab->name ?></td>
-                <td><?= $slab->rate_adult ?></td>
-                <td><?= $slab->rate_child ?></td>
+                <td class="text-right"><?= number_format($slab->rate_adult) ?></td>
+                <td class="text-right"><?= number_format($slab->rate_child) ?></td>
                 </tr>
             <?php } ?>
         </tbody>
