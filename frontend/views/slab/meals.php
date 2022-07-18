@@ -12,27 +12,7 @@ use Carbon\Carbon;
 $this->title = 'Operators';
 ?>
 
-<style>
-  .tariff_table { border-collapse: collapse; margin: auto;
-      width: 100% !important; }
-  .tariff_table th, .tariff_table td { padding: 5px; border: solid 1px #777; }
-  .tariff_table th { background-color: #586ADA; }
-  table thead tr th:first-child {
-      border-top-left-radius: 0px;
-      border-bottom-left-radius: 0px;
-  }
 
-  table thead tr th:last-child {
-      border-top-right-radius: 0px;
-      border-bottom-right-radius: 0px;
-  }
-  table thead tr {
-      color: #FFFFFF;
-      background-color: var(--secondary-color);
-      /*height: 45px;*/
-      height: 31px;
-  }
-</style>
 
 <script>
     $(document).ready(function() {
