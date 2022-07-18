@@ -2196,6 +2196,7 @@ hr.new6 {
     /*height: 34px;*/
     font-size: 14px;
     padding-left: 8px;
+    padding-top: 8px;
 
     /*background: #e9e9e9;;*/
     border: 0.1px solid #c3c3c3;
@@ -3929,7 +3930,10 @@ text-align: right;
 
 
 
-
+.margin-left-check
+{
+    margin-left: 23px;
+}
 
 
 

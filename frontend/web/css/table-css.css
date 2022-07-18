@@ -110,10 +110,21 @@ input::placeholder {
 .btn-white-letter {
     color: white!important;
 }
+.btn-search-tariff {
+    background-color: #586ADA; color: white;
+}
+.btn-print-tariff {
+    background-color: #e40e6a; color: white;
+}
+.btn-print-tariff :hover {
+    background: 007487;
+}
 
 .tariff_table { border-collapse: collapse; margin: auto;
     width: 100% !important; }
-.tariff_table th, .tariff_table td { padding: 5px; border: solid 1px #777; }
+.tariff_table th { text-align: right; border: solid 1px #777; }
+
+.tariff_table td { border: solid 1px #777; }
 .tariff_table th { background-color: #586ADA !important;
     color: white !important;
     top: 0 !important;
@@ -150,4 +161,35 @@ table thead tr {
 
 .form-input-padding {
     margin-bottom: 0.2rem;
+}
+
+.form-checkin-out
+{
+    background: #FFFFFF;
+     border: 0px solid #c7b4b4;
+     border-radius: 0px !important;
+    width: 166px !important;
+    padding: 0px 44px;
+}
+
+.form-checkin-out-content
+{
+
+    padding-top: 1px !important;
+    padding-bottom: 0px !important;
+    padding-left: 24px !important;
+
+}
+
+.content-contr .data-content .tab-section .tab-pane .accordion .accordion-item .accordion-content .form-checkin {
+     background: #FFFFFF;
+     border: 0.0px solid #BCBCBC;
+    border-radius: 10px;
+    width: 158px;
+    padding: 0px 48px;
+}
+.m4r
+{
+    margin-right: 1.5rem!important;
+    margin-bottom: -16px !important;
 }

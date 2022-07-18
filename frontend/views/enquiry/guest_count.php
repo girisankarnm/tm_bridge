@@ -7,6 +7,8 @@ $this->registerJsFile('/js/enquiry/guest_count.js');
 ?>
 
 <link rel="stylesheet" type="text/css" href="/css/tour-min-1.css" />
+<link href="//cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css" rel="stylesheet" type="text/css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
 
 <div class="content">
     <div class="container-fluid">
@@ -108,12 +110,18 @@ $this->registerJsFile('/js/enquiry/guest_count.js');
                         ($enquiry->guest_count_same_on_all_days == 0))
                     {
                         $i = 1;
-                        foreach ($enquiry->enquiryGuestCounts as $guest_count) { ?>
+                        foreach ($enquiry->enquiryGuestCounts as $guest_count) {?>
+
+                                <?php
+                                   $adult_value = $guest_count->adults ;
+
+                                  $children_value  =$guest_count->children
+                                 ?>
                             <tr>
                                 <td>  Plan <?= $i ?></td>
                                 <td  class="Adults">
                                     <input type="hidden" id="plan_uid" name="plan_uid[]" value="<?= $i ?>" >
-                                    <input name="adults[]"  id="adults_<?=$i ?>" type="number" onchange="updateGuestCountTotal(this)" value="<?= $guest_count->adults ?>">
+                                    <input class="inputTextClass enquiryTable" name="adults[]"  id="adults_<?=$i ?>" type="number" onchange="updateGuestCountTotal(this)" value="<?= $guest_count->adults ?>">
                                 </td>
                                 <td class="Adults">  <input uid="<?=$i ?>" name="children[]" id="children_<?=$i ?>" type="number" class="inputTextClass enquiryTable"  onchange="updateGuestCountTotal(this)" value="<?= $guest_count->children ?>"></td>
                                 <td class="plusb">
@@ -121,7 +129,7 @@ $this->registerJsFile('/js/enquiry/guest_count.js');
                                         <img s src="images/plus-button.svg"  aria-hidden="true"></img></button>
                                 </td>
                                 <td class="letterpad">
-                                    <span id="total_guests_<?=$i ?>" style="color: red;font-size: 12px;display: inline" id="span_child_validation_"<?=$i ?>> NA </span>
+                                    <span id="total_guests_<?=$i ?>" style="color: red;font-size: 12px;display: inline" id="span_child_validation_"<?=$i ?>> <?= $adult_value + $children_value ?> </span>
                                 </td>
                                 <td class="letterpad">
                                     <span id="span_child_validation_<?=$i ?>" style="color: red;font-size: 12px;display: inline">NA</span>
