@@ -18,7 +18,7 @@ use yii\helpers\ArrayHelper;
 
     <?php $form = ActiveForm::begin(['id' => 'validate_form','enableClientValidation' => true,'method' => 'post','action' => ['onboarding/register']]) ?>
     <div class="row">
-        <h6 class="text-secondary type2 ml-4 mr-2"> Your account has been validated. Login and start using TourMatrix</h6>
+        <h6 class="text-secondary type2 ml-4 mr-2"> Your account has been validated. Login and start using TourMatrix BRIDGE</h6>
     </div>
 
     <div class="text-center">
