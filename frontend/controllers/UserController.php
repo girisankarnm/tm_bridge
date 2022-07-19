@@ -318,7 +318,9 @@ class UserController extends Controller
 //            'model' => $model,
 //        ]);
 
-        return $this->render('request-password-reset');
+        return $this->render('request-password-reset', [
+            'model' => $model,
+        ]);
     }
 
     /**

@@ -6,7 +6,7 @@ $this->registerCssFile('/css/full-page.css');
 
 ?>
 <div class="card" style="background-color: white; border-radius: 20px">
-                <form action="" >
+    <?php $form = ActiveForm::begin(['id' => 'request-password-reset-form']); ?>
                     <div class="" style="padding: 28px;">
                         <div style="display: flex; justify-content: center">
                             <img src="/images/tm_bridge_logo.svg" class="logo-small">
@@ -22,13 +22,9 @@ $this->registerCssFile('/css/full-page.css');
                                 <label for="your-input" class="Inline-label">Email</label>
                             </div>
                             <div class="col-md-9">
-                                <input type="email" id="your-input" class="login-input" />
+                                <?= $form->field($model, 'email')->textInput(['autofocus' => true, 'class' =>'login-input'])->label(false) ?>
                             </div>
                         </div>
-
-
-
-<!--                        <a href="#" style="float: right; text-decoration: none; color: #831BEE; font-size: 12px; font-weight: bold">Forgot password?</a>-->
                         <hr class="sidebar-divider" style="margin-top: 30px">
                         <div style="display: flex; flex-direction: row; justify-content: space-between; margin-top: 10px; margin-left: 6px">
                             <a href="index.php?r=user%2Flogin" style="text-decoration: none; color: #E40967; font-weight: bold">Back to Sign in</a>
@@ -38,9 +34,8 @@ $this->registerCssFile('/css/full-page.css');
                         </div>
 
                     </div>
-                </form>
-
-            </div>
+    <?php ActiveForm::end(); ?>
+</div>
 
 
 
