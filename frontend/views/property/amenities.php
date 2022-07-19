@@ -14,7 +14,7 @@ $this->registerJsFile('/js/property/amenities/services_amenities.js');
 ?>
 
 
-<h5 class="title"> Room Category </h5>
+<h5 class="title"><?= $property->name; ?> </h5>
 
 <div class="tab-section amenities_contr">
     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">

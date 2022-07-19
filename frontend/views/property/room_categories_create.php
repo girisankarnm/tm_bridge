@@ -8,7 +8,7 @@ $this->registerCssFile('/css/property/room_categories.css');
 $this->registerJsFile('/js/operational_details/room_category.js');
 //$this->registerJsFile('/js/property/room_categories/index.js');
 ?>
-<h5 class="title"> Room Category </h5>
+<h5 class="title"> <?= $property->name; ?> </h5>
 
 <div class="tab-section room_categories_contr">
     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">

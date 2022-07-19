@@ -32,7 +32,7 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
 <link href="//cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css" rel="stylesheet" type="text/css" />
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
 
-<h5 class="title"> Rules and Policies </h5>
+<h5 class="title"> <?= $property->name; ?> </h5>
 
 <div class="tab-section rules_and_policies_contr">
     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">

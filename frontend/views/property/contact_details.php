@@ -7,7 +7,7 @@ use borales\extensions\phoneInput\PhoneInput;
 <div class="$content">
     <div class="container-fluid">
         <div class="card-title">
-            <span style="font: bold">Property</span>
+            <span style="font: bold"><?= $property->name; ?></span>
         </div>
 
         <div class="card-body" style="border: .12rem solid #dedede; border-radius: 6px;">

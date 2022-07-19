@@ -6,7 +6,7 @@ $this->registerJsFile('/js/common.js');
 <div class="$content">
     <div class="container-fluid" style="background-color: white">
         <div class="card-title">
-            Property
+            <?= $basic_details->name; ?>
         </div>
         <div class="card-body" style="border: .12rem solid #dedede; border-radius: 6px;">
             <div class="tab" style="display: flex;flex-direction: row;">

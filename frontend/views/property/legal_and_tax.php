@@ -31,7 +31,7 @@ $(document).ready(function() {
 <div class="$content">
     <div class="container-fluid" >
         <div class="card-title">
-            Property
+            <?= $property->name; ?>
         </div>
         <div class="card-body" style="border: .12rem solid #dedede; border-radius: 6px;">
             <div class="tab" style="display: flex;flex-direction: row;">

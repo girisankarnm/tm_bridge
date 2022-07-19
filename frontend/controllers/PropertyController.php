@@ -263,6 +263,7 @@ class PropertyController extends Controller
             $property = new Property();
             $basic_details->id = 0;
             $property_image->scenario = "create";
+            $basic_details->name = "Basic details";
         } else {
             $basic_details->id = $property->id;
             $basic_details->name = $property->name;
