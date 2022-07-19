@@ -55,12 +55,6 @@ use yii\web\NotFoundHttpException;
 use yii\web\UploadedFile;
 use yii\helpers\Url;
 
-define("BASIC_DETAILS_MASK", 1);
-define("ADDRESS_MASK", 2);
-define("LEGAL_MASK", 4);
-define("CONTACT_MASK", 8);
-define("TERMS_MASK", 16);
-
 class PropertyController extends Controller
 {
     public function beforeAction($action)
@@ -135,33 +129,7 @@ class PropertyController extends Controller
     }
 
     public function actionValidate()
-    {
-        /*
-        $property = $this->getProperty();
-        echo $property->postal_code;
-        
-        if($property->postal_code & BASIC_DETAILS_MASK) {
-            echo 'basic_details done';            
-        }
-
-        if($property->postal_code & ADDRESS_MASK) {
-            echo 'address_location done';            
-        }
-
-        if($property->postal_code & LEGAL_MASK) {
-            echo 'legal_tax done';            
-        }
-
-        if($property->postal_code & CONTACT_MASK) {
-            echo 'contact done';            
-        }
-
-        if($property->postal_code & TERMS_MASK) {
-            echo 'contact done';            
-        }
-        return;
-        */
-
+    { 
         $property = $this->getProperty();
 
         $basic_details = new BasicDetails();
@@ -263,6 +231,7 @@ class PropertyController extends Controller
             $property = new Property();
             $basic_details->id = 0;
             $property_image->scenario = "create";
+            $basic_details->name = "Basic details";
         } else {
             $basic_details->id = $property->id;
             $basic_details->name = $property->name;
@@ -288,7 +257,9 @@ class PropertyController extends Controller
             'property_types' => $property_types,
             'property_categories' => $property_categories,
             'property_image' => $property_image,
-            'show_terms_tab' => $show_terms_tab]);
+            'show_terms_tab' => $show_terms_tab,
+            'property' => $property
+        ]);
 
     }
 
@@ -359,9 +330,6 @@ class PropertyController extends Controller
             }
         }
 
-        $basic_details_status = 1;
-        //$property->postal_code =  BASIC_DETAILS_MASK | $property->postal_code;
-
         if ($property->save(false)) {           
 
             Yii::$app->session->setFlash('success', "Property created successfully.");
@@ -417,7 +385,8 @@ class PropertyController extends Controller
                 'countries' => $countries,
                 'locations' => $locations,
                 'destinations' => $destinations,
-                'show_terms_tab' => $show_terms_tab
+                'show_terms_tab' => $show_terms_tab,
+                'property' => $property
             ]
         );
     }
@@ -465,8 +434,6 @@ class PropertyController extends Controller
         $property->address = $address_location->address;
         $property->postal_code = $address_location->postal_code;
         $property->locality = $address_location->locality;
-
-        //$property->postal_code = ADDRESS_MASK | $property->postal_code;
 
         if ($property->save(false)) {
             Yii::$app->session->setFlash('success', "Address and location updated successfully.");
@@ -551,7 +518,8 @@ class PropertyController extends Controller
             'legal_status' => $legal_status, 
             'legal_docs_images' => $legal_docs_images, 
             'show_terms_tab' => $show_terms_tab,
-            'gst_image_is_there' => $gst_image_is_there
+            'gst_image_is_there' => $gst_image_is_there,
+            'property' => $property
         ]);
     }
 
@@ -644,8 +612,6 @@ class PropertyController extends Controller
             }
         }
 
-        //$property->postal_code = LEGAL_MASK | $property->postal_code;
-
         if ($property->save(false)) {
             Yii::$app->session->setFlash('success', "Property documents updated successfully.");
             return $this->redirect(['property/contact', 'id' => $property->getPrimaryKey()]);
@@ -690,7 +656,7 @@ class PropertyController extends Controller
             $show_terms_tab = 0;
         }
 
-        return $this->render('contact_details', ['contact' => $contact, 'show_terms_tab' => $show_terms_tab]);
+        return $this->render('contact_details', ['contact' => $contact, 'property' => $property, 'show_terms_tab' => $show_terms_tab]);
     }
 
     public function actionSavecontactdetails()
@@ -731,8 +697,6 @@ class PropertyController extends Controller
             $contacts->front_office_email = $_POST['PropertyContacts']['front_office_email'];
             $contacts->accounts_office_email = $_POST['PropertyContacts']['accounts_office_email'];
             $contacts->property_id = $property_id;
-
-            //$property->postal_code = CONTACT_MASK | $property->postal_code;            
 
             if ($contacts->validate()) {
                 $contacts->save();
@@ -788,9 +752,6 @@ class PropertyController extends Controller
             $contacts->accounts_office_email = $_POST['PropertyContacts']['accounts_office_email'];
             $contacts->property_id = $property_id;
         }
-
-        
-        //$property->postal_code = CONTACT_MASK | $property->postal_code;
 
         if ($property->save(false)) {
             Yii::$app->session->setFlash('success', "Property documents updated successfully.");
@@ -863,8 +824,6 @@ class PropertyController extends Controller
             $property->terms_and_conditons2 = 1;
             $property->terms_and_conditons3 = 1;
         }
-
-        //$property->postal_code = TERMS_MASK | $property->postal_code;
 
         if ($property->save(false)) {
             //Yii::$app->session->setFlash('success', "Property documents updated successfully.");

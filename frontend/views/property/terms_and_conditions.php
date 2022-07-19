@@ -26,7 +26,7 @@ use yii\bootstrap4\ActiveForm;
             <div class="row mt-1 ml-1 ">
                 <div class="col-md-1">
 
-                    <?php echo $form->field($terms,'terms_and_conditons1')->checkbox(['class' => 'form-control form-control-sm'])->label(false) ?>
+                    <?php echo $form->field($terms,'terms_and_conditons1')->checkbox(['class' => 'form-control form-control-sm', 'required' =>true])->label(false) ?>
                 </div>
                 <div class="col-md-10">
                     <p>
@@ -38,25 +38,24 @@ use yii\bootstrap4\ActiveForm;
             </div>
             <div class="row ml-1 ">
                 <div class="col-md-1">
-                    <?php echo $form->field($terms,'terms_and_conditons2')->checkbox(['class' => 'form-control form-control-sm'])->label(false) ?>
+                    <?php echo $form->field($terms,'terms_and_conditons2')->checkbox(['class' => 'form-control form-control-sm', 'required' =>true])->label(false) ?>
                 </div>
                 <div class="col-md-10">
                     <p>
-                        I certify that this is a legitimate accommodation business with all necessary licenses
-                        and permits, which can be shown upon first request. Itinges Technologies reserves
-                        the right to verify and investigate any details provided in this registration.
+                        I have read, accepted and agreed to the General Delivery terms and Privacy statement.
                     </p>
                 </div>
             </div>
             <div class="row ml-1 ">
                 <div class="col-md-1">
-                    <?php echo $form->field($terms,'terms_and_conditons3')->checkbox(['class' => 'form-control form-control-sm'])->label(false) ?>
+                    <?php echo $form->field($terms,'terms_and_conditons3')->checkbox(['class' => 'form-control form-control-sm', 'required' =>true])->label(false) ?>
                 </div>
                 <div class="col-md-10">
                     <p>
-                        I certify that this is a legitimate accommodation business with all necessary licenses
-                        and permits, which can be shown upon first request. Itinges Technologies reserves
-                        the right to verify and investigate any details provided in this registration.
+                        I understand that Itinges Technologies enables accommodations and tour operators to communicate through
+                        Tour Matrix Pro and processes and processes communications in accordance with Itinges privacy statements
+                        and General Delivery Terms. Itinges Technologies does not undertake any responsibility of financial
+                        transaction between the property and & Tour Operators.
                     </p>
                 </div>
             </div>

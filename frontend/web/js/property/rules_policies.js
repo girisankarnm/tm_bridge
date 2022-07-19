@@ -699,14 +699,14 @@ function validateCancellationPolicy(){
                 return bError;
             }
 
-            if ( parseInt(inpt_to_days[i].value) < (no_refund_days) ) {
+            if ( parseInt(inpt_to_days[i].value) <= (no_refund_days) ) {
                 bError = true;
-                toastr.error("To date can't lower than No refund days");
+                toastr.error("To date can't lower or equal than No refund days");
                 return bError;
             }
         }
 
-        if (parseInt(inpt_to_days[(inpt_from_days.length - 1)].value) != (no_refund_days)) {
+        if (parseInt(inpt_to_days[(inpt_from_days.length - 1)].value) != (no_refund_days + 1)) {
             bError = true;
             toastr.error("Period not completed");
             return bError;

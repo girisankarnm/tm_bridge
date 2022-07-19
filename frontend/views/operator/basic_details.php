@@ -34,11 +34,11 @@ $this->registerJsFile('/js/common.js');
             <div class="row align-items-start">
                 <div class="col-md-6 ">
                     <div class="form-group ">
-                        <label class="Labelclass">*Company</label>
+                        <label class="Labelclass">Company<span style="color: red; font-size: 18px">*</span></label>
                         <?php echo $form->field($basic_details,'name')->textInput(['class' => 'inputLarge'])->label(false) ?>
                     </div>
                     <div class="form-group ">
-                        <label class="Labelclass">*Website</label>
+                        <label class="Labelclass">Website</label>
                         <?php
                         if ($basic_details->website != null) {
                             echo $form->field($basic_details, 'website')->textInput(['class' => 'inputLarge'])->label(false);
@@ -53,7 +53,7 @@ $this->registerJsFile('/js/common.js');
 
                     <div class="row">
                         <div class="form-group col-md-6">
-                            <label class="Labelclass" style="display: block;margin-top: 22px" >*Upload Vcard</label>
+                            <label class="Labelclass" style="display: block;margin-top: 22px" >Upload Vcard<span style="color: red; font-size: 18px">*</span></label>
                             <?php
                             if(!$basic_details->v_card_image_front) {
                                 echo "<div id='vcardId' class='image-border'><img id='v-card-front' src='images/Company-visiting-card-front.png' class='imagedisplay'></div>";
@@ -83,7 +83,7 @@ $this->registerJsFile('/js/common.js');
                 </div>
                 <div class="col-md-6 ">
                     <div class="form-group ">
-                        <label class="Labelclass" style="display: block" >*Upload Logo</label>
+                        <label class="Labelclass" style="display: block" >Upload Logo<span style="color: red; font-size: 18px">*</span></label>
 
                         <?php
                         if(!$basic_details->logo_image) {

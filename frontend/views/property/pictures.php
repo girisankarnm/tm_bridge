@@ -67,7 +67,7 @@ $this->registerJsFile('/js/property_pictures/index.js');
 
 
 
-<h5 class="title"> Property Pictures </h5>
+<h5 class="title"> <?= $property->name; ?> </h5>
 
 <div class="tab-section rules_and_policies_contr">
     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">

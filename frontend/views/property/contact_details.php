@@ -7,7 +7,7 @@ use borales\extensions\phoneInput\PhoneInput;
 <div class="$content">
     <div class="container-fluid">
         <div class="card-title">
-            <span style="font: bold">Property</span>
+            <span style="font: bold"><?= $property->name; ?></span>
         </div>
 
         <div class="card-body" style="border: .12rem solid #dedede; border-radius: 6px;">
@@ -18,7 +18,7 @@ use borales\extensions\phoneInput\PhoneInput;
                 <div style="display: inline">   <a href="index.php?r=property%2Fcontact&id=<?= $contact->property_id; ?>">  <button class="selectedButton">Contact Details</button></a> <hr class="new5" >
                 </div>
 
-                <?php if($show_terms_tab) { ?>
+                <?php if($show_terms_tab && $property->country_id && $property->legal_status_id) { ?>
                     <a  href="index.php?r=property%2Ftermsandconditions&id=<?= $contact->property_id ?>"> <button class="tablinks">Terms & Conditions</button></a>
                 <?php } ?>
 

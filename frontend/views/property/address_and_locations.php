@@ -6,16 +6,16 @@ use yii\bootstrap4\ActiveForm;
 <div class="$content">
     <div class="container-fluid">
         <div class="card-title">
-            <span style="font: bold">Property</span>
+            <span style="font: bold"><?= $property->name; ?></span>
         </div>
-        <div class="card-body" style="border: .12rem solid #dedede; border-radius: 6px; height: fit-content">
+        <div class="card-body" style="border: .12rem solid #dedede; border-radius: 6px; height: 450px">
 
             <div class="tab">
                 <a href="index.php?r=property%2Fbasicdetails&id=<?= $address_location->id ?>"> <button class="tablinks btnunder" >Basic Details</button></a>
                 <div style="display: inline">   <a href="index.php?r=property%2Faddressandlocation&id=<?= $address_location->id ?>">  <button class="selectedButton">Address & Location</button></a> <hr class="new5" ></div>
                 <a href="index.php?r=property%2Flegaltax&id=<?= $address_location->id ?>"> <button class="tablinks">Legal Tax</button></a>
                 <a href="index.php?r=property%2Fcontact&id=<?= $address_location->id; ?>"><button class="tablinks">Contact Details</button></a>
-                <?php if($show_terms_tab) { ?>
+                <?php if($show_terms_tab && $property->country_id && $property->legal_status_id) { ?>
                         <a href="index.php?r=property%2Ftermsandconditions&id=<?= $address_location->id ?>"><button class="tablinks" >Terms & Conditions</button></a>
                 <?php } ?>
 

@@ -38,6 +38,7 @@ class OperatorContacts extends \yii\db\ActiveRecord
             [['operator_id'], 'integer'],
             [['name1', 'name2', 'email1', 'email2'], 'string', 'max' => 255],
             [['phone1', 'phone2'], 'string', 'max' => 15],
+            [['email1', 'email2'], 'email'],
             [['operator_id'], 'exist', 'skipOnError' => true, 'targetClass' => Operator::className(), 'targetAttribute' => ['operator_id' => 'id']],
         ];
     }

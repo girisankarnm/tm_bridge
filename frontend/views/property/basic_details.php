@@ -6,7 +6,7 @@ $this->registerJsFile('/js/common.js');
 <div class="$content">
     <div class="container-fluid" style="background-color: white">
         <div class="card-title">
-            Property
+            <?= $basic_details->name; ?>
         </div>
         <div class="card-body" style="border: .12rem solid #dedede; border-radius: 6px;">
             <div class="tab" style="display: flex;flex-direction: row;">
@@ -15,7 +15,7 @@ $this->registerJsFile('/js/common.js');
                     <a href="index.php?r=property%2Faddressandlocation&id=<?= $basic_details->id; ?>" <?= ($property_image->scenario == "create") ? 'onclick="return showAlert()"' : '' ?>">   <button id="contactBtn" class="tablinks" >Address & Location</button></a>
                     <a href="index.php?r=property%2Flegaltax&id=<?= $basic_details->id; ?>" <?= ($property_image->scenario == "create") ? 'onclick="return showAlert()"' : '' ?>> <button class="tablinks" >Legal Tax</button></a>
                     <a href="index.php?r=property%2Fcontact&id=<?= $basic_details->id; ?>" <?= ($property_image->scenario == "create") ? 'onclick="return showAlert()"' : '' ?> ><button class="tablinks">Contact Details</button></a>
-                    <?php if($show_terms_tab ) { ?>
+                    <?php if($show_terms_tab && $property->country_id && $property->legal_status_id) { ?>
                             <a href="index.php?r=property%2Ftermsandconditions&id=<?= $basic_details->id; ?>" <?= ($property_image->scenario == "create") ? 'onclick="return showAlert()"' : '' ?> ><button class="tablinks" >Terms & Conditions</button></a>
                     <?php } ?>
                 <?php } ?>
