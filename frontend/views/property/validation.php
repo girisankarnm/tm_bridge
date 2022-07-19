@@ -5,9 +5,7 @@ use yii\helpers\Html;
 
 <div class="$content">
     <div class="container-fluid">
-        <div class="card-title">
-            Property validation Result
-        </div>
+
 
         <div class="ValidationBorder1">
             <div id="mainHeding-location"style="height: 43px;">
