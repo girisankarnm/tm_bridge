@@ -1471,6 +1471,21 @@ hr.new2 {
      padding-left: 12px;
      background-color: #fffffff;;
  }
+
+
+.tariffBorder-place
+{
+    height:150px;
+    border: 1px solid #E8E9ED;
+    border-radius: 14px;
+    margin-left: 3px;
+    margin-right: 5px;
+    margin-top: 25px;
+    padding-top: 23px;
+    padding-left: 12px;
+    background-color: #fffffff;;
+}
+
 .ValidationBorder1
  {
     line-height: 0px;
@@ -2301,38 +2316,32 @@ hr.new6 {
     height: 19px;
     left: 315px;
     top: 368px;
-
     font-family: 'Bw Mitga';
     font-style: normal;
     font-weight: 600;
     font-size: 13px;
     line-height: 17px;
     letter-spacing: -0.02em;
-
     color: #292931;
-
 }
 .Labelclass-category {
     /*width: 120px;*/
     height: 19px;
     left: 315px;
     top: 368px;
-
     font-family: 'Bw Mitga';
     font-style: normal;
     font-size: 13px;
     line-height: 17px;
     letter-spacing: -0.02em;
-margin-top: 6px;
+    margin-top: 6px;
     color: #292931;
-
 }
 .margin-width-cate
 {
     width: 80px !important;
     margin-left: 11px !important;
 }
-
 
 .inputLarge{
     box-sizing: border-box;
@@ -2382,9 +2391,6 @@ select:focus{
     flex-grow: 0;
     padding-left: 15px;
 }
-
-
-
 /*image upload*/
 .Neon {
     font-family: sans-serif;
