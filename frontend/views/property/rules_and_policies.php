@@ -70,8 +70,8 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
 
                             <div class="d-flex form-group align-items-center">
 
-                                <div class="form-material form-checkout   mr-4 m4r">
-                                    <?= $form->field($property, 'twenty_four_hours_check_in')->inline()->radioList([1 => '24 hour check out', 2 => 'Check in / check out as follows'],['class' => 'form-radio','style' => 'margin-left: -0.7rem'])->label(false); ?>
+                                <div class="checkmark">
+                                    <?= $form->field($property, 'twenty_four_hours_check_in')->inline()->radioList([1 => '24 hour check out', 2 => 'Check in / check out as follows'],['class' => 'checkmark','style' => 'margin-left: -0.7rem;'])->label(false); ?>
 
 
                                     <!--                                    <input type="radio" name="checkout" id="form-24checkout" class="form-radio">-->
