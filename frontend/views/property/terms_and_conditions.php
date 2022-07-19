@@ -26,7 +26,7 @@ use yii\bootstrap4\ActiveForm;
             <div class="row mt-1 ml-1 ">
                 <div class="col-md-1">
 
-                    <?php echo $form->field($terms,'terms_and_conditons1')->checkbox(['class' => 'form-control form-control-sm'])->label(false) ?>
+                    <?php echo $form->field($terms,'terms_and_conditons1')->checkbox(['class' => 'form-control form-control-sm', 'required' =>true])->label(false) ?>
                 </div>
                 <div class="col-md-10">
                     <p>
@@ -38,7 +38,7 @@ use yii\bootstrap4\ActiveForm;
             </div>
             <div class="row ml-1 ">
                 <div class="col-md-1">
-                    <?php echo $form->field($terms,'terms_and_conditons2')->checkbox(['class' => 'form-control form-control-sm'])->label(false) ?>
+                    <?php echo $form->field($terms,'terms_and_conditons2')->checkbox(['class' => 'form-control form-control-sm', 'required' =>true])->label(false) ?>
                 </div>
                 <div class="col-md-10">
                     <p>
@@ -48,7 +48,7 @@ use yii\bootstrap4\ActiveForm;
             </div>
             <div class="row ml-1 ">
                 <div class="col-md-1">
-                    <?php echo $form->field($terms,'terms_and_conditons3')->checkbox(['class' => 'form-control form-control-sm'])->label(false) ?>
+                    <?php echo $form->field($terms,'terms_and_conditons3')->checkbox(['class' => 'form-control form-control-sm', 'required' =>true])->label(false) ?>
                 </div>
                 <div class="col-md-10">
                     <p>

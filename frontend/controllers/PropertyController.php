@@ -288,7 +288,9 @@ class PropertyController extends Controller
             'property_types' => $property_types,
             'property_categories' => $property_categories,
             'property_image' => $property_image,
-            'show_terms_tab' => $show_terms_tab]);
+            'show_terms_tab' => $show_terms_tab,
+            'property' => $property
+        ]);
 
     }
 
@@ -417,7 +419,8 @@ class PropertyController extends Controller
                 'countries' => $countries,
                 'locations' => $locations,
                 'destinations' => $destinations,
-                'show_terms_tab' => $show_terms_tab
+                'show_terms_tab' => $show_terms_tab,
+                'property' => $property
             ]
         );
     }
@@ -551,7 +554,8 @@ class PropertyController extends Controller
             'legal_status' => $legal_status, 
             'legal_docs_images' => $legal_docs_images, 
             'show_terms_tab' => $show_terms_tab,
-            'gst_image_is_there' => $gst_image_is_there
+            'gst_image_is_there' => $gst_image_is_there,
+            'property' => $property
         ]);
     }
 
@@ -690,7 +694,7 @@ class PropertyController extends Controller
             $show_terms_tab = 0;
         }
 
-        return $this->render('contact_details', ['contact' => $contact, 'show_terms_tab' => $show_terms_tab]);
+        return $this->render('contact_details', ['contact' => $contact, 'property' => $property, 'show_terms_tab' => $show_terms_tab]);
     }
 
     public function actionSavecontactdetails()
