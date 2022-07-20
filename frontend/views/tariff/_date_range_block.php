@@ -54,7 +54,7 @@ use frontend\models\tariff\RoomRateValidator;
             </div>
             <div>
 <!--                <span class="badge badge-info">Mother Date</span>-->
-                <span class="badge badge-pill badge-secondary">Mother Date</span>
+                <span class="badge badge-pill badge-secondary"><?= ($range->parent == 0) ? "Mother Date" : "Nested" ?> </span>
             </div>
         </div>
         <div style="  display: flex">

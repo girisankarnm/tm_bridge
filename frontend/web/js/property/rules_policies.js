@@ -353,7 +353,62 @@ function showNationalityDeleteConfirm(id, groupName){
     // $('#nationality_group_id').val(id);
     // $("#deleteGroupName").html(groupName);
     // $('#deleteModal').modal('show');
+    var totalNationalityGroups =  $('#totalNationalityGroups').val()
+    if(totalNationalityGroups == 1){
+        //Check if its last nationality group
+        $.confirm({
+            title: 'Alert !',
+            content: 'Removing your last nationality group will change your setting to  "Room tariff is same for all guests\n"',
+            type: 'orange',
+            typeAnimated: true,
+            buttons: {
+                tryAgain: {
+                    text: 'Accept',
+                    btnClass: 'btn-green',
+                    action: function(){
+                        $.confirm({
+                            title: 'Confirmation!',
+                            content: 'Are you sure you want to delete the nationality group '+groupName+'?',
+                            type: 'red',
+                            buttons: {
+                                ok: {
+                                    btnClass: 'btn-primary text-white',
+                                    keys: ['enter'],
+                                    action: function(){
+                                        $.post("index.php?r=property/deletenationality",{
+                                            group_id: id, property_id: $('#property_id').val(),nationality_group_count:totalNationalityGroups,
+                                        }, function (response) {
+                                            if ( parseInt(response.status) == 0) {
+                                                $("#nationalityTable tbody").empty();
+                                                $("#nationalityTable tbody").append(response.data);
+                                                $("input[name='Property[room_tariff_same_for_all]'][value='1']").prop('checked', true);
+                                                $("#nationality_div").hide(300);
+                                                toastr.success("Deleted nationality group");
+                                            } else
+                                            {
+                                                toastr.error(response.message);
+                                            }
+                                        })
+                                            .fail(function() {
 
+                                                toastr.error("HTTP Error: Unable to connect to Server" );
+                                            });
+
+                                    }
+                                },
+                                cancel: function(){
+                                    $.alert('File deletion was aborted! ');
+                                }
+                            }
+                        });
+                    }
+                },
+                close: function () {
+                }
+            }
+        });
+        return false;
+    }
     $.confirm({
         title: 'Confirmation!',
         content: 'Are you sure you want to delete the nationality group '+groupName+'?',
@@ -363,9 +418,8 @@ function showNationalityDeleteConfirm(id, groupName){
                 btnClass: 'btn-primary text-white',
                 keys: ['enter'],
                 action: function(){
-
                     $.post("index.php?r=property/deletenationality",{
-                        group_id: id, property_id: $('#property_id').val(),
+                        group_id: id, property_id: $('#property_id').val(),nationality_group_count:totalNationalityGroups,
                     }, function (response) {
                         if ( parseInt(response.status) == 0) {
                             $("#nationalityTable tbody").empty();
@@ -518,6 +572,7 @@ $('#save_tariff_option').click(function(e){
     saveTariffOptions();
 });
 
+
 function saveTariffOptions(){
     /*  var bError = validateTariffOptions();
      if(bError){
@@ -525,10 +580,27 @@ function saveTariffOptions(){
          return;
      } */
 
+   var room_tariff_same_for_all =  $('input[name="Property[room_tariff_same_for_all]"]:checked').val()
+   var totalNationalityGroups =  $('#totalNationalityGroups').val()
+
+    if (room_tariff_same_for_all == 0){
+
+        if (totalNationalityGroups == 0){
+
+            $.alert({
+                icon: 'fa fa-exclamation-triangle',
+                title: 'Alert!',
+                content: 'Please define at least one nationality to proceed !',
+                type: 'red',
+                typeAnimated: true,
+            });
+        }
+        return ;
+    }
+
     $.post("index.php?r=property/savetariffoption",{
-        room_tariff_same_for_all: $('input[name="Property[room_tariff_same_for_all]"]:checked').val(),
+        room_tariff_same_for_all: room_tariff_same_for_all,
         property_id: $('#property_id').val(),
-        tariff_data: $('#room_tariff_table :input').serialize()
     }, function (response) {
         if ( parseInt(response.status) == 0) {
             toastr.success("Tariff Option updated");
@@ -580,21 +652,21 @@ $(document).on('keyup', '#property-cancellation_full_refund_days', function(){
     }
 });
 
-$(document).on('blur', '#property-cancellation_no_refund_days', function(){
-    //validateCancellationPolicy();
-    var full_refund_days = parseInt($('#property-cancellation_full_refund_days').val());
-
-    if(full_refund_days <= 0) {
-        toastr.error("Invalid full refund days");
-        return;
-    }
-
-    var no_refund_days = parseInt($('#property-cancellation_no_refund_days').val());
-    if (no_refund_days >= full_refund_days ) {
-        toastr.error("No refund days can't be more than or equal to Full refund Period");
-        return;
-    }
-});
+// $(document).on('blur', '#property-cancellation_no_refund_days', function(){
+//     //validateCancellationPolicy();
+//     var full_refund_days = parseInt($('#property-cancellation_full_refund_days').val());
+//
+//     if(full_refund_days <= 0) {
+//         toastr.error("Invalid full refund days");
+//         return;
+//     }
+//
+//     var no_refund_days = parseInt($('#property-cancellation_no_refund_days').val());
+//     if (no_refund_days >= full_refund_days ) {
+//         toastr.error("No refund days can't be more than or equal to Full refund Period");
+//         return;
+//     }
+// });
 
 $(document).on('keyup', 'input[name^="to_days"]', function(){
     var inpt_from_days = document.getElementsByName('from_days[]');
@@ -657,7 +729,14 @@ function validateCancellationPolicy(){
         if($('#property-cancellation_full_refund_days').val() == '' ||
             $('#property-cancellation_no_refund_days').val() == ''){
             bError = true;
-            toastr.error("Full refund and No refund days should not be empty");
+            $.alert({
+                icon: 'fa fa-exclamation-triangle',
+                title: 'Alert!',
+                content: 'Full refund and No refund days should not be empty!',
+                type: 'red',
+                typeAnimated: true,
+            });
+            // toastr.error("Full refund and No refund days should not be empty");
             return bError;
         }
 
@@ -666,13 +745,27 @@ function validateCancellationPolicy(){
 
         if (no_refund_days <= 0 || full_refund_days <= 0 ) {
             bError = true;
-            toastr.error("Full refund/No refund days is not valid");
+            $.alert({
+                icon: 'fa fa-exclamation-triangle',
+                title: 'Alert!',
+                content: 'Full refund/No refund days is not valid',
+                type: 'red',
+                typeAnimated: true,
+            });
+            // toastr.error("Full refund/No refund days is not valid");
             return bError;
         }
 
         if (no_refund_days >= full_refund_days ) {
             bError = true;
-            toastr.error("No refund days can't be more than or equal to Full refund Period");
+            $.alert({
+                icon: 'fa fa-exclamation-triangle',
+                title: 'Alert!',
+                content: 'No refund days can\'t be more than or equal to Full refund Period',
+                type: 'red',
+                typeAnimated: true,
+            });
+            // toastr.error("No refund days can't be more than or equal to Full refund Period");
             return bError;
         }
 
@@ -684,31 +777,66 @@ function validateCancellationPolicy(){
 
             if( !(inpt_to_days[i].value) || (!inpt_from_days[i].value) || (!percentage[i].value) ) {
                 bError = true;
-                toastr.error("Period's percentage, from days or to days should not be empty");
+                $.alert({
+                    icon: 'fa fa-exclamation-triangle',
+                    title: 'Alert!',
+                    content: 'Period\'s percentage, from days or to days should not be empty',
+                    type: 'red',
+                    typeAnimated: true,
+                });
+                // toastr.error("Period's percentage, from days or to days should not be empty");
                 return bError;
             }
 
             if ( parseInt(inpt_to_days[i].value) >= (full_refund_days - 1) ) {
                 bError = true;
-                toastr.error("To date can't higher or equal to full refund days");
+                // toastr.error("To date can't higher or equal to full refund days");
+                $.alert({
+                    icon: 'fa fa-exclamation-triangle',
+                    title: 'Alert!',
+                    content: 'To date can\'t higher or equal to full refund days',
+                    type: 'red',
+                    typeAnimated: true,
+                });
                 return bError;
             }
 
             if ( parseInt(inpt_to_days[i].value) > (inpt_from_days[i].value) ) {
-                toastr.error("To date can't higher or equal to input from days");
+                $.alert({
+                    icon: 'fa fa-exclamation-triangle',
+                    title: 'Alert!',
+                    content: 'To date can\'t higher or equal to input from days',
+                    type: 'red',
+                    typeAnimated: true,
+                });
+                // toastr.error("To date can't higher or equal to input from days");
                 return bError;
             }
 
             if ( parseInt(inpt_to_days[i].value) <= (no_refund_days) ) {
                 bError = true;
-                toastr.error("To date can't lower or equal than No refund days");
+                $.alert({
+                    icon: 'fa fa-exclamation-triangle',
+                    title: 'Alert!',
+                    content: 'To date can\'t lower or equal than No refund days',
+                    type: 'red',
+                    typeAnimated: true,
+                });
+                // toastr.error("To date can't lower or equal than No refund days");
                 return bError;
             }
         }
 
         if (parseInt(inpt_to_days[(inpt_from_days.length - 1)].value) != (no_refund_days + 1)) {
             bError = true;
-            toastr.error("Period not completed");
+            $.alert({
+                icon: 'fa fa-exclamation-triangle',
+                title: 'Alert!',
+                content: 'Period not completed',
+                type: 'red',
+                typeAnimated: true,
+            });
+            // toastr.error("Period not completed");
             return bError;
         }
         // toastr.success("Period Validation success");
@@ -718,7 +846,14 @@ function validateCancellationPolicy(){
         var radio = $('input[name="Property[admin_cancellation_type]"]:checked');
         if (radio.length == 0) {
             bError = true;
-            toastr.error("Select type of admin charge");
+            $.alert({
+                icon: 'fa fa-exclamation-triangle',
+                title: 'Alert!',
+                content: 'Select type of admin charge',
+                type: 'red',
+                typeAnimated: true,
+            });
+            // toastr.error("Select type of admin charge");
             return bError;
         }
 
@@ -728,13 +863,27 @@ function validateCancellationPolicy(){
             if ( parseInt($('#property-cancellation_lumsum_amount').val().trim()) <= 0 ||
                 $('#property-cancellation_lumsum_amount').val().trim().length == 0) {
                 bError = true;
-                toastr.error("Invalid lumsum amount");
+                $.alert({
+                    icon: 'fa fa-exclamation-triangle',
+                    title: 'Alert!',
+                    content: 'Invalid lumsum amount',
+                    type: 'red',
+                    typeAnimated: true,
+                });
+                // toastr.error("Invalid lumsum amount");
             }
         } else if (adminChargeType == 2){
             if ( parseInt($('#property-cancellation_percentage_rate').val()) <= 0 ||
                 $('#property-cancellation_percentage_rate').val().trim().length == 0) {
                 bError = true;
-                toastr.error("Invalid percentage");
+                $.alert({
+                    icon: 'fa fa-exclamation-triangle',
+                    title: 'Alert!',
+                    content: 'Invalid percentage',
+                    type: 'red',
+                    typeAnimated: true,
+                });
+                // toastr.error("Invalid percentage");
             }
         } else if (adminChargeType == 3){
             if ( parseInt($('#property-cancellation_per_adult_amount').val()) <= 0 ||
@@ -743,7 +892,14 @@ function validateCancellationPolicy(){
                 $('#property-cancellation_per_kids_amount').val().trim().length == 0)
             {
                 bError = true;
-                toastr.error("Invalid Adult/Kids amount");
+                $.alert({
+                    icon: 'fa fa-exclamation-triangle',
+                    title: 'Alert!',
+                    content: 'Invalid Adult/Kids amount',
+                    type: 'red',
+                    typeAnimated: true,
+                });
+                // toastr.error("Invalid Adult/Kids amount");
             }
         }
     }
