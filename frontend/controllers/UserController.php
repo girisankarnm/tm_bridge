@@ -402,8 +402,24 @@ class UserController extends Controller
     }
 
     public function actionActivationFailed(){
+        $model = new ResendVerificationEmailForm();
+       
+        if ($model->load(Yii::$app->request->post()) ) {
+            if($model->validate()) {
+                if ($model->sendEmail()) {
+                    Yii::$app->session->setFlash('resent_activation_success', 'Resent activation link. Check your email for further instructions.');                
+                } 
+                else {
+                    Yii::$app->session->setFlash('resent_activation_failed', 'Sorry, we are unable to resend verification email for the provided email address.');
+                }
+            }
+            else {
+                Yii::$app->session->setFlash('resent_activation_failed', 'There is no user with this email address to activate account.');
+            }
+        }         
+        
         $this->layout = 'common';
-        return $this->render('activation_failed', []);
+        return $this->render('activation_failed', [ 'model' => $model]);
     }
 
 }

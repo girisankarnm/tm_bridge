@@ -1,9 +1,15 @@
 <?php
-
 use yii\bootstrap4\ActiveForm;
-
 ?>
-<div class="$content">
+
+<script>
+function showAlert(){        
+        toastr.error("Complete all other forms to proceed");
+        return false;
+    }
+</script>
+
+<div class="content">
     <div class="container-fluid">
         <div class="card-title">
             <span style="font: bold"><?= $property->name; ?></span>
@@ -15,8 +21,8 @@ use yii\bootstrap4\ActiveForm;
                 <div style="display: inline">   <a href="index.php?r=property%2Faddressandlocation&id=<?= $address_location->id ?>">  <button class="selectedButton">Address & Location</button></a> <hr class="new5" ></div>
                 <a href="index.php?r=property%2Flegaltax&id=<?= $address_location->id ?>"> <button class="tablinks">Legal Tax</button></a>
                 <a href="index.php?r=property%2Fcontact&id=<?= $address_location->id; ?>"><button class="tablinks">Contact Details</button></a>
-                <?php if($show_terms_tab && $property->country_id && $property->legal_status_id) { ?>
-                        <a href="index.php?r=property%2Ftermsandconditions&id=<?= $address_location->id ?>"><button class="tablinks" >Terms & Conditions</button></a>
+                <?php if($show_terms_tab) { ?>
+                        <a href="index.php?r=property%2Ftermsandconditions&id=<?= $address_location->id ?>" <?= ( ($property->country_id && $property->legal_status_id) != 1 ) ? 'onclick="return showAlert()"' : '' ?> ><button class="tablinks" >Terms & Conditions</button></a>
                 <?php } ?>
 
             </div>

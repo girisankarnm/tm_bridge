@@ -1,10 +1,16 @@
 <?php
-
 use yii\bootstrap4\ActiveForm;
 use borales\extensions\phoneInput\PhoneInput;
-
 ?>
-<div class="$content">
+
+<script>
+function showTermsAlert(){        
+    toastr.error("Complete all other forms to proceed!");
+    return false;
+}
+</script>
+
+<div class="content">
     <div class="container-fluid">
         <div class="card-title">
             <span style="font: bold"><?= $property->name; ?></span>
@@ -18,8 +24,8 @@ use borales\extensions\phoneInput\PhoneInput;
                 <div style="display: inline">   <a href="index.php?r=property%2Fcontact&id=<?= $contact->property_id; ?>">  <button class="selectedButton">Contact Details</button></a> <hr class="new5" >
                 </div>
 
-                <?php if($show_terms_tab && $property->country_id && $property->legal_status_id) { ?>
-                    <a  href="index.php?r=property%2Ftermsandconditions&id=<?= $contact->property_id ?>"> <button class="tablinks">Terms & Conditions</button></a>
+                <?php if($show_terms_tab) { ?>
+                    <a  href="index.php?r=property%2Ftermsandconditions&id=<?= $contact->property_id ?>" <?= ( ($property->country_id && $property->legal_status_id) != 1 ) ? 'onclick="return showTermsAlert()"' : '' ?>> <button class="tablinks">Terms & Conditions</button></a>
                 <?php } ?>
 
             </div>

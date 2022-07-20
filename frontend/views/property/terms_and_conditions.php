@@ -14,8 +14,6 @@ use yii\bootstrap4\ActiveForm;
                 <a href="index.php?r=property%2Faddressandlocation&id=<?= $terms->id ?>"> <button class="tablinks btnunder">Address & Location</button></a>
                 <a href="index.php?r=property%2Flegaltax&id=<?= $terms->id ?>"> <button class="tablinks btnunder">Legal Tax</button></a>
                 <a  href="index.php?r=property%2Fcontact&id=<?= $terms->id; ?>"> <button class="tablinks btnunder">Contact Details</button></a>
-
-
                 <div style="display: inline">   <a href="index.php?r=property%2Ftermsandconditions&id=<?= $terms->id; ?>">  <button class="selectedButton" >Terms & Conditions </button></a> <hr class="new5" >
                 </div>
             </div>

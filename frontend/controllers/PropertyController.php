@@ -230,8 +230,7 @@ class PropertyController extends Controller
         if ($property == NULL) {
             $property = new Property();
             $basic_details->id = 0;
-            $property_image->scenario = "create";
-            $basic_details->name = "Basic details";
+            $property_image->scenario = "create";            
         } else {
             $basic_details->id = $property->id;
             $basic_details->name = $property->name;
@@ -779,10 +778,9 @@ class PropertyController extends Controller
             return $this->render('not_found', []);
         }
 
-
-        if ($property->terms_and_conditons1 == 1 &&
-            $property->terms_and_conditons2 == 1 &&
-            $property->terms_and_conditons3 == 1) {
+        if ($property->terms_and_conditons1 != 1 ||
+            $property->terms_and_conditons2 != 1 ||
+            $property->terms_and_conditons3 != 1) {
             throw new NotFoundHttpException();
         }
 
