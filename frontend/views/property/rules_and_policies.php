@@ -27,6 +27,12 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
         /*height: 45px;*/
         height: 31px;
     }
+    /*.custom-control-label*/
+    /*{*/
+    /*    margin-left: 21px;*/
+    /*    margin-top: 12px;*/
+
+    /*}*/
 </style>
 <!-- load the third party plugin assets (jquery-confirm) -->
 <link href="//cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css" rel="stylesheet" type="text/css" />
@@ -179,8 +185,8 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                                         <div class="form-group form-checkbox">
                                             <div class="form-material">
                                                 <input <?= ($property->cancellation_has_period_charge == 1) ? "checked" : "" ?> type="checkbox" name="" id="property-cancellation_has_period_charge"
-                                                       class="form-input-checkbox">
-                                                <label for="cancellation-policy">
+                                                       class="form-input-checkbox vertical-align-middle">
+                                                <label for="cancellation-policy ">
                                                     <strong> Cancellation policy has period based rates </strong>
                                                 </label>
                                             </div>
@@ -292,7 +298,7 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                                         <div class="form-group form-checkbox mb-4">
                                             <div class="form-material">
                                                 <input  <?= ($property->cancellation_has_admin_charge == 1) ? "checked" : "" ?> type="checkbox" name="" id="property-cancellation_has_admin_charge"
-                                                       class="form-input-checkbox">
+                                                       class="form-input-checkbox vertical-align-middle">
                                                 <label for="admin-rates" class="mb-0">
                                                     <strong> Cancellation Policy has Admin Rates </strong>
                                                 </label>
@@ -304,29 +310,27 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                                             <div class="form-material form-checkout mr-4">
                                                 <input <?= ($property->admin_cancellation_type == 1) ? "checked" : "" ?> type="radio" name="Property[admin_cancellation_type]"
                                                        value="1" id="form-lump-sum"
-                                                       class="form-radio">
+                                                       class="form-radio vertical-align-middle">
                                                 <label for="form-lump-sum"> Lump Sum Charges per Cancellation </label>
                                             </div>
                                             <div class="form-material form-checkout mr-4">
                                                 <input <?= ($property->admin_cancellation_type == 2) ? "checked" : "" ?> type="radio" name="Property[admin_cancellation_type]"
                                                        value="2" id="form-package-amount"
-                                                       class="form-radio">
+                                                       class="form-radio vertical-align-middle">
                                                 <label for="form-package-amount"> 0 % Package Amount </label>
                                             </div>
                                             <div class="form-material form-checkout">
                                                 <input <?= ($property->admin_cancellation_type == 3) ? "checked" : "" ?> type="radio" name="Property[admin_cancellation_type]"
-                                                       value="3" id="form-per-basis" class="form-radio">
+                                                       value="3" id="form-per-basis" class="form-radio vertical-align-middle">
                                                 <label for="form-per-basis"> Per Basis </label>
                                             </div>
                                         </div>
 
                                         <div class="row admin-charges-item lum_sum_amt align-items-center mb-2"
-                                             style="display: <?= ($property->admin_cancellation_type == 1) ? "block" : "none" ?>">
-                                            <div class="col-2 mr-2">
-                                                <p> Lum Sum Amount </p>
-                                            </div>
-                                            <div class="col-3 form-group">
-                                                <input value="<?= $property->cancellation_lumsum_amount?>" type="text" name="cancellation_lumsum_amount" id="property-cancellation_lumsum_amount" class="form-control input-sh">
+                                            style="">
+                                            <div class="col-4 mr-2"  >
+                                                <label for="form-per-basis"> Lum Sum Amount </label>
+                                                <input value="<?= $property->cancellation_lumsum_amount?>" type="text" name="cancellation_lumsum_amount" id="property-cancellation_lumsum_amount" class="form-control input-sh input-text-width-100px">
                                             </div>
                                         </div>
 
@@ -380,9 +384,9 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                                 <div class="form-material" >
 
 
-                                                                        <input <?php if($property['allow_child_of_all_ages'] == 1): ?> checked <?php endif ?>  type="checkbox" name="" id="property-allow_child_of_all_ages"  class="form-input-checkbox child-checkbox">
+                                                                        <input <?php if($property['allow_child_of_all_ages'] == 1): ?> checked <?php endif ?>  type="checkbox" name="" id="property-allow_child_of_all_ages"  class="form-input-checkbox child-checkbox vertical-align-middle">
 
-                                                                        <label for="property-allow_child_of_all_ages" class="mb-0">
+                                                                        <label for="property-allow_child_of_all_ages" class="mb-0 v">
                                                                             Our property welcomes child of all age if accompanied by adults
                                                                         </label>
                                 </div>
@@ -417,8 +421,8 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                                     <tr>
                                         <td>
                                             <div class="form-group">
-                                                <div class="form-material mr-2">
-                                                    <?= $form->field($property, 'allow_complimentary')->checkbox()->label("Complimentary For guests aged between"); ?>
+                                                <div class="form-material mr-2 v">
+                                                    <?= $form->field($property, 'allow_complimentary' )->checkbox()->label("Complimentary For guests aged between"); ?>
 
                                                     <!--                                                        <input type="checkbox" name="" id="property-child"-->
                                                     <!--                                                            class="form-input-checkbox">-->

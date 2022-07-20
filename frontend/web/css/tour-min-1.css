@@ -128,11 +128,12 @@ sidebar .nav-item .nav-link {
 
 }
 
-.custom-control-label
-{
-    /*margin-left: 21px;*/
+/*.custom-control-label*/
+/*{*/
+/*    margin-left: 21px;*/
+/*    margin-top: 12px;*/
 
-}
+/*}*/
 .buttonSaveenquiry
 {
     background-color: #586ADA;
@@ -708,11 +709,11 @@ background-color: #ffffff;
 }
 .big{ width: 10em; height: 10em; }
 
-input[type=radio] {
-    border: 0px;
-    width: 100%;
-    height: 2em;
-}
+/*input[type=radio] {*/
+/*    border: 0px;*/
+/*    width: 100%;*/
+/*    height: 2em;*/
+/*}*/
 
 .custom-control-input.is-valid~.custom-control-label, .was-validated .custom-control-input:valid~.custom-control-label{
     color: #292931 !important;
@@ -1537,6 +1538,10 @@ margin-left: 17px;
 margin-right: 5px;
     vertical-align: middle;
 }
+.vertical-align-middle
+{
+    vertical-align: middle !important;
+}
 
 
 .tariffBorderbox
@@ -2304,7 +2309,9 @@ hr.new6 {
 }
 .checkmark {
     height: 25px;
-    background-color: #eee;
+    background-color: #fff;
+        margin-left: 21px;
+        margin-top: 3px;
 }
 
 .addnewlabel
@@ -3997,8 +4004,6 @@ text-align: right;
 
 }
 
-
-
 .margin-left-check
 {
     margin-left: 23px;
@@ -4024,3 +4029,36 @@ text-align: right;
 /*        visibility: visible;*/
 
 /*}*/
+#tariffheaderDate
+{
+    padding-top: 0px;
+    width: 404px;
+    height: 60px;
+    flex-wrap: wrap;
+    display: flex;
+}
+#tariffheaderDate div {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 50px;
+}
+
+
+#tariffheaderDate div:nth-of-type(1) {
+    flex-basis: 60px;
+    background: #533f03;
+}
+
+#tariffheaderDate div:nth-of-type(2) {
+    flex-basis: 76px;
+    background: #0b2e13;
+}
+
+#tariffheaderDate div:nth-of-type(3) {
+    flex-basis: 20px;
+    background: #0077aa;
+}
+#tariffheaderDate div:nth-of-type(4) {
+    110px;
+    background: #00C900;
+}
