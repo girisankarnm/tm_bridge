@@ -6,7 +6,7 @@ $this->registerJsFile('/js/common.js');
 <div class="$content">
     <div class="container-fluid" style="background-color: white">
         <div class="card-title">
-            <?= $basic_details->name; ?>
+            <?= $basic_details->name == NULL ? "Basic details" : $basic_details->name; ?>
         </div>
         <div class="card-body" style="border: .12rem solid #dedede; border-radius: 6px;">
             <div class="tab" style="display: flex;flex-direction: row;">
@@ -29,7 +29,7 @@ $this->registerJsFile('/js/common.js');
                 <div class="col-md-6 ">
                     <div class="form-group ">
                         <label class="Labelclass" style="display: block">Property Name<span style="color: red; font-size: 18px">*</span></label>
-                        <?php echo $form->field($basic_details,'name')->textInput(['class' => 'inputLarge'])->label(false) ?>
+                        <?php echo $form->field($basic_details,'name')->textInput(['class' => 'inputLarge', 'placeholder' => 'Registered name of property' ])->label(false) ?>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
