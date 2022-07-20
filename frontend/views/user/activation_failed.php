@@ -3,6 +3,20 @@ use yii\bootstrap4\ActiveForm;
 
 ?>
 
+<?php if (Yii::$app->session->hasFlash('resent_activation_success')): ?>
+    <div class="alert alert-success alert-dismissable">
+        <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+        <?php echo Yii::$app->session->getFlash('resent_activation_success') ?>
+    </div>
+<?php endif; ?>
+
+<?php if (Yii::$app->session->hasFlash('resent_activation_failed')): ?>
+    <div class="alert alert-danger alert-dismissable">
+        <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+        <?php echo Yii::$app->session->getFlash('resent_activation_failed') ?>
+    </div>
+<?php endif; ?>
+
 <div class="card" style="background-color: white; border-radius: 20px">
 <!--<div class="card col-12 mr-1 c_border">-->
     <div class="card-header p-0 text-center">
@@ -20,7 +34,7 @@ use yii\bootstrap4\ActiveForm;
     </div>
 
     <div class="form-group text-center">
-        <input type="email">
+        <?= $form->field($model, 'email')->textInput(['autofocus' => true])->label(false) ?>
     </div>
 
     <div class="form-group text-center">
