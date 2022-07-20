@@ -1536,9 +1536,9 @@ hr.new2 {
 
 .chckbox-class
 {
-margin-left: 17px;
-margin-right: 5px;
     vertical-align: middle;
+    line-height: 22px;
+    margin-right: 4px;
 }
 .vertical-align-middle
 {
@@ -3344,9 +3344,15 @@ text-align: right;
 .margin-left-right-spacing-2
 {
     margin-left: 40px;
+
     /*margin-right: 5px;*/
 }
-
+.p-white-space {
+    max-width:385px;
+    word-wrap:break-word;
+    padding: 0 15px ;
+line-height: 20px;
+}
 
 #link-properties {
 

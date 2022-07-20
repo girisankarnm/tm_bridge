@@ -89,14 +89,15 @@ $this->registerCssFile('/css/full-page.css');
                 ?>
 
 
-                <div class="row" style=" margin-bottom: 10px; margin-left: 18px;margin-top: 5px">
+                <div class="row" style=" margin-bottom: 10px; margin-left: 18px;margin-top: 5px; display: inline-block;">
                     <p class="p-class-first-failed"> Tariff validation failed.</p> <p class="p-class-second-failed"> You may review and correct the tariff and try publish again</p>
                 </div>
                 <div class="row" style=" margin-bottom: 5px; margin-left: 18px;margin-top: 0px">
-                    <ul class="margin-left-right-spacing-2">
+
+                    <ul class="margin-left-right-spacing-2" >
                         <?php foreach ($errors as $error) { ?>
 
-             <li class="small-text"><img src="images/circle-exclamation-mark.svg"  class="chckbox-class" ><?=$error?></li>
+             <li class="small-text p-white-space"><img src="images/circle-exclamation-mark.svg"  class="chckbox-class" ><?=$error?></li>
                         <?php }
                         ?>
                     </ul>
