@@ -524,7 +524,6 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                     <div id="collapseSix" class="collapse" data-parent="#myAccordion">
                         <div class="accordion-content">
                             <div class="d-flex form-group align-items-center">
-
                                 <div class="form-material form-checkout mr-4">
                                     <?= $form->field($property, 'room_tariff_same_for_all')->inline()->radioList([1 => 'Room tariff is same for all guests', 0 => 'Room tariff depends on guest’s nationality'],['class' => 'form-radio'])->label(false); ?>
 
