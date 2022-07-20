@@ -149,6 +149,11 @@ table thead tr {
     color: black !important;
 }
 
+.input-text-width-100px
+{
+    width: 115px !important;
+    display: inline;
+}
 .font-type
 {
 
