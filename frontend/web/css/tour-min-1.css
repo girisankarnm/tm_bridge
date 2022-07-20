@@ -414,9 +414,10 @@ input::-webkit-inner-spin-button {
     margin-bottom: 24px;
     width: 600px !important;
     height: fit-content;
-    border: 1px solid  #c69500;
+    /*border: 1px solid  #c69500;*/
     perspective: 16px;
     text-align: center;
+    box-shadow: 1px 1px 8px 1px  #e3e3e3;
 }
 
 
@@ -548,6 +549,7 @@ table {
     width: fit-content%;
     border: 1px solid #586ADA !important;
     overflow: hidden;
+    box-shadow: 1px 1px 8px 1px  #e3e3e3;
     /*border-top-radius: 10px;*/
 
 
@@ -4046,19 +4048,105 @@ text-align: right;
 
 #tariffheaderDate div:nth-of-type(1) {
     flex-basis: 60px;
-    background: #533f03;
+
 }
 
 #tariffheaderDate div:nth-of-type(2) {
     flex-basis: 76px;
-    background: #0b2e13;
+
 }
 
 #tariffheaderDate div:nth-of-type(3) {
     flex-basis: 20px;
-    background: #0077aa;
+
 }
 #tariffheaderDate div:nth-of-type(4) {
-    110px;
-    background: #00C900;
+    width: 110px;
+
 }
+
+#mainHeding-location-header {
+    padding-top: 0px;
+    width:62%;
+    display: flex;
+
+}
+
+#mainHeding-location-header div {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 60px;
+}
+#mainHeding-location-header div:nth-of-type(1) {
+    flex-basis: 37px;
+    height: 43px;
+    overflow: hidden;
+
+}#mainHeding-location-header div:nth-of-type(2) {
+     flex-basis:100%;
+     height:42px;
+     overflow: hidden;
+
+ }
+#mainHeding-location div:nth-of-type(3) {
+    flex-basis: 20%;
+    height: 80px;
+    text-align: right;
+
+}
+#mainHeding-location-header div:nth-of-type(4) {
+    flex-basis: 120px;
+
+}
+
+
+#h-border-location-header
+{
+    flex-basis: 350px;
+    height:300px;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+
+}
+
+
+#h-border-location-header div:nth-of-type(1) {
+    flex-basis: 100%;
+    height: 20px;
+    padding-top: 2px;
+
+
+}
+
+#h-border-location-headerlocation div:nth-of-type(2) {
+    flex-basis: 100%;
+    padding-top: 0px;
+    line-height: .8rem;
+
+}
+
+
+
+
+#location-date-border-card
+{ width: 100%;
+    display: flex;
+}
+
+
+#location-date-border-card div:nth-of-type(1) {
+    padding-top: 2px;
+      float: left;
+    margin-top: 1px;
+
+}
+
+#location-date-border-card div:nth-of-type(2) {
+
+    padding-top: 0px;
+    line-height: .8rem;
+
+float: right;
+}
+
