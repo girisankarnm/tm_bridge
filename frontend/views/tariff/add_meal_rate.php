@@ -8,52 +8,49 @@ use Carbon\Carbon;
 <div class="$content">
         <div class="container-fluid" style="">
             <div class="card-title">
-                Tariff Wizard
+                Tariff Wizard : Enter Meal Tariff
             </div>
 
-            <div class="tariffBorder1" style="line-height: 4px; height:80px;">
-                <div id="mainHeding-location"style="height: 43px">
-                    <div > <img style="width: 34px;height: 34px" src="images/building1.png" alt="Matrix"></div>
-                    <div >
-                        <div id="h-border-location"  >
-                            <div  >
+
+        </div>
+
+        <div class="tariffBorder" style="margin-top: 20px;">
+            <div style="margin-bottom: 30px;  ">
+
+                <div  id="location-date-border-card">
+                    <div id="mainHeding-location-header"style="height: 43px;">
+                        <div > <img style="width: 34px;height: 34px" src="images/building1.png" alt="Matrix"></div>
+                        <div >
+                            <div id="h-border-location-header"  >
+                                <div  >
                           <span class="hotelHeading" > <?= $property->name ?> <img class="f-star" src="images/Star-1.svg" alt="Matrix">
                            <img class="f-star" style="padding-left: 2px"  src="images/Star-1.svg" alt="Matrix">
                            <img  class="f-star" style="padding-left: 2px" src="images/Star-1.svg" alt="Matrix">
                            </span>
+                                </div>
+                                <div>   <small  class="smallFonts fontsize-location"><i  class="fa fa-map-marker locatiospace" aria-hidden="true"></i><?= $property->location->name?>, <?= $property->destination->name?>, <?= $property->country->name?></small>
+                                    </span></div>
                             </div>
-                            <div>   <small  class="smallFonts fontsize-location"><i  class="fa fa-map-marker locatiospace" aria-hidden="true"></i><?= $property->location->name?>, <?= $property->destination->name?>, <?= $property->country->name?></small>
-                                </span></div>
                         </div>
                     </div>
+                    <div id="tariffheaderDate" style="justify-content: right;width: 36%;"  >
+                        <div class="margintopcls" style="background-color: #ffffff;text-align: center">
+                            <svg style="margin-left: 3px" width="37" height="36" viewBox="0 0 43 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="21.5893" cy="21.0307" r="17.2748" transform="rotate(-172.902 21.5893 21.0307)" stroke="#009721" stroke-width="3"/>
+                                <path d="M14.875 21.5339L19.6822 26.3413L30.3058 15.7178" stroke="#009721" stroke-width="3" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div class="margintopcls" >
+                            <span class="dateform">From Date</span>
+                            <!--                    <div style=" flex-wrap: wrap">-->
+                            <div ><h6 class="motherdaterange-H6 h7class" ><?= Carbon::parse($date_range->from_date)->format('d M Y'); ?> </h6></div>
 
-                </div>
-            </div>
-        </div>
-
-        <div class="tariffBorder" style="margin-top: 20px;">
-            <div >
-
-                <div class="commonTitle" style="width: 50%;float: left">
-                    Enter Meal Tariff</div>
-
-                <div id="tariffAddmain" style="justify-content: right"  >
-                    <div class="margintopcls" style="background-color: #ffffff;text-align: center">
-                        <svg style="margin-left: 3px" width="37" height="36" viewBox="0 0 43 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="21.5893" cy="21.0307" r="17.2748" transform="rotate(-172.902 21.5893 21.0307)" stroke="#009721" stroke-width="3"/>
-                            <path d="M14.875 21.5339L19.6822 26.3413L30.3058 15.7178" stroke="#009721" stroke-width="3" stroke-linecap="round"/>
-                        </svg>
-                    </div>
-                    <div class="margintopcls" >
-                        <span class="dateform">From Date</span>
-                        <!--                    <div style=" flex-wrap: wrap">-->
-                        <div ><h6 class="motherdaterange-H6 h7class" ><?= Carbon::parse($date_range->from_date)->format('d M Y'); ?> </h6></div>
-
-                    </div>
-                    <div style="margin-top: 4px"><h6 class="h6class"><hr class="new1 hrtopmargin"> </h6>
-                    </div>
-                    <div class="margintopcls" >  <span class="dateform">From Date</span>
-                        <div style="width: 90px;"><h6 class="motherdaterange-H6 h7class" ><?= Carbon::parse($date_range->to_date)->format('d M Y'); ?> </h6></div>
+                        </div>
+                        <div><h6 class="h6class"><hr class="new1 hrtopmargin"> </h6>
+                        </div>
+                        <div class="margintopcls" >  <span class="dateform">To Date</span>
+                            <div style="width: 90px;"><h6 class="motherdaterange-H6 h7class" ><?= Carbon::parse($date_range->to_date)->format('d M Y'); ?> </h6></div>
+                        </div>
                     </div>
                 </div>
             </div>
