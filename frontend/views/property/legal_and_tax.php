@@ -1,7 +1,5 @@
 <?php
-
 use yii\bootstrap4\ActiveForm;
-
 ?>
 
 <script type="text/javascript">
@@ -26,9 +24,14 @@ $(document).ready(function() {
         return true;
     }); 
 });
+
+function showTermsAlert(){        
+    toastr.error("Complete all other forms to proceed!");
+    return false;
+}
 </script>
 
-<div class="$content">
+<div class="content">
     <div class="container-fluid" >
         <div class="card-title">
             <?= $property->name; ?>
@@ -39,8 +42,8 @@ $(document).ready(function() {
                 <a href="index.php?r=property%2Faddressandlocation&id=<?= $legal_tax_documentation->id ?>">   <button id="contactBtn" class="tablinks" >Address & Location</button></a>
                 <div style="display: inline">   <a href="index.php?r=property%2Flegaltax&id=<?= $legal_tax_documentation->id ?>">  <button class="selectedButton">Legal & Tax</button></a> <hr class="new5" ></div>
                 <a href="index.php?r=property%2Fcontact&id=<?= $legal_tax_documentation->id; ?>"><button class="tablinks" >Contact Details</button></a>
-                <?php if($show_terms_tab && $property->country_id && $property->legal_status_id) { ?>
-                        <a href="index.php?r=property%2Ftermsandconditions&id=<?= $legal_tax_documentation->id ?>"><button class="tablinks" >Terms & Conditions</button></a>
+                <?php if($show_terms_tab) { ?>
+                        <a href="index.php?r=property%2Ftermsandconditions&id=<?= $legal_tax_documentation->id ?>" <?= ( ($property->country_id && $property->legal_status_id) != 1 ) ? 'onclick="return showTermsAlert()"' : '' ?> ><button class="tablinks" >Terms & Conditions</button></a>
                 <?php } ?>
 
             </div>
