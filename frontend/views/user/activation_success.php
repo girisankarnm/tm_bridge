@@ -18,7 +18,7 @@ $this->registerCssFile('/css/full-page.css');
             Your account has been validated. <br>Login and start using TourMatrix BRIDGE
         </div>
         <div class="text-center" style="margin-bottom: 20px">
-            <?= Html::a('Login', ['user/login'], ['class'=>'btn btn-outline-dark btn-sm mt-3', 'style'=>'width: 100px']) ?>
+            <?= Html::a('Login', ['user/login'], ['class'=>'btn btn-primary btn-sm mt-3', 'style'=>'width: 100px; background-color:#831BEE; border: 0.5px solid #831BEE']) ?>
         </div>
 
     </div>

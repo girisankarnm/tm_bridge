@@ -761,10 +761,8 @@ class PropertyController extends Controller
     }
 
     public function actionTermsandconditions()
-    {
-        $this->layout = 'tm_main';
-        $property_id = Yii::$app->request->get('id');
-        //Check this property owned by this user
+    {        
+        $property_id = Yii::$app->request->get('id');        
         $property = NULL;
         if ($property_id != 0) {
             $property = Property::find()
@@ -778,10 +776,10 @@ class PropertyController extends Controller
             return $this->render('not_found', []);
         }
 
-        if ($property->terms_and_conditons1 != 1 ||
-            $property->terms_and_conditons2 != 1 ||
-            $property->terms_and_conditons3 != 1) {
-            throw new NotFoundHttpException();
+        if ($property->terms_and_conditons1 == 1 &&
+            $property->terms_and_conditons2 == 1 &&
+            $property->terms_and_conditons3 == 1) {
+            throw new ForbiddenHttpException();
         }
 
         $terms = new TermsConditions();
@@ -790,6 +788,7 @@ class PropertyController extends Controller
         $terms->terms_and_conditons2 = $property->terms_and_conditons2;
         $terms->terms_and_conditons3 = $property->terms_and_conditons3;
 
+        $this->layout = 'tm_main';
         return $this->render('terms_and_conditions', ['terms' => $terms]);
     }
 

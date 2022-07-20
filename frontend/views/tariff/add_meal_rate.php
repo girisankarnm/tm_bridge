@@ -101,7 +101,7 @@ use Carbon\Carbon;
                     <BUTTON type="submit" class="buttonSave save-border"  > Save </BUTTON>
                     <?php } ?>
 
-                    <?php if ($tariff != 0) { ?>
+                    <?php if (($tariff != 0) && ($is_allow_skip == true) ) { ?>
                         <?= Html::a('Skip', ['tariff/home', 'id'=> $property->id,],  ['class'=>'buttonNextanchor2']) ?>    
                     <?php } 
                         else {                    
