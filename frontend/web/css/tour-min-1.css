@@ -823,6 +823,7 @@ input::placeholder {
 font-size: 14px;
     text-align: center;
     line-height: 23px !important;
+    margin-top: 10px;
 }
 
 .property-button
