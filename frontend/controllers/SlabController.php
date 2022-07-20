@@ -63,17 +63,17 @@ class SlabController extends Controller{
             $property_id = Yii::$app->request->get('id');
             $property = Property::find()
             ->where(['id' => $property_id])
-            ->andWhere(['owner_id' => Yii::$app->user->getId()])
+            ->andWhere(['owner_id' => Yii::$app->user->identity->getOWnerId()])
             ->one();
-
-            if ($property == NULL){
-                throw new NotFoundHttpException();
-            }
         }
 
-        if ($property == NULL) {
-            $property = Property::find()->where(['owner_id' => Yii::$app->user->getId()])->one();
-            $property_id = 0;
+        if ($property == NULL){
+            throw new NotFoundHttpException();
+        }
+
+        //If basic details is not completely filled, show validation result
+        if( !($property->country_id && $property->legal_status_id && $property->property_type_id)) {
+            return $this->redirect(['property/validate', 'id' => $property->getPrimaryKey()]);
         }
 
         $slab_assigned = NULL;
@@ -89,13 +89,11 @@ class SlabController extends Controller{
         $assigned_operators = PropertySlabAssignment::find()->where(['property_id' => $property->id])->select('operator_id')->column();
 
         $properties_list = ArrayHelper::map(Property::find()->where(['owner_id' => Yii::$app->user->getId()])->all(), 'id', 'name');
-//        $operators = Operator::find()->all();
-        $operators = Operator::find()->select('operator.*')
 
+        $operators = Operator::find()->select('operator.*')
         ->with(['owner.userPropertySlab' => function ($query) use ($property_id) {
             $query->Where(['property_id' => $property_id]);
         }])->all();
-//        return $this->asJson([$operators]);
 
         $this->layout = 'tm_main';
         return $this->render('home', [

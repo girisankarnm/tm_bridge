@@ -841,9 +841,14 @@ class PropertyController extends Controller
 
     public function actionRules()
     {
-
         $this->layout = 'tm_main';
-        $property = $this->getProperty();
+        $property = $this->getProperty();        
+
+        //If basic details is not completely filled, show validation result
+        if( !($property->country_id && $property->legal_status_id && $property->property_type_id)) {
+            return $this->redirect(['property/validate', 'id' => $property->getPrimaryKey()]);
+        }
+
         $smoking_policy = ArrayHelper::map(PropertySmokingPolicy::find()->asArray()->all(), 'id', 'name');
         $pets_policy = ArrayHelper::map(PropertyPetsPolicy::find()->asArray()->all(), 'id', 'name');
         return $this->render('rules_and_policies', ['property' => $property, 'smoking_policy' => $smoking_policy, 'pets_policy' => $pets_policy]);
@@ -1245,6 +1250,11 @@ class PropertyController extends Controller
     public function actionServiceamenities()
     {
         $property = $this->getProperty();
+
+        //If basic details is not completely filled, show validation result
+        if( !($property->country_id && $property->legal_status_id && $property->property_type_id)) {
+            return $this->redirect(['property/validate', 'id' => $property->getPrimaryKey()]);
+        }        
 
         $swimming_pool = PropertySwimmingPool::find()
             ->where(['property_id' => $property->id])
@@ -1804,6 +1814,11 @@ class PropertyController extends Controller
     {
         $this->layout = 'tm_main';
         $property = $this->getProperty();
+        
+        //If basic details is not completely filled, show validation result
+        if( !($property->country_id && $property->legal_status_id && $property->property_type_id)) {
+            return $this->redirect(['property/validate', 'id' => $property->getPrimaryKey()]);
+        }
 
         $pictures = PropertyPictures::find()->where(['property_id' => $property->id])->all();
 
@@ -2085,8 +2100,14 @@ class PropertyController extends Controller
     {
         $this->layout = 'tm_main';
         $property = $this->getProperty();
+        
+        //If basic details is not completely filled, show validation result
+        if( !($property->country_id && $property->legal_status_id && $property->property_type_id)) {
+            return $this->redirect(['property/validate', 'id' => $property->getPrimaryKey()]);
+        } 
+
         $rooms = Room::find()->where(['property_id' => $property->id])->all();
-//        $rooms = Room::find()->all();
+
         return $this->render('room_categories', ['rooms' => $rooms,'property' => $property,]);
     }
 
