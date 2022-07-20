@@ -778,10 +778,9 @@ class PropertyController extends Controller
             return $this->render('not_found', []);
         }
 
-
-        if ($property->terms_and_conditons1 == 1 &&
-            $property->terms_and_conditons2 == 1 &&
-            $property->terms_and_conditons3 == 1) {
+        if ($property->terms_and_conditons1 != 1 ||
+            $property->terms_and_conditons2 != 1 ||
+            $property->terms_and_conditons3 != 1) {
             throw new NotFoundHttpException();
         }
 

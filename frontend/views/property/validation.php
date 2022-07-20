@@ -43,7 +43,7 @@ use yii\helpers\Html;
         ?>        
 
         <?php
-            echo Yii::$app->controller->renderPartial('_validation_result_terms', ['result' => $terms,  'name' => 'Terms and Conditions', 'action' => 'termsandconditions', 'id' => $property->id ]);
+            echo Yii::$app->controller->renderPartial('_validation_result_terms', ['result' => $terms,  'name' => 'Terms and Conditions', 'action' => 'termsandconditions', 'property' => $property ]);
         ?>
 
         <?php
