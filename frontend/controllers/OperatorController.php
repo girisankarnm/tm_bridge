@@ -46,7 +46,7 @@ class OperatorController extends Controller{
 
         $basic_details = new BasicDetails();
         $operator_image = new OperatorImage();
-        
+
         if ($operator == NULL){
             //TODO: Show a message box on view that you don't have a profile yet, create one
             $operator = new Operator();
@@ -190,8 +190,8 @@ class OperatorController extends Controller{
         $address_location->locality = $operator->locality;
 
         $countries = ArrayHelper::map(Country::find()->asArray()->all(), 'id', 'name');
-        $locations = ArrayHelper::map(Location::find()->where(['country_id' => 1])->asArray()->all(), 'id', 'name');
-        $destinations = ArrayHelper::map(Destination::find()->asArray()->all(), 'id', 'name');
+        $locations = ArrayHelper::map(Location::find()->where(['country_id' => $operator->country_id])->asArray()->all(), 'id', 'name');
+        $destinations = ArrayHelper::map(Destination::find()->where(['location_id' => $operator->location_id])->asArray()->all(), 'id', 'name');
 
         $show_terms_tab = true;
         if ($operator->terms_and_conditons == 1)
@@ -208,6 +208,21 @@ class OperatorController extends Controller{
             ]
         );
 
+    }
+
+    public function actionLocationlist(){
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+        $country_id = Yii::$app->request->get('countryID');
+        $locations = ArrayHelper::map(Location::find()->where(['country_id' => $country_id])->asArray()->all(), 'id', 'name');
+        return $locations ;
+    }
+    public function actionDestinationlist(){
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+        $location_id = Yii::$app->request->get('location_id');
+        $destinations = ArrayHelper::map(Destination::find()->where(['location_id' => $location_id])->asArray()->all(), 'id', 'name');
+        return $destinations ;
     }
 
     public function actionSaveaddresslocation()
@@ -302,9 +317,9 @@ class OperatorController extends Controller{
 
         $legal_status = ArrayHelper::map(PropertyLegalStatus::find()->asArray()->all(), 'id', 'name');
         $legal_docs_images = new LegalDocsImages();
-        
-        if($legal_tax_documentation->pan_image == NULL ||  
-        $legal_tax_documentation->gst_image == NULL ) {            
+
+        if($legal_tax_documentation->pan_image == NULL ||
+        $legal_tax_documentation->gst_image == NULL ) {
             $legal_docs_images->scenario = "create";
         }
 

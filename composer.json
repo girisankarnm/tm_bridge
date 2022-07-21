@@ -21,7 +21,8 @@
         "borales/yii2-phone-input": "*",
         "rmrevin/yii2-fontawesome": "2.10.*",
         "nesbot/carbon": "^2.16",
-        "kartik-v/yii2-widget-fileinput": "dev-master"
+        "kartik-v/yii2-widget-fileinput": "dev-master",
+        "hscstudio/yii2-export": "1.0.0"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",
