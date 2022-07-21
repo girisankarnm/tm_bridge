@@ -227,8 +227,8 @@ $this->registerJsFile('/js/enquiry/guest_count.js');
                 <input type="hidden" id="plan_id" name="planID" value="0">
                 <table id="age_breakup_table" class="guestcountpopup">
                     <thead class="text-center">
-                    <th>Age (Years)</th>
-                    <th>Count</th>
+                    <th class="Adults" >Age (Years)</th>
+                    <th class="Adults" >Count</th>
                     <th></th>
                     </thead>
                     <tbody>
