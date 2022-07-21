@@ -1,3 +1,4 @@
+
 <?php foreach ($property->tariffNationalityGroupNames as $group) { ?>
     <tr>
         <td>
@@ -28,3 +29,14 @@
         </td>
     </tr>
 <?php } ?>
+<tr>
+    <td colspan="3">
+        <input hidden id="totalNationalityGroups" value="<?= count($property->tariffNationalityGroupNames); ?>">
+        <?php if(count($property->tariffNationalityGroupNames) == 0): ?>
+        <div class="text-center">
+            <p>No Nationalities defined.</p>
+        </div>
+        <?php endif; ?>
+    </td>
+</tr>
+

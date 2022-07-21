@@ -129,7 +129,7 @@ class PropertyController extends Controller
     }
 
     public function actionValidate()
-    { 
+    {
         $property = $this->getProperty();
 
         $basic_details = new BasicDetails();
@@ -189,11 +189,11 @@ class PropertyController extends Controller
             $legal_tax_documentation_results = $legal_tax_documentation->errors;
         }
 
-        if( !($terms->terms_and_conditons1 && $terms->terms_and_conditons2 && $terms->terms_and_conditons1) ) {            
+        if( !($terms->terms_and_conditons1 && $terms->terms_and_conditons2 && $terms->terms_and_conditons1) ) {
             $terms->addError('rooms', "Terms and conditions not accepted");
-            $terms_results = $terms->errors;            
+            $terms_results = $terms->errors;
         }
-       
+
         if( count($property->rooms) == 0) {
             $property->addError('rooms', "Not defined room categories");
         }
@@ -230,7 +230,7 @@ class PropertyController extends Controller
         if ($property == NULL) {
             $property = new Property();
             $basic_details->id = 0;
-            $property_image->scenario = "create";            
+            $property_image->scenario = "create";
         } else {
             $basic_details->id = $property->id;
             $basic_details->name = $property->name;
@@ -329,7 +329,7 @@ class PropertyController extends Controller
             }
         }
 
-        if ($property->save(false)) {           
+        if ($property->save(false)) {
 
             Yii::$app->session->setFlash('success', "Property created successfully.");
             return $this->redirect(['property/addressandlocation', 'id' => $property->getPrimaryKey()]);
@@ -493,9 +493,9 @@ class PropertyController extends Controller
         //TODO: If any of the image is empty, the scenario will be 'create' and require to upload all the images.
         //TOFIX: create separate model for PAN, BLN and GST Images and if empty set scenario 'create' for that model only
         //TODO: move LegalDocsImages to property folder
-        if($property->pan_image == NULL ||  
+        if($property->pan_image == NULL ||
             $property->business_licence_image == NULL ) {
-                
+
             $legal_docs_images->scenario = "create";
         }
 
@@ -509,13 +509,13 @@ class PropertyController extends Controller
         if ($property->terms_and_conditons1 == 1 &&
             $property->terms_and_conditons2 == 1 &&
             $property->terms_and_conditons3 == 1) {
-            $show_terms_tab = false;            
+            $show_terms_tab = false;
         }
 
         return $this->render('legal_and_tax', [
-            'legal_tax_documentation' => $legal_tax_documentation, 
-            'legal_status' => $legal_status, 
-            'legal_docs_images' => $legal_docs_images, 
+            'legal_tax_documentation' => $legal_tax_documentation,
+            'legal_status' => $legal_status,
+            'legal_docs_images' => $legal_docs_images,
             'show_terms_tab' => $show_terms_tab,
             'gst_image_is_there' => $gst_image_is_there,
             'property' => $property
@@ -700,7 +700,7 @@ class PropertyController extends Controller
             if ($contacts->validate()) {
                 $contacts->save();
                 $property->save();
-                
+
                 $show_terms_tab = Yii::$app->request->post('show_terms_tab');
                 $redirect_url = 'property/';
                 $redirect_url .= ($show_terms_tab == 1) ? "termsandconditions" : "home";
@@ -841,7 +841,7 @@ class PropertyController extends Controller
     public function actionRules()
     {
         $this->layout = 'tm_main';
-        $property = $this->getProperty();        
+        $property = $this->getProperty();
 
         //If basic details is not completely filled, show validation result
         if( !($property->country_id && $property->legal_status_id && $property->property_type_id)) {
@@ -1253,7 +1253,7 @@ class PropertyController extends Controller
         //If basic details is not completely filled, show validation result
         if( !($property->country_id && $property->legal_status_id && $property->property_type_id)) {
             return $this->redirect(['property/validate', 'id' => $property->getPrimaryKey()]);
-        }        
+        }
 
         $swimming_pool = PropertySwimmingPool::find()
             ->where(['property_id' => $property->id])
@@ -1352,6 +1352,7 @@ class PropertyController extends Controller
         }
 
         $property_id = Yii::$app->request->post('property_id');
+        $nationality_group_count = Yii::$app->request->post('nationality_group_count');
 
         $property = Property::find()->where(['id'=>$property_id])->one();
 
@@ -1360,6 +1361,11 @@ class PropertyController extends Controller
         try {
             $rows = TariffNationalityGroupName::deleteAll(['id' => $group_id]);
             RoomTariffDatewise::deleteAll(['nationality_id' => $group_id]);
+
+            if ($nationality_group_count == 1 ){
+                $property->room_tariff_same_for_all = 1;
+                $property->save();
+            }
 
             $transaction->commit();
             //TODO: Handling exception in page
@@ -1813,7 +1819,7 @@ class PropertyController extends Controller
     {
         $this->layout = 'tm_main';
         $property = $this->getProperty();
-        
+
         //If basic details is not completely filled, show validation result
         if( !($property->country_id && $property->legal_status_id && $property->property_type_id)) {
             return $this->redirect(['property/validate', 'id' => $property->getPrimaryKey()]);
@@ -2099,11 +2105,11 @@ class PropertyController extends Controller
     {
         $this->layout = 'tm_main';
         $property = $this->getProperty();
-        
+
         //If basic details is not completely filled, show validation result
         if( !($property->country_id && $property->legal_status_id && $property->property_type_id)) {
             return $this->redirect(['property/validate', 'id' => $property->getPrimaryKey()]);
-        } 
+        }
 
         $rooms = Room::find()->where(['property_id' => $property->id])->all();
 
