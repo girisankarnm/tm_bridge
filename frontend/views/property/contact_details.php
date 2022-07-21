@@ -52,7 +52,7 @@ function showTermsAlert(){
                         'jsOptions' => [
                             'onlyCountries' => ['in'],
                         ],
-                        'options'=> array('class'=>'inputTextClass', 'placeholder' => '9123456780', 'maxlength' => '12'),
+                        'options'=> array('class'=>'inputTextClass', 'placeholder' => 'Enter 10 digit number', 'maxlength' => '12'),
                     ], )->label(false);?>
 
                 </div>
@@ -76,7 +76,7 @@ function showTermsAlert(){
                         'jsOptions' => [
                             'onlyCountries' => ['in'],
                         ],
-                        'options'=> array('class'=>'inputTextClass', 'placeholder' => '9123456780', 'maxlength' => '12'),
+                        'options'=> array('class'=>'inputTextClass', 'placeholder' => 'Enter 10 digit number', 'maxlength' => '12'),
                     ], )->label(false);?>
                 </div>
                 <div class="form-group margin-contacts col-md-4">
@@ -88,7 +88,7 @@ function showTermsAlert(){
                 <h6 style=" color: black; font-size: 14px; padding: 3px; margin-left: 10px; font-weight: bold">Front Office</h6>
             </div>
             <div class="row">
-                <div class="form-group col-md-4">
+                <div class="form-group margin-contacts col-md-4">
                     <label class="Labelclass" style="display: block" >Name</label>
                     <?= $form->field($contact,'front_office_name')->textInput(['class' => 'inputTextClass'])->label(false) ?>
                 </div>
@@ -99,7 +99,7 @@ function showTermsAlert(){
                         'jsOptions' => [
                             'onlyCountries' => ['in'],
                         ],
-                        'options'=> array('class'=>'inputTextClass', 'placeholder' => '9123456780', 'maxlength' => '12'),
+                        'options'=> array('class'=>'inputTextClass', 'placeholder' => 'Enter 10 digit number', 'maxlength' => '12'),
                     ], )->label(false);?>
                 </div>
                 <div class="form-group col-md-4">
@@ -122,7 +122,7 @@ function showTermsAlert(){
                         'jsOptions' => [
                             'onlyCountries' => ['in'],
                         ],
-                        'options'=> array('class'=>'inputTextClass', 'placeholder' => '9123456780', 'maxlength' => '12'),
+                        'options'=> array('class'=>'inputTextClass', 'placeholder' => 'Enter 10 digit number', 'maxlength' => '12'),
                     ], )->label(false);?>
                 </div>
                 <div class="form-group col-md-4">

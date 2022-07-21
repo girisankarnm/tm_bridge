@@ -159,6 +159,26 @@ table thead tr {
 
 }
 
+::placeholder {
+    color:#c3b0b0;
+}
+input::placeholder {
+
+    font-family: 'Bw Mitga';
+    font-style: normal;
+    padding-left: 3px;
+    font-size: 13px;
+    padding-bottom: 16px;
+}
+.form-group input[type="text"].form-control
+{
+    color: #787486 !important
+}
+
+.select2.select2-container .select2-selection--single .select2-selection__rendered {
+    color: #787486 !important;
+}
+
 .badge-secondary {
     color: #fff !important;
     background-color: #02a917 !important;
