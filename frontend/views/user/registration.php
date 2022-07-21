@@ -34,7 +34,12 @@ $this->registerCssFile('/css/full-page.css');
 
 
                     <div style=" margin-left: 6px; display: flex; flex-direction: row; justify-content: center">
-                            I am a <?= $form->field($register, 'user_type')->inline()->radioList([1 => 'Hotelier', 2 => 'Operator'],['class' => 'text-secondary type',])->label(false); ?>
+                        <div style="margin-right: 10px">
+                            I am a
+                        </div>
+                        <div>
+                            <?= $form->field($register, 'user_type')->inline()->radioList([1 => 'Hotelier', 2 => 'Operator'],['class' => 'text-secondary type',])->label(false); ?>
+                        </div>
                     </div>
                     <div id="registration_form" style="display:<?= empty($register->user_type) ? "none" : "block" ?>">
                         <div class="form-group row no-margin" >
