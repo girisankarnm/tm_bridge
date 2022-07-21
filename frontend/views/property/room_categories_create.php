@@ -116,10 +116,10 @@ $this->registerJsFile('/js/operational_details/room_category.js');
                                     <?php
                                     if(($room['child_policy_same_as_property'] == 1) || ($room['id'] == null)) {
 
-                                        echo $form->field($room, 'child_policy_same_as_property')->checkbox(['id' => 'child-checkbox', 'checked' => 'checked', 'class' => 'custom-control-input room-category'])->label("Room’s child & infant policy same as under property's policies");
+                                        echo $form->field($room, 'child_policy_same_as_property')->checkbox(['id' => 'child-checkbox', 'checked' => 'checked', 'class' => 'custom-control-input room-category chckbox-class'])->label("Room’s child & infant policy same as under property's policies");
 
                                     } else {
-                                        echo $form->field($room, 'child_policy_same_as_property')->checkbox(['id' => 'child-checkbox', 'class' => 'custom-control-input room-category'])->label("Room’s child & infant policy same as under property's policies");
+                                        echo $form->field($room, 'child_policy_same_as_property')->checkbox(['id' => 'child-checkbox', 'class' => 'custom-control-input room-category chckbox-class'])->label("Room’s child & infant policy same as under property's policies");
 
                                     }?>
 
