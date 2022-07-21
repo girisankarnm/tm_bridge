@@ -7,11 +7,7 @@ use Carbon\Carbon;
 
 <div class="$content">
         <div class="container-fluid" style="">
-            <div class="card-title">
-                Tariff Wizard : Enter Meal Tariff
-            </div>
-
-
+            <div class="card-title">Tariff Wizard: Meal rate </div>
         </div>
 
         <div class="tariffBorder" style="margin-top: 20px;">

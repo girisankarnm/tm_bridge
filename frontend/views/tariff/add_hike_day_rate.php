@@ -11,9 +11,7 @@ use frontend\models\tariff\roomTariffWeekdayhikeDays;
 
 <div class="$content">
     <div class="container-fluid" style="">
-        <div class="card-title">
-            Tariff Room :  Enter week day hike
-        </div>
+        <div class="card-title">Tariff Wizard: Weekday hike </div>
 
 
     </div>

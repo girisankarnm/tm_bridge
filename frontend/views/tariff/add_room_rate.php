@@ -9,7 +9,7 @@ $this->registerJsFile('/js/tariff/tariff.js');
 ?>
 <div class="$content">
     <div class="container-fluid" style="">
-        <div class="card-title">  Tariff Wizard :   Enter Room Tariff </div>
+        <div class="card-title">Tariff Wizard: Room tariff</div>
       
     </div>
 

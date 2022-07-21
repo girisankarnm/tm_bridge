@@ -67,9 +67,7 @@ function attachDatePicker() {
 
 <div class="content">
     <div class="container-fluid" style="">
-        <div class="card-title">
-            Tariff Wizard :  Enter Mandatory Dinner
-        </div>
+        <div class="card-title">Tariff Wizard: Mandatory dinner </div>
     </div>
     <div class="tariffBorder" style="margin-top: 20px;">
         <div style="margin-bottom: 30px;  ">
