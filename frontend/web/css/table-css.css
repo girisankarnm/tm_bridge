@@ -45,6 +45,14 @@
 
 }
 
+
+.guestcountpopup th {
+    background-color: #586ADA !important;
+    color: white;
+
+}
+
+
 .thtableaccomadation th{
     background-color: #586ADA !important;
     color: white;
@@ -117,7 +125,15 @@ input::placeholder {
     background-color: #e40e6a; color: white;
 }
 .btn-print-tariff :hover {
-    background: 007487;
+    background: #007487;
+}
+.custom-control-label {
+    vertical-align: middle !important;
+}
+
+.room-categories .category-item.active {
+    color: var(--white-color);
+    background-color: #0d1c7d;
 }
 
 .tariff_table { border-collapse: collapse; margin: auto;
@@ -157,6 +173,27 @@ table thead tr {
 .font-type
 {
 
+}
+
+::placeholder {
+    color: grey;
+}
+input::placeholder {
+
+    font-family: 'Bw Mitga';
+    font-style: normal;
+    padding-left: 3px;
+    font-size: 13px;
+    padding-bottom: 16px;
+    color: grey;
+}
+.form-group input[type="text"].form-control
+{
+    color: grey !important
+}
+
+.select2.select2-container .select2-selection--single .select2-selection__rendered {
+    color: #787486 !important;
 }
 
 .badge-secondary {

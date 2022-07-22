@@ -369,8 +369,8 @@ class PropertyController extends Controller
         $address_location->locality = $property->locality;
 
         $countries = ArrayHelper::map(Country::find()->asArray()->all(), 'id', 'name');
-        $locations = ArrayHelper::map(Location::find()->where(['country_id' => 1])->asArray()->all(), 'id', 'name');
-        $destinations = ArrayHelper::map(Destination::find()->asArray()->all(), 'id', 'name');
+        $locations = ArrayHelper::map(Location::find()->where(['country_id' => $property->country_id])->asArray()->all(), 'id', 'name');
+        $destinations = ArrayHelper::map(Destination::find()->where(['location_id' => $property->location_id])->asArray()->all(), 'id', 'name');
 
         $show_terms_tab = true;
         if ($property->terms_and_conditons1 == 1 &&
@@ -379,6 +379,7 @@ class PropertyController extends Controller
             $show_terms_tab = false;
         }
 
+//        return $this->asJson($countries);
         return $this->render('address_and_locations', [
                 'address_location' => $address_location,
                 'countries' => $countries,
@@ -388,6 +389,20 @@ class PropertyController extends Controller
                 'property' => $property
             ]
         );
+    }
+    public function actionLocationlist(){
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+        $country_id = Yii::$app->request->get('countryID');
+        $locations = ArrayHelper::map(Location::find()->where(['country_id' => $country_id])->asArray()->all(), 'id', 'name');
+        return $locations ;
+    }
+    public function actionDestinationlist(){
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+        $location_id = Yii::$app->request->get('location_id');
+        $destinations = ArrayHelper::map(Destination::find()->where(['location_id' => $location_id])->asArray()->all(), 'id', 'name');
+        return $destinations ;
     }
 
     public function actionSavepropertyaddresslocation()
@@ -761,8 +776,8 @@ class PropertyController extends Controller
     }
 
     public function actionTermsandconditions()
-    {        
-        $property_id = Yii::$app->request->get('id');        
+    {
+        $property_id = Yii::$app->request->get('id');
         $property = NULL;
         if ($property_id != 0) {
             $property = Property::find()

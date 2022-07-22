@@ -114,14 +114,14 @@ class EnquiryController extends Controller{
                     $owner_id = Yii::$app->user->identity->getOWnerId();
 
                     $latest_enquiry_no = "0/0000";
-                    $latest_enquiry = Enquiry::find()->where(['owner_id'=>$owner_id,'id'=> SORT_DESC])->one();                    
+                    $latest_enquiry = Enquiry::find()->where(['owner_id'=>$owner_id,'id'=> SORT_DESC])->one();
                     if($latest_enquiry != NULL) {
                         $latest_enquiry_no = $latest_enquiry->enquiry_no;
                     }
-                    
+
                     $now = Carbon::now();
                     $current_year = $now->year;
-                    
+
                     $last_enquiry_no = strtok($latest_enquiry_no, '/');
                     $last_enquiry_year = substr($latest_enquiry_no, strpos($latest_enquiry_no, "/") + 1);
                     if ($current_year == $last_enquiry_year)
@@ -301,8 +301,19 @@ class EnquiryController extends Controller{
     public function actionAccommodation(){
         $enquiry = $this->getEnquiry();
 
+
+        $destinations = [] ;
+        if( isset($enquiry->enquiryAccommodations)&& count($enquiry->enquiryAccommodations) > 0 ){
+
+
+            $enqAccomodationDestinationIDS = EnquiryAccommodation::find()->where(['enquiry_id'=>  $enquiry_id = (int) Yii::$app->request->get('id')])
+                ->select('destination_id')->asArray()->column();
+            $destinations = ArrayHelper::map(Destination::find()->where(['id'=>$enqAccomodationDestinationIDS])->asArray()->all(), 'id', 'name');
+
+        }
+
         $accommodation = new EnquiryAccommodation();
-        $destinations = ArrayHelper::map(Destination::find()->asArray()->all(), 'id', 'name');
+//        $destinations = ArrayHelper::map(Destination::find()->asArray()->all(), 'id', 'name');
         $meal_plans = ArrayHelper::map(PropertyMealPlan::find()->all(), 'id', 'name');
         $pax_count_plans = ArrayHelper::map(EnquiryGuestCount::find()->where(['enquiry_id' => $enquiry->id])->all(), 'id', function($model)
         {
@@ -342,7 +353,7 @@ class EnquiryController extends Controller{
                 $plan_count = count($_POST["day"]);
                 for ($i = 0; $i < $plan_count; $i++ ) {
                     $accommodation = new EnquiryAccommodation();
-                    $accommodation->day =  $_POST["day"][$i];
+                    $accommodation->day =  Carbon::parse($_POST["day"][$i])->toDateString();
                     $accommodation->status = $_POST["accommodation_status"][$i];
                     $accommodation->destination_id = ($accommodation->status == 1 ) ? $_POST["destination_id"][$i] : 0;
                     $accommodation->meal_plan_id = ($accommodation->status == 1 ) ? $_POST["meal_plan_id"][$i] : 0;
@@ -379,4 +390,16 @@ class EnquiryController extends Controller{
 
         return $this->render('details', ['enquiry' => $enquiry, 'accommodation_details' => $accommodation_details ]);
     }
+
+    function actionDestinations(){
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+        $searchKeyWord = Yii::$app->request->get('q');
+        $destinations = [];
+        if ($searchKeyWord != null) {
+            $destinations = Destination::find()->andFilterWhere(['like', 'name', $searchKeyWord])->asArray()->all();
+        }
+        return array('status' => 0, 'items' => $destinations);;
+    }
+
 }
