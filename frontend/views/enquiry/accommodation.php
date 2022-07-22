@@ -32,7 +32,7 @@ $this->registerJsFile('/js/enquiry/accomodation.js');
             <table id="guest_count_same_table " class="table3accomadatonclass" >
                 <tr  class="thtableaccomadation" >
                     <th>Day</th>
-                    <th>Accommodation Staus</th>
+                    <th>Staus</th>
                     <th>Stay Destination</th>
                     <th>Meal Plan</th>
                     <th>Pax Count Plan</th>

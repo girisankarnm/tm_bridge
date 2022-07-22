@@ -83,7 +83,8 @@ $( document ).ready(function() {
             processResults: function (data) {
                 console.log(data)
                 var res = data.items.map(function (item) {
-                    return {id: item.id, text: item.name};
+                    console.log(item)
+                    return {id: item.id, text: item.name+' ('+item.location_name+','+item.country_name+' )'};
                 });
                 return {
                     results: res
