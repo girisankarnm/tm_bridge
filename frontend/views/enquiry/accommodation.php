@@ -54,7 +54,7 @@ $this->registerJsFile('/js/enquiry/accomodation.js');
                                 <?php echo $form->field($accomodation,'status')->dropDownList($accomodation_status,['row_id' => $i, 'name' => 'accommodation_status[]','class' => 'inputTextClassaccomadation accommodation-input acco-margintop' ])->label(false) ?>
                             </td >
                             <td class="Adults"  >
-                                <?php echo $form->field($accomodation,'destination_id')->dropDownList($destinations,['id' => 'destination_'.$i , 'name' => 'destination_id[]','class' => 'inputTextClassaccomadation accommodation-input acco-margintop' ])->label(false) ?>
+                                <?php echo $form->field($accomodation,'destination_id')->dropDownList($destinations,['id' => 'destination_'.$i , 'name' => 'destination_id[]','class' => 'inputTextClassaccomadation accommodation-input acco-margintop destination_select2' ])->label(false) ?>
                             </td>
                             <td class="Adults">
                                 <?php echo $form->field($accomodation,'meal_plan_id')->dropDownList($meal_plans,['id' => 'meal_plan_'.$i, 'name' => 'meal_plan_id[]','class' => 'inputTextClassaccomadation accommodation-input acco-margintop'])->label(false) ?>
@@ -80,7 +80,7 @@ $this->registerJsFile('/js/enquiry/accomodation.js');
                         <tr>
                             <td class="Adults">
                                 <div class="form-group margin-bottom-2px-acco field-destination_0 required">
-                                <input type="text"  name="day[]"  value="<?php echo date('Y-m-d', strtotime($enquiry->tour_start_date. ' + ' .$i. 'days')); ?>" class="inputTextClassaccomadation acco-margintop daytextindent" readonly />
+                                <input type="text"  name="day[]"  value="<?php echo date('d-M-Y', strtotime($enquiry->tour_start_date. ' + ' .$i. 'days')); ?>" class="inputTextClassaccomadation acco-margintop daytextindent" readonly />
                                 </div>
                             </td>
                             <td class="Adults">
@@ -92,7 +92,7 @@ $this->registerJsFile('/js/enquiry/accomodation.js');
                                 </div>
                             </td>
                             <td  class="Adults" >
-                                <?php echo $form->field($model,'destination_id')->dropDownList($destinations,['id' => 'destination_'.$i , 'name' => 'destination_id[]','class' => 'inputTextClassaccomadation tableinput acco-margintop' ])->label(false) ?>
+                                <?php echo $form->field($model,'destination_id')->dropDownList($destinations,['id' => 'destination_'.$i , 'name' => 'destination_id[]','class' => 'inputTextClassaccomadation tableinput acco-margintop destination_select2' ])->label(false) ?>
                             </td  >
                             <td  class="Adults">
                                 <?php echo $form->field($model,'meal_plan_id')->dropDownList($meal_plans,['id' => 'meal_plan_'.$i, 'name' => 'meal_plan_id[]','class' => 'inputTextClassaccomadation tableinput acco-margintop'])->label(false) ?>

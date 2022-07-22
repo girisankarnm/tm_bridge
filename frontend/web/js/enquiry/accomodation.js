@@ -67,3 +67,33 @@ function disableAccommodationRow(row_id, disableFlag){
     $('#meal_plan_' + row_id).prop('disabled', disableFlag);
     $('#plan_' + row_id).prop('disabled', disableFlag);
 }
+$( document ).ready(function() {
+    $('.destination_select2').select2({
+
+        ajax: {
+            url: 'index.php?r=enquiry/destinations',
+            dataType: 'json',
+            type: "GET",
+            delay: 250,
+            data: function (params) {
+                return {
+                    q: params.term
+                };
+            },
+            processResults: function (data) {
+                console.log(data)
+                var res = data.items.map(function (item) {
+                    return {id: item.id, text: item.name};
+                });
+                return {
+                    results: res
+                };
+            }
+        },
+
+    });
+    $(document).on('select2:open', () => {
+        document.querySelector('.select2-search__field').focus();
+    });
+});
+
