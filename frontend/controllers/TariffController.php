@@ -692,7 +692,8 @@ class TariffController extends Controller {
         ]);        
     }
 
-    public function actionSavehikedayrate(){
+    public function actionSavehikedayrate(){      
+
         $date_range = new TariffDateRange();
         if ($date_range->load(Yii::$app->request->post()) ) {            
         }
@@ -716,24 +717,27 @@ class TariffController extends Controller {
 
                 $week_days = Yii::$app->request->post('week_days_'.$room_id);                
                 if($week_days != NULL) {
-                    $slab = new RoomTariffSlabWeekdayhike();
-                    $slab->room_rate = Yii::$app->request->post('room_rate_'.$room_id);
-                    $slab->adult_with_extra_bed = Yii::$app->request->post('adult_with_extra_bed_'.$room_id);
-                    $slab->child_with_extra_bed = Yii::$app->request->post('child_with_extra_bed_'.$room_id);
-                    $slab->child_sharing_bed = Yii::$app->request->post('child_sharing_bed_'.$room_id);
-                    $slab->single_occupancy = Yii::$app->request->post('single_occupancy_'.$room_id);
-                    $slab->tariff_id = $tariff->getPrimaryKey();
-                    $slab->save();
-
                     $day_count = count($week_days);
-                    for ($i = 0; $i < $day_count; $i++ ) { 
-                        $days = new RoomTariffWeekdayhikeDays();
-                        $days->day = $week_days[$i];
-                        $days->tariff_id = $tariff->getPrimaryKey();
-                        $days->save();
+                    
+                    $room_rates = Yii::$app->request->post('room_rate_'.$room_id);
+                    $adult_with_extra_bed = Yii::$app->request->post('adult_with_extra_bed_'.$room_id);
+                    $child_with_extra_bed = Yii::$app->request->post('child_with_extra_bed_'.$room_id);
+                    $child_sharing_bed = Yii::$app->request->post('child_sharing_bed_'.$room_id);
+                    $single_occupancy = Yii::$app->request->post('single_occupancy_'.$room_id);
+                    
+                    for ($i = 0; $i < $day_count; $i++ ) {
+                        //echo $week_days[$i].":".$room_rates[$week_days[$i]];
+                        $slab = new RoomTariffSlabWeekdayhike();
+                        $slab->day = $week_days[$i];
+                        $slab->room_rate = $room_rates[$week_days[$i]];
+                        $slab->adult_with_extra_bed = $adult_with_extra_bed[$week_days[$i]];
+                        $slab->child_with_extra_bed = $child_with_extra_bed[$week_days[$i]];
+                        $slab->child_sharing_bed = $child_sharing_bed[$week_days[$i]];
+                        $slab->single_occupancy = $single_occupancy[$week_days[$i]];
+                        $slab->tariff_id = $tariff->getPrimaryKey();
+                        $slab->save();
                     }
-                }
-                
+                }                
             }
         }
 
