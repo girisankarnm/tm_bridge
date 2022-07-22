@@ -47,7 +47,8 @@ $this->registerJsFile('/js/enquiry/accomodation.js');
                         <tr class="">
                             <td class="Adults">
                                 <div class="form-group margin-bottom-2px-acco">
-                                <input type="text" name="day[]"  value="<?php echo date('d-M-Y', strtotime($accomodation->day)); ?>" class="inputTextClassaccomadation accommodation-input acco-margintop daytextindent" readonly />
+                                <input hidden type="text" name="day[]"  value="<?php echo date('d-M-Y', strtotime($accomodation->day)); ?>" class="inputTextClassaccomadation accommodation-input acco-margintop daytextindent" readonly />
+                                    <span style="color: #323131;font-weight: bold;"><?php echo date('d-M-Y', strtotime($accomodation->day)); ?></span>
                                 </div>
                             </td>
                             <td class="Adults">
