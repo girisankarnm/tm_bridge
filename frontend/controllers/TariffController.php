@@ -699,7 +699,7 @@ class TariffController extends Controller {
         }
 
         $room_checked = Yii::$app->request->post('room_checked');
-
+        
         $room_ids = ArrayHelper::getColumn(Room::find()->select('id')->where(['property_id' => $date_range->property_id])->all(), 'id');
 
         foreach ($room_ids as $room_id){
@@ -715,7 +715,7 @@ class TariffController extends Controller {
                 $tariff->date_range_id = $_POST["TariffDateRange"]["id"];
                 $tariff->save();
 
-                $week_days = Yii::$app->request->post('week_days_'.$room_id);                
+                $week_days = Yii::$app->request->post('week_days_room_'.$room_id);                
                 if($week_days != NULL) {
                     $day_count = count($week_days);
                     
@@ -740,7 +740,7 @@ class TariffController extends Controller {
                 }                
             }
         }
-
+        
         $tariff = $_POST["tariff"];        
         if($tariff == 3) {
             return $this->redirect(['tariff/home', 

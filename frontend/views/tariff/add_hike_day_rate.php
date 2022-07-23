@@ -19,22 +19,51 @@ function room_check_clicked(checkbox){
     }    
 }
 
-function week_day_click(day) {
-    if( $(day).is(':checked')) {        
-        console.log(day.id + "cheched");
+function validateHikeDay() {
+    var bHikedayDataValidation = true;
+    var errorMessage = "If you opt for weekday hike, select a day and define rate";
+
+    $("input[name='room_checked[]']").each(function(){        
+        if($(this).is(":checked")) { 
+            bHikedayDataValidation = false;            
+            var name = "input[name='week_days_" + this.id + "[]'";           
+            $(name).each(function(){
+                if($(this).is(":checked")) { 
+                     //at least one weekday selected
+                    //console.log("Enter data for day: " + this.id);
+                    
+                    if( $("#weekday_room_rate_" + this.id).val() > 0 || 
+                    $("#weekday_adult_with_extra_bed_" + this.id).val() > 0 ||
+                    $("#weekday_child_with_extra_bed_" + this.id).val() > 0 ||
+                    $("#weekday_child_sharing_bed_" + this.id).val() > 0 ||
+                    $("#weekday_single_occupancy_" + this.id).val() > 0 
+                    ) {                        
+                        bHikedayDataValidation = true;
+                    }
+                    else {
+                        errorMessage = "Define week day hike amount";
+                        return false;
+                    }
+                }
+            });
+        }
+        if( !bHikedayDataValidation )   {
+            return false;
+        }
+    });
+
+    if( !bHikedayDataValidation )
+    {
+        alert(errorMessage);
     }
-    else {
-        console.log(day.id + "uncheched");
-    }   
+
+    return bHikedayDataValidation;
 }
 
-$('#save_weekday_hike').click(function(e){
-        e.preventDefault();
-        console.log("AA");
-});
-
-function saveWeekdayHike() {   
-    console.log("AA");
+function saveWeekdayHike() {
+    if(validateHikeDay()) {
+        $("#weekday_hike").submit();  
+    }    
 }
 </script>
 
@@ -84,7 +113,7 @@ function saveWeekdayHike() {
         </div>
         <hr class="sidebar-divider">
 
-        <?php $form = ActiveForm::begin(['id' => 'meal_rate','enableClientValidation' => true,'method' => 'post','action' => ['tariff/savehikedayrate', 'id'=> $date_range->property_id]]) ?>
+        <?php $form = ActiveForm::begin(['id' => 'weekday_hike','enableClientValidation' => true,'method' => 'post','action' => ['tariff/savehikedayrate', 'id'=> $date_range->property_id]]) ?>
         <?= $form->field($date_range, 'property_id')->hiddenInput()->label(false); ?>
         <?= $form->field($date_range, 'parent')->hiddenInput()->label(false); ?>
         <?= $form->field($date_range, 'id')->hiddenInput()->label(false); ?>
@@ -121,7 +150,7 @@ function saveWeekdayHike() {
                                     </button>
                                 </h2>
 
-                            <div id="collapseOne<?= $i ?>" class="collapse <?php if ($i==1): ?> show <?php endif; ?> " aria-labelledby="headingOne" data-parent="#accordionExample<?= $i ?>">
+                            <div id="collapseOne<?= $i ?>" class="collapse <?php if ($i==1): ?> show <?php endif; ?>" aria-labelledby="headingOne" data-parent="#accordionExample<?= $i ?>">
                             <div style="display: inline;margin-top: 4px;margin-left: 19px">
                                 <input type="checkbox" class="material-checkbox" name="room_checked[]" id="room_<?= $room->id?>" value="<?= $room->id?>" <?= ($day_hike != NULL) ? "checked" : "" ?> onclick="room_check_clicked(this);">
                                 <label  style="margin: 8px" >Room have week day hike rate </label>
@@ -137,7 +166,7 @@ function saveWeekdayHike() {
                                                 <th> Single Occupancy</th>
                                             </tr>
                                             <?php
-                                            $i = 0;
+                                            $week_day_index = 0;
                                             $week_days = [
                                                 'Sunday',
                                                 'Monday',
@@ -151,22 +180,22 @@ function saveWeekdayHike() {
                                             $j = 0;
                                             foreach ($week_days as $week_day) {
                                                 $tariff_slab = NULL;
-                                                if( ArrayHelper::isIn( $i , $days) ) {
+                                                if( ArrayHelper::isIn($week_day_index, $days) ) {
                                                     $tariff_slab = isset($day_hike->roomTariffSlabWeekdayhikes[$j]) ? $day_hike->roomTariffSlabWeekdayhikes[$j] : NULL;
                                                     $j++;
                                                 }
                                             ?>
                                                 <tr>
-                                                    <td><input id ='<?= $week_days[$i]."_".$room->id?>' class="material-checkbox" type="checkbox" value="<?= $i ?>" style="margin-left: 4px" name="week_days_<?=$room->id?>[]" <?= ArrayHelper::isIn( $i , $days) ? "checked" : "" ?>  onclick="week_day_click(this);">
-                                                    <label  style ="margin: 8px" ><?= $week_days[$i] ?> </label></td>
-                                                    <td><input type="text" name="room_rate_<?=$room->id?>[]" id="weekday_room_rate" class="inputTextClass enquiryTable" style="width: 100px;height: 33px;margin-top: 24px;" value="<?= isset($tariff_slab) ? $tariff_slab->room_rate : 0 ?>" /></td>
-                                                    <td><input type="text" name="adult_with_extra_bed_<?=$room->id?>[]" id="weekday_adult_with_extra_bed" style="width: 100px;height: 33px;margin-top: 24px;" class="inputTextClass enquiryTable" value="<?= isset($tariff_slab) ? $tariff_slab->adult_with_extra_bed : 0 ?>"/></td>
-                                                    <td><input type="text" name="child_with_extra_bed_<?=$room->id?>[]" id="weekday_child_with_extra_bed" style="width: 100px;height: 33px;margin-top: 24px;" class="inputTextClass enquiryTable" value="<?= isset($tariff_slab) ? $tariff_slab->child_with_extra_bed : 0 ?>"/></td>
-                                                    <td><input type="text" name="child_sharing_bed_<?=$room->id?>[]" id="weekday_child_sharing_bed" style="width: 100px;height: 33px;margin-top: 24px;" class="inputTextClass enquiryTable" value="<?= isset($tariff_slab) ? $tariff_slab->child_sharing_bed : 0 ?>" /></td>
-                                                    <td><input type="text" name="single_occupancy_<?=$room->id?>[]" id="weekday_single_occupancy" style="width: 100px;height: 33px;margin-top: 24px;" class="inputTextClass enquiryTable" value="<?= isset($tariff_slab) ? $tariff_slab->single_occupancy : 0 ?>" /></td>            
+                                                    <td><input id ='<?= $week_days[$week_day_index]."_room_".$room->id?>' class="material-checkbox" type="checkbox" value="<?= $week_day_index ?>" style="margin-left: 4px" name="week_days_room_<?=$room->id?>[]" <?= ArrayHelper::isIn( $week_day_index , $days) ? "checked" : "" ?>  onclick="week_day_click(this);">
+                                                    <label  style ="margin: 8px" ><?= $week_days[$week_day_index] ?> </label></td>
+                                                    <td><input type="text" name="room_rate_<?=$room->id?>[]" id="weekday_room_rate_<?= $week_days[$week_day_index] ?>_room_<?=$room->id?>" class="inputTextClass enquiryTable" style="width: 100px;height: 33px;margin-top: 24px;" value="<?= isset($tariff_slab) ? $tariff_slab->room_rate : 0 ?>" /></td>
+                                                    <td><input type="text" name="adult_with_extra_bed_<?=$room->id?>[]" id="weekday_adult_with_extra_bed_<?= $week_days[$week_day_index] ?>_room_<?=$room->id?>" style="width: 100px;height: 33px;margin-top: 24px;" class="inputTextClass enquiryTable" value="<?= isset($tariff_slab) ? $tariff_slab->adult_with_extra_bed : 0 ?>"/></td>
+                                                    <td><input type="text" name="child_with_extra_bed_<?=$room->id?>[]" id="weekday_child_with_extra_bed_<?= $week_days[$week_day_index] ?>_room_<?=$room->id?>" style="width: 100px;height: 33px;margin-top: 24px;" class="inputTextClass enquiryTable" value="<?= isset($tariff_slab) ? $tariff_slab->child_with_extra_bed : 0 ?>"/></td>
+                                                    <td><input type="text" name="child_sharing_bed_<?=$room->id?>[]" id="weekday_child_sharing_bed_<?= $week_days[$week_day_index] ?>_room_<?=$room->id?>" style="width: 100px;height: 33px;margin-top: 24px;" class="inputTextClass enquiryTable" value="<?= isset($tariff_slab) ? $tariff_slab->child_sharing_bed : 0 ?>" /></td>
+                                                    <td><input type="text" name="single_occupancy_<?=$room->id?>[]" id="weekday_single_occupancy_<?= $week_days[$week_day_index] ?>_room_<?=$room->id?>" style="width: 100px;height: 33px;margin-top: 24px;" class="inputTextClass enquiryTable" value="<?= isset($tariff_slab) ? $tariff_slab->single_occupancy : 0 ?>" /></td>            
                                                 </tr>
                                             <?php 
-                                                $i++;
+                                                $week_day_index++;
                                             } ?>
 
                                     </table>
@@ -187,7 +216,7 @@ function saveWeekdayHike() {
             <div style="display: block;margin-right: 35px">
                 <!-- <BUTTON type="button" class="prevbutton" style="width: 80px;height: 30px" data-toggle="modal" data-target="#logoutModal"> Prev </BUTTON> -->
                 <?php if ($is_published != 1) { ?>
-                    <button type="submit" class="buttonSave save-border" style="width: 80px;height: 30px" id="save_weekday_hike"> Save </button>
+                    <button type="button" class="buttonSave save-border" style="width: 80px;height: 30px" id="save_weekday_hike" onclick="saveWeekdayHike(this);"> Save </button>
                 <?php } ?>
 
                 <?php if ($tariff != 0) { ?>
