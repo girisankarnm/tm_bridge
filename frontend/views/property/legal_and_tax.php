@@ -98,7 +98,7 @@ function showTermsAlert(){
                     </div>
                     <div class="row">
                         <div class="form-group col-md-6">
-                            <label class="Labelclass">Upload GST Certificate<span style="color: red; font-size: 18px">*</span></label>
+                            <label class="Labelclass">Upload GST Certificate</label>
                                 <?php
                                 if(!$legal_tax_documentation->gst_image) {
                                     echo "<div id='gstId' class='image-border'><img id='gstImage' src='images/GST.png' class='imagedisplay'></div>";
