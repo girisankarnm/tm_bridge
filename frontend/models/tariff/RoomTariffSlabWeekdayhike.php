@@ -8,6 +8,7 @@ use Yii;
  * This is the model class for table "room_tariff_slab_weekdayhike".
  *
  * @property int $id
+ * @property int|null $day
  * @property float|null $room_rate
  * @property float|null $adult_with_extra_bed
  * @property float|null $child_with_extra_bed
@@ -33,8 +34,8 @@ class RoomTariffSlabWeekdayhike extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['day', 'tariff_id'], 'integer'],
             [['room_rate', 'adult_with_extra_bed', 'child_with_extra_bed', 'child_sharing_bed', 'single_occupancy'], 'number'],
-            [['tariff_id'], 'integer'],
             [['tariff_id'], 'exist', 'skipOnError' => true, 'targetClass' => RoomTariffWeekdayhike::className(), 'targetAttribute' => ['tariff_id' => 'id']],
         ];
     }
@@ -46,6 +47,7 @@ class RoomTariffSlabWeekdayhike extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
+            'day' => 'Day',
             'room_rate' => 'Room Rate',
             'adult_with_extra_bed' => 'Adult With Extra Bed',
             'child_with_extra_bed' => 'Child With Extra Bed',

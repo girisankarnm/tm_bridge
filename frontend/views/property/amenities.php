@@ -117,7 +117,7 @@ $this->registerJsFile('/js/property/amenities/services_amenities.js');
 
                                 <div class="form-group form-checkbox">
                                     <div class="form-material">
-                                        <input <?= $property->have_swimming_pool == 1 ? "checked" : ""; ?> type="checkbox" name="" id="swimming_pool" class="form-input-checkbox">
+                                        <input <?= $property->have_swimming_pool == 1 ? "checked" : ""; ?> type="checkbox" name="" id="swimming_pool" class="form-input-checkbox chckbox-class">
                                         <label for="swimming_pool">
                                             <strong> Swimming Pool </strong>
                                         </label>
@@ -133,7 +133,7 @@ $this->registerJsFile('/js/property/amenities/services_amenities.js');
 
                                         <div class="col-5">
                                             <div class="form-group">
-                                                <input value="<?= $swimming_pool->count ?>" type="text" name="PropertySwimmingPool[count]" id="propertyswimmingpool-count" class="form-control input-sm">
+                                                <input value="<?= $swimming_pool->count ?>" type="text" name="PropertySwimmingPool[count]" id="propertyswimmingpool-count" class="form-control input-sm chckbox-class">
                                             </div>
                                         </div>
 
@@ -150,7 +150,7 @@ $this->registerJsFile('/js/property/amenities/services_amenities.js');
 
                                                 <div class="form-group form-checkbox mr-4">
                                                     <div class="form-material">
-                                                        <input type="checkbox" name="pool_type[]" id="<?php echo $pool_type->id ?>" class="form-input-checkbox" value="<?php echo $pool_type->id ?>" name="pool_type[]" <?php echo in_array($pool_type->id, $type_id_list) ? "checked" : ""   ?>>
+                                                        <input type="checkbox" name="pool_type[]" id="<?php echo $pool_type->id ?>" class="form-input-checkbox chckbox-class" value="<?php echo $pool_type->id ?>" name="pool_type[]" <?php echo in_array($pool_type->id, $type_id_list) ? "checked" : ""   ?>>
                                                         <label for="<?php echo $pool_type->id ?>">
                                                             <?php echo $pool_type->name; ?>
                                                         </label>

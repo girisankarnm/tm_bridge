@@ -67,55 +67,47 @@ function attachDatePicker() {
 
 <div class="content">
     <div class="container-fluid" style="">
-        <div class="card-title">
-            Tariff Wizard
-        </div>
+        <div class="card-title">Tariff Wizard: Mandatory dinner </div>
+    </div>
+    <div class="tariffBorder" style="margin-top: 20px;">
+        <div style="margin-bottom: 30px;  ">
 
-        <div class="tariffBorder1" style="line-height: 0px; height:80px;">
-            <div id="mainHeding-location"style="height: 43px">
-                    <div > <img style="width: 34px;height: 34px" src="images/building1.png" alt="Matrix"></div>
-                    <div >
-                        <div id="h-border-location"  >
-                            <div  >
+                <div  id="location-date-border-card">
+                    <div id="mainHeding-location-header"style="height: 43px;">
+                        <div > <img style="width: 34px;height: 34px" src="images/building1.png" alt="Matrix"></div>
+                        <div >
+                            <div id="h-border-location-header"  >
+                                <div  >
                           <span class="hotelHeading" > <?= $property->name ?> <img class="f-star" src="images/Star-1.svg" alt="Matrix">
                            <img class="f-star" style="padding-left: 2px"  src="images/Star-1.svg" alt="Matrix">
                            <img  class="f-star" style="padding-left: 2px" src="images/Star-1.svg" alt="Matrix">
                            </span>
+                                </div>
+                                <div>   <small  class="smallFonts fontsize-location"><i  class="fa fa-map-marker locatiospace" aria-hidden="true"></i><?= $property->location->name?>, <?= $property->destination->name?>, <?= $property->country->name?></small>
+                                    </span></div>
                             </div>
-                            <div>   <small  class="smallFonts fontsize-location"><i  class="fa fa-map-marker locatiospace" aria-hidden="true"></i><?= $property->location->name?>, <?= $property->destination->name?>, <?= $property->country->name?></small>
-                                </span></div>
                         </div>
                     </div>
-            </div>
-        </div>
-    </div>
+                    <div id="tariffheaderDate" style="justify-content: right;width: 36%;"  >
+                        <div class="margintopcls" style="background-color: #ffffff;text-align: center">
+                            <svg style="margin-left: 3px" width="37" height="36" viewBox="0 0 43 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="21.5893" cy="21.0307" r="17.2748" transform="rotate(-172.902 21.5893 21.0307)" stroke="#009721" stroke-width="3"/>
+                                <path d="M14.875 21.5339L19.6822 26.3413L30.3058 15.7178" stroke="#009721" stroke-width="3" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div class="margintopcls" >
+                            <span class="dateform">From Date</span>
+                            <!--                    <div style=" flex-wrap: wrap">-->
+                            <div ><h6 class="motherdaterange-H6 h7class" ><?= Carbon::parse($date_range->from_date)->format('d M Y'); ?> </h6></div>
 
-    <div class="tariffBorder" style="margin-top: 20px;">
-        <div style="margin-bottom: 30px; background-color: ">
-
-            <div class="commonTitle" style="width: 50%;float: left;    margin-left: 20px;">
-                Enter Mandatory Dinner</div>
-
-            <div id="tariffAddmain" style="justify-content: right"  >
-                <div class="margintopcls" style="background-color: #ffffff;text-align: center">
-                    <svg style="margin-left: 3px" width="37" height="36" viewBox="0 0 43 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="21.5893" cy="21.0307" r="17.2748" transform="rotate(-172.902 21.5893 21.0307)" stroke="#009721" stroke-width="3"/>
-                        <path d="M14.875 21.5339L19.6822 26.3413L30.3058 15.7178" stroke="#009721" stroke-width="3" stroke-linecap="round"/>
-                    </svg>
+                        </div>
+                        <div><h6 class="h6class"><hr class="new1 hrtopmargin"> </h6>
+                        </div>
+                        <div class="margintopcls" >  <span class="dateform">To Date</span>
+                            <div style="width: 90px;"><h6 class="motherdaterange-H6 h7class" ><?= Carbon::parse($date_range->to_date)->format('d M Y'); ?> </h6></div>
+                        </div>
+                    </div>
                 </div>
-                <div class="margintopcls" >
-                    <span class="dateform">From Date</span>
-                    <!--                    <div style=" flex-wrap: wrap">-->
-                    <div ><h6 class="motherdaterange-H6 h7class" ><?= Carbon::parse($date_range->from_date)->format('d M Y'); ?> </h6></div>
-
-                </div>
-                <div style="margin-top: 4px"><h6 class="h6class"><hr class="new1 hrtopmargin"> </h6>
-                </div>
-                <div class="margintopcls" >  <span class="dateform">From Date</span>
-                    <div style="width: 90px;"><h6 class="motherdaterange-H6 h7class" ><?= Carbon::parse($date_range->to_date)->format('d M Y'); ?> </h6></div>
-                </div>
-            </div>
-
         </div>
         <hr class="sidebar-divider">
         <?php $form = ActiveForm::begin(['id' => 'meal_rate','enableClientValidation' => true,'method' => 'post','action' => ['tariff/addmandatorydinnner', 'id'=> $date_range->property_id, 'mother_id' => $date_range->id]]) ?>
@@ -139,10 +131,10 @@ function attachDatePicker() {
         foreach ($dinners as $dinner)        
         { ?>
             <tr>
-                <td class="Adults"><input type="text" class="inputTextClass add-mandatorydinner-input"  name="dinner_daterange[]" value = "<?= Carbon::parse($dinner->date)->format('d M Y'); ?>" "/></td>
-                <td class="Adults"><input type="text" class="inputTextClass add-mandatorydinner-input" name="event_name[]" value = "<?= $dinner->name ?>"  >  </td>
-                <td class="Adults"><input type="number" class="inputTextClass add-mandatorydinner-input" name="adult_rate[]" value = "<?= $dinner->rate_adult ?>" ></td>
-                <td class="Adults"><input type="number" class="inputTextClass add-mandatorydinner-input" name="child_rate[]" value = "<?= $dinner->rate_child ?>" ></td>
+                <td class="Adults"><input type="text" class="inputTextClass add-mandatorydinner-input"  name="dinner_daterange[]" value = "<?= Carbon::parse($dinner->date)->format('d M Y'); ?>" required /></td>
+                <td class="Adults"><input type="text" class="inputTextClass add-mandatorydinner-input" name="event_name[]" value = "<?= $dinner->name ?>" required >  </td>
+                <td class="Adults"><input type="number" class="inputTextClass add-mandatorydinner-input" name="adult_rate[]" value = "<?= $dinner->rate_adult ?>" required ></td>
+                <td class="Adults"><input type="number" class="inputTextClass add-mandatorydinner-input" name="child_rate[]" value = "<?= $dinner->rate_child ?>" required ></td>
                 <td class="action-td">
                     <?php if($i != 0) { ?>
                         <i name="compulsory_rem" class="fa fa-minus fa-lg text-danger mt-2 ml-4" onclick="removeRow(this)"></i>
@@ -170,10 +162,10 @@ function attachDatePicker() {
         {
         ?>
             <tr>
-                <td class="Adults"><input type="text" class="inputTextClass table-td-inputwidth" name="dinner_daterange[]" /></td>
-                <td class="Adults"><input type="text" class="inputTextClass table-td-inputwidth" name="event_name[]" ></td>
-                <td class="Adults"><input type="number" class="inputTextClass table-td-inputwidth" name="adult_rate[]" ></td>
-                <td class="Adults"><input type="number" class="inputTextClass table-td-inputwidth" name="child_rate[]" ></td>
+                <td class="Adults"><input type="text" class="inputTextClass table-td-inputwidth" name="dinner_daterange[]" required /></td>
+                <td class="Adults"><input type="text" class="inputTextClass table-td-inputwidth" name="event_name[]" required></td>
+                <td class="Adults"><input type="number" class="inputTextClass table-td-inputwidth" name="adult_rate[]" required ></td>
+                <td class="Adults"><input type="number" class="inputTextClass table-td-inputwidth" name="child_rate[]" required></td>
                 <td class="Adults1"></td>
             </tr>
             <tfoot >

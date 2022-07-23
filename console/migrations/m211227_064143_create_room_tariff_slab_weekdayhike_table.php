@@ -13,7 +13,8 @@ class m211227_064143_create_room_tariff_slab_weekdayhike_table extends Migration
     public function safeUp()
     {
         $this->createTable('{{%room_tariff_slab_weekdayhike}}', [
-            'id' => $this->primaryKey(),            
+            'id' => $this->primaryKey(),
+            'day' => $this->tinyInteger()->defaultValue(null),
             'room_rate' =>  $this->money(7, 2)->defaultValue(null),
             'adult_with_extra_bed' =>  $this->money(7, 2)->defaultValue(null),
             'child_with_extra_bed' =>  $this->money(7, 2)->defaultValue(null),

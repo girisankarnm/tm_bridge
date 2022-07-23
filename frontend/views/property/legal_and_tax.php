@@ -1,34 +1,39 @@
 <?php
-
 use yii\bootstrap4\ActiveForm;
+$this->registerJsFile('/js/client_requested_option/add_option.js');
 
 ?>
 
 <script type="text/javascript">
-$(document).ready(function() {
-    $('#save_legal').bind("click",function() 
-    {   
-        if($('#legaltaxdocumentation-gst_number').val().trim().length != 0 && $('#gst_image_is_there').val() != 1 ) {
-            var imgVal = $('#uploadGst').val();
-            if(imgVal == '') 
-            { 
-                var field = $('#uploadGst');        
-                let immediateSibling = field.next();
-                if (immediateSibling.hasClass('invalid-feedback')) {
-                    immediateSibling.text("GST Image is required");
-                    immediateSibling.show();        
+    $(document).ready(function() {
+        $('#save_legal').bind("click",function()
+        {
+            if($('#legaltaxdocumentation-gst_number').val().trim().length != 0 && $('#gst_image_is_there').val() != 1 ) {
+                var imgVal = $('#uploadGst').val();
+                if(imgVal == '')
+                {
+                    var field = $('#uploadGst');
+                    let immediateSibling = field.next();
+                    if (immediateSibling.hasClass('invalid-feedback')) {
+                        immediateSibling.text("GST Image is required");
+                        immediateSibling.show();
+                    }
+
+                    return false;
                 }
-
-                return false; 
             }
-        }
 
-        return true;
-    }); 
-});
+            return true;
+        });
+    });
+
+    function showTermsAlert(){
+        toastr.error("Complete all other forms to proceed!");
+        return false;
+    }
 </script>
 
-<div class="$content">
+<div class="content">
     <div class="container-fluid" >
         <div class="card-title">
             <?= $property->name; ?>
@@ -39,8 +44,8 @@ $(document).ready(function() {
                 <a href="index.php?r=property%2Faddressandlocation&id=<?= $legal_tax_documentation->id ?>">   <button id="contactBtn" class="tablinks" >Address & Location</button></a>
                 <div style="display: inline">   <a href="index.php?r=property%2Flegaltax&id=<?= $legal_tax_documentation->id ?>">  <button class="selectedButton">Legal & Tax</button></a> <hr class="new5" ></div>
                 <a href="index.php?r=property%2Fcontact&id=<?= $legal_tax_documentation->id; ?>"><button class="tablinks" >Contact Details</button></a>
-                <?php if($show_terms_tab && $property->country_id && $property->legal_status_id) { ?>
-                        <a href="index.php?r=property%2Ftermsandconditions&id=<?= $legal_tax_documentation->id ?>"><button class="tablinks" >Terms & Conditions</button></a>
+                <?php if($show_terms_tab) { ?>
+                    <a href="index.php?r=property%2Ftermsandconditions&id=<?= $legal_tax_documentation->id ?>" <?= ( ($property->country_id && $property->legal_status_id) != 1 ) ? 'onclick="return showTermsAlert()"' : '' ?> ><button class="tablinks" >Terms & Conditions</button></a>
                 <?php } ?>
 
             </div>
@@ -52,15 +57,29 @@ $(document).ready(function() {
             <div class="row align-items-start">
                 <div class="col-md-6 ">
                     <div class="form-group ">
-                        <label class="Labelclass">Legal Status<span style="color: red; font-size: 18px">*</span></label>
+                        <label class="Labelclass" style="width: 444px">Legal Status<span style="color: red; font-size: 18px">*</span>
+                            <?php if($legal_tax_documentation->id != 0 ) { ?>
+                                <a onclick="edit_request('<?php echo $legal_status_id;?>', '<?php echo $legal_tax_documentation->id;?>')" href="#" data-toggle="tooltip" title="Add property type" style="float: right"><img class="margin-left-right-spacing dropbtn-edit action-icon t" src="images/edit-details.svg" style="width: 15px" data-toggle="tooltip" title="" data-original-title="Edit"></a>
+                            <?php } else { ?>
+                                <a onclick="add_option('<?php echo $legal_status_id;?>')" href="#" data-toggle="tooltip" title="Add legal status" style="float: right"><i class="fa fa-plus text-primary "></i></a>
+                            <?php } ?>
+                        </label>
                         <?php echo $form->field($legal_tax_documentation, 'legal_status_id')->dropDownList($legal_status,['class' => 'inputLarge', 'prompt' => 'Choose'])->label(false) ?>
                     </div>
                     <div class="form-group">
-                                <label class="Labelclass">Pan Number<span style="color: red; font-size: 18px">*</span></label>
-                                <?php echo $form->field($legal_tax_documentation,'pan_number')->textInput(['class' => 'inputLarge'])->label(false) ?>
+                        <label class="Labelclass" style="width: 444px">Pan Number<span style="color: red; font-size: 18px">*</span>
+                            <?php if($legal_tax_documentation->id != 0 ) { ?>
+                                <a onclick="edit_request('<?php echo $pan_number;?>', '<?php echo $legal_tax_documentation->id;?>')" href="#" data-toggle="tooltip" title="Add property type" style="float: right"><img class="margin-left-right-spacing dropbtn-edit action-icon t" src="images/edit-details.svg" style="width: 15px" data-toggle="tooltip" title="" data-original-title="Edit"></a>
+                            <?php } ?>
+                        </label>
+                        <?php echo $form->field($legal_tax_documentation,'pan_number')->textInput(['class' => 'inputLarge'])->label(false) ?>
                     </div>
                     <div class="form-group">
-                        <label class="Labelclass" style="display: block" >Business License Number<span style="color: red; font-size: 18px">*</span></label>
+                        <label class="Labelclass" style="display: block; width: 444px" >Business License Number<span style="color: red; font-size: 18px">*</span>
+                            <?php if($legal_tax_documentation->id != 0 ) { ?>
+                                <a onclick="edit_request('<?php echo $business_license_number;?>', '<?php echo $legal_tax_documentation->id;?>')" href="#" data-toggle="tooltip" title="Add property type" style="float: right"><img class="margin-left-right-spacing dropbtn-edit action-icon t" src="images/edit-details.svg" style="width: 15px" data-toggle="tooltip" title="" data-original-title="Edit"></a>
+                            <?php } ?>
+                        </label>
                         <?php echo $form->field($legal_tax_documentation,'business_licence_number')->textInput(['class' => 'inputLarge'])->label(false) ?>
                     </div>
                     <div class="form-group">
@@ -73,37 +92,37 @@ $(document).ready(function() {
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label class="Labelclass">Upload Pan Card<span style="color: red; font-size: 18px">*</span></label>
-                                <?php
+                            <?php
                             if(!$legal_tax_documentation->pan_image) {
                                 echo "<div id='panId' class='image-border'><img id='panImage' src='images/pan.png' class='imagedisplay'></div>";
                             } else {
                                 echo "<div id='panId' class='borderless-image'><img id='panImage' src='uploads/$legal_tax_documentation->pan_image' class='imagePreview'></div>";
                             }?>
-                                <?= $form->field($legal_docs_images, 'pan_image')->fileInput(['class' => 'btn btn-sm img uploadFile', 'accept' => "image/*", 'id'=>"uploadPan"])->label(false); ?>
-                            </div>
+                            <?= $form->field($legal_docs_images, 'pan_image')->fileInput(['class' => 'btn btn-sm img uploadFile', 'accept' => "image/*", 'id'=>"uploadPan"])->label(false); ?>
+                        </div>
                         <div class="form-group col-md-6 ">
                             <label class="Labelclass">Upload Business License<span style="color: red; font-size: 18px">*</span></label>
-                                <?php
-                                if(!$legal_tax_documentation->business_licence_image) {
-                                    echo "<div id='licenseId' class='image-border'><img id='licenseImage' src='images/license.png' class='imagedisplay'></div>";
-                                } else {
-                                    echo "<div id='licenseId' class='borderless-image'><img id='licenseImage' src='uploads/$legal_tax_documentation->business_licence_image' class='imagePreview'></div>";
-                                }?>
+                            <?php
+                            if(!$legal_tax_documentation->business_licence_image) {
+                                echo "<div id='licenseId' class='image-border'><img id='licenseImage' src='images/license.png' class='imagedisplay'></div>";
+                            } else {
+                                echo "<div id='licenseId' class='borderless-image'><img id='licenseImage' src='uploads/$legal_tax_documentation->business_licence_image' class='imagePreview'></div>";
+                            }?>
 
-                                <?= $form->field($legal_docs_images, 'business_licence_image')->fileInput(['class' => 'btn btn-sm img uploadFile', 'accept' => "image/*", 'id'=>"uploadLicense"])->label(false); ?>
+                            <?= $form->field($legal_docs_images, 'business_licence_image')->fileInput(['class' => 'btn btn-sm img uploadFile', 'accept' => "image/*", 'id'=>"uploadLicense"])->label(false); ?>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label class="Labelclass">Upload GST Certificate<span style="color: red; font-size: 18px">*</span></label>
-                                <?php
-                                if(!$legal_tax_documentation->gst_image) {
-                                    echo "<div id='gstId' class='image-border'><img id='gstImage' src='images/GST.png' class='imagedisplay'></div>";
-                                } else {
-                                    echo "<div id='gstId' class='borderless-image'><img id='gstImage' src='uploads/$legal_tax_documentation->gst_image' class='imagePreview'></div>";
-                                }?>
+                            <?php
+                            if(!$legal_tax_documentation->gst_image) {
+                                echo "<div id='gstId' class='image-border'><img id='gstImage' src='images/GST.png' class='imagedisplay'></div>";
+                            } else {
+                                echo "<div id='gstId' class='borderless-image'><img id='gstImage' src='uploads/$legal_tax_documentation->gst_image' class='imagePreview'></div>";
+                            }?>
 
-                                <?= $form->field($legal_docs_images, 'gst_image')->fileInput(['class' => 'btn btn-sm img uploadFile', 'accept' => "image/*", 'id'=>"uploadGst"])->label(false); ?>
+                            <?= $form->field($legal_docs_images, 'gst_image')->fileInput(['class' => 'btn btn-sm img uploadFile', 'accept' => "image/*", 'id'=>"uploadGst"])->label(false); ?>
                         </div>
 
                     </div>
@@ -114,24 +133,40 @@ $(document).ready(function() {
 
                 <div class="col-md-6 ">
                     <div class="form-group ">
-                        <label class="Labelclass" style="display: block" >Bank Name<span style="color: red; font-size: 18px">*</span></label>
+                        <label class="Labelclass" style="display: block; width: 444px" >Bank Name<span style="color: red; font-size: 18px">*</span>
+                            <?php if($legal_tax_documentation->id != 0 ) { ?>
+                                <a onclick="edit_request('<?php echo $bank_name;?>', '<?php echo $legal_tax_documentation->id;?>')" href="#" data-toggle="tooltip" title="Add property type" style="float: right"><img class="margin-left-right-spacing dropbtn-edit action-icon t" src="images/edit-details.svg" style="width: 15px" data-toggle="tooltip" title="" data-original-title="Edit"></a>
+                            <?php } ?>
+                        </label>
                         <?php echo $form->field($legal_tax_documentation,'bank_name')->textInput(['class' => 'inputLarge'])->label(false) ?>
                     </div>
                     <div class="form-group ">
-                        <label class="Labelclass" style="display: block" >Account Number<span style="color: red; font-size: 18px">*</span></label>
+                        <label class="Labelclass" style="display: block; width: 444px" >Account Number<span style="color: red; font-size: 18px">*</span>
+                            <?php if($legal_tax_documentation->id != 0 ) { ?>
+                                <a onclick="edit_request('<?php echo $account_number;?>', '<?php echo $legal_tax_documentation->id;?>')" href="#" data-toggle="tooltip" title="Add property type" style="float: right"><img class="margin-left-right-spacing dropbtn-edit action-icon t" src="images/edit-details.svg" style="width: 15px" data-toggle="tooltip" title="" data-original-title="Edit"></a>
+                            <?php } ?>
+                        </label>
                         <?php echo $form->field($legal_tax_documentation,'bank_account_number')->textInput(['class' => 'inputLarge'])->label(false) ?>
-                        </div>
+                    </div>
                 </div>
 
 
                 <div class="col-md-6 ">
                     <div class="form-group ">
-                        <label class="Labelclass" style="display: block" >Account Name<span style="color: red; font-size: 18px">*</span></label>
+                        <label class="Labelclass" style="display: block; width: 444px" >Account Name<span style="color: red; font-size: 18px">*</span>
+                            <?php if($legal_tax_documentation->id != 0 ) { ?>
+                                <a onclick="edit_request('<?php echo $account_name;?>', '<?php echo $legal_tax_documentation->id;?>')" href="#" data-toggle="tooltip" title="Add property type" style="float: right"><img class="margin-left-right-spacing dropbtn-edit action-icon t" src="images/edit-details.svg" style="width: 15px" data-toggle="tooltip" title="" data-original-title="Edit"></a>
+                            <?php } ?>
+                        </label>
                         <?php echo $form->field($legal_tax_documentation,'bank_account_name')->textInput(['class' => 'inputLarge'])->label(false) ?>
 
                     </div>
                     <div class="form-group ">
-                        <label class="Labelclass" style="display: block" >IFSC Code<span style="color: red; font-size: 18px">*</span></label>
+                        <label class="Labelclass" style="display: block; width: 444px" >IFSC Code<span style="color: red; font-size: 18px">*</span>
+                            <?php if($legal_tax_documentation->id != 0 ) { ?>
+                                <a onclick="edit_request('<?php echo $ifsc_code;?>', '<?php echo $legal_tax_documentation->id;?>')" href="#" data-toggle="tooltip" title="Add property type" style="float: right"><img class="margin-left-right-spacing dropbtn-edit action-icon t" src="images/edit-details.svg" style="width: 15px" data-toggle="tooltip" title="" data-original-title="Edit"></a>
+                            <?php } ?>
+                        </label>
                         <?php echo $form->field($legal_tax_documentation,'ifsc_code')->textInput(['class' => 'inputLarge'])->label(false) ?>
                     </div>
                 </div>

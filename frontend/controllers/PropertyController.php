@@ -50,6 +50,7 @@ use frontend\models\property\RoomType;
 use frontend\models\property\PropertyRoomView;
 use frontend\models\property\PropertyMealPlan;
 use frontend\models\property\PropertyRoomExtraBedType;
+use frontend\models\MasterEditRequest;
 use yii\web\ForbiddenHttpException;
 use yii\web\NotFoundHttpException;
 use yii\web\UploadedFile;
@@ -129,7 +130,7 @@ class PropertyController extends Controller
     }
 
     public function actionValidate()
-    { 
+    {
         $property = $this->getProperty();
 
         $basic_details = new BasicDetails();
@@ -189,11 +190,11 @@ class PropertyController extends Controller
             $legal_tax_documentation_results = $legal_tax_documentation->errors;
         }
 
-        if( !($terms->terms_and_conditons1 && $terms->terms_and_conditons2 && $terms->terms_and_conditons1) ) {            
+        if( !($terms->terms_and_conditons1 && $terms->terms_and_conditons2 && $terms->terms_and_conditons1) ) {
             $terms->addError('rooms', "Terms and conditions not accepted");
-            $terms_results = $terms->errors;            
+            $terms_results = $terms->errors;
         }
-       
+
         if( count($property->rooms) == 0) {
             $property->addError('rooms', "Not defined room categories");
         }
@@ -225,13 +226,17 @@ class PropertyController extends Controller
             }
         }
 
+        $type = MasterEditRequest::find()->where(['name' => 'property type'])->one();
+        $rating = MasterEditRequest::find()->where(['name' => 'property rating'])->one();
+        $property_name = MasterEditRequest::find()->where(['name' => 'property name'])->one();
+//        return $this->asJson($type);
+
         $basic_details = new BasicDetails();
         $property_image = new PropertyImage();
         if ($property == NULL) {
             $property = new Property();
             $basic_details->id = 0;
             $property_image->scenario = "create";
-            $basic_details->name = "Basic details";
         } else {
             $basic_details->id = $property->id;
             $basic_details->name = $property->name;
@@ -258,7 +263,10 @@ class PropertyController extends Controller
             'property_categories' => $property_categories,
             'property_image' => $property_image,
             'show_terms_tab' => $show_terms_tab,
-            'property' => $property
+            'property' => $property,
+            'type' => $type->id,
+            'rating' => $rating->id,
+            'property_name' => $property_name
         ]);
 
     }
@@ -330,7 +338,7 @@ class PropertyController extends Controller
             }
         }
 
-        if ($property->save(false)) {           
+        if ($property->save(false)) {
 
             Yii::$app->session->setFlash('success', "Property created successfully.");
             return $this->redirect(['property/addressandlocation', 'id' => $property->getPrimaryKey()]);
@@ -360,6 +368,11 @@ class PropertyController extends Controller
             //throw new NotFoundHttpException();
         }
 
+        $country = MasterEditRequest::find()->where(['name' => 'country'])->one();
+        $location = MasterEditRequest::find()->where(['name' => 'location'])->one();
+        $destination = MasterEditRequest::find()->where(['name' => 'destination'])->one();
+        $pin_code = MasterEditRequest::find()->where(['name' => 'pin code'])->one();
+
         $address_location = new AddressLocation();
         $address_location->id = $property->id;
         $address_location->country_id = $property->country_id;
@@ -370,8 +383,8 @@ class PropertyController extends Controller
         $address_location->locality = $property->locality;
 
         $countries = ArrayHelper::map(Country::find()->asArray()->all(), 'id', 'name');
-        $locations = ArrayHelper::map(Location::find()->where(['country_id' => 1])->asArray()->all(), 'id', 'name');
-        $destinations = ArrayHelper::map(Destination::find()->asArray()->all(), 'id', 'name');
+        $locations = ArrayHelper::map(Location::find()->where(['country_id' => $property->country_id])->asArray()->all(), 'id', 'name');
+        $destinations = ArrayHelper::map(Destination::find()->where(['location_id' => $property->location_id])->asArray()->all(), 'id', 'name');
 
         $show_terms_tab = true;
         if ($property->terms_and_conditons1 == 1 &&
@@ -380,15 +393,34 @@ class PropertyController extends Controller
             $show_terms_tab = false;
         }
 
+//        return $this->asJson($countries);
         return $this->render('address_and_locations', [
                 'address_location' => $address_location,
                 'countries' => $countries,
                 'locations' => $locations,
                 'destinations' => $destinations,
                 'show_terms_tab' => $show_terms_tab,
-                'property' => $property
+                'property' => $property,
+                'location' => $location->id,
+                'destination' => $destination->id,
+                'country' => $country->id,
+                'pin_code' => $pin_code->id,
             ]
         );
+    }
+    public function actionLocationlist(){
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+        $country_id = Yii::$app->request->get('countryID');
+        $locations = ArrayHelper::map(Location::find()->where(['country_id' => $country_id])->asArray()->all(), 'id', 'name');
+        return $locations ;
+    }
+    public function actionDestinationlist(){
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+        $location_id = Yii::$app->request->get('location_id');
+        $destinations = ArrayHelper::map(Destination::find()->where(['location_id' => $location_id])->asArray()->all(), 'id', 'name');
+        return $destinations ;
     }
 
     public function actionSavepropertyaddresslocation()
@@ -472,6 +504,15 @@ class PropertyController extends Controller
             return $this->render('not_found', []);
         }
 
+        $property_legal_status = MasterEditRequest::find()->where(['name' => 'legal status'])->one();
+        $pan_number = MasterEditRequest::find()->where(['name' => 'pan number'])->one();
+        $business_license_number = MasterEditRequest::find()->where(['name' => 'business license number'])->one();
+        $bank_name = MasterEditRequest::find()->where(['name' => 'bank name'])->one();
+        $account_number = MasterEditRequest::find()->where(['name' => 'account number'])->one();
+        $account_name = MasterEditRequest::find()->where(['name' => 'account name'])->one();
+        $ifsc_code = MasterEditRequest::find()->where(['name' => 'ifsc code'])->one();
+
+
         $legal_tax_documentation = new LegalTaxDocumentation();
         $legal_tax_documentation->id = $property->id;
         $legal_tax_documentation->legal_status_id = $property->legal_status_id;
@@ -494,9 +535,9 @@ class PropertyController extends Controller
         //TODO: If any of the image is empty, the scenario will be 'create' and require to upload all the images.
         //TOFIX: create separate model for PAN, BLN and GST Images and if empty set scenario 'create' for that model only
         //TODO: move LegalDocsImages to property folder
-        if($property->pan_image == NULL ||  
+        if($property->pan_image == NULL ||
             $property->business_licence_image == NULL ) {
-                
+
             $legal_docs_images->scenario = "create";
         }
 
@@ -510,16 +551,23 @@ class PropertyController extends Controller
         if ($property->terms_and_conditons1 == 1 &&
             $property->terms_and_conditons2 == 1 &&
             $property->terms_and_conditons3 == 1) {
-            $show_terms_tab = false;            
+            $show_terms_tab = false;
         }
 
         return $this->render('legal_and_tax', [
-            'legal_tax_documentation' => $legal_tax_documentation, 
-            'legal_status' => $legal_status, 
-            'legal_docs_images' => $legal_docs_images, 
+            'legal_tax_documentation' => $legal_tax_documentation,
+            'legal_status' => $legal_status,
+            'legal_docs_images' => $legal_docs_images,
             'show_terms_tab' => $show_terms_tab,
             'gst_image_is_there' => $gst_image_is_there,
-            'property' => $property
+            'property' => $property,
+            'legal_status_id' => $property_legal_status->id,
+            'pan_number' => $pan_number->id,
+            'business_license_number' => $business_license_number->id,
+            'bank_name' => $bank_name->id,
+            'account_number' => $account_number->id,
+            'account_name' => $account_name->id,
+            'ifsc_code' => $ifsc_code->id,
         ]);
     }
 
@@ -701,7 +749,7 @@ class PropertyController extends Controller
             if ($contacts->validate()) {
                 $contacts->save();
                 $property->save();
-                
+
                 $show_terms_tab = Yii::$app->request->post('show_terms_tab');
                 $redirect_url = 'property/';
                 $redirect_url .= ($show_terms_tab == 1) ? "termsandconditions" : "home";
@@ -763,9 +811,7 @@ class PropertyController extends Controller
 
     public function actionTermsandconditions()
     {
-        $this->layout = 'tm_main';
         $property_id = Yii::$app->request->get('id');
-        //Check this property owned by this user
         $property = NULL;
         if ($property_id != 0) {
             $property = Property::find()
@@ -779,11 +825,10 @@ class PropertyController extends Controller
             return $this->render('not_found', []);
         }
 
-
         if ($property->terms_and_conditons1 == 1 &&
             $property->terms_and_conditons2 == 1 &&
             $property->terms_and_conditons3 == 1) {
-            throw new NotFoundHttpException();
+            throw new ForbiddenHttpException();
         }
 
         $terms = new TermsConditions();
@@ -792,6 +837,7 @@ class PropertyController extends Controller
         $terms->terms_and_conditons2 = $property->terms_and_conditons2;
         $terms->terms_and_conditons3 = $property->terms_and_conditons3;
 
+        $this->layout = 'tm_main';
         return $this->render('terms_and_conditions', ['terms' => $terms]);
     }
 
@@ -843,9 +889,14 @@ class PropertyController extends Controller
 
     public function actionRules()
     {
-
         $this->layout = 'tm_main';
         $property = $this->getProperty();
+
+        //If basic details is not completely filled, show validation result
+        if( !($property->country_id && $property->legal_status_id && $property->property_type_id)) {
+            return $this->redirect(['property/validate', 'id' => $property->getPrimaryKey()]);
+        }
+
         $smoking_policy = ArrayHelper::map(PropertySmokingPolicy::find()->asArray()->all(), 'id', 'name');
         $pets_policy = ArrayHelper::map(PropertyPetsPolicy::find()->asArray()->all(), 'id', 'name');
         return $this->render('rules_and_policies', ['property' => $property, 'smoking_policy' => $smoking_policy, 'pets_policy' => $pets_policy]);
@@ -1248,6 +1299,11 @@ class PropertyController extends Controller
     {
         $property = $this->getProperty();
 
+        //If basic details is not completely filled, show validation result
+        if( !($property->country_id && $property->legal_status_id && $property->property_type_id)) {
+            return $this->redirect(['property/validate', 'id' => $property->getPrimaryKey()]);
+        }
+
         $swimming_pool = PropertySwimmingPool::find()
             ->where(['property_id' => $property->id])
             ->one();
@@ -1345,6 +1401,7 @@ class PropertyController extends Controller
         }
 
         $property_id = Yii::$app->request->post('property_id');
+        $nationality_group_count = Yii::$app->request->post('nationality_group_count');
 
         $property = Property::find()->where(['id'=>$property_id])->one();
 
@@ -1353,6 +1410,11 @@ class PropertyController extends Controller
         try {
             $rows = TariffNationalityGroupName::deleteAll(['id' => $group_id]);
             RoomTariffDatewise::deleteAll(['nationality_id' => $group_id]);
+
+            if ($nationality_group_count == 1 ){
+                $property->room_tariff_same_for_all = 1;
+                $property->save();
+            }
 
             $transaction->commit();
             //TODO: Handling exception in page
@@ -1807,6 +1869,11 @@ class PropertyController extends Controller
         $this->layout = 'tm_main';
         $property = $this->getProperty();
 
+        //If basic details is not completely filled, show validation result
+        if( !($property->country_id && $property->legal_status_id && $property->property_type_id)) {
+            return $this->redirect(['property/validate', 'id' => $property->getPrimaryKey()]);
+        }
+
         $pictures = PropertyPictures::find()->where(['property_id' => $property->id])->all();
 
         $propertyRooms = Room::find()->where(['property_id' => $property->id])->all();
@@ -2087,8 +2154,14 @@ class PropertyController extends Controller
     {
         $this->layout = 'tm_main';
         $property = $this->getProperty();
+
+        //If basic details is not completely filled, show validation result
+        if( !($property->country_id && $property->legal_status_id && $property->property_type_id)) {
+            return $this->redirect(['property/validate', 'id' => $property->getPrimaryKey()]);
+        }
+
         $rooms = Room::find()->where(['property_id' => $property->id])->all();
-//        $rooms = Room::find()->all();
+
         return $this->render('room_categories', ['rooms' => $rooms,'property' => $property,]);
     }
 

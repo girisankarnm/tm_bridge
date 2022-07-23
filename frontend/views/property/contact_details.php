@@ -1,10 +1,16 @@
 <?php
-
 use yii\bootstrap4\ActiveForm;
 use borales\extensions\phoneInput\PhoneInput;
-
 ?>
-<div class="$content">
+
+<script>
+function showTermsAlert(){        
+    toastr.error("Complete all other forms to proceed!");
+    return false;
+}
+</script>
+
+<div class="content">
     <div class="container-fluid">
         <div class="card-title">
             <span style="font: bold"><?= $property->name; ?></span>
@@ -18,8 +24,8 @@ use borales\extensions\phoneInput\PhoneInput;
                 <div style="display: inline">   <a href="index.php?r=property%2Fcontact&id=<?= $contact->property_id; ?>">  <button class="selectedButton">Contact Details</button></a> <hr class="new5" >
                 </div>
 
-                <?php if($show_terms_tab && $property->country_id && $property->legal_status_id) { ?>
-                    <a  href="index.php?r=property%2Ftermsandconditions&id=<?= $contact->property_id ?>"> <button class="tablinks">Terms & Conditions</button></a>
+                <?php if($show_terms_tab) { ?>
+                    <a  href="index.php?r=property%2Ftermsandconditions&id=<?= $contact->property_id ?>" <?= ( ($property->country_id && $property->legal_status_id) != 1 ) ? 'onclick="return showTermsAlert()"' : '' ?>> <button class="tablinks">Terms & Conditions</button></a>
                 <?php } ?>
 
             </div>
@@ -46,7 +52,7 @@ use borales\extensions\phoneInput\PhoneInput;
                         'jsOptions' => [
                             'onlyCountries' => ['in'],
                         ],
-                        'options'=> array('class'=>'inputTextClass', 'placeholder' => '9123456780', 'maxlength' => '12'),
+                        'options'=> array('class'=>'inputTextClass', 'placeholder' => 'Enter 10 digit number', 'maxlength' => '12'),
                     ], )->label(false);?>
 
                 </div>
@@ -70,7 +76,7 @@ use borales\extensions\phoneInput\PhoneInput;
                         'jsOptions' => [
                             'onlyCountries' => ['in'],
                         ],
-                        'options'=> array('class'=>'inputTextClass', 'placeholder' => '9123456780', 'maxlength' => '12'),
+                        'options'=> array('class'=>'inputTextClass', 'placeholder' => 'Enter 10 digit number', 'maxlength' => '12'),
                     ], )->label(false);?>
                 </div>
                 <div class="form-group margin-contacts col-md-4">
@@ -82,7 +88,7 @@ use borales\extensions\phoneInput\PhoneInput;
                 <h6 style=" color: black; font-size: 14px; padding: 3px; margin-left: 10px; font-weight: bold">Front Office</h6>
             </div>
             <div class="row">
-                <div class="form-group col-md-4">
+                <div class="form-group margin-contacts col-md-4">
                     <label class="Labelclass" style="display: block" >Name</label>
                     <?= $form->field($contact,'front_office_name')->textInput(['class' => 'inputTextClass'])->label(false) ?>
                 </div>
@@ -93,7 +99,7 @@ use borales\extensions\phoneInput\PhoneInput;
                         'jsOptions' => [
                             'onlyCountries' => ['in'],
                         ],
-                        'options'=> array('class'=>'inputTextClass', 'placeholder' => '9123456780', 'maxlength' => '12'),
+                        'options'=> array('class'=>'inputTextClass', 'placeholder' => 'Enter 10 digit number', 'maxlength' => '12'),
                     ], )->label(false);?>
                 </div>
                 <div class="form-group col-md-4">
@@ -116,7 +122,7 @@ use borales\extensions\phoneInput\PhoneInput;
                         'jsOptions' => [
                             'onlyCountries' => ['in'],
                         ],
-                        'options'=> array('class'=>'inputTextClass', 'placeholder' => '9123456780', 'maxlength' => '12'),
+                        'options'=> array('class'=>'inputTextClass', 'placeholder' => 'Enter 10 digit number', 'maxlength' => '12'),
                     ], )->label(false);?>
                 </div>
                 <div class="form-group col-md-4">

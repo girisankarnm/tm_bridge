@@ -32,7 +32,7 @@ $this->registerJsFile('/js/enquiry/accomodation.js');
             <table id="guest_count_same_table " class="table3accomadatonclass" >
                 <tr  class="thtableaccomadation" >
                     <th>Day</th>
-                    <th>Accommodation Staus</th>
+                    <th>Staus</th>
                     <th>Stay Destination</th>
                     <th>Meal Plan</th>
                     <th>Pax Count Plan</th>
@@ -47,14 +47,15 @@ $this->registerJsFile('/js/enquiry/accomodation.js');
                         <tr class="">
                             <td class="Adults">
                                 <div class="form-group margin-bottom-2px-acco">
-                                <input type="text" name="day[]"  value="<?php echo date('d-M-Y', strtotime($accomodation->day)); ?>" class="inputTextClassaccomadation accommodation-input acco-margintop daytextindent" readonly />
+                                <input hidden type="text" name="day[]"  value="<?php echo date('d-M-Y', strtotime($accomodation->day)); ?>" class="inputTextClassaccomadation accommodation-input acco-margintop daytextindent" readonly />
+                                    <span style="color: #323131;font-weight: bold;"><?php echo date('d-M-Y', strtotime($accomodation->day)); ?></span>
                                 </div>
                             </td>
                             <td class="Adults">
                                 <?php echo $form->field($accomodation,'status')->dropDownList($accomodation_status,['row_id' => $i, 'name' => 'accommodation_status[]','class' => 'inputTextClassaccomadation accommodation-input acco-margintop' ])->label(false) ?>
                             </td >
                             <td class="Adults"  >
-                                <?php echo $form->field($accomodation,'destination_id')->dropDownList($destinations,['id' => 'destination_'.$i , 'name' => 'destination_id[]','class' => 'inputTextClassaccomadation accommodation-input acco-margintop' ])->label(false) ?>
+                                <?php echo $form->field($accomodation,'destination_id')->dropDownList($destinations,['id' => 'destination_'.$i , 'name' => 'destination_id[]','class' => 'inputTextClassaccomadation accommodation-input acco-margintop destination_select2' ])->label(false) ?>
                             </td>
                             <td class="Adults">
                                 <?php echo $form->field($accomodation,'meal_plan_id')->dropDownList($meal_plans,['id' => 'meal_plan_'.$i, 'name' => 'meal_plan_id[]','class' => 'inputTextClassaccomadation accommodation-input acco-margintop'])->label(false) ?>
@@ -80,7 +81,7 @@ $this->registerJsFile('/js/enquiry/accomodation.js');
                         <tr>
                             <td class="Adults">
                                 <div class="form-group margin-bottom-2px-acco field-destination_0 required">
-                                <input type="text"  name="day[]"  value="<?php echo date('Y-m-d', strtotime($enquiry->tour_start_date. ' + ' .$i. 'days')); ?>" class="inputTextClassaccomadation acco-margintop daytextindent" readonly />
+                                <input type="text"  name="day[]"  value="<?php echo date('d-M-Y', strtotime($enquiry->tour_start_date. ' + ' .$i. 'days')); ?>" class="inputTextClassaccomadation acco-margintop daytextindent" readonly />
                                 </div>
                             </td>
                             <td class="Adults">
@@ -92,7 +93,7 @@ $this->registerJsFile('/js/enquiry/accomodation.js');
                                 </div>
                             </td>
                             <td  class="Adults" >
-                                <?php echo $form->field($model,'destination_id')->dropDownList($destinations,['id' => 'destination_'.$i , 'name' => 'destination_id[]','class' => 'inputTextClassaccomadation tableinput acco-margintop' ])->label(false) ?>
+                                <?php echo $form->field($model,'destination_id')->dropDownList($destinations,['id' => 'destination_'.$i , 'name' => 'destination_id[]','class' => 'inputTextClassaccomadation tableinput acco-margintop destination_select2' ])->label(false) ?>
                             </td  >
                             <td  class="Adults">
                                 <?php echo $form->field($model,'meal_plan_id')->dropDownList($meal_plans,['id' => 'meal_plan_'.$i, 'name' => 'meal_plan_id[]','class' => 'inputTextClassaccomadation tableinput acco-margintop'])->label(false) ?>

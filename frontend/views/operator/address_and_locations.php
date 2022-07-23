@@ -1,6 +1,8 @@
 <?php
 
 use yii\bootstrap4\ActiveForm;
+$this->registerJsFile('/js/operator/address_and_locations/index.js');
+$this->registerJsFile('/js/client_requested_option/add_option.js');
 
 ?>
 <div class="$content">
@@ -26,15 +28,15 @@ use yii\bootstrap4\ActiveForm;
             <div class="row">
                 <div class="form-group col-md-4">
                     <label class="Labelclass" style="display: block" >Country<span style="color: red; font-size: 18px">*</span></label>
-                    <?php echo $form->field($address_location,'country_id')->dropDownList($countries,['class' => 'inputTextClass', 'prompt' => 'Choose'])->label(false) ?>
+                    <?php echo $form->field($address_location,'country_id')->dropDownList($countries,['class' => 'inputTextClass address_select2 country_id', 'prompt' => 'Select Country'])->label(false) ?>
                 </div>
                 <div class="form-group col-md-4">
-                    <label class="Labelclass" style="display: block" >Location<span style="color: red; font-size: 18px">*</span></label>
-                    <?php echo $form->field($address_location,'location_id')->dropDownList($locations,['class' => 'inputTextClass', 'prompt' => 'Choose'])->label(false) ?>
+                    <label class="Labelclass" style="display: block; width: 220px" >Location<span style="color: red; font-size: 18px">*</span><a onclick="add_option('<?php echo $location;?>')" href="#" data-toggle="tooltip" title="Add location" style="float: right"><i class="fa fa-plus text-primary "></i></a></label>
+                    <?php echo $form->field($address_location,'location_id')->dropDownList($locations,['class' => 'inputTextClass address_select2 location_id', 'prompt' => 'Select Location'])->label(false) ?>
                 </div>
                 <div class="form-group col-md-4">
-                    <label class="Labelclass" style="display: block" >Destination<span style="color: red; font-size: 18px">*</span></label>
-                    <?php echo $form->field($address_location,'destination_id')->dropDownList($destinations,['class' => 'inputTextClass', 'prompt' => 'Choose'])->label(false) ?>
+                    <label class="Labelclass" style="display: block; width: 220px" >Destination<span style="color: red; font-size: 18px">*</span><a onclick="add_option('<?php echo $destination;?>')" href="#" data-toggle="tooltip" title="Add destination" style="float: right"><i class="fa fa-plus text-primary "></i></a></label>
+                    <?php echo $form->field($address_location,'destination_id')->dropDownList($destinations,['class' => 'inputTextClass address_select2 destination_id', 'prompt' => 'Select Destination'])->label(false) ?>
                 </div>
             </div>
             <div class="row">

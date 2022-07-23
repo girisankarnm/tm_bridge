@@ -27,6 +27,12 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
         /*height: 45px;*/
         height: 31px;
     }
+    /*.custom-control-label*/
+    /*{*/
+    /*    margin-left: 21px;*/
+    /*    margin-top: 12px;*/
+
+    /*}*/
 </style>
 <!-- load the third party plugin assets (jquery-confirm) -->
 <link href="//cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css" rel="stylesheet" type="text/css" />
@@ -68,37 +74,20 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                         <div class="accordion-content form-checkin-out-content">
                             <input type="hidden" value="<?= $property->id ?>" name="property_id" id="property_id">
 
-
                             <div class="d-flex form-group align-items-center">
-
                                 <div class="checkmark">
                                     <?= $form->field($property, 'twenty_four_hours_check_in')->inline()->radioList([1 => '24 hour check out', 2 => 'Check in / check out as follows'],['class' => 'checkmark','style' => 'margin-left: -0.7rem;'])->label(false); ?>
-
-
-                                    <!--                                    <input type="radio" name="checkout" id="form-24checkout" class="form-radio">-->
-                                    <!--                                    <label for="form-24checkout"> 24 hour Checkout </label>-->
                                 </div>
-                                <!--                                <div class="form-material form-checkout">-->
-                                <!--                                    <input type="radio" name="checkout" id="form-checkout" class="form-radio">-->
-                                <!--                                    <label for="form-checkout"> Check in / Check out as follows </label>-->
-                                <!--                                </div>-->
                             </div>
                             <div class="d-flex form-group align-items-center">
                                 <div class="d-flex form-material form-checkin align-items-center mr-4">
-                                    <!--                                    <p class="checkin-text mb-0"> Check In </p>-->
-                                    <!--                                    <input type="time" name="" id="" class="form-control form-date-input" value="12:00">-->
                                     <?php echo $form->field($property, 'check_in_time')->dropDownList($time_slot, ['class' => 'time_c','prompt' => 'Check in'])->label(false); ?>
-
                                 </div>
                                 <div class="d-flex form-material form-checkin align-items-center margin-left-check">
-                                    <!--                                    <p class="checkin-text mb-0"> Check Out </p>-->
-                                    <!--                                    <input type="time" name="" id="" class="form-control form-date-input" value="12:00">-->
                                     <?php echo $form->field($property, 'check_out_time')->dropDownList($time_slot, ['class' => 'time_c','prompt' => 'Check out'])->label(false); ?>
-
                                 </div>
                             </div>
                         </div>
-                        <!--                        <button class="btn btn-primary" id="save_checkin_checkout" type="submit"> Save </button>-->
                         <button class="buttonSave" id="save_checkin_checkout" type="submit" style="width: 85px; border-radius: 5px"> Save </button>
                     </div>
                 </div>
@@ -114,14 +103,6 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
 
                             <div class="form-select select2-60">
                                 <?php echo $form->field($property, 'smoking_policy_id')->dropDownList($smoking_policy, ['class' => 'select2','prompt' => 'Choose...'])->label(false); ?>
-
-                                <!--                                <select name="smoking_policy" id="" class="select2">-->
-                                <!--                                    <option value="one"> Allowed only in designated area </option>-->
-                                <!--                                    <option value="one"> Value One </option>-->
-                                <!--                                    <option value="one"> Value One </option>-->
-                                <!--                                    <option value="one"> Value One </option>-->
-                                <!--                                    <option value="one"> Value One </option>-->
-                                <!--                                </select>-->
                             </div>
                         </div>
                         <button class="buttonSave" style="width: 85px; border-radius: 5px" id="save_smoking_policy"> Save </button>
@@ -139,14 +120,6 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
 
                             <div class="form-select select2-60">
                                 <?php echo $form->field($property, 'pets_policy_id')->dropDownList($pets_policy, ['class' => 'select2','prompt' => 'Choose...'])->label(false); ?>
-
-                                <!--                                <select name="smoking_policy" id="" class="select2">-->
-                                <!--                                    <option value="one"> Pets Not Allowed </option>-->
-                                <!--                                    <option value="one"> Value One </option>-->
-                                <!--                                    <option value="one"> Value One </option>-->
-                                <!--                                    <option value="one"> Value One </option>-->
-                                <!--                                    <option value="one"> Value One </option>-->
-                                <!--                                </select>-->
                             </div>
                         </div>
                         <button class="buttonSave" style="width: 85px; border-radius: 5px" id="save_pets_policy"> Save </button>
@@ -180,8 +153,8 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                                         <div class="form-group form-checkbox">
                                             <div class="form-material">
                                                 <input <?= ($property->cancellation_has_period_charge == 1) ? "checked" : "" ?> type="checkbox" name="" id="property-cancellation_has_period_charge"
-                                                       class="form-input-checkbox">
-                                                <label for="cancellation-policy">
+                                                       class="form-input-checkbox vertical-align-middle">
+                                                <label for="cancellation-policy ">
                                                     <strong> Cancellation policy has period based rates </strong>
                                                 </label>
                                             </div>
@@ -189,8 +162,8 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
 
                                         <div id="pb_div" style = "display: <?= ($property->cancellation_has_period_charge == 1) ? "block" : "none" ?> ">
                                             <div class="row checked-cancellation-policy align-items-center mb-2">
-                                                <div class="col-3 fit-width-230px pr-0">
-                                                    <p> Full refund if cancelled before </p>
+                                                <div class="col-4  pr-0">
+                                                    <p> Full refund if cancelled on or before </p>
                                                 </div>
                                                 <div class="d-flex col-8 align-items-center">
                                                     <div class="form-group mr-2">
@@ -198,8 +171,8 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                                                     </div>
                                                     <p> days of arrival date </p>
                                                 </div>
-                                                <div class="col-3 fit-width-230px pr-0">
-                                                    <p> No refund if cancelled less than </p>
+                                                <div class="col-4 pr-0">
+                                                    <p> No refund if cancelled on or later than </p>
                                                 </div>
                                                 <div class="d-flex col-8 align-items-center">
                                                     <div class="form-group mr-2">
@@ -293,7 +266,7 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                                         <div class="form-group form-checkbox mb-4">
                                             <div class="form-material">
                                                 <input  <?= ($property->cancellation_has_admin_charge == 1) ? "checked" : "" ?> type="checkbox" name="" id="property-cancellation_has_admin_charge"
-                                                       class="form-input-checkbox">
+                                                       class="form-input-checkbox vertical-align-middle">
                                                 <label for="admin-rates" class="mb-0">
                                                     <strong> Cancellation Policy has Admin Rates </strong>
                                                 </label>
@@ -305,29 +278,27 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                                             <div class="form-material form-checkout mr-4">
                                                 <input <?= ($property->admin_cancellation_type == 1) ? "checked" : "" ?> type="radio" name="Property[admin_cancellation_type]"
                                                        value="1" id="form-lump-sum"
-                                                       class="form-radio">
+                                                       class="form-radio vertical-align-middle">
                                                 <label for="form-lump-sum"> Lump Sum Charges per Cancellation </label>
                                             </div>
                                             <div class="form-material form-checkout mr-4">
                                                 <input <?= ($property->admin_cancellation_type == 2) ? "checked" : "" ?> type="radio" name="Property[admin_cancellation_type]"
                                                        value="2" id="form-package-amount"
-                                                       class="form-radio">
+                                                       class="form-radio vertical-align-middle">
                                                 <label for="form-package-amount"> 0 % Package Amount </label>
                                             </div>
                                             <div class="form-material form-checkout">
                                                 <input <?= ($property->admin_cancellation_type == 3) ? "checked" : "" ?> type="radio" name="Property[admin_cancellation_type]"
-                                                       value="3" id="form-per-basis" class="form-radio">
+                                                       value="3" id="form-per-basis" class="form-radio vertical-align-middle">
                                                 <label for="form-per-basis"> Per Basis </label>
                                             </div>
                                         </div>
 
                                         <div class="row admin-charges-item lum_sum_amt align-items-center mb-2"
-                                             style="display: <?= ($property->admin_cancellation_type == 1) ? "block" : "none" ?>">
-                                            <div class="col-2 mr-2">
-                                                <p> Lum Sum Amount </p>
-                                            </div>
-                                            <div class="col-3 form-group">
-                                                <input value="<?= $property->cancellation_lumsum_amount?>" type="text" name="cancellation_lumsum_amount" id="property-cancellation_lumsum_amount" class="form-control input-sh">
+                                            style="">
+                                            <div class="col-4 mr-2"  >
+                                                <label for="form-per-basis"> Lum Sum Amount </label>
+                                                <input value="<?= $property->cancellation_lumsum_amount?>" type="text" name="cancellation_lumsum_amount" id="property-cancellation_lumsum_amount" class="form-control input-sh input-text-width-100px">
                                             </div>
                                         </div>
 
@@ -381,9 +352,9 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                                 <div class="form-material" >
 
 
-                                                                        <input <?php if($property['allow_child_of_all_ages'] == 1): ?> checked <?php endif ?>  type="checkbox" name="" id="property-allow_child_of_all_ages"  class="form-input-checkbox child-checkbox">
+                                                                        <input <?php if($property['allow_child_of_all_ages'] == 1): ?> checked <?php endif ?>  type="checkbox" name="" id="property-allow_child_of_all_ages"  class="form-input-checkbox child-checkbox vertical-align-middle">
 
-                                                                        <label for="property-allow_child_of_all_ages" class="mb-0">
+                                                                        <label for="property-allow_child_of_all_ages" class="mb-0 v">
                                                                             Our property welcomes child of all age if accompanied by adults
                                                                         </label>
                                 </div>
@@ -399,9 +370,7 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                                 </div>
                                 <div class="form-input mr-2"><?= $form->field($property, 'restricted_for_child_below_age')->textInput(['type' => 'text','class' => 'form-control input-sm'])->label(false) ?>
 
-                                    <!--                                    <input type="text" name="" id="" class="form-control input-sm">-->
                                 </div>
-                                <!--                                <p class="mb-0"> Years </p>-->
                                 <p> Years </p>
                             </div>
                             <div class="child-policy-table table-responsive">
@@ -418,23 +387,14 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                                     <tr>
                                         <td>
                                             <div class="form-group">
-                                                <div class="form-material mr-2">
-                                                    <?= $form->field($property, 'allow_complimentary')->checkbox()->label("Complimentary For guests aged between"); ?>
-
-                                                    <!--                                                        <input type="checkbox" name="" id="property-child"-->
-                                                    <!--                                                            class="form-input-checkbox">-->
-                                                    <!--                                                        <label for="property-child" class="mb-0">-->
-                                                    <!--                                                            Our property welcomes child of all age if accompanied by-->
-                                                    <!--                                                            adults-->
-                                                    <!--                                                        </label>-->
+                                                <div class="form-material mr-2 v">
+                                                    <?= $form->field($property, 'allow_complimentary' )->checkbox()->label("Complimentary For guests aged between"); ?>
                                                 </div>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="form-group mr-2">
                                                 <?= $form->field($property, 'complimentary_from_age')->textInput(['type' => 'number', 'readonly' => 'readonly', 'class' => 'form-control input-md','placeholder' => ''])->label(false) ?>
-
-                                                <!--                                                    <input type="text" name="" id="" class="form-control input-md">-->
                                             </div>
                                         </td>
                                         <td> - </td>
@@ -442,7 +402,6 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                                             <div class="form-group mr-2">
                                                 <?= $form->field($property, 'complimentary_to_age')->textInput(['type' => 'number','class' => 'form-control input-md','placeholder' => ''])->label(false) ?>
 
-                                                <!--                                                    <input type="text" name="" id="" class="form-control input-md">-->
                                             </div>
                                         </td>
                                     </tr>
@@ -451,28 +410,18 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                                             <div class="form-group">
                                                 <div class="form-material mr-2">
                                                     <?= $form->field($property, 'allow_child_rate')->checkbox()->label("Child Rate applied for guests between"); ?>
-
-                                                    <!--                                                        <input type="checkbox" name="" id="property-child"-->
-                                                    <!--                                                            class="form-input-checkbox">-->
-                                                    <!--                                                        <label for="property-child" class="mb-0">-->
-                                                    <!--                                                            Chiled rate applied for guests between-->
-                                                    <!--                                                        </label>-->
                                                 </div>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="form-group mr-2">
                                                 <?= $form->field($property, 'child_rate_from_age')->textInput(['type' => 'number',  'readonly' => 'readonly','class' => 'form-control input-md','placeholder' => ''])->label(false) ?>
-
-                                                <!--                                                    <input type="text" name="" id="" class="form-control input-md">-->
                                             </div>
                                         </td>
                                         <td> - </td>
                                         <td>
                                             <div class="form-group mr-2">
                                                 <?= $form->field($property, 'child_rate_to_age')->textInput(['type' => 'number','class' => 'form-control input-md','placeholder' => ''])->label(false) ?>
-
-                                                <!--                                                    <input type="text" name="" id="" class="form-control input-md">-->
                                             </div>
                                         </td>
                                     </tr>
@@ -481,12 +430,6 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                                             <div class="form-group">
                                                 <div class="form-material mr-2">
                                                     <?= $form->field($property, 'allow_adult_rate')->checkbox()->label("Adult Rate  applied  for guests over"); ?>
-
-                                                    <!--                                                        <input type="checkbox" name="" id="property-child"-->
-                                                    <!--                                                            class="form-input-checkbox">-->
-                                                    <!--                                                        <label for="property-child" class="mb-0">-->
-                                                    <!--                                                            Adult rate applied for guests over-->
-                                                    <!--                                                        </label>-->
                                                 </div>
                                             </div>
                                         </td>
@@ -494,13 +437,11 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                                             <div class="form-group mr-2">
                                                 <?= $form->field($property, 'adult_rate_age')->textInput(['type' => 'number', 'readonly' => 'readonly', 'class' => 'form-control input-md','placeholder' => ''])->label(false) ?>
 
-                                                <!--                                                    <input type="text" name="" id="" class="form-control input-md">-->
                                             </div>
                                         </td>
                                         <td> </td>
                                         <td>
                                             <div class="form-group mr-2">
-                                                <!--                                                    <input type="text" name="" id="" class="form-control input-md">-->
                                             </div>
                                         </td>
                                     </tr>
@@ -521,22 +462,9 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                     <div id="collapseSix" class="collapse" data-parent="#myAccordion">
                         <div class="accordion-content">
                             <div class="d-flex form-group align-items-center">
-
                                 <div class="form-material form-checkout mr-4">
                                     <?= $form->field($property, 'room_tariff_same_for_all')->inline()->radioList([1 => 'Room tariff is same for all guests', 0 => 'Room tariff depends on guest’s nationality'],['class' => 'form-radio'])->label(false); ?>
-
-
-                                    <!--                                    <input type="radio" name="nationality_based_tariff" value=""-->
-                                    <!--                                        id="cancellation-policy-period-based" class="form-radio">-->
-                                    <!--                                    <label for="cancellation-policy-period-based"> Cancellation Policy has Period Based-->
-                                    <!--                                        Rates </label>-->
                                 </div>
-                                <!--                                <div class="form-material form-checkout mr-4">-->
-                                <!--                                    <input type="radio" name="nationality_based_tariff" value=""-->
-                                <!--                                        id="room-tariff-depends" class="form-radio">-->
-                                <!--                                    <label for="room-tariff-depends"> Room tariff depends on guest’s nationality-->
-                                <!--                                    </label>-->
-                                <!--                                </div>-->
                             </div>
                             <div class="room-tariff-table table-responsive" id="nationality_div" <?php if ($property['room_tariff_same_for_all'] == 1): ?> style="display:none" <?php endif ; ?>>
                                 <table class="display table-sm" id="nationalityTable">
@@ -555,9 +483,6 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                                 </table>
 
                                     <button type="button" class="btn button-primary text-white btn-nationality button-color " data-toggle="modal" id="define_nationality" data-target="#nationalityModal"> Define Nationality
-                                    </button>
-                                <!--                                <button id="define_nationality" class="btn button-primary btn-nationality text-white" data-toggle="modal" > Define Nationality-->
-                                <!--                                </button>-->
                             </div>
                         </div>
                         <button class="buttonSave" style="width: 85px; border-radius: 5px" id="save_tariff_option"> Save </button>
@@ -575,12 +500,6 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                             <div class="form-group form-checkbox mb-2">
                                 <div class="form-material">
                                     <?= $form->field($property, 'provide_compulsory_inclusions')->checkbox()->label("We provide mandatory dinner"); ?>
-
-                                    <!--                                    <input type="checkbox" name="" id="dinner-policy" class="form-input-checkbox">-->
-                                    <!---->
-                                    <!--                                    <label for="dinner-policy" class="mb-0">-->
-                                    <!--                                        We provide mandatory dinner-->
-                                    <!--                                    </label>-->
                                 </div>
                             </div>
                         </div>
@@ -599,11 +518,6 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                             <div class="form-group form-checkbox mb-2">
                                 <div class="form-material">
                                     <?= $form->field($property, 'have_weekday_hike')->checkbox()->label("We have week day hiked tariff"); ?>
-
-                                    <!--                                    <input type="checkbox" name="" id="hike-policy" class="form-input-checkbox">-->
-                                    <!--                                    <label for="hike-policy" class="mb-0">-->
-                                    <!--                                        We have weekday hiked tariff-->
-                                    <!--                                    </label>-->
                                 </div>
                             </div>
                         </div>
@@ -647,23 +561,9 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                                     </select>
                                 </div>
 
-
-
-                                <!--                            <div class="form-select">-->
-                                <!--                                <select name="" id="" class="select2">-->
-                                <!--                                    <option value="one"> Enter State </option>-->
-                                <!--                                    <option value="one"> Kerala </option>-->
-                                <!--                                    <option value="one"> Kerala </option>-->
-                                <!--                                    <option value="one"> Kerala </option>-->
-                                <!--                                    <option value="one"> Kerala </option>-->
-                                <!--                                </select>-->
-                                <!--                            </div>-->
-                            </div>
                         </div>
                         <input type="hidden" id="group_id" name="group_id" value="0">
                         <div class="d-flex align-items-center mb-2">
-                            <!--                        <button type="button" class="btn btn-border mr-2" data-dismiss="modal"> Close </button>-->
-                            <!--                        <button type="button" class="btn button-secondary"> Save Nationality </button>-->
                             <button type="button" class="btn btn-border mr-2 button-color button-color-text" onclick="dismissNationaliyModal()">Close</button>
                             <button type="button" class="btn button-secondary" onclick="saveNationality()">Save Nationality</button>
 

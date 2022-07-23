@@ -1,9 +1,17 @@
 <?php
-
 use yii\bootstrap4\ActiveForm;
-
+$this->registerJsFile('/js/property/address_and_locations/index.js');
+$this->registerJsFile('/js/client_requested_option/add_option.js');
 ?>
-<div class="$content">
+<script>
+function showAlert(){
+        toastr.error("Complete all other forms to proceed");
+        return false;
+    }
+
+</script>
+
+<div class="content">
     <div class="container-fluid">
         <div class="card-title">
             <span style="font: bold"><?= $property->name; ?></span>
@@ -15,8 +23,8 @@ use yii\bootstrap4\ActiveForm;
                 <div style="display: inline">   <a href="index.php?r=property%2Faddressandlocation&id=<?= $address_location->id ?>">  <button class="selectedButton">Address & Location</button></a> <hr class="new5" ></div>
                 <a href="index.php?r=property%2Flegaltax&id=<?= $address_location->id ?>"> <button class="tablinks">Legal Tax</button></a>
                 <a href="index.php?r=property%2Fcontact&id=<?= $address_location->id; ?>"><button class="tablinks">Contact Details</button></a>
-                <?php if($show_terms_tab && $property->country_id && $property->legal_status_id) { ?>
-                        <a href="index.php?r=property%2Ftermsandconditions&id=<?= $address_location->id ?>"><button class="tablinks" >Terms & Conditions</button></a>
+                <?php if($show_terms_tab) { ?>
+                        <a href="index.php?r=property%2Ftermsandconditions&id=<?= $address_location->id ?>" <?= ( ($property->country_id && $property->legal_status_id) != 1 ) ? 'onclick="return showAlert()"' : '' ?> ><button class="tablinks" >Terms & Conditions</button></a>
                 <?php } ?>
 
             </div>
@@ -26,16 +34,33 @@ use yii\bootstrap4\ActiveForm;
 
             <div class="row">
                 <div class="form-group col-md-4">
-                    <label class="Labelclass" style="display: block" >Country<span style="color: red; font-size: 18px">*</span></label>
-                    <?php echo $form->field($address_location,'country_id')->dropDownList($countries,['class' => 'inputTextClass', 'prompt' => 'Choose'])->label(false) ?>
+                    <label class="Labelclass" style="display: block; width: 220px" >Country<span style="color: red; font-size: 18px">*</span>
+                        <?php if($address_location->id != 0 ) { ?>
+                            <a onclick="edit_request('<?php echo $country;?>', '<?php echo $address_location->id;?>')" href="#" data-toggle="tooltip" title="Add property type" style="float: right"><img class="margin-left-right-spacing dropbtn-edit action-icon t" src="images/edit-details.svg" style="width: 15px" data-toggle="tooltip" title="" data-original-title="Edit"></a>
+                        <?php } ?>
+                    </label>
+                    <?php echo $form->field($address_location,'country_id')->dropDownList($countries,['class' => 'inputTextClass address_select2 country_id', 'prompt' => 'Select Country'])->label(false) ?>
+
                 </div>
                 <div class="form-group col-md-4">
-                    <label class="Labelclass" style="display: block" >Location<span style="color: red; font-size: 18px">*</span></label>
-                    <?php echo $form->field($address_location,'location_id')->dropDownList($locations,['class' => 'inputTextClass', 'prompt' => 'Choose'])->label(false) ?>
+                    <label class="Labelclass" style="display: block; width: 220px" >Location<span style="color: red; font-size: 18px">*</span>
+                        <?php if($address_location->id != 0 ) { ?>
+                            <a onclick="edit_request('<?php echo $location;?>', '<?php echo $address_location->id;?>')" href="#" data-toggle="tooltip" title="Add property type" style="float: right"><img class="margin-left-right-spacing dropbtn-edit action-icon t" src="images/edit-details.svg" style="width: 15px" data-toggle="tooltip" title="" data-original-title="Edit"></a>
+                        <?php } else { ?>
+                        <a onclick="add_option('<?php echo $location;?>')" href="#" data-toggle="tooltip" title="Add location" style="float: right"><i class="fa fa-plus text-primary "></i></a>
+                        <?php } ?>
+                    </label>
+                    <?php echo $form->field($address_location,'location_id')->dropDownList($locations,['class' => 'inputTextClass address_select2 location_id', 'prompt' => 'Select Location'])->label(false) ?>
                 </div>
                 <div class="form-group col-md-4">
-                    <label class="Labelclass" style="display: block" >Destination<span style="color: red; font-size: 18px">*</span></label>
-                    <?php echo $form->field($address_location,'destination_id')->dropDownList($destinations,['class' => 'inputTextClass', 'prompt' => 'Choose'])->label(false) ?>
+                    <label class="Labelclass" style="display: block; width: 220px" >Destination<span style="color: red; font-size: 18px">*</span>
+                        <?php if($address_location->id != 0 ) { ?>
+                            <a onclick="edit_request('<?php echo $destination;?>', '<?php echo $address_location->id;?>')" href="#" data-toggle="tooltip" title="Add property type" style="float: right"><img class="margin-left-right-spacing dropbtn-edit action-icon t" src="images/edit-details.svg" style="width: 15px" data-toggle="tooltip" title="" data-original-title="Edit"></a>
+                        <?php } else { ?>
+                        <a onclick="add_option('<?php echo $destination;?>')" href="#" data-toggle="tooltip" title="Add destination" style="float: right"><i class="fa fa-plus text-primary "></i></a>
+                        <?php } ?>
+                    </label>
+                    <?php echo $form->field($address_location,'destination_id')->dropDownList($destinations,['class' => 'inputTextClass address_select2 destination_id', 'prompt' => 'Select Destination'])->label(false) ?>
                 </div>
             </div>
             <div class="row">
@@ -44,7 +69,11 @@ use yii\bootstrap4\ActiveForm;
                     <?php echo $form->field($address_location,'address')->textarea(['rows' => '5', 'class' =>'inputTextArea','placeholder' => 'Enter official address'])->label(false) ?>
                 </div>
                 <div class="form-group col-md-4">
-                    <label class="Labelclass" style="display: block" >Pin Code<span style="color: red; font-size: 18px">*</span></label>
+                    <label class="Labelclass" style="display: block; width: 220px" >Pin Code<span style="color: red; font-size: 18px">*</span>
+                        <?php if($address_location->id != 0 ) { ?>
+                            <a onclick="edit_request('<?php echo $pin_code;?>', '<?php echo $address_location->id;?>')" href="#" data-toggle="tooltip" title="Add property type" style="float: right"><img class="margin-left-right-spacing dropbtn-edit action-icon t" src="images/edit-details.svg" style="width: 15px" data-toggle="tooltip" title="" data-original-title="Edit"></a>
+                        <?php } ?>
+                    </label>
                     <?php echo $form->field($address_location,'postal_code')->textInput(['class' => 'inputTextClass', ])->label(false) ?>
                 </div>
                 <div class="form-group col-md-4">

@@ -21,12 +21,7 @@ use Carbon\Carbon;
                         </span></div>
                 </div>
             </div>
-            <div style="display: inline">
 
-                <?= Html::a('<i class="fa fa-plus-circle plusbuttonspace material-icons " aria-hidden="true"></i> Mother date range', ['/tariff/addmotherdate', 'id' => $property->id  ],['class' => ' button-Add-mother-date']) ?>
-
-                <!--                          <BUTTON type="button" style="float: right" class="motherdateAddButton fontsize-button"  >  <i class="fa fa-plus-circle plusbuttonspace material-icons " aria-hidden="true"></i>  </BUTTON>-->
-            </div>
         </div>
         </div>
         <div class="tariffBorder">
@@ -40,6 +35,12 @@ use Carbon\Carbon;
             </div>
             <hr class="sidebar-divider hrdivider">
             <div class="tariffBorder3" style="display: block">
+                <div style="">
+
+                    <?= Html::a('<i class="fa fa-plus-circle plusbuttonspace material-icons " aria-hidden="true" ></i> Mother date range', ['/tariff/addmotherdate', 'id' => $property->id  ],['class' => ' button-Add-mother-date ']) ?>
+
+                    <!--                          <BUTTON type="button" style="float: right" class="motherdateAddButton fontsize-button"  >  <i class="fa fa-plus-circle plusbuttonspace material-icons " aria-hidden="true"></i>  </BUTTON>-->
+                </div>
 
                 <?php
                 $i = 1;

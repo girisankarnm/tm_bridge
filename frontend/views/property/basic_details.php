@@ -1,24 +1,39 @@
 <?php
 use yii\bootstrap4\ActiveForm;
 $this->registerJsFile('/js/common.js');
+$this->registerJsFile('/js/client_requested_option/add_option.js');
 
 ?>
-<div class="$content">
+<script>
+function showAlert(){        
+        toastr.error("Save basic details to proceed!");
+        return false;
+}
+
+function showTermsAlert(){        
+    toastr.error("Complete all other forms to proceed!");
+    return false;
+}
+
+
+</script>
+<div class="content">
     <div class="container-fluid" style="background-color: white">
         <div class="card-title">
-            <?= $basic_details->name; ?>
+            <?= $basic_details->name == NULL ? "Basic details" : $basic_details->name; ?>
         </div>
         <div class="card-body" style="border: .12rem solid #dedede; border-radius: 6px;">
             <div class="tab" style="display: flex;flex-direction: row;">
-                <div style="display: inline">   <a  href="index.php?r=property%2Fbasicdetails&id=<?= $basic_details->id ?> <?= ($property_image->scenario == "create") ? 'onclick="return showAlert()"' : '' ?>">  <button class="selectedButton" > <i class="fas fa-check"></i> Basic Details</button></a> <hr class="new5" ></div>
-                <?php if ($basic_details->id != 0 ) { ?>
+                <div style="display: inline">   
+                <a  href="index.php?r=property%2Fbasicdetails&id=<?= $basic_details->id ?>" <?= ($property_image->scenario == "create") ? 'onclick="return showAlert()"' : '' ?>">  <button class="selectedButton" >Basic Details</button></a> <hr class="new5" ></div>
+                <?php // if ($basic_details->id != 0 ) { ?>
                     <a href="index.php?r=property%2Faddressandlocation&id=<?= $basic_details->id; ?>" <?= ($property_image->scenario == "create") ? 'onclick="return showAlert()"' : '' ?>">   <button id="contactBtn" class="tablinks" > <i class="fas fa-times"></i> Address & Location</button></a>
                     <a href="index.php?r=property%2Flegaltax&id=<?= $basic_details->id; ?>" <?= ($property_image->scenario == "create") ? 'onclick="return showAlert()"' : '' ?>> <button class="tablinks" >Legal Tax</button></a>
                     <a href="index.php?r=property%2Fcontact&id=<?= $basic_details->id; ?>" <?= ($property_image->scenario == "create") ? 'onclick="return showAlert()"' : '' ?> ><button class="tablinks">Contact Details</button></a>
-                    <?php if($show_terms_tab && $property->country_id && $property->legal_status_id) { ?>
-                            <a href="index.php?r=property%2Ftermsandconditions&id=<?= $basic_details->id; ?>" <?= ($property_image->scenario == "create") ? 'onclick="return showAlert()"' : '' ?> ><button class="tablinks" >Terms & Conditions</button></a>
+                    <?php if($show_terms_tab ) { ?>
+                            <a href="index.php?r=property%2Ftermsandconditions&id=<?= $basic_details->id; ?>" <?= ( ($property->country_id && $property->legal_status_id) != 1 ) ? 'onclick="return showTermsAlert()"' : '' ?> ><button class="tablinks" >Terms & Conditions</button></a>
                     <?php } ?>
-                <?php } ?>
+                <?php // } ?>
             </div>
 
             <hr class="sidebar-divider">
@@ -28,19 +43,35 @@ $this->registerJsFile('/js/common.js');
             <div class="row align-items-start">
                 <div class="col-md-6 ">
                     <div class="form-group ">
-                        <label class="Labelclass" style="display: block">Property Name<span style="color: red; font-size: 18px">*</span></label>
-                        <?php echo $form->field($basic_details,'name')->textInput(['class' => 'inputLarge'])->label(false) ?>
+                        <label class="Labelclass" style="display: block; width: 440px">Property Name<span style="color: red; font-size: 18px">*</span>
+                            <?php if($basic_details->id != 0 ) { ?>
+                            <a onclick="edit_request('<?php echo $property_name->id;?>', '<?php echo $basic_details->id;?>')" href="#" data-toggle="tooltip" title="Add property type" style="float: right"><img class="margin-left-right-spacing dropbtn-edit action-icon t" src="images/edit-details.svg" style="width: 15px" data-toggle="tooltip" title="" data-original-title="Edit"></a>
+                            <?php } ?>
+                        </label>
+                        <?php echo $form->field($basic_details,'name')->textInput(['class' => 'inputLarge', 'placeholder' => 'Registered name of property' ])->label(false) ?>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group ">
-                                <label class="Labelclass" style="display: block">Property Type<span style="color: red; font-size: 18px">*</span></label>
+                                <label class="Labelclass" style="display: block; width: 200px">Property Type<span style="color: red; font-size: 18px">*</span>
+                                    <?php if($basic_details->id != 0 ) { ?>
+                                        <a onclick="edit_request('<?php echo $type;?>', '<?php echo $basic_details->id;?>')" href="#" data-toggle="tooltip" title="Add property type" style="float: right"><img class="margin-left-right-spacing dropbtn-edit action-icon t" src="images/edit-details.svg" style="width: 15px" data-toggle="tooltip" title="" data-original-title="Edit"></a>
+                                    <?php } else { ?>
+                                    <a onclick="add_option('<?php echo $type;?>')" href="#" data-toggle="tooltip" title="Add property type" style="float: right"><i class="fa fa-plus text-primary "></i></a>
+                                    <?php } ?>
+                                </label>
                                 <?php echo $form->field($basic_details, 'property_type_id')->dropDownList($property_types, ['class' => 'inputTextClass','style' => 'width: 200px','prompt' => 'Choose'])->label(false); ?>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group ">
-                                <label class="Labelclass" style="display: block">Property Rating<span style="color: red; font-size: 18px">*</span></label>
+                                <label class="Labelclass" style="display: block; width: 200px">Property Rating<span style="color: red; font-size: 18px">*</span>
+                                    <?php if($basic_details->id != 0 ) { ?>
+                                        <a onclick="edit_request('<?php echo $rating;?>', '<?php echo $basic_details->id;?>')" href="#" data-toggle="tooltip" title="Add property type" style="float: right"><img class="margin-left-right-spacing dropbtn-edit action-icon t" src="images/edit-details.svg" style="width: 15px" data-toggle="tooltip" title="" data-original-title="Edit"></a>
+                                    <?php } else { ?>
+                                    <a onclick="add_option('<?php echo $rating;?>')" href="#" data-toggle="tooltip" title="Add property rating" style="float: right"><i class="fa fa-plus text-primary "></i></a>
+                                    <?php } ?>
+                                </label>
                                 <?php echo $form->field($basic_details, 'property_category_id')->dropDownList($property_categories, ['class' => 'inputTextClass','style' => 'width: 200px','prompt' => 'Choose'])->label(false); ?>
                             </div>
                         </div>

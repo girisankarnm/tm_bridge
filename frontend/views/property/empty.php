@@ -15,8 +15,7 @@ use yii\helpers\Url;
             <div class="card card-resize" >
                 <img src="images/one-property.svg" class="image-top-left-property" >
                 <img src="images/create_property.svg" class="height-image">
-                                   <h5 class="title-card-property">Create Your property</h5>
-                <h6 class="h8class smallFonts padding-4px ">Name. Location, GST...</h6>
+                <h5 class="title-card-property">Add your property</h5>
 
             </div>
         </div>
@@ -29,8 +28,6 @@ use yii\helpers\Url;
                 <img src="images/two-property.svg" class="image-top-left-property" >
                 <img src="images/define_policy.svg"  class="height-image">
                 <h5 class="title-card-property">Define policies</h5>
-                <h6 class="h8class smallFonts padding-4px ">Check in/out. Smoking, Pets...</h6>
-
             </div>
         </div>
 
@@ -43,7 +40,6 @@ use yii\helpers\Url;
                 <img src="images/three-property.svg" class="image-top-left-property" >
                 <img src="images/set_tariff.svg"  class="height-image">
                 <h5 class="title-card-property">Set tariff</h5>
-                <h6 class="h8class smallFonts padding-4px ">Room tariff. Meal rates, Weekday hike...</h6>
             </div>
         </div>
 
@@ -54,13 +50,13 @@ use yii\helpers\Url;
             <div class="card card-resize" >
                 <img src="images/four-property.svg" class="image-top-left-property" >
                 <img src="images/publish_property.svg"  class="height-image">
-                <h5 class="title-card-property">Published</h5>
-                <h6 class="h8class smallFonts padding-4px ">Share it with operators</h6>
+                <h5 class="title-card-property">Share with operators</h5>
+
             </div>
         </div>
     </div>
 
-    <div style="text-align: center; border: 0px solid black; padding: 10px; color: #586ADA;margin-top: 12px"><button class="property-button" onclick="location.href='<?= Url::toRoute(['/property/basicdetails']) ?>'">Create property</button></div>
+    <div style="text-align: center; border: 0px solid black; padding: 10px; color: #586ADA;margin-top: 12px"><button class="property-button" onclick="location.href='<?= Url::toRoute(['/property/basicdetails']) ?>'">Proceed to Add Property</button></div>
 
 </main>
 </body>
