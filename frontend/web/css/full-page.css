@@ -100,3 +100,20 @@
 .no-margin{
     margin-bottom: 0 !important;
 }
+
+.inputTextArea-large
+{
+    background-color: #ffffff;
+    box-sizing: border-box;
+    color: #787486 !important;
+    width: 100%;
+    font-size: 14px;
+    padding-left: 8px;
+    padding-top: 8px;
+    border: 0.1px solid #c3c3c3;
+    border-radius: 8px;
+
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+}
