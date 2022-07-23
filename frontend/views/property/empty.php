@@ -15,7 +15,7 @@ use yii\helpers\Url;
             <div class="card card-resize" >
                 <img src="images/one-property.svg" class="image-top-left-property" >
                 <img src="images/create_property.svg" class="height-image">
-                <h5 class="title-card-property">Create your property</h5>
+                <h5 class="title-card-property">Add your property</h5>
 
             </div>
         </div>
