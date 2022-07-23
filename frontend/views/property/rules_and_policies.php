@@ -37,14 +37,15 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
 <div class="tab-section rules_and_policies_contr">
     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
         <li class="nav-item" role="presentation">
-            <button onclick="location.href='<?= Url::toRoute(['property/rules','id' => $property->id]) ?>'" class="selectedButton" id="pills-basic-tab" href="#pills-basic"> Rules & Policies
+            <button onclick="location.href='<?= Url::toRoute(['property/rules','id' => $property->id]) ?>'" class="selectedButton" id="pills-basic-tab" href="#pills-basic">
+            <i class="fas fa-times"></i> Rules & Policies
             </button><hr class="new5" >
         </li>
         <li class="nav-item" role="presentation">
-            <button onclick="location.href='<?= Url::toRoute(['property/categories','id' => $property->id]) ?>'" class="tablinks" id="pills-contact-tab" href="#pills-contact"> Room Category </button>
+            <button onclick="location.href='<?= Url::toRoute(['property/categories','id' => $property->id]) ?>'" class="tablinks" id="pills-contact-tab" href="#pills-contact"> <i class="fas fa-check"></i> Room Category </button>
         </li>
         <li class="nav-item" role="presentation">
-            <button onclick="location.href='<?= Url::toRoute(['property/serviceamenities','id' => $property->id]) ?>'" class="tablinks" id="pills-guest-tab" href="#pills-guest"> Service & Amenities </button>
+            <button onclick="location.href='<?= Url::toRoute(['property/serviceamenities','id' => $property->id]) ?>'" class="tablinks" id="pills-guest-tab" href="#pills-guest"> <i class="fas fa-times"></i> Service & Amenities </button>
         </li>
         <li class="nav-item" role="presentation">
             <button onclick="location.href='<?= Url::toRoute(['property/pictures','id' => $property->id]) ?>'" class="tablinks" id="pills-accommodation-tab" href="#pills-accommodation"> Property pictures
