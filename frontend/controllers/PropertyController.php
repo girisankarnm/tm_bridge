@@ -50,6 +50,7 @@ use frontend\models\property\RoomType;
 use frontend\models\property\PropertyRoomView;
 use frontend\models\property\PropertyMealPlan;
 use frontend\models\property\PropertyRoomExtraBedType;
+use frontend\models\MasterEditRequest;
 use yii\web\ForbiddenHttpException;
 use yii\web\NotFoundHttpException;
 use yii\web\UploadedFile;
@@ -225,6 +226,11 @@ class PropertyController extends Controller
             }
         }
 
+        $type = MasterEditRequest::find()->where(['name' => 'property type'])->one();
+        $rating = MasterEditRequest::find()->where(['name' => 'property rating'])->one();
+        $property_name = MasterEditRequest::find()->where(['name' => 'property name'])->one();
+//        return $this->asJson($type);
+
         $basic_details = new BasicDetails();
         $property_image = new PropertyImage();
         if ($property == NULL) {
@@ -257,7 +263,10 @@ class PropertyController extends Controller
             'property_categories' => $property_categories,
             'property_image' => $property_image,
             'show_terms_tab' => $show_terms_tab,
-            'property' => $property
+            'property' => $property,
+            'type' => $type->id,
+            'rating' => $rating->id,
+            'property_name' => $property_name
         ]);
 
     }
@@ -359,6 +368,11 @@ class PropertyController extends Controller
             //throw new NotFoundHttpException();
         }
 
+        $country = MasterEditRequest::find()->where(['name' => 'country'])->one();
+        $location = MasterEditRequest::find()->where(['name' => 'location'])->one();
+        $destination = MasterEditRequest::find()->where(['name' => 'destination'])->one();
+        $pin_code = MasterEditRequest::find()->where(['name' => 'pin code'])->one();
+
         $address_location = new AddressLocation();
         $address_location->id = $property->id;
         $address_location->country_id = $property->country_id;
@@ -386,7 +400,11 @@ class PropertyController extends Controller
                 'locations' => $locations,
                 'destinations' => $destinations,
                 'show_terms_tab' => $show_terms_tab,
-                'property' => $property
+                'property' => $property,
+                'location' => $location->id,
+                'destination' => $destination->id,
+                'country' => $country->id,
+                'pin_code' => $pin_code->id,
             ]
         );
     }
@@ -486,6 +504,15 @@ class PropertyController extends Controller
             return $this->render('not_found', []);
         }
 
+        $property_legal_status = MasterEditRequest::find()->where(['name' => 'legal status'])->one();
+        $pan_number = MasterEditRequest::find()->where(['name' => 'pan number'])->one();
+        $business_license_number = MasterEditRequest::find()->where(['name' => 'business license number'])->one();
+        $bank_name = MasterEditRequest::find()->where(['name' => 'bank name'])->one();
+        $account_number = MasterEditRequest::find()->where(['name' => 'account number'])->one();
+        $account_name = MasterEditRequest::find()->where(['name' => 'account name'])->one();
+        $ifsc_code = MasterEditRequest::find()->where(['name' => 'ifsc code'])->one();
+
+
         $legal_tax_documentation = new LegalTaxDocumentation();
         $legal_tax_documentation->id = $property->id;
         $legal_tax_documentation->legal_status_id = $property->legal_status_id;
@@ -533,7 +560,14 @@ class PropertyController extends Controller
             'legal_docs_images' => $legal_docs_images,
             'show_terms_tab' => $show_terms_tab,
             'gst_image_is_there' => $gst_image_is_there,
-            'property' => $property
+            'property' => $property,
+            'legal_status_id' => $property_legal_status->id,
+            'pan_number' => $pan_number->id,
+            'business_license_number' => $business_license_number->id,
+            'bank_name' => $bank_name->id,
+            'account_number' => $account_number->id,
+            'account_name' => $account_name->id,
+            'ifsc_code' => $ifsc_code->id,
         ]);
     }
 

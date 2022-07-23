@@ -4,6 +4,7 @@ namespace frontend\controllers;
 use frontend\models\Country;
 use frontend\models\Destination;
 use frontend\models\Location;
+use frontend\models\MasterEditRequest;
 use frontend\models\operator\AddressLocation;
 use frontend\models\operator\BasicDetails;
 use frontend\models\operator\LegalDocsImages;
@@ -180,6 +181,10 @@ class OperatorController extends Controller{
         if ($operator == NULL){
             throw new NotFoundHttpException();
         }
+
+        $location = MasterEditRequest::find()->where(['name' => 'location'])->one();
+        $destination = MasterEditRequest::find()->where(['name' => 'destination'])->one();
+
         $address_location = new AddressLocation();
         $address_location->id = $operator->id;
         $address_location->country_id = $operator->country_id;
@@ -204,7 +209,9 @@ class OperatorController extends Controller{
                 'countries' => $countries,
                 'locations' => $locations,
                 'destinations' => $destinations,
-                'show_terms_tab' => $show_terms_tab
+                'show_terms_tab' => $show_terms_tab,
+                'location' => $location->id,
+                'destination' => $destination->id
             ]
         );
 
