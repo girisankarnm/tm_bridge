@@ -74,9 +74,9 @@ use yii\helpers\Url;
                               <div>  <a href="#"> <img class="margin-left-right-spacing dropbtn-edit action-icon t" onclick="myFunctionEdit(<?=$i?>)" src="images/edit-details.svg" data-toggle="tooltip" title="Edit"></a>
 
                                   <div id="myDropdownEdit<?=$i?>" class="dropdown-content-edit " style="height: auto; background-color: #586ADA; margin-left: -90px; margin-top: 10px;">
-                                      <a href="<?= \yii\helpers\Url::to(['/property/basicdetails', 'id' => $property->id]) ?>" class="dro"><img  src="images/edit-sub-menue-icon.svg" style="margin-right: 2px;"> <span style="color: white">Edit Basic Details</span></a>
-                                      <a href="<?= \yii\helpers\Url::to(['/property/rules', 'id' =>  $property->id]) ?>" class="dro"><img  src="images/edit-sub-menue-icon.svg" style="margin-right: 2px;"> <span style="color: white"> Edit Operational Details</span></a>
-                                      <a href="<?= \yii\helpers\Url::to(['/tariff/home', 'id' =>  $property->id]) ?>" class="dro"><img  src="images/edit-sub-menue-icon.svg" style="margin-right: 2px;"> <span style="color: white"> Edit tariff</span></a>
+                                      <a href="<?= \yii\helpers\Url::to(['/property/basicdetails', 'id' => $property->id]) ?>" class="dro"><img  src="images/edit-sub-menue-icon.svg" style="margin-right: 2px;"> <span style="color: white"> Basic Details</span></a>
+                                      <a href="<?= \yii\helpers\Url::to(['/property/rules', 'id' =>  $property->id]) ?>" class="dro"><img  src="images/edit-sub-menue-icon.svg" style="margin-right: 2px;"> <span style="color: white">  Operational Details</span></a>
+                                      <a href="<?= \yii\helpers\Url::to(['/tariff/home', 'id' =>  $property->id]) ?>" class="dro"><img  src="images/edit-sub-menue-icon.svg" style="margin-right: 2px;"> <span style="color: white">  Tariff</span></a>
                                   </div>
 
                               </div>
