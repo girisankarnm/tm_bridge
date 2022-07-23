@@ -308,8 +308,9 @@ class EnquiryController extends Controller{
 
             $enqAccomodationDestinationIDS = EnquiryAccommodation::find()->where(['enquiry_id'=>  $enquiry_id = (int) Yii::$app->request->get('id')])
                 ->select('destination_id')->asArray()->column();
-            $destinations = ArrayHelper::map(Destination::find()->where(['id'=>$enqAccomodationDestinationIDS])->asArray()->all(), 'id', 'name');
-
+            $destinations = ArrayHelper::map(Destination::find()->where(['destination.id'=>$enqAccomodationDestinationIDS])->joinWith(['country','location'])->select( ['country.name as country_name','location.name as location_name','destination.name','destination.id'])->asArray()->all(), 'id',  function($model) {
+                return $model['name'].'( '.$model['location_name'].','.$model['country_name'].' )';
+            });
         }
 
         $accommodation = new EnquiryAccommodation();
@@ -397,7 +398,9 @@ class EnquiryController extends Controller{
         $searchKeyWord = Yii::$app->request->get('q');
         $destinations = [];
         if ($searchKeyWord != null) {
-            $destinations = Destination::find()->andFilterWhere(['like', 'name', $searchKeyWord])->asArray()->all();
+            $destinations = Destination::find()->Where(['like', 'destination.name', $searchKeyWord])->joinWith(['country','location'])->select( ['country.name as country_name','location.name as location_name','destination.name','destination.id'])->asArray()->all();
+
+//            $destinations = Destination::find()->andFilterWhere(['like', 'name', $searchKeyWord])->joinWith('country')->all();
         }
         return array('status' => 0, 'items' => $destinations);;
     }
