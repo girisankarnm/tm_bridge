@@ -251,3 +251,246 @@ input::placeholder {
     margin-right: -29p !important;
     margin-left: 105px;
 }
+.badge-pill {
+     border-radius: 0rem;
+}
+.size-badge
+{
+    height: 20px !important;
+    width: 88px !important;
+    border: 0.0px solid #E40968 !important;
+    background: #E40968 !important;
+}
+.card-overflow-hidden
+{
+    overflow: hidden;
+}
+.span-gap
+{
+    margin-right: 3px;
+}
+.span-gap-image
+{
+    margin-right: 3px;
+}
+.font-span
+{
+    font-size: 12px !important;
+}
+.line-through-text
+{
+    text-decoration: line-through;
+}
+.under-text
+{
+    text-decoration: underline;
+}
+.font-color-E40967
+{
+    color: #E40967 !important;
+}
+.search-card-list{
+    /*border-box:0px solid rgba(0,0,0,.125) !important;*/
+
+    border-radius: 10px !important;
+    height: 112px !important;
+    background-color: #ffffff !important;
+    margin-top: 18px;
+    margin-right: 5px !important;
+    margin-left: 4px !important;
+    margin-bottom: 24px !important;
+    box-shadow: 10px 10px -14px 14px #e3e3e3;
+}
+
+.search-top-card-list{
+    /*border-box:0px solid rgba(0,0,0,.125) !important;*/
+
+    border-radius: 10px !important;
+    height:  75px !important;
+    background-color: #ffffff !important;
+    margin-top: 18px;
+    margin-right: 5px !important;
+    margin-left: 4px !important;
+    margin-bottom: 24px !important;
+    /*box-shadow: 10px 10px -14px 14px #e3e3e3;*/
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+
+}
+.search-top-card-input{
+    /*border-box:0px solid rgba(0,0,0,.125) !important;*/
+width: 140px;
+    margin: 23px;
+
+    height:  30px !important;
+    background-color: #e9e7e7 !important;
+    /*margin-top: 18px;*/
+    /*margin-right: 5px !important;*/
+    /*margin-left: 4px !important;*/
+    /*margin-bottom: 24px !important;*/
+    box-shadow: 10px 10px -14px 14px #e3e3e3;
+}
+
+.search-top-card-label{
+
+    background-color: #e9e7e7 !important;
+
+    box-shadow: 10px 10px -14px 14px #e3e3e3;
+}
+
+
+.flex-icons
+{
+
+}
+
+.serach-hotelHeading
+{
+    font-size: 16px;
+    padding-top: 4px;
+    color: black;
+    font-weight: 700;
+    inline-size: 1px;
+    margin-right: 3px;
+}
+
+.image-search-property
+{
+
+    width: 100px;
+    height: 100px;
+    padding: 13px;
+}
+.color-140F0F
+{
+    color:#140F0F !important;
+}
+.color-586ADA
+{
+    color: #586ADA !important;
+}
+
+.font-bw-mitga
+{
+    /*font-family: 'Bw Mitga';*/
+    /*font-style: normal;*/
+    /*font-weight: 700;*/
+    letter-spacing: -0.02em;
+
+}
+
+.search-anchor {
+
+    margin: 6px;
+    /*text-align: center;*/
+    /*font-family: 'Bw Mitga';*/
+    /*font-style: normal;*/
+    font-size: 12px;
+    color: black !important;
+    /*font-weight: normal;*/
+    border: 0.0px solid #E40968 !important;
+    box-shadow: 10px 10px -14px 14px #e3e3e3;
+}
+
+#flex-icons {
+    width:100%;
+    height: 30px;
+    display: flex;
+    margin-top: 22px;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+#flex-icons div {
+}
+#flex-icons div:nth-of-type(1) {
+    margin-left: 5px;
+   width: 140px;
+    overflow: hidden;
+
+    text-align: center;
+}
+#flex-icons div:nth-of-type(2) {
+   width: 240px;
+
+    overflow: hidden;
+    text-align: center;
+}
+#flex-icons div:nth-of-type(3) {
+    width: 276px;
+
+overflow: hidden;
+}
+#flex-icons div:nth-of-type(4) {
+
+   width: 208px;
+    text-align: center;
+}
+#flex-icons div:nth-of-type(5) {
+    text-align: center;
+  width: 100px;
+
+}
+/*#flex-row-search*/
+/*{*/
+/*    display: flex;*/
+/*    height: 30px;*/
+/*    flex-wrap: wrap;*/
+/*    flex-direction: row-reverse;*/
+/*}*/
+/*#flex-row-search div {*/
+
+/*}*/
+
+/*#flex-row-search div:nth-of-type(1) {*/
+
+/*    background: #0d1c7d;*/
+
+
+/*}#flex-row-search div:nth-of-type(2) {*/
+/*    background: #0d1c7d;*/
+
+
+/*}#flex-row-search div:nth-of-type(3) {*/
+/*    background: #0d1c7d;*/
+
+
+/*}*/
+
+
+#flex-row-search {
+
+   width: 140px;
+    height: 30px;
+    display: flex;
+
+    flex-direction: row-reverse;
+
+}
+
+#flex-row-search div {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 25px;
+}
+#flex-row-search div:nth-of-type(1) {
+    margin-left: 5px;
+    width: 30px;
+    height: 100px;
+    text-align: left;
+
+}
+#flex-row-search div:nth-of-type(2) {
+  width: 30px;
+    height: 90px;
+    text-align: left;
+}
+#flex-row-search div:nth-of-type(3) {
+    width: 30px;
+    height: 90px;
+   float: right;
+}
+#flex-row-search div:nth-of-type(4) {
+    width: 30px;
+    height: 90px;
+   float: left;
+}
