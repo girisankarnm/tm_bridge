@@ -337,7 +337,8 @@ width: 140px;
 .search-top-card-label{
 
     background-color: #e9e7e7 !important;
-
+    border: 1px solid rgba(1,2,2,.125);
+    border-radius: 1.rem;
     box-shadow: 10px 10px -14px 14px #e3e3e3;
 }
 
@@ -375,22 +376,24 @@ width: 140px;
 
 .font-bw-mitga
 {
-    /*font-family: 'Bw Mitga';*/
+    font-family:"cursive";
     /*font-style: normal;*/
-    /*font-weight: 700;*/
+    font-weight: 700;
     letter-spacing: -0.02em;
+
 
 }
 
 .search-anchor {
 
     margin: 6px;
+    font-family:"cursive";
     /*text-align: center;*/
     /*font-family: 'Bw Mitga';*/
-    /*font-style: normal;*/
+    font-style: normal;
     font-size: 12px;
     color: black !important;
-    /*font-weight: normal;*/
+    font-weight: 400;
     border: 0.0px solid #E40968 !important;
     box-shadow: 10px 10px -14px 14px #e3e3e3;
 }

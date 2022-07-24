@@ -8,30 +8,32 @@
         <div class="card search-top-card-list shadow-div card-overflow-hidden" >
             <div id="flex-icons">
                 <div>
-                    <div class="card search-top-card-label shadow-div"  style="width: 140px;"> <a href="#" class="search-anchor">Enquiry no: #9999/22</a> </div>
+                    <div class="card search-top-card-label "  style="width: 140px;"> <a href="#" class="search-anchor">Enquiry no: #9999/22</a> </div>
 
                 </div>
 
                 <div>
-                    <div class="card search-top-card-label shadow-div"   style="width: 240px;" > <a href="#" class="search-anchor">Guest name: Swaroop swaminathan</a> </div>
+                    <div class="card search-top-card-label "   style="width: 240px;" > <a href="#" class="search-anchor">Guest name: Swaroop swaminathan</a> </div>
 
                 </div>
                 <div>
-                    <div class="card search-top-card-label shadow-div"  style="width: 286px;" > <a href="#" class="search-anchor"><span>Check in:15-jul-2022 </span><span>Check out:19-jul-2022 </span></a> </div>
+                    <div class="card search-top-card-label "  style="width: 286px;" > <a href="#" class="search-anchor"><span>Check in:15-jul-2022 </span><span>Check out:19-jul-2022 </span></a> </div>
 
                 </div>
 
                 <div>
-                    <div class="card search-top-card-label shadow-div"  style="width: 220px;" > <a href="#" class="search-anchor"><span>Stay Duration : 10 nights </span></a> </div>
+                    <div class="card search-top-card-label"  style="width: 220px;" > <a href="#" class="search-anchor"><span>Stay Duration : 10 nights </span></a> </div>
                 </div>
 
                 <div>
                     <div id="flex-row-search"  style="width: 140px;">
-
-                        <div> <span> <img src="images/map-icon.svg"> </span></div>
-                        <div> <span> <img src="images/filter-search-icon.svg"> </span></div>
-                        <div> <span> <img src="images/filter-icon.svg"> </span></div>
                         <div> <span> <img src="images/filer-symbol-up-down.svg"> </span></div>
+                        <div> <span> <img src="images/filter-icon.svg"> </span></div>
+                        <div> <span> <img src="images/filter-search-icon.svg"> </span></div>
+                        <div> <span> <img src="images/map-icon.svg"> </span></div>
+
+
+
 
 
                     </div>
