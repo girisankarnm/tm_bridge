@@ -1,6 +1,8 @@
 <?php
 use yii\bootstrap4\ActiveForm;
 $this->registerJsFile('/js/common.js');
+$this->registerJsFile('/js/client_requested_option/add_option.js');
+
 ?>
 <script>
 function showAlert(){        
@@ -41,19 +43,35 @@ function showTermsAlert(){
             <div class="row align-items-start">
                 <div class="col-md-6 ">
                     <div class="form-group ">
-                        <label class="Labelclass" style="display: block">Property Name<span style="color: red; font-size: 18px">*</span></label>
+                        <label class="Labelclass" style="display: block; width: 440px">Property Name<span style="color: red; font-size: 18px">*</span>
+                            <?php if($basic_details->id != 0 ) { ?>
+                            <a onclick="edit_request('<?php echo $property_name->id;?>', '<?php echo $basic_details->id;?>')" href="#" data-toggle="tooltip" title="Add property type" style="float: right"><img class="margin-left-right-spacing dropbtn-edit action-icon t" src="images/edit-details.svg" style="width: 15px" data-toggle="tooltip" title="" data-original-title="Edit"></a>
+                            <?php } ?>
+                        </label>
                         <?php echo $form->field($basic_details,'name')->textInput(['class' => 'inputLarge', 'placeholder' => 'Registered name of property' ])->label(false) ?>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group ">
-                                <label class="Labelclass" style="display: block">Property Type<span style="color: red; font-size: 18px">*</span></label>
+                                <label class="Labelclass" style="display: block; width: 200px">Property Type<span style="color: red; font-size: 18px">*</span>
+                                    <?php if($basic_details->id != 0 ) { ?>
+                                        <a onclick="edit_request('<?php echo $type;?>', '<?php echo $basic_details->id;?>')" href="#" data-toggle="tooltip" title="Add property type" style="float: right"><img class="margin-left-right-spacing dropbtn-edit action-icon t" src="images/edit-details.svg" style="width: 15px" data-toggle="tooltip" title="" data-original-title="Edit"></a>
+                                    <?php } else { ?>
+                                    <a onclick="add_option('<?php echo $type;?>')" href="#" data-toggle="tooltip" title="Add property type" style="float: right"><i class="fa fa-plus text-primary "></i></a>
+                                    <?php } ?>
+                                </label>
                                 <?php echo $form->field($basic_details, 'property_type_id')->dropDownList($property_types, ['class' => 'inputTextClass','style' => 'width: 200px','prompt' => 'Choose'])->label(false); ?>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group ">
-                                <label class="Labelclass" style="display: block">Property Rating<span style="color: red; font-size: 18px">*</span></label>
+                                <label class="Labelclass" style="display: block; width: 200px">Property Rating<span style="color: red; font-size: 18px">*</span>
+                                    <?php if($basic_details->id != 0 ) { ?>
+                                        <a onclick="edit_request('<?php echo $rating;?>', '<?php echo $basic_details->id;?>')" href="#" data-toggle="tooltip" title="Add property type" style="float: right"><img class="margin-left-right-spacing dropbtn-edit action-icon t" src="images/edit-details.svg" style="width: 15px" data-toggle="tooltip" title="" data-original-title="Edit"></a>
+                                    <?php } else { ?>
+                                    <a onclick="add_option('<?php echo $rating;?>')" href="#" data-toggle="tooltip" title="Add property rating" style="float: right"><i class="fa fa-plus text-primary "></i></a>
+                                    <?php } ?>
+                                </label>
                                 <?php echo $form->field($basic_details, 'property_category_id')->dropDownList($property_categories, ['class' => 'inputTextClass','style' => 'width: 200px','prompt' => 'Choose'])->label(false); ?>
                             </div>
                         </div>
