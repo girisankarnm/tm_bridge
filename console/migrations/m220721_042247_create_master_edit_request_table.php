@@ -17,49 +17,49 @@ class m220721_042247_create_master_edit_request_table extends Migration
             'name' => $this->string()
         ]);
 
-        $this->insert('country',[
+        $this->insert('master_edit_request',[
             'name' =>'property name',
         ]);
-        $this->insert('country',[
+        $this->insert('master_edit_request',[
             'name' =>'property type',
         ]);
-        $this->insert('country',[
+        $this->insert('master_edit_request',[
             'name' =>'property rating',
         ]);
-        $this->insert('country',[
+        $this->insert('master_edit_request',[
             'name' =>'location',
         ]);
-        $this->insert('country',[
+        $this->insert('master_edit_request',[
             'name' =>'destination',
         ]);
-        $this->insert('country',[
+        $this->insert('master_edit_request',[
             'name' =>'legal status',
         ]);
-        $this->insert('country',[
+        $this->insert('master_edit_request',[
             'name' =>'country',
         ]);
-        $this->insert('country',[
+        $this->insert('master_edit_request',[
             'name' =>'pin code',
         ]);
-        $this->insert('country',[
+        $this->insert('master_edit_request',[
             'name' =>'pan number',
         ]);
-        $this->insert('country',[
+        $this->insert('master_edit_request',[
             'name' =>'business license number',
         ]);
-        $this->insert('country',[
+        $this->insert('master_edit_request',[
             'name' =>'gst number',
         ]);
-        $this->insert('country',[
+        $this->insert('master_edit_request',[
             'name' =>'bank name',
         ]);
-        $this->insert('country',[
+        $this->insert('master_edit_request',[
             'name' =>'account name',
         ]);
-        $this->insert('country',[
+        $this->insert('master_edit_request',[
             'name' =>'account number',
         ]);
-        $this->insert('country',[
+        $this->insert('master_edit_request',[
             'name' =>'ifsc code',
         ]);
     }
