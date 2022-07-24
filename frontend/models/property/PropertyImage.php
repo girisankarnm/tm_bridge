@@ -15,6 +15,7 @@ class PropertyImage extends Model
 
     public function rules()
     {
+        //TODO: FOR PHP 8.1 + ,Validation issues for extension :https://github.com/yiisoft/yii2/issues/19243, add 'checkExtensionByMimeType' => false to solve
         return [
             [['proFile', 'logoFile'], 'required', 'on'=>['create']],
             [['proFile'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, jpeg', 'maxSize' => 1024 * 1024 * 2],
@@ -29,6 +30,8 @@ class PropertyImage extends Model
             $imageFile->saveAs('uploads/' . $file_name, false);
             return true;
         } else {
+          var_dump($this->errors);
+            exit();
             return false;
         }
     }
@@ -49,7 +52,7 @@ class PropertyImage extends Model
      */
     public function attributeLabels()
     {
-        return [            
+        return [
             'proFile' => 'Property photo',
             'logoFile' => 'Property logo'
         ];
