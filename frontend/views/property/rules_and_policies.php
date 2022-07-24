@@ -112,7 +112,7 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                     <button type="button" class="btn accordion-top text-left collapsed" type="button"
                             data-toggle="collapse" data-target="#collapseThree" aria-expanded="false"
                             aria-controls="collapseThree">
-                        3. Pets Policy?
+                        3. Pets Policy
                     </button>
                     <div id="collapseThree" class="collapse" data-parent="#myAccordion">
                         <div class="accordion-content">
