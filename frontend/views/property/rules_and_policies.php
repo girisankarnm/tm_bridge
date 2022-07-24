@@ -79,10 +79,10 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                             </div>
                             <div class="d-flex form-group align-items-center">
                                 <div class="d-flex form-material form-checkin align-items-center mr-4">
-                                    <?php echo $form->field($property, 'check_in_time')->dropDownList($time_slot, ['class' => 'time_c','prompt' => 'Check in', ($property->twenty_four_hours_check_in == 2 ) ? '' : 'disabled' => 'disabled' ])->label(false); ?>
+                                    <?php echo $form->field($property, 'check_in_time')->dropDownList($time_slot, ['class' => 'time_c padding-time','prompt' => 'Check in', ($property->twenty_four_hours_check_in == 2 ) ? '' : 'disabled' => 'disabled' ])->label(false); ?>
                                 </div>
                                 <div class="d-flex form-material form-checkin align-items-center margin-left-check">
-                                    <?php echo $form->field($property, 'check_out_time')->dropDownList($time_slot, ['class' => 'time_c','prompt' => 'Check out', ($property->twenty_four_hours_check_in == 2 ) ? '' : 'disabled' => 'disabled'])->label(false); ?>
+                                    <?php echo $form->field($property, 'check_out_time')->dropDownList($time_slot, ['class' => 'time_c padding-time','prompt' => 'Check out', ($property->twenty_four_hours_check_in == 2 ) ? '' : 'disabled' => 'disabled'])->label(false); ?>
                                 </div>
                             </div>
                         </div>

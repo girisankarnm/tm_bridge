@@ -254,6 +254,10 @@ input::placeholder {
 .badge-pill {
      border-radius: 0rem;
 }
+.padding-time
+{
+  padding: 2px !important;
+}
 .size-badge
 {
     height: 20px !important;
