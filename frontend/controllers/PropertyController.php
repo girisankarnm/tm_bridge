@@ -648,6 +648,7 @@ class PropertyController extends Controller
         } else {
             //TODO: Delete already uploaded GST image and set image name as NULL
             if (is_file('uploads/' . $property->gst_image)) {
+                chmod('uploads/' . $property->gst_image, 0777);
                 if (!unlink('uploads/' . $property->gst_image)) {
                 //TODO: Log error, with file name that cannot delete file
                 }           
