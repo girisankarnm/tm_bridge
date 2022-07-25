@@ -29,8 +29,8 @@ class AddressLocation extends Model{
             [['country_id'], 'exist', 'skipOnError' => true, 'targetClass' => Country::className(), 'targetAttribute' => ['country_id' => 'id']],
             [['location_id'], 'exist', 'skipOnError' => true, 'targetClass' => Location::className(), 'targetAttribute' => ['location_id' => 'id']],
             [['destination_id'], 'exist', 'skipOnError' => true, 'targetClass' => Destination::className(), 'targetAttribute' => ['destination_id' => 'id']],
-            [['postal_code',], 'number', 'min' =>  100000, 'tooSmall' => 'Postal code must have 6 digits'],
-            [['postal_code',], 'number', 'max' => 999999, 'tooBig' => 'Postal code can have 6 digits']
+            [['postal_code',], 'number', 'min' =>  100000, 'tooSmall' => 'Postal code should be 6 digits'],
+            [['postal_code',], 'number', 'max' => 999999, 'tooBig' => 'Postal code should be 6 digits']
         ];
     }
 }
