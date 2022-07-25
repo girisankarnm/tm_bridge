@@ -11,12 +11,39 @@ use yii\bootstrap4\ActiveForm;
         </div>
         <div class="card-body" style="border: .12rem solid #dedede; border-radius: 6px;">
             <div class="tab" style="display: flex;flex-direction: row;">
-                <a href="index.php?r=operator%2Fbasicdetails&id=<?= $legal_tax_documentation->id ?>"> <button class="tablinks">Basic Details</button></a>
-                <a href="index.php?r=operator%2Faddressandlocation&id=<?= $legal_tax_documentation->id ?>">   <button id="contactBtn" class="tablinks" >Address & Location</button></a>
-                <div style="display: inline">   <a href="index.php?r=operator%2Flegaltax&id=<?= $legal_tax_documentation->id ?>">  <button class="selectedButton" >Legal & Tax</button></a> <hr class="new5" ></div>
+                <a href="index.php?r=operator%2Fbasicdetails&id=<?= $legal_tax_documentation->id ?>"> <button class="tablinks">
+                        <?php if($operator->name) { ?>
+                            <i class="fas fa-check"></i>
+                        <?php } else {?>
+                            <i class="fas fa-times"></i>
+                        <?php } ?>
+                        Basic Details</button>
+                </a>
+                <a href="index.php?r=operator%2Faddressandlocation&id=<?= $legal_tax_documentation->id ?>">   <button id="contactBtn" class="tablinks" >
+                        <?php if($operator->country_id) { ?>
+                            <i class="fas fa-check"></i>
+                        <?php } else {?>
+                            <i class="fas fa-times"></i>
+                        <?php } ?>
+                        Address & Location</button>
+                </a>
+                <div style="display: inline">   <a href="index.php?r=operator%2Flegaltax&id=<?= $legal_tax_documentation->id ?>">  <button class="selectedButton" >
+                            <?php if($operator->legal_status_id) { ?>
+                                <i class="fas fa-check"></i>
+                            <?php } else {?>
+                                <i class="fas fa-times"></i>
+                            <?php } ?>
+                            Legal & Tax</button></a> <hr class="new5" >
+                </div>
                 <a  href="index.php?r=operator%2Fcontact&id=<?= $legal_tax_documentation->id ?>"><button class="tablinks">Contact Details</button></a>
                 <?php if($show_terms_tab) { ?>
-                    <a href="index.php?r=operator%2Ftermsandconditions&id=<?= $legal_tax_documentation->id ?>"><button class="tablinks">Terms & Conditions</button></a>
+                    <a href="index.php?r=operator%2Ftermsandconditions&id=<?= $legal_tax_documentation->id ?>"><button class="tablinks">
+                            <?php if($operator->terms_and_conditons) { ?>
+                                <i class="fas fa-check"></i>
+                            <?php } else {?>
+                                <i class="fas fa-times"></i>
+                            <?php } ?>
+                            Terms & Conditions</button></a>
                 <?php } ?>
             </div>
             <hr class="sidebar-divider">

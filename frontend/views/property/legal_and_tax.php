@@ -40,12 +40,40 @@ $this->registerJsFile('/js/client_requested_option/add_option.js');
         </div>
         <div class="card-body" style="border: .12rem solid #dedede; border-radius: 6px;">
             <div class="tab" style="display: flex;flex-direction: row;">
-                <a href="index.php?r=property%2Fbasicdetails&id=<?= $legal_tax_documentation->id ?>"> <button class="tablinks" >Basic Details</button></a>
-                <a href="index.php?r=property%2Faddressandlocation&id=<?= $legal_tax_documentation->id ?>">   <button id="contactBtn" class="tablinks" >Address & Location</button></a>
-                <div style="display: inline">   <a href="index.php?r=property%2Flegaltax&id=<?= $legal_tax_documentation->id ?>">  <button class="selectedButton">Legal & Tax</button></a> <hr class="new5" ></div>
+                <a href="index.php?r=property%2Fbasicdetails&id=<?= $legal_tax_documentation->id ?>"> <button class="tablinks" >
+                        <?php if($property->name) { ?>
+                            <i class="fas fa-check"></i>
+                        <?php } else {?>
+                            <i class="fas fa-times"></i>
+                        <?php } ?>
+                        Basic Details</button>
+                </a>
+                <a href="index.php?r=property%2Faddressandlocation&id=<?= $legal_tax_documentation->id ?>">   <button id="contactBtn" class="tablinks" >
+                        <?php if($property->country_id) { ?>
+                            <i class="fas fa-check"></i>
+                        <?php } else {?>
+                            <i class="fas fa-times"></i>
+                        <?php } ?>
+                        Address & Location</button>
+                </a>
+                <div style="display: inline">   <a href="index.php?r=property%2Flegaltax&id=<?= $legal_tax_documentation->id ?>">  <button class="selectedButton">
+                            <?php if($property->legal_status_id) { ?>
+                                <i class="fas fa-check"></i>
+                            <?php } else {?>
+                                <i class="fas fa-times"></i>
+                            <?php } ?>
+                            Legal & Tax</button></a> <hr class="new5" >
+                </div>
                 <a href="index.php?r=property%2Fcontact&id=<?= $legal_tax_documentation->id; ?>"><button class="tablinks" >Contact Details</button></a>
                 <?php if($show_terms_tab) { ?>
-                    <a href="index.php?r=property%2Ftermsandconditions&id=<?= $legal_tax_documentation->id ?>" <?= ( ($property->country_id && $property->legal_status_id) != 1 ) ? 'onclick="return showTermsAlert()"' : '' ?> ><button class="tablinks" >Terms & Conditions</button></a>
+                    <a href="index.php?r=property%2Ftermsandconditions&id=<?= $legal_tax_documentation->id ?>" <?= ( ($property->country_id && $property->legal_status_id) != 1 ) ? 'onclick="return showTermsAlert()"' : '' ?> ><button class="tablinks" >
+                            <?php if($property->terms_and_conditons1) { ?>
+                                <i class="fas fa-check"></i>
+                            <?php } else {?>
+                                <i class="fas fa-times"></i>
+                            <?php } ?>
+                            Terms & Conditions</button>
+                    </a>
                 <?php } ?>
 
             </div>

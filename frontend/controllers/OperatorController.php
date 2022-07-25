@@ -72,7 +72,8 @@ class OperatorController extends Controller{
         return $this->render('basic_details',[
             'basic_details' => $basic_details,
             'operator_image' => $operator_image,
-            'show_terms_tab' => $show_terms_tab
+            'show_terms_tab' => $show_terms_tab,
+            'operator' => $operator
         ]);
 
     }
@@ -469,7 +470,7 @@ class OperatorController extends Controller{
         {
             $show_terms_tab = 0;
         }
-        return $this->render('contact_details',['contact' => $contact, 'show_terms_tab' => $show_terms_tab]);
+        return $this->render('contact_details',['contact' => $contact, 'show_terms_tab' => $show_terms_tab,  'operator' => $operator]);
     }
 
     public function actionSavecontactdetails() {
@@ -559,7 +560,7 @@ class OperatorController extends Controller{
         $terms->id = $operator->id;
         $terms->terms_and_conditons = $operator->terms_and_conditons;
 
-        return $this->render('terms_and_conditions',['terms' => $terms]);
+        return $this->render('terms_and_conditions',['terms' => $terms, 'operator' => $operator]);
     }
 
     public function actionSaveterms()

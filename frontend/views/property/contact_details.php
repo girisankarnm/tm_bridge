@@ -18,14 +18,42 @@ function showTermsAlert(){
 
         <div class="card-body" style="border: .12rem solid #dedede; border-radius: 6px;">
             <div class="tab">
-                <a  href="index.php?r=property%2Fbasicdetails&id=<?= $contact->property_id ?>"> <button class="tablinks btnunder">Basic Details</button></a>
-                <a href="index.php?r=property%2Faddressandlocation&id=<?= $contact->property_id; ?>"> <button class="tablinks btnunder">Address & Location</button></a>
-                <a href="index.php?r=property%2Flegaltax&id=<?= $contact->property_id ?>"> <button class="tablinks btnunder">Legal Tax</button></a>
+                <a  href="index.php?r=property%2Fbasicdetails&id=<?= $contact->property_id ?>"> <button class="tablinks btnunder">
+                        <?php if($property->name) { ?>
+                            <i class="fas fa-check"></i>
+                        <?php } else {?>
+                            <i class="fas fa-times"></i>
+                        <?php } ?>
+                        Basic Details</button>
+                </a>
+                <a href="index.php?r=property%2Faddressandlocation&id=<?= $contact->property_id; ?>"> <button class="tablinks btnunder">
+                        <?php if($property->country_id) { ?>
+                            <i class="fas fa-check"></i>
+                        <?php } else {?>
+                            <i class="fas fa-times"></i>
+                        <?php } ?>
+                        Address & Location</button>
+                </a>
+                <a href="index.php?r=property%2Flegaltax&id=<?= $contact->property_id ?>"> <button class="tablinks btnunder">
+                        <?php if($property->legal_status_id) { ?>
+                            <i class="fas fa-check"></i>
+                        <?php } else {?>
+                            <i class="fas fa-times"></i>
+                        <?php } ?>
+                        Legal Tax</button>
+                </a>
                 <div style="display: inline">   <a href="index.php?r=property%2Fcontact&id=<?= $contact->property_id; ?>">  <button class="selectedButton">Contact Details</button></a> <hr class="new5" >
                 </div>
 
                 <?php if($show_terms_tab) { ?>
-                    <a  href="index.php?r=property%2Ftermsandconditions&id=<?= $contact->property_id ?>" <?= ( ($property->country_id && $property->legal_status_id) != 1 ) ? 'onclick="return showTermsAlert()"' : '' ?>> <button class="tablinks">Terms & Conditions</button></a>
+                    <a  href="index.php?r=property%2Ftermsandconditions&id=<?= $contact->property_id ?>" <?= ( ($property->country_id && $property->legal_status_id) != 1 ) ? 'onclick="return showTermsAlert()"' : '' ?>> <button class="tablinks">
+                            <?php if($property->terms_and_conditons1) { ?>
+                                <i class="fas fa-check"></i>
+                            <?php } else {?>
+                                <i class="fas fa-times"></i>
+                            <?php } ?>
+                            Terms & Conditions</button>
+                    </a>
                 <?php } ?>
 
             </div>

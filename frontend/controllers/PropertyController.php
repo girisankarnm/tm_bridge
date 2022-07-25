@@ -838,7 +838,7 @@ class PropertyController extends Controller
         $terms->terms_and_conditons3 = $property->terms_and_conditons3;
 
         $this->layout = 'tm_main';
-        return $this->render('terms_and_conditions', ['terms' => $terms]);
+        return $this->render('terms_and_conditions', ['terms' => $terms, 'property' => $property,]);
     }
 
     public function actionSaveterms()

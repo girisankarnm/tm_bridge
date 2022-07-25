@@ -25,13 +25,40 @@ function showTermsAlert(){
         <div class="card-body" style="border: .12rem solid #dedede; border-radius: 6px;">
             <div class="tab" style="display: flex;flex-direction: row;">
                 <div style="display: inline">   
-                <a  href="index.php?r=property%2Fbasicdetails&id=<?= $basic_details->id ?>" <?= ($property_image->scenario == "create") ? 'onclick="return showAlert()"' : '' ?>">  <button class="selectedButton" >Basic Details</button></a> <hr class="new5" ></div>
+                <a  href="index.php?r=property%2Fbasicdetails&id=<?= $basic_details->id ?>" <?= ($property_image->scenario == "create") ? 'onclick="return showAlert()"' : '' ?>">  <button class="selectedButton" >
+                        <?php if($property->name) { ?>
+                            <i class="fas fa-check"></i>
+                        <?php } else {?>
+                            <i class="fas fa-times"></i>
+                        <?php } ?>
+                        Basic Details</button></a> <hr class="new5" >
+                </div>
                 <?php // if ($basic_details->id != 0 ) { ?>
-                    <a href="index.php?r=property%2Faddressandlocation&id=<?= $basic_details->id; ?>" <?= ($property_image->scenario == "create") ? 'onclick="return showAlert()"' : '' ?>">   <button id="contactBtn" class="tablinks" > <i class="fas fa-times"></i> Address & Location</button></a>
-                    <a href="index.php?r=property%2Flegaltax&id=<?= $basic_details->id; ?>" <?= ($property_image->scenario == "create") ? 'onclick="return showAlert()"' : '' ?>> <button class="tablinks" >Legal Tax</button></a>
+                    <a href="index.php?r=property%2Faddressandlocation&id=<?= $basic_details->id; ?>" <?= ($property_image->scenario == "create") ? 'onclick="return showAlert()"' : '' ?>">   <button id="contactBtn" class="tablinks" >
+                    <?php if($property->country_id) { ?>
+                        <i class="fas fa-check"></i>
+                    <?php } else {?>
+                        <i class="fas fa-times"></i>
+                    <?php } ?>
+                    Address & Location</button></a>
+                    <a href="index.php?r=property%2Flegaltax&id=<?= $basic_details->id; ?>" <?= ($property_image->scenario == "create") ? 'onclick="return showAlert()"' : '' ?>> <button class="tablinks" >
+                            <?php if($property->legal_status_id) { ?>
+                                <i class="fas fa-check"></i>
+                            <?php } else {?>
+                                <i class="fas fa-times"></i>
+                            <?php } ?>
+                            Legal Tax</button>
+                    </a>
                     <a href="index.php?r=property%2Fcontact&id=<?= $basic_details->id; ?>" <?= ($property_image->scenario == "create") ? 'onclick="return showAlert()"' : '' ?> ><button class="tablinks">Contact Details</button></a>
                     <?php if($show_terms_tab ) { ?>
-                            <a href="index.php?r=property%2Ftermsandconditions&id=<?= $basic_details->id; ?>" <?= ( ($property->country_id && $property->legal_status_id) != 1 ) ? 'onclick="return showTermsAlert()"' : '' ?> ><button class="tablinks" >Terms & Conditions</button></a>
+                            <a href="index.php?r=property%2Ftermsandconditions&id=<?= $basic_details->id; ?>" <?= ( ($property->country_id && $property->legal_status_id) != 1 ) ? 'onclick="return showTermsAlert()"' : '' ?> ><button class="tablinks" >
+                                    <?php if($property->terms_and_conditons1) { ?>
+                                        <i class="fas fa-check"></i>
+                                    <?php } else {?>
+                                        <i class="fas fa-times"></i>
+                                    <?php } ?>
+                                    Terms & Conditions</button>
+                            </a>
                     <?php } ?>
                 <?php // } ?>
             </div>
