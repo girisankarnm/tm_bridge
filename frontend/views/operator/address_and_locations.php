@@ -27,15 +27,33 @@ $this->registerJsFile('/js/client_requested_option/add_option.js');
 
             <div class="row">
                 <div class="form-group col-md-4">
-                    <label class="Labelclass" style="display: block" >Country<span style="color: red; font-size: 18px">*</span></label>
+                    <label class="Labelclass" style="display: block; width: 220px" >Country<span style="color: red; font-size: 18px">*</span>
+                        <?php if($operator->country_id != 0 ) { ?>
+                            <a onclick="edit_request('<?php echo $country;?>', '<?php echo $address_location->id;?>')" href="#" data-toggle="tooltip" title="Add property type" style="float: right"><img class="margin-left-right-spacing dropbtn-edit action-icon t" src="images/edit-details.svg" style="width: 15px" data-toggle="tooltip" title="" data-original-title="Edit"></a>
+                        <?php } else { ?>
+                        <a onclick="add_option('<?php echo $country;?>')" href="#" data-toggle="tooltip" title="Add location" style="float: right"><i class="fa fa-plus text-primary "></i></a>
+                        <?php } ?>
+                    </label>
                     <?php echo $form->field($address_location,'country_id')->dropDownList($countries,['class' => 'inputTextClass address_select2 country_id', 'prompt' => 'Select Country'])->label(false) ?>
                 </div>
                 <div class="form-group col-md-4">
-                    <label class="Labelclass" style="display: block; width: 220px" >Location<span style="color: red; font-size: 18px">*</span><a onclick="add_option('<?php echo $location;?>')" href="#" data-toggle="tooltip" title="Add location" style="float: right"><i class="fa fa-plus text-primary "></i></a></label>
+                    <label class="Labelclass" style="display: block; width: 220px" >Location<span style="color: red; font-size: 18px">*</span>
+                        <?php if($operator->location_id != 0 ) { ?>
+                            <a onclick="edit_request('<?php echo $location;?>', '<?php echo $address_location->id;?>')" href="#" data-toggle="tooltip" title="Add property type" style="float: right"><img class="margin-left-right-spacing dropbtn-edit action-icon t" src="images/edit-details.svg" style="width: 15px" data-toggle="tooltip" title="" data-original-title="Edit"></a>
+                        <?php } else { ?>
+                        <a onclick="add_option('<?php echo $location;?>')" href="#" data-toggle="tooltip" title="Add location" style="float: right"><i class="fa fa-plus text-primary "></i></a>
+                        <?php } ?>
+                    </label>
                     <?php echo $form->field($address_location,'location_id')->dropDownList($locations,['class' => 'inputTextClass address_select2 location_id', 'prompt' => 'Select Location'])->label(false) ?>
                 </div>
                 <div class="form-group col-md-4">
-                    <label class="Labelclass" style="display: block; width: 220px" >Destination<span style="color: red; font-size: 18px">*</span><a onclick="add_option('<?php echo $destination;?>')" href="#" data-toggle="tooltip" title="Add destination" style="float: right"><i class="fa fa-plus text-primary "></i></a></label>
+                    <label class="Labelclass" style="display: block; width: 220px" >Destination<span style="color: red; font-size: 18px">*</span>
+                        <?php if($operator->destination_id != 0 ) { ?>
+                            <a onclick="edit_request('<?php echo $destination;?>', '<?php echo $address_location->id;?>')" href="#" data-toggle="tooltip" title="Add property type" style="float: right"><img class="margin-left-right-spacing dropbtn-edit action-icon t" src="images/edit-details.svg" style="width: 15px" data-toggle="tooltip" title="" data-original-title="Edit"></a>
+                        <?php } else { ?>
+                        <a onclick="add_option('<?php echo $destination;?>')" href="#" data-toggle="tooltip" title="Add destination" style="float: right"><i class="fa fa-plus text-primary "></i></a>
+                        <?php } ?>
+                    </label>
                     <?php echo $form->field($address_location,'destination_id')->dropDownList($destinations,['class' => 'inputTextClass address_select2 destination_id', 'prompt' => 'Select Destination'])->label(false) ?>
                 </div>
             </div>
@@ -45,7 +63,11 @@ $this->registerJsFile('/js/client_requested_option/add_option.js');
                     <?php echo $form->field($address_location,'address')->textarea(['rows' => '5', 'class' => 'inputTextArea',])->label(false) ?>
                 </div>
                 <div class="form-group col-md-4">
-                    <label class="Labelclass" style="display: block" >Zip Code<span style="color: red; font-size: 18px">*</span></label>
+                    <label class="Labelclass" style="display: block; width: 220px" >Pin Code<span style="color: red; font-size: 18px">*</span>
+                        <?php if($operator->postal_code != 0 ) { ?>
+                            <a onclick="edit_request('<?php echo $pin_code;?>', '<?php echo $address_location->id;?>')" href="#" data-toggle="tooltip" title="Add property type" style="float: right"><img class="margin-left-right-spacing dropbtn-edit action-icon t" src="images/edit-details.svg" style="width: 15px" data-toggle="tooltip" title="" data-original-title="Edit"></a>
+                        <?php } ?>
+                    </label>
                     <?php echo $form->field($address_location,'postal_code')->textInput(['class' => 'inputTextClass'])->label(false) ?>
                 </div>
                 <div class="form-group col-md-4">
