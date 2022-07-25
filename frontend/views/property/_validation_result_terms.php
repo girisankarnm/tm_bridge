@@ -9,6 +9,7 @@
                     Terms and conditions not accepted. 
                 </li>
             </ul>
+
         <?php }
         else
         {?>
@@ -17,16 +18,15 @@
         ?>
 
         <?php if($result != NULL) { ?>
-        <div id="edit-flex">
-            <div> </div>
-            <div>
+
+            <div  class="d-flex flex-row-reverse ">
                 <?php if ( ($property->country_id && $property->legal_status_id) != 1) {  ?>
-                    Please fill all other forms before T & C                    
+                   <span style="margin-right: 12px; vertical-align:text-top" > Please fill all other forms before T & C   </span>
                 <?php } else { ?>                    
                     <a href="<?= \yii\helpers\Url::to(['/property/'.$action, 'id' => $property->id]) ?>" > <img  src="images/blue-edit.svg"  style="margin-right: 2px; vertical-align:text-top" > <span style="color: blue"> edit  <?= $name ?>  </span></a>
                 <?php }  ?>
             </div>
-        </div>
+
         <?php } ?>
 
     </div>

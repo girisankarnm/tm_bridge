@@ -36,10 +36,10 @@ frontend\assets\AppAsset::register($this);
 
                 <div>
                     <div id="flex-row-search"  style="width: 140px;">
-                        <div> <span> <img class="margin-right-search-img" src="images/filer-symbol-up-down.svg"> </span></div>
-                        <div> <span> <img class="margin-right-search-img" src="images/filter-icon.svg"> </span></div>
-                        <div> <span> <img class="margin-right-search-img" src="images/filter-search-icon.svg"> </span></div>
-                        <div> <span> <img src="images/map-icon.svg"> </span></div>
+                        <div> <span> <img class="margin-right-search-img image-width-height" src="images/filer-symbol-up-down.svg"> </span></div>
+                        <div> <span> <img class="margin-right-search-img image-width-height" src="images/filter-icon.svg"> </span></div>
+                        <div> <span> <img class="margin-right-search-img image-width-height" src="images/filter-search-icon.svg"> </span></div>
+                        <div> <span> <img class="image-width-height-2" src="images/map-icon.svg"> </span></div>
 
 
 
@@ -138,7 +138,7 @@ frontend\assets\AppAsset::register($this);
                 <div>
                     <div id="column-4th-colomn-search" >
                         <div>  <span class="font-bw-mitga" style="font: bold;font-size: 13px;float: left;margin-left: 10px; color: #292931 "> Standard Double Room </span>
-                            <span style="float: right;margin-left: 10px" class="badge badge-pill badge-secondary size-badge font-bw-mitga"><img class="img-property-search" src="images/note-search.svg"  alt="Matrix"> 4/10</span>
+                            <span style="float: right;margin-left: 10px;font-size: 11px" class="badge badge-pill badge-secondary size-badge font-bw-mitga-text"><img class="img-property-search" src="images/note-search.svg"  alt="Matrix"> 4/10</span>
                            </div>
                         <div>
                             <span class="span-gap font-span font-bw-mitga-text " style=";margin-left: 10px">  <img class="img-property color-140F0F " src="images/baby-icon.svg" alt="Matrix">0-<span>9</span>YR </span>
@@ -147,7 +147,7 @@ frontend\assets\AppAsset::register($this);
 
 
                              </div>
-                        <div> <span class="line-through-text font-color-E40967 font-bw-mitga" style="font-size: 13px;margin-right: 5px;margin-left: 10px">₹ 10000 </span> <span class=" color-586ADA  font-bw-mitga"  style="font-size: 17px;margin-right: 5px;margin-left: 10px">₹ 9000</span></div>
+                        <div> <span class="line-through-text font-color-E40967 font-bw-mitga" style="font-size: 13px;margin-left: 10px">₹ 10,990 </span> <span class=" color-586ADA  font-bw-mitga"  style="font-size: 17px;margin-left: 6px">₹ 9000</span></div>
                     </div>
 
                 </div>

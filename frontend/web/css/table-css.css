@@ -309,7 +309,7 @@ input::placeholder {
 
 .search-top-card-list{
     /*border-box:0px solid rgba(0,0,0,.125) !important;*/
-
+/*position: sticky;*/
     border-radius: 10px !important;
     height:  75px !important;
     background-color: #ffffff !important;
@@ -414,6 +414,7 @@ width: 140px;
 }
 
 #flex-icons {
+
     width:100%;
     height: 30px;
     display: flex;
@@ -532,4 +533,16 @@ overflow: hidden;
 .margin-12px
 {
     margin-right: 12px;
+}
+.image-width-height
+{
+    width: 21px;
+    height: 22px;
+    cursor: pointer;
+}
+.image-width-height-2
+{
+    width: 25px;
+    height: 26px;
+    cursor: pointer;
 }
