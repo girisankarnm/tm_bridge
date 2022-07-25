@@ -203,16 +203,16 @@ $('#property-allow_child_of_all_ages').click(function () {
 });
 
 
-$('#property-allow_complimentary').click(function () {
-    $(this).prop('checked', true);
-});
-$('#property-allow_child_rate').click(function () {
-    $(this).prop('checked', true);
-});
-
-$('#property-allow_adult_rate').click(function () {
-    $(this).prop('checked', true);
-});
+// $('#property-allow_complimentary').click(function () {
+//     $(this).prop('checked', true);
+// });
+// $('#property-allow_child_rate').click(function () {
+//     $(this).prop('checked', true);
+// });
+//
+// $('#property-allow_adult_rate').click(function () {
+//     $(this).prop('checked', true);
+// });
 
 
 $('#property-complimentary_to_age').change(function () {
@@ -802,6 +802,7 @@ function validateCancellationPolicy(){
             }
 
             if ( parseInt(inpt_to_days[i].value) > (inpt_from_days[i].value) ) {
+                bError = true;
                 $.alert({
                     icon: 'fa fa-exclamation-triangle',
                     title: 'Alert!',
@@ -824,6 +825,20 @@ function validateCancellationPolicy(){
                 });
                 // toastr.error("To date can't lower or equal than No refund days");
                 return bError;
+            }
+
+            if (i === inpt_from_days.length- 1) {
+                if((inpt_to_days[i].value) != (no_refund_days+1)){
+                    bError = true;
+                    $.alert({
+                        icon: 'fa fa-exclamation-triangle',
+                        title: 'Alert!',
+                        content: 'To date of '+ percentage[i].value+'% refund should be '+parseInt(no_refund_days + 1),
+                        type: 'red',
+                        typeAnimated: true,
+                    });
+                    return bError;
+                }
             }
         }
 

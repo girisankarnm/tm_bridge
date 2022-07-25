@@ -72,7 +72,7 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                     </button>
                     <div id="collapseOne" class="collapse show" data-parent="#myAccordion">
                         <div class="accordion-content form-checkin-out-content">
-                            <input type="hidden" value="<?= $property->id ?>" name="property_id" id="property_id">                            
+                            <input type="hidden" value="<?= $property->id ?>" name="property_id" id="property_id">
                             <div class="d-flex form-group align-items-center">
                                 <div class="checkmark">
                                     <?= $form->field($property, 'twenty_four_hours_check_in')->inline()->radioList([1 => '24 hour check out', 2 => 'Check in / check out as follows'],['class' => 'checkmark','style' => 'margin-left: -0.7rem;'])->label(false); ?>
@@ -161,22 +161,40 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
 
                                         <div id="pb_div" style = "display: <?= ($property->cancellation_has_period_charge == 1) ? "block" : "none" ?> ">
                                             <div class="row checked-cancellation-policy align-items-center mb-2">
-                                                <div class="col-4  pr-0">
-                                                    <p> Full refund if cancelled on or before </p>
+
+                                                <div class="col-2 fit-width-112px">
+                                                    <div class="form-group">
+                                                        <input readonly value="100" type="text" name="percentage[]" id="" class="form-control input-sh">
+                                                    </div>
                                                 </div>
-                                                <div class="d-flex col-8 align-items-center">
-                                                    <div class="form-group mr-2">
+                                                <div class="col-4 fit-width-215px">
+                                                    <p> % refund if cancelled on or before </p>
+                                                </div>
+                                                <div class="col-2 fit-width-70px">
+                                                    <div class="form-group">
                                                         <input value="<?= $property->cancellation_full_refund_days?>" type="text" name="cancellation_full_refund_days" id="property-cancellation_full_refund_days" class="form-control input-sm">
                                                     </div>
+                                                </div>
+                                                <div class="col-3">
                                                     <p> days of arrival date </p>
                                                 </div>
-                                                <div class="col-4 pr-0">
-                                                    <p> No refund if cancelled on or later than </p>
+                                            </div>
+
+                                            <div class="row checked-cancellation-policy align-items-center mb-2">
+                                                <div class="col-2 fit-width-112px">
+                                                    <div class="form-group">
+                                                        <input readonly value="0" type="text" name="percentage[]" id="" class="form-control input-sh">
+                                                    </div>
                                                 </div>
-                                                <div class="d-flex col-8 align-items-center">
-                                                    <div class="form-group mr-2">
+                                                <div class="col-4 fit-width-215px">
+                                                    <p> % refund if cancelled on or later than </p>
+                                                </div>
+                                                <div class="col-2 fit-width-70px">
+                                                    <div class="form-group">
                                                         <input value="<?= $property->cancellation_no_refund_days?>" type="text" name="cancellation_no_refund_days" id="property-cancellation_no_refund_days" class="form-control input-sm">
                                                     </div>
+                                                </div>
+                                                <div class="col-3">
                                                     <p> days of arrival date </p>
                                                 </div>
                                             </div>
@@ -194,7 +212,7 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                                                             </div>
                                                         </div>
                                                         <div class="col-4 fit-width-215px">
-                                                            <p> of package amount if cancelled </p>
+                                                            <p> % of package amount if cancelled </p>
                                                         </div>
                                                         <div class="d-flex col-2 fit-width-105px align-items-center pr-0">
                                                             <div class="form-group mr-3">
@@ -235,7 +253,7 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                                                     </div>
                                                     <div class="d-flex col-2 fit-width-105px align-items-center pr-0">
                                                         <div class="form-group mr-3">
-                                                            <input type="text" name="from_days[]" id="" class="form-control input-sh">
+                                                            <input type="text" name="from_days[]" id="" readonly="readonly" class="form-control input-sh">
                                                         </div>
                                                         <p> To </p>
                                                     </div>
