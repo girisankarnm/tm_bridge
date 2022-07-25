@@ -1457,7 +1457,6 @@ class PropertyController extends Controller
         if (!isset($_REQUEST['property_id'])) {
             return array('status' => 2, 'message' => "Invalid input. Property missing.", 'data' => 0);;
         }
-
         $property_id = Yii::$app->request->post('property_id');
 
 

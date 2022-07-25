@@ -523,3 +523,13 @@ overflow: hidden;
     height: 19px;
     margin-bottom: 3px;
 }
+.align-right
+{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.margin-12px
+{
+    margin-right: 12px;
+}
