@@ -260,10 +260,11 @@ input::placeholder {
 }
 .size-badge
 {
-    height: 20px !important;
-    width: 88px !important;
-    border: 0.0px solid #E40968 !important;
-    background: #E40968 !important;
+    height: 19px !important;
+    width: 50px !important;
+    border: 0px solid #685080 !important;
+    background: #685080 !important;
+
 }
 .card-overflow-hidden
 {
@@ -297,7 +298,7 @@ input::placeholder {
     /*border-box:0px solid rgba(0,0,0,.125) !important;*/
 
     border-radius: 10px !important;
-    height: 112px !important;
+    height: 100px !important;
     background-color: #ffffff !important;
     margin-top: 18px;
     margin-right: 5px !important;
@@ -352,8 +353,10 @@ width: 140px;
 {
     font-size: 16px;
     padding-top: 4px;
+    font-family: Bw-Mitga-bold;
+    font-style: normal;
     color: black;
-    font-weight: 700;
+    /*font-weight: 700;*/
     inline-size: 1px;
     margin-right: 3px;
 }
@@ -361,8 +364,8 @@ width: 140px;
 .image-search-property
 {
 
-    width: 100px;
-    height: 100px;
+    width: 96px;
+    height: 96px;
     padding: 13px;
 }
 .color-140F0F
@@ -376,22 +379,34 @@ width: 140px;
 
 .font-bw-mitga
 {
-    font-family:"cursive";
-    /*font-style: normal;*/
+    font-family: 'Bw-Mitga-regular';
+    font-style: normal;
     font-weight: 700;
     letter-spacing: -0.02em;
+}
+.font-bw-mitga-text
+{
+    font-family: 'Bw-Mitga-regular';
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+}
 
 
+.margin-right-search-img
+{
+    margin-left: 3px;
+    margin-right: 2px;
 }
 
 .search-anchor {
 
     margin: 6px;
-    font-family:"cursive";
-    /*text-align: center;*/
-    /*font-family: 'Bw Mitga';*/
+    /*font-family:"cursive";*/
+    text-align: center;
+    font-family: Bw-Mitga-regular;
     font-style: normal;
-    font-size: 12px;
+    font-size: 11px;
     color: black !important;
     font-weight: 400;
     border: 0.0px solid #E40968 !important;
@@ -411,7 +426,7 @@ width: 140px;
 }
 #flex-icons div:nth-of-type(1) {
     margin-left: 5px;
-   width: 140px;
+     width: 140px;
     overflow: hidden;
 
     text-align: center;
@@ -500,4 +515,21 @@ overflow: hidden;
     width: 30px;
     height: 90px;
    float: left;
+}
+.bed-icon-style
+{
+    margin-left: 3px;
+    margin-right: 3px;
+    height: 19px;
+    margin-bottom: 3px;
+}
+.align-right
+{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.margin-12px
+{
+    margin-right: 12px;
 }

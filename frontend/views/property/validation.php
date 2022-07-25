@@ -27,7 +27,7 @@ use yii\helpers\Html;
         </div>
 
         <div class="card-title-middle">
-          Complete  Property profile to continue further  <img src="images/question-mark-circle-1.svg">
+          Complete  Property profile to continue further.
         </div>
 
         <?php
