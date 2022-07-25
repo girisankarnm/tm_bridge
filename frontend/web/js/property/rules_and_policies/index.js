@@ -7,11 +7,11 @@ $(function () {
             </div>
         </div>
         <div class="col-4 fit-width-215px">
-            <p> of package amount if cancelled </p>
+            <p> % of package amount if cancelled </p>
         </div>
         <div class="d-flex col-2 fit-width-105px align-items-center pr-0">
             <div class="form-group mr-3">
-                <input type="text" name="from_days[]" id="" class="form-control input-sh">
+                <input type="text" name="from_days[]" readonly="readonly" id="" class="form-control input-sh">
             </div>
             <p> To </p>
         </div>
