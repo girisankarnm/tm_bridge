@@ -27,16 +27,30 @@ use yii\bootstrap4\ActiveForm;
             <div class="row align-items-start">
                 <div class="col-md-6 ">
                     <div class="form-group ">
-                        <label for="inputEmail4" class="Labelclass">Legal Status<span style="color: red; font-size: 18px">*</span></label>
+                        <label class="Labelclass" style="display: block; width: 440px">Legal Status<span style="color: red; font-size: 18px">*</span>
+                            <?php if($operator->legal_status_id != 0 ) { ?>
+                                <a onclick="edit_request('<?php echo $legal_status_id;?>', '<?php echo $legal_tax_documentation->id;?>')" href="#" data-toggle="tooltip" title="Add property type" style="float: right"><img class="margin-left-right-spacing dropbtn-edit action-icon t" src="images/edit-details.svg" style="width: 15px" data-toggle="tooltip" title="" data-original-title="Edit"></a>
+                            <?php } else { ?>
+                                <a onclick="add_option('<?php echo $legal_status_id;?>')" href="#" data-toggle="tooltip" title="Add legal status" style="float: right"><i class="fa fa-plus text-primary "></i></a>
+                            <?php } ?>
+                        </label>
                         <?php echo $form->field($legal_tax_documentation, 'legal_status_id')->dropDownList($legal_status,['class' => 'inputLarge', 'prompt' => 'Choose'])->label(false) ?>
                     </div>
                             <div class="form-group">
-                                <label class="Labelclass">Pan Number<span style="color: red; font-size: 18px">*</span></label>
+                                <label class="Labelclass" style="display: block; width: 440px">Pan Number<span style="color: red; font-size: 18px">*</span>
+                                    <?php if($operator->pan_number != 0 ) { ?>
+                                        <a onclick="edit_request('<?php echo $pan_number;?>', '<?php echo $legal_tax_documentation->id;?>')" href="#" data-toggle="tooltip" title="Add property type" style="float: right"><img class="margin-left-right-spacing dropbtn-edit action-icon t" src="images/edit-details.svg" style="width: 15px" data-toggle="tooltip" title="" data-original-title="Edit"></a>
+                                    <?php } ?>
+                                </label>
                                 <?php echo $form->field($legal_tax_documentation,'pan_number')->textInput(['class' => 'inputLarge'])->label(false) ?>
                             </div>
 
                         <div class="form-group">
-                            <label class="Labelclass">GST Number<span style="color: red; font-size: 18px">*</span></label>
+                            <label class="Labelclass" style="display: block; width: 440px">GST Number<span style="color: red; font-size: 18px">*</span>
+                                <?php if($operator->gst_number != 0 ) { ?>
+                                    <a onclick="edit_request('<?php echo $gst_number;?>', '<?php echo $legal_tax_documentation->id;?>')" href="#" data-toggle="tooltip" title="Add property type" style="float: right"><img class="margin-left-right-spacing dropbtn-edit action-icon t" src="images/edit-details.svg" style="width: 15px" data-toggle="tooltip" title="" data-original-title="Edit"></a>
+                                <?php } ?>
+                            </label>
                             <?php echo $form->field($legal_tax_documentation,'gst_number')->textInput(['class' => 'inputLarge'])->label(false) ?>
                         </div>
 
@@ -73,11 +87,19 @@ use yii\bootstrap4\ActiveForm;
 
                 <div class="col-md-6 ">
                     <div class="form-group ">
-                        <label class="Labelclass" style="display: block" >Bank Name<span style="color: red; font-size: 18px">*</span></label>
+                        <label class="Labelclass" style="display: block; width: 440px" >Bank Name<span style="color: red; font-size: 18px">*</span>
+                            <?php if($operator->bank_name != 0 ) { ?>
+                                <a onclick="edit_request('<?php echo $bank_name;?>', '<?php echo $legal_tax_documentation->id;?>')" href="#" data-toggle="tooltip" title="Add property type" style="float: right"><img class="margin-left-right-spacing dropbtn-edit action-icon t" src="images/edit-details.svg" style="width: 15px" data-toggle="tooltip" title="" data-original-title="Edit"></a>
+                            <?php } ?>
+                        </label>
                         <?php echo $form->field($legal_tax_documentation,'bank_name')->textInput(['class' => 'inputLarge'])->label(false) ?>
                     </div>
                     <div class="form-group ">
-                        <label class="Labelclass" style="display: block" >Account Number<span style="color: red; font-size: 18px">*</span></label>
+                        <label class="Labelclass" style="display: block; width: 440px" >Account Number<span style="color: red; font-size: 18px">*</span>
+                            <?php if($operator->bank_account_number != 0 ) { ?>
+                                <a onclick="edit_request('<?php echo $account_number;?>', '<?php echo $legal_tax_documentation->id;?>')" href="#" data-toggle="tooltip" title="Add property type" style="float: right"><img class="margin-left-right-spacing dropbtn-edit action-icon t" src="images/edit-details.svg" style="width: 15px" data-toggle="tooltip" title="" data-original-title="Edit"></a>
+                            <?php } ?>
+                        </label>
                         <?php echo $form->field($legal_tax_documentation,'bank_account_number')->textInput(['class' => 'inputLarge'])->label(false) ?>
                     </div>
                 </div>
@@ -85,11 +107,19 @@ use yii\bootstrap4\ActiveForm;
 
                 <div class="col-md-6 ">
                     <div class="form-group ">
-                        <label class="Labelclass" style="display: block" >Account Name<span style="color: red; font-size: 18px">*</span></label>
+                        <label class="Labelclass" style="display: block; width: 440px" >Account Name<span style="color: red; font-size: 18px">*</span>
+                            <?php if($operator->bank_account_name != 0 ) { ?>
+                                <a onclick="edit_request('<?php echo $account_name;?>', '<?php echo $legal_tax_documentation->id;?>')" href="#" data-toggle="tooltip" title="Add property type" style="float: right"><img class="margin-left-right-spacing dropbtn-edit action-icon t" src="images/edit-details.svg" style="width: 15px" data-toggle="tooltip" title="" data-original-title="Edit"></a>
+                            <?php } ?>
+                        </label>
                         <?php echo $form->field($legal_tax_documentation,'bank_account_name')->textInput(['class' => 'inputLarge'])->label(false) ?>
                     </div>
                     <div class="form-group ">
-                        <label class="Labelclass" style="display: block" >IFSC Code<span style="color: red; font-size: 18px">*</span></label>
+                        <label class="Labelclass" style="display: block; width: 440px" >IFSC Code<span style="color: red; font-size: 18px">*</span>
+                            <?php if($operator->ifsc_code != 0 ) { ?>
+                                <a onclick="edit_request('<?php echo $ifsc_code;?>', '<?php echo $legal_tax_documentation->id;?>')" href="#" data-toggle="tooltip" title="Add property type" style="float: right"><img class="margin-left-right-spacing dropbtn-edit action-icon t" src="images/edit-details.svg" style="width: 15px" data-toggle="tooltip" title="" data-original-title="Edit"></a>
+                            <?php } ?>
+                        </label>
                         <?php echo $form->field($legal_tax_documentation,'ifsc_code')->textInput(['class' => 'inputLarge'])->label(false) ?>
                     </div>
                 </div>

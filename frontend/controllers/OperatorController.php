@@ -184,6 +184,8 @@ class OperatorController extends Controller{
 
         $location = MasterEditRequest::find()->where(['name' => 'location'])->one();
         $destination = MasterEditRequest::find()->where(['name' => 'destination'])->one();
+        $country = MasterEditRequest::find()->where(['name' => 'country'])->one();
+        $pin_code = MasterEditRequest::find()->where(['name' => 'pin code'])->one();
 
         $address_location = new AddressLocation();
         $address_location->id = $operator->id;
@@ -211,7 +213,10 @@ class OperatorController extends Controller{
                 'destinations' => $destinations,
                 'show_terms_tab' => $show_terms_tab,
                 'location' => $location->id,
-                'destination' => $destination->id
+                'destination' => $destination->id,
+                'country' => $country->id,
+                'pin_code' => $pin_code->id,
+                'operator' => $operator
             ]
         );
 
@@ -308,6 +313,14 @@ class OperatorController extends Controller{
             throw new NotFoundHttpException();
         }
 
+        $property_legal_status = MasterEditRequest::find()->where(['name' => 'legal status'])->one();
+        $pan_number = MasterEditRequest::find()->where(['name' => 'pan number'])->one();
+        $gst_number = MasterEditRequest::find()->where(['name' => 'gst number'])->one();
+        $bank_name = MasterEditRequest::find()->where(['name' => 'bank name'])->one();
+        $account_number = MasterEditRequest::find()->where(['name' => 'account number'])->one();
+        $account_name = MasterEditRequest::find()->where(['name' => 'account name'])->one();
+        $ifsc_code = MasterEditRequest::find()->where(['name' => 'ifsc code'])->one();
+
         $legal_tax_documentation = new LegalTaxDocumentation();
         $legal_tax_documentation->id = $operator->id;
         $legal_tax_documentation->legal_status_id = $operator->legal_status_id;
@@ -336,7 +349,19 @@ class OperatorController extends Controller{
             $show_terms_tab = false;
         }
 
-        return $this->render('legal_and_tax',['legal_tax_documentation' => $legal_tax_documentation, 'legal_status' => $legal_status, 'legal_docs_images' => $legal_docs_images, 'show_terms_tab' => $show_terms_tab]);
+        return $this->render('legal_and_tax',[
+            'legal_tax_documentation' => $legal_tax_documentation,
+            'legal_status' => $legal_status, 'legal_docs_images' => $legal_docs_images,
+            'show_terms_tab' => $show_terms_tab,
+            'legal_status_id' => $property_legal_status->id,
+            'pan_number' => $pan_number->id,
+            'gst_number' => $gst_number->id,
+            'bank_name' => $bank_name->id,
+            'account_number' => $account_number->id,
+            'account_name' => $account_name->id,
+            'ifsc_code' => $ifsc_code->id,
+            'operator' => $operator,
+        ]);
     }
 
     public function actionSavelegaltax(){
