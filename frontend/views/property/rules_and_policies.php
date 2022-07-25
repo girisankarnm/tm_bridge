@@ -43,14 +43,15 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
 <div class="tab-section rules_and_policies_contr">
     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
         <li class="nav-item" role="presentation">
-            <button onclick="location.href='<?= Url::toRoute(['property/rules','id' => $property->id]) ?>'" class="selectedButton" id="pills-basic-tab" href="#pills-basic"> Rules & Policies
+            <button onclick="location.href='<?= Url::toRoute(['property/rules','id' => $property->id]) ?>'" class="selectedButton" id="pills-basic-tab" href="#pills-basic">
+            <i class="fas fa-times"></i> Rules & Policies
             </button><hr class="new5" >
         </li>
         <li class="nav-item" role="presentation">
-            <button onclick="location.href='<?= Url::toRoute(['property/categories','id' => $property->id]) ?>'" class="tablinks" id="pills-contact-tab" href="#pills-contact"> Room Category </button>
+            <button onclick="location.href='<?= Url::toRoute(['property/categories','id' => $property->id]) ?>'" class="tablinks" id="pills-contact-tab" href="#pills-contact"> <i class="fas fa-check"></i> Room Category </button>
         </li>
         <li class="nav-item" role="presentation">
-            <button onclick="location.href='<?= Url::toRoute(['property/serviceamenities','id' => $property->id]) ?>'" class="tablinks" id="pills-guest-tab" href="#pills-guest"> Service & Amenities </button>
+            <button onclick="location.href='<?= Url::toRoute(['property/serviceamenities','id' => $property->id]) ?>'" class="tablinks" id="pills-guest-tab" href="#pills-guest"> <i class="fas fa-times"></i> Service & Amenities </button>
         </li>
         <li class="nav-item" role="presentation">
             <button onclick="location.href='<?= Url::toRoute(['property/pictures','id' => $property->id]) ?>'" class="tablinks" id="pills-accommodation-tab" href="#pills-accommodation"> Property pictures
@@ -71,8 +72,7 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                     </button>
                     <div id="collapseOne" class="collapse show" data-parent="#myAccordion">
                         <div class="accordion-content form-checkin-out-content">
-                            <input type="hidden" value="<?= $property->id ?>" name="property_id" id="property_id">
-
+                            <input type="hidden" value="<?= $property->id ?>" name="property_id" id="property_id">                            
                             <div class="d-flex form-group align-items-center">
                                 <div class="checkmark">
                                     <?= $form->field($property, 'twenty_four_hours_check_in')->inline()->radioList([1 => '24 hour check out', 2 => 'Check in / check out as follows'],['class' => 'checkmark','style' => 'margin-left: -0.7rem;'])->label(false); ?>
@@ -80,10 +80,10 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                             </div>
                             <div class="d-flex form-group align-items-center">
                                 <div class="d-flex form-material form-checkin align-items-center mr-4">
-                                    <?php echo $form->field($property, 'check_in_time')->dropDownList($time_slot, ['class' => 'time_c','prompt' => 'Check in'])->label(false); ?>
+                                    <?php echo $form->field($property, 'check_in_time')->dropDownList($time_slot, ['class' => 'time_c padding-time','prompt' => 'Check in', ($property->twenty_four_hours_check_in == 2 ) ? '' : 'disabled' => 'disabled' ])->label(false); ?>
                                 </div>
                                 <div class="d-flex form-material form-checkin align-items-center margin-left-check">
-                                    <?php echo $form->field($property, 'check_out_time')->dropDownList($time_slot, ['class' => 'time_c','prompt' => 'Check out'])->label(false); ?>
+                                    <?php echo $form->field($property, 'check_out_time')->dropDownList($time_slot, ['class' => 'time_c padding-time','prompt' => 'Check out', ($property->twenty_four_hours_check_in == 2 ) ? '' : 'disabled' => 'disabled'])->label(false); ?>
                                 </div>
                             </div>
                         </div>
@@ -112,7 +112,7 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                     <button type="button" class="btn accordion-top text-left collapsed" type="button"
                             data-toggle="collapse" data-target="#collapseThree" aria-expanded="false"
                             aria-controls="collapseThree">
-                        3. Pets Policy?
+                        3. Pets Policy
                     </button>
                     <div id="collapseThree" class="collapse" data-parent="#myAccordion">
                         <div class="accordion-content">

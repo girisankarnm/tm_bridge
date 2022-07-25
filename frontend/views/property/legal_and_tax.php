@@ -72,7 +72,7 @@ $this->registerJsFile('/js/client_requested_option/add_option.js');
                                 <a onclick="edit_request('<?php echo $pan_number;?>', '<?php echo $legal_tax_documentation->id;?>')" href="#" data-toggle="tooltip" title="Add property type" style="float: right"><img class="margin-left-right-spacing dropbtn-edit action-icon t" src="images/edit-details.svg" style="width: 15px" data-toggle="tooltip" title="" data-original-title="Edit"></a>
                             <?php } ?>
                         </label>
-                        <?php echo $form->field($legal_tax_documentation,'pan_number')->textInput(['class' => 'inputLarge'])->label(false) ?>
+                        <?php echo $form->field($legal_tax_documentation,'pan_number')->textInput(['class' => 'inputLarge', 'placeholder' => 'For proprietorship, enter owner’s PAN'])->label(false) ?>
                     </div>
                     <div class="form-group">
                         <label class="Labelclass" style="display: block; width: 444px" >Business License Number<span style="color: red; font-size: 18px">*</span>
@@ -114,7 +114,7 @@ $this->registerJsFile('/js/client_requested_option/add_option.js');
                     </div>
                     <div class="row">
                         <div class="form-group col-md-6">
-                            <label class="Labelclass">Upload GST Certificate<span style="color: red; font-size: 18px">*</span></label>
+                            <label class="Labelclass">Upload GST Certificate</label>
                             <?php
                             if(!$legal_tax_documentation->gst_image) {
                                 echo "<div id='gstId' class='image-border'><img id='gstImage' src='images/GST.png' class='imagedisplay'></div>";
