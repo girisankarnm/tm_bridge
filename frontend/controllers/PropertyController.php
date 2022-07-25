@@ -598,7 +598,7 @@ class PropertyController extends Controller
         $property->legal_status_id = $legal_tax_documentation->legal_status_id;
         $property->pan_number = $legal_tax_documentation->pan_number;
         $property->business_licence_number = $legal_tax_documentation->business_licence_number;
-        $property->gst_number = $legal_tax_documentation->gst_number;
+        $property->gst_number = trim($legal_tax_documentation->gst_number);
         $property->bank_name = $legal_tax_documentation->bank_name;
         $property->bank_account_name = $legal_tax_documentation->bank_account_name;
         $property->bank_account_number = $legal_tax_documentation->bank_account_number;
@@ -629,21 +629,32 @@ class PropertyController extends Controller
             }
         }
 
-        //GST
-        if ($legal_doc_images->gst_image != null) {
-            $file_name = uniqid('', true) . '.' . $legal_doc_images->gst_image->extension;
-            if ($legal_doc_images->upload($legal_doc_images->gst_image, $file_name)) {
-                //TODO: Will we allow to proceed if image upload fails
-                $property->gst_image = $file_name;
+        //GST upload if GST number is enterd
+        if(strlen($property->gst_number) > 0 ) {
+            if ($legal_doc_images->gst_image != null) {
+                $file_name = uniqid('', true) . '.' . $legal_doc_images->gst_image->extension;
+                if ($legal_doc_images->upload($legal_doc_images->gst_image, $file_name)) {
+                    //TODO: Will we allow to proceed if image upload fails
+                    $property->gst_image = $file_name;
 
+                } else {
+    //                echo "Image upload failed";
+                }
             } else {
-//                echo "Image upload failed";
+                if (empty($property->gst_image)) {
+    //                echo "Profile image (Mandatory) upload failed";
+                }
             }
         } else {
-            if (empty($property->gst_image)) {
-//                echo "Profile image (Mandatory) upload failed";
+            //TODO: Delete already uploaded GST image and set image name as NULL
+            if (is_file('uploads/' . $property->gst_image)) {
+                if (!unlink('uploads/' . $property->gst_image)) {
+                //TODO: Log error, with file name that cannot delete file
+                }           
             }
+            $property->gst_image = NULL;
         }
+
         //Licence
         if ($legal_doc_images->business_licence_image != null) {
             $file_name = uniqid('', true) . '.' . $legal_doc_images->business_licence_image->extension;
