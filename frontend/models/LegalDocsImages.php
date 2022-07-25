@@ -17,6 +17,12 @@ class LegalDocsImages extends Model
     {
         return [
             [['pan_image', 'business_licence_image'], 'required', 'on'=>['create']],
+            [['gst_image'], 'required', 'whenClient' => "function (attribute, value) {
+                    $('#legaltaxdocumentation-gst_number').val($('#legaltaxdocumentation-gst_number').val().trim());
+                    return ($('#legaltaxdocumentation-gst_number').val().trim().length != 0);
+                }"
+            ],
+
             [['pan_image'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, jpeg', 'maxSize' => 1024 * 1024 * 2],
             [['business_licence_image'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, jpeg', 'maxSize' => 1024 * 1024 * 2],
             [['gst_image'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, jpeg', 'maxSize' => 1024 * 1024 * 2],

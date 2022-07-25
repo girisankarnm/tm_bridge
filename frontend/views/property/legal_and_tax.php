@@ -6,7 +6,7 @@ $this->registerJsFile('/js/client_requested_option/add_option.js');
 
 <script type="text/javascript">
     $(document).ready(function() {
-        $('#save_legal').bind("click",function()
+        $('#save_legal1').bind("click",function()
         {
             if($('#legaltaxdocumentation-gst_number').val().trim().length != 0 && $('#gst_image_is_there').val() != 1 ) {
                 var imgVal = $('#uploadGst').val();
