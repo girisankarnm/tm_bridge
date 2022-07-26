@@ -36,7 +36,14 @@ frontend\assets\AppAsset::register($this);
 
                 <div>
                     <div id="flex-row-search"  style="width: 140px;">
-                        <div> <span> <img class="margin-right-search-img image-width-height" src="images/filer-symbol-up-down.svg"> </span></div>
+                        <div>  <span><img class="margin-right-search-img image-width-height dropbtn-edit" onclick="myFunctionEdit()"  src="images/filer-symbol-up-down.svg"></span>
+                            <div id="myDropdownfilter" class="dropdown-content-edit" style="height: 120px; background-color: #586ADA; margin-left: -90px; margin-top: 10px;">
+                                <a href="#" class="dro"><img  src="images/edit-sub-menue-icon.svg" style="margin-right: 2px;"> <span style="color: white">Edit Basic Details</span></a>
+                                <a href="#" class="dro"><img  src="images/edit-sub-menue-icon.svg" style="margin-right: 2px;"> <span style="color: white"> Edit Operational Details</span></a>
+                                <a href="#" class="dro"><img  src="images/edit-sub-menue-icon.svg" style="margin-right: 2px;"> <span style="color: white"> Edit tariff</span></a>
+                            </div>
+
+                        </div>
                         <div> <span> <img class="margin-right-search-img image-width-height" src="images/filter-icon.svg"> </span></div>
                         <div> <span> <img class="margin-right-search-img image-width-height" src="images/filter-search-icon.svg"> </span></div>
                         <div> <span> <img class="image-width-height-2" src="images/map-icon.svg"> </span></div>
@@ -61,11 +68,20 @@ frontend\assets\AppAsset::register($this);
                 <div   >
                     <div id="mainHeding-search-hotel-list">
                         <div>
-
-                          <span class="serach-hotelHeading" > <span class="cut-text" style="display: inline">Misty Rock Resort<span/> <img class="f-star" src="images/Star-1.svg" alt="Matrix">
-                           <img class="f-star" style="padding-left: 2px"  src="images/Star-1.svg" alt="Matrix">
-                           <img  class="f-star" style="padding-left: 2px" src="images/Star-1.svg" alt="Matrix">
+                        <span class="serach-hotelHeading" > <span class="cut-text" style="display: inline">Misty Rock Resort<span/>
+                            <?php if($index==2)
+                                { ?>
+                                    <span class="badge badge-pill badge-css font-bw-mitga-low-weight" style="margin-left: 6px"> Luxury </span>
+                            <?php   } else
+                                {?>
+                               <img class="f-star" src="images/Star-1.svg" alt="Matrix">
+                             <img class="f-star" style="padding-left: 2px"  src="images/Star-1.svg" alt="Matrix">
+                             <img  class="f-star" style="padding-left: 2px" src="images/Star-1.svg" alt="Matrix">
                            </span>
+
+                            <?php  } ?>
+
+
 
                         </div>
                         <div> <small  class="smallFonts fontsize-location"><i  class="fa fa-map-marker locatiospace" aria-hidden="true"></i> Alappuzha ,Punnamada.kerala</small></div>
@@ -77,8 +93,8 @@ frontend\assets\AppAsset::register($this);
                 <div >
                     <div id="column-listing-search" >
                         <div> <img class="img-property" src="images/bridge-icon.svg" alt="Matrix"></div>
-                        <div><span class="badge badge-pill badge-secondary"> 4.1/5 (very good)</span>
-                            <span class="smallFonts" style="font-size: 12px;">5879 Rating</span>
+                        <div><span class="badge badge-pill badge-secondary font-bw-mitga-low-weight"> 4.1/5 (very good)</span>
+                            <span class="smallFonts font-bw-mitga-low-weight" style="font-size: 12px;">5879 Rating</span>
                                </div>
                         <div>
                             <div class="favorite-icon">
@@ -163,15 +179,13 @@ frontend\assets\AppAsset::register($this);
     </div>
 
 
-
 <!--<script>-->
 <!---->
 <!--    function myFunctionBasic(id) {-->
 <!--        document.getElementById("myDropdown-basic"+id).classList.toggle("show-content");-->
 <!--    }-->
-<!--    function myFunctionEdit(id) {-->
-<!--        document.getElementById("myDropdownEdit"+id).classList.toggle("show-content");-->
-<!--    }-->
+
+
 <!---->
 <!--    window.onclick = function(event) {-->
 <!---->
@@ -201,3 +215,29 @@ frontend\assets\AppAsset::register($this);
 <!--</script>-->
 
 </div>
+
+<script>
+    // function myFunctionfilter() {
+    //     alert("dadadad");
+    //     document.getElementById("myDropdownfilter).classList.toggle("show-content");
+    // }
+    //
+    // window.onclick = function(event) {
+    //
+    //     if (!event.target.matches('.dropbtn-edit')) {
+    //         var dropdowns = document.getElementsByClassName("dropdown-content-edit");
+    //         var i;
+    //         for (i = 0; i < dropdowns.length; i++) {
+    //             var openDropdown = dropdowns[i];
+    //             if (openDropdown.classList.contains('show-content')) {
+    //                 openDropdown.classList.remove('show-content');
+    //             }
+    //         }
+    //     }
+    // }
+
+    function myFunctionEdit() {
+        alert("eaeaeaea");
+        document.getElementById("myDropdownfilter").classList.toggle("show-content");
+    }
+</script>

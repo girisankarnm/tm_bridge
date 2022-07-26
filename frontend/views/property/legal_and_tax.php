@@ -95,7 +95,7 @@ $this->registerJsFile('/js/client_requested_option/add_option.js');
                         <?php echo $form->field($legal_tax_documentation, 'legal_status_id')->dropDownList($legal_status,['class' => 'inputLarge', 'prompt' => 'Choose'])->label(false) ?>
                     </div>
                     <div class="form-group">
-                        <label class="Labelclass" style="width: 444px">Pan Number<span style="color: red; font-size: 18px">*</span>
+                        <label class="Labelclass" style="width: 444px">Pan Number<span style="color: red;">*</span>
                             <?php if($legal_tax_documentation->id != 0 ) { ?>
                                 <a onclick="edit_request('<?php echo $pan_number;?>', '<?php echo $legal_tax_documentation->id;?>')" href="#" data-toggle="tooltip" title="Add property type" style="float: right"><img class="margin-left-right-spacing dropbtn-edit action-icon t" src="images/edit-details.svg" style="width: 15px" data-toggle="tooltip" title="" data-original-title="Edit"></a>
                             <?php } ?>

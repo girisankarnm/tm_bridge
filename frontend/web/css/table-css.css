@@ -4,7 +4,7 @@
     padding-bottom: 12px;
     background-color: #586ADA !important;
     color: white !important;
-    font-family: 'Bw Mitga';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
     font-weight: 200;
     font-size: 15px;
@@ -30,7 +30,7 @@
     padding-bottom: 12px;
     background-color: #586ADA !important;
     color: white;
-    font-family: 'Bw Mitga';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
     font-weight: 200;
     font-size: 11px;
@@ -109,10 +109,9 @@
 }
 
 input::placeholder {
-
-    font-family: 'Bw Mitga' !important;
+    font-family: Bw-Mitga-regular !important;
     font-style: normal !important;
-    font-size: 15px !important;
+    font-size: 12px !important;
     padding-bottom: 16px !important;
 }
 .btn-white-letter {
@@ -177,19 +176,20 @@ table thead tr {
 
 ::placeholder {
     color: grey;
+    font-size: 12px;
 }
 input::placeholder {
 
-    font-family: 'Bw Mitga';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
     padding-left: 3px;
-    font-size: 13px;
+    font-size: 12px;
     padding-bottom: 16px;
     color: grey;
 }
 .form-group input[type="text"].form-control
 {
-    color: grey !important
+    color: #4b4b4c !important
 }
 
 .select2.select2-container .select2-selection--single .select2-selection__rendered {
@@ -379,14 +379,22 @@ width: 140px;
 
 .font-bw-mitga
 {
-    font-family: 'Bw-Mitga-regular';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
     font-weight: 700;
     letter-spacing: -0.02em;
 }
+.font-bw-mitga-low-weight
+{
+    font-family: Bw-Mitga-regular;
+    font-style: normal;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+}
+
 .font-bw-mitga-text
 {
-    font-family: 'Bw-Mitga-regular';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
     font-weight: 500;
     letter-spacing: -0.02em;
@@ -545,4 +553,9 @@ overflow: hidden;
     width: 25px;
     height: 26px;
     cursor: pointer;
+}
+.badge-css
+{
+    background:#FFEFC3 ;
+    color:#AF8E33 ;
 }
