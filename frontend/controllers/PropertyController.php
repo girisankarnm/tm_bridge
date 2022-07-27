@@ -1241,6 +1241,7 @@ class PropertyController extends Controller
         }
     }
 
+    //The UI for this function is disabled from 27 July 2022
     public function actionSavemandatorydinneroption()
     {
         \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
@@ -1274,6 +1275,7 @@ class PropertyController extends Controller
         }
     }
 
+    //The UI for this function is disabled from 27 July 2022
     public function actionSaveweekdayhikeoption()
     {
         \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;

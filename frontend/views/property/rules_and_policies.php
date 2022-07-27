@@ -506,7 +506,7 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                     </div>
                 </div>
 
-                <div class="accordion-item">
+                <!-- <div class="accordion-item">
                     <button type="button" class="btn accordion-top text-left collapsed" type="button"
                             data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false"
                             aria-controls="collapseSeven">
@@ -516,7 +516,7 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                         <div class="accordion-content">
                             <div class="form-group form-checkbox mb-2">
                                 <div class="form-material">
-                                    <?= $form->field($property, 'provide_compulsory_inclusions')->checkbox()->label("We provide mandatory dinner"); ?>
+                                    <?php // echo $form->field($property, 'provide_compulsory_inclusions')->checkbox()->label("We provide mandatory dinner"); ?>
                                 </div>
                             </div>
                         </div>
@@ -534,14 +534,15 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                         <div class="accordion-content">
                             <div class="form-group form-checkbox mb-2">
                                 <div class="form-material">
-                                    <?= $form->field($property, 'have_weekday_hike')->checkbox()->label("We have week day hiked tariff"); ?>
+                                    <?php //echo $form->field($property, 'have_weekday_hike')->checkbox()->label("We have week day hiked tariff"); ?>
                                 </div>
                             </div>
                         </div>
                         <button class="buttonSave" style="width: 85px; border-radius: 5px" id="save_weekday_hike_option"> Save </button>
                     </div>
                     </dpv>
-                </div>
+                </div> -->
+
             </div>
         </div>
 

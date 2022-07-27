@@ -24,12 +24,12 @@ use Carbon\Carbon;
         </div>
         <div class="tariffBorder">
             <div class="tab" >
-                 <a href="<?= \yii\helpers\Url::to(['/tariff/home','id' =>  $property->id]) ?>">  <button class="tablinks2 matherdaterangetab" onclick="openCity(event, 'London')" >Mother date range</button></a>
-                <div style="display: inline">   <a href="<?= \yii\helpers\Url::to(['/tariff/room', 'id' =>  $property->id]) ?>">  <button id="contactBtn" class="selectedButtonmotherdaterange" onclick="openCity(event, 'Paris')">Room rate</button></a> <hr class="new6" > 
+                 <a href="<?= \yii\helpers\Url::to(['/tariff/home','id' =>  $property->id]) ?>">  <button class="tablinks2 matherdaterangetab" >Mother date range</button></a>
+                <div style="display: inline">   <a href="<?= \yii\helpers\Url::to(['/tariff/room', 'id' =>  $property->id]) ?>">  <button id="contactBtn" class="selectedButtonmotherdaterange">Room rate</button></a> <hr class="new6" > 
             </div>
-                <a href="<?= \yii\helpers\Url::to(['/tariff/meal', 'id' =>  $property->id]) ?>"> <button class="tablinks2" onclick="openCity(event, 'Tokyo')">Meal rate</button></a>
-                <a href="<?= \yii\helpers\Url::to(['/tariff/hikeday', 'id' =>  $property->id]) ?>"><button class="tablinks2" onclick="openCity(event, 'Tokyo')">Hike day rate</button></a>
-                <a href+="<?= \yii\helpers\Url::to(['/tariff/mandatorydinner', 'id' =>  $property->id]) ?>"><button class="tablinks2" onclick="openCity(event, 'Tokyo')">Mandatory dinner</button></a>
+                <a href="<?= \yii\helpers\Url::to(['/tariff/meal', 'id' =>  $property->id]) ?>"> <button class="tablinks2" >Meal rate</button></a>
+                <a href="<?= \yii\helpers\Url::to(['/tariff/hikeday', 'id' =>  $property->id]) ?>"><button class="tablinks2" >Hike day rate</button></a>
+                <a href="<?= \yii\helpers\Url::to(['/tariff/mandatorydinner', 'id' =>  $property->id]) ?>"><button class="tablinks2" >Mandatory dinner</button></a>
             </div>
             <hr class="sidebar-divider hrdivider">
 

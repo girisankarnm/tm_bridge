@@ -649,10 +649,13 @@ class TariffController extends Controller {
             throw new NotFoundHttpException();
         }
 
+        //The UI for this function is disabled from 27 July 2022
+        /*
         if (!$property->have_weekday_hike) {
             return $this->redirect(['tariff/hikeday', 
             'id' => $date_range->property_id]);
         }
+        */
 
         //TODO: If no rooms?
         $rooms = Room::find()->where(['property_id' => $property->id])->all();
@@ -826,10 +829,13 @@ class TariffController extends Controller {
             throw new NotFoundHttpException();
         }
 
+        //The UI for this function is disabled from 27 July 2022
+        /*
         if (!$property->provide_compulsory_inclusions) {
             return $this->redirect(['tariff/mandatorydinner', 
             'id' => $mother_date_range->property_id]);
         }
+        */
 
         $is_published = 1;
         if($mother_date_range->parent != 0 ) {
@@ -861,10 +867,11 @@ class TariffController extends Controller {
 
         $tariff = (int) Yii::$app->request->get('tariff');
 
-        $is_allow_skip = false;        
-        if (count($mandatory_dinner) > 0) {
+        $is_allow_skip = true;
+        //User shall skip without adding mandatory dinner
+        /* if (count($mandatory_dinner) > 0) {
             $is_allow_skip = true;
-        }                
+        }                 */
 
         $this->layout = 'tm_main';
         return $this->render('add_mandatory_dinner_rate', [

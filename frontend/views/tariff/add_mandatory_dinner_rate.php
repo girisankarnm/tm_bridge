@@ -128,7 +128,7 @@ function attachDatePicker() {
     <input type="hidden" name="tariff" value="<?= $tariff; ?>">
     <div style="display: inline;margin-top: 4px;margin-left: 19px">
         <input type="checkbox" value = "1" class="material-checkbox" id="have_mandatory_dinner" name="have_mandatory_dinner" <?= (count($dinners) > 0) ? "checked" : "" ?> onclick="mandatory_dinner(this);">
-        <label style="margin: -3px">We have mandatory dinner</label>
+        <label style="margin: -3px">We have mandatory dinner during this date range</label>
     </div>
         <div class="row" id="mandatory_dinner" style= "display: <?= count($dinners) > 0 ? "block" : "none" ?>" >            
             <table id="dinner_table" class="tableadd-meals-class" >

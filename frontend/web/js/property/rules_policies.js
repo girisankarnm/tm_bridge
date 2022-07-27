@@ -519,7 +519,7 @@ function dismissNationaliyModal(){
 }
 
 
-
+//The UI for this function is disabled from 27 July 2022
 $('#save_mandatory_dinner_option').click(function(e){
     e.preventDefault();
 
@@ -543,6 +543,7 @@ $('#save_mandatory_dinner_option').click(function(e){
         });
 });
 
+//The UI for this function is disabled from 27 July 2022
 $('#save_weekday_hike_option').click(function(e){
     e.preventDefault();
 
