@@ -153,7 +153,7 @@ function saveWeekdayHike() {
                             <div id="collapseOne<?= $i ?>" class="collapse <?php if ($i==1): ?> show <?php endif; ?>" aria-labelledby="headingOne" data-parent="#accordionExample<?= $i ?>">
                             <div style="display: inline;margin-top: 4px;margin-left: 19px">
                                 <input type="checkbox" class="material-checkbox" name="room_checked[]" id="room_<?= $room->id?>" value="<?= $room->id?>" <?= ($day_hike != NULL) ? "checked" : "" ?> onclick="room_check_clicked(this);">
-                                <label  style="margin: 8px" >Room have week day hike rate </label>
+                                <label  style="margin: 8px" >Room have week day hike rate during this date range </label>
                             </div>
                                 <div class="row" style="margin-left: 15px; display: <?= ($day_hike != NULL) ? "block" : "none" ?>" id="slab_div_room_<?= $room->id?>">
                                         <table id="customers" class="table3enquiryclass" >

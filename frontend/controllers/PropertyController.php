@@ -50,6 +50,7 @@ use frontend\models\property\RoomType;
 use frontend\models\property\PropertyRoomView;
 use frontend\models\property\PropertyMealPlan;
 use frontend\models\property\PropertyRoomExtraBedType;
+use frontend\models\property\PropertyGST;
 use frontend\models\MasterEditRequest;
 use yii\web\ForbiddenHttpException;
 use yii\web\NotFoundHttpException;
@@ -526,8 +527,7 @@ class PropertyController extends Controller
         $legal_tax_documentation->swift_code = $property->swift_code;
         $legal_tax_documentation->pan_image = $property->pan_image;
         $legal_tax_documentation->business_licence_image = $property->business_licence_image;
-        $legal_tax_documentation->gst_image = $property->gst_image;
-        $legal_tax_documentation->cheque_image = $property->cheque_image;
+        $legal_tax_documentation->gst_image = $property->gst_image;        
 
         $legal_status = ArrayHelper::map(PropertyLegalStatus::find()->asArray()->all(), 'id', 'name');
         $legal_docs_images = new LegalDocsImages();
@@ -554,6 +554,8 @@ class PropertyController extends Controller
             $show_terms_tab = false;
         }
 
+        $property_gst = new PropertyGST();
+
         return $this->render('legal_and_tax', [
             'legal_tax_documentation' => $legal_tax_documentation,
             'legal_status' => $legal_status,
@@ -568,6 +570,7 @@ class PropertyController extends Controller
             'account_number' => $account_number->id,
             'account_name' => $account_name->id,
             'ifsc_code' => $ifsc_code->id,
+            'property_gst' => $property_gst
         ]);
     }
 
@@ -603,14 +606,9 @@ class PropertyController extends Controller
         $property->bank_account_name = $legal_tax_documentation->bank_account_name;
         $property->bank_account_number = $legal_tax_documentation->bank_account_number;
         $property->ifsc_code = $legal_tax_documentation->ifsc_code;
-//        $property->pan_image = $legal_tax_documentation->pan_image;
-//        $property->business_licence_image = $legal_tax_documentation->business_licence_image;
-//        $property->gst_image =  $legal_tax_documentation->gst_image;
-//        $property->swift_code = $legal_tax_documentation->swift_code;
 
         $legal_doc_images = new LegalDocsImages();
-        $legal_doc_images->pan_image = UploadedFile::getInstance($legal_doc_images, 'pan_image');
-        $legal_doc_images->gst_image = UploadedFile::getInstance($legal_doc_images, 'gst_image');
+        $legal_doc_images->pan_image = UploadedFile::getInstance($legal_doc_images, 'pan_image');        
         $legal_doc_images->business_licence_image = UploadedFile::getInstance($legal_doc_images, 'business_licence_image');
 
         //PAN
@@ -628,34 +626,7 @@ class PropertyController extends Controller
 //                echo "Profile image (Mandatory) upload failed";
             }
         }
-
-        //GST upload if GST number is enterd
-        if(strlen($property->gst_number) > 0 ) {
-            if ($legal_doc_images->gst_image != null) {
-                $file_name = uniqid('', true) . '.' . $legal_doc_images->gst_image->extension;
-                if ($legal_doc_images->upload($legal_doc_images->gst_image, $file_name)) {
-                    //TODO: Will we allow to proceed if image upload fails
-                    $property->gst_image = $file_name;
-
-                } else {
-    //                echo "Image upload failed";
-                }
-            } else {
-                if (empty($property->gst_image)) {
-    //                echo "Profile image (Mandatory) upload failed";
-                }
-            }
-        } else {
-            //TODO: Delete already uploaded GST image and set image name as NULL
-            if (is_file('uploads/' . $property->gst_image)) {
-                chmod('uploads/' . $property->gst_image, 0777);
-                if (!unlink('uploads/' . $property->gst_image)) {
-                //TODO: Log error, with file name that cannot delete file
-                }           
-            }
-            $property->gst_image = NULL;
-        }
-
+        
         //Licence
         if ($legal_doc_images->business_licence_image != null) {
             $file_name = uniqid('', true) . '.' . $legal_doc_images->business_licence_image->extension;
@@ -670,6 +641,37 @@ class PropertyController extends Controller
             if (empty($property->business_licence_image)) {
 //                echo "Profile image (Mandatory) upload failed";
             }
+        }
+
+       //GST upload if GST number is enterd
+       if( strlen($property->gst_number) > 0 ) {
+            $property_gst = new PropertyGST();
+            $property_gst->gst_image = UploadedFile::getInstance($property_gst, 'gst_image');
+            if ($property_gst->gst_image != null) {
+                $file_name = uniqid('', true) . '.' . $property_gst->gst_image->extension;
+                if ($property_gst->upload($property_gst->gst_image, $file_name)) {
+                    //TODO: Will we allow to proceed if image upload fails
+                    $property->gst_image = $file_name;
+
+                } else {
+    //                echo "Image upload failed";
+                }
+            } else {
+                if (empty($property->gst_image)) {
+    //                echo "Profile image (Mandatory) upload failed";
+                }
+            }
+        }
+        else {
+            echo "GST Number not present"."<br/>";
+            //TODO: Delete already uploaded GST image and set image name as NULL
+            if (is_file('uploads/' . $property->gst_image)) {
+                chmod('uploads/' . $property->gst_image, 0777);
+                if (!unlink('uploads/' . $property->gst_image)) {
+                //TODO: Log error, with file name that cannot delete file
+                }           
+            }
+            $property->gst_image = NULL;
         }
 
         if ($property->save(false)) {
@@ -850,7 +852,7 @@ class PropertyController extends Controller
         $terms->terms_and_conditons3 = $property->terms_and_conditons3;
 
         $this->layout = 'tm_main';
-        return $this->render('terms_and_conditions', ['terms' => $terms, 'property' => $property,]);
+        return $this->render('terms_and_conditions', ['terms' => $terms]);
     }
 
     public function actionSaveterms()
@@ -1239,6 +1241,7 @@ class PropertyController extends Controller
         }
     }
 
+    //The UI for this function is disabled from 27 July 2022
     public function actionSavemandatorydinneroption()
     {
         \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
@@ -1272,6 +1275,7 @@ class PropertyController extends Controller
         }
     }
 
+    //The UI for this function is disabled from 27 July 2022
     public function actionSaveweekdayhikeoption()
     {
         \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
@@ -1457,6 +1461,7 @@ class PropertyController extends Controller
         if (!isset($_REQUEST['property_id'])) {
             return array('status' => 2, 'message' => "Invalid input. Property missing.", 'data' => 0);;
         }
+
         $property_id = Yii::$app->request->post('property_id');
 
 
