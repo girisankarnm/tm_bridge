@@ -1,5 +1,6 @@
 <div class="validationBorder-error">
-    <div class="flex-row" style="margin-top: 5px;">
+    <div id="h-validation">
+        <div style="margin-top: 5px;">
         <?php
             if($result == NULL)
             { ?>
@@ -27,8 +28,8 @@
            ?>
 
 
-
-            <div  class="d-flex flex-row-reverse ">
+        </div>
+        <div  style="margin-top: 5px;" >
                 <a href="<?= \yii\helpers\Url::to(['/property/'.$action, 'id' => $id]) ?>" > <img  src="images/blue-edit.svg" class="margin-12px"></a>
             </div>
 

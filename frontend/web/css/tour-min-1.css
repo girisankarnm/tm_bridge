@@ -844,6 +844,16 @@ font-size: 14px;
     margin-top: 10px;
 }
 
+.title-search-property{
+    font-size: 18px;
+    text-align: left;
+    color: #586ADA;
+    line-height: 23px !important;
+    margin-top: 10px;
+    margin-left: 13px;
+}
+
+
 .property-button
 {
     color: white;
@@ -1540,8 +1550,36 @@ hr.new2 {
     margin-bottom: 10px;
     padding-bottom: 9px;
     padding-top: 9px;
-    background-color: #fffffff;;
+    background-color: #FFFFFF;;
 }
+
+#h-validation
+{
+    flex-basis: 900px;
+    height:fit-content;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+}
+
+
+#h-validation div:nth-of-type(1) {
+    flex-basis: 710px;
+    height: fit-content;
+
+    text-align: left;
+
+
+}
+
+#h-validation div:nth-of-type(2) {
+    flex-basis: 300px;
+
+    line-height: .8rem;
+    text-align: right;
+
+}
+
 
 
 
@@ -1801,6 +1839,24 @@ hr.new2 {
     box-sizing: border-box;
     color: #787486 !important;
     width: 195px;
+    height: 34px;
+    font-size: 12px;
+    border: 0.1px solid #c3c3c3;
+    border-radius: 8px;
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+}
+.inputSelect-filter
+{
+    color: transparent;
+    background: none;
+    text-indent: 7px;
+    margin-left: 18px;
+    background-color: #F9F9F9;
+    box-sizing: border-box;
+    color: #787486 !important;
+    width: 251px;
     height: 34px;
     font-size: 12px;
     border: 0.1px solid #c3c3c3;
@@ -2272,6 +2328,25 @@ hr.new6 {
     order: 2;
     flex-grow: 0;
 }
+
+.inputSelectClass
+{
+    text-align: center;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    color: #4b4b4c!important;
+    width: 229px;
+    height: 34px;
+    font-size: 13px;
+    font-family: Bw-Mitga-regular;
+    font: normal;
+    border: 0.1px solid #c3c3c3;
+
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+}
+
 .roomacord
 {
     margin-left: 15px !important;
@@ -2362,6 +2437,21 @@ hr.new6 {
     letter-spacing: -0.02em;
     color: #292931;
 }
+.Labelclass-filter {
+    /*width: 120px;*/
+    margin-left: 23px;
+    height: 19px;
+    left: 315px;
+    top: 368px;
+    font-family: Bw-Mitga-regular;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 17px;
+    letter-spacing: -0.02em;
+    color: #292931;
+}
+
 .Labelclass-category {
     /*width: 120px;*/
     height: 19px;

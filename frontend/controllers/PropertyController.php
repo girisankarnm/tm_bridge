@@ -2295,5 +2295,15 @@ class PropertyController extends Controller
         $this->layout = 'tm_main';
         return $this->render('search_hotel', []);
     }
+    public function actionSearchmotel()
+    {
+        $this->layout = 'tm_main';
+        return $this->render('search_motel', []);
+    }
+    public function actionSmotel()
+    {
+        $this->layout = 'tm_main';
+        return $this->render('s_motel', []);
+    }
 
 }

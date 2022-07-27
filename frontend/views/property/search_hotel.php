@@ -8,13 +8,63 @@ frontend\assets\AppAsset::register($this);
 
 <style>
     .action-icons .icon-header { justify-content: space-between; }
+
+
+    .dropbtn-search {
+
+
+        border: #86cfda;
+        cursor: pointer;
+    }
+
+
+
+    #myInputSearch {
+        box-sizing: border-box;
+        background-image: url(searchicon.png);
+        background-position: 6px 12px;
+        background-repeat: no-repeat;
+        font-size: 16px;
+        padding: 10px 7px 9px 7px;
+        border: none;
+        border-bottom: 1px solid #ddd;
+        height: 34px;
+        width: 226px;
+    }
+
+    #myInputSearch:focus {outline: 3px solid #ddd;}
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content-search {
+        display: none;
+        position: absolute;
+        background-color: #f6f6f6;
+        min-width: 230px;
+        overflow: auto;
+        border: 1px solid #ddd;
+        z-index: 1;
+    }
+
+    .dropdown-content-search a {
+        color: black;
+        padding: 4px 10px;
+        text-decoration: none;
+        display: block;
+        font-size: 13px;
+
+    }
+
+    .show {display: block;}
 </style>
 <div class="content">
 
     <div class="container-fluid" >
         <div class="card-title">Search  result for Alappuzha beach</div>
-
-        <div class="card search-top-card-list shadow-div card-overflow-hidden" >
+        <div class="card search-top-card-list shadow-div " >
             <div id="flex-icons">
                 <div>
                     <div class="card search-top-card-label "  style="width: 140px;"> <a href="#" class="search-anchor">Enquiry no: #9999/22</a> </div>
@@ -36,17 +86,25 @@ frontend\assets\AppAsset::register($this);
 
                 <div>
                     <div id="flex-row-search"  style="width: 140px;">
-                        <div>  <span><img class="margin-right-search-img image-width-height dropbtn-edit" onclick="myFunctionEdit()"  src="images/filer-symbol-up-down.svg"></span>
-                            <div id="myDropdownfilter" class="dropdown-content-edit" style="height: 120px; background-color: #586ADA; margin-left: -90px; margin-top: 10px;">
-                                <a href="#" class="dro"><img  src="images/edit-sub-menue-icon.svg" style="margin-right: 2px;"> <span style="color: white">Edit Basic Details</span></a>
-                                <a href="#" class="dro"><img  src="images/edit-sub-menue-icon.svg" style="margin-right: 2px;"> <span style="color: white"> Edit Operational Details</span></a>
-                                <a href="#" class="dro"><img  src="images/edit-sub-menue-icon.svg" style="margin-right: 2px;"> <span style="color: white"> Edit tariff</span></a>
-                            </div>
 
-                        </div>
+
+                         <div><a href="#">  <img class="margin-right-search-img image-width-height " src="images/filer-symbol-up-down.svg"> </a></div>
                         <div> <span> <img class="margin-right-search-img image-width-height" src="images/filter-icon.svg"> </span></div>
                         <div> <span> <img class="margin-right-search-img image-width-height" src="images/filter-search-icon.svg"> </span></div>
-                        <div> <span> <img class="image-width-height-2" src="images/map-icon.svg"> </span></div>
+                        <div> <a href="#">  <img class="image-width-height-2 dropbtn-search"  onclick="myFunctionSearch()" src="images/map-icon.svg"> </a>
+
+                            <div id="myDropdownResult" class="dropdown-content-search" style="height: fit-content;margin-left: -106px;margin-top: 6px;">
+                                <select class="inputSelectClass" >
+                                    <option>Cities in Alappuzha</option>
+                                </select>
+                                <input type="text" placeholder="Search.." id="myInputSearch" onkeyup="filterFunction()">
+                                <a href="#about">Alappuzha</a>
+                                <a href="#base">Cherthala</a>
+                                <a href="#blog">Kumarakam</a>
+                                <a href="#contact">Aroor</a>
+                                <a href="#custom">Arthunkal</a>
+                            </div>
+                        </div>
 
 
 
@@ -178,66 +236,32 @@ frontend\assets\AppAsset::register($this);
 
     </div>
 
-
-<!--<script>-->
-<!---->
-<!--    function myFunctionBasic(id) {-->
-<!--        document.getElementById("myDropdown-basic"+id).classList.toggle("show-content");-->
-<!--    }-->
-
-
-<!---->
-<!--    window.onclick = function(event) {-->
-<!---->
-<!--        if (!event.target.matches('.dropbtn-edit')) {-->
-<!--            var dropdowns = document.getElementsByClassName("dropdown-content-edit");-->
-<!--            var i;-->
-<!--            for (i = 0; i < dropdowns.length; i++) {-->
-<!--                var openDropdown = dropdowns[i];-->
-<!--                if (openDropdown.classList.contains('show-content')) {-->
-<!--                    openDropdown.classList.remove('show-content');-->
-<!--                }-->
-<!--            }-->
-<!--        }-->
-<!--        if (!event.target.matches('.dropbtn-basic')) {-->
-<!--            var dropdownedit = document.getElementsByClassName("dropdown-content-basic-details");-->
-<!--            var i;-->
-<!--            for (i = 0; i < dropdownedit.length; i++) {-->
-<!--                var openDropdownedit = dropdownedit[i];-->
-<!--                if (openDropdownedit.classList.contains('show-content')) {-->
-<!--                    openDropdownedit.classList.remove('show-content');-->
-<!--                }-->
-<!--            }-->
-<!--        }-->
-<!---->
-<!--    }-->
-<!---->
-<!--</script>-->
-
 </div>
-
 <script>
-    // function myFunctionfilter() {
-    //     alert("dadadad");
-    //     document.getElementById("myDropdownfilter).classList.toggle("show-content");
-    // }
-    //
-    // window.onclick = function(event) {
-    //
-    //     if (!event.target.matches('.dropbtn-edit')) {
-    //         var dropdowns = document.getElementsByClassName("dropdown-content-edit");
-    //         var i;
-    //         for (i = 0; i < dropdowns.length; i++) {
-    //             var openDropdown = dropdowns[i];
-    //             if (openDropdown.classList.contains('show-content')) {
-    //                 openDropdown.classList.remove('show-content');
-    //             }
-    //         }
-    //     }
-    // }
+    /* When the user clicks on the button,
+    toggle between hiding and showing the dropdown content */
+    function myFunctionSearch() {
+        document.getElementById("myDropdownResult").classList.toggle("show");
+    }
 
-    function myFunctionEdit() {
-        alert("eaeaeaea");
-        document.getElementById("myDropdownfilter").classList.toggle("show-content");
+    function filterFunction() {
+        var input, filter, ul, li, a, i;
+        input = document.getElementById("myInputSearch");
+        filter = input.value.toUpperCase();
+        div = document.getElementById("myDropdownResult");
+        a = div.getElementsByTagName("a");
+        for (i = 0; i < a.length; i++) {
+            txtValue = a[i].textContent || a[i].innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                a[i].style.display = "";
+            } else {
+                a[i].style.display = "none";
+            }
+        }
+    }
+
+    window.onclick = function(event) {
+
+        document.getElementById("myDropdownResult").classList.toggle("hide");
     }
 </script>

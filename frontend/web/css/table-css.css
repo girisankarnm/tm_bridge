@@ -321,6 +321,40 @@ input::placeholder {
     box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
 
 }
+
+.filter-card-list{
+    /*border-box:0px solid rgba(0,0,0,.125) !important;*/
+    /*position: sticky;*/
+
+    margin-right: 10px;
+    border-radius: 10px !important;
+    height:auto !important;
+    background-color: #ffffff !important;
+    margin-top: -2px;
+    margin-right: 25px !important;
+    margin-left: 19px !important;
+    margin-bottom: 24px !important;
+    padding:12px;
+
+}
+.filter-card-list-slect{
+    /*border-box:0px solid rgba(0,0,0,.125) !important;*/
+    /*position: sticky;*/
+
+    margin-right: 10px;
+    border-radius: 10px !important;
+    height:190px;
+    background-color: #ffffff !important;
+    /*margin-top: -2px;*/
+    margin-right: 25px !important;
+    margin-left: 19px !important;
+    margin-bottom: 24px !important;
+    padding:12px;
+
+}
+
+
+
 .search-top-card-input{
     /*border-box:0px solid rgba(0,0,0,.125) !important;*/
 width: 140px;
