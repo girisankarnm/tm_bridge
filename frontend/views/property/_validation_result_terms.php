@@ -1,4 +1,5 @@
 <div class="validationBorder-error">
+    <div id="h-validation">
     <div style="margin-top: 5px;">
     <?php
         if($result != NULL)
@@ -18,16 +19,17 @@
         ?>
 
         <?php if($result != NULL) { ?>
-
-            <div  class="d-flex flex-row-reverse ">
+ </div>
+            <div  style="margin-top: 5px;" >
                 <?php if ( ($property->country_id && $property->legal_status_id) != 1) {  ?>
                    <span style="margin-right: 12px; vertical-align:text-top" > Please fill all other forms before T & C   </span>
                 <?php } else { ?>                    
-                    <a href="<?= \yii\helpers\Url::to(['/property/'.$action, 'id' => $property->id]) ?>" > <img  src="images/blue-edit.svg"  style="margin-right: 2px; vertical-align:text-top" > <span style="color: blue"> edit  <?= $name ?>  </span></a>
+                    <a href="<?= \yii\helpers\Url::to(['/property/'.$action, 'id' => $property->id]) ?>" > <img  src="images/blue-edit.svg"  style="margin-right: 2px; vertical-align:text-top" > <span style="color: blue">   </span></a>
                 <?php }  ?>
             </div>
 
         <?php } ?>
 
     </div>
+</div>
 </div>

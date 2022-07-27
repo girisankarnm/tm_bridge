@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'Bw-Mitga-regular';
+    src: url('../fonts/BwMitga-Regular.otf') format('truetype');
+    font-weight: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Bw-Mitga-bold';
+    src: url('../fonts/BwMitga-Bold.otf') format('truetype');
+    font-weight: normal;
+    font-weight: normal;
+}

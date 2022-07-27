@@ -47,12 +47,10 @@ use yii\helpers\Html;
         ?>
 
         <?php
-            echo Yii::$app->controller->renderPartial('_validation_result_block', ['result' => $property->errors,  'name' => 'Operational details', 'action' => 'createcategories', 'id' => $property->id ]);
+            echo Yii::$app->controller->renderPartial('_validation_result_block', ['result' => $property->errors,  'name' => 'Operational details', 'action' => 'rules', 'id' => $property->id ]);
         ?>
 
-        <div style="height: 30px">
 
-        </div>
 
     </div>
 </div>
