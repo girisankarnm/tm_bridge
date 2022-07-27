@@ -164,7 +164,7 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
 
                                                 <div class="col-2 fit-width-112px">
                                                     <div class="form-group">
-                                                        <input readonly value="100" type="text" name="percentage[]" id="" class="form-control input-sh">
+                                                        <input readonly value="100" type="text"  id="" class="form-control input-sh">
                                                     </div>
                                                 </div>
                                                 <div class="col-4 fit-width-215px">
@@ -183,7 +183,7 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                                             <div class="row checked-cancellation-policy align-items-center mb-2">
                                                 <div class="col-2 fit-width-112px">
                                                     <div class="form-group">
-                                                        <input readonly value="0" type="text" name="percentage[]" id="" class="form-control input-sh">
+                                                        <input readonly value="0" type="text"  id="" class="form-control input-sh">
                                                     </div>
                                                 </div>
                                                 <div class="col-4 fit-width-215px">
