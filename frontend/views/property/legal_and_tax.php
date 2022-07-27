@@ -150,7 +150,7 @@ $this->registerJsFile('/js/client_requested_option/add_option.js');
                                 echo "<div id='gstId' class='borderless-image'><img id='gstImage' src='uploads/$legal_tax_documentation->gst_image' class='imagePreview'></div>";
                             }?>
 
-                            <?= $form->field($legal_docs_images, 'gst_image')->fileInput(['class' => 'btn btn-sm img uploadFile', 'accept' => "image/*", 'id'=>"uploadGst"])->label(false); ?>
+                            <?= $form->field($property_gst, 'gst_image')->fileInput(['class' => 'btn btn-sm img uploadFile', 'accept' => "image/*", 'id'=>"uploadGst"])->label(false); ?>
                         </div>
 
                     </div>

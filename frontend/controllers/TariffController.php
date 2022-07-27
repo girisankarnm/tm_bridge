@@ -756,44 +756,52 @@ class TariffController extends Controller {
     public function actionAddmandatorydinnner(){         
         $date_range = new DateRange();
         if ($date_range->load(Yii::$app->request->post()) ) {
-            $dinner_dates = Yii::$app->request->post('dinner_daterange');            
-            if($dinner_dates != NULL ) {
-                if(count(array_unique($dinner_dates)) < count($dinner_dates))
-                {                
-                    $date_range->setLastError("Error: Dates repeated.");
-                }
-                else
-                {  
-                    MandatoryDinner::deleteAll(['property_id' => $date_range->property_id ,'date_range_id' => $_POST["DateRange"]["id"] ]);
-                    
-                    $event_names = Yii::$app->request->post('event_name');
-                    $adult_rates = Yii::$app->request->post('adult_rate');
-                    $child_rates = Yii::$app->request->post('child_rate');
-                    $i = 0;
-
-                    foreach ($dinner_dates as $dinner_date) {
-                        $mandatory_dinner = new MandatoryDinner();  
-                        $mandatory_dinner->date = Carbon::createFromFormat('d M Y', $dinner_date)->toDateString();                        
-                        $mandatory_dinner->name = $event_names[$i];
-                        $mandatory_dinner->rate_adult = $adult_rates[$i];
-                        $mandatory_dinner->rate_child = $child_rates[$i];
-                        $mandatory_dinner->date_range_id = $_POST["DateRange"]["id"];
-                        $mandatory_dinner->meal_impact_id = 4;
-                        $mandatory_dinner->property_id = $date_range->property_id;
-                        $mandatory_dinner->save();
-                        $i++;
-                    }                    
-                }
-
-                return $this->redirect(['tariff/home', 
-                'id' => $date_range->property_id,                
-                ]);
-            } 
-            else 
+            $have_mandatory_dinner = Yii::$app->request->post('have_mandatory_dinner');             
+            if($have_mandatory_dinner != NULL)
             {
-                //TODO: Handle this
-                $date_range->setLastError("Dates are empty");
+                $dinner_dates = Yii::$app->request->post('dinner_daterange');            
+                if($dinner_dates != NULL ) {
+                    if(count(array_unique($dinner_dates)) < count($dinner_dates))
+                    {                
+                        $date_range->setLastError("Error: Dates repeated.");
+                    }
+                    else
+                    {  
+                        MandatoryDinner::deleteAll(['property_id' => $date_range->property_id ,'date_range_id' => $_POST["DateRange"]["id"] ]);
+                        
+                        $event_names = Yii::$app->request->post('event_name');
+                        $adult_rates = Yii::$app->request->post('adult_rate');
+                        $child_rates = Yii::$app->request->post('child_rate');
+                        $i = 0;
+
+                        foreach ($dinner_dates as $dinner_date) {
+                            $mandatory_dinner = new MandatoryDinner();  
+                            $mandatory_dinner->date = Carbon::createFromFormat('d M Y', $dinner_date)->toDateString();                        
+                            $mandatory_dinner->name = $event_names[$i];
+                            $mandatory_dinner->rate_adult = $adult_rates[$i];
+                            $mandatory_dinner->rate_child = $child_rates[$i];
+                            $mandatory_dinner->date_range_id = $_POST["DateRange"]["id"];
+                            $mandatory_dinner->meal_impact_id = 4;
+                            $mandatory_dinner->property_id = $date_range->property_id;
+                            $mandatory_dinner->save();
+                            $i++;
+                        }                    
+                    }                    
+                } 
+                else 
+                {
+                    //TODO: Handle this
+                    $date_range->setLastError("Dates are empty");
+                }
             }
+            //have_mandatory_dinner == NULL, delete existing dinner
+            else {
+                MandatoryDinner::deleteAll(['property_id' => $date_range->property_id ,'date_range_id' => $_POST["DateRange"]["id"] ]);
+            }
+
+            return $this->redirect(['tariff/home', 
+                    'id' => $date_range->property_id,                
+                    ]);
         }
 
         //$date_range = new DateRange();

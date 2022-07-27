@@ -8,8 +8,19 @@ frontend\assets\DatePickerAsset::register($this);
 use Carbon\Carbon;
 ?>
 <script>
-$(document).ready(function() {
+function mandatory_dinner(checkbox){
+if( $(checkbox).is(':checked')) {
+    $("#mandatory_dinner").show(300);
     attachDatePicker();
+}
+else {
+    $("#mandatory_dinner").hide(300);        
+}    
+}
+$(document).ready(function() {
+    if($("#have_mandatory_dinner").is(':checked')) {
+        attachDatePicker();
+    }
 });
 
 function addRow(){
@@ -115,8 +126,11 @@ function attachDatePicker() {
     <?= $form->field($date_range, 'parent')->hiddenInput()->label(false); ?>
     <?= $form->field($date_range, 'id')->hiddenInput()->label(false); ?>
     <input type="hidden" name="tariff" value="<?= $tariff; ?>">
-
-        <div class="row">
+    <div style="display: inline;margin-top: 4px;margin-left: 19px">
+        <input type="checkbox" value = "1" class="material-checkbox" id="have_mandatory_dinner" name="have_mandatory_dinner" <?= (count($dinners) > 0) ? "checked" : "" ?> onclick="mandatory_dinner(this);">
+        <label style="margin: -3px">We have mandatory dinner</label>
+    </div>
+        <div class="row" id="mandatory_dinner" style= "display: <?= count($dinners) > 0 ? "block" : "none" ?>" >            
             <table id="dinner_table" class="tableadd-meals-class" >
                 <tr  class="thtableguestcount " >
                     <th class="Adults" >Date</th>
@@ -127,38 +141,37 @@ function attachDatePicker() {
                 </tr>
                 <?php
                 $i = 0;
-        if( count($dinners) > 0 ) {            
-        foreach ($dinners as $dinner)        
-        { ?>
-            <tr>
-                <td class="Adults"><input type="text" class="inputTextClass add-mandatorydinner-input"  name="dinner_daterange[]" value = "<?= Carbon::parse($dinner->date)->format('d M Y'); ?>" required /></td>
-                <td class="Adults"><input type="text" class="inputTextClass add-mandatorydinner-input" name="event_name[]" value = "<?= $dinner->name ?>" required >  </td>
-                <td class="Adults"><input type="number" class="inputTextClass add-mandatorydinner-input" name="adult_rate[]" value = "<?= $dinner->rate_adult ?>" required ></td>
-                <td class="Adults"><input type="number" class="inputTextClass add-mandatorydinner-input" name="child_rate[]" value = "<?= $dinner->rate_child ?>" required ></td>
-                <td class="action-td">
-                    <?php if($i != 0) { ?>
-                        <i name="compulsory_rem" class="fa fa-minus fa-lg text-danger mt-2 ml-4" onclick="removeRow(this)"></i>
-                    <?php } ?>                
-                </td>
-            </tr>
-
+        if( count($dinners) > 0 ) 
+        {            
+            foreach ($dinners as $dinner)        
+            { ?>
+                <tr>
+                    <td class="Adults"><input type="text" class="inputTextClass add-mandatorydinner-input"  name="dinner_daterange[]" value = "<?= Carbon::parse($dinner->date)->format('d M Y'); ?>" required /></td>
+                    <td class="Adults"><input type="text" class="inputTextClass add-mandatorydinner-input" name="event_name[]" value = "<?= $dinner->name ?>" required >  </td>
+                    <td class="Adults"><input type="number" class="inputTextClass add-mandatorydinner-input" name="adult_rate[]" value = "<?= $dinner->rate_adult ?>" required ></td>
+                    <td class="Adults"><input type="number" class="inputTextClass add-mandatorydinner-input" name="child_rate[]" value = "<?= $dinner->rate_child ?>" required ></td>
+                    <td class="action-td">
+                        <?php if($i != 0) { ?>
+                            <i name="compulsory_rem" class="fa fa-minus fa-lg text-danger mt-2 ml-4" onclick="removeRow(this)"></i>
+                        <?php } ?>                
+                    </td>
+                </tr>
+                
+                <?php 
+                $i++;
+            } ?>
             <tfoot >
-            <tr style="height: 15px">
-
-            </tr>
-            <tr style="background-color: #ffffff">
-                <td class="addmoreguestcount">
-<!--                    <button class="btnAdd" type="button" style="border-radius: 50%; margin-left: 0px;margin-bottom: 15px;height: 23px;width: 23px;" id="add_new_plan_row" onclick="addRow();  return true;"><i  style=" padding-top: 4px; margin-bottom: 2px;"  class="fa fa-plus" aria-hidden="true"></i></button>-->
-<!--                    <span style="padding-left: 3px">Add more </span></td>-->
-                <button class="btnAdd" type="button" style="border-radius: 50%; margin-left: 0px;margin-bottom: 15px;height: 23px;width: 23px;" id="add_new_plan_row" onclick="addRow();return true;"><i  class="fa fa-plus" aria-hidden="true"></i></button>
-                <span style="padding-left: 3px">Add more </span>
-
-            </tr>
+                <tr style="height: 15px">
+                </tr>
+                <tr style="background-color: #ffffff">
+                    <td class="addmoreguestcount">
+                    <button class="btnAdd" type="button" style="border-radius: 50%; margin-left: 0px;margin-bottom: 15px;height: 23px;width: 23px;" id="add_new_plan_row" onclick="addRow();return true;"><i  class="fa fa-plus" aria-hidden="true"></i></button>
+                    <span style="padding-left: 3px">Add more </span>
+                </tr>
             </tfoot>
-            <?php 
-            $i++;
-            } 
-        } else
+        <?php
+        } 
+        else
         {
         ?>
             <tr>
@@ -174,9 +187,8 @@ function attachDatePicker() {
             </tr>
             <tr style="background-color: #ffffff">
                 <td class="addmoreguestcount">
-                    <button class="btnAdd" type="button" style="border-radius: 50%; margin-left: 0px;margin-bottom: 15px;height: 23px;width: 23px;" id="add_new_plan_row" onclick="addRow();  return true;"><i  style=" padding-top: 4px; margin-bottom: 2px;"  class="fa fa-plus" aria-hidden="true"></i></button>
-                    <span style="padding-left: 3px">Add more </span></td>
-
+                <button class="btnAdd" type="button" style="border-radius: 50%; margin-left: 0px;margin-bottom: 15px;height: 23px;width: 23px;" id="add_new_plan_row" onclick="addRow();  return true;"><i  style=" padding-top: 4px; margin-bottom: 2px;"  class="fa fa-plus" aria-hidden="true"></i></button>
+                <span style="padding-left: 3px">Add more </span></td>
             </tr>
             </tfoot>
         <?php } ?>
