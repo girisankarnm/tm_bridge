@@ -34,7 +34,7 @@ sidebar .nav-item .nav-link {
     /*height: 22px;*/
     border: 0px solid #c3c3c3;
     border-radius: 5px;
-    font-family: 'Bw Mitga';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
     font-weight: 200;
     font-size: 15px;
@@ -65,7 +65,7 @@ sidebar .nav-item .nav-link {
     /*height: 22px;*/
     border: 0px solid #c3c3c3;
     border-radius: 5px;
-    font-family: 'Bw Mitga';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
     letter-spacing: .03rem;
     font-weight: 200;
@@ -88,7 +88,7 @@ sidebar .nav-item .nav-link {
     color: #787486;
     height: 31px;
     width: 158px;
-    font-family: 'Bw Mitga';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
     font-size: 12px;
     border: 0.5px solid #586ADA;
@@ -101,7 +101,7 @@ sidebar .nav-item .nav-link {
     color: #ffffff;
     height: 31px;
     width: 158px;
-    font-family: 'Bw Mitga';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
     font-size: 12px;
     border: 0.5px solid #586ADA;
@@ -118,7 +118,7 @@ sidebar .nav-item .nav-link {
     color: #ffffff;
     height: 31px;
     width: 97px;
-    font-family: 'Bw Mitga';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
     font-size: 12px;
     border: 0.5px solid #586ADA;
@@ -140,7 +140,7 @@ sidebar .nav-item .nav-link {
     color: #ffffff;
     height: 31px;
     width: 73px;
-    font-family: 'Bw Mitga';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
     font-size: 12px;
     border: 0.5px solid #586ADA;
@@ -156,14 +156,14 @@ sidebar .nav-item .nav-link {
 #customers {
 
     width: 80%;
-    font-family: 'Bw Mitga';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
 
 }
 #rooms {
 
     width: 80%;
-    font-family: 'Bw Mitga';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
 
 }
@@ -173,7 +173,7 @@ sidebar .nav-item .nav-link {
     color: #ffffff;
     height: 31px;
     width: 85px;
-    font-family: 'Bw Mitga';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
     font-size: 12px;
     border: 0.5px solid #586ADA;
@@ -190,13 +190,13 @@ sidebar .nav-item .nav-link {
 {
     padding-bottom: 12px;
     margin-top: 12px;
-    font-family: 'Bw Mitga';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
     font-size: 0.68rem;
     text-align: left;
 }
 .roomtablelabel {
-    font-family: 'Bw Mitga';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
     font-size: 0.78rem;
     text-align: center;
@@ -207,7 +207,7 @@ sidebar .nav-item .nav-link {
     padding-bottom: 12px;
     margin-top: 12px;
     padding-right: 14px;
-    font-family: 'Bw Mitga';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
     font-size: 0.78rem;
     text-align: left;
@@ -215,7 +215,7 @@ sidebar .nav-item .nav-link {
 
 .table2class
 {
-    font-family: 'Bw Mitga';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
     box-shadow: #51459F17;
     alignment: inherit;
@@ -225,7 +225,7 @@ sidebar .nav-item .nav-link {
     /*border-top-left-radius: 45px !important;*/
 
 
-    font-family: 'Bw Mitga';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
     box-shadow: #51459F17;
     alignment: inherit;
@@ -333,7 +333,7 @@ input::-webkit-inner-spin-button {
 .table3accomadatonclass
 {
 
-    font-family: 'Bw Mitga';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
     /*box-shadow: #51459F17;*/
     alignment: inherit;
@@ -362,7 +362,7 @@ input::-webkit-inner-spin-button {
 }
   .table3mealsadd
 {
-      font-family: 'Bw Mitga';
+      font-family: Bw-Mitga-regular;
       font-style: normal;
       /*box-shadow: #51459F17;*/
       alignment: inherit;
@@ -394,7 +394,7 @@ input::-webkit-inner-spin-button {
 .table3enquiryclass
 {
     width:750px !important;
-    font-family: 'Bw Mitga';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
     alignment: inherit;
     margin-left: 16px;
@@ -409,7 +409,7 @@ input::-webkit-inner-spin-button {
 
 .tableadd-meals-class
 {
-    font-family: 'Bw Mitga';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
     alignment: inherit;
     margin-left: 36px;
@@ -431,7 +431,7 @@ input::-webkit-inner-spin-button {
     padding-bottom: 12px;
     background-color: #586ADA !important;
     color: white !important;
-    font-family: 'Bw Mitga';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
     font-weight: 200;
     font-size: 15px;
@@ -459,7 +459,7 @@ input::-webkit-inner-spin-button {
 {
 
 
-    font-family: 'Bw Mitga';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
     /*box-shadow: #51459F17;*/
     alignment: inherit;
@@ -565,7 +565,7 @@ table {
     padding-bottom: 12px;
     background-color: #586ADA !important;
     color: white;
-    font-family: 'Bw Mitga';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
     font-weight: 200;
     font-size: 11px;
@@ -582,7 +582,7 @@ table {
     color: white;
     border: 1px solid  #586ADA !important;
     border-radius: revert !important;
-    font-family: 'Bw Mitga';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
     font-weight: 200;
     font-size: 11px;
@@ -596,7 +596,7 @@ table {
     padding-bottom: 12px;
     background-color: #586ADA;
     color: white;
-    font-family: 'Bw Mitga';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
     font-weight: 200;
     font-size: 11px;
@@ -621,7 +621,7 @@ table {
     margin-bottom: 22px;
     height: 35px;
 
-    font-family: 'Bw Mitga';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
     font-size: 0.68rem;
 
@@ -630,7 +630,7 @@ table {
     margin-bottom: 22px;
     height: 35px;
 
-    font-family: 'Bw Mitga';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
     font-size: 0.78rem;
 
@@ -651,7 +651,7 @@ tr {
     /*padding-left: 10px;*/
     height: 35px;
 
-    font-family: 'Bw Mitga';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
     font-size: 0.78rem;
     background: #586ADA;
@@ -665,7 +665,7 @@ tr {
 
 #meals td {
 
-    font-family: 'Bw Mitga';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
     font-size: 0.78rem;
     text-align: left;
@@ -677,7 +677,7 @@ tr {
 }
 #guest_count_differnt td {
 background-color: #ffffff;
-    font-family: 'Bw Mitga';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
     font-size: 0.78rem;
     text-align: center;
@@ -693,12 +693,12 @@ background-color: #ffffff;
     box-sizing: border-box;
     color: #000000 !important;
     font-size: 12px;
-    font-family: 'Bw Mitga';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
 }
 
 .radiolabel{
-    font-family: 'Bw Mitga';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
     font-size: 12px;
     font: bold;
@@ -741,7 +741,7 @@ select:focus
 {
     background-color: #ffffff !important;
     box-sizing: border-box;
-    color: #c56464 !important;
+    color: #4b4b4c !important;
     width: 150px !important;
     height: 34px !important;
     font-size: 13px !important;
@@ -800,7 +800,7 @@ input:focus
     /*height: 22px;*/
     border: 0px solid #c3c3c3;
     border-radius: 5px;
-    font-family: 'Bw Mitga';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
     font-weight: 300;
     font-size: 15px;
@@ -844,6 +844,16 @@ font-size: 14px;
     margin-top: 10px;
 }
 
+.title-search-property{
+    font-size: 18px;
+    text-align: left;
+    color: #586ADA;
+    line-height: 23px !important;
+    margin-top: 10px;
+    margin-left: 13px;
+}
+
+
 .property-button
 {
     color: white;
@@ -872,7 +882,7 @@ font-size: 14px;
 
     background-color: #586ADA;
     color: white;
-    font-family: 'Bw Mitga';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
     font-weight: 200;
 
@@ -946,7 +956,7 @@ font-size: 14px;
 
     background-color: #BCC3F1;
     color: white;
-    font-family: 'Bw Mitga';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
     font-weight: 200;
 
@@ -1008,7 +1018,7 @@ font-size: 14px;
 }
 .accordianText {
 
-    font-family: 'Bw Mitga';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
     font-weight: 500;
     font-size: 15px;
@@ -1028,7 +1038,7 @@ font-size: 14px;
     height: 24px;
     margin-top: 0px;
     margin-right: 16px;
-    font-family: 'Bw Mitga';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
     letter-spacing: .04em;
     font-size: 12px;
@@ -1047,7 +1057,7 @@ font-size: 14px;
     padding-right: 4px;
     height: 33px;
     margin-top: 0px;
-    font-family: 'Bw Mitga';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
     letter-spacing: .04em;
     font-size: 12px;
@@ -1074,7 +1084,7 @@ font-size: 14px;
     padding-right: 4px;
     height: 33px;
     margin-top: 0px;
-    font-family: 'Bw Mitga';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
     letter-spacing: .04em;
     font-size: 12px;
@@ -1099,7 +1109,7 @@ font-size: 14px;
     padding-right: 34px;
     padding-left: 27px;
     height: 33px;
-    font-family: 'Bw Mitga';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
     letter-spacing: .04em;
     font-size: 12px;
@@ -1120,7 +1130,7 @@ font-size: 14px;
     padding-right: 27px;
     padding-left: 22px;
     height: 33px;
-    font-family: 'Bw Mitga';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
     letter-spacing: .04em;
     font-size: 12px;
@@ -1400,7 +1410,7 @@ hr.new2 {
     color: #ffffff;
     height: 40px;
     width: 221px;
-    font-family: 'Bw Mitga';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
     font-size: 13px;
     border: 0.5px solid #E40968;
@@ -1417,7 +1427,7 @@ hr.new2 {
     color: #ffffff;
     height: 40px;
     width: 221px;
-    font-family: 'Bw Mitga';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
     font-size: 13px;
     border: 0.5px solid #586ADA;
@@ -1441,7 +1451,7 @@ hr.new2 {
 
 .daterangetitle {
     margin-left: 3px;
-    font-family: 'Bw Mitga';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
     margin-bottom: 10px;
     font-size: 16px;
@@ -1453,7 +1463,7 @@ hr.new2 {
 
 .property-title-name {
     margin-left: 3px;
-    font-family: 'Bw Mitga';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
     margin-bottom: 10px;
     font-size: 17px;
@@ -1540,8 +1550,36 @@ hr.new2 {
     margin-bottom: 10px;
     padding-bottom: 9px;
     padding-top: 9px;
-    background-color: #fffffff;;
+    background-color: #FFFFFF;;
 }
+
+#h-validation
+{
+    flex-basis: 900px;
+    height:fit-content;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+}
+
+
+#h-validation div:nth-of-type(1) {
+    flex-basis: 710px;
+    height: fit-content;
+
+    text-align: left;
+
+
+}
+
+#h-validation div:nth-of-type(2) {
+    flex-basis: 300px;
+
+    line-height: .8rem;
+    text-align: right;
+
+}
+
 
 
 
@@ -1648,7 +1686,7 @@ hr.new2 {
     margin: 15px;
     /*width: fit-content;*/
     /*border: 1px groove blue;*/
-    font-family: 'Bw Mitga';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
 
 
@@ -1659,7 +1697,7 @@ hr.new2 {
 }
 .mealfonttext
 {
-    font-family: 'Bw Mitga';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
     margin: 5px;
     background-color: #F9F9F9;
@@ -1782,7 +1820,7 @@ hr.new2 {
     height: 13px;
     left: 315px;
     top: 368px;
-    font-family: 'Bw Mitga';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
     font-weight: 600;
     font-size: 13px;
@@ -1801,6 +1839,24 @@ hr.new2 {
     box-sizing: border-box;
     color: #787486 !important;
     width: 195px;
+    height: 34px;
+    font-size: 12px;
+    border: 0.1px solid #c3c3c3;
+    border-radius: 8px;
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+}
+.inputSelect-filter
+{
+    color: transparent;
+    background: none;
+    text-indent: 7px;
+    margin-left: 18px;
+    background-color: #F9F9F9;
+    box-sizing: border-box;
+    color: #787486 !important;
+    width: 251px;
     height: 34px;
     font-size: 12px;
     border: 0.1px solid #c3c3c3;
@@ -1962,7 +2018,7 @@ hr.new2 {
 }
 .spanTextTable
 {
-    font-family: 'Bw Mitga';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
     color: black;
     text-indent: 2px !important;
@@ -2177,7 +2233,7 @@ hr.new6 {
 .enquiryTablelabel
 {
 
-    Font family: Bw Mitga;
+    font-family: Bw-Mitga-regular;
     font: normal;
     Font size: 16px;
     Line height: 100%;
@@ -2241,7 +2297,7 @@ hr.new6 {
     box-sizing: border-box;
     color: #787486 !important;
     width: 227px;
-    Font family: Bw Mitga;
+    font-family: Bw-Mitga-regular;
     font: normal;
     font-size: 14px;
     padding-left: 8px;
@@ -2260,11 +2316,11 @@ hr.new6 {
 {
     background-color: #ffffff;
     box-sizing: border-box;
-    color: #c56464!important;
+    color: #4b4b4c!important;
     width: 227px;
     height: 34px;
     font-size: 13px;
-    Font family: Bw Mitga;
+    font-family: Bw-Mitga-regular;
     font: normal;
     border: 0.1px solid #c3c3c3;
     border-radius: 8px;
@@ -2272,6 +2328,25 @@ hr.new6 {
     order: 2;
     flex-grow: 0;
 }
+
+.inputSelectClass
+{
+    text-align: center;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    color: #4b4b4c!important;
+    width: 229px;
+    height: 34px;
+    font-size: 13px;
+    font-family: Bw-Mitga-regular;
+    font: normal;
+    border: 0.1px solid #c3c3c3;
+
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+}
+
 .roomacord
 {
     margin-left: 15px !important;
@@ -2280,7 +2355,7 @@ hr.new6 {
 {
     background-color: #F9F9F9;
     box-sizing: border-box;
-    Font family: Bw Mitga;
+    font-family: Bw-Mitga-regular;
     font: normal;
     color: #787486 !important;
     width: 100px;
@@ -2300,7 +2375,7 @@ hr.new6 {
     box-sizing: border-box;
     color: #787486 !important;
     width: 60px;
-    Font family: Bw Mitga;
+    font-family: Bw-Mitga-regular;
     font: normal;
     height: 33px;
     margin-left: 24px;
@@ -2354,7 +2429,7 @@ hr.new6 {
     height: 19px;
     left: 315px;
     top: 368px;
-    font-family: 'Bw Mitga';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
     font-weight: 600;
     font-size: 13px;
@@ -2362,12 +2437,27 @@ hr.new6 {
     letter-spacing: -0.02em;
     color: #292931;
 }
+.Labelclass-filter {
+    /*width: 120px;*/
+    margin-left: 23px;
+    height: 19px;
+    left: 315px;
+    top: 368px;
+    font-family: Bw-Mitga-regular;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 17px;
+    letter-spacing: -0.02em;
+    color: #292931;
+}
+
 .Labelclass-category {
     /*width: 120px;*/
     height: 19px;
     left: 315px;
     top: 368px;
-    font-family: 'Bw Mitga';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
     font-size: 13px;
     line-height: 17px;
@@ -2895,7 +2985,7 @@ select:focus{
 
 
 #main_Accomadation {
-    font-family: 'Bw Mitga';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
     box-shadow: #51459F17;
     alignment: inherit;
@@ -2949,7 +3039,7 @@ background-color: blue;
     padding-top: 11px;
     padding-left: 52px;
     text-align: center;
-    font-family: 'Bw Mitga';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
     font-size: 12px;
     border-radius: 10px;
@@ -2965,7 +3055,7 @@ background-color: blue;
     padding-left: 29px;
     padding-bottom: 8px;
     text-align: center;
-    font-family: 'Bw Mitga';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
     font-size: 12px;
     border-radius: 10px;
@@ -2981,7 +3071,7 @@ background-color: blue;
     padding-top: 11px;
     padding-left: 18px;
     text-align: center;
-    font-family: 'Bw Mitga';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
     font-size: 12px;
     color: white !important;
@@ -3004,7 +3094,7 @@ background-color: blue;
     color: #ffffff;
     height: 35px;
     width: 120px;
-    font-family: 'Bw Mitga';
+    font-family: Bw-Mitga-regular;
     font-style: normal;
     font-size: 12px !important;
     background-color: #E40968;

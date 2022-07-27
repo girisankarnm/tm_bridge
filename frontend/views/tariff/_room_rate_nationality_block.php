@@ -23,9 +23,9 @@
                                     <th class="Adultswith"> Adult with Extra Bed</th>
                                     <th class="Adultswith"> Child With Extra Bed</th>
                                     <th class="Adultswith"> Child Sharing Bed</th>
-                                    <?php if($room->same_tariff_for_single_occupancy != 1)  { ?>
+                                    
                                     <th class="Adultswith"> Single Occupancy</th>
-                                    <?php } ?>
+
                                     <th class="Adults"> Actions</th>
                                 </tr>
                                 <?php
@@ -49,7 +49,7 @@
                                 </tr>
                                 <tr style="background-color: #ffffff">
                                     <td class="addmoreguestcount" style="width: 200px" >
-                                        <button class="btnAdd" type="button" style="border-radius: 50%; margin-left: 30px;margin-bottom: 15px;height: 23px;width: 23px;" id="add_new_plan_row" onclick="insertSlabRow(<?= $nationality_id; ?>, <?= $room->same_tariff_for_single_occupancy ?> ); return true;"><i  class="fa fa-plus" aria-hidden="true"></i></button>
+                                        <button class="btnAdd" type="button" style="border-radius: 50%; margin-left: 30px;margin-bottom: 15px;height: 23px;width: 23px;" id="add_new_plan_row" onclick="insertSlabRow(<?= $nationality_id; ?>, <?= $room->same_tariff_for_single_occupancy ?> , <?= $room->number_of_extra_beds ?>, <?= $room->number_of_kids_on_sharing ?> ); return true;"><i  class="fa fa-plus" aria-hidden="true"></i></button>
                                         <span style="padding-left: 3px">Add more </span>
                                     </td>
                                 </tr>

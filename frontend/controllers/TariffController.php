@@ -503,10 +503,10 @@ class TariffController extends Controller {
                 $slab = new RoomTariffSlab();
                 $slab->number = $i;
                 $slab->room_rate = $_POST["room_rate_".$nationality][$i];
-                $slab->adult_with_extra_bed = $_POST["adult_with_extra_bed_".$nationality][$i];
-                $slab->child_with_extra_bed = $_POST["child_with_extra_bed_".$nationality][$i];
-                $slab->child_sharing_bed = $_POST["child_sharing_bed_".$nationality][$i];                
-                $slab->single_occupancy = ($room->same_tariff_for_single_occupancy != 1) ? $_POST["single_occupancy_".$nationality][$i] : NULL;
+                $slab->adult_with_extra_bed = ($room->number_of_extra_beds > 0 ) ? $_POST["adult_with_extra_bed_".$nationality][$i] : 0;
+                $slab->child_with_extra_bed = ($room->number_of_extra_beds > 0 ) ? $_POST["child_with_extra_bed_".$nationality][$i] : 0;
+                $slab->child_sharing_bed = ($room->number_of_kids_on_sharing > 0) ? $_POST["child_sharing_bed_".$nationality][$i] : 0;                
+                $slab->single_occupancy = ($room->same_tariff_for_single_occupancy != 1) ? $_POST["single_occupancy_".$nationality][$i] : 0;
                 $slab->tariff_id = $room_tariff->getPrimaryKey();
                 $slab->save();                          
             }

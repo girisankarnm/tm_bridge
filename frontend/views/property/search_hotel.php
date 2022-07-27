@@ -8,13 +8,63 @@ frontend\assets\AppAsset::register($this);
 
 <style>
     .action-icons .icon-header { justify-content: space-between; }
+
+
+    .dropbtn-search {
+
+
+        border: #86cfda;
+        cursor: pointer;
+    }
+
+
+
+    #myInputSearch {
+        box-sizing: border-box;
+        background-image: url(searchicon.png);
+        background-position: 6px 12px;
+        background-repeat: no-repeat;
+        font-size: 16px;
+        padding: 10px 7px 9px 7px;
+        border: none;
+        border-bottom: 1px solid #ddd;
+        height: 34px;
+        width: 226px;
+    }
+
+    #myInputSearch:focus {outline: 3px solid #ddd;}
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content-search {
+        display: none;
+        position: absolute;
+        background-color: #f6f6f6;
+        min-width: 230px;
+        overflow: auto;
+        border: 1px solid #ddd;
+        z-index: 1;
+    }
+
+    .dropdown-content-search a {
+        color: black;
+        padding: 4px 10px;
+        text-decoration: none;
+        display: block;
+        font-size: 13px;
+
+    }
+
+    .show {display: block;}
 </style>
 <div class="content">
 
     <div class="container-fluid" >
         <div class="card-title">Search  result for Alappuzha beach</div>
-
-        <div class="card search-top-card-list shadow-div card-overflow-hidden" >
+        <div class="card search-top-card-list shadow-div " >
             <div id="flex-icons">
                 <div>
                     <div class="card search-top-card-label "  style="width: 140px;"> <a href="#" class="search-anchor">Enquiry no: #9999/22</a> </div>
@@ -36,10 +86,25 @@ frontend\assets\AppAsset::register($this);
 
                 <div>
                     <div id="flex-row-search"  style="width: 140px;">
-                        <div> <span> <img class="margin-right-search-img image-width-height" src="images/filer-symbol-up-down.svg"> </span></div>
+
+
+                         <div><a href="#">  <img class="margin-right-search-img image-width-height " src="images/filer-symbol-up-down.svg"> </a></div>
                         <div> <span> <img class="margin-right-search-img image-width-height" src="images/filter-icon.svg"> </span></div>
                         <div> <span> <img class="margin-right-search-img image-width-height" src="images/filter-search-icon.svg"> </span></div>
-                        <div> <span> <img class="image-width-height-2" src="images/map-icon.svg"> </span></div>
+                        <div> <a href="#">  <img class="image-width-height-2 dropbtn-search"  onclick="myFunctionSearch()" src="images/map-icon.svg"> </a>
+
+                            <div id="myDropdownResult" class="dropdown-content-search" style="height: fit-content;margin-left: -106px;margin-top: 6px;">
+                                <select class="inputSelectClass" >
+                                    <option>Cities in Alappuzha</option>
+                                </select>
+                                <input type="text" placeholder="Search.." id="myInputSearch" onkeyup="filterFunction()">
+                                <a href="#about">Alappuzha</a>
+                                <a href="#base">Cherthala</a>
+                                <a href="#blog">Kumarakam</a>
+                                <a href="#contact">Aroor</a>
+                                <a href="#custom">Arthunkal</a>
+                            </div>
+                        </div>
 
 
 
@@ -61,11 +126,20 @@ frontend\assets\AppAsset::register($this);
                 <div   >
                     <div id="mainHeding-search-hotel-list">
                         <div>
-
-                          <span class="serach-hotelHeading" > <span class="cut-text" style="display: inline">Misty Rock Resort<span/> <img class="f-star" src="images/Star-1.svg" alt="Matrix">
-                           <img class="f-star" style="padding-left: 2px"  src="images/Star-1.svg" alt="Matrix">
-                           <img  class="f-star" style="padding-left: 2px" src="images/Star-1.svg" alt="Matrix">
+                        <span class="serach-hotelHeading" > <span class="cut-text" style="display: inline">Misty Rock Resort<span/>
+                            <?php if($index==2)
+                                { ?>
+                                    <span class="badge badge-pill badge-css font-bw-mitga-low-weight" style="margin-left: 6px"> Luxury </span>
+                            <?php   } else
+                                {?>
+                               <img class="f-star" src="images/Star-1.svg" alt="Matrix">
+                             <img class="f-star" style="padding-left: 2px"  src="images/Star-1.svg" alt="Matrix">
+                             <img  class="f-star" style="padding-left: 2px" src="images/Star-1.svg" alt="Matrix">
                            </span>
+
+                            <?php  } ?>
+
+
 
                         </div>
                         <div> <small  class="smallFonts fontsize-location"><i  class="fa fa-map-marker locatiospace" aria-hidden="true"></i> Alappuzha ,Punnamada.kerala</small></div>
@@ -77,8 +151,8 @@ frontend\assets\AppAsset::register($this);
                 <div >
                     <div id="column-listing-search" >
                         <div> <img class="img-property" src="images/bridge-icon.svg" alt="Matrix"></div>
-                        <div><span class="badge badge-pill badge-secondary"> 4.1/5 (very good)</span>
-                            <span class="smallFonts" style="font-size: 12px;">5879 Rating</span>
+                        <div><span class="badge badge-pill badge-secondary font-bw-mitga-low-weight"> 4.1/5 (very good)</span>
+                            <span class="smallFonts font-bw-mitga-low-weight" style="font-size: 12px;">5879 Rating</span>
                                </div>
                         <div>
                             <div class="favorite-icon">
@@ -162,42 +236,32 @@ frontend\assets\AppAsset::register($this);
 
     </div>
 
-
-
-<!--<script>-->
-<!---->
-<!--    function myFunctionBasic(id) {-->
-<!--        document.getElementById("myDropdown-basic"+id).classList.toggle("show-content");-->
-<!--    }-->
-<!--    function myFunctionEdit(id) {-->
-<!--        document.getElementById("myDropdownEdit"+id).classList.toggle("show-content");-->
-<!--    }-->
-<!---->
-<!--    window.onclick = function(event) {-->
-<!---->
-<!--        if (!event.target.matches('.dropbtn-edit')) {-->
-<!--            var dropdowns = document.getElementsByClassName("dropdown-content-edit");-->
-<!--            var i;-->
-<!--            for (i = 0; i < dropdowns.length; i++) {-->
-<!--                var openDropdown = dropdowns[i];-->
-<!--                if (openDropdown.classList.contains('show-content')) {-->
-<!--                    openDropdown.classList.remove('show-content');-->
-<!--                }-->
-<!--            }-->
-<!--        }-->
-<!--        if (!event.target.matches('.dropbtn-basic')) {-->
-<!--            var dropdownedit = document.getElementsByClassName("dropdown-content-basic-details");-->
-<!--            var i;-->
-<!--            for (i = 0; i < dropdownedit.length; i++) {-->
-<!--                var openDropdownedit = dropdownedit[i];-->
-<!--                if (openDropdownedit.classList.contains('show-content')) {-->
-<!--                    openDropdownedit.classList.remove('show-content');-->
-<!--                }-->
-<!--            }-->
-<!--        }-->
-<!---->
-<!--    }-->
-<!---->
-<!--</script>-->
-
 </div>
+<script>
+    /* When the user clicks on the button,
+    toggle between hiding and showing the dropdown content */
+    function myFunctionSearch() {
+        document.getElementById("myDropdownResult").classList.toggle("show");
+    }
+
+    function filterFunction() {
+        var input, filter, ul, li, a, i;
+        input = document.getElementById("myInputSearch");
+        filter = input.value.toUpperCase();
+        div = document.getElementById("myDropdownResult");
+        a = div.getElementsByTagName("a");
+        for (i = 0; i < a.length; i++) {
+            txtValue = a[i].textContent || a[i].innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                a[i].style.display = "";
+            } else {
+                a[i].style.display = "none";
+            }
+        }
+    }
+
+    window.onclick = function(event) {
+
+        document.getElementById("myDropdownResult").classList.toggle("hide");
+    }
+</script>
