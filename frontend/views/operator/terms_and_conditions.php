@@ -34,7 +34,14 @@ use yii\bootstrap4\ActiveForm;
                     <?php } ?>
                     Legal Tax</button>
                 </a>
-                <a  href="index.php?r=operator%2Fcontact&id=<?= $terms->id ?>"> <button class="tablinks btnunder">Contact Details</button></a>
+                <a  href="index.php?r=operator%2Fcontact&id=<?= $terms->id ?>"> <button class="tablinks btnunder">
+                        <?php if($operator_contacts) { ?>
+                            <i class="fas fa-check"></i>
+                        <?php } else {?>
+                            <i class="fas fa-times"></i>
+                        <?php } ?>
+                        Contact Details</button>
+                </a>
                 <div style="display: inline">   <a href="index.php?r=operator%2Ftermsandconditions&id=<?= $terms->id; ?>">  <button class="selectedButton" style="width: 150px">
                             <?php if($operator->terms_and_conditons) { ?>
                                 <i class="fas fa-check"></i>

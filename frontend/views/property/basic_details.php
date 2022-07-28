@@ -49,9 +49,16 @@ function showTermsAlert(){
                             <?php } ?>
                             Legal Tax</button>
                     </a>
-                    <a href="index.php?r=property%2Fcontact&id=<?= $basic_details->id; ?>" <?= ($property_image->scenario == "create") ? 'onclick="return showAlert()"' : '' ?> ><button class="tablinks">Contact Details</button></a>
+                    <a href="index.php?r=property%2Fcontact&id=<?= $basic_details->id; ?>" <?= ($property_image->scenario == "create") ? 'onclick="return showAlert()"' : '' ?> ><button class="tablinks">
+                            <?php if($property_contacts) { ?>
+                                <i class="fas fa-check"></i>
+                            <?php } else {?>
+                                <i class="fas fa-times"></i>
+                            <?php } ?>
+                            Contact Details</button>
+                    </a>
                     <?php if($show_terms_tab ) { ?>
-                            <a href="index.php?r=property%2Ftermsandconditions&id=<?= $basic_details->id; ?>" <?= ( ($property->country_id && $property->legal_status_id) != 1 ) ? 'onclick="return showTermsAlert()"' : '' ?> ><button class="tablinks" >
+                            <a href="index.php?r=property%2Ftermsandconditions&id=<?= $basic_details->id; ?>" <?= ( ($property->country_id && $property->legal_status_id && $property_contacts) != 1 ) ? 'onclick="return showTermsAlert()"' : '' ?> ><button class="tablinks" >
                                     <?php if($property->terms_and_conditons1) { ?>
                                         <i class="fas fa-check"></i>
                                     <?php } else {?>
