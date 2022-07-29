@@ -1,6 +1,7 @@
 <?php
 use yii\bootstrap4\ActiveForm;
 $this->registerCssFile('/css/full-page.css');
+$this->registerCssFile('/css/fonts/fonts.css');
 ?>
 
 <div class="card" style=" background-color: white; border-radius: 20px">
@@ -19,7 +20,7 @@ $this->registerCssFile('/css/full-page.css');
                             <label for="your-input" class="Inline-label">Email<span style="color: red">*</span></label>
                         </div>
                         <div class="col-md-9">
-                            <?= $form->field($model, 'email')->textInput(['class' => 'login-input','autofocus' => true,'placeholder'=>'Email','value'=>null])->label(false)?>
+                            <?= $form->field($model, 'email')->textInput(['class' => 'login-input','autofocus' => true,'placeholder'=>'Registred name','value'=>null])->label(false)?>
                         </div>
                     </div>
 
@@ -32,14 +33,14 @@ $this->registerCssFile('/css/full-page.css');
                         </div>
                     </div>
 
-                    <a href="index.php?r=user%2Frequestpasswordreset" style="float: right; text-decoration: none; color: #831BEE; font-size: 12px; font-weight: bold">Forgot password?</a>
+                    <a href="index.php?r=user%2Frequestpasswordreset" style="float: right; text-decoration: none; color: #831BEE !important; font-size: 12px; font-weight: bold">Forgot password?</a>
                     <hr class="sidebar-divider" style="margin-top: 30px">
                     <div style="display: flex; flex-direction: row; justify-content: space-between; margin-top: 10px; margin-left: 6px; line-height: 25px">
                         <div style="display: flex; flex-direction: column">
                             <div style="height: 25px;">
                                 <?= $form->field($model, 'rememberMe')->checkbox() ?>
                             </div>
-                            <div style=" font-size: 13px">Dont have an account?  <a href="index.php?r=user%2Fsignup" style="text-decoration: none; color: #E40967; font-weight: bold">Register</a>
+                            <div style=" font-size: 13px">Dont have an account?  <a href="index.php?r=user%2Fsignup" style="text-decoration: none; color: #E40967 !important; font-weight: bold">Register</a>
                             </div>
                         </div>
                         <div>
