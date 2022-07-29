@@ -40,7 +40,7 @@ frontend\assets\AppAsset::register($this);
     }
 
     .dropdown-content-search {
-        display: none;
+        /*display: none;*/
         position: absolute;
         background-color: #f6f6f6;
         min-width: 230px;
@@ -58,11 +58,86 @@ frontend\assets\AppAsset::register($this);
 
     }
 
-    .show {display: block;}
+    #x {
+        position: relative;
+        float: right;
+        /*top: -10px;*/
+        /*right: -10px;*/
+    }
+
+    .overlay {
+        width: 100%;
+        height: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        margin-left: 25%;
+        margin-top: 4%;
+        margin-right: 5%;
+        overflow-x: hidden;
+        /*display: none;*/
+
+        transition:  0.5s ease-out;
+
+    }
+
+ .overlay2 {
+
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        z-index: 1;
+        background-color:#FFFFFF;
+        overflow-x: hidden;
+        display: none;
+
+    }
+
+ .main-filter-overlay
+ {
+     /*transition: 0.1s;*/
+     background-color: rgba(0,0,0,.4);
+     width: 100%;
+     height: 100%;
+     /*justify-content: center;*/
+     position: fixed;
+     z-index: 1;
+     top: 0;
+     left: 0;
+     /*margin-left: 15%;*/
+     /*        margin-top: 4%;*/
+     /*        margin-right: 5%;*/
+     overflow-x: hidden;
+     display: none;
+ }
+
+    dropdown-content-search {
+        /*display: none;*/
+        z-index: 100;
+    }
+
+
+
+    /*.gfg1:checked {*/
+    /*    z-index: 0;*/
+    /*    opacity: 0;*/
+    /*    transform-style: all;*/
+    /*    transition-duration: 2s;*/
+    /*}*/
+
+    /*.gfg2 {*/
+    /*    z-index: 1;*/
+    /*    transform-style: all;*/
+    /*    transition-duration: 1s;*/
+    /*}*/
+
+
 </style>
 <div class="content">
 
     <div class="container-fluid" >
+        <div >
         <div class="card-title">Search  result for Alappuzha beach</div>
         <div class="card search-top-card-list shadow-div " >
             <div id="flex-icons">
@@ -88,12 +163,12 @@ frontend\assets\AppAsset::register($this);
                     <div id="flex-row-search"  style="width: 140px;">
 
 
-                         <div><a href="#">  <img class="margin-right-search-img image-width-height " src="images/filer-symbol-up-down.svg"> </a></div>
+                         <div><a href="#">  <img class="margin-right-search-img image-width-height "  onclick="openNav()" src="images/filer-symbol-up-down.svg"> </a></div>
                         <div> <span> <img class="margin-right-search-img image-width-height" src="images/filter-icon.svg"> </span></div>
                         <div> <span> <img class="margin-right-search-img image-width-height" src="images/filter-search-icon.svg"> </span></div>
                         <div> <a href="#">  <img class="image-width-height-2 dropbtn-search"  onclick="myFunctionSearch()" src="images/map-icon.svg"> </a>
 
-                            <div id="myDropdownResult" class="dropdown-content-search" style="height: fit-content;margin-left: -106px;margin-top: 6px;">
+                            <div id="myDropdownResult" class="dropdown-content-search " style="height: fit-content;margin-left: -106px;margin-top: 6px;display: none">
                                 <select class="inputSelectClass" >
                                     <option>Cities in Alappuzha</option>
                                 </select>
@@ -232,7 +307,301 @@ frontend\assets\AppAsset::register($this);
 
         </div>
         <?php endforeach;  ?>
+        </div>
+<div id="filterdiv" class="main-filter-overlay">
+        <div id="Divf2" class="card overlay overlay2 scroll-search-filer " style="width: fit-content;height:fit-content;margin-top: 6px;box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.25);">
+            <div  style="height: 26px">
+                <img id="x" onclick="closeNav()" src="images/close-search-filter-icon.svg" style="width: 16px;height: 13px;" >
+            </div>
 
+            <div class="tab-accordion" style="margin-bottom: 10px">
+                <div class="tab-content">
+                    <div class="tab-pane fade active show">
+                        <div class="accordion" id="accordionExample">
+                            <div class="card" style="margin-right: 25px;margin-left: 17px">
+
+                                <h2 class="mb-0" style="background-color:#E8E9ED;margin-right: ">
+                                    <button class="btn btn-block text-left" type="button" onclick="functionchange(this);" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" style="color: #586ADA;">
+                                        <strong>   Destination Dates for Alapuzha </strong>
+                                        <div class="float-right">
+                                            <i class="fas fa-angle-down rotate-icon"></i>
+                                        </div>
+                                    </button>
+                                </h2>
+
+
+                                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+
+                                    <div class="row" >
+
+                                        <div class="row " style="margin-left: 15px;margin-top: 15px;padding: 6px; display: flex;width: 870px;" >
+
+                                            <div>
+                                                <input type="checkbox" class="vertical-align-middle margin-left-check-box" checked="checked"  >
+                                                <label  style="margin: 8px" >15 Jul | 22 Friday </label>
+                                            </div>
+                                            <div>
+                                                <input  class="vertical-align-middle margin-left-check-box " type="checkbox" checked="checked"  >
+                                                <label style="margin: 8px" >15 Jul | 22 Friday </label>
+                                            </div>
+                                            <div>
+                                                <input class="vertical-align-middle margin-left-check-box" type="checkbox" checked="checked"  >
+                                                <label style="margin: 8px"> 15 Jul | 22 Friday </label>
+                                            </div>
+                                            <div>
+                                                <input class="vertical-align-middle margin-left-check-box" type="checkbox" checked="checked"  >
+                                                <label style="margin: 8px">15 Jul   22 Friday </label>
+                                            </div>
+                                            <div>
+                                                <input type="checkbox" class="vertical-align-middle margin-left-check-box" checked="checked"  >
+                                                <label  style="margin: 8px" >15 Jul | 22 Friday </label>
+                                            </div>
+                                            <div>
+                                                <input  class="vertical-align-middle margin-left-check-box" type="checkbox" checked="checked"  >
+                                                <label style="margin: 8px" >15 Jul | 22 Friday </label>
+                                            </div>
+                                            <div>
+                                                <input class="vertical-align-middle margin-left-check-box" type="checkbox" checked="checked"  >
+                                                <label style="margin: 8px"> 15 Jul | 22 Friday </label>
+                                            </div>
+                                            <div>
+                                                <input class="vertical-align-middle margin-left-check-box" type="checkbox" checked="checked"  >
+                                                <label style="margin: 8px">15 Jul   22 Friday </label>
+                                            </div>
+
+
+
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+<!--            <div class="card  filter-card-list">-->
+<!--                <div class="title-search-property">-->
+<!--                    Destination Dates for Alapuzha-->
+<!--                </div>-->
+<!--                <div class="row" >-->
+<!---->
+<!--                    <div class="row " style="margin-left: 15px; display: flex;width: 870px;" >-->
+<!---->
+<!--                        <div>-->
+<!--                            <input type="checkbox" class="vertical-align-middle" checked="checked" style="margin-left: 15px" >-->
+<!--                            <label  style="margin: 8px" >15 Jul | 22 Friday </label>-->
+<!--                        </div>-->
+<!--                            <div>-->
+<!--                            <input  class="vertical-align-middle" type="checkbox" checked="checked" >-->
+<!--                            <label style="margin: 8px" >15 Jul | 22 Friday </label>-->
+<!--                            </div>-->
+<!--                            <div>-->
+<!--                            <input class="vertical-align-middle" type="checkbox" checked="checked" >-->
+<!--                            <label style="margin: 8px"> 15 Jul | 22 Friday </label>-->
+<!--                            </div>-->
+<!--                            <div>-->
+<!--                            <input class="vertical-align-middle" type="checkbox" checked="checked" >-->
+<!--                            <label style="margin: 8px">15 Jul   22 Friday </label>-->
+<!--                            </div>-->
+<!--                            <div>-->
+<!--                            <input type="checkbox" class="vertical-align-middle" checked="checked" style="margin-left: 15px" >-->
+<!--                            <label  style="margin: 8px" >15 Jul | 22 Friday </label>-->
+<!--                            </div>-->
+<!--                            <div>-->
+<!--                            <input  class="vertical-align-middle" type="checkbox" checked="checked" >-->
+<!--                            <label style="margin: 8px" >15 Jul | 22 Friday </label>-->
+<!--                            </div>-->
+<!--                            <div>-->
+<!--                            <input class="vertical-align-middle" type="checkbox" checked="checked" style="margin-left: 14px;" >-->
+<!--                            <label style="margin: 8px"> 15 Jul | 22 Friday </label>-->
+<!--                            </div>-->
+<!--                            <div>-->
+<!--                            <input class="vertical-align-middle" type="checkbox" checked="checked" >-->
+<!--                            <label style="margin: 8px">15 Jul   22 Friday </label>-->
+<!--                            </div>-->
+<!---->
+<!---->
+<!---->
+<!---->
+<!--                    </div>-->
+<!---->
+<!--                </div>-->
+<!--            </div>-->
+            <div class="card  filter-card-list-slect" >
+                <div class="row">
+                    <div class="col-4">
+                        <div style="display: block">
+                            <!--                         <div class="form-group ">-->
+                            <div> <label class="Labelclass-filter" >Property Type</div>
+                            <div><select class="inputSelect-filter" name="input1"> </select> </div>
+                        </div>
+
+                    </div>
+                    <div class="col-4">
+                        <div style="display: block">
+                            <!--                         <div class="form-group ">-->
+                            <div> <label class="Labelclass-filter" >Room View</div>
+                            <div><select class="inputSelect-filter" name="input1"> </select> </div>
+                        </div>
+
+                    </div>
+                    <div class="col-4">
+                        <div style="display: block">
+                            <!--                         <div class="form-group ">-->
+                            <div> <label class="Labelclass-filter" >Food Type</div>
+                            <div><select class="inputSelect-filter" name="input1"> </select> </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 20px">
+                    <div class="col-4">
+                        <div style="display: block">
+                            <!--                         <div class="form-group ">-->
+                            <div> <label class="Labelclass-filter" >Property Rating</div>
+                            <div><select class="inputSelect-filter" name="input1"> </select> </div>
+                        </div>
+
+                    </div>
+                    <div class="col-4">
+                        <div style="display: block">
+                            <!--                         <div class="form-group ">-->
+                            <div> <label class="Labelclass-filter" >Room Type</div>
+                            <div><select class="inputSelect-filter" name="input1"> </select> </div>
+                        </div>
+
+                    </div>
+                    <div class="col-4">
+                        <div style="display: block">
+                            <!--                         <div class="form-group ">-->
+                            <div> <label class="Labelclass-filter" >Occupancy</div>
+                            <div><select class="inputSelect-filter" name="input1"> </select> </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="card  filter-card-list">
+                <div class="title-search-property">
+                    Property Amenities
+                </div>
+                <div class="row" >
+
+                    <div class="row " style="margin-left: 15px; display: flex;width: 870px;" >
+                        <div>
+                            <input type="checkbox" class="vertical-align-middle margin-left-check-box" checked="checked"  >
+                            <label  style="margin: 8px" >Garden </label>
+                        </div>
+                        <div>
+                            <input  class="vertical-align-middle margin-left-check-box" type="checkbox" checked="checked" >
+                            <label style="margin: 8px" > Lawn </label>
+                        </div>
+                        <div>
+                            <input class="vertical-align-middle margin-left-check-box" type="checkbox" checked="checked" >
+                            <label style="margin: 8px"> Wheel chair </label>
+                        </div>
+                        <div>
+                            <input class="vertical-align-middle margin-left-check-box" type="checkbox" checked="checked" >
+                            <label style="margin: 8px">Lawn</label>
+                        </div>
+                        <div>
+                            <input class="vertical-align-middle margin-left-check-box" type="checkbox" checked="checked" >
+                            <label style="margin: 8px">Pathway for differently abled</label>
+                        </div>
+                        <div>
+                            <input class="vertical-align-middle margin-left-check-box" type="checkbox" checked="checked" >
+                            <label style="margin: 8px">Swimming Pool</label>
+                        </div>
+                        <div>
+                            <input class="vertical-align-middle margin-left-check-box" type="checkbox" checked="checked" >
+                            <label style="margin: 8px">Restaurant</label>
+                        </div>
+                        <div>
+                            <input class="vertical-align-middle margin-left-check-box" type="checkbox" checked="checked"  >
+                            <label style="margin: 8px">Parking</label>
+                        </div>
+                        <div>
+                            <input class="vertical-align-middle margin-left-check-box" type="checkbox" checked="checked"  >
+                            <label style="margin: 8px">Parking</label>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="card  filter-card-list">
+                <div class="title-search-property">
+                    Room Amenities
+                </div>
+                <div class="row" >
+
+                    <div class="row " style="margin-left: 15px; display: flex;width: 870px;" >
+
+                        <div>
+                            <input type="checkbox" class="vertical-align-middle margin-left-check-box" checked="checked"  >
+                            <label  style="margin: 8px" >Garden </label>
+                        </div>
+                        <div>
+                            <input  class="vertical-align-middle margin-left-check-box" type="checkbox" checked="checked " style="margin-left: 15px" >
+                            <label style="margin: 8px" > Lawn </label>
+                        </div>
+                        <div>
+                            <input class="vertical-align-middle margin-left-check-box" type="checkbox" checked="checked"  >
+                            <label style="margin: 8px"> Wheel chair </label>
+                        </div>
+                        <div>
+                            <input class="vertical-align-middle margin-left-check-box" type="checkbox" checked="checked"  >
+                            <label style="margin: 8px">Lawn</label>
+                        </div>
+                        <div>
+                            <input class="vertical-align-middle margin-left-check-box" type="checkbox" checked="checked" >
+                            <label style="margin: 8px">Pathway for differently abled</label>
+                        </div>
+                        <div>
+                            <input class="vertical-align-middle margin-left-check-box" type="checkbox" checked="checked"  >
+                            <label style="margin: 8px">Swimming Pool</label>
+                        </div>
+                        <div>
+                            <input class="vertical-align-middle margin-left-check-box" type="checkbox" checked="checked" >
+                            <label style="margin: 8px">Restaurant</label>
+                    </div>
+                         <div>
+                            <input class="vertical-align-middle margin-left-check-box" type="checkbox" checked="checked"  >
+                            <label style="margin: 8px">Parking</label>
+                              </div>
+                         <div>
+                            <input class="vertical-align-middle margin-left-check-box" type="checkbox" checked="checked"  >
+                            <label style="margin: 8px">Parking</label>
+                              </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="row" style="margin-left: 27px;margin-bottom: 12px;vertical-align: center">
+                <div style="display: block;margin-right: 35px">
+                    <BUTTON type="text" class="buttonSaveFilter" > Apply </BUTTON>
+                </div>
+            </div>
+        </div>
+        </div>
 
     </div>
 
@@ -241,27 +610,82 @@ frontend\assets\AppAsset::register($this);
     /* When the user clicks on the button,
     toggle between hiding and showing the dropdown content */
     function myFunctionSearch() {
-        document.getElementById("myDropdownResult").classList.toggle("show");
+        if (document.getElementById('myDropdownResult').style.display == 'none') {
+            document.getElementById('myDropdownResult').style.display = 'block';
+        }
+        else
+        {
+            document.getElementById('myDropdownResult').style.display = 'none';
+        }
+
     }
 
-    function filterFunction() {
-        var input, filter, ul, li, a, i;
-        input = document.getElementById("myInputSearch");
-        filter = input.value.toUpperCase();
-        div = document.getElementById("myDropdownResult");
-        a = div.getElementsByTagName("a");
-        for (i = 0; i < a.length; i++) {
-            txtValue = a[i].textContent || a[i].innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                a[i].style.display = "";
-            } else {
-                a[i].style.display = "none";
-            }
-        }
-    }
+    // function filterFunction() {
+    //     var input, filter, ul, li, a, i;
+    //     input = document.getElementById("myInputSearch");
+    //     filter = input.value.toUpperCase();
+    //     div = document.getElementById("myDropdownResult");
+    //     a = div.getElementsByTagName("a");
+    //     for (i = 0; i < a.length; i++) {
+    //         txtValue = a[i].textContent || a[i].innerText;
+    //         if (txtValue.toUpperCase().indexOf(filter) > -1) {
+    //             a[i].style.display = "";
+    //         } else {
+    //             a[i].style.display = "none";
+    //         }
+    //     }
+    // }
 
     window.onclick = function(event) {
 
-        document.getElementById("myDropdownResult").classList.toggle("hide");
+
+        // if (document.getElementById('myDropdownResult').style.display == 'block') {
+
+            // document.getElementById('myDropdownResult').style.display = 'none';
+        // }
+
+
+
+    }
+//     function myFunctionFilter(){
+//
+//         if (document.getElementById('Div1')) {
+//
+//             if (document.getElementById('Div1').style.display == 'none') {
+//                 alert("yes man")
+//                 $( "Div2" ).addClass( "overlay" );
+//                 document.getElementById('Div2').style.display = 'none';
+//                 // document.getElementById('Div2').addClass( "overlay" );
+//                 document.getElementById('Div1').style.display = 'block';
+//             }
+//             else {
+//                 $( "Div2" ).addClass( "overlay" );
+// alert("no man")
+//
+//                 document.getElementById('Div1').style.display = 'none';
+//                 document.getElementById('Div2').style.display = 'block';
+//             }
+//         }
+//         else{
+//             alert("adada");
+//         }
+//     }
+
+    function openNav() {
+        // document.getElementById("Divf2").style.height = "100%";
+        // document.getElementById("filterdiv").style.height = "100%";
+        // $("#Divf2").addClass("overlay2");
+        $("#filterdiv").show();
+        $("#Divf2").slideDown( 100 );
+
+        // $("#Divf2").show('fadeOut');
+    }
+
+    function closeNav() {
+        // document.getElementById("Divf2").style.height = "0%";
+        // document.getElementById("filterdiv").style.height = "0%";
+        // $("#Divf2").removeClass("overlay2");
+        $("#filterdiv").hide();
+        $("#Divf2").hide('slide');
     }
 </script>

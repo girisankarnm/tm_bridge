@@ -294,6 +294,21 @@ input::placeholder {
 {
     color: #E40967 !important;
 }
+
+.Labelclass-filter {
+    /*width: 120px;*/
+    margin-left: 14px;
+    height: 14px;
+    left: 315px;
+    top: 368px;
+    font-family: Bw-Mitga-regular !important;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px !important;
+    line-height: 17px;
+    letter-spacing: -0.02em;
+    color: #292931;
+}
 .search-card-list{
     /*border-box:0px solid rgba(0,0,0,.125) !important;*/
 
@@ -331,10 +346,15 @@ input::placeholder {
     height:auto !important;
     background-color: #ffffff !important;
     margin-top: -2px;
-    margin-right: 25px !important;
-    margin-left: 19px !important;
+    margin-right: 15px !important;
+    margin-left: 15px !important;
     margin-bottom: 24px !important;
-    padding:12px;
+    /*padding:6px;*/
+    padding-left: 8px;
+    padding-bottom: 6px;
+    padding-right: 6px;
+
+;
 
 }
 .filter-card-list-slect{
@@ -343,13 +363,13 @@ input::placeholder {
 
     margin-right: 10px;
     border-radius: 10px !important;
-    height:190px;
+    height:150px;
     background-color: #ffffff !important;
     /*margin-top: -2px;*/
     margin-right: 25px !important;
     margin-left: 19px !important;
     margin-bottom: 24px !important;
-    padding:12px;
+    padding:6px;
 
 }
 
@@ -593,3 +613,47 @@ overflow: hidden;
     background:#FFEFC3 ;
     color:#AF8E33 ;
 }
+
+.buttonSaveFilter
+{
+
+    background-color: #586ADA;
+    color: #ffffff;
+    height: 31px;
+    width: 158px;
+    font-family: Bw-Mitga-regular;
+    font-style: normal;
+    font-size: 12px;
+    border: 0.5px solid #586ADA;
+    border-radius: 10px;
+    margin-top: 12px;
+
+
+}
+.display-none
+{
+    display: none;
+}
+#Div2 {
+    display: block;
+}
+.scroll-search-filer
+{
+    max-height: 600px;
+overflow: scroll;
+}
+.scroll-search-filer::-webkit-scrollbar {
+    width: 12px;
+}
+
+.scroll-search-filer::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+}
+
+.scroll-search-filer::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+
+
