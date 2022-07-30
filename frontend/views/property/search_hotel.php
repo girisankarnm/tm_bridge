@@ -32,10 +32,14 @@ frontend\assets\AppAsset::register($this);
                 </div>
                 <div>
                     <div id="flex-row-search"  style="width: 140px;">
-                         <div><a href="#">  <img class="margin-right-search-img image-width-height "  onclick="openNav()" src="images/filer-symbol-up-down.svg"> </a></div>
-                        <div> <span> <img class="margin-right-search-img image-width-height" src="images/filter-icon.svg"> </span></div>
-                        <div> <span> <img class="margin-right-search-img image-width-height dropbtn-search drop" onclick="myFunctionSearch()" src="images/filter-search-icon.svg"> </span>
+                         <div><a href="#">  <img class="margin-right-search-img image-width-height "  src="images/filer-symbol-up-down.svg"> </a></div>
+                        <div> <span> <img class="margin-right-search-img image-width-height"  onclick="openNav()" src="images/filter-icon.svg"> </span></div>
+                        <div> <span class="hover-icon"> <img class="margin-right-search-img image-width-height dropbtn-search "  src="images/filter-search-icon.svg"> </span>
 
+
+
+                        </div>
+                        <div> <a href="#">  <img class="image-width-height-2 dropbtn-search" onclick="myFunctionSearch()"  src="images/map-icon.svg"> </a>
                             <div id="myDropdownResult" class="dropdown-content-search shadow-search-drop  " style="height: fit-content;margin-left: -106px;margin-top: 6px;display: none">
                                 <select class="inputSelectClass" >
                                     <option>Cities in Alappuzha</option>
@@ -47,10 +51,6 @@ frontend\assets\AppAsset::register($this);
                                 <a href="#contact" class="drop-list">Aroor</a>
                                 <a href="#custom" class="drop-list">Arthunkal</a>
                             </div>
-
-                        </div>
-                        <div> <a href="#">  <img class="image-width-height-2 dropbtn-search"  src="images/map-icon.svg"> </a>
-
 
                         </div>
                     </div>

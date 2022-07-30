@@ -477,5 +477,8 @@ dropdown-content-search {
 .drop-list:hover, .dro:focus {
     background-color: #586ADA;
     color: #FFFFFF !important;
-
+}
+.hover-icon:hover , hover-icon:focus
+{
+    color: gold !important;
 }
