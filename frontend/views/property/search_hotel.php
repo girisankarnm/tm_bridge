@@ -1,5 +1,5 @@
 <?php
-$this->registerCssFile('/css/search/search.css');
+//$this->registerCssFile('/css/search/search.css');
 $this->registerCssFile('/css/search.css');
 $this->registerCssFile('/css/search/search-style.css');
 frontend\assets\AppAsset::register($this);
@@ -34,20 +34,24 @@ frontend\assets\AppAsset::register($this);
                     <div id="flex-row-search"  style="width: 140px;">
                          <div><a href="#">  <img class="margin-right-search-img image-width-height "  onclick="openNav()" src="images/filer-symbol-up-down.svg"> </a></div>
                         <div> <span> <img class="margin-right-search-img image-width-height" src="images/filter-icon.svg"> </span></div>
-                        <div> <span> <img class="margin-right-search-img image-width-height" src="images/filter-search-icon.svg"> </span></div>
-                        <div> <a href="#">  <img class="image-width-height-2 dropbtn-search"  onclick="myFunctionSearch()" src="images/map-icon.svg"> </a>
+                        <div> <span> <img class="margin-right-search-img image-width-height dropbtn-search drop" onclick="myFunctionSearch()" src="images/filter-search-icon.svg"> </span>
 
-                            <div id="myDropdownResult" class="dropdown-content-search " style="height: fit-content;margin-left: -106px;margin-top: 6px;display: none">
+                            <div id="myDropdownResult" class="dropdown-content-search shadow-search-drop  " style="height: fit-content;margin-left: -106px;margin-top: 6px;display: none">
                                 <select class="inputSelectClass" >
                                     <option>Cities in Alappuzha</option>
                                 </select>
                                 <input type="text" placeholder="Search.." id="myInputSearch" onkeyup="filterFunction()">
-                                <a href="#about">Alappuzha</a>
-                                <a href="#base">Cherthala</a>
-                                <a href="#blog">Kumarakam</a>
-                                <a href="#contact">Aroor</a>
-                                <a href="#custom">Arthunkal</a>
+                                <a href="#about" class="drop-list">Alappuzha</a>
+                                <a href="#base" class="drop-list">Cherthala</a>
+                                <a href="#blog" class="drop-list">Kumarakam</a>
+                                <a href="#contact" class="drop-list">Aroor</a>
+                                <a href="#custom" class="drop-list">Arthunkal</a>
                             </div>
+
+                        </div>
+                        <div> <a href="#">  <img class="image-width-height-2 dropbtn-search"  src="images/map-icon.svg"> </a>
+
+
                         </div>
                     </div>
                 </div>
@@ -213,54 +217,7 @@ frontend\assets\AppAsset::register($this);
                     </div>
                 </div>
             </div>
-<!--            <div class="card  filter-card-list">-->
-<!--                <div class="title-search-property">-->
-<!--                    Destination Dates for Alapuzha-->
-<!--                </div>-->
-<!--                <div class="row" >-->
-<!---->
-<!--                    <div class="row " style="margin-left: 15px; display: flex;width: 870px;" >-->
-<!---->
-<!--                        <div>-->
-<!--                            <input type="checkbox" class="vertical-align-middle" checked="checked" style="margin-left: 15px" >-->
-<!--                            <label  style="margin: 8px" >15 Jul | 22 Friday </label>-->
-<!--                        </div>-->
-<!--                            <div>-->
-<!--                            <input  class="vertical-align-middle" type="checkbox" checked="checked" >-->
-<!--                            <label style="margin: 8px" >15 Jul | 22 Friday </label>-->
-<!--                            </div>-->
-<!--                            <div>-->
-<!--                            <input class="vertical-align-middle" type="checkbox" checked="checked" >-->
-<!--                            <label style="margin: 8px"> 15 Jul | 22 Friday </label>-->
-<!--                            </div>-->
-<!--                            <div>-->
-<!--                            <input class="vertical-align-middle" type="checkbox" checked="checked" >-->
-<!--                            <label style="margin: 8px">15 Jul   22 Friday </label>-->
-<!--                            </div>-->
-<!--                            <div>-->
-<!--                            <input type="checkbox" class="vertical-align-middle" checked="checked" style="margin-left: 15px" >-->
-<!--                            <label  style="margin: 8px" >15 Jul | 22 Friday </label>-->
-<!--                            </div>-->
-<!--                            <div>-->
-<!--                            <input  class="vertical-align-middle" type="checkbox" checked="checked" >-->
-<!--                            <label style="margin: 8px" >15 Jul | 22 Friday </label>-->
-<!--                            </div>-->
-<!--                            <div>-->
-<!--                            <input class="vertical-align-middle" type="checkbox" checked="checked" style="margin-left: 14px;" >-->
-<!--                            <label style="margin: 8px"> 15 Jul | 22 Friday </label>-->
-<!--                            </div>-->
-<!--                            <div>-->
-<!--                            <input class="vertical-align-middle" type="checkbox" checked="checked" >-->
-<!--                            <label style="margin: 8px">15 Jul   22 Friday </label>-->
-<!--                            </div>-->
-<!---->
-<!---->
-<!---->
-<!---->
-<!--                    </div>-->
-<!---->
-<!--                </div>-->
-<!--            </div>-->
+
             <div class="card  filter-card-list-slect" >
                 <div class="row">
                     <div class="col-4">
@@ -465,21 +422,21 @@ frontend\assets\AppAsset::register($this);
 
     }
 
-    // function filterFunction() {
-    //     var input, filter, ul, li, a, i;
-    //     input = document.getElementById("myInputSearch");
-    //     filter = input.value.toUpperCase();
-    //     div = document.getElementById("myDropdownResult");
-    //     a = div.getElementsByTagName("a");
-    //     for (i = 0; i < a.length; i++) {
-    //         txtValue = a[i].textContent || a[i].innerText;
-    //         if (txtValue.toUpperCase().indexOf(filter) > -1) {
-    //             a[i].style.display = "";
-    //         } else {
-    //             a[i].style.display = "none";
-    //         }
-    //     }
-    // }
+    function filterFunction() {
+        var input, filter, ul, li, a, i;
+        input = document.getElementById("myInputSearch");
+        filter = input.value.toUpperCase();
+        div = document.getElementById("myDropdownResult");
+        a = div.getElementsByTagName("a");
+        for (i = 0; i < a.length; i++) {
+            txtValue = a[i].textContent || a[i].innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                a[i].style.display = "";
+            } else {
+                a[i].style.display = "none";
+            }
+        }
+    }
 
     window.onclick = function(event) {
 

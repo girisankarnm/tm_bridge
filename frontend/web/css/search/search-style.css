@@ -293,10 +293,41 @@ dropdown-content-search {
 .scroll-search-filer
 {
     max-height: 600px;
-    overflow: scroll;
+    overflow-y: scroll !important;
 }
 .scroll-search-filer::-webkit-scrollbar {
     width: 12px;
+}
+
+.filter-card-list-slect{
+    margin-right: 10px;
+    border-radius: 10px !important;
+    height:150px;
+    background-color: #ffffff !important;
+    /*margin-top: -2px;*/
+    margin-right: 25px !important;
+    margin-left: 19px !important;
+    margin-bottom: 24px !important;
+    padding:6px;
+
+}
+
+.filter-card-list{
+    /*border-box:0px solid rgba(0,0,0,.125) !important;*/
+    /*position: sticky;*/
+
+    margin-right: 10px;
+    border-radius: 10px !important;
+    height:auto !important;
+    background-color: #ffffff !important;
+    margin-top: -2px;
+    margin-right: 15px !important;
+    margin-left: 15px !important;
+    margin-bottom: 24px !important;
+    /*padding:6px;*/
+    padding-left: 8px;
+    padding-bottom: 6px;
+    padding-right: 6px;
 }
 
 .scroll-search-filer::-webkit-scrollbar-track {
@@ -307,6 +338,12 @@ dropdown-content-search {
 .scroll-search-filer::-webkit-scrollbar-thumb {
     border-radius: 10px;
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+.dropdown-content-search{
+    height: fit-content;
+    margin-left: -106px;
+    margin-top: 6px;
+    display: none
 }
 
 
@@ -432,4 +469,13 @@ dropdown-content-search {
     width: 100px;
 
 }
+.shadow-search-drop
+{
+    box-shadow: 10px 10px 10px 5px white;
+}
 
+.drop-list:hover, .dro:focus {
+    background-color: #586ADA;
+    color: #FFFFFF !important;
+
+}
