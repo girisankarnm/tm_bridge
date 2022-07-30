@@ -1,139 +1,12 @@
 <?php
 $this->registerCssFile('/css/search/search.css');
 $this->registerCssFile('/css/search.css');
+$this->registerCssFile('/css/search/search-style.css');
 frontend\assets\AppAsset::register($this);
 
 
 ?>
 
-<style>
-    .action-icons .icon-header { justify-content: space-between; }
-
-
-    .dropbtn-search {
-
-
-        border: #86cfda;
-        cursor: pointer;
-    }
-
-
-
-    #myInputSearch {
-        box-sizing: border-box;
-        background-image: url(searchicon.png);
-        background-position: 6px 12px;
-        background-repeat: no-repeat;
-        font-size: 16px;
-        padding: 10px 7px 9px 7px;
-        border: none;
-        border-bottom: 1px solid #ddd;
-        height: 34px;
-        width: 226px;
-    }
-
-    #myInputSearch:focus {outline: 3px solid #ddd;}
-
-    .dropdown {
-        position: relative;
-        display: inline-block;
-    }
-
-    .dropdown-content-search {
-        /*display: none;*/
-        position: absolute;
-        background-color: #f6f6f6;
-        min-width: 230px;
-        overflow: auto;
-        border: 1px solid #ddd;
-        z-index: 1;
-    }
-
-    .dropdown-content-search a {
-        color: black;
-        padding: 4px 10px;
-        text-decoration: none;
-        display: block;
-        font-size: 13px;
-
-    }
-
-    #x {
-        position: relative;
-        float: right;
-        /*top: -10px;*/
-        /*right: -10px;*/
-    }
-
-    .overlay {
-        width: 100%;
-        height: 0;
-        position: fixed;
-        z-index: 1;
-        top: 0;
-        left: 0;
-        margin-left: 25%;
-        margin-top: 4%;
-        margin-right: 5%;
-        overflow-x: hidden;
-        /*display: none;*/
-
-        transition:  0.5s ease-out;
-
-    }
-
- .overlay2 {
-
-        height: 100%;
-        width: 100%;
-        position: fixed;
-        z-index: 1;
-        background-color:#FFFFFF;
-        overflow-x: hidden;
-        display: none;
-
-    }
-
- .main-filter-overlay
- {
-     /*transition: 0.1s;*/
-     background-color: rgba(0,0,0,.4);
-     width: 100%;
-     height: 100%;
-     /*justify-content: center;*/
-     position: fixed;
-     z-index: 1;
-     top: 0;
-     left: 0;
-     /*margin-left: 15%;*/
-     /*        margin-top: 4%;*/
-     /*        margin-right: 5%;*/
-     overflow-x: hidden;
-     display: none;
- }
-
-    dropdown-content-search {
-        /*display: none;*/
-        z-index: 100;
-    }
-
-
-
-    /*.gfg1:checked {*/
-    /*    z-index: 0;*/
-    /*    opacity: 0;*/
-    /*    transform-style: all;*/
-    /*    transition-duration: 2s;*/
-    /*}*/
-
-    /*.gfg2 {*/
-    /*    z-index: 1;*/
-    /*    transform-style: all;*/
-    /*    transition-duration: 1s;*/
-    /*}*/
-
-
-</style>
 <div class="content">
 
     <div class="container-fluid" >
@@ -152,17 +25,13 @@ frontend\assets\AppAsset::register($this);
                 </div>
                 <div>
                     <div class="card search-top-card-label "  style="width: 286px;" > <a href="#" class="search-anchor"><span>Check in: 15-jul-2022 </span><span>Check out: 19-jul-2022 </span></a> </div>
-
                 </div>
 
                 <div>
                     <div class="card search-top-card-label"  style="width: 220px;" > <a href="#" class="search-anchor"><span>Stay Duration: 10 nights </span></a> </div>
                 </div>
-
                 <div>
                     <div id="flex-row-search"  style="width: 140px;">
-
-
                          <div><a href="#">  <img class="margin-right-search-img image-width-height "  onclick="openNav()" src="images/filer-symbol-up-down.svg"> </a></div>
                         <div> <span> <img class="margin-right-search-img image-width-height" src="images/filter-icon.svg"> </span></div>
                         <div> <span> <img class="margin-right-search-img image-width-height" src="images/filter-search-icon.svg"> </span></div>
@@ -180,22 +49,13 @@ frontend\assets\AppAsset::register($this);
                                 <a href="#custom">Arthunkal</a>
                             </div>
                         </div>
-
-
-
-
-
                     </div>
-
                 </div>
-
-
              </div>
     </div>
 
         <?php foreach(range(0, 5) as $index => $item): ?>
         <div class="card search-card-list shadow-div card-overflow-hidden" >
-
             <div id="mainHeding-search-hotel" >
                 <div > <img class="image-search-property img-property" src="images/chess-board.jpg" alt="Matrix"></div>
                 <div   >
@@ -211,19 +71,13 @@ frontend\assets\AppAsset::register($this);
                              <img class="f-star" style="padding-left: 2px"  src="images/Star-1.svg" alt="Matrix">
                              <img  class="f-star" style="padding-left: 2px" src="images/Star-1.svg" alt="Matrix">
                            </span>
-
                             <?php  } ?>
-
-
-
                         </div>
                         <div> <small  class="smallFonts fontsize-location"><i  class="fa fa-map-marker locatiospace" aria-hidden="true"></i> Alappuzha ,Punnamada.kerala</small></div>
                     <div><img class="span-gap-image" src="images/smoke-icon.svg" alt="Matrix"> <img class="span-gap-image" src="images/animal-restrict.svg" alt="Matrix"></div>
                     </div>
                 </div>
-
-
-                <div >
+         <div>
                     <div id="column-listing-search" >
                         <div> <img class="img-property" src="images/bridge-icon.svg" alt="Matrix"></div>
                         <div><span class="badge badge-pill badge-secondary font-bw-mitga-low-weight"> 4.1/5 (very good)</span>
@@ -277,13 +131,8 @@ frontend\assets\AppAsset::register($this);
                                 </label>
                             </div>
                         </div>
-
-
-
                     </div>
-
                 </div>
-
                 <div>
                     <div id="column-4th-colomn-search" >
                         <div>  <span class="font-bw-mitga" style="font: bold;font-size: 13px;float: left;margin-left: 10px; color: #292931 "> Standard Double Room </span>
@@ -293,18 +142,11 @@ frontend\assets\AppAsset::register($this);
                             <span class="span-gap font-span font-bw-mitga-text " style=";margin-left: 10px">  <img class="img-property color-140F0F " src="images/baby-icon.svg" alt="Matrix">0-<span>9</span>YR </span>
                             <span class=" font-span font-bw-mitga-text">  <img class="img-property color-140F0F " src="images/adult-age-icon.svg" alt="Matrix"> <span>10</span>-<span>15</span> YR</span>
                             <span class="span-gap font-span font-bw-mitga-text">  <img class="img-property bed-icon-style "  src="images/bed-hotel.svg" alt="Matrix">DB: <span class="margin-right-icon-search">3|</span>EB: <span class="margin-right-icon-search">4|</span>SB: <span class="margin-right-icon-search">3</span> </span>
-
-
                              </div>
                         <div> <span class="line-through-text font-color-E40967 font-bw-mitga" style="font-size: 13px;margin-left: 10px">₹ 10,990 </span> <span class=" color-586ADA  font-bw-mitga"  style="font-size: 17px;margin-left: 6px">₹ 9000</span></div>
                     </div>
-
                 </div>
             </div>
-
-
-
-
         </div>
         <?php endforeach;  ?>
         </div>
@@ -313,14 +155,12 @@ frontend\assets\AppAsset::register($this);
             <div  style="height: 26px">
                 <img id="x" onclick="closeNav()" src="images/close-search-filter-icon.svg" style="width: 16px;height: 13px;" >
             </div>
-
             <div class="tab-accordion" style="margin-bottom: 10px">
                 <div class="tab-content">
                     <div class="tab-pane fade active show">
                         <div class="accordion" id="accordionExample">
                             <div class="card" style="margin-right: 25px;margin-left: 17px">
-
-                                <h2 class="mb-0" style="background-color:#E8E9ED;margin-right: ">
+                                <h2 class="mb-0" style="background-color:#fff;box-shadow: 0 0 0 0 #FFFFFF">
                                     <button class="btn btn-block text-left" type="button" onclick="functionchange(this);" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" style="color: #586ADA;">
                                         <strong>   Destination Dates for Alapuzha </strong>
                                         <div class="float-right">
@@ -328,17 +168,12 @@ frontend\assets\AppAsset::register($this);
                                         </div>
                                     </button>
                                 </h2>
-
-
                                 <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-
                                     <div class="row" >
-
                                         <div class="row " style="margin-left: 15px;margin-top: 15px;padding: 6px; display: flex;width: 870px;" >
-
                                             <div>
-                                                <input type="checkbox" class="vertical-align-middle margin-left-check-box" checked="checked"  >
-                                                <label  style="margin: 8px" >15 Jul | 22 Friday </label>
+                                                <input type="checkbox" id="date1" class="vertical-align-middle margin-left-check-box" checked="checked"  >
+                                                <label  style="margin: 8px" for="date1" class="pointerclass">15 Jul | 22 Friday </label>
                                             </div>
                                             <div>
                                                 <input  class="vertical-align-middle margin-left-check-box " type="checkbox" checked="checked"  >
@@ -368,32 +203,16 @@ frontend\assets\AppAsset::register($this);
                                                 <input class="vertical-align-middle margin-left-check-box" type="checkbox" checked="checked"  >
                                                 <label style="margin: 8px">15 Jul   22 Friday </label>
                                             </div>
-
-
-
-
                                         </div>
 
                                     </div>
 
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
             </div>
-
-
-
-
-
-
-
-
-
-
-
 <!--            <div class="card  filter-card-list">-->
 <!--                <div class="title-search-property">-->
 <!--                    Destination Dates for Alapuzha-->
@@ -448,7 +267,12 @@ frontend\assets\AppAsset::register($this);
                         <div style="display: block">
                             <!--                         <div class="form-group ">-->
                             <div> <label class="Labelclass-filter" >Property Type</div>
-                            <div><select class="inputSelect-filter" name="input1"> </select> </div>
+                            <div><select class="inputSelect-filter" name="input1">
+                              <option>PropertyAbc</option>
+                              <option>PropertyFGH</option>
+                              <option>PropertyJPK</option>
+
+                                </select> </div>
                         </div>
 
                     </div>
@@ -456,7 +280,12 @@ frontend\assets\AppAsset::register($this);
                         <div style="display: block">
                             <!--                         <div class="form-group ">-->
                             <div> <label class="Labelclass-filter" >Room View</div>
-                            <div><select class="inputSelect-filter" name="input1"> </select> </div>
+                            <div><select class="inputSelect-filter" name="input1">
+
+                                    <option>RoomAbc</option>
+                                    <option>RoomFGH</option>
+                                    <option>RoomJPK</option>
+                                </select> </div>
                         </div>
 
                     </div>
@@ -464,7 +293,11 @@ frontend\assets\AppAsset::register($this);
                         <div style="display: block">
                             <!--                         <div class="form-group ">-->
                             <div> <label class="Labelclass-filter" >Food Type</div>
-                            <div><select class="inputSelect-filter" name="input1"> </select> </div>
+                            <div><select class="inputSelect-filter" name="input1">
+                                    <option>Vegetable</option>
+                                    <option>NonVeg</option>
+                                    <option>Beverage</option>
+                                </select> </div>
                         </div>
 
                     </div>
@@ -474,7 +307,11 @@ frontend\assets\AppAsset::register($this);
                         <div style="display: block">
                             <!--                         <div class="form-group ">-->
                             <div> <label class="Labelclass-filter" >Property Rating</div>
-                            <div><select class="inputSelect-filter" name="input1"> </select> </div>
+                            <div><select class="inputSelect-filter" name="input1">
+                                    <option>4.5</option>
+                                    <option>6.7</option>
+                                    <option>average</option>
+                                </select> </div>
                         </div>
 
                     </div>
@@ -482,7 +319,11 @@ frontend\assets\AppAsset::register($this);
                         <div style="display: block">
                             <!--                         <div class="form-group ">-->
                             <div> <label class="Labelclass-filter" >Room Type</div>
-                            <div><select class="inputSelect-filter" name="input1"> </select> </div>
+                            <div><select class="inputSelect-filter" name="input1">
+                                    <option>luxury</option>
+                                    <option>Premium</option>
+                                    <option>Normal</option>
+                                </select> </div>
                         </div>
 
                     </div>
@@ -490,7 +331,11 @@ frontend\assets\AppAsset::register($this);
                         <div style="display: block">
                             <!--                         <div class="form-group ">-->
                             <div> <label class="Labelclass-filter" >Occupancy</div>
-                            <div><select class="inputSelect-filter" name="input1"> </select> </div>
+                            <div><select class="inputSelect-filter" name="input1">
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                </select> </div>
                         </div>
 
                     </div>
@@ -504,8 +349,8 @@ frontend\assets\AppAsset::register($this);
 
                     <div class="row " style="margin-left: 15px; display: flex;width: 870px;" >
                         <div>
-                            <input type="checkbox" class="vertical-align-middle margin-left-check-box" checked="checked"  >
-                            <label  style="margin: 8px" >Garden </label>
+                            <input type="checkbox" id="garden_id" class="vertical-align-middle margin-left-check-box" checked="checked"  >
+                            <label  class="pointerclass"   style="margin: 8px" for="garden_id" >Garden </label>
                         </div>
                         <div>
                             <input  class="vertical-align-middle margin-left-check-box" type="checkbox" checked="checked" >
@@ -555,7 +400,7 @@ frontend\assets\AppAsset::register($this);
 
                         <div>
                             <input type="checkbox" class="vertical-align-middle margin-left-check-box" checked="checked"  >
-                            <label  style="margin: 8px" >Garden </label>
+                            <label class="pointerclass"   style="margin: 8px" for="garden_id" >Garden </label>
                         </div>
                         <div>
                             <input  class="vertical-align-middle margin-left-check-box" type="checkbox" checked="checked " style="margin-left: 15px" >
@@ -638,10 +483,9 @@ frontend\assets\AppAsset::register($this);
 
     window.onclick = function(event) {
 
-
-        // if (document.getElementById('myDropdownResult').style.display == 'block') {
-
-            // document.getElementById('myDropdownResult').style.display = 'none';
+        //   var style =  $('#myDropdownResult');
+        //     if (style.css("display") == "block") {
+        //     // document.getElementById('myDropdownResult').style.display = 'none';
         // }
 
 

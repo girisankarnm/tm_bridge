@@ -614,22 +614,7 @@ overflow: hidden;
     color:#AF8E33 ;
 }
 
-.buttonSaveFilter
-{
 
-    background-color: #586ADA;
-    color: #ffffff;
-    height: 31px;
-    width: 158px;
-    font-family: Bw-Mitga-regular;
-    font-style: normal;
-    font-size: 12px;
-    border: 0.5px solid #586ADA;
-    border-radius: 10px;
-    margin-top: 12px;
-
-
-}
 .display-none
 {
     display: none;
