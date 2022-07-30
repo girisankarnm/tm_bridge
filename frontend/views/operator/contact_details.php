@@ -100,7 +100,7 @@ $this->registerJsFile('/js/client_requested_option/add_option.js');
                         'jsOptions' => [
                             'onlyCountries' => ['in'],
                         ],
-                        'options'=> array('class'=>'inputTextClass', 'placeholder' => '9123456780', 'maxlength' => '12'),
+                        'options'=> array('class'=>'inputTextClass', 'placeholder' => 'Enter 10 digit number', 'maxlength' => '12'),
                     ], )->label(false);?>
                 </div>
                 <div class="form-group col-md-4">
@@ -123,7 +123,7 @@ $this->registerJsFile('/js/client_requested_option/add_option.js');
                         'jsOptions' => [
                             'onlyCountries' => ['in'],
                         ],
-                        'options'=> array('class'=>'inputTextClass', 'placeholder' => '9123456780', 'maxlength' => '12'),
+                        'options'=> array('class'=>'inputTextClass', 'placeholder' => 'Enter 10 digit number', 'maxlength' => '12'),
                     ], )->label(false);?>
                 </div>
                 <div class="form-group col-md-4">

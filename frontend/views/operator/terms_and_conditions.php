@@ -57,7 +57,7 @@ use yii\bootstrap4\ActiveForm;
 
             <div class="row mt-1 ml-1 ">
                 <div class="col-md-1">
-                    <?php echo $form->field($terms,'terms_and_conditons')->checkbox(['class' => 'form-control form-control-sm'])->label(false) ?>
+                    <?php echo $form->field($terms,'terms_and_conditons')->checkbox(['class' => 'form-control form-control-sm', 'required'=>'required'])->label(false) ?>
                 </div>
                 <div class="col-md-10">
                     <p>

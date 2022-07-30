@@ -115,8 +115,12 @@
     padding-top: 8px;
     border: 0.1px solid #c3c3c3;
     border-radius: 8px;
-
     flex: none;
     order: 2;
     flex-grow: 0;
+}
+
+.inputTextArea-large:focus {
+    outline-color:#831BEE;
+    outline-width: thin;
 }
