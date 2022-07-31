@@ -75,3 +75,54 @@ const MAXIMUM_NUMBER_OF_RATE_SLAB = 15;
           table.rows[j].cells[0].innerHTML = 'Slab' +  currentRow;
       }
   }
+
+  //insertSlabRow(<?php // $nationality_id; ?>, <?php //$room->same_tariff_for_single_occupancy ?> , <?php // $room->number_of_extra_beds ?>, <?php // $room->number_of_kids_on_sharing ?> );
+
+  function submitRoomRates() {
+
+    var nationality_ids = document.getElementsByName('nationality_ids[]');
+    let bValid = true;
+    for (var i = 0; i <nationality_ids.length; i++) {
+      var nationality = nationality_ids[i]; 
+      columns = ['room_rate', 'adult_with_extra_bed', 'child_with_extra_bed', 'child_sharing_bed', 'single_occupancy'];
+
+      columns.forEach(column => {
+        //TODO: reset to deafult color
+        var room_rates = document.getElementsByName( column + '_' + nationality.value + '[]');
+        for (var j = 0; j < (room_rates.length - 1); j++) {          
+            if( parseInt(room_rates[j].value) < parseInt(room_rates[j+1].value)) {              
+              //Error
+              bValid = false;
+              console.log("Error: Higher slab shoul have less amount, Nationality: " + nationality.value + " Row: " + (j+1) );
+              var id = column + '_' + nationality.value + '_' + (j+1);
+              //TODO: Fix RED color
+              document.getElementById(id).style.borderColor='#FF0000';
+              document.getElementById(id).style.border='solid';
+            }
+        }  
+      });      
+    }
+
+    if (!bValid) {
+      console.log("Error");
+    }
+    else {      
+      $( "#tariff_step3").submit();
+    }
+  }
+
+clonedNationality = [];
+function autofill(input) {
+
+  if($.inArray( $(input).attr('nationality_id') + "_" + $(input).attr('column') + "_" + $(input).attr('slab_number'), clonedNationality) >= 0 ) {
+    return;
+  }  
+
+  //console.log("onInput" + $(input).attr('nationality_id')  + " : " +  $(input).attr('room_id') );
+  var rows = document.getElementsByName($(input).attr('column') + '_'+ $(input).attr('nationality_id') + '[]');  
+  for (var j = ( parseInt($(input).attr('slab_number')) + 1); j < rows.length; j++) {
+    rows[j].value = input.value;
+  }
+  
+  clonedNationality[clonedNationality.length] = $(input).attr('nationality_id') + "_" + $(input).attr('column') + "_" + $(input).attr('slab_number');
+}
