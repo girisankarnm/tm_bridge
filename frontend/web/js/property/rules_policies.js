@@ -1,10 +1,12 @@
 var checkout_type = 0;
 $('#property-twenty_four_hours_check_in :radio').change(function(){
     if ( $(this).val() == 1 ){
+        document.getElementById( 'checkincheckoutblock' ).style.display = 'none';
         $('#property-check_in_time').prop('disabled', 'disabled');
         $('#property-check_out_time').prop('disabled', 'disabled');
     }
     else {
+        document.getElementById( 'checkincheckoutblock' ).style.display = 'block';
         $('#property-check_in_time').prop('disabled', false);
         $('#property-check_out_time').prop('disabled', false);
     }

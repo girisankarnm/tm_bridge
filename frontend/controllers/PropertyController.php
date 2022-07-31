@@ -215,6 +215,7 @@ class PropertyController extends Controller
     {
         $this->layout = 'tm_main';
         $property = NULL;
+        $property_contacts = NULL;
         if (isset($_GET['id'])) {
             $property_id = Yii::$app->request->get('id');
             $property = Property::find()
@@ -224,6 +225,9 @@ class PropertyController extends Controller
 
             if ($property == NULL) {
                 throw new NotFoundHttpException();
+            }
+            else{
+                $property_contacts = PropertyContacts::find()->where(['property_id' =>$property->id])->one();
             }
         }
 
@@ -267,7 +271,8 @@ class PropertyController extends Controller
             'property' => $property,
             'type' => $type->id,
             'rating' => $rating->id,
-            'property_name' => $property_name
+            'property_name' => $property_name,
+            'property_contacts' => $property_contacts
         ]);
 
     }
@@ -356,6 +361,7 @@ class PropertyController extends Controller
         $this->layout = 'tm_main';
         $property_id = Yii::$app->request->get('id');
         $property = NULL;
+        $property_contacts = NULL;
         if ($property_id != 0) {
             $property = Property::find()
                 ->where(['id' => $property_id])
@@ -368,11 +374,15 @@ class PropertyController extends Controller
             return $this->render('not_found', []);
             //throw new NotFoundHttpException();
         }
+        else{
+            $property_contacts = PropertyContacts::find()->where(['property_id' =>$property->id])->one();
+        }
 
         $country = MasterEditRequest::find()->where(['name' => 'country'])->one();
         $location = MasterEditRequest::find()->where(['name' => 'location'])->one();
         $destination = MasterEditRequest::find()->where(['name' => 'destination'])->one();
         $pin_code = MasterEditRequest::find()->where(['name' => 'pin code'])->one();
+        $locality = MasterEditRequest::find()->where(['name' => 'locality'])->one();
 
         $address_location = new AddressLocation();
         $address_location->id = $property->id;
@@ -406,6 +416,8 @@ class PropertyController extends Controller
                 'destination' => $destination->id,
                 'country' => $country->id,
                 'pin_code' => $pin_code->id,
+                'locality' => $locality->id,
+                'property_contacts' => $property_contacts,
             ]
         );
     }
@@ -493,6 +505,7 @@ class PropertyController extends Controller
         $property_id = Yii::$app->request->get('id');
         //Check this prooerty owned by this user
         $property = NULL;
+        $property_contacts = NULL;
         if ($property_id != 0) {
             $property = Property::find()
                 ->where(['id' => $property_id])
@@ -503,6 +516,9 @@ class PropertyController extends Controller
         if ($property == NULL) {
             //Property (id) doesn't exists
             return $this->render('not_found', []);
+        }
+        else{
+            $property_contacts = PropertyContacts::find()->where(['property_id' =>$property->id])->one();
         }
 
         $property_legal_status = MasterEditRequest::find()->where(['name' => 'legal status'])->one();
@@ -527,7 +543,7 @@ class PropertyController extends Controller
         $legal_tax_documentation->swift_code = $property->swift_code;
         $legal_tax_documentation->pan_image = $property->pan_image;
         $legal_tax_documentation->business_licence_image = $property->business_licence_image;
-        $legal_tax_documentation->gst_image = $property->gst_image;        
+        $legal_tax_documentation->gst_image = $property->gst_image;
 
         $legal_status = ArrayHelper::map(PropertyLegalStatus::find()->asArray()->all(), 'id', 'name');
         $legal_docs_images = new LegalDocsImages();
@@ -570,7 +586,8 @@ class PropertyController extends Controller
             'account_number' => $account_number->id,
             'account_name' => $account_name->id,
             'ifsc_code' => $ifsc_code->id,
-            'property_gst' => $property_gst
+            'property_gst' => $property_gst,
+            'property_contacts' => $property_contacts
         ]);
     }
 
@@ -608,7 +625,7 @@ class PropertyController extends Controller
         $property->ifsc_code = $legal_tax_documentation->ifsc_code;
 
         $legal_doc_images = new LegalDocsImages();
-        $legal_doc_images->pan_image = UploadedFile::getInstance($legal_doc_images, 'pan_image');        
+        $legal_doc_images->pan_image = UploadedFile::getInstance($legal_doc_images, 'pan_image');
         $legal_doc_images->business_licence_image = UploadedFile::getInstance($legal_doc_images, 'business_licence_image');
 
         //PAN
@@ -626,7 +643,7 @@ class PropertyController extends Controller
 //                echo "Profile image (Mandatory) upload failed";
             }
         }
-        
+
         //Licence
         if ($legal_doc_images->business_licence_image != null) {
             $file_name = uniqid('', true) . '.' . $legal_doc_images->business_licence_image->extension;
@@ -643,8 +660,8 @@ class PropertyController extends Controller
             }
         }
 
-       //GST upload if GST number is enterd
-       if( strlen($property->gst_number) > 0 ) {
+        //GST upload if GST number is enterd
+        if( strlen($property->gst_number) > 0 ) {
             $property_gst = new PropertyGST();
             $property_gst->gst_image = UploadedFile::getInstance($property_gst, 'gst_image');
             if ($property_gst->gst_image != null) {
@@ -654,11 +671,11 @@ class PropertyController extends Controller
                     $property->gst_image = $file_name;
 
                 } else {
-    //                echo "Image upload failed";
+                    //                echo "Image upload failed";
                 }
             } else {
                 if (empty($property->gst_image)) {
-    //                echo "Profile image (Mandatory) upload failed";
+                    //                echo "Profile image (Mandatory) upload failed";
                 }
             }
         }
@@ -668,8 +685,8 @@ class PropertyController extends Controller
             if (is_file('uploads/' . $property->gst_image)) {
                 chmod('uploads/' . $property->gst_image, 0777);
                 if (!unlink('uploads/' . $property->gst_image)) {
-                //TODO: Log error, with file name that cannot delete file
-                }           
+                    //TODO: Log error, with file name that cannot delete file
+                }
             }
             $property->gst_image = NULL;
         }
@@ -711,6 +728,9 @@ class PropertyController extends Controller
             $contact->property_id = $property_id;
         }
 
+        $sales_name = MasterEditRequest::find()->where(['name' => 'sales_name'])->one();
+        $sales_phone = MasterEditRequest::find()->where(['name' => 'sales_phone'])->one();
+
         $show_terms_tab = 1;
         if ($property->terms_and_conditons1 == 1 &&
             $property->terms_and_conditons2 == 1 &&
@@ -718,7 +738,13 @@ class PropertyController extends Controller
             $show_terms_tab = 0;
         }
 
-        return $this->render('contact_details', ['contact' => $contact, 'property' => $property, 'show_terms_tab' => $show_terms_tab]);
+        return $this->render('contact_details', [
+            'contact' => $contact,
+            'property' => $property,
+            'show_terms_tab' => $show_terms_tab,
+            'sales_name' => $sales_name->id,
+            'sales_phone' => $sales_phone->id,
+        ]);
     }
 
     public function actionSavecontactdetails()
@@ -827,6 +853,7 @@ class PropertyController extends Controller
     {
         $property_id = Yii::$app->request->get('id');
         $property = NULL;
+        $property_contacts = NULL;
         if ($property_id != 0) {
             $property = Property::find()
                 ->where(['id' => $property_id])
@@ -837,6 +864,9 @@ class PropertyController extends Controller
         if ($property == NULL) {
             //Property (id) doesn't exists
             return $this->render('not_found', []);
+        }
+        else{
+            $property_contacts = PropertyContacts::find()->where(['property_id' =>$property->id])->one();
         }
 
         if ($property->terms_and_conditons1 == 1 &&
@@ -852,7 +882,7 @@ class PropertyController extends Controller
         $terms->terms_and_conditons3 = $property->terms_and_conditons3;
 
         $this->layout = 'tm_main';
-        return $this->render('terms_and_conditions', ['terms' => $terms]);
+        return $this->render('terms_and_conditions', ['terms' => $terms, 'property' => $property, 'property_contacts' => $property_contacts]);
     }
 
     public function actionSaveterms()

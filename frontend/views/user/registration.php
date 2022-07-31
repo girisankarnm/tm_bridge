@@ -3,6 +3,7 @@
 use borales\extensions\phoneInput\PhoneInput;
 use yii\bootstrap4\ActiveForm;
 $this->registerCssFile('/css/full-page.css');
+$this->registerCssFile('/css/fonts/fonts.css');
 
 ?>
 <script>

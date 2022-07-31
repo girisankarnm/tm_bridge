@@ -212,3 +212,11 @@ svg #main-circ {
         transform: scale(1);
     }
 }
+
+.bed-icon-style
+{
+    margin-left: 3px;
+    margin-right: 3px;
+    height: 19px;
+    margin-bottom: 3px;
+}

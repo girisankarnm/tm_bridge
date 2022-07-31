@@ -64,10 +64,7 @@ use yii\helpers\Url;
                         </div>
                     </div>
 
-
                   <div >
-
-
                       <div id="column-4links-listing">
                           <div id="link-properties-action">
 

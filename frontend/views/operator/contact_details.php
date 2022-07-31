@@ -2,8 +2,23 @@
 
 use borales\extensions\phoneInput\PhoneInput;
 use yii\bootstrap4\ActiveForm;
+$this->registerJsFile('/js/client_requested_option/add_option.js');
 
 ?>
+
+<style>
+    .invalid-feedback {
+        display: block;
+    }
+</style>
+
+<script>
+    function showTermsAlert(){
+        toastr.error("Complete all other forms to proceed!");
+        return false;
+    }
+
+</script>
 
 <div class="$content">
     <div class="container-fluid">
@@ -37,9 +52,16 @@ use yii\bootstrap4\ActiveForm;
                         <?php } ?>
                         Legal Tax</button>
                 </a>
-                <div style="display: inline">   <a href="index.php?r=operator%2Fcontact&id=<?= $contact->operator_id ?>">  <button class="selectedButton">Contact Details</button></a> <hr class="new5" ></div>
+                <div style="display: inline">   <a href="index.php?r=operator%2Fcontact&id=<?= $contact->operator_id ?>">  <button class="selectedButton">
+                            <?php if($contact->name1) { ?>
+                                <i class="fas fa-check"></i>
+                            <?php } else {?>
+                                <i class="fas fa-times"></i>
+                            <?php } ?>
+                            Contact Details</button></a> <hr class="new5" >
+                </div>
                 <?php if($show_terms_tab) { ?>
-                    <a href="index.php?r=operator%2Ftermsandconditions&id=<?= $contact->operator_id;?>"><button class="tablinks" >
+                    <a href="index.php?r=operator%2Ftermsandconditions&id=<?= $contact->operator_id;?>" <?= ( ($operator->country_id && $operator->legal_status_id && $contact->name1) != 1 ) ? 'onclick="return showTermsAlert()"' : '' ?> ><button class="tablinks" >
                             <?php if($operator->terms_and_conditons) { ?>
                                 <i class="fas fa-check"></i>
                             <?php } else {?>
@@ -60,17 +82,25 @@ use yii\bootstrap4\ActiveForm;
             </div>
             <div class="row">
                 <div class="form-group col-md-4">
-                    <label class="Labelclass" style="display: block" >Name</label>
+                    <label class="Labelclass" style="display: block; width: 220px" >Name<span style="color: red; font-size: 18px">*</span>
+                        <?php if($contact->name1) { ?>
+                            <a onclick="edit_request('<?php echo $name1;?>', '<?php echo $operator->id;?>')" href="#" data-toggle="tooltip" title="Add property type" style="float: right"><img class="margin-left-right-spacing dropbtn-edit action-icon t" src="images/edit-details.svg" style="width: 15px" data-toggle="tooltip" title="" data-original-title="Edit"></a>
+                        <?php } ?>
+                    </label>
                    <?= $form->field($contact,'name1')->textInput(['class' => 'inputTextClass'])->label(false) ?>
                 </div>
                 <div class="form-group col-md-4">
-                    <label class="Labelclass" style="display: block" >Phone</label>
+                    <label class="Labelclass" style="display: block; width: 220px" >Phone<span style="color: red; font-size: 18px">*</span>
+                        <?php if($contact->phone1) { ?>
+                            <a onclick="edit_request('<?php echo $phone1;?>', '<?php echo $operator->id;?>')" href="#" data-toggle="tooltip" title="Add property type" style="float: right"><img class="margin-left-right-spacing dropbtn-edit action-icon t" src="images/edit-details.svg" style="width: 15px" data-toggle="tooltip" title="" data-original-title="Edit"></a>
+                        <?php } ?>
+                    </label>
                     <?php
                     echo $form->field($contact, 'phone1')->widget(PhoneInput::className(), [
                         'jsOptions' => [
                             'onlyCountries' => ['in'],
                         ],
-                        'options'=> array('class'=>'inputTextClass', 'placeholder' => '9123456780', 'maxlength' => '12'),
+                        'options'=> array('class'=>'inputTextClass', 'placeholder' => 'Enter 10 digit number', 'maxlength' => '12'),
                     ], )->label(false);?>
                 </div>
                 <div class="form-group col-md-4">
@@ -93,7 +123,7 @@ use yii\bootstrap4\ActiveForm;
                         'jsOptions' => [
                             'onlyCountries' => ['in'],
                         ],
-                        'options'=> array('class'=>'inputTextClass', 'placeholder' => '9123456780', 'maxlength' => '12'),
+                        'options'=> array('class'=>'inputTextClass', 'placeholder' => 'Enter 10 digit number', 'maxlength' => '12'),
                     ], )->label(false);?>
                 </div>
                 <div class="form-group col-md-4">

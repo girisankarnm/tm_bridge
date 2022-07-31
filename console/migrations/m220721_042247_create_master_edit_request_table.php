@@ -62,6 +62,21 @@ class m220721_042247_create_master_edit_request_table extends Migration
         $this->insert('master_edit_request',[
             'name' =>'ifsc code',
         ]);
+        $this->insert('master_edit_request',[
+            'name' =>'locality',
+        ]);
+        $this->insert('master_edit_request',[
+            'name' =>'name1',
+        ]);
+        $this->insert('master_edit_request',[
+            'name' =>'phone1',
+        ]);
+        $this->insert('master_edit_request',[
+            'name' =>'sales_name',
+        ]);
+        $this->insert('master_edit_request',[
+            'name' =>'sales_phone',
+        ]);
     }
 
     /**
