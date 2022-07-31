@@ -503,10 +503,10 @@ class TariffController extends Controller {
                 $slab = new RoomTariffSlab();
                 $slab->number = $i;
                 $slab->room_rate = $_POST["room_rate_".$nationality][$i];
-                $slab->adult_with_extra_bed = $_POST["adult_with_extra_bed_".$nationality][$i];
-                $slab->child_with_extra_bed = $_POST["child_with_extra_bed_".$nationality][$i];
-                $slab->child_sharing_bed = $_POST["child_sharing_bed_".$nationality][$i];                
-                $slab->single_occupancy = ($room->same_tariff_for_single_occupancy != 1) ? $_POST["single_occupancy_".$nationality][$i] : NULL;
+                $slab->adult_with_extra_bed = ($room->number_of_extra_beds > 0 ) ? $_POST["adult_with_extra_bed_".$nationality][$i] : 0;
+                $slab->child_with_extra_bed = ($room->number_of_extra_beds > 0 ) ? $_POST["child_with_extra_bed_".$nationality][$i] : 0;
+                $slab->child_sharing_bed = ($room->number_of_kids_on_sharing > 0) ? $_POST["child_sharing_bed_".$nationality][$i] : 0;                
+                $slab->single_occupancy = ($room->same_tariff_for_single_occupancy != 1) ? $_POST["single_occupancy_".$nationality][$i] : 0;
                 $slab->tariff_id = $room_tariff->getPrimaryKey();
                 $slab->save();                          
             }
@@ -649,10 +649,13 @@ class TariffController extends Controller {
             throw new NotFoundHttpException();
         }
 
+        //The UI for this function is disabled from 27 July 2022
+        /*
         if (!$property->have_weekday_hike) {
             return $this->redirect(['tariff/hikeday', 
             'id' => $date_range->property_id]);
         }
+        */
 
         //TODO: If no rooms?
         $rooms = Room::find()->where(['property_id' => $property->id])->all();
@@ -756,44 +759,52 @@ class TariffController extends Controller {
     public function actionAddmandatorydinnner(){         
         $date_range = new DateRange();
         if ($date_range->load(Yii::$app->request->post()) ) {
-            $dinner_dates = Yii::$app->request->post('dinner_daterange');            
-            if($dinner_dates != NULL ) {
-                if(count(array_unique($dinner_dates)) < count($dinner_dates))
-                {                
-                    $date_range->setLastError("Error: Dates repeated.");
-                }
-                else
-                {  
-                    MandatoryDinner::deleteAll(['property_id' => $date_range->property_id ,'date_range_id' => $_POST["DateRange"]["id"] ]);
-                    
-                    $event_names = Yii::$app->request->post('event_name');
-                    $adult_rates = Yii::$app->request->post('adult_rate');
-                    $child_rates = Yii::$app->request->post('child_rate');
-                    $i = 0;
-
-                    foreach ($dinner_dates as $dinner_date) {
-                        $mandatory_dinner = new MandatoryDinner();  
-                        $mandatory_dinner->date = Carbon::createFromFormat('d M Y', $dinner_date)->toDateString();                        
-                        $mandatory_dinner->name = $event_names[$i];
-                        $mandatory_dinner->rate_adult = $adult_rates[$i];
-                        $mandatory_dinner->rate_child = $child_rates[$i];
-                        $mandatory_dinner->date_range_id = $_POST["DateRange"]["id"];
-                        $mandatory_dinner->meal_impact_id = 4;
-                        $mandatory_dinner->property_id = $date_range->property_id;
-                        $mandatory_dinner->save();
-                        $i++;
-                    }                    
-                }
-
-                return $this->redirect(['tariff/home', 
-                'id' => $date_range->property_id,                
-                ]);
-            } 
-            else 
+            $have_mandatory_dinner = Yii::$app->request->post('have_mandatory_dinner');             
+            if($have_mandatory_dinner != NULL)
             {
-                //TODO: Handle this
-                $date_range->setLastError("Dates are empty");
+                $dinner_dates = Yii::$app->request->post('dinner_daterange');            
+                if($dinner_dates != NULL ) {
+                    if(count(array_unique($dinner_dates)) < count($dinner_dates))
+                    {                
+                        $date_range->setLastError("Error: Dates repeated.");
+                    }
+                    else
+                    {  
+                        MandatoryDinner::deleteAll(['property_id' => $date_range->property_id ,'date_range_id' => $_POST["DateRange"]["id"] ]);
+                        
+                        $event_names = Yii::$app->request->post('event_name');
+                        $adult_rates = Yii::$app->request->post('adult_rate');
+                        $child_rates = Yii::$app->request->post('child_rate');
+                        $i = 0;
+
+                        foreach ($dinner_dates as $dinner_date) {
+                            $mandatory_dinner = new MandatoryDinner();  
+                            $mandatory_dinner->date = Carbon::createFromFormat('d M Y', $dinner_date)->toDateString();                        
+                            $mandatory_dinner->name = $event_names[$i];
+                            $mandatory_dinner->rate_adult = $adult_rates[$i];
+                            $mandatory_dinner->rate_child = $child_rates[$i];
+                            $mandatory_dinner->date_range_id = $_POST["DateRange"]["id"];
+                            $mandatory_dinner->meal_impact_id = 4;
+                            $mandatory_dinner->property_id = $date_range->property_id;
+                            $mandatory_dinner->save();
+                            $i++;
+                        }                    
+                    }                    
+                } 
+                else 
+                {
+                    //TODO: Handle this
+                    $date_range->setLastError("Dates are empty");
+                }
             }
+            //have_mandatory_dinner == NULL, delete existing dinner
+            else {
+                MandatoryDinner::deleteAll(['property_id' => $date_range->property_id ,'date_range_id' => $_POST["DateRange"]["id"] ]);
+            }
+
+            return $this->redirect(['tariff/home', 
+                    'id' => $date_range->property_id,                
+                    ]);
         }
 
         //$date_range = new DateRange();
@@ -818,10 +829,13 @@ class TariffController extends Controller {
             throw new NotFoundHttpException();
         }
 
+        //The UI for this function is disabled from 27 July 2022
+        /*
         if (!$property->provide_compulsory_inclusions) {
             return $this->redirect(['tariff/mandatorydinner', 
             'id' => $mother_date_range->property_id]);
         }
+        */
 
         $is_published = 1;
         if($mother_date_range->parent != 0 ) {
@@ -853,10 +867,11 @@ class TariffController extends Controller {
 
         $tariff = (int) Yii::$app->request->get('tariff');
 
-        $is_allow_skip = false;        
-        if (count($mandatory_dinner) > 0) {
+        $is_allow_skip = true;
+        //User shall skip without adding mandatory dinner
+        /* if (count($mandatory_dinner) > 0) {
             $is_allow_skip = true;
-        }                
+        }                 */
 
         $this->layout = 'tm_main';
         return $this->render('add_mandatory_dinner_rate', [

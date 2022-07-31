@@ -2,8 +2,23 @@
 
 use borales\extensions\phoneInput\PhoneInput;
 use yii\bootstrap4\ActiveForm;
+$this->registerJsFile('/js/client_requested_option/add_option.js');
 
 ?>
+
+<style>
+    .invalid-feedback {
+        display: block;
+    }
+</style>
+
+<script>
+    function showTermsAlert(){
+        toastr.error("Complete all other forms to proceed!");
+        return false;
+    }
+
+</script>
 
 <div class="$content">
     <div class="container-fluid">
@@ -13,12 +28,47 @@ use yii\bootstrap4\ActiveForm;
 
         <div class="card-body" style="border: .12rem solid #dedede; border-radius: 6px;">
             <div class="tab">
-                <a href="index.php?r=operator%2Fbasicdetails&id=<?= $contact->operator_id ?>"> <button class="tablinks btnunder">Basic Details</button></a>
-                <a href="index.php?r=operator%2Faddressandlocation&id=<?= $contact->operator_id; ?>"> <button class="tablinks btnunder">Address & Location</button></a>
-                <a  href="index.php?r=operator%2Flegaltax&id=<?= $contact->operator_id; ?>"> <button class="tablinks btnunder">Legal Tax</button></a>
-                <div style="display: inline">   <a href="index.php?r=operator%2Fcontact&id=<?= $contact->operator_id ?>">  <button class="selectedButton">Contact Details</button></a> <hr class="new5" ></div>
+                <a href="index.php?r=operator%2Fbasicdetails&id=<?= $contact->operator_id ?>"> <button class="tablinks btnunder">
+                        <?php if($operator->name) { ?>
+                            <i class="fas fa-check"></i>
+                        <?php } else {?>
+                            <i class="fas fa-times"></i>
+                        <?php } ?>
+                        Basic Details</button>
+                </a>
+                <a href="index.php?r=operator%2Faddressandlocation&id=<?= $contact->operator_id; ?>"> <button class="tablinks btnunder">
+                        <?php if($operator->country_id) { ?>
+                            <i class="fas fa-check"></i>
+                        <?php } else {?>
+                            <i class="fas fa-times"></i>
+                        <?php } ?>
+                        Address & Location</button>
+                </a>
+                <a  href="index.php?r=operator%2Flegaltax&id=<?= $contact->operator_id; ?>"> <button class="tablinks btnunder">
+                        <?php if($operator->legal_status_id) { ?>
+                            <i class="fas fa-check"></i>
+                        <?php } else {?>
+                            <i class="fas fa-times"></i>
+                        <?php } ?>
+                        Legal Tax</button>
+                </a>
+                <div style="display: inline">   <a href="index.php?r=operator%2Fcontact&id=<?= $contact->operator_id ?>">  <button class="selectedButton">
+                            <?php if($contact->name1) { ?>
+                                <i class="fas fa-check"></i>
+                            <?php } else {?>
+                                <i class="fas fa-times"></i>
+                            <?php } ?>
+                            Contact Details</button></a> <hr class="new5" >
+                </div>
                 <?php if($show_terms_tab) { ?>
-                    <a href="index.php?r=operator%2Ftermsandconditions&id=<?= $contact->operator_id;?>"><button class="tablinks" >Terms & Conditions</button></a>
+                    <a href="index.php?r=operator%2Ftermsandconditions&id=<?= $contact->operator_id;?>" <?= ( ($operator->country_id && $operator->legal_status_id && $contact->name1) != 1 ) ? 'onclick="return showTermsAlert()"' : '' ?> ><button class="tablinks" >
+                            <?php if($operator->terms_and_conditons) { ?>
+                                <i class="fas fa-check"></i>
+                            <?php } else {?>
+                                <i class="fas fa-times"></i>
+                            <?php } ?>
+                            Terms & Conditions</button>
+                    </a>
                 <?php } ?>
             </div>
             <hr class="sidebar-divider">
@@ -32,21 +82,29 @@ use yii\bootstrap4\ActiveForm;
             </div>
             <div class="row">
                 <div class="form-group col-md-4">
-                    <label class="Labelclass" style="display: block" >*Name</label>
+                    <label class="Labelclass" style="display: block; width: 220px" >Name<span style="color: red; font-size: 18px">*</span>
+                        <?php if($contact->name1) { ?>
+                            <a onclick="edit_request('<?php echo $name1;?>', '<?php echo $operator->id;?>')" href="#" data-toggle="tooltip" title="Add property type" style="float: right"><img class="margin-left-right-spacing dropbtn-edit action-icon t" src="images/edit-details.svg" style="width: 15px" data-toggle="tooltip" title="" data-original-title="Edit"></a>
+                        <?php } ?>
+                    </label>
                    <?= $form->field($contact,'name1')->textInput(['class' => 'inputTextClass'])->label(false) ?>
                 </div>
                 <div class="form-group col-md-4">
-                    <label class="Labelclass" style="display: block" >*Phone</label>
+                    <label class="Labelclass" style="display: block; width: 220px" >Phone<span style="color: red; font-size: 18px">*</span>
+                        <?php if($contact->phone1) { ?>
+                            <a onclick="edit_request('<?php echo $phone1;?>', '<?php echo $operator->id;?>')" href="#" data-toggle="tooltip" title="Add property type" style="float: right"><img class="margin-left-right-spacing dropbtn-edit action-icon t" src="images/edit-details.svg" style="width: 15px" data-toggle="tooltip" title="" data-original-title="Edit"></a>
+                        <?php } ?>
+                    </label>
                     <?php
                     echo $form->field($contact, 'phone1')->widget(PhoneInput::className(), [
                         'jsOptions' => [
                             'onlyCountries' => ['in'],
                         ],
-                        'options'=> array('class'=>'inputTextClass', 'placeholder' => '9123456780', 'maxlength' => '12'),
+                        'options'=> array('class'=>'inputTextClass', 'placeholder' => 'Enter 10 digit number', 'maxlength' => '12'),
                     ], )->label(false);?>
                 </div>
                 <div class="form-group col-md-4">
-                    <label class="Labelclass" style="display: block" >*Email</label>
+                    <label class="Labelclass" style="display: block" >Email</label>
                     <?= $form->field($contact,'email1')->textInput(['class' => 'inputTextClass'])->label(false) ?>
                 </div>
             </div>
@@ -55,21 +113,21 @@ use yii\bootstrap4\ActiveForm;
             </div>
             <div class="row">
                 <div class="form-group col-md-4">
-                    <label class="Labelclass" style="display: block" >*Name</label>
+                    <label class="Labelclass" style="display: block" >Name</label>
                     <?= $form->field($contact,'name2')->textInput(['class' => 'inputTextClass'])->label(false) ?>
                 </div>
                 <div class="form-group col-md-4">
-                    <label class="Labelclass" style="display: block" >*Phone</label>
+                    <label class="Labelclass" style="display: block" >Phone</label>
                     <?php
                     echo $form->field($contact, 'phone2')->widget(PhoneInput::className(), [
                         'jsOptions' => [
                             'onlyCountries' => ['in'],
                         ],
-                        'options'=> array('class'=>'inputTextClass', 'placeholder' => '9123456780', 'maxlength' => '12'),
+                        'options'=> array('class'=>'inputTextClass', 'placeholder' => 'Enter 10 digit number', 'maxlength' => '12'),
                     ], )->label(false);?>
                 </div>
                 <div class="form-group col-md-4">
-                    <label class="Labelclass" style="display: block" >*Email</label>
+                    <label class="Labelclass" style="display: block" >Email</label>
                     <?= $form->field($contact,'email2')->textInput(['class' => 'inputTextClass'])->label(false) ?>
                 </div>
             </div>

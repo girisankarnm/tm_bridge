@@ -41,6 +41,7 @@ class OperatorController extends Controller{
         $this->layout = 'tm_main';
 
         $operator = NULL;
+        $operator_contacts = NULL;
         $operator = Operator::find()
             ->andWhere(['owner_id' => Yii::$app->user->identity->getOWnerId()])
             ->one();
@@ -55,6 +56,8 @@ class OperatorController extends Controller{
             $operator_image->scenario = "create";
         }
         else {
+            $operator_contacts = OperatorContacts::find()->where(['operator_id' =>$operator->id])->one();
+
             $basic_details->id = $operator->id;
             $basic_details->name = $operator->name;
             $basic_details->website = $operator->website;
@@ -69,10 +72,13 @@ class OperatorController extends Controller{
         {
             $show_terms_tab = false;
         }
+//        return $this->asJson($show_terms_tab);
         return $this->render('basic_details',[
             'basic_details' => $basic_details,
             'operator_image' => $operator_image,
-            'show_terms_tab' => $show_terms_tab
+            'show_terms_tab' => $show_terms_tab,
+            'operator' => $operator,
+            'operator_contacts' => $operator_contacts
         ]);
 
     }
@@ -182,8 +188,13 @@ class OperatorController extends Controller{
             throw new NotFoundHttpException();
         }
 
+        $operator_contacts = OperatorContacts::find()->where(['operator_id' =>$operator->id])->one();
+
         $location = MasterEditRequest::find()->where(['name' => 'location'])->one();
         $destination = MasterEditRequest::find()->where(['name' => 'destination'])->one();
+        $country = MasterEditRequest::find()->where(['name' => 'country'])->one();
+        $pin_code = MasterEditRequest::find()->where(['name' => 'pin code'])->one();
+        $locality = MasterEditRequest::find()->where(['name' => 'locality'])->one();
 
         $address_location = new AddressLocation();
         $address_location->id = $operator->id;
@@ -211,7 +222,12 @@ class OperatorController extends Controller{
                 'destinations' => $destinations,
                 'show_terms_tab' => $show_terms_tab,
                 'location' => $location->id,
-                'destination' => $destination->id
+                'destination' => $destination->id,
+                'country' => $country->id,
+                'pin_code' => $pin_code->id,
+                'operator' => $operator,
+                'locality' => $locality->id,
+                'operator_contacts' => $operator_contacts
             ]
         );
 
@@ -298,6 +314,7 @@ class OperatorController extends Controller{
         $this->layout = 'tm_main';
         $operator_id = Yii::$app->request->get('id');
         $operator = NULL;
+        $operator_contacts = NULL;
         if ($operator_id != 0) {
             $operator = Operator::find()
                 ->where(['id' => $operator_id])
@@ -307,6 +324,16 @@ class OperatorController extends Controller{
         if ($operator == NULL){
             throw new NotFoundHttpException();
         }
+
+        $operator_contacts = OperatorContacts::find()->where(['operator_id' =>$operator->id])->one();
+
+        $property_legal_status = MasterEditRequest::find()->where(['name' => 'legal status'])->one();
+        $pan_number = MasterEditRequest::find()->where(['name' => 'pan number'])->one();
+        $gst_number = MasterEditRequest::find()->where(['name' => 'gst number'])->one();
+        $bank_name = MasterEditRequest::find()->where(['name' => 'bank name'])->one();
+        $account_number = MasterEditRequest::find()->where(['name' => 'account number'])->one();
+        $account_name = MasterEditRequest::find()->where(['name' => 'account name'])->one();
+        $ifsc_code = MasterEditRequest::find()->where(['name' => 'ifsc code'])->one();
 
         $legal_tax_documentation = new LegalTaxDocumentation();
         $legal_tax_documentation->id = $operator->id;
@@ -336,7 +363,20 @@ class OperatorController extends Controller{
             $show_terms_tab = false;
         }
 
-        return $this->render('legal_and_tax',['legal_tax_documentation' => $legal_tax_documentation, 'legal_status' => $legal_status, 'legal_docs_images' => $legal_docs_images, 'show_terms_tab' => $show_terms_tab]);
+        return $this->render('legal_and_tax',[
+            'legal_tax_documentation' => $legal_tax_documentation,
+            'legal_status' => $legal_status, 'legal_docs_images' => $legal_docs_images,
+            'show_terms_tab' => $show_terms_tab,
+            'legal_status_id' => $property_legal_status->id,
+            'pan_number' => $pan_number->id,
+            'gst_number' => $gst_number->id,
+            'bank_name' => $bank_name->id,
+            'account_number' => $account_number->id,
+            'account_name' => $account_name->id,
+            'ifsc_code' => $ifsc_code->id,
+            'operator' => $operator,
+            'operator_contacts' => $operator_contacts,
+        ]);
     }
 
     public function actionSavelegaltax(){
@@ -439,12 +479,24 @@ class OperatorController extends Controller{
             $contact = new OperatorContacts();
             $contact->operator_id = $operator->id;
         }
+
+        $contact_name = MasterEditRequest::find()->where(['name' => 'name1'])->one();
+        $contact_phone = MasterEditRequest::find()->where(['name' => 'phone1'])->one();
+
+
         $show_terms_tab = 1;
         if ($operator->terms_and_conditons == 1)
         {
             $show_terms_tab = 0;
         }
-        return $this->render('contact_details',['contact' => $contact, 'show_terms_tab' => $show_terms_tab]);
+        return $this->render('contact_details',[
+            'contact' => $contact,
+            'operator' => $operator,
+            'show_terms_tab' => $show_terms_tab,
+            'operator' => $operator,
+            'name1' => $contact_name->id,
+            'phone1' => $contact_phone->id,
+        ]);
     }
 
     public function actionSavecontactdetails() {
@@ -513,6 +565,7 @@ class OperatorController extends Controller{
         $operator_id = Yii::$app->request->get('id');
         //Check this proerty owned by this user
         $operator = NULL;
+        $operator_contacts = NULL;
         if ($operator_id != 0) {
             $operator = Operator::find()
                 ->where(['id' => $operator_id])
@@ -530,11 +583,14 @@ class OperatorController extends Controller{
             throw new NotFoundHttpException();
         }
 
+        $operator_contacts = OperatorContacts::find()->where(['operator_id' =>$operator->id])->one();
+
+
         $terms = new TermsConditions();
         $terms->id = $operator->id;
         $terms->terms_and_conditons = $operator->terms_and_conditons;
 
-        return $this->render('terms_and_conditions',['terms' => $terms]);
+        return $this->render('terms_and_conditions',['terms' => $terms, 'operator' => $operator, 'operator_contacts' => $operator_contacts]);
     }
 
     public function actionSaveterms()

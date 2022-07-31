@@ -220,16 +220,30 @@ class SlabController extends Controller{
             $weekday_hike_slab = NULL;
             if($rows != false) {
                 $tariff_id = $rows["id"];
+                $day_of_the_week = date('w', strtotime($date->toDateString()));
                 $weekday_hike = RoomTariffWeekdayhike::findOne(['id' => $tariff_id]);
-                if($weekday_hike != null) {
-                    $day_of_the_week = date('w', strtotime($date->toDateString()));
-                    foreach ($weekday_hike->roomTariffWeekdayhikeDays as $tariff_days) {
-                        if ($day_of_the_week == $tariff_days->day){
-                            $weekday_hike_slab = $weekday_hike->getRoomTariffSlabWeekdayhikes()
-                            ->one();
-                        }
-                    }
-                }
+
+                $weekday_hike = RoomTariffWeekdayhike::find()->where(['room_tariff_weekdayhike.id' => $tariff_id])
+                    ->joinWith('roomTariffSlabWeekdayhikes')
+                    ->joinWith(['roomTariffSlabWeekdayhikes' => function ($query) use ($day_of_the_week) {
+                        $query ->Where(['=', 'room_tariff_slab_weekdayhike.day', $day_of_the_week]);
+                    }])
+                    ->one();
+//                return $this->asJson($weekday_hike['roomTariffSlabWeekdayhikes'][0]);
+                $weekday_hike_slab = $weekday_hike['roomTariffSlabWeekdayhikes'][0];
+
+
+
+//                $weekday_hike = RoomTariffWeekdayhike::findOne(['id' => $tariff_id]);
+//                if($weekday_hike != null) {
+//                    $day_of_the_week = date('w', strtotime($date->toDateString()));
+//                    foreach ($weekday_hike->roomTariffWeekdayhikeDays as $tariff_days) {
+//                        if ($day_of_the_week == $tariff_days->day){
+//                            $weekday_hike_slab = $weekday_hike->getRoomTariffSlabWeekdayhikes()
+//                            ->one();
+//                        }
+//                    }
+//                }
             }
 
             $room_dayhike_tariff_array[$date->toDateString()] = $weekday_hike_slab;

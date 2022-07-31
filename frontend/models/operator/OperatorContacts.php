@@ -35,6 +35,7 @@ class OperatorContacts extends \yii\db\ActiveRecord
     {
         return [
             [['operator_id'], 'required'],
+            [['name1', 'phone1'], 'required'],
             [['operator_id'], 'integer'],
             [['name1', 'name2', 'email1', 'email2'], 'string', 'max' => 255],
             [['phone1', 'phone2'], 'string', 'max' => 15],

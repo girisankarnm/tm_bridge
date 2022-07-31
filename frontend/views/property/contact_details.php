@@ -1,6 +1,7 @@
 <?php
 use yii\bootstrap4\ActiveForm;
 use borales\extensions\phoneInput\PhoneInput;
+$this->registerJsFile('/js/client_requested_option/add_option.js');
 ?>
 
 <script>
@@ -9,6 +10,11 @@ function showTermsAlert(){
     return false;
 }
 </script>
+<style>
+    .invalid-feedback {
+        display: block;
+    }
+</style>
 
 <div class="content">
     <div class="container-fluid">
@@ -18,14 +24,48 @@ function showTermsAlert(){
 
         <div class="card-body" style="border: .12rem solid #dedede; border-radius: 6px;">
             <div class="tab">
-                <a  href="index.php?r=property%2Fbasicdetails&id=<?= $contact->property_id ?>"> <button class="tablinks btnunder">Basic Details</button></a>
-                <a href="index.php?r=property%2Faddressandlocation&id=<?= $contact->property_id; ?>"> <button class="tablinks btnunder">Address & Location</button></a>
-                <a href="index.php?r=property%2Flegaltax&id=<?= $contact->property_id ?>"> <button class="tablinks btnunder">Legal Tax</button></a>
-                <div style="display: inline">   <a href="index.php?r=property%2Fcontact&id=<?= $contact->property_id; ?>">  <button class="selectedButton">Contact Details</button></a> <hr class="new5" >
+                <a  href="index.php?r=property%2Fbasicdetails&id=<?= $contact->property_id ?>"> <button class="tablinks btnunder">
+                        <?php if($property->name) { ?>
+                            <i class="fas fa-check"></i>
+                        <?php } else {?>
+                            <i class="fas fa-times"></i>
+                        <?php } ?>
+                        Basic Details</button>
+                </a>
+                <a href="index.php?r=property%2Faddressandlocation&id=<?= $contact->property_id; ?>"> <button class="tablinks btnunder">
+                        <?php if($property->country_id) { ?>
+                            <i class="fas fa-check"></i>
+                        <?php } else {?>
+                            <i class="fas fa-times"></i>
+                        <?php } ?>
+                        Address & Location</button>
+                </a>
+                <a href="index.php?r=property%2Flegaltax&id=<?= $contact->property_id ?>"> <button class="tablinks btnunder">
+                        <?php if($property->legal_status_id) { ?>
+                            <i class="fas fa-check"></i>
+                        <?php } else {?>
+                            <i class="fas fa-times"></i>
+                        <?php } ?>
+                        Legal Tax</button>
+                </a>
+                <div style="display: inline">   <a href="index.php?r=property%2Fcontact&id=<?= $contact->property_id; ?>">  <button class="selectedButton">
+                            <?php if($contact->sales_name) { ?>
+                                <i class="fas fa-check"></i>
+                            <?php } else {?>
+                                <i class="fas fa-times"></i>
+                            <?php } ?>
+                            Contact Details</button></a> <hr class="new5" >
                 </div>
 
                 <?php if($show_terms_tab) { ?>
-                    <a  href="index.php?r=property%2Ftermsandconditions&id=<?= $contact->property_id ?>" <?= ( ($property->country_id && $property->legal_status_id) != 1 ) ? 'onclick="return showTermsAlert()"' : '' ?>> <button class="tablinks">Terms & Conditions</button></a>
+                    <a  href="index.php?r=property%2Ftermsandconditions&id=<?= $contact->property_id ?>" <?= ( ($property->country_id && $property->legal_status_id && $contact->sales_name) != 1 ) ? 'onclick="return showTermsAlert()"' : '' ?>> <button class="tablinks">
+                            <?php if($property->terms_and_conditons1) { ?>
+                                <i class="fas fa-check"></i>
+                            <?php } else {?>
+                                <i class="fas fa-times"></i>
+                            <?php } ?>
+                            Terms & Conditions</button>
+                    </a>
                 <?php } ?>
 
             </div>
@@ -42,11 +82,19 @@ function showTermsAlert(){
 
             <div class="row">
                 <div class="form-group margin-contacts col-md-4">
-                    <label class="Labelclass" style="display: block" >Name</label>
+                    <label class="Labelclass" style="display: block; width: 220px" >Name<span style="color: red; font-size: 18px">*</span>
+                        <?php if($contact->sales_name) { ?>
+                            <a onclick="edit_request('<?php echo $sales_name;?>', '<?php echo $property->id;?>')" href="#" data-toggle="tooltip" title="Add property type" style="float: right"><img class="margin-left-right-spacing dropbtn-edit action-icon t" src="images/edit-details.svg" style="width: 15px" data-toggle="tooltip" title="" data-original-title="Edit"></a>
+                        <?php } ?>
+                    </label>
                     <?= $form->field($contact,'sales_name')->textInput(['class' => 'inputTextClass'])->label(false) ?>
                 </div>
                 <div class="form-group margin-contacts col-md-4">
-                    <label class="Labelclass" style="display: block" >Phone</label>
+                    <label class="Labelclass" style="display: block; width: 220px" >Phone<span style="color: red; font-size: 18px">*</span>
+                        <?php if($contact->sales_phone) { ?>
+                            <a onclick="edit_request('<?php echo $sales_phone;?>', '<?php echo $property->id;?>')" href="#" data-toggle="tooltip" title="Add property type" style="float: right"><img class="margin-left-right-spacing dropbtn-edit action-icon t" src="images/edit-details.svg" style="width: 15px" data-toggle="tooltip" title="" data-original-title="Edit"></a>
+                        <?php } ?>
+                    </label>
                     <?php
                     echo $form->field($contact, 'sales_phone')->widget(PhoneInput::className(), [
                         'jsOptions' => [

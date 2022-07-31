@@ -5,6 +5,19 @@ $this->registerJsFile('/js/common.js');
 
 
 ?>
+<script>
+    function showAlert(){
+        toastr.error("Save basic details to proceed!");
+        return false;
+    }
+
+    function showTermsAlert(){
+        toastr.error("Complete all other forms to proceed!");
+        return false;
+    }
+
+
+</script>
 
 <div class="$content">
 
@@ -14,16 +27,53 @@ $this->registerJsFile('/js/common.js');
         </div>
         <div class="card-body" style="border: .12rem solid #dedede; border-radius: 6px;">
             <div class="tab" style="display: flex;flex-direction: row;">
-                <div style="display: inline">   <a href="index.php?r=operator%2Fbasicdetails&id=<?= $basic_details->id ?>">  <button class="selectedButton" >Basic Details</button></a> <hr class="new5" ></div>
-                <?php if ($basic_details->id != 0 ) { ?>
-                <a href="index.php?r=operator%2Faddressandlocation&id=<?= $basic_details->id; ?>" <?= ($operator_image->scenario == "create") ? 'onclick="return showAlert()"' : '' ?>>   <button id="contactBtn" class="tablinks" >Address & Location</button></a>
-                <a href="index.php?r=operator%2Flegaltax&id=<?= $basic_details->id; ?>" <?= ($operator_image->scenario == "create") ? 'onclick="return showAlert()"' : '' ?>"> <button class="tablinks" >Legal Tax</button></a>
-                <a href="index.php?r=operator%2Fcontact&id=<?= $basic_details->id ?>" <?= ($operator_image->scenario == "create") ? 'onclick="return showAlert()"' : '' ?>"><button class="tablinks" >Contact Details</button></a>
+                <div style="display: inline">
+                    <a href="index.php?r=operator%2Fbasicdetails&id=<?= $basic_details->id ?>">  <button class="selectedButton" >
+                            <?php if($operator->name) { ?>
+                                <i class="fas fa-check"></i>
+                            <?php } else {?>
+                                <i class="fas fa-times"></i>
+                            <?php } ?>
+                            Basic Details</button>
+                    </a> <hr class="new5" >
+                </div>
+                <?php // if ($basic_details->id != 0 ) { ?>
+                <a href="index.php?r=operator%2Faddressandlocation&id=<?= $basic_details->id; ?>" <?= ($operator_image->scenario == "create") ? 'onclick="return showAlert()"' : '' ?>>   <button id="contactBtn" class="tablinks" >
+                        <?php if($operator->country_id) { ?>
+                            <i class="fas fa-check"></i>
+                        <?php } else {?>
+                            <i class="fas fa-times"></i>
+                        <?php } ?>
+                        Address & Location</button>
+                </a>
+                <a href="index.php?r=operator%2Flegaltax&id=<?= $basic_details->id; ?>" <?= ($operator_image->scenario == "create") ? 'onclick="return showAlert()"' : '' ?>"> <button class="tablinks" >
+                        <?php if($operator->legal_status_id) { ?>
+                            <i class="fas fa-check"></i>
+                        <?php } else {?>
+                            <i class="fas fa-times"></i>
+                        <?php } ?>
+                        Legal Tax</button>
+                    </a>
+                <a href="index.php?r=operator%2Fcontact&id=<?= $basic_details->id ?>" <?= ($operator_image->scenario == "create") ? 'onclick="return showAlert()"' : '' ?>"><button class="tablinks" >
+                        <?php if($operator_contacts) { ?>
+                            <i class="fas fa-check"></i>
+                        <?php } else {?>
+                            <i class="fas fa-times"></i>
+                        <?php } ?>
+                        Contact Details</button>
+                    </a>
 
                 <?php if($show_terms_tab) { ?>
-                    <a href="index.php?r=operator%2Ftermsandconditions&id=<?= $basic_details->id; ?>" <?= ($operator_image->scenario == "create") ? 'onclick="return showAlert()"' : '' ?>"><button class="tablinks" >Terms & Conditions</button></a>
+                    <a href="index.php?r=operator%2Ftermsandconditions&id=<?= $basic_details->id; ?>" <?= ( ($operator->country_id && $operator->legal_status_id && $operator_contacts) != 1 ) ? 'onclick="return showTermsAlert()"' : '' ?> ><button class="tablinks" >
+                        <?php if($operator->terms_and_conditons) { ?>
+                                <i class="fas fa-check"></i>
+                            <?php } else {?>
+                                <i class="fas fa-times"></i>
+                            <?php } ?>
+                            Terms & Conditions</button>
+                        </a>
                 <?php } ?>
-                <?php } ?>
+                <?php // } ?>
             </div>
 
             <hr class="sidebar-divider">

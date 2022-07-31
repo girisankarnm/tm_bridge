@@ -41,6 +41,7 @@ class PropertyContacts extends \yii\db\ActiveRecord
     {
         return [
             [['property_id'], 'required'],
+            [['sales_name', 'sales_phone'], 'required'],
             [['property_id'], 'integer'],
             [['sales_name', 'reservation_name', 'front_office_name', 'accounts_office_name', 'sales_email', 'reservation_email', 'front_office_email', 'accounts_office_email'], 'string', 'max' => 255],
             [['sales_phone', 'reservation_phone', 'front_office_phone', 'accounts_office_phone'], 'string', 'max' => 15],

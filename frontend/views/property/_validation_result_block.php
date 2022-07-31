@@ -1,5 +1,6 @@
 <div class="validationBorder-error">
-    <div style="margin-top: 5px;">
+    <div id="h-validation">
+        <div style="margin-top: 5px;">
         <?php
             if($result == NULL)
             { ?>
@@ -7,7 +8,7 @@
             <?php      }
             if($result != NULL)
             { ?>
-                <img src="images/rectangle-cross.svg"  class="chckbox-class" > <span class="Validation-Heading-Error"><?= $name ?>: Failed</span>
+                <img src="images/rectangle-cross.svg"  class="chckbox-class" > <span class="Validation-Heading-Error"><?= $name ?>: Pending</span>
                  <ul class="margin-left-right-spacing-2">
              <?php
                 foreach($result as $attribute => $error)
@@ -26,11 +27,11 @@
             }
            ?>
 
-        <div id="edit-flex">
-            <div> </div>
-            <div>
-                <a href="<?= \yii\helpers\Url::to(['/property/'.$action, 'id' => $id]) ?>" > <img  src="images/blue-edit.svg"  style="margin-right: 2px; vertical-align:text-top" > <span style="color: blue"> edit  <?= $name ?>  </span></a>
-            </div>
+
         </div>
+        <div  style="margin-top: 5px;" >
+                <a href="<?= \yii\helpers\Url::to(['/property/'.$action, 'id' => $id]) ?>" > <img  src="images/blue-edit.svg" class="margin-12px"></a>
+            </div>
+
     </div>
 </div>

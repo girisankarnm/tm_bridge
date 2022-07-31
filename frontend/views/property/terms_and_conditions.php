@@ -10,11 +10,45 @@ use yii\bootstrap4\ActiveForm;
         </div>
         <div class="card-body" style="border: .12rem solid #dedede; border-radius: 6px;">
             <div class="tab">
-                <a  href="index.php?r=property%2Fbasicdetails&id=<?= $terms->id ?>"> <button class="tablinks btnunder" >Basic Details</button></a>
-                <a href="index.php?r=property%2Faddressandlocation&id=<?= $terms->id ?>"> <button class="tablinks btnunder">Address & Location</button></a>
-                <a href="index.php?r=property%2Flegaltax&id=<?= $terms->id ?>"> <button class="tablinks btnunder">Legal Tax</button></a>
-                <a  href="index.php?r=property%2Fcontact&id=<?= $terms->id; ?>"> <button class="tablinks btnunder">Contact Details</button></a>
-                <div style="display: inline">   <a href="index.php?r=property%2Ftermsandconditions&id=<?= $terms->id; ?>">  <button class="selectedButton" >Terms & Conditions </button></a> <hr class="new5" >
+                <a  href="index.php?r=property%2Fbasicdetails&id=<?= $terms->id ?>"> <button class="tablinks btnunder" >
+                        <?php if($property->name) { ?>
+                            <i class="fas fa-check"></i>
+                        <?php } else {?>
+                            <i class="fas fa-times"></i>
+                        <?php } ?>
+                        Basic Details</button>
+                </a>
+                <a href="index.php?r=property%2Faddressandlocation&id=<?= $terms->id ?>"> <button class="tablinks btnunder">
+                        <?php if($property->country_id) { ?>
+                            <i class="fas fa-check"></i>
+                        <?php } else {?>
+                            <i class="fas fa-times"></i>
+                        <?php } ?>
+                        Address & Location</button>
+                </a>
+                <a href="index.php?r=property%2Flegaltax&id=<?= $terms->id ?>"> <button class="tablinks btnunder">
+                        <?php if($property->legal_status_id) { ?>
+                            <i class="fas fa-check"></i>
+                        <?php } else {?>
+                            <i class="fas fa-times"></i>
+                        <?php } ?>
+                        Legal Tax</button>
+                </a>
+                <a  href="index.php?r=property%2Fcontact&id=<?= $terms->id; ?>"> <button class="tablinks btnunder">
+                        <?php if($property_contacts) { ?>
+                            <i class="fas fa-check"></i>
+                        <?php } else {?>
+                            <i class="fas fa-times"></i>
+                        <?php } ?>
+                        Contact Details</button>
+                </a>
+                <div style="display: inline">   <a href="index.php?r=property%2Ftermsandconditions&id=<?= $terms->id; ?>">  <button class="selectedButton" style="width: 150px">
+                            <?php if($property->terms_and_conditons1) { ?>
+                                <i class="fas fa-check"></i>
+                            <?php } else {?>
+                                <i class="fas fa-times"></i>
+                            <?php } ?>
+                            Terms & Conditions </button></a> <hr class="new5" style="width: 150px">
                 </div>
             </div>
             <hr class="sidebar-divider">

@@ -1,10 +1,12 @@
 var checkout_type = 0;
 $('#property-twenty_four_hours_check_in :radio').change(function(){
     if ( $(this).val() == 1 ){
+        document.getElementById( 'checkincheckoutblock' ).style.display = 'none';
         $('#property-check_in_time').prop('disabled', 'disabled');
         $('#property-check_out_time').prop('disabled', 'disabled');
     }
     else {
+        document.getElementById( 'checkincheckoutblock' ).style.display = 'block';
         $('#property-check_in_time').prop('disabled', false);
         $('#property-check_out_time').prop('disabled', false);
     }
@@ -188,57 +190,129 @@ $('#property-restricted_for_child').click(function () {
     if ($('#property-restricted_for_child').prop("checked") == false) {
         $(this).prop('checked', true);
     }
-    if ($('#property-restricted_for_child').prop("checked") == true) {
-        $('#property-complimentary_from_age').val(parseInt($('#property-restricted_for_child_below_age').val()));
-    }
+    defaultChildPolicy();
+    $('#property-restricted_for_child_below_age').prop("readonly",false);
+    // if ($('#property-restricted_for_child').prop("checked") == true) {
+    //     $('#property-complimentary_from_age').val(parseInt($('#property-restricted_for_child_below_age').val()));
+    // }
 });
 
 $('#property-allow_child_of_all_ages').click(function () {
     if ($('#property-allow_child_of_all_ages').prop("checked") == false) {
         $(this).prop('checked', true);
     }
-    if ($('#property-allow_child_of_all_ages').prop("checked") == true) {
-        $('#property-complimentary_from_age').val(0);
+    defaultChildPolicy();
+    $('#property-restricted_for_child_below_age').prop("readonly",true);
+});
+function defaultChildPolicy(){
+    $('#property-allow_complimentary').prop("checked",false);
+    $('#property-allow_child_rate').prop("checked",false);
+    $('#property-complimentary_from_age,#property-complimentary_to_age,#property-child_rate_from_age,#property-child_rate_to_age').val('');
+    $('#property-adult_rate_age').val(0);
+    $('#property-restricted_for_child_below_age').val(0)
+    $('#property-complimentary_to_age,#property-child_rate_to_age').prop("readOnly",true)
+}
+
+
+$('#property-allow_complimentary,#property-allow_child_rate').click(function () {
+
+    if ($('#property-allow_complimentary').prop("checked") == true) {
+        $('#property-complimentary_to_age').prop("readOnly",false)
+    }else{
+        $('#property-complimentary_to_age').prop("readOnly",true)
     }
-});
+    if ($('#property-allow_child_rate').prop("checked") == true) {
+        $('#property-child_rate_to_age').prop("readOnly",false)
+    }else{
+        $('#property-child_rate_to_age').prop("readOnly",true)
+    }
 
 
-$('#property-allow_complimentary').click(function () {
-    $(this).prop('checked', true);
-});
-$('#property-allow_child_rate').click(function () {
-    $(this).prop('checked', true);
-});
 
+    if ($('#property-allow_child_of_all_ages').prop("checked") == true){
+
+        if ($('#property-allow_complimentary').prop("checked") == true) {
+
+            $('#property-complimentary_from_age').val(0);
+            $('#property-complimentary_to_age,#property-child_rate_from_age,#property-child_rate_to_age,#property-adult_rate_age').val('');
+
+        }else if ($('#property-allow_child_rate').prop("checked") == true){
+
+            $('#property-child_rate_from_age').val(0);
+            $('#property-complimentary_from_age,#property-complimentary_to_age,#property-child_rate_to_age,#property-adult_rate_age').val('');
+
+        }else {
+
+            $('#property-adult_rate_age').val(0);
+            $('#property-complimentary_from_age,#property-complimentary_to_age,#property-child_rate_from_age,#property-child_rate_to_age').val('');
+        }
+    }
+    else if ($('#property-restricted_for_child').prop("checked") == true) {
+
+        if ($('#property-allow_complimentary').prop("checked") == true) {
+
+            $('#property-complimentary_from_age').val($('#property-restricted_for_child_below_age').val());
+            $('#property-complimentary_to_age,#property-child_rate_from_age,#property-child_rate_to_age,#property-adult_rate_age').val('');
+
+        }else if ($('#property-allow_child_rate').prop("checked") == true){
+
+            $('#property-child_rate_from_age').val($('#property-restricted_for_child_below_age').val());
+            $('#property-complimentary_from_age,#property-complimentary_to_age,#property-child_rate_to_age,#property-adult_rate_age').val('');
+
+        }else {
+
+            $('#property-adult_rate_age').val($('#property-restricted_for_child_below_age').val());
+            $('#property-complimentary_from_age,#property-complimentary_to_age,#property-child_rate_from_age,#property-child_rate_to_age').val('');
+        }
+
+    }
+
+});
+// $('#property-allow_child_rate').click(function () {
+//     $(this).prop('checked', true);
+// });
+//
 $('#property-allow_adult_rate').click(function () {
     $(this).prop('checked', true);
 });
 
 
-$('#property-complimentary_to_age').change(function () {
-    $('#property-child_rate_from_age').val(parseInt($('#property-complimentary_to_age').val()) + 1);
+$('#property-complimentary_to_age').on("input",function () {
+    if ($('#property-allow_child_rate').prop("checked") == true){
+        $('#property-child_rate_from_age').val(parseInt($('#property-complimentary_to_age').val()) + 1);
+    }else{
+        $('#property-adult_rate_age').val(parseInt($('#property-complimentary_to_age').val()) + 1);
+    }
 });
-$('#property-child_rate_to_age').change(function () {
+$('#property-child_rate_to_age').on("input",function () {
     $('#property-adult_rate_age').val(parseInt($('#property-child_rate_to_age').val()) + 1);
 });
 
-$('#property-restricted_for_child_below_age').change(function () {
-    if ($('#property-restricted_for_child').prop("checked") == true) {
+$('#property-restricted_for_child_below_age').on('input',function () {
+    if ($('#property-allow_complimentary').prop("checked") == true) {
+
         $('#property-complimentary_from_age').val(parseInt($('#property-restricted_for_child_below_age').val()));
+
+    }else if($('#property-allow_child_rate').prop("checked") == true){
+
+        $('#property-child_rate_from_age').val(parseInt($('#property-restricted_for_child_below_age').val()));
+
+    }else{
+
+        $('#property-adult_rate_age').val($('#property-restricted_for_child_below_age').val());
     }
 });
 
 function validateChildPolicy() {
     var bError = false;
-    var ErrorMessage = "Please fix the below fields";
+    var ErrorMessage = "";
 
     if ($('#property-restricted_for_child').is(":checked")) {
         // $('#property-restricted_for_child').disabled=false;
         if ( parseInt($('#property-restricted_for_child_below_age').val().trim()) <= 0 ||
             $('#property-restricted_for_child_below_age').val().trim().length == 0) {
             bError = true;
-            toastr.error("Invalid Restricted age");
-            ErrorMessage += '<li>Restricted age</li>';
+            ErrorMessage += '<li>Invalid Restricted age</li>';
         }
     }
 
@@ -249,50 +323,54 @@ function validateChildPolicy() {
         if ( parseInt($('#property-complimentary_from_age').val().trim()) < 0 ||
             $('#property-complimentary_from_age').val().trim().length == 0) {
             bError = true;
-            toastr.error("Invalid Complimentary age");
-            ErrorMessage += '<li>Complimentary age</li>';
+            ErrorMessage += '<li>Invalid Complimentary age</li>';
         }
 
         if ( parseInt($('#property-complimentary_from_age').val().trim()) >=  parseInt($('#property-complimentary_to_age').val().trim()) ) {
             bError = true;
-            toastr.error("Complimentary to age can't greater than or equal to from age");
-            // ErrorMessage += '<li>Complimentary to age can\'t greater than or equal to from age</li>';
+            ErrorMessage += '<li>Complimentary to age can\'t greater than or equal to from age</li>';
         }
     }
 
     if ($('#property-allow_child_rate').is(":checked")) {
-        if ( parseInt($('#property-child_rate_to_age').val().trim()) <= 0 ||
+        if ( parseInt($('#property-child_rate_to_age').val().trim()) < 0 ||
             $('#property-child_rate_to_age').val().trim().length == 0) {
             bError = true;
-            toastr.error("Invalid Child age");
-            ErrorMessage += '<li>Child age</li>';
+            ErrorMessage += '<li>Invalid Child age</li>';
         }
 
         if ( parseInt($('#property-child_rate_from_age').val().trim()) >=  parseInt($('#property-child_rate_to_age').val().trim()) ) {
             bError = true;
-            toastr.error("Child to age can't greater than or equal to from age");
-            // ErrorMessage += '<li>Child can\'t greater than  from age</li>';
+            ErrorMessage += '<li>Child to age can\'t greater than or equal to from age</li>';
         }
     }
 
     if ($('#property-allow_adult_rate').is(":checked")) {
 
-        if ( parseInt($('#property-adult_rate_age').val().trim()) <= 0 ||
+        if ( parseInt($('#property-adult_rate_age').val().trim()) < 0 ||
             $('#property-adult_rate_age').val().trim().length == 0) {
             bError = true;
-            toastr.error("Invalid Adult age");
-            ErrorMessage += '<li>Adult age</li>';
+            ErrorMessage += '<li>Invalid Adult age</li>';
         }
 
         if ( parseInt($('#property-child_rate_to_age').val().trim()) >=  parseInt($('#property-adult_rate_age').val().trim()) ) {
             bError = true;
-            toastr.error("Adult age can't less or equal to child to age");
-            ErrorMessage += '<li>Adult can\'t greater than  from age</li>';
+            ErrorMessage += '<li>Adult age can\'t less or equal to child to age</li>';
         }
     }
 
     if(bError) {
-        toastr.error(ErrorMessage);
+        // toastr.error(ErrorMessage);
+
+        $.alert({
+            icon: 'fa fa-exclamation-triangle',
+            title: 'Please fix the below fields',
+            content: ErrorMessage,
+            type: 'red',
+            typeAnimated: true,
+        });
+
+
     }
 
     return bError;
@@ -580,8 +658,8 @@ function saveTariffOptions(){
          return;
      } */
 
-   var room_tariff_same_for_all =  $('input[name="Property[room_tariff_same_for_all]"]:checked').val()
-   var totalNationalityGroups =  $('#totalNationalityGroups').val()
+    var room_tariff_same_for_all =  $('input[name="Property[room_tariff_same_for_all]"]:checked').val()
+    var totalNationalityGroups =  $('#totalNationalityGroups').val()
 
     if (room_tariff_same_for_all == 0){
 
@@ -772,7 +850,7 @@ function validateCancellationPolicy(){
         var inpt_from_days = document.getElementsByName('from_days[]');
         var inpt_to_days = document.getElementsByName('to_days[]');
         var percentage = document.getElementsByName('percentage[]');
-
+        var previousPerecentage = 100;
         for (var i = 0; i < inpt_from_days.length; i++) {
 
             if( !(inpt_to_days[i].value) || (!inpt_from_days[i].value) || (!percentage[i].value) ) {
@@ -802,6 +880,7 @@ function validateCancellationPolicy(){
             }
 
             if ( parseInt(inpt_to_days[i].value) > (inpt_from_days[i].value) ) {
+                bError = true;
                 $.alert({
                     icon: 'fa fa-exclamation-triangle',
                     title: 'Alert!',
@@ -825,6 +904,33 @@ function validateCancellationPolicy(){
                 // toastr.error("To date can't lower or equal than No refund days");
                 return bError;
             }
+
+            if (i === inpt_from_days.length- 1) {
+                if((inpt_to_days[i].value) != (no_refund_days+1)){
+                    bError = true;
+                    $.alert({
+                        icon: 'fa fa-exclamation-triangle',
+                        title: 'Alert!',
+                        content: 'To date of '+ percentage[i].value+'% refund should be '+parseInt(no_refund_days + 1),
+                        type: 'red',
+                        typeAnimated: true,
+                    });
+                    return bError;
+                }
+            }
+
+            if(percentage[i].value >= previousPerecentage ){
+                bError = true;
+                $.alert({
+                    icon: 'fa fa-exclamation-triangle',
+                    title: 'Alert!',
+                    content:  'Refund percentage('+percentage[i].value+'%)  should not be greater than previous row',
+                    type: 'red',
+                    typeAnimated: true,
+                });
+                return bError;
+            }
+            previousPerecentage = percentage[i].value;
         }
 
         if (parseInt(inpt_to_days[(inpt_from_days.length - 1)].value) != (no_refund_days + 1)) {
