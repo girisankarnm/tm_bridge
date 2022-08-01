@@ -17,11 +17,11 @@ $this->registerJsFile('/js/enquiry/guest_count.js');
         </div>
         <div class="tariffBorder" style="margin-top: 20px;">
         <div class="tab">
-            <a href="<?= \yii\helpers\Url::to(['/enquiry/basicdetails', 'id' => $enquiry->id]) ?>"> <button class="tablinks btnunder" onclick="openCity(event, 'London')" >Basic Details</button></a>
-            <a href="<?= \yii\helpers\Url::to(['/enquiry/contactdetails', 'id' => $enquiry->id]) ?>">   <button id="contactBtn" class="tablinks" onclick="openCity(event, 'Paris')">Contact Details</button></a>
-            <div style="display: inline">   <a href="<?= \yii\helpers\Url::to(['/enquiry/guestcount', 'id' => $enquiry->id]) ?>">  <button class="selectedButton" onclick="openCity(event, 'London')" >Guest Count</button></a> <hr class="new5" >
+            <a href="<?= \yii\helpers\Url::to(['/enquiry/basicdetails', 'id' => $enquiry->id]) ?>"> <button class="tablinks btnunder"  >Basic Details</button></a>
+            <a href="<?= \yii\helpers\Url::to(['/enquiry/contactdetails', 'id' => $enquiry->id]) ?>">   <button id="contactBtn" class="tablinks" >Contact Details</button></a>
+            <div style="display: inline">   <a href="<?= \yii\helpers\Url::to(['/enquiry/guestcount', 'id' => $enquiry->id]) ?>">  <button class="selectedButton"  >Guest Count</button></a> <hr class="new5" >
             </div>
-            <a href="<?= \yii\helpers\Url::to(['/enquiry/accommodation', 'id' => $enquiry->id]) ?>"><button class="tablinks" onclick="openCity(event, 'Tokyo')">Accommodation</button></a>
+            <a href="<?= \yii\helpers\Url::to(['/enquiry/accommodation', 'id' => $enquiry->id]) ?>"><button class="tablinks" >Accommodation</button></a>
         </div>
         <hr class="sidebar-divider">
         <?php $form = ActiveForm::begin(['id' => 'form_guest_count','enableClientValidation' => true, 'method' => 'post','action' => ['enquiry/saveguestcount']]) ?>

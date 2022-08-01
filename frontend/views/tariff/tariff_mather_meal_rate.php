@@ -10,12 +10,12 @@
         <div class="tariffBorder">
 
             <div class="tab" >
-                <div style="display: inline">   <a href="<?= \yii\helpers\Url::to(['/tariff/tariffmotherdaterange']) ?>">  <button class="selectedButtonmotherdaterange" onclick="openCity(event, 'London')" >Mother date range</button></a> <hr class="new6" >
+                <div style="display: inline">   <a href="<?= \yii\helpers\Url::to(['/tariff/tariffmotherdaterange']) ?>">  <button class="selectedButtonmotherdaterange"  >Mother date range</button></a> <hr class="new6" >
                 </div>
-                <a href="<?= \yii\helpers\Url::to(['/tariff/tariffmotherroomrate']) ?>">   <button id="contactBtn" class="tablinks2" onclick="openCity(event, 'Paris')">Room rate</button></a>
-                <a href="<?= \yii\helpers\Url::to(['/enquiry/guestcount']) ?>"> <button class="tablinks2" onclick="openCity(event, 'Tokyo')">Meal rate</button></a>
-                <a href="<?= \yii\helpers\Url::to(['/enquiry/accommodation']) ?>"><button class="tablinks2" onclick="openCity(event, 'Tokyo')">Hike day rate</button></a>
-                <a href="<?= \yii\helpers\Url::to(['/enquiry/accommodation']) ?>"><button class="tablinks2" onclick="openCity(event, 'Tokyo')">Mandatory dinner</button></a>
+                <a href="<?= \yii\helpers\Url::to(['/tariff/tariffmotherroomrate']) ?>">   <button id="contactBtn" class="tablinks2" >Room rate</button></a>
+                <a href="<?= \yii\helpers\Url::to(['/enquiry/guestcount']) ?>"> <button class="tablinks2">Meal rate</button></a>
+                <a href="<?= \yii\helpers\Url::to(['/enquiry/accommodation']) ?>"><button class="tablinks2" >Hike day rate</button></a>
+                <a href="<?= \yii\helpers\Url::to(['/enquiry/accommodation']) ?>"><button class="tablinks2" >Mandatory dinner</button></a>
             </div>
             <hr class="sidebar-divider hrdivider">
 
