@@ -59,8 +59,8 @@ use Carbon\Carbon;
             <input type="hidden" name="tariff" value="<?= $tariff; ?>">
 
             <div class="row">
-                <table id="meals"  class="table3mealsadd" >
-                    <tr class="thtableguestcount"  >
+                <table id="meals"  class="table-meals-add" >
+                    <tr class="th-table-meal-rate"  >
                         <th class="Adults" >Meal Type</th>
                         <th  class="Adults">Rate Adult</th>
                         <th class="Adults">Rate Child</th>

@@ -2,7 +2,7 @@
 if ($slab != NULL) {
 ?>
     <tr>
-    <td class="tdtextpad"><span class="spanTextTable"><?= $slab->number == 0 ? "Rack rate" : "Slab ".$slab->number?></span></td>
+    <td class="tdtextpad Adults"><span ><?= $slab->number == 0 ? "Rack rate" : "Slab ".$slab->number?></span></td>
     <td  class="Adults">
     <input type="number" name="room_rate_<?= $nationality_id; ?>[]" class="inputTextroomtable" value="<?= $slab->room_rate ?>" required id="room_rate_<?= $nationality_id; ?>_<?= ($i) ?>"/>
     </td>
@@ -18,11 +18,7 @@ if ($slab != NULL) {
     <td class="Adults">
     <input type="number" name="single_occupancy_<?= $nationality_id; ?>[]" class="inputTextroomtable" value="<?= ($room->same_tariff_for_single_occupancy != 1) ? $slab->single_occupancy : "" ?>" <?= ($room->same_tariff_for_single_occupancy != 1)   ? 'required' : 'disabled placeholder="No SGL"' ?> id="single_occupancy_<?= $nationality_id; ?>_<?= ($i) ?>" />
     </td>    
-    <td class="Adults">
-        <?php if ($slab->number > 1) { ?>
-            <button id="remr" onclick="deleteSlabRow(this,<?= $nationality_id; ?>); return true;" style="border-radius: 50%;border: 0px;background-color: #f9f9f9"><img src="images/minus.svg" alt="" ></button>
-        <?php } ?>    
-    </td>
+
     </tr>
 <?php 
 }
@@ -45,7 +41,7 @@ else {
     <td class="Adults">
     <input type="number" column="single_occupancy" slab_number="0" onblur="autofill(this)" name="single_occupancy_<?= $nationality_id; ?>[]" class="inputTextroomtable" <?= ($room->same_tariff_for_single_occupancy != 1)   ? 'required' : 'disabled placeholder="No SGL"' ?> room_id="<?= $room->id ?>" nationality_id="<?= $nationality_id ?>"/>
     </td>    
-    <td></td>              
+
     </tr>
 
     <?php 
@@ -68,7 +64,7 @@ else {
         <td class="Adults">
         <input type="number" column="single_occupancy" slab_number="<?= $i + 1 ?>" onblur="autofill(this)" name="single_occupancy_<?= $nationality_id; ?>[]" class="inputTextroomtable" required id="single_occupancy_<?= $nationality_id; ?>_<?= ($i + 1) ?>" <?= ($room->same_tariff_for_single_occupancy != 1)   ? 'required' : 'disabled placeholder="No SGL"' ?> room_id="<?= $room->id ?>" nationality_id="<?= $nationality_id ?>" />
         </td>
-        <td></td>
+
         </tr>
     <?php 
     }
