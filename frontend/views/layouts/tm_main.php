@@ -195,6 +195,14 @@ $currentUrlPrefix = Yii::$app->controller->id ;
         </div>
     </div>
 
+    <div class="init-ajax" style="display: none;">
+        <div class="load-ajax">
+            <div class="spinner-grow text-secondary" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+    </div>
+
     <?php $this->endBody() ?>
 
     <!-- Vendor JS -->

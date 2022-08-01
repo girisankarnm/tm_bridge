@@ -13,7 +13,7 @@
                             </div>
                         </button>
                     </h2>
-
+                    <input type="hidden" name="nationality_ids[]" value="<?= $nationality_id; ?>">
                     <div id="collapseOne<?= $count?>" class="collapse  <?php if($count == 1):?> show <?php endif; ?>" aria-labelledby="headingOne" data-parent="#accordionExample<?= $count?>">
                         <div class="row roomacord " >
                             <table id="tariff_slab_table_<?= $nationality_id; ?>" class="table3enquiryclass" style="  width: 798px !important;"  >
@@ -22,10 +22,8 @@
                                     <th class="totalguest"> Room rate</th>
                                     <th class="Adultswith"> Adult with Extra Bed</th>
                                     <th class="Adultswith"> Child With Extra Bed</th>
-                                    <th class="Adultswith"> Child Sharing Bed</th>
-                                    
+                                    <th class="Adultswith"> Child Sharing Bed</th>                                    
                                     <th class="Adultswith"> Single Occupancy</th>
-
                                     <th class="Adults"> Actions</th>
                                 </tr>
                                 <?php
@@ -35,8 +33,10 @@
                                     }
                                     
                                     if($slab_count > 0) {
+                                        $i = 0;
                                         foreach ($tariff->roomTariffSlabs as $slab) {
-                                            echo Yii::$app->controller->renderPartial('_room_rate_slab_row', ['nationality_id' => $nationality_id, 'slab' => $slab, 'room' => $room]);
+                                            echo Yii::$app->controller->renderPartial('_room_rate_slab_row', ['nationality_id' => $nationality_id, 'slab' => $slab, 'room' => $room, 'i' => $i]);
+                                            $i++;
                                         }
                                     }
                                     else {
@@ -44,16 +44,19 @@
                                         echo Yii::$app->controller->renderPartial('_room_rate_slab_row', ['nationality_id' => $nationality_id, 'slab' => $slab, 'room' => $room]);
                                     }
                                 ?>
+                                <!-- 
+                                //Decided to show 5 slab rows for room. No add more button 28 07 2022
                                 <tfoot >
                                 <tr style="height: 15px">
                                 </tr>
                                 <tr style="background-color: #ffffff">
                                     <td class="addmoreguestcount" style="width: 200px" >
-                                        <button class="btnAdd" type="button" style="border-radius: 50%; margin-left: 30px;margin-bottom: 15px;height: 23px;width: 23px;" id="add_new_plan_row" onclick="insertSlabRow(<?= $nationality_id; ?>, <?= $room->same_tariff_for_single_occupancy ?> , <?= $room->number_of_extra_beds ?>, <?= $room->number_of_kids_on_sharing ?> ); return true;"><i  class="fa fa-plus" aria-hidden="true"></i></button>
+                                        <button class="btnAdd" type="button" style="border-radius: 50%; margin-left: 30px;margin-bottom: 15px;height: 23px;width: 23px;" id="add_new_plan_row" onclick="insertSlabRow(<?php // $nationality_id; ?>, <?php //$room->same_tariff_for_single_occupancy ?> , <?php // $room->number_of_extra_beds ?>, <?php // $room->number_of_kids_on_sharing ?> ); return true;"><i  class="fa fa-plus" aria-hidden="true"></i></button>
                                         <span style="padding-left: 3px">Add more </span>
                                     </td>
                                 </tr>
-                                </tfoot>
+                                </tfoot> -->
+
                             </table>
                         </div>
 

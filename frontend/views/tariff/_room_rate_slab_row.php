@@ -4,22 +4,20 @@ if ($slab != NULL) {
     <tr>
     <td class="tdtextpad"><span class="spanTextTable"><?= $slab->number == 0 ? "Rack rate" : "Slab ".$slab->number?></span></td>
     <td  class="Adults">
-    <input type="text" name="room_rate_<?= $nationality_id; ?>[]" class="inputTextroomtable" value="<?= $slab->room_rate ?>" required/>
+    <input type="number" name="room_rate_<?= $nationality_id; ?>[]" class="inputTextroomtable" value="<?= $slab->room_rate ?>" required id="room_rate_<?= $nationality_id; ?>_<?= ($i) ?>"/>
     </td>
     <td class="Adults">
-    <input type="text" name="adult_with_extra_bed_<?= $nationality_id; ?>[]" class="inputTextroomtable" value="<?= ($room->number_of_extra_beds) > 0 ? $slab->adult_with_extra_bed : "" ?>" <?= ($room->number_of_extra_beds) > 0 ? 'required' : 'disabled placeholder="No EBA"' ?> />
+    <input type="number" name="adult_with_extra_bed_<?= $nationality_id; ?>[]" class="inputTextroomtable" value="<?= ($room->number_of_extra_beds) > 0 ? $slab->adult_with_extra_bed : "" ?>" <?= ($room->number_of_extra_beds) > 0 ? 'required' : 'disabled placeholder="No EBA"' ?> id="adult_with_extra_bed_<?= $nationality_id; ?>_<?= ($i) ?>" />
     </td>
     <td class="Adults">
-    <input type="text" name="child_with_extra_bed_<?= $nationality_id; ?>[]" class="inputTextroomtable" value="<?= ($room->number_of_extra_beds) > 0 ? $slab->child_with_extra_bed : "" ?>" <?= ($room->number_of_extra_beds) > 0 ? 'required' : 'disabled placeholder="No CWB"' ?> />
+    <input type="number" name="child_with_extra_bed_<?= $nationality_id; ?>[]" class="inputTextroomtable" value="<?= ($room->number_of_extra_beds) > 0 ? $slab->child_with_extra_bed : "" ?>" <?= ($room->number_of_extra_beds) > 0 ? 'required' : 'disabled placeholder="No CWB"' ?>  id="child_with_extra_bed_<?= $nationality_id; ?>_<?= ($i) ?>" />
     </td>
     <td class="Adults">
-    <input type="text" name="child_sharing_bed_<?= $nationality_id; ?>[]" class="inputTextroomtable" value="<?= ($room->number_of_kids_on_sharing) > 0 ? $slab->child_sharing_bed : "" ?>" <?= ($room->number_of_kids_on_sharing) > 0 ? 'required' : 'disabled placeholder="No CNB"' ?> />
-    </td>
-    
+    <input type="number" name="child_sharing_bed_<?= $nationality_id; ?>[]" class="inputTextroomtable" value="<?= ($room->number_of_kids_on_sharing) > 0 ? $slab->child_sharing_bed : "" ?>" <?= ($room->number_of_kids_on_sharing) > 0 ? 'required' : 'disabled placeholder="No CNB"' ?> id="child_sharing_bed_<?= $nationality_id; ?>_<?= ($i) ?>" />
+    </td>    
     <td class="Adults">
-    <input type="text" name="single_occupancy_<?= $nationality_id; ?>[]" class="inputTextroomtable" value="<?= ($room->same_tariff_for_single_occupancy != 1) ? $slab->single_occupancy : "" ?>" <?= ($room->same_tariff_for_single_occupancy != 1)   ? 'required' : 'disabled placeholder="No SGL"' ?> />
-    </td>
-    
+    <input type="number" name="single_occupancy_<?= $nationality_id; ?>[]" class="inputTextroomtable" value="<?= ($room->same_tariff_for_single_occupancy != 1) ? $slab->single_occupancy : "" ?>" <?= ($room->same_tariff_for_single_occupancy != 1)   ? 'required' : 'disabled placeholder="No SGL"' ?> id="single_occupancy_<?= $nationality_id; ?>_<?= ($i) ?>" />
+    </td>    
     <td class="Adults">
         <?php if ($slab->number > 1) { ?>
             <button id="remr" onclick="deleteSlabRow(this,<?= $nationality_id; ?>); return true;" style="border-radius: 50%;border: 0px;background-color: #f9f9f9"><img src="images/minus.svg" alt="" ></button>
@@ -33,46 +31,48 @@ else {
     <tr>
     <td>Rack Rate</td>
     <td class="Adults">
-    <input type="text" name="room_rate_<?= $nationality_id; ?>[]" class="inputTextroomtable" required/>
+    <input type="number" column="room_rate" slab_number="0" onblur="autofill(this)" name="room_rate_<?= $nationality_id; ?>[]" class="inputTextroomtable" required id="room_rate_<?= $nationality_id; ?>_0" room_id="<?= $room->id ?>" nationality_id="<?= $nationality_id ?>"  />
     </td>
     <td class="Adults">
-    <input type="text" name="adult_with_extra_bed_<?= $nationality_id; ?>[]" class="inputTextroomtable" <?= ($room->number_of_extra_beds) > 0 ? 'required' : 'disabled placeholder="No EBA"' ?>/>
+    <input type="number" column="adult_with_extra_bed" slab_number="0" onblur="autofill(this)" name="adult_with_extra_bed_<?= $nationality_id; ?>[]" class="inputTextroomtable" <?= ($room->number_of_extra_beds) > 0 ? 'required' : 'disabled placeholder="No EBA"' ?> room_id="<?= $room->id ?>" nationality_id="<?= $nationality_id ?>" />
     </td>
     <td class="Adults">
-    <input type="text" name="child_with_extra_bed_<?= $nationality_id; ?>[]" class="inputTextroomtable" <?= ($room->number_of_extra_beds) > 0 ? 'required' : 'disabled placeholder="No CWB"' ?>/>
+    <input type="number" column="child_with_extra_bed" slab_number="0" onblur="autofill(this)" name="child_with_extra_bed_<?= $nationality_id; ?>[]" class="inputTextroomtable" <?= ($room->number_of_extra_beds) > 0 ? 'required' : 'disabled placeholder="No CWB"' ?> room_id="<?= $room->id ?>" nationality_id="<?= $nationality_id ?>" />
     </td>
     <td class="Adults">
-    <input type="text" name="child_sharing_bed_<?= $nationality_id; ?>[]" class="inputTextroomtable" <?= ($room->number_of_kids_on_sharing) > 0 ? 'required' : 'disabled placeholder="No CNB"' ?> />
-    </td>
-    
+    <input type="number" column="child_sharing_bed" slab_number="0" onblur="autofill(this)" name="child_sharing_bed_<?= $nationality_id; ?>[]" class="inputTextroomtable" <?= ($room->number_of_kids_on_sharing) > 0 ? 'required' : 'disabled placeholder="No CNB"' ?> room_id="<?= $room->id ?>" nationality_id="<?= $nationality_id ?>" />
+    </td>    
     <td class="Adults">
-    <input type="text" name="single_occupancy_<?= $nationality_id; ?>[]" class="inputTextroomtable" <?= ($room->same_tariff_for_single_occupancy != 1)   ? 'required' : 'disabled placeholder="No SGL"' ?>/>
-    </td>
-    
+    <input type="number" column="single_occupancy" slab_number="0" onblur="autofill(this)" name="single_occupancy_<?= $nationality_id; ?>[]" class="inputTextroomtable" <?= ($room->same_tariff_for_single_occupancy != 1)   ? 'required' : 'disabled placeholder="No SGL"' ?> room_id="<?= $room->id ?>" nationality_id="<?= $nationality_id ?>"/>
+    </td>    
     <td></td>              
     </tr>
 
-    <tr>
-    <td>Slab 1</td>
-    <td class="Adults">
-    <input type="text" name="room_rate_<?= $nationality_id; ?>[]" class="inputTextroomtable" required/>
-    </td>
-    <td class="Adults">
-    <input type="text" name="adult_with_extra_bed_<?= $nationality_id; ?>[]" class="inputTextroomtable" <?= ($room->number_of_extra_beds) > 0 ? 'required' : 'disabled placeholder="No EBA"' ?> />
-    </td>
-    <td class="Adults">
-    <input type="text" name="child_with_extra_bed_<?= $nationality_id; ?>[]" class="inputTextroomtable" <?= ($room->number_of_extra_beds) > 0 ? 'required' : 'disabled placeholder="No CWB"' ?> />
-    </td>
-    <td class="Adults">
-    <input type="text" name="child_sharing_bed_<?= $nationality_id; ?>[]" class="inputTextroomtable" <?= ($room->number_of_kids_on_sharing) > 0 ? 'required' : 'disabled placeholder="No CNB"' ?> />
-    </td>
-    
-    <td class="Adults">
-    <input type="text" name="single_occupancy_<?= $nationality_id; ?>[]" class="inputTextroomtable" <?= ($room->same_tariff_for_single_occupancy != 1)   ? 'required' : 'disabled placeholder="No SGL"' ?> />
-    </td>
-    
-    <td></td>
-    </tr>    
+    <?php 
+    $i = 0;
+    for ($i= 0; $i < 5; $i++) { ?>
+        <tr>
+        <td>Slab <?= $i + 1 ?></td>
+        <td class="Adults">
+        <input type="number" column="room_rate" slab_number="<?= $i + 1 ?>" onblur="autofill(this)" name="room_rate_<?= $nationality_id; ?>[]" class="inputTextroomtable" required id="room_rate_<?= $nationality_id; ?>_<?= ($i + 1) ?>" room_id="<?= $room->id ?>" nationality_id="<?= $nationality_id ?>" />
+        </td>
+        <td class="Adults">
+        <input type="number" column="adult_with_extra_bed" slab_number="<?= $i + 1 ?>" onblur="autofill(this)" name="adult_with_extra_bed_<?= $nationality_id; ?>[]" class="inputTextroomtable" required   <?= ($room->number_of_extra_beds) > 0 ? 'required' : 'disabled placeholder="No EBA"' ?> room_id="<?= $room->id ?>" nationality_id="<?= $nationality_id ?>"/>
+        </td>
+        <td class="Adults">
+        <input type="number" column="child_with_extra_bed" slab_number="<?= $i + 1 ?>" onblur="autofill(this)" name="child_with_extra_bed_<?= $nationality_id; ?>[]" class="inputTextroomtable" required id="child_with_extra_bed_<?= $nationality_id; ?>_<?= ($i + 1) ?>" <?= ($room->number_of_extra_beds) > 0 ? 'required' : 'disabled placeholder="No CWB"' ?> room_id="<?= $room->id ?>" nationality_id="<?= $nationality_id ?>"  />
+        </td>
+        <td class="Adults">
+        <input type="number" column="child_sharing_bed" slab_number="<?= $i + 1 ?>" onblur="autofill(this)" name="child_sharing_bed_<?= $nationality_id; ?>[]" class="inputTextroomtable" required id="child_sharing_bed_<?= $nationality_id; ?>_<?= ($i + 1) ?>"  <?= ($room->number_of_kids_on_sharing) > 0 ? 'required' : 'disabled placeholder="No CNB"' ?> room_id="<?= $room->id ?>" nationality_id="<?= $nationality_id ?>" />
+        </td>    
+        <td class="Adults">
+        <input type="number" column="single_occupancy" slab_number="<?= $i + 1 ?>" onblur="autofill(this)" name="single_occupancy_<?= $nationality_id; ?>[]" class="inputTextroomtable" required id="single_occupancy_<?= $nationality_id; ?>_<?= ($i + 1) ?>" <?= ($room->same_tariff_for_single_occupancy != 1)   ? 'required' : 'disabled placeholder="No SGL"' ?> room_id="<?= $room->id ?>" nationality_id="<?= $nationality_id ?>" />
+        </td>
+        <td></td>
+        </tr>
+    <?php 
+    }
+    ?>    
 <?php 
 }
 ?>
