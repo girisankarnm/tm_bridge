@@ -582,15 +582,15 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                                 </label>
 
                                 <div class="form-select">
-                                    <select class="select2" multiple="multiple" data-placeholder="Select a State" id="nationality">
+                                    <select class="select2 select-rules" multiple="multiple" data-placeholder="Select a state" id="nationality">
                                     </select>
                                 </div>
 
                             </div>
                             <input type="hidden" id="group_id" name="group_id" value="0">
                             <div class="d-flex align-items-center mb-2">
-                                <button type="button" class="btn btn-border mr-2 button-color button-color-text" onclick="dismissNationaliyModal()">Close</button>
-                                <button type="button" class="btn button-secondary" onclick="saveNationality()">Save Nationality</button>
+                                <button type="button" class="btn btn-border mr-2 button-color button-color-text margin-top-12px-rules" onclick="dismissNationaliyModal()" >Close</button>
+                                <button type="button" class="btn button-secondary margin-top-12px-rules" onclick="saveNationality()">Save Nationality</button>
 
                             </div>
                     </form>
