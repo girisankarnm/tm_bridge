@@ -262,6 +262,9 @@ td.paxcount, th.paxcount {
 td.Adults, th.Adults {
     width:          100px !important;
 }
+td.column-table  ,th.column-table {
+    width:          100px !important;
+}
 td.action-td, th.action-td {
     width:          50px !important;
 }
@@ -393,18 +396,35 @@ input::-webkit-inner-spin-button {
 
 .table3enquiryclass
 {
-    width:750px !important;
-    font-family: Bw-Mitga-regular;
     font-style: normal;
     alignment: inherit;
-    margin-left: 16px;
     margin-right: 12px;
-    margin-top: 15px;
-    margin-bottom: 24px;
     height: fit-content;
-    border: 1px solid  #c69500;
     perspective: 16px;
     text-align: center;
+    box-shadow: 1px 14px 19px 5px #e3e3e3;
+    margin-left: 0px;
+    margin-rigth: 5px;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    width: 100%;
+    heigth: 100%;
+    /* border: 1px solid #333; */
+    padding: 0px;
+    /* border-collapse: separate; */
+    /* border-spacing: 0; */
+    -moz-border-radius-topleft: 7px;
+    -webkit-border-top-left-radius: 7px;
+    /* border-top-left-radius: 7px; */
+    -moz-border-radius-topright: 7px;
+    -webkit-border-top-right-radius: 7px;
+    border-top-right-radius: 7px;
+    -moz-border-radius-bottomleft: 7px;
+    -webkit-border-bottom-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+    -moz-border-radius-bottomright: 7px;
+    -webkit-border-bottom-right-radius: 7px;
+    border-bottom-right-radius: 7px;
 }
 
 .tableadd-meals-class
@@ -421,7 +441,7 @@ input::-webkit-inner-spin-button {
     /*border: 1px solid  #c69500;*/
     perspective: 16px;
     text-align: center;
-    box-shadow: 1px 1px 8px 1px  #e3e3e3;
+    box-shadow: 8px 8px 8px 8px  #e3e3e3;
 }
 
 
