@@ -40,7 +40,7 @@ use borales\extensions\phoneInput\PhoneInput;
                     'jsOptions' => [
                         'onlyCountries' => ['in'],                      
                     ],
-                    'options'=> array('class'=>'inputTextClass', 'placeholder' => '9123456780', 'maxlength' => '12'),
+                    'options'=> array('class'=>'inputTextClass', 'placeholder' => 'Enter 10 digit number', 'maxlength' => '12'),
                 ], )->label(false);?> 
             </div>
             <div style="display: block">
@@ -50,7 +50,7 @@ use borales\extensions\phoneInput\PhoneInput;
                     'jsOptions' => [
                         'onlyCountries' => ['in'],                      
                     ],
-                    'options'=> array('class'=>'inputTextClass', 'placeholder' => '9123456780', 'maxlength' => '12'),
+                    'options'=> array('class'=>'inputTextClass', 'placeholder' => 'Enter 10 digit number', 'maxlength' => '12'),
                 ], )->label(false);?>
             </div>
         </div>

@@ -203,6 +203,16 @@ $currentUrlPrefix = Yii::$app->controller->id ;
         </div>
     </div>
 
+    <div class="hide-smaller-screens fixed-top background-secondary overlay d-lg-none w-100 h-100">
+        <div class="d-flex flex-column justify-content-center align-items-center h-100 m-2">
+            <div class="site-logo w-sm-50 w-md-25 bg-white p-4 rounded mb-4">
+                <img src="/images/logo.svg" alt="" class="img-fluid">
+            </div>
+            <h5 class="text-white font-weight-light text-center"> This screen size is not supported. </h5>
+            <p class="text-lg text-white text-center"> Please switch to your desktop or laptop to use Tour Matrix Bridge </p>
+        </div>
+    </div>
+
     <?php $this->endBody() ?>
 
     <!-- Vendor JS -->
@@ -223,6 +233,12 @@ $currentUrlPrefix = Yii::$app->controller->id ;
             minimumResultsForSearch: -1,
             dropdownAutoWidth: true,
         });
+
+        function disableSiteOnSmallerScreen() {
+            window.innerWidth < 992 ? $('.main-contr').hide() : $('.main-contr').show();
+        }
+
+        $(window).resize( () => disableSiteOnSmallerScreen() );
     </script>
 
 </body>
