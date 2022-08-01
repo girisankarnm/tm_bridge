@@ -78,7 +78,7 @@ const MAXIMUM_NUMBER_OF_RATE_SLAB = 15;
 
   //insertSlabRow(<?php // $nationality_id; ?>, <?php //$room->same_tariff_for_single_occupancy ?> , <?php // $room->number_of_extra_beds ?>, <?php // $room->number_of_kids_on_sharing ?> );
 
-  function submitRoomRates() {
+  function submitRoomRates() {    
 
     var nationality_ids = document.getElementsByName('nationality_ids[]');
     let bValid = true;
@@ -87,17 +87,21 @@ const MAXIMUM_NUMBER_OF_RATE_SLAB = 15;
       columns = ['room_rate', 'adult_with_extra_bed', 'child_with_extra_bed', 'child_sharing_bed', 'single_occupancy'];
 
       columns.forEach(column => {
-        //TODO: reset to deafult color
+        
         var room_rates = document.getElementsByName( column + '_' + nationality.value + '[]');
-        for (var j = 0; j < (room_rates.length - 1); j++) {          
+        for (var j = 0; j < (room_rates.length - 1); j++) {
+            //TODO: reset to deafult color
+            var id = column + '_' + nationality.value + '_' + (j+1);            
+            document.getElementById(id).style.borderColor = '#c3c3c3';
+
             if( parseInt(room_rates[j].value) < parseInt(room_rates[j+1].value)) {              
               //Error
               bValid = false;
               console.log("Error: Higher slab shoul have less amount, Nationality: " + nationality.value + " Row: " + (j+1) );
               var id = column + '_' + nationality.value + '_' + (j+1);
               //TODO: Fix RED color
-              document.getElementById(id).style.borderColor='#FF0000';
-              document.getElementById(id).style.border='solid';
+              document.getElementById(id).style.borderColor = '#FF0000';
+              //document.getElementById(id).style.border='double dashed';
             }
         }  
       });      
@@ -105,6 +109,7 @@ const MAXIMUM_NUMBER_OF_RATE_SLAB = 15;
 
     if (!bValid) {
       console.log("Error");
+      toastr.error("Invalid tariff entered");
     }
     else {      
       $( "#tariff_step3").submit();

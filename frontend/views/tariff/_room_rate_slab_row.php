@@ -53,7 +53,7 @@ else {
         <input type="number" column="room_rate" slab_number="<?= $i + 1 ?>" onblur="autofill(this)" name="room_rate_<?= $nationality_id; ?>[]" class="inputTextroomtable" required id="room_rate_<?= $nationality_id; ?>_<?= ($i + 1) ?>" room_id="<?= $room->id ?>" nationality_id="<?= $nationality_id ?>" />
         </td>
         <td class="Adults">
-        <input type="number" column="adult_with_extra_bed" slab_number="<?= $i + 1 ?>" onblur="autofill(this)" name="adult_with_extra_bed_<?= $nationality_id; ?>[]" class="inputTextroomtable" required   <?= ($room->number_of_extra_beds) > 0 ? 'required' : 'disabled placeholder="No EBA"' ?> room_id="<?= $room->id ?>" nationality_id="<?= $nationality_id ?>"/>
+        <input type="number" column="adult_with_extra_bed" slab_number="<?= $i + 1 ?>" onblur="autofill(this)" name="adult_with_extra_bed_<?= $nationality_id; ?>[]" class="inputTextroomtable" required id="adult_with_extra_bed_<?= $nationality_id; ?>_<?= ($i + 1) ?>"  <?= ($room->number_of_extra_beds) > 0 ? 'required' : 'disabled placeholder="No EBA"' ?> room_id="<?= $room->id ?>" nationality_id="<?= $nationality_id ?>"/>
         </td>
         <td class="Adults">
         <input type="number" column="child_with_extra_bed" slab_number="<?= $i + 1 ?>" onblur="autofill(this)" name="child_with_extra_bed_<?= $nationality_id; ?>[]" class="inputTextroomtable" required id="child_with_extra_bed_<?= $nationality_id; ?>_<?= ($i + 1) ?>" <?= ($room->number_of_extra_beds) > 0 ? 'required' : 'disabled placeholder="No CWB"' ?> room_id="<?= $room->id ?>" nationality_id="<?= $nationality_id ?>"  />

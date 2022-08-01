@@ -15,11 +15,11 @@ class m211218_095237_create_room_tariff_slab_table extends Migration
         $this->createTable('{{%room_tariff_slab}}', [
             'id' => $this->primaryKey(),
             'number' => $this->smallInteger(2)->defaultValue(null),            
-            'room_rate' =>  $this->money(7, 2)->defaultValue(null),
-            'adult_with_extra_bed' =>  $this->money(7, 2)->defaultValue(null),
-            'child_with_extra_bed' =>  $this->money(7, 2)->defaultValue(null),
-            'child_sharing_bed' =>  $this->money(7, 2)->defaultValue(null),
-            'single_occupancy' =>  $this->money(7, 2)->defaultValue(null),            
+            'room_rate' =>  $this->money(7, 2)->defaultValue(0),
+            'adult_with_extra_bed' =>  $this->money(7, 2)->defaultValue(0),
+            'child_with_extra_bed' =>  $this->money(7, 2)->defaultValue(0),
+            'child_sharing_bed' =>  $this->money(7, 2)->defaultValue(0),
+            'single_occupancy' =>  $this->money(7, 2)->defaultValue(0),            
             'tariff_id' =>  $this->integer(11)->defaultValue(null),
         ]);
 
