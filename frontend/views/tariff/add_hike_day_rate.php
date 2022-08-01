@@ -156,14 +156,14 @@ function saveWeekdayHike() {
                                 <label  style="margin: 8px" >Room have week day hike rate during this date range </label>
                             </div>
                                 <div class="row" style="margin-left: 15px; display: <?= ($day_hike != NULL) ? "block" : "none" ?>" id="slab_div_room_<?= $room->id?>">
-                                        <table id="customers" class="table3enquiryclass" >
+                                        <table id="tariff-week-day-hiketable" class="table-weekday-hike" >
                                             <tr  class="thtableguestcount">
-                                                <th> Weekday</th>
-                                                <th> Hike Amount Room</th>
-                                                <th> Adult with Extra Bed</th>
-                                                <th> Child With Extra Bed</th>
-                                                <th> Child Sharing Bed</th>
-                                                <th> Single Occupancy</th>
+                                                <th class="column-table"> Weekday</th>
+                                                <th class="column-table"> Hike Amount Room</th>
+                                                <th class="column-table"> Adult with Extra Bed</th>
+                                                <th class="column-table"> Child With Extra Bed</th>
+                                                <th class="column-table"> Child Sharing Bed</th>
+                                                <th class="column-table"> Single Occupancy</th>
                                             </tr>
                                             <?php
                                             $week_day_index = 0;
@@ -186,13 +186,13 @@ function saveWeekdayHike() {
                                                 }
                                             ?>
                                                 <tr>
-                                                    <td><input id ='<?= $week_days[$week_day_index]."_room_".$room->id?>' class="material-checkbox" type="checkbox" value="<?= $week_day_index ?>" style="margin-left: 4px" name="week_days_room_<?=$room->id?>[]" <?= ArrayHelper::isIn( $week_day_index , $days) ? "checked" : "" ?>  onclick="week_day_click(this);">
+                                                    <td class="text-align-left"><input id ='<?= $week_days[$week_day_index]."_room_".$room->id?>' class="material-checkbox text-align-left" type="checkbox" value="<?= $week_day_index ?>" style="margin-left: 4px" name="week_days_room_<?=$room->id?>[]" <?= ArrayHelper::isIn( $week_day_index , $days) ? "checked" : "" ?>  onclick="week_day_click(this);">
                                                     <label  style ="margin: 8px" ><?= $week_days[$week_day_index] ?> </label></td>
-                                                    <td><input type="text" name="room_rate_<?=$room->id?>[]" id="weekday_room_rate_<?= $week_days[$week_day_index] ?>_room_<?=$room->id?>" class="inputTextClass enquiryTable" style="width: 100px;height: 33px;margin-top: 24px;" value="<?= isset($tariff_slab) ? $tariff_slab->room_rate : 0 ?>" /></td>
-                                                    <td><input type="text" name="adult_with_extra_bed_<?=$room->id?>[]" id="weekday_adult_with_extra_bed_<?= $week_days[$week_day_index] ?>_room_<?=$room->id?>" style="width: 100px;height: 33px;margin-top: 24px;" class="inputTextClass enquiryTable" value="<?= isset($tariff_slab) ? $tariff_slab->adult_with_extra_bed : 0 ?>"/></td>
-                                                    <td><input type="text" name="child_with_extra_bed_<?=$room->id?>[]" id="weekday_child_with_extra_bed_<?= $week_days[$week_day_index] ?>_room_<?=$room->id?>" style="width: 100px;height: 33px;margin-top: 24px;" class="inputTextClass enquiryTable" value="<?= isset($tariff_slab) ? $tariff_slab->child_with_extra_bed : 0 ?>"/></td>
-                                                    <td><input type="text" name="child_sharing_bed_<?=$room->id?>[]" id="weekday_child_sharing_bed_<?= $week_days[$week_day_index] ?>_room_<?=$room->id?>" style="width: 100px;height: 33px;margin-top: 24px;" class="inputTextClass enquiryTable" value="<?= isset($tariff_slab) ? $tariff_slab->child_sharing_bed : 0 ?>" /></td>
-                                                    <td><input type="text" name="single_occupancy_<?=$room->id?>[]" id="weekday_single_occupancy_<?= $week_days[$week_day_index] ?>_room_<?=$room->id?>" style="width: 100px;height: 33px;margin-top: 24px;" class="inputTextClass enquiryTable" value="<?= isset($tariff_slab) ? $tariff_slab->single_occupancy : 0 ?>" /></td>            
+                                                    <td class="column-table"><input type="text" name="room_rate_<?=$room->id?>[]" id="weekday_room_rate_<?= $week_days[$week_day_index] ?>_room_<?=$room->id?>" class="inputTextClass enquiryTable" style="width: 100px;height: 33px;margin-top: 24px;" value="<?= isset($tariff_slab) ? $tariff_slab->room_rate : 0 ?>" /></td>
+                                                    <td class="column-table"><input type="text" name="adult_with_extra_bed_<?=$room->id?>[]" id="weekday_adult_with_extra_bed_<?= $week_days[$week_day_index] ?>_room_<?=$room->id?>" style="width: 100px;height: 33px;margin-top: 24px;" class="inputTextClass enquiryTable" value="<?= isset($tariff_slab) ? $tariff_slab->adult_with_extra_bed : 0 ?>"/></td>
+                                                    <td class="column-table"><input type="text" name="child_with_extra_bed_<?=$room->id?>[]" id="weekday_child_with_extra_bed_<?= $week_days[$week_day_index] ?>_room_<?=$room->id?>" style="width: 100px;height: 33px;margin-top: 24px;" class="inputTextClass enquiryTable" value="<?= isset($tariff_slab) ? $tariff_slab->child_with_extra_bed : 0 ?>"/></td>
+                                                    <td class="column-table"><input type="text" name="child_sharing_bed_<?=$room->id?>[]" id="weekday_child_sharing_bed_<?= $week_days[$week_day_index] ?>_room_<?=$room->id?>" style="width: 100px;height: 33px;margin-top: 24px;" class="inputTextClass enquiryTable" value="<?= isset($tariff_slab) ? $tariff_slab->child_sharing_bed : 0 ?>" /></td>
+                                                    <td class="column-table"><input type="text" name="single_occupancy_<?=$room->id?>[]" id="weekday_single_occupancy_<?= $week_days[$week_day_index] ?>_room_<?=$room->id?>" style="width: 100px;height: 33px;margin-top: 24px;" class="inputTextClass enquiryTable" value="<?= isset($tariff_slab) ? $tariff_slab->single_occupancy : 0 ?>" /></td>
                                                 </tr>
                                             <?php 
                                                 $week_day_index++;

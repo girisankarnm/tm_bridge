@@ -42,7 +42,9 @@ $this->registerCssFile('/css/full-page.css');
             <?php }?>
 
         <div style="float: right; margin-bottom: 20px">
-            <button id="save_suggestion" type="submit" class="login-button" style="font-weight: bold">Save</button>
+            <?php if ($status != 1 && $status != 2){?>
+                <button id="save_suggestion" type="submit" class="login-button" style="font-weight: bold">Submit</button>
+            <?php }?>
             <button id="save_suggestion" type="button" onclick="window.close()" class="login-button" style="font-weight: bold">Close</button>
         </div>
 <!--        <div style="text-align: center;">-->

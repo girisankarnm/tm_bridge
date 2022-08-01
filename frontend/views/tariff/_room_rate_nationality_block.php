@@ -16,15 +16,15 @@
                     <input type="hidden" name="nationality_ids[]" value="<?= $nationality_id; ?>">
                     <div id="collapseOne<?= $count?>" class="collapse  <?php if($count == 1):?> show <?php endif; ?>" aria-labelledby="headingOne" data-parent="#accordionExample<?= $count?>">
                         <div class="row roomacord " >
-                            <table id="tariff_slab_table_<?= $nationality_id; ?>" class="table3enquiryclass" style="  width: 798px !important;"  >
-                                <tr class="thtableguestcount" >
+                            <table id="tariff_slab_table_<?= $nationality_id; ?>" class="table-room-rate-tariff"   >
+                                <tr class="th-table-tarif-room" >
                                     <th class="totalguest"> Rate slabs</th>
                                     <th class="totalguest"> Room rate</th>
                                     <th class="Adultswith"> Adult with Extra Bed</th>
                                     <th class="Adultswith"> Child With Extra Bed</th>
                                     <th class="Adultswith"> Child Sharing Bed</th>                                    
                                     <th class="Adultswith"> Single Occupancy</th>
-                                    <th class="Adults"> Actions</th>
+
                                 </tr>
                                 <?php
                                     $slab_count = 0;

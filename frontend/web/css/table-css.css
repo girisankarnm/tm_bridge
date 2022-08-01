@@ -37,12 +37,28 @@
     height: 33px;
     text-align: center;
 }
+.th-table-tarif-room {
+    color: #FFFFFF !important;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #586ADA !important;
+    color: white;
+    font-family: Bw-Mitga-regular;
+    font-style: normal;
+    font-weight: 200;
+    font-size: 11px;
+    height: 33px;
+    text-align: center;
+}
 
 
+.th-table-tarif-room th {
+    background-color: #586ADA !important;
+    color: white;
+}
 .thtableguestcount th {
     background-color: #586ADA !important;
     color: white;
-
 }
 
 

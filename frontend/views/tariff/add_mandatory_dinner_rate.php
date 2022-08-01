@@ -31,16 +31,16 @@ function addRow(){
  */
    var row_html = '<tr>' + 
    '<td class="Adults">' +
-   '<input type="text" class="inputTextClass table-td-inputwidth" name="dinner_daterange[]" />' +
+   '<input type="text" class="inputDate-tariff add-mandatory-dinner-input" name="dinner_daterange[]" />' +
    '</td>' + 
    '<td class="Adults">' +
-   '<input type="text" class="inputTextClass table-td-inputwidth" name="event_name[]" >' +
+   '<input type="text" class="inputDate-tariff add-mandatory-dinner-input" name="event_name[]" >' +
    '</td>' +
    '<td class="Adults">' +
-   '<input type="number" class="inputTextClass table-td-inputwidth" name="adult_rate[]">' +
+   '<input type="number" class="inputDate-tariff add-mandatory-dinner-input" name="adult_rate[]">' +
    '</td>' + 
    '<td class="Adults">' +
-   '<input type="number" class="inputTextClass table-td-inputwidth" name="child_rate[]">' +
+   '<input type="number" class="inputDate-tariff add-mandatory-dinner-input" name="child_rate[]">' +
    '</td>' + 
    '<td class="action-td">' +
    '<button id="remvr" onclick="removeRow(this)" class="remove-padding-top" style="border-radius: 50%;border: 0px;background-color: #f9f9f9"><img src="images/minus.svg"  ></button>' +
@@ -131,7 +131,7 @@ function attachDatePicker() {
         <label style="margin: -3px">We have mandatory dinner during this date range</label>
     </div>
         <div class="row" id="mandatory_dinner" style= "display: <?= count($dinners) > 0 ? "block" : "none" ?>" >            
-            <table id="dinner_table" class="tableadd-meals-class" >
+            <table id="dinner_table" class="table-mandatory-add" >
                 <tr  class="thtableguestcount " >
                     <th class="Adults" >Date</th>
                     <th class="Adults">Inclusion Name</th>
@@ -146,10 +146,10 @@ function attachDatePicker() {
             foreach ($dinners as $dinner)        
             { ?>
                 <tr>
-                    <td class="Adults"><input type="text" class="inputTextClass add-mandatorydinner-input"  name="dinner_daterange[]" value = "<?= Carbon::parse($dinner->date)->format('d M Y'); ?>" required /></td>
-                    <td class="Adults"><input type="text" class="inputTextClass add-mandatorydinner-input" name="event_name[]" value = "<?= $dinner->name ?>" required >  </td>
-                    <td class="Adults"><input type="number" class="inputTextClass add-mandatorydinner-input" name="adult_rate[]" value = "<?= $dinner->rate_adult ?>" required ></td>
-                    <td class="Adults"><input type="number" class="inputTextClass add-mandatorydinner-input" name="child_rate[]" value = "<?= $dinner->rate_child ?>" required ></td>
+                    <td class="Adults"><input type="text" class="inputDate-tariff add-mandatory-dinner-input"  name="dinner_daterange[]" value = "<?= Carbon::parse($dinner->date)->format('d M Y'); ?>" required /></td>
+                    <td class="Adults"><input type="text" class="inputDate-tariff add-mandatory-dinner-input" name="event_name[]" value = "<?= $dinner->name ?>" required >  </td>
+                    <td class="Adults"><input type="number" class="inputDate-tariff add-mandatory-dinner-input" name="adult_rate[]" value = "<?= $dinner->rate_adult ?>" required ></td>
+                    <td class="Adults"><input type="number" class="inputDate-tariff add-mandatory-dinner-input" name="child_rate[]" value = "<?= $dinner->rate_child ?>" required ></td>
                     <td class="action-td">
                         <?php if($i != 0) { ?>
                             <i name="compulsory_rem" class="fa fa-minus fa-lg text-danger mt-2 ml-4" onclick="removeRow(this)"></i>
@@ -175,10 +175,10 @@ function attachDatePicker() {
         {
         ?>
             <tr>
-                <td class="Adults"><input type="text" class="inputTextClass table-td-inputwidth" name="dinner_daterange[]" required /></td>
-                <td class="Adults"><input type="text" class="inputTextClass table-td-inputwidth" name="event_name[]" required></td>
-                <td class="Adults"><input type="number" class="inputTextClass table-td-inputwidth" name="adult_rate[]" required ></td>
-                <td class="Adults"><input type="number" class="inputTextClass table-td-inputwidth" name="child_rate[]" required></td>
+                <td class="Adults"><input type="text" class="inputDate-tariff add-mandatory-dinner-input" name="dinner_daterange[]" required /></td>
+                <td class="Adults"><input type="text" class="inputDate-tariff add-mandatory-dinner-input" name="event_name[]" required></td>
+                <td class="Adults"><input type="number" class="inputDate-tariff add-mandatory-dinner-input" name="adult_rate[]" required ></td>
+                <td class="Adults"><input type="number" class="inputDate-tariff add-mandatory-dinner-input" name="child_rate[]" required></td>
                 <td class="Adults1"></td>
             </tr>
             <tfoot >
