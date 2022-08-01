@@ -449,7 +449,7 @@ class TariffController extends Controller {
         ]);
     }
 
-    public function actionSaveroomrates(){
+    public function actionSaveroomrates(){        
         $room_id = $_POST["room_id"];
         $date_range_id = $_POST["date_range_id"];
         $property_id = $_POST["property_id"];
@@ -502,11 +502,11 @@ class TariffController extends Controller {
             for ($i = 0; $i < $slab_count; $i++ ) {
                 $slab = new RoomTariffSlab();
                 $slab->number = $i;
-                $slab->room_rate = $_POST["room_rate_".$nationality][$i];
-                $slab->adult_with_extra_bed = ($room->number_of_extra_beds > 0 ) ? $_POST["adult_with_extra_bed_".$nationality][$i] : 0;
-                $slab->child_with_extra_bed = ($room->number_of_extra_beds > 0 ) ? $_POST["child_with_extra_bed_".$nationality][$i] : 0;
-                $slab->child_sharing_bed = ($room->number_of_kids_on_sharing > 0) ? $_POST["child_sharing_bed_".$nationality][$i] : 0;                
-                $slab->single_occupancy = ($room->same_tariff_for_single_occupancy != 1) ? $_POST["single_occupancy_".$nationality][$i] : 0;
+                $slab->room_rate = ( $_POST["room_rate_".$nationality][$i] == NULL) ? 0 : $_POST["room_rate_".$nationality][$i];
+                $slab->adult_with_extra_bed = ($room->number_of_extra_beds > 0 ) ? (($_POST["adult_with_extra_bed_".$nationality][$i] == NULL ) ? 0 : $_POST["adult_with_extra_bed_".$nationality][$i] ) : 0;
+                $slab->child_with_extra_bed = ($room->number_of_extra_beds > 0 ) ? (( $_POST["child_with_extra_bed_".$nationality][$i] == NULL) ? 0 : $_POST["child_with_extra_bed_".$nationality][$i] ) : 0;
+                $slab->child_sharing_bed = ($room->number_of_kids_on_sharing > 0) ? (($_POST["child_sharing_bed_".$nationality][$i] == NULL) ? 0 : $_POST["child_sharing_bed_".$nationality][$i] ) : 0;                
+                $slab->single_occupancy = ($room->same_tariff_for_single_occupancy != 1) ? (($_POST["single_occupancy_".$nationality][$i] == NULL) ? 0 : $_POST["single_occupancy_".$nationality][$i] ) : 0;
                 $slab->tariff_id = $room_tariff->getPrimaryKey();
                 $slab->save();                          
             }
