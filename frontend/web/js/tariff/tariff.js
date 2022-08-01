@@ -91,15 +91,17 @@ const MAXIMUM_NUMBER_OF_RATE_SLAB = 15;
         var room_rates = document.getElementsByName( column + '_' + nationality.value + '[]');
         for (var j = 0; j < (room_rates.length - 1); j++) {
             //TODO: reset to deafult color
-            var id = column + '_' + nationality.value + '_' + (j+1);
-            document.getElementById(id).style.borderColor='#c3c3c3';            
+            var id = column + '_' + nationality.value + '_' + (j+1);            
+            document.getElementById(id).style.borderColor = '#c3c3c3';
 
             if( parseInt(room_rates[j].value) < parseInt(room_rates[j+1].value)) {              
               //Error
               bValid = false;
-              console.log("Error: Higher slab shoul have less amount, Nationality: " + nationality.value + " Row: " + (j+1) );              
-              
-              document.getElementById(id).style.borderColor='#FF0000';              
+              console.log("Error: Higher slab shoul have less amount, Nationality: " + nationality.value + " Row: " + (j+1) );
+              var id = column + '_' + nationality.value + '_' + (j+1);
+              //TODO: Fix RED color
+              document.getElementById(id).style.borderColor = '#FF0000';
+              //document.getElementById(id).style.border='double dashed';
             }
         }  
       });      
