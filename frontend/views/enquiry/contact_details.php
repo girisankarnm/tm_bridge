@@ -11,11 +11,11 @@ use borales\extensions\phoneInput\PhoneInput;
         </div>
         <div class="tariffBorder" style="margin-top: 20px;">
         <div class="tab">
-            <a href="<?= \yii\helpers\Url::to(['/enquiry/basicdetails', 'id' => $enquiry->id]) ?>"> <button class="tablinks btnunder"  >Basic Details</button></a>
+            <a href="<?= \yii\helpers\Url::to(['/enquiry/basicdetails', 'id' => $enquiry->id]) ?>"> <button class="tablinks btnunder">Basic Details</button></a>
             <div style="display: inline">   <a href="<?= \yii\helpers\Url::to(['/enquiry/contactdetails', 'id' => $enquiry->id]) ?>">  <button class="selectedButton"  >Contact Details</button></a> <hr class="new5" >
             </div>
-            <a href="<?= \yii\helpers\Url::to(['/enquiry/guestcount', 'id' => $enquiry->id]) ?>"> <button class="tablinks" >Guest Count</button></a>
-            <a href="<?= \yii\helpers\Url::to(['/enquiry/accommodation', 'id' => $enquiry->id]) ?>"><button class="tablinks" >Accommodation</button></a>
+            <a href="<?= \yii\helpers\Url::to(['/enquiry/guestcount', 'id' => $enquiry->id]) ?>"> <button class="tablinks">Guest Count</button></a>
+            <a href="<?= \yii\helpers\Url::to(['/enquiry/accommodation', 'id' => $enquiry->id]) ?>"><button class="tablinks">Accommodation</button></a>
         </div>
         <hr class="sidebar-divider">
 

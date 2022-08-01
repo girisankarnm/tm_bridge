@@ -12,8 +12,8 @@
             <div class="tab" >
         <div style="display: inline">   <a href="<?= \yii\helpers\Url::to(['/tariff/tariffmotherdaterange']) ?>">  <button class="selectedButtonmotherdaterange"  >Mother date range</button></a> <hr class="new6" >
         </div>
-        <a href="<?= \yii\helpers\Url::to(['/tariff/tariffmotherroomrate']) ?>">   <button id="contactBtn" class="tablinks2" >Room rate</button></a>
-        <a href="<?= \yii\helpers\Url::to(['/tariff/tariffmothermealrate']) ?>"> <button class="tablinks2" >Meal rate</button></a>
+        <a href="<?= \yii\helpers\Url::to(['/tariff/tariffmotherroomrate']) ?>">   <button id="contactBtn" class="tablinks2"  >Room rate</button></a>
+        <a href="<?= \yii\helpers\Url::to(['/tariff/tariffmothermealrate']) ?>"> <button class="tablinks2"  >Meal rate</button></a>
         <a href="<?= \yii\helpers\Url::to(['/tariff/tariffmotherhikedayrate']) ?>"><button class="tablinks2" >Hike day rate</button></a>
         <a href="<?= \yii\helpers\Url::to(['/tariff/tariffmothermandatorydinner']) ?>"><button class="tablinks2" >Mandatory dinner</button></a>
     </div>
