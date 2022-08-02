@@ -672,17 +672,15 @@ class TariffController extends Controller {
 
         $tariff = (int) Yii::$app->request->get('tariff');
 
-       /*  $is_allow_skip = false;
-        if($suppliment_meal !=  NULL) {
-            $is_allow_skip = true;
-        }    */
-
+        /* Hike day become optional, so allow to skip
         $is_allow_skip = false;
         if(isset($date_range->roomTariffWeekdayhikes)) {
             if (count($date_range->roomTariffWeekdayhikes) > 0) {
                 $is_allow_skip = true;
             }
-        }        
+        }  */
+
+        $is_allow_skip = true;
         
         $this->layout = 'tm_main';
         return $this->render('add_hike_day_rate', [
