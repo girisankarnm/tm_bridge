@@ -75,8 +75,7 @@ const MAXIMUM_NUMBER_OF_RATE_SLAB = 15;
           table.rows[j].cells[0].innerHTML = 'Slab' +  currentRow;
       }
   }
-
-  //insertSlabRow(<?php // $nationality_id; ?>, <?php //$room->same_tariff_for_single_occupancy ?> , <?php // $room->number_of_extra_beds ?>, <?php // $room->number_of_kids_on_sharing ?> );
+  
 
   function submitRoomRates() {    
 
@@ -89,8 +88,7 @@ const MAXIMUM_NUMBER_OF_RATE_SLAB = 15;
       columns.forEach(column => {
         
         var room_rates = document.getElementsByName( column + '_' + nationality.value + '[]');
-        for (var j = 0; j < (room_rates.length - 1); j++) {
-            //TODO: reset to deafult color
+        for (var j = 0; j < (room_rates.length - 1); j++) {            
             var id = column + '_' + nationality.value + '_' + (j+1);            
             document.getElementById(id).style.borderColor = '#c3c3c3';
 
@@ -99,7 +97,7 @@ const MAXIMUM_NUMBER_OF_RATE_SLAB = 15;
               bValid = false;
               console.log("Error: Higher slab shoul have less amount, Nationality: " + nationality.value + " Row: " + (j+1) );
               var id = column + '_' + nationality.value + '_' + (j+1);
-              //TODO: Fix RED color
+              
               document.getElementById(id).style.borderColor = '#FF0000';
               //document.getElementById(id).style.border='double dashed';
             }
@@ -107,9 +105,8 @@ const MAXIMUM_NUMBER_OF_RATE_SLAB = 15;
       });      
     }
 
-    if (!bValid) {
-      console.log("Error");
-      toastr.error("Invalid tariff entered");
+    if (!bValid) {      
+      toastr.error("Higher slab is expected to have less amount");
     }
     else {      
       $( "#tariff_step3").submit();
@@ -121,9 +118,8 @@ function autofill(input) {
 
   if($.inArray( $(input).attr('nationality_id') + "_" + $(input).attr('column') + "_" + $(input).attr('slab_number'), clonedNationality) >= 0 ) {
     return;
-  }  
-
-  //console.log("onInput" + $(input).attr('nationality_id')  + " : " +  $(input).attr('room_id') );
+  }
+  
   var rows = document.getElementsByName($(input).attr('column') + '_'+ $(input).attr('nationality_id') + '[]');  
   for (var j = ( parseInt($(input).attr('slab_number')) + 1); j < rows.length; j++) {
     rows[j].value = input.value;
