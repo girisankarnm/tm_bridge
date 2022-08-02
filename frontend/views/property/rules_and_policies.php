@@ -75,7 +75,7 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                             <input type="hidden" value="<?= $property->id ?>" name="property_id" id="property_id">
                             <div class="d-flex form-group align-items-center">
                                 <div class="checkmark">
-                                    <?= $form->field($property, 'twenty_four_hours_check_in')->inline()->radioList([1 => '24 hour check out', 2 => 'Select check-in check-out'],['class' => 'checkmark','style' => 'margin-left: -0.7rem;'])->label(false); ?>
+                                    <?= $form->field($property, 'twenty_four_hours_check_in')->inline()->radioList([1 => '24 hour check out', 2 => 'Select check-in & check-out time'],['class' => 'checkmark','style' => 'margin-left: -0.7rem;'])->label(false); ?>
                                 </div>
 
                                 <div id="checkincheckoutblock" style="margin-top: 20px;
