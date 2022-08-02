@@ -78,7 +78,12 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                                     <?= $form->field($property, 'twenty_four_hours_check_in')->inline()->radioList([1 => '24 hour check out', 2 => 'Select check-in check-out'],['class' => 'checkmark','style' => 'margin-left: -0.7rem;'])->label(false); ?>
                                 </div>
 
-                                <div id="checkincheckoutblock" style="margin-top: 20px; display: none">
+                                <div id="checkincheckoutblock" style="margin-top: 20px;
+                                <?php if($property->twenty_four_hours_check_in == 1 ) { ?>
+                                     display: none;
+                                <?php } else { ?>
+                                        display: block;
+                                <?php } ?> ">
                                     <div style="display: inline-block">
                                         <?php echo $form->field($property, 'check_in_time')->dropDownList($time_slot, ['class' => 'time_c padding-time','prompt' => 'Check in', ($property->twenty_four_hours_check_in == 2 ) ? '' : 'disabled' => 'disabled' ])->label(false); ?>
                                     </div>
