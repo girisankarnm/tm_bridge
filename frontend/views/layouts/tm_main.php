@@ -209,7 +209,7 @@ $currentUrlPrefix = Yii::$app->controller->id ;
                 <img src="/images/logo.svg" alt="" class="img-fluid">
             </div>
             <h5 class="text-white font-weight-light text-center"> This screen size is not supported. </h5>
-            <p class="text-lg text-white text-center"> Please switch to your desktop or laptop to use Tour Matrix Bridge </p>
+            <p class="text-lg text-white text-center"> Please switch to your desktop or laptop to use TourMatrix BRIDGE </p>
         </div>
     </div>
 
