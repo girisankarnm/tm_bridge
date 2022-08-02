@@ -2,6 +2,9 @@ $(document).ready(function() {
     $("#basicdetails-tour_duration").on("input", function() {        
         setTourEndDate();    
      });
+    $("#basicdetails-tour_start_date").on("change", function() {
+        setTourEndDate();
+    });
 });
 
 function setTourEndDate(e){

@@ -28,7 +28,7 @@ $this->registerJsFile('/js/enquiry/accomodation.js');
         <hr class="sidebar-divider">
         <?php $form = ActiveForm::begin(['id' => 'form_enquiry_accomodation','enableClientValidation' => false, 'method' => 'post','action' => ['enquiry/saveaccommodation']]) ?>
         <input type="hidden" id="enquiry_id" name="enquiry_id" value=<?php echo  $enquiry->id; ?> >
-        <div class="row">
+        <div class="row" style="margin-right: 5px">
             <table id="guest_count_same_table " class="table3accomadatonclass" >
                 <tr  class="thtableaccomadation" >
                     <th>Day</th>

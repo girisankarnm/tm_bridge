@@ -165,13 +165,16 @@ function applyChildAgeBreakup(){
     //console.log("sumOfCount: " + sumOfCount);
     //console.log("totalChild: " + totalChild);
     if ((ageFlag === 1) && (countFlag === 1)){
-        $('#ageBreakupValidation').text("age and count fields are empty ").style(display("block"));
+        $('#ageBreakupValidation').text("age and count fields are empty ")
+        return false;
     }
     else if((ageFlag === 1)){
-        $('#ageBreakupValidation').text("age field is empty ").style(display("block"));
+        $('#ageBreakupValidation').text("age field is empty ")
+        return false;
     }
     else if((countFlag === 1)){
-        $('#ageBreakupValidation').text("count field is empty ").style(display("block"));
+        $('#ageBreakupValidation').text("count field is empty ")
+        return false;
     }
     else {
         if(sumOfCount === totalChild ){
@@ -180,11 +183,13 @@ function applyChildAgeBreakup(){
         }
         else if (sumOfCount < totalChild ) {
             $('#span_child_validation_'+plan_id).text("Short by "+ (totalChild - sumOfCount));
-            $('#ageBreakupValidation').text("Child count short by "+ (totalChild - sumOfCount)).style(display("block"));
+            $('#ageBreakupValidation').text("Child count short by "+ (totalChild - sumOfCount))
+            return false;
         }
         else if (sumOfCount >totalChild ) {
             $('#span_child_validation_'+plan_id).text("Excess by "+ (sumOfCount - totalChild));
-            $('#ageBreakupValidation').text("Child count excess by "+ (sumOfCount - totalChild)).style(display("block"));
+            $('#ageBreakupValidation').text("Child count excess by "+ (sumOfCount - totalChild))
+            return false;
         }
     }
 
@@ -252,7 +257,8 @@ function addAgeSplitupRow()
 }
 function checkAge(age) {
     if ((age > 17) || (age < 0)){
-        $('#ageBreakupValidation').text("Age must be less than 17").style(display("block"));
+        $('#ageBreakupValidation').text("Age must be less than 17")
+        return false;
     }
 }
 
@@ -277,7 +283,7 @@ function addPlanRow()
 
     $("#guest_count_differnt_table").append('<tr><td>Plan '+ (rowCount-2) +'</td>' +
         '<td><input uid="'+ unique_plan_id +'" type="hidden" id="plan_uid" name="plan_uid[]" value="'+ unique_plan_id +'"><input type="text" uid="'+ unique_plan_id +'" class="inputTextClass enquiryTable" style="width: 100px;height: 33px" name="adults[]" id="adults_' + unique_plan_id+ '" onchange="updateGuestCountTotal(this)" /></td><td><input uid="'+ unique_plan_id +'" type="text" class="inputTextClass enquiryTable" style="width: 100px;height: 33px" name="children[]" id="children_' + unique_plan_id+ '" onchange="updateGuestCountTotal(this)" /></td><td><button type="button" id="add_age_breakup" onclick="showChildBreakupModal(this)"class="btn btn-sm btn-outline-primary childplus plusbutton" unique_plan_id="' + unique_plan_id + '">\n' +
-        ' <img s src="images/plus-button.svg"  aria-hidden="true"></img></button></td><td><span style="color: red;font-size: 12px;display: inline" id="total_guests_' + unique_plan_id +'"> NA </span></td><td> <span style="color: red;font-size: 12px;display: inline" id="span_child_validation_' + unique_plan_id +'" >NA</span></td> <td><button id="remr" onclick="deletePlanRow(this)" class="btn btn-sm bg-danger" style="border-radius: 50%" unique_plan_id="' + unique_plan_id + '" ><i class="fa fa-minus"></i></button></td></tr>');
+        ' <img s src="images/plus-button.svg"  aria-hidden="true"></img></button></td><td><span style="color: red;font-size: 12px;display: inline;padding-left: 10px" id="total_guests_' + unique_plan_id +'"> NA</span></td><td> <span style="color: red;font-size: 12px;display: inline;padding-left: 10px" id="span_child_validation_' + unique_plan_id +'" > NA</span></td> <td><button id="remr" onclick="deletePlanRow(this)" class="btn btn-sm bg-danger" style="border-radius: 50%" unique_plan_id="' + unique_plan_id + '" ><i class="fa fa-minus"></i></button></td></tr>');
 
     unique_plan_id++;
 }
@@ -335,7 +341,6 @@ function validateGuestCount() {
     }
     else
     {
-        //console.log(planAgeBreakupMap);
         $('input[name^="children"]').each(function () {
             var uid = $(this).attr('uid');
             var child_count = Number(this.value);

@@ -155,7 +155,7 @@ $this->registerJsFile('/js/enquiry/guest_count.js');
                                     <img s src="images/plus-button.svg"  aria-hidden="true"></img></button>
                             </td>
                             <td class="letterpad">
-                                <span id="total_guests_1" style="color: red;font-size: 12px;display: inline" id="span_child_validation_0"> NA </span>
+                                <span id="total_guests_1" style="color: red;font-size: 12px;display: inline" id="span_child_validation_0">NA</span>
                             </td>
                             <td class="letterpad" >
                                 <span id="span_child_validation_1" style="color: red;font-size: 12px;display: inline">NA</span>
@@ -175,7 +175,7 @@ $this->registerJsFile('/js/enquiry/guest_count.js');
                                     <img s src="images/plus-button.svg"  aria-hidden="true"></img></button>
                             </td>
                             <td class="letterpad">
-                                <span id="total_guests_2" style="color: red;font-size: 12px;   "> NA </span>
+                                <span id="total_guests_2" style="color: red;font-size: 12px;   ">NA</span>
                             </td>
                             <td class="letterpad">
                                 <span id="span_child_validation_2" style="color: red;font-size: 12px;display: inline">NA</span>
@@ -220,15 +220,16 @@ $this->registerJsFile('/js/enquiry/guest_count.js');
             <div class="modal-header">
                 <h5 class="modal-title" id="childBreakupModalLabel">Enter age and count</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                    <span aria-hidden="true" style="font-size: 30px; color: white; font-weight: normal">&times;</span>
                 </button>
+
             </div>
             <div class="modal-body">
                 <input type="hidden" id="plan_id" name="planID" value="0">
                 <table id="age_breakup_table" class="guestcountpopup">
                     <thead class="text-center">
-                    <th class="Adults" >Age (Years)</th>
-                    <th class="Adults" >Count</th>
+                    <th class="Adults" style="width: 50%">Age (Years)</th>
+                    <th class="Adults">Count</th>
                     <th></th>
                     </thead>
                     <tbody>
