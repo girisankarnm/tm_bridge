@@ -1176,7 +1176,7 @@ class PropertyController extends Controller
         }
 
         $countries = Country::find()->where(['not in', 'id', $all_linked_nationalities])->all();
-        $countries_list = ArrayHelper::toArray($countries, ['frontend\models\Country' => ['id', 'name']]);
+        $countries_list = ArrayHelper::toArray($countries, ['frontend\models\Country' => ['id', 'nationality']]);
         //return $countries_list;
 
         $nationality = array('available_countries' => $countries_list, 'countries_in_group' => $linked_nationalities_in_group);
