@@ -37,7 +37,7 @@ $this->registerJsFile('/js/operational_details/room_category.js');
                 <div class="row align-items-center">
                         <div class="col-md-6">
                             <h6 class="heading">
-                                Room Name
+                                Room Name<span style="color: red; font-size: 18px">*</span>
                             </h6>
                             <div class="form-group">
                                 <div class="form-material">
@@ -48,7 +48,7 @@ $this->registerJsFile('/js/operational_details/room_category.js');
                         </div>
                         <div class="col-md-6">
                             <h6 class="heading">
-                                Room Type
+                                Room Type<span style="color: red; font-size: 18px">*</span>
                             </h6>
                             <div class="form-group">
                                 <div class="form-material">
@@ -62,7 +62,7 @@ $this->registerJsFile('/js/operational_details/room_category.js');
                             <div class="row">
                                 <div class="col-md-6 pr-0">
                                     <h6 class="heading">
-                                        Room View
+                                        Room View<span style="color: red; font-size: 18px">*</span>
                                     </h6>
                                     <div class="form-group">
                                         <div class="form-material">
@@ -72,7 +72,7 @@ $this->registerJsFile('/js/operational_details/room_category.js');
                                 </div>
                                 <div class="col-md-6">
                                     <h6 class="heading">
-                                        Default Meal Plan
+                                        Default Meal Plan<span style="color: red; font-size: 18px">*</span>
                                     </h6>
                                     <div class="form-group">
                                         <div class="form-material">
@@ -86,7 +86,7 @@ $this->registerJsFile('/js/operational_details/room_category.js');
                             <div class="row">
                                 <div class="col-md-6 pr-0">
                                     <h6 class="heading">
-                                        Inventory  (Number of Room)
+                                        Inventory  (Number of Room)<span style="color: red; font-size: 18px">*</span>
                                     </h6>
                                     <div class="form-group">
                                         <div class="form-material">
@@ -96,7 +96,7 @@ $this->registerJsFile('/js/operational_details/room_category.js');
                                 </div>
                                 <div class="col-md-6">
                                     <h6 class="heading">
-                                        Room Size (SQ FT)
+                                        Room Size (SQ FT)<span style="color: red; font-size: 18px">*</span>
                                     </h6>
                                     <div class="form-group">
                                         <div class="form-material">
@@ -109,7 +109,7 @@ $this->registerJsFile('/js/operational_details/room_category.js');
                     </div>
                     <div class="row align-items-start mt-2">
                         <div class="col-md-6">
-                            <h6>Child Policy</h6>
+                            <h6>Child Policy<span style="color: red; font-size: 18px">*</span></h6>
 
                             <div class="form-group">
                                 <div class="d-flex form-material">
