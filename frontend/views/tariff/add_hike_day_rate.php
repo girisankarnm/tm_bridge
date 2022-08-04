@@ -73,7 +73,6 @@ function saveWeekdayHike() {
     </div>
     <div class="tariffBorder" style="margin-top: 20px;">
         <div style="margin-bottom: 30px;  ">
-
             <div  id="location-date-border-card">
                 <div id="mainHeding-location-header"style="height: 43px;">
                     <div > <img style="width: 34px;height: 34px" src="images/building1.png" alt="Matrix"></div>
@@ -134,7 +133,6 @@ function saveWeekdayHike() {
                 }
             }            
         ?>
-
     <input type="hidden" name="room[]" value="<?= $room->id?>" />
                 <div class="tab-accordion tab-accordiondaterate" >
                     <div class="tab-content " >

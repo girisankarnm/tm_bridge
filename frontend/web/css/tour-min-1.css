@@ -197,7 +197,7 @@ sidebar .nav-item .nav-link {
 }
 #tariff-week-day-hiketable td
 {
-    padding-bottom: 4px;
+    padding-bottom: 0px;
     margin-top: 3px;
     margin-left: 13px;
     font-family: Bw-Mitga-regular;
@@ -2099,12 +2099,19 @@ hr.new2 {
     border-color: #E40968;
 }
 
+.savebuttonPublished-Ok {
+    /*width: 72px;*/
+    height: 30px;
+    background-color: blue;
+    border-color: blue;
+}
+
 .savebuttonPublished {
     /*width: 72px;*/
     height: 30px;
     margin-bottom: 13px !important;
     background-color: #E40968;
-    border-color: #E40968;
+    border-color: blue;
 }
 
 .commonTitleMother {
