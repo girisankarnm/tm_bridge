@@ -6,45 +6,112 @@ frontend\assets\AppAsset::register($this);
 
 
 ?>
+<style>
+
+
+</style>
 
 <div class="content">
 
     <div class="container-fluid" >
+
+
+  <!--loader div start -->
+<div>
+        <div class="timeline-item card  search-card-list shadow-div">
+                        <div class="animated-background facebook">
+                            <div class="background-masker header-top "></div>
+                            <div class="background-masker header-left"></div>
+                            <div class="background-masker header-right"></div>
+                            <div class="background-masker header-bottom"></div>
+                            <div class="background-masker subheader-left"></div>
+                            <div class="background-masker subheader-right"></div>
+                            <div class="background-masker subheader-bottom"></div>
+                            <div class="background-masker content-top"></div>
+                            <div class="background-masker content-first-end"></div>
+                            <div class="background-masker content-second-line"></div>
+                            <div class="background-masker content-second-end"></div>
+                            <div class="background-masker content-third-line"></div>
+                            <div class="background-masker content-third-end "></div>
+                        </div>
+                    </div>
+        <div class="timeline-item card  search-card-list shadow-div">
+                        <div class="animated-background facebook">
+                            <div class="background-masker header-top "></div>
+                            <div class="background-masker header-left"></div>
+                            <div class="background-masker header-right"></div>
+                            <div class="background-masker header-bottom"></div>
+                            <div class="background-masker subheader-left"></div>
+                            <div class="background-masker subheader-right"></div>
+                            <div class="background-masker subheader-bottom"></div>
+                            <div class="background-masker content-top"></div>
+                            <div class="background-masker content-first-end"></div>
+                            <div class="background-masker content-second-line"></div>
+                            <div class="background-masker content-second-end"></div>
+                            <div class="background-masker content-third-line"></div>
+                            <div class="background-masker content-third-end "></div>
+                        </div>
+                    </div>
+        <div class="timeline-item card  search-card-list shadow-div">
+                        <div class="animated-background facebook">
+                            <div class="background-masker header-top "></div>
+                            <div class="background-masker header-left"></div>
+                            <div class="background-masker header-right"></div>
+                            <div class="background-masker header-bottom"></div>
+                            <div class="background-masker subheader-left"></div>
+                            <div class="background-masker subheader-right"></div>
+                            <div class="background-masker subheader-bottom"></div>
+                            <div class="background-masker content-top"></div>
+                            <div class="background-masker content-first-end"></div>
+                            <div class="background-masker content-second-line"></div>
+                            <div class="background-masker content-second-end"></div>
+                            <div class="background-masker content-third-line"></div>
+                            <div class="background-masker content-third-end "></div>
+                        </div>
+                    </div>
+
+</div>
+    <!--loader div end -->
+
+
+
         <div >
-        <div class="card-title">Search  result for Alappuzha beach</div>
+
         <div class="card search-top-card-list shadow-div " >
             <div id="flex-icons">
                 <div>
-                    <div class="card search-top-card-label "  style="width: 140px;"> <a href="#" class="search-anchor">Enquiry no: #9999/22</a> </div>
+                    <div class="card search-top-card-label Enquiry-style-search "  > <a href="#" class="search-anchor  Enquiry-style-search ">Enquiry no: #9999/22</a> </div>
 
                 </div>
 
                 <div>
-                    <div class="card search-top-card-label "   style="width: 240px;" > <a href="#" class="search-anchor">Guest name: Swaroop swaminathan</a> </div>
+                    <div class="card search-top-card-label  guest-style-search "   > <a href="#" class="search-anchor guest-style-search">Guest name: Swaroop swaminathan</a> </div>
 
                 </div>
                 <div>
-                    <div class="card search-top-card-label "  style="width: 286px;" > <a href="#" class="search-anchor"><span>Check in: 15-jul-2022 </span><span>Check out: 19-jul-2022 </span></a> </div>
+                    <div class="card search-top-card-label  check-date-style-search "  > <a href="#" class="search-anchor check-date-style-search"><span>Check in: 15-jul-2022 </span><span>Check out: 19-jul-2022 </span></a> </div>
                 </div>
 
                 <div>
-                    <div class="card search-top-card-label"  style="width: 220px;" > <a href="#" class="search-anchor"><span>Stay Duration: 10 nights </span></a> </div>
+                    <div class="card search-top-card-label stay-search"   > <a href="#" class="search-anchor wdth-210px"><span>Stay Duration: 10 nights (split stay) </span></a> </div>
                 </div>
                 <div>
                     <div id="flex-row-search"  style="width: 140px;">
                          <div><a href="#">  <img class="margin-right-search-img image-width-height "  src="images/filer-symbol-up-down.svg"> </a></div>
                         <div> <span> <img class="margin-right-search-img image-width-height"  onclick="openNav()" src="images/filter-icon.svg"> </span></div>
                         <div> <span class="hover-icon"> <img class="margin-right-search-img image-width-height dropbtn-search "  src="images/filter-search-icon.svg"> </span>
-
-
-
                         </div>
                         <div> <a href="#">  <img class="image-width-height-2 dropbtn-search" onclick="myFunctionSearch()"  src="images/map-icon.svg"> </a>
-                            <div id="myDropdownResult" class="dropdown-content-search shadow-search-drop  " style="height: fit-content;margin-left: -106px;margin-top: 6px;display: none">
+                            <div id="myDropdownResult" class="dropdown-content-search shadow-search-drop font-bw-mitga  " style="height: fit-content;margin-left: -110px;margin-top: 6px;display: none">
                                 <select class="inputSelectClass" >
-                                    <option>Cities in Alappuzha</option>
+                                    <option>Slect Any City</option>
                                 </select>
-                                <input type="text" placeholder="Search.." id="myInputSearch" onkeyup="filterFunction()">
+                                <div class="card search-dropdown-card" style="height: 150px;padding: 2px;">
+                                  <label style="color: #898989;font-size: 11px;width: 201px;">search
+                                      <input class="locationInput-Search" type="text" id="myInputSearch" onkeyup="filterFunction()">
+                                  </label>
+                                </div>
+
                                 <a href="#about" class="drop-list">Alappuzha</a>
                                 <a href="#base" class="drop-list">Cherthala</a>
                                 <a href="#blog" class="drop-list">Kumarakam</a>
@@ -57,11 +124,11 @@ frontend\assets\AppAsset::register($this);
                 </div>
              </div>
     </div>
-
+            <div class="card-title font-size-13px font-bw-mitga" style="margin-left: 6px">Search  result for Alappuzha beach</div>
         <?php foreach(range(0, 5) as $index => $item): ?>
         <div class="card search-card-list shadow-div card-overflow-hidden" >
             <div id="mainHeding-search-hotel" >
-                <div > <img class="image-search-property img-property" src="images/chess-board.jpg" alt="Matrix"></div>
+                <div > <img class="image-search-property img-property" src="images/chess-board.jpg"  alt="Matrix"></div>
                 <div   >
                     <div id="mainHeding-search-hotel-list">
                         <div>
@@ -406,6 +473,19 @@ frontend\assets\AppAsset::register($this);
         </div>
 
     </div>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-end">
+            <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1">Previous</a>
+            </li>
+            <li class="page-item active"><a class="page-link" href="#">1 </a></li>
+            <li class="page-item "><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+            </li>
+        </ul>
+    </nav>
 
 </div>
 <script>

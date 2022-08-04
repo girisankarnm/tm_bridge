@@ -185,20 +185,37 @@
     cursor: pointer;
 }
 
-
-
-#myInputSearch {
-    box-sizing: border-box;
-    background-image: url(searchicon.png);
-    background-position: 6px 12px;
-    background-repeat: no-repeat;
-    font-size: 16px;
-    padding: 10px 7px 9px 7px;
+.locationInput-Search {
+    width: 146px;
     border: none;
-    border-bottom: 1px solid #ddd;
-    height: 34px;
-    width: 226px;
+    background-color:#F5F4F5 ;
 }
+.search-dropdown-card {
+    height: 252px !important;
+    display: inline !important;
+    width: 170px !important;
+    margin-left: 10px !important;
+    margin-top: 18px !important;
+    background-color:#F5F4F5 !important;
+}
+/*#myInputSearch {*/
+/*    width: 141px;*/
+/*    box-sizing: border-box;*/
+/*    background-image: url(searchicon.png);*/
+/*    background-position: 6px 12px;*/
+/*    background-repeat: no-repeat;*/
+/*    font-size: 16px;*/
+/*    !*padding: 10px 7px 9px  7px;*!*/
+
+/*    !* border-bottom: 1px solid #442626; *!*/
+/*    height: 34px;*/
+/*    !*width: 226px;*!*/
+/*    background-color: #FFFFFF;*/
+/*}*/
+
+
+}
+
 
 #myInputSearch:focus {outline: 3px solid #ddd;}
 
@@ -209,8 +226,9 @@
 
 .dropdown-content-search {
     /*display: none;*/
-    position: absolute;
-    background-color: #f6f6f6;
+    /*display: none; *!*/
+   position: absolute;
+    background-color: #fff;
     min-width: 230px;
     overflow: auto;
     border: 1px solid #ddd;
@@ -218,7 +236,7 @@
 }
 
 .dropdown-content-search a {
-    color: black;
+    color: #292931;
     padding: 4px 10px;
     text-decoration: none;
     display: block;
@@ -363,9 +381,9 @@ dropdown-content-search {
 
 #flex-row-search {
 
-    width: 140px;
+    width: 125px;
     height: 30px;
-    display: flex;
+    display: flex;`
 
     flex-direction: row-reverse;
 
@@ -416,17 +434,38 @@ dropdown-content-search {
 }
 
 .search-anchor {
-
     margin: 6px;
-    /*font-family:"cursive";*/
+    /* font-family: "cursive"; */
     text-align: start;
     font-family: Bw-Mitga-regular;
     font-style: normal;
-    font-size: 11px;
+    font-size: 12px;
     color: black !important;
     font-weight: 400;
-    border: 0.0px solid #E40968 !important;
+    border: 0px solid #E40968 !important;
+    border-radius: 5px;
     box-shadow: 10px 10px -14px 14px #e3e3e3;
+    /*background-color: red;*/
+    padding: 4px;
+    height: 25px;
+    overflow: hidden;
+    word-spacing:0px;
+}
+.Enquiry-style-search
+{
+    width: 148px;
+}
+
+.guest-style-search
+{
+    width: 235px;
+}
+.check-date-style-search {
+    width: 275px;
+}
+.stay-search
+{
+    width: 220px;
 }
 
 #flex-icons {
@@ -434,7 +473,7 @@ dropdown-content-search {
     width:100%;
     height: 30px;
     display: flex;
-    margin-top: 22px;
+    margin-top: 18px;
     flex-wrap: wrap;
     text-align: center;
 }
@@ -443,28 +482,30 @@ dropdown-content-search {
 }
 #flex-icons div:nth-of-type(1) {
     margin-left: 5px;
-    width: 140px;
+    margin-right: 1px;
     overflow: hidden;
 
-    text-align: center;
 }
 #flex-icons div:nth-of-type(2) {
-    width: 240px;
-
+    width: 242px;
+    margin-right: 1px;
     overflow: hidden;
-    text-align: center;
+    text-align: left;
 }
 #flex-icons div:nth-of-type(3) {
-    width: 276px;
+    width: 280px;
+    margin-right: 1px;
 
     overflow: hidden;
 }
 #flex-icons div:nth-of-type(4) {
 
-    width: 208px;
-    text-align: center;
+    width: 192px;
+    text-align: left;
+    margin-right: 1px;
 }
 #flex-icons div:nth-of-type(5) {
+    margin-top: 7px;
     text-align: center;
     width: 100px;
 
@@ -482,3 +523,302 @@ dropdown-content-search {
 {
     color: gold !important;
 }
+
+
+@-webkit-keyframes placeHolderShimmer{
+    0%{
+        background-position:-468px 0
+    }
+    100%{
+        background-position:468px 0
+    }
+}
+
+@keyframes placeHolderShimmer{
+    0%{
+        background-position:-468px 0
+    }
+    100%{
+        background-position:468px 0
+    }
+}
+
+.timeline-wrapper {
+    background-color: #e9eaed;
+    color: #141823;
+    padding: 20px;
+    border: 1px solid #ccc;
+    margin: 0 auto 1em;
+}
+
+.timeline-item {
+
+    border-radius: 2px;
+    padding: 6px;
+
+    margin: 0 auto;
+    max-width: 1032px;
+}
+
+.animated-background {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-name: placeHolderShimmer;
+    animation-name: placeHolderShimmer;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    background: #f6f7f8;
+    background: #eeeeee;
+    background: -webkit-gradient(linear, left top, right top, color-stop(8%, #eeeeee), color-stop(18%, #dddddd), color-stop(33%, #eeeeee));
+    background: -webkit-linear-gradient(left, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+    background: linear-gradient(to right,  #eeeeee 8%,#dddddd 18%,#eeeeee 33%);
+    -webkit-background-size: 800px 104px;
+    background-size: 800px 104px;
+    height: 96px;
+    position: relative;
+}
+
+.background-masker {
+    background: #fff;
+    position: absolute;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.outlined .background-masker {
+    border: 1px solid #ddd;
+}
+
+
+.outlined:hover .background-masker {
+    border: none;
+}
+
+.outlined:hover .background-masker:hover {
+    border: 1px solid #ccc;
+    z-index: 1;
+}
+
+.background-masker.header-top,
+.background-masker.header-bottom,
+.background-masker.subheader-bottom {
+    top: 0;
+    left: 40px;
+    right: 0;
+    height: 10px;
+}
+
+.background-masker.header-left,
+.background-masker.subheader-left,
+.background-masker.header-right,
+.background-masker.subheader-right {
+    top: 10px;
+    left: 40px;
+    height: 8px;
+    width: 10px;
+}
+
+.background-masker.header-bottom {
+    top: 18px;
+    height: 6px;
+}
+
+.background-masker.subheader-left,
+.background-masker.subheader-right {
+    top: 24px;
+    height: 6px;
+}
+
+
+.background-masker.header-right,
+.background-masker.subheader-right {
+    width: auto;
+    left: 300px;
+    right: 0;
+    width: 50%;
+}
+
+.background-masker.subheader-right {
+    left: 230px;
+}
+
+.background-masker.subheader-bottom {
+    top: 30px;
+    height: 20px;
+}
+
+.background-masker.content-top,
+.background-masker.content-second-line,
+.background-masker.content-third-line,
+.background-masker.content-second-end,
+.background-masker.content-third-end,
+.background-masker.content-first-end {
+    top: 40px;
+    left: 0;
+    right: 0;
+    height: 6px;
+}
+
+.background-masker.content-top {
+    height:20px;
+    width: 73%;
+}
+
+.background-masker.content-first-end,
+.background-masker.content-second-end,
+.background-masker.content-third-end{
+    width: auto;
+    left: 380px;
+    right: 0;
+    top: 60px;
+    height: 8px;
+}
+
+.background-masker.content-second-line  {
+    top: 68px;
+}
+
+.background-masker.content-second-end {
+    left: 420px;
+    top: 74px;
+}
+
+.background-masker.content-third-line {
+    top: 82px;
+}
+
+.background-masker.content-third-end {
+    left: 300px;
+    top: 88px;
+}
+.square {
+    width: 40px;
+    height: 30px;
+    background-color: gray;
+    background-image: linear-gradient(90deg, blue, blue);
+    background-size: 15px 15px;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+}
+
+.wrapper-cell {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+// Animation
+@keyframes placeHolderShimmer{
+    0%{
+        background-position: -468px 0
+    }
+    100%{
+        background-position: 468px 0
+    }
+}
+
+.animated-background {
+    animation-duration: 1.45s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: placeHolderShimmer;
+    animation-timing-function: linear;
+    background: #F6F6F6;
+    background: linear-gradient(to right,#eeeeee  8%, #dddddd  18%, #eeeeee  33%);
+    background-size: 800px 104px;
+    height: 96px;
+    position: relative;
+}
+
+// Page Elements
+   .image {
+       height: 60px;
+       width: 60px;
+   //  background: #F6F6F6;
+       @extend .animated-background;
+   }
+
+.text {
+    margin-left: 20px
+}
+.wdth-210px{
+    width: 210px !important;
+}
+.text-line {
+    height: 10px;
+    width: 230px;
+//  background: #F6F6F6;
+    margin: 4px 0;
+    @extend .animated-background;
+}
+
+/*.page-link {*/
+/*    position: relative;*/
+/*    display: block;*/
+/*    padding: 0.5rem 0.75rem;*/
+/*    margin-left: -1px;*/
+/*    margin-right: 6px;*/
+/*    line-height: 1.25;*/
+/*    color: #292931 !important;*/
+/*    background-color: #fff;*/
+/*    border: 1px solid #dee2e6;*/
+/*}*/
+.page-link {
+    position: relative;
+    display: block;
+    font-size: 14px;
+    padding: 0.3rem 0.55rem;
+    margin-left: -1px;
+    line-height: 1 !important;
+    color: #007bff;
+    background-color: #ffffff !important;
+    border: 1px solid #dee2e6;
+}
+
+
+
+.page-item:last-child .page-link {
+    margin-right: 19px;
+}
+.page-link:hover{
+    z-index:2;
+    color:#FFFFFF !important;
+    text-decoration:none;
+    background-color:#E40968 !important;
+    border-color:#BDC4FF;
+}
+page-link:focus{
+    z-index:3;
+    outline:0;box-shadow:0 0 0 .2rem blue;
+    z-index: 3;
+    color: #fff !important;
+    background-color: #E40968 !important;
+    border-color: #fff !important;
+}
+page-link:checked{
+
+    border-color: #fff !important;
+}
+
+
+.page-item.active .page-link {
+    z-index: 3;
+    color: #fff !important;
+    background-color: #E40968 !important;
+    border-color: #fff !important;
+}
+
+
+/*!***/
+/* * placeholder-loading v0.6.0*/
+/* * Author: Zalog (https://www.zalog.ro/)*/
+/* * License: MIT*/
+/* **!*/
+/*.ph-item{background-color:#fff;border:1px solid #e6e6e6;border-radius:2px;direction:ltr;display:flex;flex-wrap:wrap;margin-bottom:30px;overflow:hidden;padding:30px 15px 15px;position:relative}.ph-item,.ph-item *,.ph-item :after,.ph-item :before{box-sizing:border-box}.ph-item:before{-webkit-animation:ph-animation .8s linear infinite;animation:ph-animation .8s linear infinite;background:linear-gradient(90deg,hsla(0,0%,100%,0) 46%,hsla(0,0%,100%,.35) 50%,hsla(0,0%,100%,0) 54%) 50% 50%;bottom:0;content:" ";left:50%;margin-left:-250%;pointer-events:none;position:absolute;right:0;top:0;width:500%;z-index:1}.ph-item>*{display:flex;flex:1 1 auto;flex-flow:column;margin-bottom:15px;padding-left:15px;padding-right:15px}.ph-row{display:flex;flex-wrap:wrap;margin-top:-7.5px}.ph-row div{background-color:#ced4da;height:10px;margin-top:7.5px}.ph-row .big,.ph-row.big div{height:20px}.ph-row .empty{background-color:hsla(0,0%,100%,0)}.ph-col-2{flex:0 0 16.6666666667%}.ph-col-4{flex:0 0 33.3333333333%}.ph-col-6{flex:0 0 50%}.ph-col-8{flex:0 0 66.6666666667%}.ph-col-10{flex:0 0 83.3333333333%}.ph-col-12{flex:0 0 100%}[class*=ph-col]{direction:ltr}[class*=ph-col]>*+.ph-row{margin-top:0}[class*=ph-col]>*+*{margin-top:7.5px}.ph-avatar{background-color:#ced4da;border-radius:50%;min-width:60px;overflow:hidden;position:relative;width:100%}.ph-avatar:before{content:" ";display:block;padding-top:100%}.ph-picture{background-color:#ced4da;height:120px;width:100%}@-webkit-keyframes ph-animation{0%{transform:translate3d(-30%,0,0)}to{transform:translate3d(30%,0,0)}}@keyframes ph-animation{0%{transform:translate3d(-30%,0,0)}to{transform:translate3d(30%,0,0)}}*/
+/*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            */
+/*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            */
+/**/
