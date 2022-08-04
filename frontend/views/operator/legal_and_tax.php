@@ -198,6 +198,7 @@ use yii\bootstrap4\ActiveForm;
         background-position: center center;
         background-size: cover;
         display: inline-block;
+        object-fit: contain;
     }
 
 

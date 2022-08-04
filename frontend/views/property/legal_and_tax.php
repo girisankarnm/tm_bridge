@@ -240,6 +240,7 @@ $this->registerJsFile('/js/client_requested_option/add_option.js');
         background-position: center center;
         background-size: cover;
         display: inline-block;
+        object-fit: contain;
     }
 
     .imagedisplay{

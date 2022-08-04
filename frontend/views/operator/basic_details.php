@@ -188,6 +188,7 @@ $this->registerJsFile('/js/common.js');
         background-position: center center;
         background-size: cover;
         display: inline-block;
+        object-fit: contain;
     }
     .v-card {
         max-width:100%;
@@ -197,6 +198,7 @@ $this->registerJsFile('/js/common.js');
         background-position: center center;
         background-size: cover;
         display: inline-block;
+        object-fit: contain;
     }
     .imagedisplay{
         width: 160px;
