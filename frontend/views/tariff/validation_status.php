@@ -74,8 +74,8 @@ $this->registerCssFile('/css/full-page.css');
                     <p class="p-class-first-success"> Your Tariff for the period is successfully validated</p> <p class="p-class-second-success">
                     You shall review the <?= Html::a('tariff report', ['slab/tariff', 'id' => $property->id],  []) ?> before you publish the name</p>
                 </div>
-                <div class="row" style="  margin-left: 3px">
-                    <div style="display: block;margin-right: 35px;">
+                <div class="row" style="  margin-left: 50px">
+                    <div style="display: block;margin-left: 20px">
                         <?php $form = ActiveForm::begin(['id' => 'tariff_published_'.$mother_range->id,'enableClientValidation' => true,'method' => 'post','action' => ['tariff/published']]) ?>
                         <?= $form->field($mother_range, 'id')->hiddenInput()->label(false); ?>
                         <button type="button" class="buttonSave savebuttonPublished" style="color: black;background-color:#ffffff " onclick="window.history.go(-1); return false;"> Cancel</button>
@@ -105,7 +105,7 @@ $this->registerCssFile('/css/full-page.css');
 
 
                 <div class="row" style="  margin-left: 23px;margin-bottom: 21px">
-                    <div style="display: block;margin-right: 35px;margin-left: ">
+                    <div style="display: block;;margin-left:40px ">
                         <button class="buttonSave savebuttonPublished" style="color: black;background-color:#ffffff" onclick="window.history.go(-1); return false;">  Cancel</button>
 
                     </div>
