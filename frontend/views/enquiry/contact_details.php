@@ -23,7 +23,7 @@ use borales\extensions\phoneInput\PhoneInput;
         <input type="hidden" id="enquiry_id" name="enquiry_id" value=<?php echo  $enquiry->id; ?> ?>
         <div class="row" style="margin-left: 3px;margin-bottom: 8px;">
             <div style="display: block;margin-right: 35px">
-                <label class="Labelclass" style="display: block;margin-top: 20px" >*Email 1</label>
+                <label class="Labelclass" style="display: block;margin-top: 20px" >Email 1</label>
                 <?php echo $form->field($enquiry, 'email1')->textInput(['class' => 'inputTextClass'])->label(false); ?>
             </div>
             <div style="display: block">
@@ -34,13 +34,13 @@ use borales\extensions\phoneInput\PhoneInput;
 
         <div class="row" style="margin-left: 3px;margin-bottom: 15px">
             <div style="display: block;margin-right: 35px">
-                <label class="Labelclass" style="display: block;margin-top: 20px" >*Contact Number 1</label>                
+                <label class="Labelclass" style="display: block;margin-top: 20px" >Contact Number 1<span style="color: red; font-size: 18px">*</span></label>
                 <?php
                     echo $form->field($enquiry, 'contact1')->widget(PhoneInput::className(), [                   
                     'jsOptions' => [
                         'onlyCountries' => ['in'],                      
                     ],
-                    'options'=> array('class'=>'inputTextClass', 'placeholder' => 'Enter 10 digit number', 'maxlength' => '12'),
+                    'options'=> array('class'=>'inputTextClass', 'placeholder' => 'Enter 10 digit number', 'required'=>'required','maxlength' => '12'),
                 ], )->label(false);?> 
             </div>
             <div style="display: block">

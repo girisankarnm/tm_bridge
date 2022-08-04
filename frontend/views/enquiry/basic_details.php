@@ -45,11 +45,11 @@ $this->registerJsFile('/js/enquiry/basic_details.js');
         
         <div class="row" style="margin-left: 3px;margin-bottom: 8px;">
             <div style="display: block;margin-right: 35px">
-                <label class="Labelclass" style="display: block;margin-top: 22px" >*Guest Name</label>                
+                <label class="Labelclass" style="display: block;margin-top: 22px" >Guest Name<span style="color: red; font-size: 18px">*</span></label>
                 <?php echo $form->field($basic_details, 'guest_name')->textInput(['class' => 'inputTextClass' , 'placeholder' =>"Guest Name"])->label(false); ?>
             </div>
             <div style="display: block">
-                <label class="Labelclass" style="display: block;margin-top: 20px" >*Nationality</label>                
+                <label class="Labelclass" style="display: block;margin-top: 20px" >Nationality<span style="color: red; font-size: 18px">*</span></label>
                 <?php echo $form->field($basic_details, 'nationality_id')->dropDownList($countries,['class' => 'inputTextClass', 'prompt' => 'Choose'])->label(false
                 ) ?>
             </div>
@@ -57,11 +57,11 @@ $this->registerJsFile('/js/enquiry/basic_details.js');
 
         <div class="row" style="margin-left: 3px;margin-bottom: 12px;">
             <div style="display: block;margin-right: 35px">
-                <label class="Labelclass" style="display: block;margin-top: 20px" >*Start Date</label>                
+                <label class="Labelclass" style="display: block;margin-top: 20px" >Start Date<span style="color: red; font-size: 18px">*</span></label>
                 <?php echo $form->field($basic_details, 'tour_start_date')->textInput(['class' => 'inputTextClass'])->label(false); ?><br>
             </div>
             <div style="display: block;margin-right: 20px;" >
-                <label class="Labelclass" style="display: block;margin-top: 20px" >*Tour Duration</label>
+                <label class="Labelclass" style="display: block;margin-top: 20px" >Tour Duration<span style="color: red; font-size: 18px">*</span></label>
                 
                 <?php echo $form->field($basic_details, 'tour_duration')->textInput(['class' => 'inputTextClass'])->label(false); ?>
 

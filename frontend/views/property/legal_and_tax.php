@@ -227,7 +227,6 @@ $this->registerJsFile('/js/client_requested_option/add_option.js');
     .borderless-image {
         height: 120px;
         width: 100%;
-        /*border: 2px #808080 dashed;*/
         border-radius: 6px;
         position: relative
     }
@@ -236,22 +235,17 @@ $this->registerJsFile('/js/client_requested_option/add_option.js');
     .imagePreview {
         max-width:100%;
         max-height:100%;
-        /*width: 200px;*/
-        /*height: auto;*/
         width: 100%;
         height: 100%;
         background-position: center center;
         background-size: cover;
-        /*-webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);*/
         display: inline-block;
-        /*background-image: url('http://via.placeholder.com/350x150');*/
-        /*border: 2px gray dashed;*/
+        object-fit: scale-down;
     }
 
     .imagedisplay{
         width: 80px;
         height: 80px;
-        /*margin: 0;*/
         position: absolute;
         top: 50%;
         left: 50%;
@@ -268,7 +262,7 @@ $this->registerJsFile('/js/client_requested_option/add_option.js');
 </style>
 
 <script>
-    $('#panImage').click(function(){
+    $('#panId').click(function(){
 
         $('#uploadPan').click();
     });
@@ -295,7 +289,7 @@ $this->registerJsFile('/js/client_requested_option/add_option.js');
 
 
 
-    $('#licenseImage').click(function(){
+    $('#licenseId').click(function(){
 
         $('#uploadLicense').click();
     });
@@ -322,7 +316,7 @@ $this->registerJsFile('/js/client_requested_option/add_option.js');
     });
 
 
-    $('#gstImage').click(function(){
+    $('#gstId').click(function(){
 
         $('#uploadGst').click();
     });

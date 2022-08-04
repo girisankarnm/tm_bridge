@@ -9,7 +9,7 @@
         <td>
             <div class="form-control pointer-none">
                 <?php foreach ($group->tariffNationalityTables as $tablecountry) {
-                    echo $tablecountry->country->name. ", ";
+                    echo $tablecountry->country->nationality. ", ";
                 }
                 ?>
             </div>

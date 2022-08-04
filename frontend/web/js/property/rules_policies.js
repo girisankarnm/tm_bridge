@@ -405,7 +405,7 @@ function showNationalityEditForm(group_id, group_name){
             var available_countries = response.data.available_countries;
             for( var i = 0; i<available_countries.length; i++){
                 var id = available_countries[i]['id'];
-                var name = available_countries[i]['name'];
+                var name = available_countries[i]['nationality'];
                 $('#nationality').append("<option value='"+id+"'>"+ name +"</option>");
             }
 

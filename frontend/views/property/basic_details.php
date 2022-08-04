@@ -167,7 +167,6 @@ function showTermsAlert(){
     .basic-details-borderless-image {
         height: 200px;
         width:100%;
-        /*border: 2px #808080 dashed;*/
         border-radius: 6px;
         position: relative
     }
@@ -176,30 +175,26 @@ function showTermsAlert(){
         max-width:100%;
         max-height:100%;
         width: 100%;
-        /*height: auto;*/
-        /*width: 200px;*/
         height: 100%;
         background-position: center center;
         background-size: cover;
         display: inline-block;
-        /*border: 2px gray dashed;*/
+        object-fit: scale-down;
     }
     .imagePreviewLogo {
         max-width:100%;
         max-height:100%;
-        /*width: 240px;*/
-        /*height: auto;*/
         width: 100%;
         height: 100%;
         background-position: center center;
         background-size: cover;
         display: inline-block;
+        object-fit: scale-down;
     }
 
     .imagedisplay{
         width: 130px;
         height: 130px;
-        /*margin: 0;*/
         position: absolute;
         top: 50%;
         left: 50%;
@@ -217,7 +212,7 @@ function showTermsAlert(){
 </style>
 
 <script>
-    $('#imagePreview').click(function(){
+    $('#photoId').click(function(){
 
         $('#uploadFile').click();
     });
@@ -245,7 +240,7 @@ function showTermsAlert(){
 
 
 
-    $('#imagePreview-logo').click(function(){
+    $('#logoId').click(function(){
         $('#uploadFile-logo').click();
     });
     $(function() {

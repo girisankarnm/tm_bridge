@@ -94,7 +94,6 @@ use yii\bootstrap4\ActiveForm;
                             </label>
                             <?php echo $form->field($legal_tax_documentation,'gst_number')->textInput(['class' => 'inputLarge'])->label(false) ?>
                         </div>
-
                 </div>
                 <div class="col-md-6 ">
                     <div class="row">
@@ -106,7 +105,6 @@ use yii\bootstrap4\ActiveForm;
                             } else {
                                 echo "<div id='operatorPanId' class='borderless-image'><img id='operatorPanImage' src='uploads/$legal_tax_documentation->pan_image' class='imagePreview' ></div>";
                             }?>
-
                             <?= $form->field($legal_docs_images, 'pan_image')->fileInput(['class' => 'btn btn-sm img uploadFile', 'accept' => "image/*", 'id'=>"uploadPanImage"])->label(false); ?>
                         </div>
                         <div class="form-group col-md-6 ">
@@ -117,15 +115,12 @@ use yii\bootstrap4\ActiveForm;
                             } else {
                                 echo "<div id='operatorGstId' class='borderless-image'><img id='operatorGstImage' src='uploads/$legal_tax_documentation->gst_image' class='imagePreview'></div>";
                             }?>
-
-
                             <?= $form->field($legal_docs_images, 'gst_image')->fileInput(['class' => 'btn btn-sm img uploadFile', 'accept' => "image/*", 'id'=>"uploadGstImage"])->label(false); ?>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row align-items-start">
-
                 <div class="col-md-6 ">
                     <div class="form-group ">
                         <label class="Labelclass" style="display: block; width: 440px" >Bank Name<span style="color: red; font-size: 18px">*</span>
@@ -145,7 +140,6 @@ use yii\bootstrap4\ActiveForm;
                     </div>
                 </div>
 
-
                 <div class="col-md-6 ">
                     <div class="form-group ">
                         <label class="Labelclass" style="display: block; width: 440px" >Account Name<span style="color: red; font-size: 18px">*</span>
@@ -164,7 +158,6 @@ use yii\bootstrap4\ActiveForm;
                         <?php echo $form->field($legal_tax_documentation,'ifsc_code')->textInput(['class' => 'inputLarge'])->label(false) ?>
                     </div>
                 </div>
-
             </div>
             <div style="display: block;margin-right: 35px; margin-left: 10px">
                 <BUTTON type="text" class="buttonSave" style="width: 85px; border-radius: 5px"> Save </BUTTON>
@@ -193,7 +186,6 @@ use yii\bootstrap4\ActiveForm;
     .borderless-image {
         height: 120px;
         width: 100%;
-        /*border: 2px #808080 dashed;*/
         border-radius: 6px;
         position: relative
     }
@@ -201,23 +193,18 @@ use yii\bootstrap4\ActiveForm;
     .imagePreview {
         max-width:100%;
         max-height:100%;
-        /*width: 200px;*/
-        /*height: auto;*/
         width: 100%;
         height: 100%;
         background-position: center center;
         background-size: cover;
-        /*-webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);*/
         display: inline-block;
-        /*background-image: url('http://via.placeholder.com/350x150');*/
-        /*border: 2px gray dashed;*/
+        object-fit: scale-down;
     }
 
 
     .imagedisplay{
         width: 80px;
         height: 80px;
-        /*margin: 0;*/
         position: absolute;
         top: 50%;
         left: 50%;
@@ -234,8 +221,7 @@ use yii\bootstrap4\ActiveForm;
 </style>
 
 <script>
-    $('#operatorPanImage').click(function(){
-
+    $('#operatorPanId').click(function(){
         $('#uploadPanImage').click();
     });
     $(function() {
@@ -261,16 +247,12 @@ use yii\bootstrap4\ActiveForm;
         });
     });
 
-
-
-    $('#operatorGstImage').click(function(){
-
+    $('#operatorGstId').click(function(){
         $('#uploadGstImage').click();
     });
     $(function() {
         $("#uploadGstImage").on("change", function()
         {
-
             var files = !!this.files ? this.files : [];
             if (!files.length || !window.FileReader) return; // no file selected, or no FileReader support
 
@@ -279,10 +261,8 @@ use yii\bootstrap4\ActiveForm;
                 reader.readAsDataURL(files[0]); // read the local file
 
                 reader.onloadend = function(){ // set image data as background of div
-                    // $('#operatorGstImage').removeClass('default-preview');
                     document.getElementById("operatorGstId").className = "borderless-image";
                     document.getElementById("operatorGstImage").className = "imagePreview";
-                    // $("#imagePreview-logo").css("background-image", "url("+this.result+")");
                     $("#operatorGstImage").attr("src", reader.result);
                 }
             }

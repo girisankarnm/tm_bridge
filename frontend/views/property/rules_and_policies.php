@@ -75,7 +75,7 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                             <input type="hidden" value="<?= $property->id ?>" name="property_id" id="property_id">
                             <div class="d-flex form-group align-items-center">
                                 <div class="checkmark">
-                                    <?= $form->field($property, 'twenty_four_hours_check_in')->inline()->radioList([1 => '24 hour check out', 2 => 'Select check-in check-out'],['class' => 'checkmark','style' => 'margin-left: -0.7rem;'])->label(false); ?>
+                                    <?= $form->field($property, 'twenty_four_hours_check_in')->inline()->radioList([1 => '24 hour check out', 2 => 'Select check-in & check-out time'],['class' => 'checkmark','style' => 'margin-left: -0.7rem;'])->label(false); ?>
                                 </div>
 
                                 <div id="checkincheckoutblock" style="margin-top: 20px;
@@ -482,13 +482,13 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                     <button type="button" class="btn accordion-top text-left collapsed" type="button"
                             data-toggle="collapse" data-target="#collapseSix" aria-expanded="false"
                             aria-controls="collapseSix">
-                        6. Nationality Based Tariff
+                        6. Tariff Policy
                     </button>
                     <div id="collapseSix" class="collapse" data-parent="#myAccordion">
                         <div class="accordion-content">
                             <div class="d-flex form-group align-items-center">
                                 <div class="form-material form-checkout mr-4">
-                                    <?= $form->field($property, 'room_tariff_same_for_all')->inline()->radioList([1 => 'Room tariff is same for all guests', 0 => 'Room tariff depends on guest’s nationality'],['class' => 'form-radio'])->label(false); ?>
+                                    <?= $form->field($property, 'room_tariff_same_for_all')->inline()->radioList([1 => 'All nationalities have the same tariff', 0 => 'Tariffs vary based on guest’s nationality'],['class' => 'form-radio'])->label(false); ?>
                                 </div>
                             </div>
                             <div class="room-tariff-table table-responsive" id="nationality_div" <?php if ($property['room_tariff_same_for_all'] == 1): ?> style="display:none" <?php endif ; ?>>
@@ -496,7 +496,7 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                                     <thead class="nationalityTable-th-class" >
                                     <tr>
                                         <th width="20%"> Group Name </th>
-                                        <th width="60%"> Countries </th>
+                                        <th width="60%"> Nationalities </th>
                                         <th width="20%"> Action </th>
                                     </tr>
                                     </thead>
@@ -583,11 +583,11 @@ foreach ( range( $lower, $upper, $step ) as $increment ) {
                         <div class="form-group">
                             <div class="form-material">
                                 <label for="group-name">
-                                    <strong> Select State </strong>
+                                    <strong> Select Nationality </strong>
                                 </label>
 
                                 <div class="form-select">
-                                    <select class="select2 select-rules" multiple="multiple" data-placeholder="Select a state" id="nationality">
+                                    <select class="select2 select-rules" multiple="multiple" data-placeholder="Select guest nationality" id="nationality">
                                     </select>
                                 </div>
 

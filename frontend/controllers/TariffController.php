@@ -672,17 +672,15 @@ class TariffController extends Controller {
 
         $tariff = (int) Yii::$app->request->get('tariff');
 
-       /*  $is_allow_skip = false;
-        if($suppliment_meal !=  NULL) {
-            $is_allow_skip = true;
-        }    */
-
+        /* Hike day become optional, so allow to skip
         $is_allow_skip = false;
         if(isset($date_range->roomTariffWeekdayhikes)) {
             if (count($date_range->roomTariffWeekdayhikes) > 0) {
                 $is_allow_skip = true;
             }
-        }        
+        }  */
+
+        $is_allow_skip = true;
         
         $this->layout = 'tm_main';
         return $this->render('add_hike_day_rate', [
@@ -955,61 +953,4 @@ class TariffController extends Controller {
             'property' => $property
         ]);
     }
-
-    public function actionTariffdinner(){
-        $this->layout = 'tm_main';
-        return $this->render('tariff_wizard_dinner', []);
-    }
-    public function actionTariffmeals(){
-        $this->layout = 'tm_main';
-        return $this->render('tariff-wizard_meal', []);
-    }
-    public function actionTariffroom(){
-        $this->layout = 'tm_main';
-        return $this->render('tariff_room', []);
-
-    }
-    public function actionTariffmotherdate(){
-        $this->layout = 'tm_main';
-        return $this->render('tariff_mother_date', []);
-    }
-
-    public function actionTariffweekday(){
-        $this->layout = 'tm_main';
-        return $this->render('tariff_week_day', []);
-    }
-
-     public function actionTariffmotherdaterange(){
-        $this->layout = 'tm_main';
-        return $this->render('tariff_mather_date_range', []);
-    }
-
-      public function actionTariffpublished(){
-        $this->layout = 'common_published';
-        return $this->render('tariff_published', []);
-    }
-  public function actionTariffpublishedfailed(){
-        $this->layout = 'common_published';
-        return $this->render('tarif_published_failed', []);
-    }
-
-
-
-    public function actionTariffmotherroomrate(){
-        $this->layout = 'tm_main';
-        return $this->render('tariff_mather_room_rate', []);
-    }
-    public function actionTariffmothermealrate(){
-        $this->layout = 'tm_main';
-        return $this->render('tariff_mather_meal_rate', []);
-    }
-     public function actionTariffmotherhikedayrate(){
-        $this->layout = 'tm_main';
-        return $this->render('tariff_mather_hike_day_rate', []);
-    }
-    public function actionTariffmothermandatorydinner(){
-        $this->layout = 'tm_main';
-        return $this->render('tariff_mather_mandatory_dinner_rate', []);
-    }
-
 }
