@@ -95,10 +95,8 @@ $this->registerJsFile('/js/common.js');
 
                         } else {
                             echo $form->field($basic_details, 'website')->textInput(['class' => 'inputLarge', 'value' => 'https://'])->label(false);
-
                         }
                         ?>
-
                     </div>
 
                     <div class="row">
@@ -143,20 +141,12 @@ $this->registerJsFile('/js/common.js');
                         }?>
 
                         <?= $form->field($operator_image, 'logo_image')->fileInput(['class' => 'btn btn-sm img uploadFile ', 'accept' => "image/*", 'id'=>"operator-logo", ])->label(false); ?>
-
-
                     </div>
                 </div>
             </div>
             <div style="display: block;margin-right: 35px; margin-left: 10px; margin-top: 20px">
                 <BUTTON type="text" class="buttonSave" style="width: 85px; border-radius: 5px"> Save </BUTTON>
             </div>
-
-
-
-
-
-
             <?php ActiveForm::end(); ?>
 
         </div>
@@ -173,7 +163,6 @@ $this->registerJsFile('/js/common.js');
     .borderless-image {
         height: 150px;
         width: 100%;
-        /*border: 2px #cacaca dashed;*/
         border-radius: 6px;
         position: relative
     }
@@ -191,39 +180,29 @@ $this->registerJsFile('/js/common.js');
         position: relative
     }
 
-
     .imagePreview-logo {
         max-width:100%;
         max-height:100%;
-        /*width: 200px;*/
-        /*height: auto;*/
         width: 100%;
         height: 100%;
         background-position: center center;
         background-size: cover;
-        /*-webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);*/
         display: inline-block;
-        /*background-image: url('http://via.placeholder.com/350x150');*/
-        /*border: 2px gray dashed;*/
+        object-fit: contain;
     }
     .v-card {
         max-width:100%;
         max-height:100%;
-        /*width: 200px;*/
-        /*height: 200px;*/
         width: 100%;
         height: 100%;
         background-position: center center;
         background-size: cover;
-        /*-webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);*/
         display: inline-block;
-        /*background-image: url('http://via.placeholder.com/350x150');*/
-        /*border: 2px gray dashed;*/
+        object-fit: contain;
     }
     .imagedisplay{
         width: 160px;
         height: 90px;
-        /*margin: 0;*/
         position: absolute;
         top: 50%;
         left: 50%;
@@ -233,7 +212,6 @@ $this->registerJsFile('/js/common.js');
     .logodisplay{
         width: 120px;
         height: 120px;
-        /*margin: 0;*/
         position: absolute;
         top: 50%;
         left: 50%;
@@ -251,14 +229,12 @@ $this->registerJsFile('/js/common.js');
     }
 </style>
 <script>
-    $('#imagePreview-logo').click(function(){
-
+    $('#operatorLogoId').click(function(){
         $('#operator-logo').click();
     });
     $(function() {
         $("#operator-logo").on("change", function()
         {
-
             var files = !!this.files ? this.files : [];
             if (!files.length || !window.FileReader) return; // no file selected, or no FileReader support
 
@@ -267,7 +243,6 @@ $this->registerJsFile('/js/common.js');
                 reader.readAsDataURL(files[0]); // read the local file
 
                 reader.onloadend = function(){ // set image data as background of div
-
                     $('#imagePreview-logo').removeClass('default-preview');
                     document.getElementById("operatorLogoId").className = "borderless-logo";
                     document.getElementById("imagePreview-logo").className = "imagePreview-logo";
@@ -279,8 +254,7 @@ $this->registerJsFile('/js/common.js');
     });
 
 
- $('#v-card-front').click(function(){
-
+ $('#vcardId').click(function(){
         $('#operator-v-card-front').click();
     });
     $(function() {
@@ -294,20 +268,16 @@ $this->registerJsFile('/js/common.js');
                 reader.readAsDataURL(files[0]); // read the local file
 
                 reader.onloadend = function(){ // set image data as background of div
-
-                    // $('#v-card-front').removeClass('default-preview');
                     document.getElementById("vcardId").className = "borderless-image";
                     document.getElementById("v-card-front").className = "v-card";
                     $("#v-card-front").attr("src", reader.result);
-
                 }
             }
         });
     });
 
 
- $('#v-card-back').click(function(){
-
+ $('#vcardBackId').click(function(){
         $('#operator-v-card-back').click();
     });
     $(function() {
@@ -321,17 +291,13 @@ $this->registerJsFile('/js/common.js');
                 reader.readAsDataURL(files[0]); // read the local file
 
                 reader.onloadend = function(){ // set image data as background of div
-
                     $('#v-card-back').removeClass('default-preview');
                     document.getElementById("vcardBackId").className = "borderless-image";
                     document.getElementById("v-card-back").className = "v-card";
                     $("#v-card-back").attr("src", reader.result);
-
                 }
             }
         });
     });
-
-
 </script>
 
