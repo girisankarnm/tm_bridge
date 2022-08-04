@@ -2099,6 +2099,13 @@ hr.new2 {
     border-color: #E40968;
 }
 
+.savebuttonPublished-Ok {
+    /*width: 72px;*/
+    height: 30px;
+    background-color: blue;
+    border-color: blue;
+}
+
 .savebuttonPublished {
     /*width: 72px;*/
     height: 30px;

@@ -27,8 +27,8 @@ use Carbon\Carbon;
 
                 </div>
             </div>
-            <div id="publishmain" style=" margin-left: 20px;line-height: 23px" >
-                <div class="margintopcls" >
+            <div id="publishmain" style=" margin-left: 46px;line-height: 23px" >
+                <div class="margintopcls"  >
                     <span class="dateform">From Date</span>
                     <!--                    <div style=" flex-wrap: wrap">-->
                     <div ><h6 class="motherdaterange-H6 h7class" ><?= \Carbon\Carbon::parse($mother_range->from_date)->format('d M Y'); ?></h6></div>
@@ -43,7 +43,7 @@ use Carbon\Carbon;
         </div>
         
         
-        <div class="row" style="  margin-left: 3px;margin-top: 5px">
+        <div class="row" style="  margin-left: 34px;margin-top: 5px">
             <div id="maintick"  >
                 <div class="margintopcls" style="background-color: #ffffff;text-align: left">
                     <i  class="fa fa-check-circle w3-large tickpublish item circleicon" aria-hidden="true"></i>
@@ -56,10 +56,10 @@ use Carbon\Carbon;
 
                 </div>
             </div>            
-            <div class="row" style="  margin-left: 23px;margin-bottom: 21px">
-                <div style="display: block;margin-right: 35px;margin-left: ">
+            <div class="row" style="  margin-left: 40px;margin-bottom: 21px;margin-top: 15px">
+                <div style="display: block;margin-left: 90px">
                     <form action="index.php?r=tariff/home&id=<?= $property->id ?>" >
-                    <button type="submit" class="buttonSave savebuttonMother" style="background-color: blue"> OK </button>
+                    <button type="submit" class="buttonSave savebuttonPublished-Ok"> OK </button>
                     <form>
                 </div>
 
