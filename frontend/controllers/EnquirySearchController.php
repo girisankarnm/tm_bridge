@@ -95,6 +95,9 @@ class EnquirySearchController extends \yii\web\Controller
         $searchKeywords =  $request->post('search_property', '');
         $pageNo =  $request->post('page_no', 1);
 
+//        $property_aminity = json_decode($request->post('property_amenity', ''));           //[1];
+//        $room_aminity = json_decode($request->post('room_amenity', ''));  //[3]
+//        $enquiry_accommodation = json_decode($request->post('accommodation_id', $destinationAccomodationIDs));
 
         $searchResult = array();
         $enqDestinationAccommodation = array();
@@ -143,7 +146,7 @@ class EnquirySearchController extends \yii\web\Controller
                 $Rooms->andWhere(['view_id' => $room_view]);
             }
             if (($food_type) && ($food_type != null)) {
-                $Rooms->andWhere(['meal_plan_id' => [1, 2],]);
+                $Rooms->andWhere(['meal_plan_id' => $food_type]);
             }
             if (($occupancy) && ($occupancy != null)) {
                 $Rooms->andWhere(['>', '(number_of_adults + number_of_extra_beds)', $occupancy]);
@@ -197,7 +200,8 @@ class EnquirySearchController extends \yii\web\Controller
             $PriorityRooms = [];
             foreach ($totalPropID as $id){
 //                return $this->asJson($id);
-                $PriorityRooms[] = $Rooms->where(['property_id' => $id])->orderBy([
+                $RoomQuery =  clone $Rooms;
+                $PriorityRooms[] = $RoomQuery->andwhere(['property_id' => $id])->orderBy([
                     'priority' => SORT_ASC //specify sort order ASC for ascending DESC for descending
                 ])->one();
             }
