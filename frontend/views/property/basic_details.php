@@ -179,8 +179,7 @@ function showTermsAlert(){
         background-position: center center;
         background-size: cover;
         display: inline-block;
-        object-fit: contain;
-
+        object-fit: scale-down;
     }
     .imagePreviewLogo {
         max-width:100%;
@@ -190,7 +189,7 @@ function showTermsAlert(){
         background-position: center center;
         background-size: cover;
         display: inline-block;
-        object-fit: contain;
+        object-fit: scale-down;
     }
 
     .imagedisplay{
