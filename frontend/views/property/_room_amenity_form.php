@@ -56,7 +56,7 @@ $this->registerCssFile('/css/property/amenities.css');
             <?php
             echo '<div class="row align-items-center">';
             ?>
-            <div class="col-md-3 custom-control custom-checkbox mb-2">
+            <div class="col-md-3 custom-control custom-checkbox mb-2" style="margin-left: 10px">
                 <input id="amenity-room-<?php echo $amenity->id; ?>" name="room_amenity_name[]" type="checkbox" class="custom-control-input" value="<?php echo $amenity->id; ?>" <?= ($selected == NULL) ? "" : "checked"  ?>/>
                 <label class="custom-control-label" for="amenity-room-<?php echo $amenity->id; ?>"> <?php echo $amenity->name ?> </label>
             </div>
