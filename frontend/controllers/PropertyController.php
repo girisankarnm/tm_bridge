@@ -1515,14 +1515,16 @@ class PropertyController extends Controller
             parse_str($complimentary_data, $compDataArray);
             PropertyComplimentaryAmenity::deleteAll(['property_id' => $property_id]);
 
-            if (isset($compDataArray['complimentary_input'])) {
-                $comp_count = count($compDataArray['complimentary_input']);
-                for ($i = 0; $i < $comp_count; $i++) {
-                    $complimentary = new PropertyComplimentaryAmenity();
-                    $complimentary->property_id = $property_id;
-                    $complimentary->name = $compDataArray['complimentary_input'][$i];
-                    if ($complimentary->validate()) {
-                        $complimentary->save();
+            if($property->have_complimentary_services == 1) {
+                if (isset($compDataArray['complimentary_input'])) {
+                    $comp_count = count($compDataArray['complimentary_input']);
+                    for ($i = 0; $i < $comp_count; $i++) {
+                        $complimentary = new PropertyComplimentaryAmenity();
+                        $complimentary->property_id = $property_id;
+                        $complimentary->name = $compDataArray['complimentary_input'][$i];
+                        if ($complimentary->validate()) {
+                            $complimentary->save();
+                        }
                     }
                 }
             }
