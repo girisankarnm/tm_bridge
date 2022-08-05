@@ -1,6 +1,6 @@
 <?php
 
-use yii\db\Migration;
+use app\components\Migration;
 
 /**
  * Handles the creation of table `{{%room}}`.
@@ -33,6 +33,8 @@ class m211126_070709_create_room_table extends Migration
             'status' => $this->smallInteger()->notNull()->defaultValue(10),
             'owner_id' => $this->integer(11)->defaultValue(null)
         ]);
+
+        $this->timestamps('{{%room}}');
 
         $this->addForeignKey('fk_room_type','room','type_id','room_type','id','CASCADE','CASCADE');
         $this->addForeignKey('fk_room_view','room','view_id','property_room_view','id','CASCADE','CASCADE');
