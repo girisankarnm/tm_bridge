@@ -1,6 +1,6 @@
 <?php
 
-use yii\db\Migration;
+use app\components\Migration;
 
 /**
  * Handles the creation of table `{{%room_tariff_datewise}}`.
@@ -20,6 +20,8 @@ class m211218_093752_create_room_tariff_datewise_table extends Migration
             'date_range_id' => $this->integer(11)->defaultValue(null),
             'status' => $this->smallInteger()->notNull()->defaultValue(9),
         ]);
+
+        $this->timestamps('{{%room_tariff_datewise}}');
 
         $this->addForeignKey('fk_room_tariff_datewise_property','room_tariff_datewise','property_id','property','id','CASCADE','CASCADE');
         $this->addForeignKey('fk_room_tariff_datewise_room','room_tariff_datewise','room_id','room','id','CASCADE','CASCADE');

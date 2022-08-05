@@ -3,6 +3,7 @@
 namespace frontend\models\tariff;
 use frontend\models\property\Property;
 use frontend\models\property\PropertyMealImpact;
+use frontend\models\TourMatrixActiveRecord;
 
 use Yii;
 
@@ -22,7 +23,7 @@ use Yii;
  * @property PropertyMealImpact $mealImpact
  * @property Property $property
  */
-class MandatoryDinner extends \yii\db\ActiveRecord
+class MandatoryDinner extends TourMatrixActiveRecord
 {
     /**
      * {@inheritdoc}

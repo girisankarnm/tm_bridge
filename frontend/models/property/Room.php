@@ -4,6 +4,8 @@ namespace frontend\models\property;
 
 use frontend\models\operator\EnquiryRoomSelection;
 use frontend\models\user\User;
+use frontend\models\TourMatrixActiveRecord;
+
 use Yii;
 
 /**
@@ -42,7 +44,7 @@ use Yii;
  * @property RoomType $type
  * @property PropertyRoomView $view
  */
-class Room extends \yii\db\ActiveRecord
+class Room extends TourMatrixActiveRecord
 {
     /**
      * {@inheritdoc}
