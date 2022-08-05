@@ -3,6 +3,8 @@
 namespace frontend\models\tariff;
 use frontend\models\property\Property;
 use frontend\models\property\Room;
+use frontend\models\TourMatrixActiveRecord;
+
 use Yii;
 
 /**
@@ -20,7 +22,7 @@ use Yii;
  * @property RoomTariffSlabWeekdayhike[] $roomTariffSlabWeekdayhikes
  * @property RoomTariffWeekdayhikeDays[] $roomTariffWeekdayhikeDays
  */
-class RoomTariffWeekdayhike extends \yii\db\ActiveRecord
+class RoomTariffWeekdayhike extends TourMatrixActiveRecord
 {
     /**
      * {@inheritdoc}

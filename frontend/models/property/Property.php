@@ -8,6 +8,7 @@ use common\models\User;
 use frontend\models\Country;
 use frontend\models\Destination;
 use frontend\models\Location;
+use frontend\models\TourMatrixActiveRecord;
 use frontend\models\tariff\TariffNationalityGroupName;
 
 /**
@@ -109,7 +110,7 @@ use frontend\models\tariff\TariffNationalityGroupName;
  * @property TariffNationalityGroupName[] $tariffNationalityGroupNames
  * @property UserPropertyMap[] $userPropertyMaps
  */
-class Property extends \yii\db\ActiveRecord
+class Property extends TourMatrixActiveRecord
 {
     /**
      * {@inheritdoc}

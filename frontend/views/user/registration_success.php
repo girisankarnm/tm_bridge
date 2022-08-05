@@ -20,11 +20,7 @@ use yii\helpers\ArrayHelper;
             To login, please click on the link sent to your mail.
             <br/>            
         </h6>
-    </div>
-
-    <div class="text-center">
-        <?= Html::a('Login', ['user/login'], ['class'=>'btn btn-primary btn-sm mt-3']) ?>
-    </div>
+    </div>    
 </div>
 <?php ActiveForm::end(); ?>
 

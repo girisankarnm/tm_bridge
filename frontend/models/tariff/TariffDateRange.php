@@ -6,6 +6,7 @@ use frontend\models\tariff\RoomTariffDatewise;
 use frontend\models\tariff\SupplimentMeal;
 use frontend\models\tariff\RoomTariffWeekdayhike;
 use frontend\models\tariff\MandatoryDinner;
+use frontend\models\TourMatrixActiveRecord;
 
 use Carbon\Carbon;
 
@@ -28,7 +29,7 @@ use Yii;
  * @property RoomTariffWeekdayhike[] $roomTariffWeekdayhikes
  * @property SupplimentMeal[] $supplimentMeals
  */
-class TariffDateRange extends \yii\db\ActiveRecord
+class TariffDateRange extends TourMatrixActiveRecord
 {
     /**
      * {@inheritdoc}

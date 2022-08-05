@@ -4,6 +4,8 @@ namespace frontend\models\tariff;
 use frontend\models\tariff\TariffDateRange;
 use frontend\models\property\Property;
 use frontend\models\property\Room;
+use frontend\models\TourMatrixActiveRecord;
+
 use Yii;
 
 /**
@@ -22,7 +24,7 @@ use Yii;
  * @property RoomTariffDateRange[] $roomTariffDateRanges
  * @property RoomTariffSlab[] $roomTariffSlabs
  */
-class RoomTariffDatewise extends \yii\db\ActiveRecord
+class RoomTariffDatewise extends TourMatrixActiveRecord
 {
     /**
      * {@inheritdoc}

@@ -85,7 +85,7 @@ class m211118_090741_create_property_table extends Migration
             'owner_id' => $this->integer(11)->defaultValue(null)
         ]);
 
-        $this->timestamps('property');
+        $this->timestamps('{{%property}}');
 
         $this->addForeignKey('fk_property_smoking_policy','property','smoking_policy_id','property_smoking_policy','id','CASCADE','CASCADE');
         $this->addForeignKey('fk_property_pets_policy','property','pets_policy_id','property_pets_policy','id','CASCADE','CASCADE');

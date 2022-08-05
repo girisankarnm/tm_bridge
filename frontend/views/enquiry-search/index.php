@@ -14,21 +14,23 @@ frontend\assets\AppAsset::register($this);
             <div class="card search-top-card-list shadow-div " >
                 <div id="flex-icons">
                     <div>
-                        <div class="card search-top-card-label "  style="width: 140px;"> <a href="#" class="search-anchor">Enquiry no: #<?= $enquiry->enquiry_no ?></a> </div>
+                        <div class="card search-top-card-label Enquiry-style-search"> <a href="#" class="search-anchor  Enquiry-style-search">Enquiry no: #<?= $enquiry->enquiry_no ?></a> </div>
                         <input type="hidden" name="enquiryID" id="enquiry_id" class="form-control" value="<?= $enquiry->id ?>">
                         <input type="hidden" name="destination_id" id="destination_id" class="form-control" value="">
                     </div>
 
                     <div>
-                        <div class="card search-top-card-label "   style="width: 240px;" > <a href="#" class="search-anchor">Guest name: <?= $enquiry->guest_name ?></a> </div>
+                        <div class="card search-top-card-label guest-style-search"   > <a href="#" class="search-anchor guest-style-search">Guest name: <?= $enquiry->guest_name ?> </a> </div>
 
                     </div>
                     <div>
-                        <div class="card search-top-card-label "  style="width: 286px;" > <a href="#" class="search-anchor"><span>Check in: <?= date('d-M-Y', strtotime($enquiry->tour_start_date)) ?> </span><span>Check out: <?= date('d-M-Y', strtotime($enquiry->tour_start_date . ' + ' . $enquiry->tour_duration . 'days')) ?> </span></a> </div>
+
+                        <div class="card search-top-card-label  check-date-style-search "  > <a href="#" class="search-anchor check-date-style-search"><span>Check in: <?= date('d-M-y', strtotime($enquiry->tour_start_date)) ?> </span><span>Check out: <?= date('d-M-y', strtotime($enquiry->tour_start_date . ' + ' . $enquiry->tour_duration . 'days')) ?> </span></a> </div>
+
                     </div>
 
                     <div>
-                        <div class="card search-top-card-label"  style="width: 220px;" > <a href="#" class="search-anchor"><span>Stay Duration: <?= $enquiry->tour_duration ?> </span></a> </div>
+                        <div class="card search-top-card-label stay-search" > <a href="#" class="search-anchor wdth-210px"><span>Stay Duration: <?= $enquiry->tour_duration ?> Days Stay</span></a> </div>
                     </div>
                     <div>
                         <div id="flex-row-search"  style="width: 140px;">
@@ -57,6 +59,83 @@ frontend\assets\AppAsset::register($this);
             </div>
 
             <div id="search-result-content">
+
+                <!--RESULT CONTAINER -->
+
+                <!--loader div start -->
+                <div id="search_loader" style="display: none">
+                    <div class="timeline-item card  search-card-list shadow-div">
+                        <div class="animated-background facebook">
+                            <div class="background-masker header-top "></div>
+                            <div class="background-masker header-left"></div>
+                            <div class="background-masker header-right"></div>
+                            <div class="background-masker header-bottom"></div>
+                            <div class="background-masker subheader-left"></div>
+                            <div class="background-masker subheader-right"></div>
+                            <div class="background-masker subheader-bottom"></div>
+                            <div class="background-masker content-top"></div>
+                            <div class="background-masker content-first-end"></div>
+                            <div class="background-masker content-second-line"></div>
+                            <div class="background-masker content-second-end"></div>
+                            <div class="background-masker content-third-line"></div>
+                            <div class="background-masker content-third-end "></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item card  search-card-list shadow-div">
+                        <div class="animated-background facebook">
+                            <div class="background-masker header-top "></div>
+                            <div class="background-masker header-left"></div>
+                            <div class="background-masker header-right"></div>
+                            <div class="background-masker header-bottom"></div>
+                            <div class="background-masker subheader-left"></div>
+                            <div class="background-masker subheader-right"></div>
+                            <div class="background-masker subheader-bottom"></div>
+                            <div class="background-masker content-top"></div>
+                            <div class="background-masker content-first-end"></div>
+                            <div class="background-masker content-second-line"></div>
+                            <div class="background-masker content-second-end"></div>
+                            <div class="background-masker content-third-line"></div>
+                            <div class="background-masker content-third-end "></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item card  search-card-list shadow-div">
+                        <div class="animated-background facebook">
+                            <div class="background-masker header-top "></div>
+                            <div class="background-masker header-left"></div>
+                            <div class="background-masker header-right"></div>
+                            <div class="background-masker header-bottom"></div>
+                            <div class="background-masker subheader-left"></div>
+                            <div class="background-masker subheader-right"></div>
+                            <div class="background-masker subheader-bottom"></div>
+                            <div class="background-masker content-top"></div>
+                            <div class="background-masker content-first-end"></div>
+                            <div class="background-masker content-second-line"></div>
+                            <div class="background-masker content-second-end"></div>
+                            <div class="background-masker content-third-line"></div>
+                            <div class="background-masker content-third-end "></div>
+                        </div>
+                    </div>
+                    <div class="timeline-item card  search-card-list shadow-div">
+                        <div class="animated-background facebook">
+                            <div class="background-masker header-top "></div>
+                            <div class="background-masker header-left"></div>
+                            <div class="background-masker header-right"></div>
+                            <div class="background-masker header-bottom"></div>
+                            <div class="background-masker subheader-left"></div>
+                            <div class="background-masker subheader-right"></div>
+                            <div class="background-masker subheader-bottom"></div>
+                            <div class="background-masker content-top"></div>
+                            <div class="background-masker content-first-end"></div>
+                            <div class="background-masker content-second-line"></div>
+                            <div class="background-masker content-second-end"></div>
+                            <div class="background-masker content-third-line"></div>
+                            <div class="background-masker content-third-end "></div>
+                        </div>
+                    </div>
+
+                </div>
+                <!--loader div end -->
+
 
             </div>
         </div>
@@ -172,8 +251,8 @@ frontend\assets\AppAsset::register($this);
                             </div>
                             <?php endforeach; ?>
                             <div>
-                                <input type="checkbox" value="true" name="swimming_pool" id="swimming-pool" class="vertical-align-middle margin-left-check-box" >
-                                <label  class="pointerclass" for="swimming-pool"   style="margin: 8px"  >Swimming pool </label>
+                                <input type="checkbox" value="true" name="swimming_pool" id="swimming_pool" class="vertical-align-middle margin-left-check-box" >
+                                <label  class="pointerclass" for="swimming_pool"   style="margin: 8px"  >Swimming pool </label>
                             </div>
                             <div>
                                 <input type="checkbox" value="true" name="restaurant" id="restaurant" class="vertical-align-middle margin-left-check-box" >
@@ -207,7 +286,7 @@ frontend\assets\AppAsset::register($this);
                 </div>
                 <div class="row" style="margin-left: 27px;margin-bottom: 12px;vertical-align: center">
                     <div style="display: block;margin-right: 35px">
-                        <BUTTON type="text" class="buttonSaveFilter" > Apply </BUTTON>
+                        <BUTTON type="text" class="buttonSaveFilter" onclick="getPropertyList($('#destination_id').val())"> Apply </BUTTON>
                     </div>
                 </div>
             </div>
@@ -300,7 +379,7 @@ frontend\assets\AppAsset::register($this);
     }
 
     function getPropertyList(DestinationId){
-
+        $('#search_loader').show().fadeIn(1000);
      if (DestinationId) {
          $("#destination_id").val(DestinationId);
          document.getElementById('myDropdownResult').style.display = 'none';
@@ -310,18 +389,64 @@ frontend\assets\AppAsset::register($this);
              enquiry_id: $('#enquiry_id').val(),
          }, function (response) {
              if (response.status == 0) {
-                 console.log(response.data);
+                 // console.log(response.data);
                  $("#destination-dates").empty();
 
                  $("#destination-dates").append(response.data);
              }
          })
 
+
+         var property_amenity = [];
+         var room_amenity = [];
+         var accommodation_id = [];
+         var swimming_pool = null;
+         var restaurant = null;
+         var parking = null;
+         $.each($("input[name='room_amenity[]']:checked"), function(){
+             room_amenity.push($(this).val());
+         });
+         $.each($("input[name='property_amenity[]']:checked"), function(){
+             property_amenity.push($(this).val());
+         });
+         $.each($("input[name='accommodation_id[]']:checked"), function(){
+             accommodation_id.push($(this).val());
+         });
+
+         if($('#swimming_pool').is(':checked') ){
+             swimming_pool = $('#swimming_pool').val();
+         }
+         if($('#restaurant').is(':checked') ){
+             restaurant =  $('#restaurant').val();
+         }
+         if($('#parking').is(':checked')){
+             parking = $('#parking').val();
+         }
+
+console.log(room_amenity);
+console.log(property_amenity);
+console.log(accommodation_id);
+console.log(swimming_pool);
+
          $.post("index.php?r=enquiry-search/search", {
              enquiryID: $('#enquiry_id').val(),
              destination: DestinationId,
+             property_type: $('#property_type').val(),
+             property_rating: $('#property_rating').val(),
+             room_type: $('#room_type').val(),
+             // room_view: $('#room_view').val(),
+             food_type: $('#food_type').val(),
+             // occupancy: $('#occupancy').val(),
+             swimming_pool: swimming_pool,
+             restaurant: restaurant,
+             parking: parking,
+             // property_amenity: JSON.stringify(property_amenity),
+             // room_amenity: JSON.stringify(room_amenity),
+             // accommodation_id: JSON.stringify(accommodation_id),
+             // search_property: $('#search_property').val(),
+             // page_no: $('#enquiry_id').val(),
          }, function (response) {
-             console.log(response);
+             // console.log(response);
 
              $("#search-result-content").empty();
              $("#search-result-content").append(response.data).hide().fadeIn(1000);

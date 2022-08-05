@@ -1,4 +1,4 @@
-<div class="card-title">Search  result for <?= $property_destination_name?></div>
+<div class="card-title font-size-13px font-bw-mitga">Search  result for <?= $property_destination_name?></div>
            <?php foreach ($searchResult as $index => $properties) :?>
     <div class="card search-card-list shadow-div card-overflow-hidden" >
         <div id="mainHeding-search-hotel" >
@@ -94,7 +94,7 @@
                  <?php foreach ($properties['property_rooms'] as $rooms) :?>
                 <div id="column-4th-colomn-search" >
                     <div>  <span class="font-bw-mitga" style="font: bold;font-size: 13px;float: left;margin-left: 10px; color: #292931 "> <?= $rooms['RoomDetails']['name'] ?> </span>
-                        <span style="float: right;margin-left: 10px;font-size: 11px" class="badge badge-pill badge-secondary size-badge font-bw-mitga-text"><img class="img-property-search" src="images/note-search.svg"  alt="Matrix"> 4/10</span>
+<!--                        <span style="float: right;margin-left: 10px;font-size: 11px" class="badge badge-pill badge-secondary size-badge font-bw-mitga-text"><img class="img-property-search" src="images/note-search.svg"  alt="Matrix"> 4/10</span>-->
                     </div>
                     <div>
                         <span class="span-gap font-span font-bw-mitga-text " style=";margin-left: 10px">  <img class="img-property color-140F0F " src="images/baby-icon.svg" alt="Matrix"><?= $rooms['RoomDetails']['property']['complimentary_from_age'] ?>-<span><?= $rooms['RoomDetails']['property']['complimentary_to_age'] ?></span>YR </span>

@@ -23,10 +23,7 @@ $this->registerCssFile('/css/full-page.css');
         <div class="col-md-12" style="font-size: 14px; margin-bottom: 15px; text-align: center">
             Your account has been successfully created. <br/>
             To login, please click on the link sent to your mail.
-        </div>
-        <div class="text-center" style="margin-bottom: 20px">
-            <?= Html::a('Login', ['user/login'], ['class'=>'btn btn-primary btn-sm mt-3', 'style' =>'width: 100px; background-color:#831BEE; border: 0.5px solid #831BEE']) ?>
-        </div>
+        </div>       
 
     </div>
     <?php ActiveForm::end(); ?>
