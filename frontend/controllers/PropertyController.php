@@ -1489,7 +1489,7 @@ class PropertyController extends Controller
         \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
 
         if (!isset($_REQUEST['property_id'])) {
-            return array('status' => 2, 'message' => "Invalid input. Property missing.", 'data' => 0);;
+            return array('status' => 2, 'message' => "Invalid input. Property missing.", 'data' => 0);
         }
 
         $property_id = Yii::$app->request->post('property_id');
@@ -1570,10 +1570,15 @@ class PropertyController extends Controller
             $swimming_pool = PropertySwimmingPool::find()
                 ->where(['property_id' => $property_id])
                 ->one();
-            if ($swimming_pool == NULL) {
+            if ($swimming_pool){
+                PropertySwimmingPoolTypeMap::deleteAll(['pool_id' =>$swimming_pool->id]);
+                PropertySwimmingPool::deleteAll(['property_id' => $property_id]);
+            }
+
+            if($property->have_swimming_pool == 1) {
+
                 $swimming_pool = new PropertySwimmingPool();
                 $swimming_pool->property_id = $property_id;
-            }
 
             $swimming_pool->count = Yii::$app->request->post('pool_count');
 
@@ -1584,15 +1589,16 @@ class PropertyController extends Controller
             $pool_type = Yii::$app->request->post('pool_type');
             parse_str($pool_type, $poolDataArray);
 
-            if (isset($poolDataArray['pool_type'])) {
-                $pool_type_count = count($poolDataArray['pool_type']);
-                for ($i = 0; $i < $pool_type_count; $i++) {
-                    $pool_map = new PropertySwimmingPoolTypeMap();
-                    $pool_map->pool_id = $swimming_pool->getPrimaryKey();
-                    $pool_map->pool_type_id = $poolDataArray['pool_type'][$i];
+                if (isset($poolDataArray['pool_type'])) {
+                    $pool_type_count = count($poolDataArray['pool_type']);
+                    for ($i = 0; $i < $pool_type_count; $i++) {
+                        $pool_map = new PropertySwimmingPoolTypeMap();
+                        $pool_map->pool_id = $swimming_pool->getPrimaryKey();
+                        $pool_map->pool_type_id = $poolDataArray['pool_type'][$i];
 
-                    if ($pool_map->validate()) {
-                        $pool_map->save();
+                        if ($pool_map->validate()) {
+                            $pool_map->save();
+                        }
                     }
                 }
             }
@@ -1639,47 +1645,49 @@ class PropertyController extends Controller
             $restaurant = PropertyRestaurant::find()
                 ->where(['property_id' => $property_id])
                 ->one();
+            if ($restaurant) {
+                PropertyRestaurantFoodOptionMap::deleteAll(['restaurant_id' => $restaurant->getPrimaryKey()]);
+                PropertyRestaurantCuisineOptionMap::deleteAll(['restaurant_id' => $restaurant->getPrimaryKey()]);
+                PropertyRestaurant::deleteAll(['property_id' => $property_id]);
+            }
 
-            if ($restaurant == NULL) {
                 $restaurant = new PropertyRestaurant();
                 $restaurant->property_id = $property_id;
-            }
 
-            $restaurant->count = Yii::$app->request->post('restaurant_count');
-            if ($restaurant->validate()) {
-                $restaurant->save();
-            }
+            if($property->have_restaurant == 1) {
+                $restaurant->count = Yii::$app->request->post('restaurant_count');
+                if ($restaurant->validate()) {
+                    $restaurant->save();
+                }
 
-            PropertyRestaurantFoodOptionMap::deleteAll(['restaurant_id' => $restaurant->getPrimaryKey()]);
+                $food_option = Yii::$app->request->post('food_option');
+                parse_str($food_option, $food_optionDataArray);
+                if (isset($food_optionDataArray['food_option'])) {
+                    $food_option_count = count($food_optionDataArray['food_option']);
+                    for ($i = 0; $i < $food_option_count; $i++) {
+                        $food_option_map = new PropertyRestaurantFoodOptionMap();
+                        $food_option_map->restaurant_id = $restaurant->getPrimaryKey();
+                        $food_option_map->food_option_id = $food_optionDataArray['food_option'][$i];
 
-            $food_option = Yii::$app->request->post('food_option');
-            parse_str($food_option, $food_optionDataArray);
-            if (isset($food_optionDataArray['food_option'])) {
-                $food_option_count = count($food_optionDataArray['food_option']);
-                for ($i = 0; $i < $food_option_count; $i++) {
-                    $food_option_map = new PropertyRestaurantFoodOptionMap();
-                    $food_option_map->restaurant_id = $restaurant->getPrimaryKey();
-                    $food_option_map->food_option_id = $food_optionDataArray['food_option'][$i];
-
-                    if ($food_option_map->validate()) {
-                        $food_option_map->save();
+                        if ($food_option_map->validate()) {
+                            $food_option_map->save();
+                        }
                     }
                 }
-            }
 
-            PropertyRestaurantCuisineOptionMap::deleteAll(['restaurant_id' => $restaurant->getPrimaryKey()]);
-            $cuisine_option = Yii::$app->request->post('cuisine_option');
-            parse_str($cuisine_option, $cuisine_optionDataArray);
-            if (isset($cuisine_optionDataArray['cuisine_option'])) {
-                $cuisine_option_count = count($cuisine_optionDataArray['cuisine_option']);
+                $cuisine_option = Yii::$app->request->post('cuisine_option');
+                parse_str($cuisine_option, $cuisine_optionDataArray);
+                if (isset($cuisine_optionDataArray['cuisine_option'])) {
+                    $cuisine_option_count = count($cuisine_optionDataArray['cuisine_option']);
 
-                for ($i = 0; $i < $cuisine_option_count; $i++) {
-                    $cuisine_option_map = new PropertyRestaurantCuisineOptionMap();
-                    $cuisine_option_map->restaurant_id = $restaurant->getPrimaryKey();
-                    $cuisine_option_map->cuisine_option_id = $cuisine_optionDataArray['cuisine_option'][$i];
+                    for ($i = 0; $i < $cuisine_option_count; $i++) {
+                        $cuisine_option_map = new PropertyRestaurantCuisineOptionMap();
+                        $cuisine_option_map->restaurant_id = $restaurant->getPrimaryKey();
+                        $cuisine_option_map->cuisine_option_id = $cuisine_optionDataArray['cuisine_option'][$i];
 
-                    if ($cuisine_option_map->validate()) {
-                        $cuisine_option_map->save();
+                        if ($cuisine_option_map->validate()) {
+                            $cuisine_option_map->save();
+                        }
                     }
                 }
             }
@@ -1726,30 +1734,33 @@ class PropertyController extends Controller
                 ->where(['property_id' => $property_id])
                 ->one();
 
-            if ($parking == NULL) {
+            if ($parking) {
+                PropertyParkingTypeMap::deleteAll(['parking_id' => $parking->getPrimaryKey()]);
+                PropertyParking::deleteAll(['property_id' => $property_id]);
+            }
+
                 $parking = new PropertyParking();
                 $parking->property_id = $property_id;
-            }
 
-            if ($parking->validate()) {
-                $parking->save();
-            }
+            if($property->have_parking == 1) {
+                if ($parking->validate()) {
+                    $parking->save();
+                }
 
-            PropertyParkingTypeMap::deleteAll(['parking_id' => $parking->getPrimaryKey()]);
+                $parking_type = Yii::$app->request->post('parking_type');
+                parse_str($parking_type, $parkingDataArray);
 
-            $parking_type = Yii::$app->request->post('parking_type');
-            parse_str($parking_type, $parkingDataArray);
+                if (isset($parkingDataArray['parking_type'])) {
+                    $parking_count = count($parkingDataArray['parking_type']);
 
-            if (isset($parkingDataArray['parking_type'])) {
-                $parking_count = count($parkingDataArray['parking_type']);
+                    for ($i = 0; $i < $parking_count; $i++) {
+                        $parking_map = new PropertyParkingTypeMap();
+                        $parking_map->parking_id = $parking->getPrimaryKey();
+                        $parking_map->parking_type_id = $parkingDataArray['parking_type'][$i];
 
-                for ($i = 0; $i < $parking_count; $i++) {
-                    $parking_map = new PropertyParkingTypeMap();
-                    $parking_map->parking_id = $parking->getPrimaryKey();
-                    $parking_map->parking_type_id = $parkingDataArray['parking_type'][$i];
-
-                    if ($parking_map->validate()) {
-                        $parking_map->save();
+                        if ($parking_map->validate()) {
+                            $parking_map->save();
+                        }
                     }
                 }
             }
@@ -1796,7 +1807,16 @@ class PropertyController extends Controller
         $transaction = Yii::$app->db->beginTransaction();
         try {
             $amenities_count = count($amenities);
-            PropertyAmenity::deleteAll(['property_id' => $property_id]);
+
+            $amnity = PropertyAmenity::find()
+                ->where(['property_id' => $property_id])
+                ->one();
+
+            if ($amnity) {
+                PropertyAmenitySuboption::deleteAll(['property_amenity_id' => $amnity->getPrimaryKey()]);
+                PropertyAmenity::deleteAll(['property_id' => $property_id]);
+            }
+
             for ($i = 0; $i < $amenities_count; $i++) {
                 $property_amenity = new PropertyAmenity();
                 $property_amenity->property_id = $property_id;

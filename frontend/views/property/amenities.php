@@ -236,7 +236,7 @@ $this->registerJsFile('/js/property/amenities/services_amenities.js');
                                             <div class="col-2">
                                                 <p> Type of Parking </p>
                                             </div>
-                                            <div class="d-flex col-10 align-items-center">
+                                            <div class="d-flex col-10 align-items-center" style="margin-top: 5px">
 
                                                 <?php foreach ($parking_types as $parking_type):?>
 
@@ -272,7 +272,7 @@ $this->registerJsFile('/js/property/amenities/services_amenities.js');
                                             ?>
                                             <div class="row align-items-center mb-2">
                                                 <?php //if( 2 == $amenity->display_level_id){ ?>
-                                                <div class="col-md-3 custom-control custom-checkbox mb-2">
+                                                <div class="col-md-3 custom-control custom-checkbox mb-2" style="margin-left: 10px">
                                                     <input id="amenity-<?php echo $amenity->id; ?>" name="property_amenity_name[]" type="checkbox" class="custom-control-input" value="<?php echo $amenity->id; ?>" <?= ($selected == NULL) ? "" : "checked"  ?>/>
                                                     <label class="custom-control-label" for="amenity-<?php echo $amenity->id; ?>"> <?php echo $amenity->name ?> </label>
                                                 </div>
