@@ -1,6 +1,6 @@
 <?php
 
-use yii\db\Migration;
+use app\components\Migration;
 
 /**
  * Handles the creation of table `{{%mandatory_dinner}}`.
@@ -22,6 +22,8 @@ class m220124_115319_create_mandatory_dinner_table extends Migration
             'property_id' =>  $this->integer(11)->defaultValue(null),
             'date_range_id' => $this->integer(11)->defaultValue(null),
         ]);
+
+        $this->timestamps('{{%mandatory_dinner}}');
 
         $this->addForeignKey('fk_mandatory_dinner_property','mandatory_dinner','property_id','property','id','CASCADE','CASCADE');
         $this->addForeignKey('fk_mandatory_dinner_meal_impact','mandatory_dinner','meal_impact_id','property_meal_impact','id','CASCADE','CASCADE');

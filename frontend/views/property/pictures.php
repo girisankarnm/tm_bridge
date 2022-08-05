@@ -82,7 +82,7 @@ $this->registerJsFile('/js/property_pictures/index.js');
             <button onclick="location.href='<?= Url::toRoute(['property/serviceamenities','id' => $property->id]) ?>'" class="tablinks" id="pills-guest-tab" href="#pills-guest"> Service & Amenities </button>
         </li>
         <li class="nav-item" role="presentation">
-            <button onclick="location.href='<?= Url::toRoute(['property/pictures','id' => $property->id]) ?>'" class="selectedButton" id="pills-accommodation-tab" href="#pills-accommodation"> Property pictures
+            <button onclick="location.href='<?= Url::toRoute(['property/pictures','id' => $property->id]) ?>'" class="selectedButton" id="pills-accommodation-tab" href="#pills-accommodation"> Upload Pictures
             </button><hr class="new5" >
         </li>
     </ul>

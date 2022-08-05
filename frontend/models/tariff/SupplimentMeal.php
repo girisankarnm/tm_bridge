@@ -2,6 +2,7 @@
 
 namespace frontend\models\tariff;
 use frontend\models\property\Property;
+use frontend\models\TourMatrixActiveRecord;
 
 use Yii;
 
@@ -16,7 +17,7 @@ use Yii;
  * @property Property $property
  * @property SupplimentMealSlab[] $supplimentMealSlabs
  */
-class SupplimentMeal extends \yii\db\ActiveRecord
+class SupplimentMeal extends TourMatrixActiveRecord
 {
     /**
      * {@inheritdoc}

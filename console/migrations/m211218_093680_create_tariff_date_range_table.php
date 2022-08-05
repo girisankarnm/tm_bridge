@@ -1,6 +1,6 @@
 <?php
 
-use yii\db\Migration;
+use app\components\Migration;
 
 /**
  * Handles the creation of table `{{%tariff_date_range}}`.
@@ -22,6 +22,8 @@ class m211218_093680_create_tariff_date_range_table extends Migration
             'status' => $this->tinyInteger()->defaultValue(0), 
             'tariff_type' => $this->tinyInteger()->defaultValue(0), 
         ]);
+
+        $this->timestamps('{{%tariff_date_range}}');
 
         $this->addForeignKey('fk_date_range_property','tariff_date_range','property_id','property','id','CASCADE','CASCADE');
     }
