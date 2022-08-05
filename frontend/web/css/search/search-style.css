@@ -186,9 +186,13 @@
 }
 
 .locationInput-Search {
-    width: 146px;
+    width: 228px;
     border: none;
+    height: 35px;
+    outline-color :#FFFFFF !important;
+margin-bottom: 8px!important;
     background-color:#F5F4F5 ;
+    text-indent: 12px !important;
 }
 .search-dropdown-card {
     height: 252px !important;
@@ -233,6 +237,10 @@
     overflow: auto;
     border: 1px solid #ddd;
     z-index: 1;
+    font-size: 14px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);/*Adds a drop shadow*/
+    color: black !important;
+    border-radius: 2%;
 }
 
 .dropdown-content-search a {
@@ -395,7 +403,7 @@ dropdown-content-search {
     flex-basis: 25px;
 }
 #flex-row-search div:nth-of-type(1) {
-    margin-left: 5px;
+    margin-left: 3px;
     width: 30px;
     height: 100px;
     text-align: left;
@@ -453,15 +461,15 @@ dropdown-content-search {
 }
 .Enquiry-style-search
 {
-    width: 148px;
+    width: 154px;
 }
 
 .guest-style-search
 {
-    width: 235px;
+    width: 200px;
 }
 .check-date-style-search {
-    width: 275px;
+    width: 305px;
 }
 .stay-search
 {
@@ -487,20 +495,19 @@ dropdown-content-search {
 
 }
 #flex-icons div:nth-of-type(2) {
-    width: 242px;
+    width: 205px;
     margin-right: 1px;
     overflow: hidden;
     text-align: left;
+
 }
 #flex-icons div:nth-of-type(3) {
-    width: 280px;
+    width: 310px;
     margin-right: 1px;
-
     overflow: hidden;
 }
 #flex-icons div:nth-of-type(4) {
-
-    width: 192px;
+    width: 196px;
     text-align: left;
     margin-right: 1px;
 }
@@ -745,8 +752,8 @@ dropdown-content-search {
 .text {
     margin-left: 20px
 }
-.wdth-210px{
-    width: 210px !important;
+.stay-duration_width{
+    width: 236px !important;
 }
 .text-line {
     height: 10px;
@@ -811,6 +818,62 @@ page-link:checked{
     background-color: #E40968 !important;
     border-color: #fff !important;
 }
+
+.dropdown-filer-view {
+    display: none;/*Hides the content*/
+    position: absolute;
+    font-size: 14px;
+    background-color: #fff;
+    min-width: 150px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);/*Adds a drop shadow*/
+    z-index: 1;
+    color: black !important;
+    border-radius: 2%;
+}
+
+
+.dropdown-filer-view:after{
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 42%;
+    margin-left: 5px;
+    margin-top: -15px;
+    width: 0;
+    z-index: 1;
+    height: 0;
+    border-bottom: solid 15px #586ada;
+    border-left: solid 15px transparent;
+    border-right: solid 15px transparent;
+}
+
+.dropdown-filer-view a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.drop-filer:hover, .drop-filer:focus {
+    background-color: #2980B9;
+color: #FFFFFF;
+}
+.drop-filer
+{
+    color: black;
+}
+.drop-window
+{
+    height: auto !important;
+     background-color: #FFFFFF !important;
+    margin-left: -114px !important;
+    margin-top: 10px !important;
+    color: black !important;
+}
+
+
 
 
 /*!***/

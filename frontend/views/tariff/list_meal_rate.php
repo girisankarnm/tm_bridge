@@ -47,7 +47,7 @@ use frontend\models\tariff\TariffDateRange;
                 <div class="tab-pane fade active show">
                     <div class="accordion" id="accordionExample<?= $i ?>" >
                         <div class="card border-zero" >
-                            <h2 class="mb-0    <?php if($i == 1):?> accordian-open-bg <?php  else: ?> accordianbg  <?php endif; ?> " >
+                            <h2 class="mb-0    <?php if($i == 1):?> accordian-open-bg <?php  else: ?> accordianbg  <?php endif; ?> "  id="accordion-id">
                                 <button class="btn btn-block text-left  accordianstyle accordion-toggle" type="button" onclick="functionchange(this);" data-toggle="collapse" data-target="#collapseOne<?= $i ?>" aria-expanded="false" aria-controls="collapseOne<?= $i ?>">
                                     <strong class="accordianText"> <?= Carbon::parse($range->from_date)->format('d M Y');  ?> <span> -</span> <?= Carbon::parse($range->to_date)->format('d M Y'); ?>  </strong>   <strong  class="accordianText" style="color: #ffffff;text-align: center;margin-left: 25%;position: static"> <?= ($range->status == 1) ? "Published" : "Not Published" ?> </strong>
                                     <div class="float-right">
@@ -94,3 +94,21 @@ use frontend\models\tariff\TariffDateRange;
         </div>
 </div>
 </div>
+<script>
+    $(document).ready(function() {
+
+        $(".
+        on("click", function() {
+            var accordionId = $(this).attr("accordion-id"),
+                numPanelOpen = $(accordionId + ' .collapse.in').length;
+
+            $(this).toggleClass("active");
+
+            if (numPanelOpen == 0) {
+                openAllPanels(accordionId);
+            } else {
+                closeAllPanels(accordionId);
+            }
+        })
+
+</script>

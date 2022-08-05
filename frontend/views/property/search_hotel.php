@@ -80,37 +80,50 @@ frontend\assets\AppAsset::register($this);
         <div class="card search-top-card-list shadow-div " >
             <div id="flex-icons">
                 <div>
-                    <div class="card search-top-card-label Enquiry-style-search "  > <a href="#" class="search-anchor  Enquiry-style-search ">Enquiry no: #9999/22</a> </div>
+                    <div class="card search-top-card-label Enquiry-style-search "  > <a href="#" class="search-anchor  Enquiry-style-search "><label class="font-bw-mitga"> Enquiry no:</label> #9999/22 </a> </div>
 
                 </div>
 
                 <div>
-                    <div class="card search-top-card-label  guest-style-search "   > <a href="#" class="search-anchor guest-style-search">Guest name: Swaroop swaminathan</a> </div>
+                    <div class="card search-top-card-label  guest-style-search "   > <a href="#" class="search-anchor guest-style-search"><label class="font-bw-mitga">Name:</label> Swaroop swaminathan</a> </div>
 
                 </div>
                 <div>
-                    <div class="card search-top-card-label  check-date-style-search "  > <a href="#" class="search-anchor check-date-style-search"><span>Check in: 15-jul-2022 </span><span>Check out: 19-jul-2022 </span></a> </div>
+                    <div class="card search-top-card-label  check-date-style-search "  > <a href="#" class="search-anchor check-date-style-search"><span><label class="font-bw-mitga"> Check in: </label> 15-Aug-2022 </span><span><label class="font-bw-mitga">Check out: </label> 19-Aug-2022 </span></a> </div>
                 </div>
 
                 <div>
-                    <div class="card search-top-card-label stay-search"   > <a href="#" class="search-anchor wdth-210px"><span>Stay Duration: 10 nights (split stay) </span></a> </div>
+                    <div class="card search-top-card-label stay-search"   > <a href="#" class="search-anchor stay-duration_width"><span><label class="font-bw-mitga">Stay Duration:</label> 10 nights (split stay) </span></a> </div>
                 </div>
                 <div>
                     <div id="flex-row-search"  style="width: 140px;">
-                         <div><a href="#">  <img class="margin-right-search-img image-width-height "  src="images/filer-symbol-up-down.svg"> </a></div>
+                         <div>
+
+                             <a href="#">
+                                 <img class="margin-right-search-img image-width-height " onclick="FunctionFilterView()"  src="images/filer-symbol-up-down.svg"> </a>
+
+                             <div id="myDropdown-view" class="dropdown-filer-view drop-window" >
+                                 <a href="" class="drop-filer"> <img  src="images/low-up-filter.svg"  style="margin-right: 2px;color: grey" > <span> Low to High</span></a>
+                                 <a href="" class="drop-filer"> <img  src="images/up-low-filter.svg"  style="margin-right: 2px;" > <span > High to Low</span></a>
+                                 <a href="" class="drop-filer"> <img  src="images/rated-star.svg"  style="margin-right: 2px;" > <span >  Most Rated </span></a>
+                                 <a href="" class="drop-filer"> <img  src="images/fav-filter.svg"  style="margin-right: 2px;" > <span >  Favourites </span></a>
+                             </div>
+
+
+
+                         </div>
                         <div> <span> <img class="margin-right-search-img image-width-height"  onclick="openNav()" src="images/filter-icon.svg"> </span></div>
                         <div> <span class="hover-icon"> <img class="margin-right-search-img image-width-height dropbtn-search "  src="images/filter-search-icon.svg"> </span>
                         </div>
                         <div> <a href="#">  <img class="image-width-height-2 dropbtn-search" onclick="myFunctionSearch()"  src="images/map-icon.svg"> </a>
-                            <div id="myDropdownResult" class="dropdown-content-search shadow-search-drop font-bw-mitga  " style="height: fit-content;margin-left: -110px;margin-top: 6px;display: none">
-                                <select class="inputSelectClass" >
-                                    <option>Slect Any City</option>
-                                </select>
-                                <div class="card search-dropdown-card" style="height: 150px;padding: 2px;">
-                                  <label style="color: #898989;font-size: 11px;width: 201px;">search
-                                      <input class="locationInput-Search" type="text" id="myInputSearch" onkeyup="filterFunction()">
-                                  </label>
-                                </div>
+                            <div id="myDropdownResult" class="dropdown-content-search  font-bw-mitga  " style="height: fit-content;margin-left: -110px;margin-top: 6px;display: none">
+                                <div class="search-title" >Select Any City </div>
+
+
+
+
+                                      <input class="locationInput-Search" type="text" id="myInputSearch" placeholder="Search.." onkeyup="filterFunction()">
+
 
                                 <a href="#about" class="drop-list">Alappuzha</a>
                                 <a href="#base" class="drop-list">Cherthala</a>
@@ -124,7 +137,10 @@ frontend\assets\AppAsset::register($this);
                 </div>
              </div>
     </div>
-            <div class="card-title font-size-13px font-bw-mitga" style="margin-left: 6px">Search  result for Alappuzha beach</div>
+            <div style="display: flex; ">
+            <div class="card-title font-size-13px font-bw-mitga" style="margin-left: 6px;">Search  result for Alappuzha beach</div>
+            <div class="card-title-right font-size-13px font-bw-mitga" style="float: right"><span style="font-size: 11px" class="badge badge-pill badge-secondary size-badge font-bw-mitga-text"><img class="img-property-search" src="images/note-search.svg"  alt="Matrix"> 4/10</span></div>
+            </div>
         <?php foreach(range(0, 5) as $index => $item): ?>
         <div class="card search-card-list shadow-div card-overflow-hidden" >
             <div id="mainHeding-search-hotel" >
@@ -207,7 +223,6 @@ frontend\assets\AppAsset::register($this);
                 <div>
                     <div id="column-4th-colomn-search" >
                         <div>  <span class="font-bw-mitga" style="font: bold;font-size: 13px;float: left;margin-left: 10px; color: #292931 "> Standard Double Room </span>
-                            <span style="float: right;margin-left: 10px;font-size: 11px" class="badge badge-pill badge-secondary size-badge font-bw-mitga-text"><img class="img-property-search" src="images/note-search.svg"  alt="Matrix"> 4/10</span>
                            </div>
                         <div>
                             <span class="span-gap font-span font-bw-mitga-text " style=";margin-left: 10px">  <img class="img-property color-140F0F " src="images/baby-icon.svg" alt="Matrix">0-<span>9</span>YR </span>
@@ -568,5 +583,9 @@ frontend\assets\AppAsset::register($this);
         // $("#Divf2").removeClass("overlay2");
         $("#filterdiv").hide();
         $("#Divf2").hide('slide');
+    }
+    function FunctionFilterView()
+    {
+        document.getElementById("myDropdown-view").classList.toggle("show-content");
     }
 </script>
