@@ -48,7 +48,7 @@ $this->registerCssFile('/css/ppe/style.css');
                 </tr>
             </table>
             <div class="book-date-table-contents">
-                <div class="table-responsive">
+                <div class="table-responsive scroll-table">
                     <table class="book-dates-table">
                         <tbody>
                             <tr>
@@ -243,7 +243,7 @@ $this->registerCssFile('/css/ppe/style.css');
                     </table>
                 </div>
             </div>
-            <div class="right-arrow">
+            <div class="right-arrow" onClick="moveToRight()">
                 <img src="images/property-icons/right-arrow.png" alt="">
             </div>
         </div>
@@ -269,7 +269,7 @@ $this->registerCssFile('/css/ppe/style.css');
                 </div>
                 <div class="date-table-wrapper">
                     <div id="table-scroll" class="table-scroll">
-                        <div class="table-wrap">
+                        <div class="table-wrap  scroll-table">
                             <table class="main-table room-rate-table">
                                 <tbody>
                                     <tr class="rack-row">
@@ -1722,25 +1722,38 @@ $this->registerCssFile('/css/ppe/style.css');
     </div>
 </div>
 
+<!-- <div class="right-side-popup-wrapper">
+    <div class="right-side-container">
+        <div class="pop-close-btn-wrapper">
+            <button class="pop-close-btn"><img src="images/property-icons/close-btn.png" alt=""> Close</button>
+        </div>
+    </div>
+</div> -->
+
 
 <script>
 // requires jquery library
 jQuery(document).ready(function() {
     jQuery(".main-table").clone(true).appendTo('#table-scroll').addClass('clone');
     jQuery(".main-table").clone(true).appendTo('#table-scroll1').addClass('clone');
+
 });
+const divs = document.querySelectorAll('.scroll-table');
+divs.forEach(div => div.addEventListener('scroll', e => {
+    divs.forEach(d => {
+        // d.scrollTop = div.scrollTop;
+        d.scrollLeft = div.scrollLeft;
+    });
+}));
+
+function moveToRight() {
+    divs.forEach(element => {
+        element.scrollLeft += (element.offsetWidth / 3);
+    });
+}
 $(document).ready(function() {
     $(".tariff-btn").click(function() {
         $(".room-rate-table tr").toggleClass("row-on");
     });
 });
-
-
-const divs = document.querySelectorAll('div');
-divs.forEach(div => div.addEventListener('scroll', e => {
-    divs.forEach(d => {
-        d.scrollTop = div.scrollTop;
-        d.scrollLeft = div.scrollLeft;
-    });
-}));
 </script>

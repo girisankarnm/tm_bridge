@@ -593,3 +593,23 @@ table :where(label, p) {
 .ppe-color {
     color: #E40968 !important;
 }
+
+.right-side-popup-wrapper {
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(30, 35, 57, 0.6);
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-end;
+}
+
+.right-side-container {
+    width: 615px;
+    background: #fff;
+    height: 100%;
+    right: 0;
+}
