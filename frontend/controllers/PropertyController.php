@@ -21,7 +21,7 @@ class PropertyController extends Controller
 //        }
 //
 //        return parent::beforeAction($action);
-//    }
+//    }s
 
 
     public function actionIndex()
@@ -33,6 +33,11 @@ class PropertyController extends Controller
     {
         $this->layout = 'main-search';
         return $this->render('search_hotel', []);
+    }
+     public function actionPpe()
+    {
+        $this->layout = 'main-search';
+        return $this->render('index2', []);
     }
 
 
