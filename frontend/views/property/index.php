@@ -38,7 +38,7 @@ $this->registerCssFile('/css/ppe/style.css');
     </div>
     <div class="booking-table-wrapper">
 
-        <div class="book-date-table-wrapper">
+        <div class="book-date-table-wrapper fix-this-div">
             <table class="book-date-heading">
                 <tr>
                     <td class="date-td">
@@ -248,1477 +248,3987 @@ $this->registerCssFile('/css/ppe/style.css');
             </div>
         </div>
 
-        <div class="">
-            <div>
-                <div class="resort-header-wrapper bottom-radius-none hotel-rates-wrapper">
-                    <div class="resort-details-area">
-                        <div class="room-rate-heading">Standard Room with AC (INR Rates)</div>
-                    </div>
-                    <div class="resort-peroid-area">
-                        <div class="tariff-edit-wrapper">
-                            <div class="tariff-btn-wrapper">
-                                <button class="tariff-btn">
-                                    <span class="eye-icon-btn"><img src="images/property-icons/eye-icon.png"
-                                            alt=""></span>
-                                    View Tariff
-                                </button>
-                            </div>
-                            <button class="btn">Bullk Edit</button>
+        <div class="single-room-details-wrapper">
+            <div class="resort-header-wrapper bottom-radius-none hotel-rates-wrapper">
+                <div class="resort-details-area">
+                    <div class="room-rate-heading">Standard Room with AC (INR Rates)</div>
+                </div>
+                <div class="resort-peroid-area">
+                    <div class="tariff-edit-wrapper">
+                        <div class="tariff-btn-wrapper">
+                            <button class="tariff-btn">
+                                <span class="eye-icon-btn"><img src="images/property-icons/eye-icon.png" alt=""></span>
+                                View Tariff
+                            </button>
                         </div>
+                        <button class="btn">Bullk Edit</button>
                     </div>
                 </div>
-                <div class="date-table-wrapper">
-                    <div id="table-scroll" class="table-scroll">
-                        <div class="table-wrap  scroll-table">
-                            <table class="main-table room-rate-table">
-                                <tbody>
-                                    <tr class="rack-row">
-                                        <th class="fixed-side">
-                                            <div class="calender-heading">Rack</div>
-                                        </th>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td class="seven-days-td">
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td class="seven-days-td">
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td class="seven-days-td">
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td class="seven-days-td">
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th class="fixed-side">
-                                            <div class="calender-heading">Slab 1</div>
-                                        </th>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td class="seven-days-td">
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td class="seven-days-td">
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td class="seven-days-td">
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td class="seven-days-td">
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th class="fixed-side">
-                                            <div class="calender-heading">Slab 2</div>
-                                        </th>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td class="seven-days-td">
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td class="seven-days-td">
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td class="seven-days-td">
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td class="seven-days-td">
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th class="fixed-side">
-                                            <div class="calender-heading">Slab 3</div>
-                                        </th>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td class="seven-days-td">
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td class="seven-days-td">
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td class="seven-days-td">
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td class="seven-days-td">
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th class="fixed-side">
-                                            <div class="calender-heading">Slab 4</div>
-                                        </th>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td class="seven-days-td">
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td class="seven-days-td">
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td class="seven-days-td">
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td class="seven-days-td">
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th class="fixed-side">
-                                            <div class="calender-heading">Slab 5</div>
-                                        </th>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td class="seven-days-td">
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td class="seven-days-td">
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td class="seven-days-td">
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td class="seven-days-td">
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th class="fixed-side">
-                                            <div class="calender-heading">Hike</div>
-                                        </th>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td class="seven-days-td">
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td class="seven-days-td">
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td class="seven-days-td">
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td class="seven-days-td">
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th class="fixed-side">
-                                            <div class="calender-heading">Hike</div>
-                                        </th>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td class="seven-days-td">
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td class="seven-days-td">
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td class="seven-days-td">
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td class="seven-days-td">
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="ppe-row">
-                                        <th class="fixed-side">
-                                            <div class="calender-heading ppe-color">PPE</div>
-                                        </th>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td class="seven-days-td">
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td class="seven-days-td">
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td class="seven-days-td">
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td class="seven-days-td">
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="day-content day-rate">
-                                                <div class="day-text">900</div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+            </div>
+            <div class="date-table-wrapper">
+                <div class="room-table-wrapper">
+                    <table class="room-heading-table">
+                        <tr class="first-row">
+                            <td>
+                                <div class="room-rates">Rack</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="room-rates">Slab 1</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="room-rates">Slab 2</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="room-rates">Slab 3</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="room-rates">Slab 4</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="room-rates">Slab 5</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="room-rates">Hike</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="room-rates ppe-color">PPE</div>
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="table-responsive scroll-table">
+                        <table class="available-room-rates">
+                            <tbody>
+                                <tr class="first-row">
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
+
+        <div class="single-room-details-wrapper">
+            <div class="resort-header-wrapper bottom-radius-none hotel-rates-wrapper">
+                <div class="resort-details-area">
+                    <div class="room-rate-heading">Standard Room with AC (INR Rates)</div>
+                </div>
+                <div class="resort-peroid-area">
+                    <div class="tariff-edit-wrapper">
+                        <div class="tariff-btn-wrapper">
+                            <button class="tariff-btn">
+                                <span class="eye-icon-btn"><img src="images/property-icons/eye-icon.png" alt=""></span>
+                                View Tariff
+                            </button>
+                        </div>
+                        <button class="btn">Bullk Edit</button>
+                    </div>
+                </div>
+            </div>
+            <div class="date-table-wrapper">
+                <div class="room-table-wrapper">
+                    <table class="room-heading-table">
+                        <tr class="first-row">
+                            <td>
+                                <div class="room-rates">Rack</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="room-rates">Slab 1</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="room-rates">Slab 2</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="room-rates">Slab 3</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="room-rates">Slab 4</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="room-rates">Slab 5</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="room-rates">Hike</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="room-rates ppe-color">PPE</div>
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="table-responsive scroll-table">
+                        <table class="available-room-rates">
+                            <tbody>
+                                <tr class="first-row">
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="single-room-details-wrapper">
+            <div class="resort-header-wrapper bottom-radius-none hotel-rates-wrapper">
+                <div class="resort-details-area">
+                    <div class="room-rate-heading">Standard Room with AC (INR Rates)</div>
+                </div>
+                <div class="resort-peroid-area">
+                    <div class="tariff-edit-wrapper">
+                        <div class="tariff-btn-wrapper">
+                            <button class="tariff-btn">
+                                <span class="eye-icon-btn"><img src="images/property-icons/eye-icon.png" alt=""></span>
+                                View Tariff
+                            </button>
+                        </div>
+                        <button class="btn">Bullk Edit</button>
+                    </div>
+                </div>
+            </div>
+            <div class="date-table-wrapper">
+                <div class="room-table-wrapper">
+                    <table class="room-heading-table">
+                        <tr class="first-row">
+                            <td>
+                                <div class="room-rates">Rack</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="room-rates">Slab 1</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="room-rates">Slab 2</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="room-rates">Slab 3</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="room-rates">Slab 4</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="room-rates">Slab 5</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="room-rates">Hike</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="room-rates ppe-color">PPE</div>
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="table-responsive scroll-table">
+                        <table class="available-room-rates">
+                            <tbody>
+                                <tr class="first-row">
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td class="seven-days-td">
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content day-rate">
+                                            <div class="day-text">900</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
 
@@ -1727,17 +4237,31 @@ $this->registerCssFile('/css/ppe/style.css');
         <div class="pop-close-btn-wrapper">
             <button class="pop-close-btn"><img src="images/property-icons/close-btn.png" alt=""> Close</button>
         </div>
+        <div class="select-dates-wrapper">
+            <div class="select-dates-heading">Select Dates</div>
+            <div class="month-name">August 2022</div>
+            <div class="selected-dates-wrapper">
+                <div class="selected-dates">15</div>
+                <div class="selected-dates">20</div>
+                <div class="selected-dates">22</div>
+                <div class="selected-dates">24</div>
+            </div>
+            <div class="multiple-date-calendar-wrapper">
+                <div id="calendar"></div>
+            </div>
+            <div class="ppe-rate-wrapper">
+                <div class="ppe-rate">PPE Rate</div>
+                <input type="text" value="3250">
+            </div>
+            <div class="text-right mt-3">
+                <button class="btn secondary-btn">Apply</button>
+            </div>
+        </div>
     </div>
 </div> -->
 
 
 <script>
-// requires jquery library
-jQuery(document).ready(function() {
-    jQuery(".main-table").clone(true).appendTo('#table-scroll').addClass('clone');
-    jQuery(".main-table").clone(true).appendTo('#table-scroll1').addClass('clone');
-
-});
 const divs = document.querySelectorAll('.scroll-table');
 divs.forEach(div => div.addEventListener('scroll', e => {
     divs.forEach(d => {
@@ -1753,7 +4277,8 @@ function moveToRight() {
 }
 $(document).ready(function() {
     $(".tariff-btn").click(function() {
-        $(".room-rate-table tr").toggleClass("row-on");
+        $(".room-heading-table tr").toggleClass("row-on");
+        $(".available-room-rates tr").toggleClass("row-on");
     });
 });
 </script>

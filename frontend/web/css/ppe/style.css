@@ -1,0 +1,702 @@
+/* BOF Aneesh CSS */
+
+
+.wrapper {
+    padding: 25px 0 0;
+}
+
+.page-heading {
+    margin: 0 0 20px;
+    color: var(--secondary-color) !important;
+    font-weight: 600;
+    font-size: 18px;
+    font-family: var(--primary-font-bold);
+}
+
+.resort-header-wrapper {
+    display: flex;
+    padding: 15px;
+    margin: 0;
+    align-items: stretch;
+    justify-content: space-between;
+    background: #DEE2FE;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.resort-details-area {
+    display: flex;
+}
+
+.resort-details-area figure {
+    margin: 0 12px 0 0;
+}
+
+.resort-details-area article h4 {
+    color: var(--secondary-color) !important;
+    font-family: var(--primary-font-bold);
+    font-weight: 600;
+    font-size: 16px;
+    margin: 5px 0 2px;
+    line-height: 20px;
+}
+
+.resort-location {
+    display: flex;
+    align-items: center;
+    font-family: var(--primary-font-light);
+    font-size: 12px;
+    margin: 0 0 5px;
+}
+
+.location-name {
+    margin: 0 0 0 5px;
+    color: #9399a8 !important;
+    line-height: 13px;
+    font-size: 14px;
+}
+
+.resort-peroid {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.resort-peroid-area {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.datepicker-wrapper {
+    display: flex;
+    margin: 0 15px 0 0;
+    align-items: center;
+    border: 1px solid #e1e4ee;
+    overflow: hidden;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.datepicker-wrapper label {
+    margin: 0;
+    padding: 0 10px;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    font-family: var(--primary-font-bold);
+    color: var(--secondary-color) !important;
+}
+
+.datepicker-input-wrapper {
+    display: flex;
+    min-height: 45px;
+    align-items: center;
+    padding: 0 0 0 10px;
+    background: #f6f8fc;
+    border-left: 1px solid #e3e5ef;
+}
+
+.datepicker-input-wrapper img {
+    margin-right: 10px;
+}
+
+.datepicker-input {
+    height: 45px;
+    margin: 0;
+    border: none;
+    padding: 0;
+    background: #f6f8fc;
+    text-indent: 0 !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    color: var(--secondary-color) !important;
+}
+
+.datepicker-input:focus {
+    outline: none;
+}
+
+.btn {
+    font-size: 12px !important;
+    background: var(--primary-color);
+    min-height: 45px;
+    color: #fff !important;
+    font-weight: 600;
+    min-width: 160px;
+}
+
+.date-table-wrapper {
+    border: 1px solid #A0A9C4;
+}
+
+.table-scroll {
+    position: relative;
+    max-width: 100%;
+    margin: 0 0 15px;
+    overflow: hidden;
+}
+
+.table-wrap {
+    width: 100%;
+    overflow: auto;
+}
+
+.table-scroll table {
+    border: none !important;
+    box-shadow: none;
+    width: 100%;
+    margin: auto;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.table-scroll th,
+.table-scroll td {
+    padding: 5px 10px;
+    border: 1px solid #e4e6ef;
+    background: #fff;
+    white-space: nowrap;
+    vertical-align: top;
+}
+
+.table-scroll th {
+    min-width: 70px;
+}
+
+.table-scroll th.fixed-side {
+    border: 1px solid #e4e6ef;
+    background: #fff !important;
+}
+
+.table-scroll th.fixed-side .calender-heading {
+    background: #fff !important;
+    border: none !important;
+}
+
+.table-scroll td {
+    background: #f6f8fc;
+    border: none;
+    border-bottom: 1px solid #e4e6ef;
+    border-top: 1px solid #e4e6ef;
+    padding: 2px 10px;
+    min-width: 55px;
+}
+
+.table-scroll tr.ppe-row td {
+    background: #fff;
+}
+
+.table-scroll table tbody tr td:nth-last-child(1) {
+    min-width: 101px;
+}
+
+.table-scroll table tbody tr td:nth-last-child(1) .day-rate {
+    text-align: center;
+    justify-content: center;
+    padding: 0;
+    border: none;
+}
+
+.calender-heading {
+    font-family: var(--primary-font-bold);
+    color: var(--primary-color);
+    font-size: 12px;
+    border: 1px solid #e4e6ef;
+    padding: 0 4px 0 6px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    background-color: #DEE2FE;
+    border-radius: 10px 0 0 10px;
+    -webkit-border-radius: 10px 0 0 10px;
+    -moz-border-radius: 10px 0 0 10px;
+    -ms-border-radius: 10px 0 0 10px;
+    -o-border-radius: 10px 0 0 10px;
+}
+
+.calender-heading img {
+    width: 15px;
+}
+
+.date-text {
+    display: inline-block;
+    margin: 0 0 0 5px;
+    font-weight: 600;
+    line-height: 12px;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+.day-content {
+    border-right: 1px solid #a0a9c4;
+    padding: 5px 10px 0 0;
+}
+
+.day-text {
+    color: #9399a8 !important;
+    font-size: 12px;
+    font-weight: 600;
+    margin: 0;
+    line-height: 8px;
+    text-align: right;
+}
+
+.sun-color {
+    color: #e8287b !important;
+}
+
+.date-text-td {
+    text-align: right;
+    margin: 1px 0 0;
+    line-height: 20px;
+    font-size: 12px;
+    color: #20253b !important;
+    font-weight: 600;
+    line-height: 20px;
+}
+
+.tariff-edit-wrapper {
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-end;
+}
+
+.tariff-btn-wrapper {
+    margin: 0 10px 0 0;
+}
+
+.tariff-btn {
+    background: #ffffff;
+}
+
+.room-rate-table tr {
+    display: none;
+}
+
+.room-rate-table tr.rack-row {
+    display: table-row !important;
+}
+
+.room-rate-table tr.row-on {
+    display: table-row;
+}
+
+
+.room-rate-heading {
+    color: var(--secondary-color) !important;
+    font-size: 18px;
+    line-height: 45px;
+    font-family: var(--primary-font-bold);
+}
+
+.tariff-btn {
+    height: 45px;
+    border: none;
+    padding: 0 20px 0 0;
+    border-radius: 0.25rem;
+    -webkit-border-radius: 0.25rem;
+    -moz-border-radius: 0.25rem;
+    -ms-border-radius: 0.25rem;
+    -o-border-radius: 0.25rem;
+    overflow: hidden;
+    color: var(--secondary-color);
+    line-height: 45px;
+    border: 1px solid #e1e4ed;
+}
+
+.eye-icon-btn {
+    height: 45px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary-color);
+    width: 40px;
+    border: 1px solid #e1e4ed;
+    margin: 0 5px 0 0;
+    border-radius: 0.25rem 0 0 0.25rem;
+    -webkit-border-radius: 0.25rem 0 0 0.25rem;
+    -moz-border-radius: 0.25rem 0 0 0.25rem;
+    -ms-border-radius: 0.25rem 0 0 0.25rem;
+    -o-border-radius: 0.25rem 0 0 0.25rem;
+}
+
+.bottom-radius-none {
+    border-radius: 10px 10px 0 0;
+    -webkit-border-radius: 10px 10px 0 0;
+    -moz-border-radius: 10px 10px 0 0;
+    -ms-border-radius: 10px 10px 0 0;
+    -o-border-radius: 10px 10px 0 0;
+}
+
+.date-table-row {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+}
+
+.date-table-row table {
+    margin: 0;
+}
+
+.date-table-row .table-responsive {
+    width: calc(100% - 90px);
+}
+
+.date-table-head {
+    min-width: 90px;
+}
+
+.date-table-head .date-table-fixed {
+    height: 55px;
+    font-size: 16px !important;
+    border: 1px solid #A0A9C4;
+    color: var(--primary-color) !important;
+    font-family: var(--primary-font-bold) !important;
+}
+
+.amount-table {
+    width: 100%;
+    height: 100%;
+}
+
+/* .seven-days-td {
+    border-right: 1px solid #A0A9C4 !important;
+} */
+
+.seven-days-td .day-content {
+    position: relative;
+}
+
+.seven-days-td .day-content::before {
+    position: absolute;
+    content: "";
+    right: -1px;
+    top: -7.5px;
+    width: 1px;
+    height: 7.5px;
+    background: #a0a9c4;
+}
+
+.seven-days-td .day-content::after {
+    position: absolute;
+    content: "";
+    right: -1px;
+    bottom: -7.5px;
+    width: 1px;
+    height: 7.5px;
+    background: #a0a9c4;
+}
+
+.amount-td {
+    width: 100%;
+    height: 100%;
+    box-shadow: none;
+    border: none !important;
+}
+
+.amount-td tbody tr td {
+    min-width: 65px;
+    border: none;
+}
+
+.hotel-rates-wrapper {
+    border: 1px solid #A0A9C4;
+}
+
+.booking-table-wrapper {
+    margin: 20px 0 0;
+}
+
+.book-date-table-wrapper {
+    margin: 0 0 20px;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+}
+
+.book-date-table-contents {
+    width: calc(100% - 107px);
+    border: 1px solid #e4e6ef;
+}
+
+.book-date-table-wrapper table {
+    margin: 0;
+    border: none !important;
+    box-shadow: none;
+}
+
+.book-dates-table tbody tr td {
+    border: none;
+    border-bottom: 1px solid #e4e6ef;
+    border-top: 1px solid #e4e6ef;
+    padding: 5px;
+    min-width: 55px;
+}
+
+.date-table-row .table-responsive {
+    width: calc(100% - 126px);
+}
+
+.book-date-heading {
+    min-width: 70px;
+    min-height: 55px;
+}
+
+.date-table-head .date-table-fixed {
+    height: 55px;
+    font-size: 16px !important;
+    border: 1px solid #A0A9C4;
+    color: var(--primary-color) !important;
+    font-family: var(--primary-font-bold) !important;
+}
+
+.amount-table {
+    width: 100%;
+    height: 100%;
+}
+
+.right-arrow {
+    background: #dbdefb;
+    min-width: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #e4e6ef;
+    border-radius: 0 10px 10px 0;
+}
+
+.day-rate {
+    padding-top: 0;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.ppe-color {
+    color: #E40968 !important;
+}
+
+.room-table-wrapper {
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-start;
+}
+
+.room-heading-table {
+    margin: 0;
+    height: 42px;
+    min-width: 70px;
+    box-shadow: none;
+    background: #fff;
+    border: none !important;
+}
+
+
+.room-heading-table tr td {
+    background: #fff;
+    border-right: 1px solid #a0a9c4;
+    border-bottom: 1px solid #a0a9c4;
+}
+
+
+.room-rates {
+    font-size: 12px;
+    color: var(--primary-color);
+    font-family: var(--primary-font-bold);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+}
+
+.available-room-rates {
+    box-shadow: none;
+    border: none !important;
+}
+
+.available-room-rates tr td {
+    border-bottom: 1px solid #a0a9c4;
+    min-width: 55px;
+    padding: 5px;
+}
+
+.available-room-rates tr td:nth-last-child(1) {
+    min-width: 101px;
+}
+
+.available-room-rates tr td:nth-last-child(1) .day-rate {
+    text-align: center;
+    justify-content: center;
+    padding: 0;
+    border: none;
+}
+
+.room-heading-table tr,
+.available-room-rates tr {
+    display: none;
+}
+
+.room-heading-table tr.first-row,
+.room-heading-table tr.row-on,
+.available-room-rates tr.first-row,
+.available-room-rates tr.row-on {
+    display: table-row;
+}
+
+.single-room-details-wrapper {
+    margin: 0 0 20px;
+}
+
+.right-side-popup-wrapper {
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(30, 35, 57, 0.6);
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-end;
+}
+
+.right-side-container {
+    width: 100%;
+    max-width: 500px;
+    background: #fff;
+    height: 100%;
+    right: 0;
+    padding: 50px 25px;
+}
+
+.pop-close-btn-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 0 0 20px;
+}
+
+.pop-close-btn {
+    border: none;
+    background: none;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    font-size: 14px !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.pop-close-btn img {
+    width: 20px;
+    margin: -2px 5px 0 0;
+}
+
+.select-dates-heading {
+    font-size: 16px;
+    text-transform: uppercase;
+    color: var(--primary-color);
+    border-bottom: 1px solid #A0A9C4;
+    font-family: var(--primary-font-bold);
+    line-height: 25px;
+    padding: 0 0 7px;
+    margin: 0 0 20px;
+}
+
+.month-name {
+    font-size: 14px;
+    margin: 0 0 10px;
+    color: var(--secondary-color);
+    font-family: var(--primary-font-bold);
+}
+
+.selected-dates-wrapper {
+    display: flex;
+    margin: 0 0 60px;
+    align-items: stretch;
+    justify-content: flex-start;
+}
+
+.selected-dates {
+    background: #EFEDFF;
+    color: #5968DB;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--primary-font-regular);
+    width: 34px;
+    height: 34px;
+    margin: 0 10px 0 0;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.ui-datepicker-clear-month {
+    position: absolute;
+    top: 9px;
+    right: 32px;
+    height: 100%;
+    line-height: 100%;
+    display: inline;
+    cursor: pointer;
+    color: red !important;
+}
+
+.secondary-btn {
+    color: #fff;
+    background: #E40968;
+}
+
+.ppe-rate-wrapper {
+    display: flex;
+    align-items: stretch;
+    border: 1px solid #A0A9C4;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    height: 44px;
+}
+
+.ppe-rate {
+    width: 90px;
+    color: #fff;
+    padding: 0 15px;
+    font-size: 12px;
+    align-items: center;
+    display: inline-flex;
+    background: #5968DB;
+    font-family: var(--primary-font-bold);
+}
+
+.ppe-rate-wrapper input {
+    margin: 0;
+    border: none;
+    width: calc(100% - 90px);
+    font-size: 14px !important;
+}
+
+.ui-datepicker-clear-month {
+    position: absolute;
+    top: 9px;
+    right: 32px;
+    height: 100%;
+    line-height: 100%;
+    display: inline;
+    cursor: pointer;
+    color: red !important;
+}
+
+/* EOF Aneesh CSS */

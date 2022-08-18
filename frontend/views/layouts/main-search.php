@@ -54,12 +54,13 @@ $this->registerCssFile('/css/tm.css');
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="/css/tm_bridge.css">
-    <link rel="stylesheet" href="/css/layout.css">
     <link rel="stylesheet" href="/css/custom-style.css">
     <!--    <link rel="stylesheet" href="/css/form.css">-->
     <link rel="stylesheet" href="/css/buttons.css">
     <link rel="stylesheet" href="/css/table-css.css">
 
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/ppe/style.css">
     <!-- PLEASE FOLLOW CODING STANDARDS https://docs.ckan.org/en/2.9/contributing/html.html -->
 </head>
 
