@@ -256,18 +256,18 @@ $this->registerCssFile('/css/ppe/style.css');
                 <div class="resort-peroid-area">
                     <div class="tariff-edit-wrapper">
                         <div class="tariff-btn-wrapper">
-                            <button class="tariff-btn">
+                            <button class="tariff-btn" onClick="toggleTable(1)">
                                 <span class="eye-icon-btn"><img src="images/property-icons/eye-icon.png" alt=""></span>
                                 View Tariff
                             </button>
                         </div>
-                        <button class="btn">Bullk Edit</button>
+                        <button class="btn" onClick="bulkEdit()">Bullk Edit</button>
                     </div>
                 </div>
             </div>
             <div class="date-table-wrapper">
                 <div class="room-table-wrapper">
-                    <table class="room-heading-table">
+                    <table id="room-heading-table-1" class="room-heading-table">
                         <tr class="first-row">
                             <td>
                                 <div class="room-rates">Rack</div>
@@ -310,7 +310,7 @@ $this->registerCssFile('/css/ppe/style.css');
                         </tr>
                     </table>
                     <div class="table-responsive scroll-table">
-                        <table class="available-room-rates">
+                        <table id="available-room-rates-1" class="available-room-rates">
                             <tbody>
                                 <tr class="first-row">
                                     <td>
@@ -1583,18 +1583,18 @@ $this->registerCssFile('/css/ppe/style.css');
                 <div class="resort-peroid-area">
                     <div class="tariff-edit-wrapper">
                         <div class="tariff-btn-wrapper">
-                            <button class="tariff-btn">
+                            <button class="tariff-btn" onClick="toggleTable(2)">
                                 <span class="eye-icon-btn"><img src="images/property-icons/eye-icon.png" alt=""></span>
                                 View Tariff
                             </button>
                         </div>
-                        <button class="btn">Bullk Edit</button>
+                        <button class="btn" onClick="bulkEdit()">Bullk Edit</button>
                     </div>
                 </div>
             </div>
             <div class="date-table-wrapper">
                 <div class="room-table-wrapper">
-                    <table class="room-heading-table">
+                    <table id="room-heading-table-2" class="room-heading-table">
                         <tr class="first-row">
                             <td>
                                 <div class="room-rates">Rack</div>
@@ -1637,7 +1637,7 @@ $this->registerCssFile('/css/ppe/style.css');
                         </tr>
                     </table>
                     <div class="table-responsive scroll-table">
-                        <table class="available-room-rates">
+                        <table id="available-room-rates-2" class="available-room-rates">
                             <tbody>
                                 <tr class="first-row">
                                     <td>
@@ -2910,18 +2910,18 @@ $this->registerCssFile('/css/ppe/style.css');
                 <div class="resort-peroid-area">
                     <div class="tariff-edit-wrapper">
                         <div class="tariff-btn-wrapper">
-                            <button class="tariff-btn">
+                            <button onClick="toggleTable(3)" class="tariff-btn">
                                 <span class="eye-icon-btn"><img src="images/property-icons/eye-icon.png" alt=""></span>
                                 View Tariff
                             </button>
                         </div>
-                        <button class="btn">Bullk Edit</button>
+                        <button class="btn" onClick="bulkEdit()">Bullk Edit</button>
                     </div>
                 </div>
             </div>
             <div class="date-table-wrapper">
                 <div class="room-table-wrapper">
-                    <table class="room-heading-table">
+                    <table id="room-heading-table-3" class="room-heading-table">
                         <tr class="first-row">
                             <td>
                                 <div class="room-rates">Rack</div>
@@ -2964,7 +2964,7 @@ $this->registerCssFile('/css/ppe/style.css');
                         </tr>
                     </table>
                     <div class="table-responsive scroll-table">
-                        <table class="available-room-rates">
+                        <table id="available-room-rates-3" class="available-room-rates">
                             <tbody>
                                 <tr class="first-row">
                                     <td>
@@ -4232,10 +4232,11 @@ $this->registerCssFile('/css/ppe/style.css');
     </div>
 </div>
 
-<!-- <div class="right-side-popup-wrapper">
+<div class="right-side-popup-wrapper">
     <div class="right-side-container">
         <div class="pop-close-btn-wrapper">
-            <button class="pop-close-btn"><img src="images/property-icons/close-btn.png" alt=""> Close</button>
+            <button class="pop-close-btn" onClick="popClose()"><img src="images/property-icons/close-btn.png" alt="">
+                Close</button>
         </div>
         <div class="select-dates-wrapper">
             <div class="select-dates-heading">Select Dates</div>
@@ -4247,7 +4248,7 @@ $this->registerCssFile('/css/ppe/style.css');
                 <div class="selected-dates">24</div>
             </div>
             <div class="multiple-date-calendar-wrapper">
-                <div id="calendar"></div>
+                <input type="text" class="form-control date" placeholder="Pick the multiple dates">
             </div>
             <div class="ppe-rate-wrapper">
                 <div class="ppe-rate">PPE Rate</div>
@@ -4258,10 +4259,26 @@ $this->registerCssFile('/css/ppe/style.css');
             </div>
         </div>
     </div>
-</div> -->
+</div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
 
 <script>
+// $(window).scroll(function() {
+//     console.log($(this).scrollTop())
+//     if ($(this).scrollTop() > 50) {
+//         $('.fix-this-div').addClass('newClass');
+//     } else {
+//         $('.fix-this-div').removeClass('newClass');
+//     }
+// });
+// window.addEventListener("scroll", function() {
+//     console.log(123)
+// }, false);
+window.addEventListener('scroll', function() {
+    console.log('Scroll event');
+});
+
 const divs = document.querySelectorAll('.scroll-table');
 divs.forEach(div => div.addEventListener('scroll', e => {
     divs.forEach(d => {
@@ -4275,10 +4292,109 @@ function moveToRight() {
         element.scrollLeft += (element.offsetWidth / 3);
     });
 }
-$(document).ready(function() {
-    $(".tariff-btn").click(function() {
-        $(".room-heading-table tr").toggleClass("row-on");
-        $(".available-room-rates tr").toggleClass("row-on");
-    });
+// $(document).ready(function() {
+//     $(".bulk-edit-btn").click(function() {
+//         $(".right-side-popup-wrapper").toggleClass("bulk-edit-on");
+//     });
+// });
+
+function bulkEdit() {
+    $('.right-side-popup-wrapper').addClass("bulk-edit-on");
+    $('.datepicker').addClass("datepicker-on");
+}
+
+function popClose() {
+    $('.right-side-popup-wrapper').removeClass("bulk-edit-on");
+    $('.datepicker').removeClass("datepicker-on");
+}
+
+function toggleTable(id) {
+    $(`#room-heading-table-${id} tr`).toggleClass("row-on");
+    $(`#available-room-rates-${id} tr`).toggleClass("row-on");
+}
+$('.date').datepicker({
+    multidate: true,
+    format: 'dd-mm-yyyy'
 });
+$('.date').datepicker('show')
+$('.date').datepicker()
+    .on('hide', function(e) {
+        $('.date').datepicker('show')
+    });
 </script>
+
+<style>
+.datepicker {
+    display: none !important;
+}
+
+.datepicker-on {
+    display: block !important;
+    width: 305px;
+    height: 280px;
+    box-shadow: none !important;
+    padding: 0;
+    margin: -40px 0 0;
+    box-shadow: none !important;
+}
+
+.datepicker-days {
+    border: 1px solid #586ADA !important;
+    border-radius: 0px;
+}
+
+.datepicker table.table-condensed {
+    margin: 0;
+    width: 100%;
+    border: none !important;
+}
+
+.datepicker .prev,
+.datepicker .next {
+    border-radius: 0;
+    background: #fff !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+table thead tr {
+    background: none
+}
+
+.datepicker-days table thead,
+.datepicker-days table tbody,
+.datepicker-days table tfoot {
+    padding: 10px;
+    display: table-row-group;
+}
+
+.datepicker-days table thead tr:nth-child(2n + 0) td,
+.datepicker-days table thead tr:nth-child(2n + 0) th,
+.datepicker .datepicker-switch {
+    border-radius: 0;
+    background: #fff !important;
+}
+
+table thead {
+    background-color: #fff;
+}
+
+.table-condensed>thead>tr>th {
+    text-align: center;
+}
+
+.datepicker table tr td {
+    padding: 7px 5px;
+}
+
+.datepicker table tr td:hover,
+.datepicker table tr td.active,
+.daterangepicker td.active,
+.daterangepicker td.active:hover {
+    background: #EFEDFF !important;
+    color: #5968DB !important;
+}
+</style>

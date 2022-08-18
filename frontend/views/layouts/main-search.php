@@ -184,7 +184,6 @@ $this->registerCssFile('/css/tm.css');
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css"
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Custom JS -->
-
     <script>
     $('.btn-hamburger').on('click', function() {
         $('.sidebar-contr').width() < 1 ? $('.sidebar-contr').css({

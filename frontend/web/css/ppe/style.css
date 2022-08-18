@@ -565,11 +565,18 @@
     display: flex;
     align-items: stretch;
     justify-content: flex-end;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.bulk-edit-on {
+    opacity: 1;
+    pointer-events: all;
 }
 
 .right-side-container {
     width: 100%;
-    max-width: 500px;
+    max-width: 350px;
     background: #fff;
     height: 100%;
     right: 0;
@@ -619,7 +626,7 @@
 
 .selected-dates-wrapper {
     display: flex;
-    margin: 0 0 60px;
+    margin: 0 0 30px;
     align-items: stretch;
     justify-content: flex-start;
 }
@@ -668,6 +675,7 @@
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
     height: 44px;
+    margin: 260px 0 0;
 }
 
 .ppe-rate {
@@ -698,5 +706,9 @@
     cursor: pointer;
     color: red !important;
 }
+
+/* .multiple-date-calendar-wrapper {
+    display: none;
+} */
 
 /* EOF Aneesh CSS */
