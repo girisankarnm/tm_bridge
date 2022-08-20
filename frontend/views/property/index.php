@@ -4234,19 +4234,23 @@ $this->registerCssFile('/css/ppe/style.css');
 
 <div class="right-side-popup-wrapper">
     <div class="right-side-container">
-        <div class="pop-close-btn-wrapper">
-            <button class="pop-close-btn" onClick="popClose()"><img src="images/property-icons/close-btn.png" alt="">
-                Close</button>
+        <div class="pop-head-btn-wrapper">
+            <h5 class="pop-header">Standard Room with AC (INR Rates)</h5>
+            <div class="pop-close-btn-wrapper">
+                <button class="pop-close-btn" onClick="popClose()"><img src="images/property-icons/close-btn.png"
+                        alt="">
+                    Close</button>
+            </div>
         </div>
         <div class="select-dates-wrapper">
             <div class="select-dates-heading">Select Dates</div>
             <div class="month-name">August 2022</div>
-            <div class="selected-dates-wrapper">
+            <!-- <div class="selected-dates-wrapper">
                 <div class="selected-dates">15</div>
                 <div class="selected-dates">20</div>
                 <div class="selected-dates">22</div>
                 <div class="selected-dates">24</div>
-            </div>
+            </div> -->
             <div class="multiple-date-calendar-wrapper">
                 <input type="text" class="form-control date" placeholder="Pick the multiple dates">
             </div>
@@ -4387,7 +4391,9 @@ table thead {
 }
 
 .datepicker table tr td {
-    padding: 7px 5px;
+    padding: 12px 0;
+    min-width: 45px;
+    min-height: 45px;
 }
 
 .datepicker table tr td:hover,
