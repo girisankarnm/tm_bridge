@@ -27,9 +27,10 @@ $this->registerCssFile('/css/ppe/style.css');
             <div class="resort-peroid">
                 <div class="datepicker-wrapper">
                     <label>From</label>
+
                     <div class="datepicker-input-wrapper">
                         <img src="images/resort-icons/calender-icon.png" alt="">
-                        <input type="text" class="datepicker-input" value="July-2022">
+                        <input type="text" class="datepicker-input month-picker" value="July-2022">
                     </div>
                 </div>
                 <button class="btn">Set Period</button>
@@ -4301,39 +4302,60 @@ function moveToRight() {
 //         $(".right-side-popup-wrapper").toggleClass("bulk-edit-on");
 //     });
 // });
+var flag = 0;
 
 function bulkEdit() {
     $('.right-side-popup-wrapper').addClass("bulk-edit-on");
-    $('.datepicker').addClass("datepicker-on");
+    // $('.datepicker').addClass("datepicker-on");
+    flag = 0;
+    $('.date').datepicker('show')
 }
 
 function popClose() {
     $('.right-side-popup-wrapper').removeClass("bulk-edit-on");
-    $('.datepicker').removeClass("datepicker-on");
+    // $('.datepicker').removeClass("datepicker-on");
+    flag = 1;
+    $('.date').datepicker('hide')
 }
 
 function toggleTable(id) {
     $(`#room-heading-table-${id} tr`).toggleClass("row-on");
     $(`#available-room-rates-${id} tr`).toggleClass("row-on");
 }
+// $('.month-picker').datepicker({
+//     multidate: false,
+//     format: "MM-yyyy",
+//     viewMode: "months",
+//     minViewMode: "months"
+// });
 $('.date').datepicker({
     multidate: true,
     format: 'dd-mm-yyyy'
 });
-$('.date').datepicker('show')
+// $('.date').datepicker('show')
 $('.date').datepicker()
     .on('hide', function(e) {
-        $('.date').datepicker('show')
+        if (flag === 0) {
+            $('.date').datepicker('show')
+        }
     });
+$(function() {
+    $(".month-picker").datepicker({
+        multidate: false,
+        format: "MM-yyyy",
+        viewMode: "months",
+        minViewMode: "months",
+    }).datepicker('update', new Date());
+});
 </script>
 
 <style>
-.datepicker {
+/* .datepicker {
     display: none !important;
-}
+} */
 
 .datepicker-on {
-    display: block !important;
+    /* display: block !important; */
     width: 305px;
     height: 280px;
     box-shadow: none !important;
@@ -4390,11 +4412,11 @@ table thead {
     text-align: center;
 }
 
-.datepicker table tr td {
+/* .datepicker table tr td {
     padding: 12px 0;
     min-width: 45px;
     min-height: 45px;
-}
+} */
 
 .datepicker table tr td:hover,
 .datepicker table tr td.active,
@@ -4402,5 +4424,26 @@ table thead {
 .daterangepicker td.active:hover {
     background: #EFEDFF !important;
     color: #5968DB !important;
+}
+
+.datepicker.dropdown-menu {
+    width: 100%;
+    max-width: 309px;
+}
+
+.datepicker-dropdown.datepicker-orient-top:before {
+    top: -15px;
+}
+
+
+.datepicker-dropdown.datepicker-orient-top:before {
+    border: none;
+}
+
+.multiple-date-calendar-wrapper input.form-control.date {
+    height: 0;
+    border: none;
+    padding: 0;
+    margin: 0;
 }
 </style>

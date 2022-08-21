@@ -100,17 +100,20 @@
     padding: 0 0 0 10px;
     background: #f6f8fc;
     border-left: 1px solid #e3e5ef;
+    position: relative;
 }
 
 .datepicker-input-wrapper img {
     margin-right: 10px;
+    position: absolute;
+    left: 5px;
 }
 
 .datepicker-input {
     height: 35px;
     margin: 0;
     border: none;
-    padding: 0;
+    padding: 0 0 0 30px;
     background: #f6f8fc;
     text-indent: 0 !important;
     font-size: 12px !important;
@@ -689,7 +692,7 @@
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
     height: 35px;
-    margin: 320px 0 0;
+    margin: 270px 0 0;
 }
 
 .ppe-rate {
