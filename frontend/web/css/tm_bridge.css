@@ -40,7 +40,7 @@
     box-sizing: border-box;
 }
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
     height: 8px !important;
     width: 5px !important;
     border-radius: 29px !important;
@@ -55,7 +55,7 @@
     background-color: #06195199!important;
     outline: none;
     border-radius: 10px !important;
-}
+} */
 
 html {
     font-size: 100%;
@@ -66,7 +66,7 @@ html {
 
 body {
     color: var(--font-primary-color);
-    font-family:Bw-Mitga-regular !important;
+    font-family: Bw-Mitga-regular !important;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
@@ -392,7 +392,7 @@ li {
 * ***********************************************************************************************************************************
 */
 
-.content-contr .data-content  {
+.content-contr .data-content {
     width: 100%;
     height: calc(100vh - 100px);
     padding: 31.79px 69.33px;
@@ -408,6 +408,7 @@ li {
     border-radius: 10px;
     padding: 50px;
 }
+
 .content-contr .data-content .tab-section .nav.nav-peills {
     border-bottom: 0.5px solid #BCC3F1;
 }
@@ -428,6 +429,7 @@ li {
 .content-contr .data-content .tab-section .nav.nav-pills .nav-item .selectedButton svg {
     color: var(--white-color) !important;
 }
+
 .content-contr .data-content .tab-section .nav.nav-pills .nav-item .nav-link {
     position: relative;
     background-color: var(--white-color);
@@ -549,7 +551,7 @@ li {
     border-radius: 10px;
 }
 
-.data-content .modal .modal-content .modal-header  {
+.data-content .modal .modal-content .modal-header {
     color: var(--white-color);
     background: var(--secondary-color);
 }

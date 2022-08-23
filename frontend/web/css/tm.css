@@ -28,7 +28,7 @@
     font-weight: 100;
 }
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
     width: 3px !important;
     height: 3px !important;
 }
@@ -40,7 +40,7 @@
 ::-webkit-scrollbar-thumb {
     background-color: #a3a3a3 !important;
     outline: 1px solid slategrey;
-}
+} */
 
 html {
     font-size: 13px;

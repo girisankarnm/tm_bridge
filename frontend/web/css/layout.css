@@ -3,6 +3,12 @@
 * Style sheet for width related elements
  */
 
+:root {
+    --dark-color: #1E2339;
+    --primary-font-regular: 'Bw-Mitga-regular';
+    --primary-font-bold: 'Bw-Mitga-bold';
+}
+
 .data-content .fit-width-230px {
     -ms-flex: 0 0 230px;
     flex: 0 0 230px;
@@ -24,7 +30,7 @@
     padding-right: 0;
 }
 
-.data-content .fit-width-105px{
+.data-content .fit-width-105px {
     -ms-flex: 0 0 105px;
     flex: 0 0 105px;
     max-width: 105px;
