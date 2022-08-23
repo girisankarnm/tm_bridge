@@ -2,54 +2,6 @@
 * @author Jinsan T J
 * Style sheet for width related elements
  */
-@font-face {
-    font-family: 'bw_mitgalight';
-    src: url('fonts/mitga/bwmitga-light-webfont.woff2') format('woff2'),
-        url('fonts/mitga/bwmitga-light-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'bw_mitgaregular';
-    src: url('fonts/mitga/bwmitga-regular-webfont.woff2') format('woff2'),
-        url('fonts/mitga/bwmitga-regular-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'bw_mitgabold';
-    src: url('fonts/mitga/bwmitga-bold-webfont.woff2') format('woff2'),
-        url('fonts/mitga/bwmitga-bold-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'bw_mitgablack';
-    src: url('fonts/mitga/bwmitga-black-webfont.woff2') format('woff2'),
-        url('fonts/mitga/bwmitga-black-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-/* BOF Variables */
-:root {
-    --primary-font-light: 'bw_mitgalight';
-    --primary-font-regular: 'bw_mitgaregular';
-    --primary-font-bold: 'bw_mitgabold';
-    --primary-font-black: 'bw_mitgablack';
-    --primary-color: #5968DB;
-    --secondary-color: #1E2339;
-}
-
-/* EOF Variables */
-
-body {
-    font-family: var(--primary-font-regular);
-}
 
 .data-content .fit-width-230px {
     -ms-flex: 0 0 230px;
@@ -72,7 +24,7 @@ body {
     padding-right: 0;
 }
 
-.data-content .fit-width-105px {
+.data-content .fit-width-105px{
     -ms-flex: 0 0 105px;
     flex: 0 0 105px;
     max-width: 105px;

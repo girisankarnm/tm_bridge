@@ -1,0 +1,131 @@
+.select2-container .select2-selection--single .select2-selection__rendered {
+    display: block;
+    padding-left: 4px !important;
+    padding-right: 80px !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.label-right
+{
+    margin-right: 8px !important;
+}
+.title-top {
+
+    margin-top: 10px !important;
+}
+.row-padding
+{
+    margin-top: 20px !important; ;
+}
+.roomwidth
+{
+    width: 270px !important;
+}
+.select2.select2-container .select2-selection--single .select2-selection__rendered {
+    color: #38314f !important;
+    width: 194px !important;
+}
+
+.div-inside-card
+{
+    /*width: 100%;*/
+    margin-right: 3%;
+    margin-left: 2%;
+    /*background-color: #6f42c1;*/
+    height: fit-content;
+    font-size: 14px;
+}
+.div-inside-sub-card
+{
+    background-color: #00C900;
+    height: 35px !important;
+    font-size: 14px;
+}
+.class-first-row {
+    padding-top: 24px !important;
+    padding-left: 18px !important;
+}
+
+.class-second-row {
+    padding-top: 12px !important;
+    padding-left: 18px !important;
+}
+
+
+.class-first-head {
+
+    padding: 9px !important;
+}
+
+.content-contr .data-content .tab-section {
+    border: 2px;
+    border-radius: 10px;
+    padding: 50px;
+    margin-bottom: 77px !important;
+}
+.save-button-rules
+{
+    width: 143px;
+    border-radius: 0 !important;
+    margin-bottom: 15px !important;
+}
+.head-box-room
+{
+    width: 100% !important;
+    color: white;
+    background-color: #586ADA;
+    height: 36px!important;
+    font-size: 14px !important;
+}
+.select2.select2-container .select2-selection--single {
+    border-radius: 0;
+}
+.select-height
+{
+    height: 25px !important;
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: #444;
+    line-height: 22px;
+    height: 24px;
+}
+.margin-table-first-padding
+{
+    padding-top: 14px !important;
+}
+.margin-table-first-row
+{
+    margin-top: 15px !important;
+}
+table :where(label, p) {
+    display: flex !important;
+    margin-left: 4px!important;
+}
+
+hr {
+    margin-top: 10px !important;
+     margin-bottom: 6px !important;
+    border: 1px;
+    border-top: 1px solid rgba(0,0,0,.1);
+}
+
+.row-style
+{
+    margin-bottom: -34px !important;
+    margin-top: 22px !important;
+}
+
+.select2.select2-container .select2-selection--single {
+    background: #F9F9F9;
+    border: 0.5px solid #BCBCBC;
+    border-radius: 0;
+    padding: 3px 7px;
+    height: auto;
+    /* width: 100%; */
+    /*width: 200px;*/
+}
+.was-validated select.form-control:valid, select.form-control.is-valid {
+    padding-right: 0rem!important;
+    background-position: right 1.5rem center;
+}

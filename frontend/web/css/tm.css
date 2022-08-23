@@ -93,16 +93,10 @@ table thead {
     background-color: #d19564;
 }
 
-body a {
-    font-size: 14px !important;
-    color: #55505c;
-    text-decoration: none;
-    cursor: pointer;
-}
-
+body a,
 body button,
 body .btn {
-    font-size: 14px;
+    font-size: 14px !important;
     color: #55505c;
     text-decoration: none;
     cursor: pointer;

@@ -4266,57 +4266,57 @@ $this->registerCssFile('/css/ppe/style.css');
     </div>
 </div>
 
-<div class="pop-wrapper search-popup-wrapper">
-    <div class="pop-header">
-        <div class="pop-container">
-            <div class="pop-close-wrapper">
-                <button class="pop-close"><img src="images/search-popup/close-btn.svg" alt=""></button>
-            </div>
-        </div>
-    </div>
-    <div class="pop-container">
-        <div class="search-result-card">
-            <div class="card-img"><img src="images/search-popup/hotel-img.png" alt=""></div>
-            <div class="card-details">
-                <div class="card-heading-row">
-                    <h4 class="card-heading">Misty Rock Resort</h4>
-                    <div class="star-wrapper">
-                        <img src="images/search-popup/star.svg" alt="">
-                        <img src="images/search-popup/star.svg" alt="">
-                        <img src="images/search-popup/star.svg" alt="">
-                        <img src="images/search-popup/star.svg" alt="">
-                        <img src="images/search-popup/star.svg" alt="">
-                    </div>
-                </div>
-                <div class="resort-details-area">
-                    <figure>
-                        <img src="images/resort-logo.png" alt="">
-                    </figure>
-                    <article>
-                        <div class="card-heading-row">
-                            <h4 class="card-heading">Misty Rock Resort</h4>
-                            <div class="star-wrapper">
-                                <img src="images/search-popup/star-icon.svg" alt="">
-                                <img src="images/search-popup/star-icon.svg" alt="">
-                                <img src="images/search-popup/star-icon.svg" alt="">
-                                <img src="images/search-popup/star-icon.svg" alt="">
-                                <img src="images/search-popup/star-icon.svg" alt="">
-                            </div>
-                        </div>
-                        <div class="resort-location">
-                            <span class="location-icon"><img src="images/location-icon.png" alt=""></span>
-                            <h5 class="location-name">Wayanad, Kerala, India</h5>
-                        </div>
-                        <div class="resort-icons">
-                            <img src="images/resort-icons/resort-icons-01.png" alt="">
-                            <img src="images/resort-icons/resort-icons-02.png" alt="">
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<!--<div class="pop-wrapper search-popup-wrapper">-->
+<!--    <div class="pop-header">-->
+<!--        <div class="pop-container">-->
+<!--            <div class="pop-close-wrapper">-->
+<!--                <button class="pop-close"><img src="images/search-popup/close-btn.svg" alt=""></button>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="pop-container">-->
+<!--        <div class="search-result-card">-->
+<!--            <div class="card-img"><img src="images/search-popup/hotel-img.png" alt=""></div>-->
+<!--            <div class="card-details">-->
+<!--                <div class="card-heading-row">-->
+<!--                    <h4 class="card-heading">Misty Rock Resort</h4>-->
+<!--                    <div class="star-wrapper">-->
+<!--                        <img src="images/search-popup/star.svg" alt="">-->
+<!--                        <img src="images/search-popup/star.svg" alt="">-->
+<!--                        <img src="images/search-popup/star.svg" alt="">-->
+<!--                        <img src="images/search-popup/star.svg" alt="">-->
+<!--                        <img src="images/search-popup/star.svg" alt="">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="resort-details-area">-->
+<!--                    <figure>-->
+<!--                        <img src="images/resort-logo.png" alt="">-->
+<!--                    </figure>-->
+<!--                    <article>-->
+<!--                        <div class="card-heading-row">-->
+<!--                            <h4 class="card-heading">Misty Rock Resort</h4>-->
+<!--                            <div class="star-wrapper">-->
+<!--                                <img src="images/search-popup/star-icon.svg" alt="">-->
+<!--                                <img src="images/search-popup/star-icon.svg" alt="">-->
+<!--                                <img src="images/search-popup/star-icon.svg" alt="">-->
+<!--                                <img src="images/search-popup/star-icon.svg" alt="">-->
+<!--                                <img src="images/search-popup/star-icon.svg" alt="">-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="resort-location">-->
+<!--                            <span class="location-icon"><img src="images/location-icon.png" alt=""></span>-->
+<!--                            <h5 class="location-name">Wayanad, Kerala, India</h5>-->
+<!--                        </div>-->
+<!--                        <div class="resort-icons">-->
+<!--                            <img src="images/resort-icons/resort-icons-01.png" alt="">-->
+<!--                            <img src="images/resort-icons/resort-icons-02.png" alt="">-->
+<!--                        </div>-->
+<!--                    </article>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
 

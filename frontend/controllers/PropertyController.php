@@ -36,7 +36,7 @@ class PropertyController extends Controller
     }
      public function actionPpe()
     {
-        $this->layout = 'main-search';
+        $this->layout = 'tm_main';
         return $this->render('index2', []);
     }
 
