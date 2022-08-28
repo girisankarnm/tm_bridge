@@ -72,9 +72,6 @@ frontend\assets\AppAsset::register($this);
 
         </div>
         <!--loader div end -->
-
-
-
         <div>
 
             <div class="card search-top-card-list shadow-div ">
@@ -83,7 +80,6 @@ frontend\assets\AppAsset::register($this);
                         <div class="card search-top-card-label Enquiry-style-search "> <a href="#"
                                 class="search-anchor  Enquiry-style-search "><label class="font-bw-mitga"> Enquiry
                                     no:</label> #9999/22 </a> </div>
-
                     </div>
 
                     <div>
@@ -166,7 +162,8 @@ frontend\assets\AppAsset::register($this);
                             class="img-property-search" src="images/note-search.svg" alt="Matrix"> 4/10</span></div>
             </div>
             <?php foreach(range(0, 5) as $index => $item): ?>
-            <div class="card search-card-list shadow-div card-overflow-hidden">
+            <div class="card search-card-list shadow-div card-overflow-hidden" data-toggle="modal"
+                data-target="#searchPopupModal">
                 <div id="mainHeding-search-hotel">
                     <div> <img class="image-search-property img-property" src="images/chess-board.jpg" alt="Matrix">
                     </div>
@@ -589,6 +586,891 @@ frontend\assets\AppAsset::register($this);
     </nav>
 
 </div>
+<div class="modal fade" id="searchPopupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog search-popup-wrapper" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <img src="images/search-popup/close-btn.svg" alt="">
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="search-result-card">
+                    <div class="search-result-left">
+                        <div class="card-details">
+                            <div class="resort-details-area">
+                                <figure>
+                                    <img src="images/search-popup/hotel-img.png" alt="">
+                                </figure>
+                                <article>
+                                    <div class="card-heading-row">
+                                        <h4 class="card-heading">Misty Rock Resort</h4>
+                                        <div class="star-wrapper">
+                                            <img src="images/search-popup/star-icon.svg" alt="">
+                                            <img src="images/search-popup/star-icon.svg" alt="">
+                                            <img src="images/search-popup/star-icon.svg" alt="">
+                                            <img src="images/search-popup/star-icon.svg" alt="">
+                                            <img src="images/search-popup/star-icon.svg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="resort-location">
+                                        <span class="location-icon"><img src="images/location-icon.png" alt=""></span>
+                                        <h5 class="location-name">Wayanad, Kerala, India</h5>
+                                    </div>
+                                    <div class="building-details">
+                                        <div class="resort-icons">
+                                            <img src="images/resort-icons/no-smoking-icon.svg" alt="">
+                                            <img src="images/resort-icons/no-pets.svg" alt="">
+                                        </div>
+                                        <div class="building-type-wrapper">
+                                            <span class="building-type">APARTMENT</span>
+                                        </div>
+                                        <div class="phone-number-wrapper">
+                                            <span class="phone-number-icon"><img src="images/call-icon.svg"
+                                                    alt=""></span>
+                                            <span class="phone-number">+91 123 456 7890 </span>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="search-result-right">
+                        <div class="enquiry-box-wrapper">
+                            <div class="enquiry-number">
+                                <h6>Enq No:</h6>
+                                <h3>2222/22</h3>
+                            </div>
+                            <div class="enquiry-details">
+                                <div class="enquiry-row">
+                                    <span class="enquiry-img"><img src="images/search-popup/user-icon.svg"
+                                            alt=""></span>
+                                    <span class="enquiry-content">Swaroop Swaminathan</span>
+                                </div>
+                                <div class="enquiry-row">
+                                    <span class="enquiry-img"><img src="images/search-popup/call-icon.svg"
+                                            alt=""></span>
+                                    <span class="enquiry-content">+91 7012761238, +91 8012821458</span>
+                                </div>
+                                <div class="enquiry-row">
+                                    <span class="enquiry-img"><img src="images/search-popup/mail-icon.svg"
+                                            alt=""></span>
+                                    <span class="enquiry-content"><a
+                                            href="mailto:swaroop123@yahoo.in">swaroop123@yahoo.in</a></span>
+                                </div>
+                            </div>
+                            <div class="enquiry-chat-icon">
+                                <img src="images/search-popup/chat-icon.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="matching-rooms-wrapper">
+                    <div class="matching-rooms-head">3 Matching Rooms Found</div>
+
+                    <div class="matching-rooms-container">
+                        <div class="matching-rooms-box-wrapper">
+                            <div class="matching-rooms-box-single">
+                                <div class="room-content">
+                                    <div class="resort-details-area">
+                                        <figure>
+                                            <img class="hotel-icon-img" src="images/search-popup/hotel-img1.png" alt="">
+                                        </figure>
+                                        <article>
+                                            <div class="card-heading-row">
+                                                <div class="room-head-info">
+                                                    <div class="room-head-area">
+                                                        <h4 class="card-heading">Standard Rooms with Pool</h4>
+                                                        <h4 class="card-heading">2500 SQ FT</h4>
+                                                    </div>
+                                                    <div class="door-info">
+                                                        <img src="images/search-popup/door-icon.svg" alt="">
+                                                        3/10
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="room-cat-view-details">
+                                                <div class="room-cat">
+                                                    <img src="images/search-popup/food-icon.svg" alt="">
+                                                    <span class="room-cat-text">EP (Room Only)</span>
+                                                </div>
+                                                <div class="view-details">
+                                                    <button class="view-details-btn" onClick="viewDetails(1)">View
+                                                        Details</button>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+                                </div>
+                                <div class="room-policy-occupancy-wrapper">
+                                    <div class="room-policy-occupancy-single">
+                                        <div class="room-policy-occupancy-heading">Room's Child Policy</div>
+                                        <div class="room-policy-occupancy-content">
+                                            <div class="room-policy-occupancy-content-single">
+                                                <img src="images/search-popup/child-icon.svg" style="width:18px"
+                                                    class="room-policy-occupancy-icon" alt="">
+                                                <span>0-7 YR</span>
+                                            </div>
+                                            <div class="room-policy-occupancy-content-single">
+                                                <img src="images/search-popup/child-icon-1.svg" style="width:18px"
+                                                    class="room-policy-occupancy-icon" alt="">
+                                                <span>8-15 YR</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="room-policy-occupancy-single">
+                                        <div class="room-policy-occupancy-heading">Default Occupancy</div>
+                                        <div class="room-policy-occupancy-content">
+                                            <div class="room-policy-occupancy-content-single">
+                                                <img src="images/search-popup/bed-icon.svg" style="width:28px"
+                                                    class="room-policy-occupancy-icon" alt="">
+                                                <span>DB: XI EB: XI SB: X</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="days-price-details">
+                                    <div class="stay-days-wrapper">
+                                        <label class="checkbox-container">10 Days Stay
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                    <div class="room-price-wrapper">
+                                        <div class="old-price">₹ 10'246</div>
+                                        <div class="current-price">₹ 10'246</div>
+                                    </div>
+                                    <div class="tax-details">Include Mandatory Dinner & Tax</div>
+                                </div>
+                            </div>
+                            <div class="matching-boxes-main" id="matching-boxes-main-1">
+                                <div class="matching-each-room-wrapper">
+                                    <div class="room-single-content-area">
+                                        <div class="room-single-header">Day 1 | 10 Aug 2022</div>
+                                        <div class="room-single-content-wrapper">
+                                            <div class="room-single-content">
+                                                <div class="room-single-content-heading">Rooms</div>
+                                                <div class="room-single-content-value">7'350000</div>
+                                            </div>
+                                            <div class="room-single-content">
+                                                <div class="room-single-content-heading">EBA</div>
+                                                <div class="room-single-content-value">7'350000</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="room-single-content-area">
+                                        <div class="room-single-header">
+                                            <div class="icon-text-area">
+                                                In Enq:
+                                                <div class="icon-with-notification"><img
+                                                        src="images/search-popup/food-icon.svg" alt=""><span
+                                                        class="icon-notofi">!</span></div>
+                                            </div>
+                                            <div class="icon-text-area">
+                                                <div class="icon-with-notification"><img style="width: 21px;"
+                                                        src="images/search-popup/child-icon.svg" alt=""></div>
+                                                99
+                                            </div>
+                                            <div class="icon-text-area">
+                                                <div class="icon-with-notification"><img style="width: 15px;"
+                                                        src="images/search-popup/child-icon-1.svg" alt=""></div>
+                                                50
+                                            </div>
+                                        </div>
+                                        <div class="room-single-content-wrapper">
+                                            <div class="room-single-content">
+                                                <div class="room-single-content-heading">CBW</div>
+                                                <div class="room-single-content-value">7'350000</div>
+                                            </div>
+                                            <div class="room-single-content">
+                                                <div class="room-single-content-heading">CNB</div>
+                                                <div class="room-single-content-value">7'350000</div>
+                                            </div>
+                                            <div class="room-single-content">
+                                                <div class="room-single-content-heading">SGL</div>
+                                                <div class="room-single-content-value">7'350000</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="room-single-content-area">
+                                        <div class="room-single-header">
+                                            <div class="icon-text-area">
+                                                In Enq:
+                                                <div class="icon-with-notification"><img
+                                                        src="images/search-popup/food-icon.svg" alt=""><span
+                                                        class="icon-notofi">!</span></div>
+                                            </div>
+                                            <div class="icon-text-area">
+                                                <div class="icon-with-notification"><img style="width: 21px;"
+                                                        src="images/search-popup/child-icon.svg" alt=""></div>
+                                                99
+                                            </div>
+                                            <div class="icon-text-area">
+                                                <div class="icon-with-notification"><img style="width: 15px;"
+                                                        src="images/search-popup/child-icon-1.svg" alt=""></div>
+                                                50
+                                            </div>
+                                        </div>
+                                        <div class="room-single-content-wrapper">
+                                            <div class="room-single-content">
+                                                <div class="room-single-content-heading">FOC</div>
+                                                <div class="room-single-content-value">7'350000</div>
+                                            </div>
+                                            <div class="room-single-content">
+                                                <div class="room-single-content-heading">Dinner</div>
+                                                <div class="room-single-content-value">7'350000</div>
+                                            </div>
+                                            <div class="room-single-content">
+                                                <div class="room-single-content-heading">Day Total</div>
+                                                <div class="room-single-content-value">7'350000</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox-info-wrapper">
+                                        <div class="checkbox-wrapper">
+                                            <label class="checkbox-container">
+                                                <input type="checkbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div class="info-icon-main">
+                                            <div class="info-icon">!</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="matching-each-room-wrapper active">
+                                    <div class="room-single-content-area">
+                                        <div class="room-single-header">Day 1 | 10 Aug 2022</div>
+                                        <div class="room-single-content-wrapper">
+                                            <div class="room-single-content">
+                                                <div class="room-single-content-heading">Rooms</div>
+                                                <div class="room-single-content-value">7'350000</div>
+                                            </div>
+                                            <div class="room-single-content">
+                                                <div class="room-single-content-heading">EBA</div>
+                                                <div class="room-single-content-value">7'350000</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="room-single-content-area">
+                                        <div class="room-single-header">
+                                            <div class="icon-text-area">
+                                                In Enq:
+                                                <div class="icon-with-notification"><img
+                                                        src="images/search-popup/food-icon.svg" alt=""><span
+                                                        class="icon-notofi">!</span></div>
+                                            </div>
+                                            <div class="icon-text-area">
+                                                <div class="icon-with-notification"><img style="width: 21px;"
+                                                        src="images/search-popup/child-icon.svg" alt=""></div>
+                                                99
+                                            </div>
+                                            <div class="icon-text-area">
+                                                <div class="icon-with-notification"><img style="width: 15px;"
+                                                        src="images/search-popup/child-icon-1.svg" alt=""></div>
+                                                50
+                                            </div>
+                                        </div>
+                                        <div class="room-single-content-wrapper">
+                                            <div class="room-single-content">
+                                                <div class="room-single-content-heading">CBW</div>
+                                                <div class="room-single-content-value">7'350000</div>
+                                            </div>
+                                            <div class="room-single-content">
+                                                <div class="room-single-content-heading">CNB</div>
+                                                <div class="room-single-content-value">7'350000</div>
+                                            </div>
+                                            <div class="room-single-content">
+                                                <div class="room-single-content-heading">SGL</div>
+                                                <div class="room-single-content-value">7'350000</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="room-single-content-area">
+                                        <div class="room-single-header">
+                                            <div class="icon-text-area">
+                                                In Enq:
+                                                <div class="icon-with-notification"><img
+                                                        src="images/search-popup/food-icon.svg" alt=""><span
+                                                        class="icon-notofi">!</span></div>
+                                            </div>
+                                            <div class="icon-text-area">
+                                                <div class="icon-with-notification"><img style="width: 21px;"
+                                                        src="images/search-popup/child-icon.svg" alt=""></div>
+                                                99
+                                            </div>
+                                            <div class="icon-text-area">
+                                                <div class="icon-with-notification"><img style="width: 15px;"
+                                                        src="images/search-popup/child-icon-1.svg" alt=""></div>
+                                                50
+                                            </div>
+                                        </div>
+                                        <div class="room-single-content-wrapper">
+                                            <div class="room-single-content">
+                                                <div class="room-single-content-heading">FOC</div>
+                                                <div class="room-single-content-value">7'350000</div>
+                                            </div>
+                                            <div class="room-single-content">
+                                                <div class="room-single-content-heading">Dinner</div>
+                                                <div class="room-single-content-value">7'350000</div>
+                                            </div>
+                                            <div class="room-single-content">
+                                                <div class="room-single-content-heading">Day Total</div>
+                                                <div class="room-single-content-value">7'350000</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox-info-wrapper">
+                                        <div class="checkbox-wrapper">
+                                            <label class="checkbox-container">
+                                                <input type="checkbox" checked="checked">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div class="info-icon-main">
+                                            <div class="info-icon">!</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="matching-rooms-box-wrapper">
+                            <div class="matching-rooms-box-single">
+                                <div class="room-content">
+                                    <div class="resort-details-area">
+                                        <figure>
+                                            <img class="hotel-icon-img" src="images/search-popup/hotel-img1.png" alt="">
+                                        </figure>
+                                        <article>
+                                            <div class="card-heading-row">
+                                                <div class="room-head-info">
+                                                    <div class="room-head-area">
+                                                        <h4 class="card-heading">Standard Rooms with Pool</h4>
+                                                        <h4 class="card-heading">2500 SQ FT</h4>
+                                                    </div>
+                                                    <div class="door-info">
+                                                        <img src="images/search-popup/door-icon.svg" alt="">
+                                                        3/10
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="room-cat-view-details">
+                                                <div class="room-cat">
+                                                    <img src="images/search-popup/food-icon.svg" alt="">
+                                                    <span class="room-cat-text">EP (Room Only)</span>
+                                                </div>
+                                                <div class="view-details">
+                                                    <button class="view-details-btn" onClick="viewDetails(2)">View
+                                                        Details</button>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+                                </div>
+                                <div class="room-policy-occupancy-wrapper">
+                                    <div class="room-policy-occupancy-single">
+                                        <div class="room-policy-occupancy-heading">Room's Child Policy</div>
+                                        <div class="room-policy-occupancy-content">
+                                            <div class="room-policy-occupancy-content-single">
+                                                <img src="images/search-popup/child-icon.svg" style="width:18px"
+                                                    class="room-policy-occupancy-icon" alt="">
+                                                <span>0-7 YR</span>
+                                            </div>
+                                            <div class="room-policy-occupancy-content-single">
+                                                <img src="images/search-popup/child-icon-1.svg" style="width:18px"
+                                                    class="room-policy-occupancy-icon" alt="">
+                                                <span>8-15 YR</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="room-policy-occupancy-single">
+                                        <div class="room-policy-occupancy-heading">Default Occupancy</div>
+                                        <div class="room-policy-occupancy-content">
+                                            <div class="room-policy-occupancy-content-single">
+                                                <img src="images/search-popup/bed-icon.svg" style="width:28px"
+                                                    class="room-policy-occupancy-icon" alt="">
+                                                <span>DB: XI EB: XI SB: X</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="days-price-details">
+                                    <div class="stay-days-wrapper">
+                                        <label class="checkbox-container">10 Days Stay
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                    <div class="room-price-wrapper">
+                                        <div class="old-price">₹ 10'246</div>
+                                        <div class="current-price">₹ 10'246</div>
+                                    </div>
+                                    <div class="tax-details">Include Mandatory Dinner & Tax</div>
+                                </div>
+                            </div>
+                            <div class="matching-boxes-main" id="matching-boxes-main-2">
+                                <div class="matching-each-room-wrapper">
+                                    <div class="room-single-content-area">
+                                        <div class="room-single-header">Day 1 | 10 Aug 2022</div>
+                                        <div class="room-single-content-wrapper">
+                                            <div class="room-single-content">
+                                                <div class="room-single-content-heading">Rooms</div>
+                                                <div class="room-single-content-value">7'350000</div>
+                                            </div>
+                                            <div class="room-single-content">
+                                                <div class="room-single-content-heading">EBA</div>
+                                                <div class="room-single-content-value">7'350000</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="room-single-content-area">
+                                        <div class="room-single-header">
+                                            <div class="icon-text-area">
+                                                In Enq:
+                                                <div class="icon-with-notification"><img
+                                                        src="images/search-popup/food-icon.svg" alt=""><span
+                                                        class="icon-notofi">!</span></div>
+                                            </div>
+                                            <div class="icon-text-area">
+                                                <div class="icon-with-notification"><img style="width: 21px;"
+                                                        src="images/search-popup/child-icon.svg" alt=""></div>
+                                                99
+                                            </div>
+                                            <div class="icon-text-area">
+                                                <div class="icon-with-notification"><img style="width: 15px;"
+                                                        src="images/search-popup/child-icon-1.svg" alt=""></div>
+                                                50
+                                            </div>
+                                        </div>
+                                        <div class="room-single-content-wrapper">
+                                            <div class="room-single-content">
+                                                <div class="room-single-content-heading">CBW</div>
+                                                <div class="room-single-content-value">7'350000</div>
+                                            </div>
+                                            <div class="room-single-content">
+                                                <div class="room-single-content-heading">CNB</div>
+                                                <div class="room-single-content-value">7'350000</div>
+                                            </div>
+                                            <div class="room-single-content">
+                                                <div class="room-single-content-heading">SGL</div>
+                                                <div class="room-single-content-value">7'350000</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="room-single-content-area">
+                                        <div class="room-single-header">
+                                            <div class="icon-text-area">
+                                                In Enq:
+                                                <div class="icon-with-notification"><img
+                                                        src="images/search-popup/food-icon.svg" alt=""><span
+                                                        class="icon-notofi">!</span></div>
+                                            </div>
+                                            <div class="icon-text-area">
+                                                <div class="icon-with-notification"><img style="width: 21px;"
+                                                        src="images/search-popup/child-icon.svg" alt=""></div>
+                                                99
+                                            </div>
+                                            <div class="icon-text-area">
+                                                <div class="icon-with-notification"><img style="width: 15px;"
+                                                        src="images/search-popup/child-icon-1.svg" alt=""></div>
+                                                50
+                                            </div>
+                                        </div>
+                                        <div class="room-single-content-wrapper">
+                                            <div class="room-single-content">
+                                                <div class="room-single-content-heading">FOC</div>
+                                                <div class="room-single-content-value">7'350000</div>
+                                            </div>
+                                            <div class="room-single-content">
+                                                <div class="room-single-content-heading">Dinner</div>
+                                                <div class="room-single-content-value">7'350000</div>
+                                            </div>
+                                            <div class="room-single-content">
+                                                <div class="room-single-content-heading">Day Total</div>
+                                                <div class="room-single-content-value">7'350000</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox-info-wrapper">
+                                        <div class="checkbox-wrapper">
+                                            <label class="checkbox-container">
+                                                <input type="checkbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div class="info-icon-main">
+                                            <div class="info-icon">!</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="matching-each-room-wrapper active">
+                                    <div class="room-single-content-area">
+                                        <div class="room-single-header">Day 1 | 10 Aug 2022</div>
+                                        <div class="room-single-content-wrapper">
+                                            <div class="room-single-content">
+                                                <div class="room-single-content-heading">Rooms</div>
+                                                <div class="room-single-content-value">7'350000</div>
+                                            </div>
+                                            <div class="room-single-content">
+                                                <div class="room-single-content-heading">EBA</div>
+                                                <div class="room-single-content-value">7'350000</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="room-single-content-area">
+                                        <div class="room-single-header">
+                                            <div class="icon-text-area">
+                                                In Enq:
+                                                <div class="icon-with-notification"><img
+                                                        src="images/search-popup/food-icon.svg" alt=""><span
+                                                        class="icon-notofi">!</span></div>
+                                            </div>
+                                            <div class="icon-text-area">
+                                                <div class="icon-with-notification"><img style="width: 21px;"
+                                                        src="images/search-popup/child-icon.svg" alt=""></div>
+                                                99
+                                            </div>
+                                            <div class="icon-text-area">
+                                                <div class="icon-with-notification"><img style="width: 15px;"
+                                                        src="images/search-popup/child-icon-1.svg" alt=""></div>
+                                                50
+                                            </div>
+                                        </div>
+                                        <div class="room-single-content-wrapper">
+                                            <div class="room-single-content">
+                                                <div class="room-single-content-heading">CBW</div>
+                                                <div class="room-single-content-value">7'350000</div>
+                                            </div>
+                                            <div class="room-single-content">
+                                                <div class="room-single-content-heading">CNB</div>
+                                                <div class="room-single-content-value">7'350000</div>
+                                            </div>
+                                            <div class="room-single-content">
+                                                <div class="room-single-content-heading">SGL</div>
+                                                <div class="room-single-content-value">7'350000</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="room-single-content-area">
+                                        <div class="room-single-header">
+                                            <div class="icon-text-area">
+                                                In Enq:
+                                                <div class="icon-with-notification"><img
+                                                        src="images/search-popup/food-icon.svg" alt=""><span
+                                                        class="icon-notofi">!</span></div>
+                                            </div>
+                                            <div class="icon-text-area">
+                                                <div class="icon-with-notification"><img style="width: 21px;"
+                                                        src="images/search-popup/child-icon.svg" alt=""></div>
+                                                99
+                                            </div>
+                                            <div class="icon-text-area">
+                                                <div class="icon-with-notification"><img style="width: 15px;"
+                                                        src="images/search-popup/child-icon-1.svg" alt=""></div>
+                                                50
+                                            </div>
+                                        </div>
+                                        <div class="room-single-content-wrapper">
+                                            <div class="room-single-content">
+                                                <div class="room-single-content-heading">FOC</div>
+                                                <div class="room-single-content-value">7'350000</div>
+                                            </div>
+                                            <div class="room-single-content">
+                                                <div class="room-single-content-heading">Dinner</div>
+                                                <div class="room-single-content-value">7'350000</div>
+                                            </div>
+                                            <div class="room-single-content">
+                                                <div class="room-single-content-heading">Day Total</div>
+                                                <div class="room-single-content-value">7'350000</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox-info-wrapper">
+                                        <div class="checkbox-wrapper">
+                                            <label class="checkbox-container">
+                                                <input type="checkbox" checked="checked">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div class="info-icon-main">
+                                            <div class="info-icon">!</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="matching-rooms-box-wrapper">
+                            <div class="matching-rooms-box-single">
+                                <div class="room-content">
+                                    <div class="resort-details-area">
+                                        <figure>
+                                            <img class="hotel-icon-img" src="images/search-popup/hotel-img1.png" alt="">
+                                        </figure>
+                                        <article>
+                                            <div class="card-heading-row">
+                                                <div class="room-head-info">
+                                                    <div class="room-head-area">
+                                                        <h4 class="card-heading">Standard Rooms with Pool</h4>
+                                                        <h4 class="card-heading">2500 SQ FT</h4>
+                                                    </div>
+                                                    <div class="door-info">
+                                                        <img src="images/search-popup/door-icon.svg" alt="">
+                                                        3/10
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="room-cat-view-details">
+                                                <div class="room-cat">
+                                                    <img src="images/search-popup/food-icon.svg" alt="">
+                                                    <span class="room-cat-text">EP (Room Only)</span>
+                                                </div>
+                                                <div class="view-details">
+                                                    <button class="view-details-btn" onClick="viewDetails(3)">View
+                                                        Details</button>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+                                </div>
+                                <div class="room-policy-occupancy-wrapper">
+                                    <div class="room-policy-occupancy-single">
+                                        <div class="room-policy-occupancy-heading">Room's Child Policy</div>
+                                        <div class="room-policy-occupancy-content">
+                                            <div class="room-policy-occupancy-content-single">
+                                                <img src="images/search-popup/child-icon.svg" style="width:18px"
+                                                    class="room-policy-occupancy-icon" alt="">
+                                                <span>0-7 YR</span>
+                                            </div>
+                                            <div class="room-policy-occupancy-content-single">
+                                                <img src="images/search-popup/child-icon-1.svg" style="width:18px"
+                                                    class="room-policy-occupancy-icon" alt="">
+                                                <span>8-15 YR</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="room-policy-occupancy-single">
+                                        <div class="room-policy-occupancy-heading">Default Occupancy</div>
+                                        <div class="room-policy-occupancy-content">
+                                            <div class="room-policy-occupancy-content-single">
+                                                <img src="images/search-popup/bed-icon.svg" style="width:28px"
+                                                    class="room-policy-occupancy-icon" alt="">
+                                                <span>DB: XI EB: XI SB: X</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="days-price-details">
+                                    <div class="stay-days-wrapper">
+                                        <label class="checkbox-container">10 Days Stay
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                    <div class="room-price-wrapper">
+                                        <div class="old-price">₹ 10'246</div>
+                                        <div class="current-price">₹ 10'246</div>
+                                    </div>
+                                    <div class="tax-details">Include Mandatory Dinner & Tax</div>
+                                </div>
+                            </div>
+                            <div class="matching-boxes-main" id="matching-boxes-main-3">
+                                <div class="matching-each-room-wrapper">
+                                    <div class="room-single-content-area">
+                                        <div class="room-single-header">Day 1 | 10 Aug 2022</div>
+                                        <div class="room-single-content-wrapper">
+                                            <div class="room-single-content">
+                                                <div class="room-single-content-heading">Rooms</div>
+                                                <div class="room-single-content-value">7'350000</div>
+                                            </div>
+                                            <div class="room-single-content">
+                                                <div class="room-single-content-heading">EBA</div>
+                                                <div class="room-single-content-value">7'350000</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="room-single-content-area">
+                                        <div class="room-single-header">
+                                            <div class="icon-text-area">
+                                                In Enq:
+                                                <div class="icon-with-notification"><img
+                                                        src="images/search-popup/food-icon.svg" alt=""><span
+                                                        class="icon-notofi">!</span></div>
+                                            </div>
+                                            <div class="icon-text-area">
+                                                <div class="icon-with-notification"><img style="width: 21px;"
+                                                        src="images/search-popup/child-icon.svg" alt=""></div>
+                                                99
+                                            </div>
+                                            <div class="icon-text-area">
+                                                <div class="icon-with-notification"><img style="width: 15px;"
+                                                        src="images/search-popup/child-icon-1.svg" alt=""></div>
+                                                50
+                                            </div>
+                                        </div>
+                                        <div class="room-single-content-wrapper">
+                                            <div class="room-single-content">
+                                                <div class="room-single-content-heading">CBW</div>
+                                                <div class="room-single-content-value">7'350000</div>
+                                            </div>
+                                            <div class="room-single-content">
+                                                <div class="room-single-content-heading">CNB</div>
+                                                <div class="room-single-content-value">7'350000</div>
+                                            </div>
+                                            <div class="room-single-content">
+                                                <div class="room-single-content-heading">SGL</div>
+                                                <div class="room-single-content-value">7'350000</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="room-single-content-area">
+                                        <div class="room-single-header">
+                                            <div class="icon-text-area">
+                                                In Enq:
+                                                <div class="icon-with-notification"><img
+                                                        src="images/search-popup/food-icon.svg" alt=""><span
+                                                        class="icon-notofi">!</span></div>
+                                            </div>
+                                            <div class="icon-text-area">
+                                                <div class="icon-with-notification"><img style="width: 21px;"
+                                                        src="images/search-popup/child-icon.svg" alt=""></div>
+                                                99
+                                            </div>
+                                            <div class="icon-text-area">
+                                                <div class="icon-with-notification"><img style="width: 15px;"
+                                                        src="images/search-popup/child-icon-1.svg" alt=""></div>
+                                                50
+                                            </div>
+                                        </div>
+                                        <div class="room-single-content-wrapper">
+                                            <div class="room-single-content">
+                                                <div class="room-single-content-heading">FOC</div>
+                                                <div class="room-single-content-value">7'350000</div>
+                                            </div>
+                                            <div class="room-single-content">
+                                                <div class="room-single-content-heading">Dinner</div>
+                                                <div class="room-single-content-value">7'350000</div>
+                                            </div>
+                                            <div class="room-single-content">
+                                                <div class="room-single-content-heading">Day Total</div>
+                                                <div class="room-single-content-value">7'350000</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox-info-wrapper">
+                                        <div class="checkbox-wrapper">
+                                            <label class="checkbox-container">
+                                                <input type="checkbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div class="info-icon-main">
+                                            <div class="info-icon">!</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="matching-each-room-wrapper active">
+                                    <div class="room-single-content-area">
+                                        <div class="room-single-header">Day 1 | 10 Aug 2022</div>
+                                        <div class="room-single-content-wrapper">
+                                            <div class="room-single-content">
+                                                <div class="room-single-content-heading">Rooms</div>
+                                                <div class="room-single-content-value">7'350000</div>
+                                            </div>
+                                            <div class="room-single-content">
+                                                <div class="room-single-content-heading">EBA</div>
+                                                <div class="room-single-content-value">7'350000</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="room-single-content-area">
+                                        <div class="room-single-header">
+                                            <div class="icon-text-area">
+                                                In Enq:
+                                                <div class="icon-with-notification"><img
+                                                        src="images/search-popup/food-icon.svg" alt=""><span
+                                                        class="icon-notofi">!</span></div>
+                                            </div>
+                                            <div class="icon-text-area">
+                                                <div class="icon-with-notification"><img style="width: 21px;"
+                                                        src="images/search-popup/child-icon.svg" alt=""></div>
+                                                99
+                                            </div>
+                                            <div class="icon-text-area">
+                                                <div class="icon-with-notification"><img style="width: 15px;"
+                                                        src="images/search-popup/child-icon-1.svg" alt=""></div>
+                                                50
+                                            </div>
+                                        </div>
+                                        <div class="room-single-content-wrapper">
+                                            <div class="room-single-content">
+                                                <div class="room-single-content-heading">CBW</div>
+                                                <div class="room-single-content-value">7'350000</div>
+                                            </div>
+                                            <div class="room-single-content">
+                                                <div class="room-single-content-heading">CNB</div>
+                                                <div class="room-single-content-value">7'350000</div>
+                                            </div>
+                                            <div class="room-single-content">
+                                                <div class="room-single-content-heading">SGL</div>
+                                                <div class="room-single-content-value">7'350000</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="room-single-content-area">
+                                        <div class="room-single-header">
+                                            <div class="icon-text-area">
+                                                In Enq:
+                                                <div class="icon-with-notification"><img
+                                                        src="images/search-popup/food-icon.svg" alt=""><span
+                                                        class="icon-notofi">!</span></div>
+                                            </div>
+                                            <div class="icon-text-area">
+                                                <div class="icon-with-notification"><img style="width: 21px;"
+                                                        src="images/search-popup/child-icon.svg" alt=""></div>
+                                                99
+                                            </div>
+                                            <div class="icon-text-area">
+                                                <div class="icon-with-notification"><img style="width: 15px;"
+                                                        src="images/search-popup/child-icon-1.svg" alt=""></div>
+                                                50
+                                            </div>
+                                        </div>
+                                        <div class="room-single-content-wrapper">
+                                            <div class="room-single-content">
+                                                <div class="room-single-content-heading">FOC</div>
+                                                <div class="room-single-content-value">7'350000</div>
+                                            </div>
+                                            <div class="room-single-content">
+                                                <div class="room-single-content-heading">Dinner</div>
+                                                <div class="room-single-content-value">7'350000</div>
+                                            </div>
+                                            <div class="room-single-content">
+                                                <div class="room-single-content-heading">Day Total</div>
+                                                <div class="room-single-content-value">7'350000</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox-info-wrapper">
+                                        <div class="checkbox-wrapper">
+                                            <label class="checkbox-container">
+                                                <input type="checkbox" checked="checked">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div class="info-icon-main">
+                                            <div class="info-icon">!</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <script>
 /* When the user clicks on the button,
     toggle between hiding and showing the dropdown content */
@@ -671,5 +1553,13 @@ function closeNav() {
 
 function FunctionFilterView() {
     document.getElementById("myDropdown-view").classList.toggle("show-content");
+}
+
+$(window).on('load', function() {
+    $('#searchPopupModal').modal('show');
+});
+
+function viewDetails(id) {
+    $(`#matching-boxes-main-${id}`).slideToggle(500);
 }
 </script>

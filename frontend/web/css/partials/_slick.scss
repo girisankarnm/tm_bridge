@@ -1,0 +1,51 @@
+.slick-list {
+    padding: 40px 0 60px !important;
+    // padding-bottom: 60px !important;
+}
+
+.slick-slide {
+    margin: 0 30px;
+    @include transition(ease 0.5s);
+}
+
+.slick-center {
+    transform: scale(1.15);
+    -webkit-transform: scale(1.15);
+    -moz-transform: scale(1.15);
+    -ms-transform: scale(1.15);
+    -o-transform: scale(1.15);
+    .wallet-card {
+        background: #2E2E2E75;
+        border: 2px solid #DFA940
+    }
+}
+
+.wallet-slider {
+    margin: 0 0 40px;
+    display: inline-block;
+    width: 100%;
+    .slick-prev {
+        background: #393939 url(../img/icons/left-arrow.svg) no-repeat center center;
+        width: 36px;
+        height: 36px;
+        @include border-radius(50%);
+        position: absolute;
+        left: 47.5%;
+        top: 100%;
+        &::before {
+            content: "";
+        }
+    }
+    .slick-next {
+        background: #393939 url(../img/icons/right-arrow.svg) no-repeat center center;
+        width: 36px;
+        height: 36px;
+        @include border-radius(50%);
+        position: absolute;
+        right: 47.5%;
+        top: 100%;
+        &::before {
+            content: "";
+        }
+    }
+}

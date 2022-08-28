@@ -1,0 +1,65 @@
+// BOF Fonts
+// BOF Ethnocentric
+@font-face {
+    font-family: 'sofia_prolight';
+    src: url('../fonts/sofiapro-light-webfont.woff2') format('woff2'),
+        url('../fonts/sofiapro-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'sofia_proregular';
+    src: url('../fonts/sofia_pro_regular-webfont.woff2') format('woff2'),
+        url('../fonts/sofia_pro_regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'sofia_promedium';
+    src: url('../fonts/sofia_pro_medium-webfont.woff2') format('woff2'),
+        url('../fonts/sofia_pro_medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'sofia_probold';
+    src: url('../fonts/sofia_pro_bold-webfont.woff2') format('woff2'),
+        url('../fonts/sofia_pro_bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'sofia_problack';
+    src: url('../fonts/sofiapro-black-webfont.woff2') format('woff2'),
+        url('../fonts/sofiapro-black-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+// EOF Ethnocentric
+// BOF Athelas
+
+@font-face {
+    font-family: 'athelasregular';
+    src: url('../fonts/athelas-regular-webfont.woff2') format('woff2'),
+        url('../fonts/athelas-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'athelasbold';
+    src: url('../fonts/athelas-bold-webfont.woff2') format('woff2'),
+        url('../fonts/athelas-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+// EOF Athelas
+// EOF Fonts

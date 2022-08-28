@@ -1,0 +1,768 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+/* let's clear some floats */
+
+.clearfix:before,
+.clearfix:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    overflow: hidden;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #F7F8F9;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #947D6D;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #947D6D;
+}
+
+.table-responsive {
+    padding-bottom: 5px;
+
+    &::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: #F7F8F9;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $primary-color;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background: #ffc300;
+    }
+}
+
+/* Track */
+/* Handle */
+/* Handle on hover */
+
+// BOF Custom Radio Buttons
+/* The container */
+
+.radio-container {
+    display: block;
+    position: relative;
+    padding-left: 40px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: #545554;
+    font-size: 1rem;
+    margin-right: 20px;
+    margin: 0 0 15px !important;
+    min-height: 40px;
+    line-height: 40px;
+
+    // &:nth-last-child(1) {
+    //     margin-right: 0 !important;
+    // }
+    a {
+        font-weight: 600;
+        color: #ffa800;
+    }
+}
+
+/* Hide the browser's default radio button */
+
+.radio-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom radio button */
+
+.radio-container .checkmark {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 28px;
+    width: 28px;
+    background: none;
+    @include border-radius(50%);
+    border: 1px solid #EDEDED;
+}
+
+/* On mouse-over, add a grey background color */
+
+.radio-container:hover input~.checkmark {
+    background: none;
+}
+
+/* When the radio button is checked, add a blue background */
+
+.radio-container input:checked~.checkmark {
+    background: none;
+    border-color: #E89F72;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+
+.radio-container .checkmark::after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.radio-container .checkmark::before {
+    content: "";
+    position: absolute;
+    @include transform(rotate(-45deg));
+    top: 6px;
+    left: 6px;
+    width: 14px;
+    height: 14px;
+    background: #C4C4C4;
+    @include border-radius(50%);
+}
+
+/* Show the indicator (dot/circle) when checked */
+
+.radio-container input:checked~.checkmark::after {
+    display: block;
+    background: #E89F72;
+}
+
+/* Style the indicator (dot/circle) */
+
+.customRadioDesign {
+    background: #fff;
+    border: 1px solid #C4C4C4;
+    width: 100%;
+    height: 40px;
+    z-index: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    @include border-radius(4px);
+}
+
+.radioContent {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #000;
+    position: relative;
+    z-index: 1;
+    margin: 0;
+}
+
+.radio-container input:checked~.customRadioDesign {
+    border: 1px solid #C4C4C4;
+}
+
+.radio-container .checkmark:after {
+    @include transform(rotate(-45deg));
+    top: 6px;
+    left: 6px;
+    width: 14px;
+    height: 14px;
+    background: #C4C4C4;
+    @include border-radius(50%);
+}
+
+// EOF Custom Radio Buttons
+// BOF Custom Checkbox
+/* The container */
+
+.checkbox-container {
+    display: block;
+    position: relative;
+    padding: 4px 0 0 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    color: #361805;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+
+.checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+
+.checkbox-container .checkmark {
+    @include border-radius(6px);
+    border: 2px solid #A88F6C;
+    position: absolute;
+    top: 4px;
+    left: 0;
+    height: 24px;
+    width: 24px;
+    background: none;
+}
+
+/* On mouse-over, add a grey background color */
+
+.checkbox-container:hover input~.checkmark {
+    border: 3px solid #A88F6C;
+}
+
+/* When the checkbox is checked, add a blue background */
+
+.checkbox-container input:checked~.checkmark {
+    background: #A88F6C;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+
+.checkbox-container .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+
+.checkbox-container input:checked~.checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+
+.checkbox-container .checkmark:after {
+    left: 8px;
+    top: 4px;
+    width: 5px;
+    height: 10px;
+    border: solid #fff;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+// EOF Custom Checkbox
+.grey-checkbox-wrapper {
+    margin-bottom: 0;
+    padding: 0;
+    top: -15px;
+
+    span.checkmark {
+        background: #758799;
+        border: none;
+        width: 16px;
+        height: 16px;
+        @include border-radius(5px);
+    }
+
+    input:checked~.checkmark {
+        border: none;
+    }
+
+    .checkmark:after {
+        border-color: $primary-color;
+    }
+}
+
+// BOF Custom Range Slider
+.slidecontainer {
+    width: 100%;
+
+    .slider {
+        margin: 0 !important;
+        width: 100%;
+    }
+
+    .range-value {
+        color: #fff;
+    }
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    @include border-radius(15px);
+    background: linear-gradient(180deg, #57D8F5 0%, #2A5BDC 100%);
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    @include border-radius(15px);
+    background: linear-gradient(180deg, #57D8F5 0%, #2A5BDC 100%);
+    cursor: pointer;
+}
+
+// EOF Custom Range Slider
+.updown-arrow {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    position: relative;
+
+    &::before,
+    &::after {
+        position: absolute;
+        content: "";
+        border: 4px solid transparent;
+    }
+
+    &::before {
+        border-bottom-color: #888888;
+        top: 6px;
+    }
+
+    &::after {
+        border-top-color: #888888;
+        top: 16px;
+    }
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 24px;
+    height: 16px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+
+    &:before {
+        position: absolute;
+        content: "";
+        height: 12px;
+        width: 12px;
+        left: 3px;
+        bottom: 2px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+}
+
+.switch {
+    input:checked+.slider {
+        background: rgba(212, 175, 55, 0.7);
+    }
+
+    input:focus+.slider {
+        box-shadow: 0 0 1px rgba(212, 175, 55, 0.7);
+    }
+
+    input:checked+.slider:before {
+        transform: translateX(6px);
+        -webkit-transform: translateX(6px);
+        -ms-transform: translateX(6px);
+        -moz-transform: translateX(6px);
+        -o-transform: translateX(6px);
+    }
+
+    /* Rounded sliders */
+    .slider.round {
+        border-radius: 34px;
+    }
+
+    .slider.round:before {
+        border-radius: 50%;
+    }
+}
+
+// BOF Select with Image CSS
+.custom-select-one,
+.custom-select-two,
+.custom-select-three {
+    display: none;
+}
+
+#custom-select-list-one,
+#custom-select-list-two,
+#custom-select-list-three {
+    padding: 5px 0;
+}
+
+#custom-select-list-one img,
+#custom-select-list-two img,
+#custom-select-list-three img,
+.drop-btn-select-one img,
+.drop-btn-select-two img,
+.drop-btn-select-three img {
+    width: 22px;
+}
+
+#custom-select-list-one li,
+#custom-select-list-two li,
+#custom-select-list-three li {
+    list-style: none;
+    padding: 5px 15px;
+}
+
+#custom-select-list-one li:hover,
+#custom-select-list-two li:hover,
+#custom-select-list-three li:hover {
+    background: rgba(219, 200, 167, 0.15);
+
+    span {
+        font-family: "Conv_AvenirNextLTPro-Bold";
+        color: #D4AF37;
+    }
+}
+
+#custom-select-list-one li img,
+#custom-select-list-two li img,
+#custom-select-list-three li img {
+    margin: 0;
+    width: 20px;
+}
+
+#custom-select-list-one li span,
+#custom-select-list-two li span,
+#custom-select-list-three li span,
+.drop-btn-select-one li span,
+.drop-btn-select-two li span,
+.drop-btn-select-three li span {
+    margin-left: 8px;
+    position: relative;
+    top: 1px;
+}
+
+/* item list */
+
+.custom-select-list-wrapper-one,
+.custom-select-list-wrapper-two,
+.custom-select-list-wrapper-three {
+    display: none;
+    width: 100%;
+    max-width: 350px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+    border: 1px solid rgba(0, 0, 0, .15);
+    @include border-radius(12px);
+    position: absolute;
+    z-index: 99;
+    background: #F7F7F7;
+    max-width: 100%;
+    left: 0;
+    right: 0;
+}
+
+.open {
+    display: show !important;
+}
+
+.drop-btn-select-one,
+.drop-btn-select-two,
+.drop-btn-select-three {
+    margin-top: 0px;
+    width: 100%;
+    max-width: 100%;
+    height: 45px;
+    @include border-radius(12px);
+    background-color: rgba(219, 200, 167, 0.05);
+    border: 1px solid rgba(47, 46, 42, 0.3);
+    padding: 8px 15px;
+    color: $primary-color;
+    position: relative;
+
+    &:before {
+        position: absolute;
+        content: "";
+        background: #EFEFEF;
+        width: 24px;
+        height: 24px;
+        @include border-radius(6px);
+        right: 8px;
+        top: 8px;
+        pointer-events: none;
+    }
+
+    &:after {
+        content: "";
+        width: 0;
+        height: 0;
+        border: 1px solid $primary-color;
+        // border-color: #fff transparent transparent transparent;
+        width: 10px;
+        height: 10px;
+        border-right: none;
+        border-top: none;
+        transform: rotate(-45deg);
+        position: absolute;
+        top: 13px;
+        right: 15px;
+        pointer-events: none;
+    }
+}
+
+.drop-btn-select-one li,
+.drop-btn-select-two li,
+.drop-btn-select-three li {
+    list-style: none;
+    float: left;
+    padding-bottom: 0px;
+}
+
+.drop-btn-select-one:hover li,
+.drop-btn-select-two:hover li,
+.drop-btn-select-three:hover li {
+    margin-left: 0px;
+}
+
+.drop-btn-select-one:hover,
+.drop-btn-select-one:focus,
+.drop-btn-select-two:hover,
+.drop-btn-select-two:focus,
+.drop-btn-select-three:hover,
+.drop-btn-select-three:focus {
+    // border: 1px solid rgba(47, 46, 42, 0.8);
+    background: #F7F7F7;
+    box-shadow: inset 0 0px 0px 1px #ccc;
+}
+
+.drop-btn-select-one:focus,
+.drop-btn-select-two:focus,
+.drop-btn-select-three:focus {
+    outline: none;
+}
+
+.lang-select-one,
+.lang-select-two,
+.lang-select-three {
+    margin-left: 0px;
+    position: relative;
+}
+
+.select-with-img {
+    .select {
+        height: 0;
+        display: none;
+
+        .select-styled {
+            display: none;
+        }
+    }
+}
+
+// EOF Select with Image CSS
+// BOF Custom File Upload Button
+.attachment-input {
+    position: relative;
+}
+
+.custom-file-upload-button {
+    width: 100%;
+    resize: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 16px;
+    min-height: 45px;
+    box-shadow: none;
+    padding: 8px 15px;
+    color: $primary-color;
+    @include border-radius(12px);
+    background: rgba(219, 200, 167, 0.05) url(../img/attachment-icon.svg) no-repeat 95% 10px;
+    border: 1px solid rgba(47, 46, 42, 0.3);
+}
+
+#file-chosen {
+    margin-left: 0.3rem;
+    font-family: sans-serif;
+    position: absolute;
+    top: 14px;
+    left: 10px;
+    pointer-events: none;
+}
+
+// EOF Custom File Upload Button
+// BOF New Custom Select 
+.box {
+    position: relative;
+
+    &::before {
+        position: absolute;
+        content: "";
+        background: #F9F0E5;
+        width: 40px;
+        height: 40px;
+        @include border-radius(6px);
+        right: 0;
+        top: 0;
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    &::after {
+        content: "";
+        width: 0;
+        height: 0;
+        border: 2px solid #000000;
+        width: 8px;
+        height: 8px;
+        border-right: none;
+        border-top: none;
+        @include transform(rotate(-45deg));
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        pointer-events: none;
+        z-index: 2;
+    }
+
+    select {
+        width: 100%;
+        resize: none;
+        border: none;
+        color: #000;
+        font-size: 14px;
+        min-height: 40px;
+        min-width: 140px;
+        padding: 8px 15px;
+        background: #F9F0E5;
+        @include border-radius(12px);
+        -webkit-appearance: button;
+        appearance: button;
+        outline: none;
+
+        option {
+            background: #fff;
+            color: #0D0D0D;
+            // padding: 30px;
+        }
+    }
+
+    .hide-arrow {
+        top: 2px;
+        right: 2px;
+        z-index: 0;
+        width: 30px;
+        height: 40px;
+        position: absolute;
+        background: #f1f0ef;
+        border-radius: 10px;
+        pointer-events: none;
+    }
+
+    .hide-arrow-white {
+        background: #fff;
+    }
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+
+    label {
+        font-size: 16px;
+    }
+}
+
+// EOF New Custom Select
+.dropdown-menu {
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    @include transition(all ease 1s);
+}
+
+.dropdown-menu.show {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    overflow: hidden;
+}
+
+.dropdown-menu {
+    min-width: 300px;
+    background: #31302E;
+    box-shadow: 0px 10px 15px 0px rgb(255 173 0 / 15%);
+
+    .dropdown-item {
+        margin: 0 0 10px;
+        text-transform: capitalize !important;
+
+        &:hover {
+            background: $primary-color;
+            color: #000 !important;
+        }
+    }
+}
+
+// BOF Responsive CSS
+@media (max-width: 1199px) {
+    .chainContainer {
+        flex-wrap: wrap;
+
+        .radio-container {
+            width: 100%;
+        }
+    }
+}
+
+@media (max-width: 991px) {
+    .select-styled {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 767px) {}
+
+@media (max-width: 575px) {}
+
+@media (max-width: 480px) {}
+
+// EOF Responsive CSS
