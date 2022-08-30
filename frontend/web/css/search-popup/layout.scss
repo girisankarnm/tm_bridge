@@ -5,7 +5,7 @@ $font-bold: Bw-Mitga-bold;
 @media (min-width: 576px) {
     .search-popup-wrapper {
         margin: 0 auto;
-        max-width: 1375px;
+        max-width: 1100px;
     }
 }
 
@@ -17,6 +17,7 @@ $font-bold: Bw-Mitga-bold;
                 border: none;
                 box-shadow: none;
                 @include border-radius(0);
+                background: none;
 
                 .modal-header {
                     @include border-radius(0);
@@ -40,6 +41,7 @@ $font-bold: Bw-Mitga-bold;
 }
 
 .search-result-card {
+    background: #fff;
     border: 1px solid #999FB4;
     @include border-radius(10px);
     padding: 15px;
@@ -201,7 +203,7 @@ $font-bold: Bw-Mitga-bold;
     justify-content: space-between;
 
     .door-info {
-        margin: 0 0 0 150px;
+        margin: 0 0 0 50px;
         border: 2px solid #E1E4ED;
         min-height: 34px;
         padding: 2px 10px;
@@ -276,6 +278,7 @@ span.room-cat-text {
 .matching-rooms-box-wrapper {
     padding: 0;
     margin: 0 0 20px;
+    background: #fff;
     border: 1px solid #E1E4ED;
 
     .matching-rooms-box-single {
@@ -322,13 +325,14 @@ span.room-cat-text {
         .room-policy-occupancy-content {
             flex-grow: 1;
             display: flex;
-            padding: 0 15px;
+            padding: 0 10px;
             align-items: center;
             justify-content: center;
 
             .room-policy-occupancy-content-single {
                 font-size: 13px;
                 padding: 0 10px;
+                white-space: nowrap;
             }
         }
     }
@@ -337,7 +341,7 @@ span.room-cat-text {
 .days-price-details {
     flex-grow: 1;
     display: flex;
-    padding: 0 25px;
+    padding: 7px 15px;
     flex-direction: column;
 
     .stay-days-wrapper {
@@ -384,6 +388,7 @@ span.room-cat-text {
 
 .tax-details {
     text-align: right;
+    white-space: nowrap;
     font-size: 12px;
     margin: 10px 0 0;
     color: #1E2339;
@@ -429,7 +434,7 @@ span.room-cat-text {
         justify-content: space-between;
 
         .room-single-content-area {
-            width: 32.5%;
+            width: 32%;
 
             .room-single-header {
                 background: #fff;
@@ -437,13 +442,13 @@ span.room-cat-text {
                 font-size: 12px;
                 font-family: $font-bold;
                 border: 1px solid #E1E4ED;
-                padding: 8px 20px;
+                padding: 8px 10px;
                 @include border-radius(5px);
                 text-align: center;
                 margin: 0 auto 10px;
                 max-width: 99%;
                 display: flex;
-                align-items: stretch;
+                align-items: center;
                 justify-content: center;
                 min-height: 51px;
             }
@@ -495,7 +500,7 @@ span.room-cat-text {
     position: relative;
     display: inline-block;
     width: 33px;
-    margin: 0 10px;
+    margin: 0 0 0 10px;
 
     img {
         max-width: 33px;
@@ -516,7 +521,7 @@ span.room-cat-text {
 }
 
 .checkbox-info-wrapper {
-    width: 2.5%;
+    width: 3%;
 
     .checkbox-wrapper {
         margin: 8px 0 0 5px;
@@ -551,4 +556,8 @@ span.room-cat-text {
             color: #fff;
         }
     }
+}
+
+.modal-backdrop {
+    background: #F6F8FC;
 }

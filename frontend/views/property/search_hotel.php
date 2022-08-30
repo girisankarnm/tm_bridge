@@ -769,12 +769,12 @@ frontend\assets\AppAsset::register($this);
                                             </div>
                                             <div class="icon-text-area">
                                                 <div class="icon-with-notification"><img style="width: 21px;"
-                                                        src="images/search-popup/child-icon.svg" alt=""></div>
+                                                        src="images/search-popup/child-icon-1.svg" alt=""></div>
                                                 99
                                             </div>
                                             <div class="icon-text-area">
-                                                <div class="icon-with-notification"><img style="width: 15px;"
-                                                        src="images/search-popup/child-icon-1.svg" alt=""></div>
+                                                <div class="icon-with-notification"><img style="width: 13px;"
+                                                        src="images/search-popup/adult-icon.svg" alt=""></div>
                                                 50
                                             </div>
                                         </div>
@@ -803,12 +803,17 @@ frontend\assets\AppAsset::register($this);
                                             </div>
                                             <div class="icon-text-area">
                                                 <div class="icon-with-notification"><img style="width: 21px;"
-                                                        src="images/search-popup/child-icon.svg" alt=""></div>
+                                                        src="images/search-popup/child-icon-1.svg" alt=""></div>
                                                 99
                                             </div>
                                             <div class="icon-text-area">
-                                                <div class="icon-with-notification"><img style="width: 15px;"
-                                                        src="images/search-popup/child-icon-1.svg" alt=""></div>
+                                                <div class="icon-with-notification"><img style="width: 14px;"
+                                                        src="images/search-popup/adult-icon.svg" alt=""></div>
+                                                50
+                                            </div>
+                                            <div class="icon-text-area">
+                                                <div class="icon-with-notification"><img style="width: 20px;"
+                                                        src="images/search-popup/child-icon.svg" alt=""></div>
                                                 50
                                             </div>
                                         </div>
@@ -863,12 +868,12 @@ frontend\assets\AppAsset::register($this);
                                             </div>
                                             <div class="icon-text-area">
                                                 <div class="icon-with-notification"><img style="width: 21px;"
-                                                        src="images/search-popup/child-icon.svg" alt=""></div>
+                                                        src="images/search-popup/child-icon-1.svg" alt=""></div>
                                                 99
                                             </div>
                                             <div class="icon-text-area">
-                                                <div class="icon-with-notification"><img style="width: 15px;"
-                                                        src="images/search-popup/child-icon-1.svg" alt=""></div>
+                                                <div class="icon-with-notification"><img style="width: 14px;"
+                                                        src="images/search-popup/adult-icon.svg" alt=""></div>
                                                 50
                                             </div>
                                         </div>
@@ -897,12 +902,17 @@ frontend\assets\AppAsset::register($this);
                                             </div>
                                             <div class="icon-text-area">
                                                 <div class="icon-with-notification"><img style="width: 21px;"
-                                                        src="images/search-popup/child-icon.svg" alt=""></div>
+                                                        src="images/search-popup/child-icon-1.svg" alt=""></div>
                                                 99
                                             </div>
                                             <div class="icon-text-area">
-                                                <div class="icon-with-notification"><img style="width: 15px;"
-                                                        src="images/search-popup/child-icon-1.svg" alt=""></div>
+                                                <div class="icon-with-notification"><img style="width: 14px;"
+                                                        src="images/search-popup/adult-icon.svg" alt=""></div>
+                                                50
+                                            </div>
+                                            <div class="icon-text-area">
+                                                <div class="icon-with-notification"><img style="width: 20px;"
+                                                        src="images/search-popup/child-icon.svg" alt=""></div>
                                                 50
                                             </div>
                                         </div>
@@ -1034,12 +1044,12 @@ frontend\assets\AppAsset::register($this);
                                             </div>
                                             <div class="icon-text-area">
                                                 <div class="icon-with-notification"><img style="width: 21px;"
-                                                        src="images/search-popup/child-icon.svg" alt=""></div>
+                                                        src="images/search-popup/child-icon-1.svg" alt=""></div>
                                                 99
                                             </div>
                                             <div class="icon-text-area">
-                                                <div class="icon-with-notification"><img style="width: 15px;"
-                                                        src="images/search-popup/child-icon-1.svg" alt=""></div>
+                                                <div class="icon-with-notification"><img style="width: 13px;"
+                                                        src="images/search-popup/adult-icon.svg" alt=""></div>
                                                 50
                                             </div>
                                         </div>
@@ -1068,12 +1078,17 @@ frontend\assets\AppAsset::register($this);
                                             </div>
                                             <div class="icon-text-area">
                                                 <div class="icon-with-notification"><img style="width: 21px;"
-                                                        src="images/search-popup/child-icon.svg" alt=""></div>
+                                                        src="images/search-popup/child-icon-1.svg" alt=""></div>
                                                 99
                                             </div>
                                             <div class="icon-text-area">
-                                                <div class="icon-with-notification"><img style="width: 15px;"
-                                                        src="images/search-popup/child-icon-1.svg" alt=""></div>
+                                                <div class="icon-with-notification"><img style="width: 14px;"
+                                                        src="images/search-popup/adult-icon.svg" alt=""></div>
+                                                50
+                                            </div>
+                                            <div class="icon-text-area">
+                                                <div class="icon-with-notification"><img style="width: 20px;"
+                                                        src="images/search-popup/child-icon.svg" alt=""></div>
                                                 50
                                             </div>
                                         </div>
@@ -1128,12 +1143,12 @@ frontend\assets\AppAsset::register($this);
                                             </div>
                                             <div class="icon-text-area">
                                                 <div class="icon-with-notification"><img style="width: 21px;"
-                                                        src="images/search-popup/child-icon.svg" alt=""></div>
+                                                        src="images/search-popup/child-icon-1.svg" alt=""></div>
                                                 99
                                             </div>
                                             <div class="icon-text-area">
-                                                <div class="icon-with-notification"><img style="width: 15px;"
-                                                        src="images/search-popup/child-icon-1.svg" alt=""></div>
+                                                <div class="icon-with-notification"><img style="width: 14px;"
+                                                        src="images/search-popup/adult-icon.svg" alt=""></div>
                                                 50
                                             </div>
                                         </div>
@@ -1162,12 +1177,17 @@ frontend\assets\AppAsset::register($this);
                                             </div>
                                             <div class="icon-text-area">
                                                 <div class="icon-with-notification"><img style="width: 21px;"
-                                                        src="images/search-popup/child-icon.svg" alt=""></div>
+                                                        src="images/search-popup/child-icon-1.svg" alt=""></div>
                                                 99
                                             </div>
                                             <div class="icon-text-area">
-                                                <div class="icon-with-notification"><img style="width: 15px;"
-                                                        src="images/search-popup/child-icon-1.svg" alt=""></div>
+                                                <div class="icon-with-notification"><img style="width: 14px;"
+                                                        src="images/search-popup/adult-icon.svg" alt=""></div>
+                                                50
+                                            </div>
+                                            <div class="icon-text-area">
+                                                <div class="icon-with-notification"><img style="width: 20px;"
+                                                        src="images/search-popup/child-icon.svg" alt=""></div>
                                                 50
                                             </div>
                                         </div>
@@ -1299,12 +1319,12 @@ frontend\assets\AppAsset::register($this);
                                             </div>
                                             <div class="icon-text-area">
                                                 <div class="icon-with-notification"><img style="width: 21px;"
-                                                        src="images/search-popup/child-icon.svg" alt=""></div>
+                                                        src="images/search-popup/child-icon-1.svg" alt=""></div>
                                                 99
                                             </div>
                                             <div class="icon-text-area">
-                                                <div class="icon-with-notification"><img style="width: 15px;"
-                                                        src="images/search-popup/child-icon-1.svg" alt=""></div>
+                                                <div class="icon-with-notification"><img style="width: 13px;"
+                                                        src="images/search-popup/adult-icon.svg" alt=""></div>
                                                 50
                                             </div>
                                         </div>
@@ -1333,12 +1353,17 @@ frontend\assets\AppAsset::register($this);
                                             </div>
                                             <div class="icon-text-area">
                                                 <div class="icon-with-notification"><img style="width: 21px;"
-                                                        src="images/search-popup/child-icon.svg" alt=""></div>
+                                                        src="images/search-popup/child-icon-1.svg" alt=""></div>
                                                 99
                                             </div>
                                             <div class="icon-text-area">
-                                                <div class="icon-with-notification"><img style="width: 15px;"
-                                                        src="images/search-popup/child-icon-1.svg" alt=""></div>
+                                                <div class="icon-with-notification"><img style="width: 14px;"
+                                                        src="images/search-popup/adult-icon.svg" alt=""></div>
+                                                50
+                                            </div>
+                                            <div class="icon-text-area">
+                                                <div class="icon-with-notification"><img style="width: 20px;"
+                                                        src="images/search-popup/child-icon.svg" alt=""></div>
                                                 50
                                             </div>
                                         </div>
@@ -1393,12 +1418,12 @@ frontend\assets\AppAsset::register($this);
                                             </div>
                                             <div class="icon-text-area">
                                                 <div class="icon-with-notification"><img style="width: 21px;"
-                                                        src="images/search-popup/child-icon.svg" alt=""></div>
+                                                        src="images/search-popup/child-icon-1.svg" alt=""></div>
                                                 99
                                             </div>
                                             <div class="icon-text-area">
-                                                <div class="icon-with-notification"><img style="width: 15px;"
-                                                        src="images/search-popup/child-icon-1.svg" alt=""></div>
+                                                <div class="icon-with-notification"><img style="width: 14px;"
+                                                        src="images/search-popup/adult-icon.svg" alt=""></div>
                                                 50
                                             </div>
                                         </div>
@@ -1427,12 +1452,17 @@ frontend\assets\AppAsset::register($this);
                                             </div>
                                             <div class="icon-text-area">
                                                 <div class="icon-with-notification"><img style="width: 21px;"
-                                                        src="images/search-popup/child-icon.svg" alt=""></div>
+                                                        src="images/search-popup/child-icon-1.svg" alt=""></div>
                                                 99
                                             </div>
                                             <div class="icon-text-area">
-                                                <div class="icon-with-notification"><img style="width: 15px;"
-                                                        src="images/search-popup/child-icon-1.svg" alt=""></div>
+                                                <div class="icon-with-notification"><img style="width: 14px;"
+                                                        src="images/search-popup/adult-icon.svg" alt=""></div>
+                                                50
+                                            </div>
+                                            <div class="icon-text-area">
+                                                <div class="icon-with-notification"><img style="width: 20px;"
+                                                        src="images/search-popup/child-icon.svg" alt=""></div>
                                                 50
                                             </div>
                                         </div>
