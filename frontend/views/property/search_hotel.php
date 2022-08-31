@@ -591,9 +591,11 @@ frontend\assets\AppAsset::register($this);
     <div class="modal-dialog search-popup-wrapper" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <img src="images/search-popup/close-btn.svg" alt="">
-                </button>
+                <div class="modal-header-container">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <img src="images/search-popup/close-btn.svg" alt="">
+                    </button>
+                </div>
             </div>
             <div class="modal-body">
                 <div class="search-result-card">
@@ -768,12 +770,12 @@ frontend\assets\AppAsset::register($this);
                                                         class="icon-notofi">!</span></div>
                                             </div>
                                             <div class="icon-text-area">
-                                                <div class="icon-with-notification"><img style="width: 21px;"
+                                                <div class="icon-with-notification"><img style="width: 17px;"
                                                         src="images/search-popup/child-icon-1.svg" alt=""></div>
                                                 99
                                             </div>
                                             <div class="icon-text-area">
-                                                <div class="icon-with-notification"><img style="width: 13px;"
+                                                <div class="icon-with-notification"><img style="width: 11px;"
                                                         src="images/search-popup/adult-icon.svg" alt=""></div>
                                                 50
                                             </div>
@@ -802,17 +804,17 @@ frontend\assets\AppAsset::register($this);
                                                         class="icon-notofi">!</span></div>
                                             </div>
                                             <div class="icon-text-area">
-                                                <div class="icon-with-notification"><img style="width: 21px;"
+                                                <div class="icon-with-notification"><img style="width: 17px;"
                                                         src="images/search-popup/child-icon-1.svg" alt=""></div>
                                                 99
                                             </div>
                                             <div class="icon-text-area">
-                                                <div class="icon-with-notification"><img style="width: 14px;"
+                                                <div class="icon-with-notification"><img style="width: 11px;"
                                                         src="images/search-popup/adult-icon.svg" alt=""></div>
                                                 50
                                             </div>
                                             <div class="icon-text-area">
-                                                <div class="icon-with-notification"><img style="width: 20px;"
+                                                <div class="icon-with-notification"><img style="width: 17px;"
                                                         src="images/search-popup/child-icon.svg" alt=""></div>
                                                 50
                                             </div>
@@ -867,12 +869,12 @@ frontend\assets\AppAsset::register($this);
                                                         class="icon-notofi">!</span></div>
                                             </div>
                                             <div class="icon-text-area">
-                                                <div class="icon-with-notification"><img style="width: 21px;"
+                                                <div class="icon-with-notification"><img style="width: 17px;"
                                                         src="images/search-popup/child-icon-1.svg" alt=""></div>
                                                 99
                                             </div>
                                             <div class="icon-text-area">
-                                                <div class="icon-with-notification"><img style="width: 14px;"
+                                                <div class="icon-with-notification"><img style="width: 11px;"
                                                         src="images/search-popup/adult-icon.svg" alt=""></div>
                                                 50
                                             </div>
@@ -901,17 +903,17 @@ frontend\assets\AppAsset::register($this);
                                                         class="icon-notofi">!</span></div>
                                             </div>
                                             <div class="icon-text-area">
-                                                <div class="icon-with-notification"><img style="width: 21px;"
+                                                <div class="icon-with-notification"><img style="width: 17px;"
                                                         src="images/search-popup/child-icon-1.svg" alt=""></div>
                                                 99
                                             </div>
                                             <div class="icon-text-area">
-                                                <div class="icon-with-notification"><img style="width: 14px;"
+                                                <div class="icon-with-notification"><img style="width: 11px;"
                                                         src="images/search-popup/adult-icon.svg" alt=""></div>
                                                 50
                                             </div>
                                             <div class="icon-text-area">
-                                                <div class="icon-with-notification"><img style="width: 20px;"
+                                                <div class="icon-with-notification"><img style="width: 17px;"
                                                         src="images/search-popup/child-icon.svg" alt=""></div>
                                                 50
                                             </div>
@@ -988,7 +990,7 @@ frontend\assets\AppAsset::register($this);
                                                 <span>0-7 YR</span>
                                             </div>
                                             <div class="room-policy-occupancy-content-single">
-                                                <img src="images/search-popup/child-icon-1.svg" style="width:18px"
+                                                <img src="images/search-popup/child-icon-1.svg" style="width:17px"
                                                     class="room-policy-occupancy-icon" alt="">
                                                 <span>8-15 YR</span>
                                             </div>
@@ -1043,12 +1045,12 @@ frontend\assets\AppAsset::register($this);
                                                         class="icon-notofi">!</span></div>
                                             </div>
                                             <div class="icon-text-area">
-                                                <div class="icon-with-notification"><img style="width: 21px;"
+                                                <div class="icon-with-notification"><img style="width: 17px;"
                                                         src="images/search-popup/child-icon-1.svg" alt=""></div>
                                                 99
                                             </div>
                                             <div class="icon-text-area">
-                                                <div class="icon-with-notification"><img style="width: 13px;"
+                                                <div class="icon-with-notification"><img style="width: 11px;"
                                                         src="images/search-popup/adult-icon.svg" alt=""></div>
                                                 50
                                             </div>
@@ -1077,17 +1079,17 @@ frontend\assets\AppAsset::register($this);
                                                         class="icon-notofi">!</span></div>
                                             </div>
                                             <div class="icon-text-area">
-                                                <div class="icon-with-notification"><img style="width: 21px;"
+                                                <div class="icon-with-notification"><img style="width: 17px;"
                                                         src="images/search-popup/child-icon-1.svg" alt=""></div>
                                                 99
                                             </div>
                                             <div class="icon-text-area">
-                                                <div class="icon-with-notification"><img style="width: 14px;"
+                                                <div class="icon-with-notification"><img style="width: 11px;"
                                                         src="images/search-popup/adult-icon.svg" alt=""></div>
                                                 50
                                             </div>
                                             <div class="icon-text-area">
-                                                <div class="icon-with-notification"><img style="width: 20px;"
+                                                <div class="icon-with-notification"><img style="width: 17px;"
                                                         src="images/search-popup/child-icon.svg" alt=""></div>
                                                 50
                                             </div>
@@ -1142,12 +1144,12 @@ frontend\assets\AppAsset::register($this);
                                                         class="icon-notofi">!</span></div>
                                             </div>
                                             <div class="icon-text-area">
-                                                <div class="icon-with-notification"><img style="width: 21px;"
+                                                <div class="icon-with-notification"><img style="width: 17px;"
                                                         src="images/search-popup/child-icon-1.svg" alt=""></div>
                                                 99
                                             </div>
                                             <div class="icon-text-area">
-                                                <div class="icon-with-notification"><img style="width: 14px;"
+                                                <div class="icon-with-notification"><img style="width: 11px;"
                                                         src="images/search-popup/adult-icon.svg" alt=""></div>
                                                 50
                                             </div>
@@ -1176,17 +1178,17 @@ frontend\assets\AppAsset::register($this);
                                                         class="icon-notofi">!</span></div>
                                             </div>
                                             <div class="icon-text-area">
-                                                <div class="icon-with-notification"><img style="width: 21px;"
+                                                <div class="icon-with-notification"><img style="width: 17px;"
                                                         src="images/search-popup/child-icon-1.svg" alt=""></div>
                                                 99
                                             </div>
                                             <div class="icon-text-area">
-                                                <div class="icon-with-notification"><img style="width: 14px;"
+                                                <div class="icon-with-notification"><img style="width: 11px;"
                                                         src="images/search-popup/adult-icon.svg" alt=""></div>
                                                 50
                                             </div>
                                             <div class="icon-text-area">
-                                                <div class="icon-with-notification"><img style="width: 20px;"
+                                                <div class="icon-with-notification"><img style="width: 17px;"
                                                         src="images/search-popup/child-icon.svg" alt=""></div>
                                                 50
                                             </div>
@@ -1318,12 +1320,12 @@ frontend\assets\AppAsset::register($this);
                                                         class="icon-notofi">!</span></div>
                                             </div>
                                             <div class="icon-text-area">
-                                                <div class="icon-with-notification"><img style="width: 21px;"
+                                                <div class="icon-with-notification"><img style="width: 17px;"
                                                         src="images/search-popup/child-icon-1.svg" alt=""></div>
                                                 99
                                             </div>
                                             <div class="icon-text-area">
-                                                <div class="icon-with-notification"><img style="width: 13px;"
+                                                <div class="icon-with-notification"><img style="width: 11px;"
                                                         src="images/search-popup/adult-icon.svg" alt=""></div>
                                                 50
                                             </div>
@@ -1352,17 +1354,17 @@ frontend\assets\AppAsset::register($this);
                                                         class="icon-notofi">!</span></div>
                                             </div>
                                             <div class="icon-text-area">
-                                                <div class="icon-with-notification"><img style="width: 21px;"
+                                                <div class="icon-with-notification"><img style="width: 17px;"
                                                         src="images/search-popup/child-icon-1.svg" alt=""></div>
                                                 99
                                             </div>
                                             <div class="icon-text-area">
-                                                <div class="icon-with-notification"><img style="width: 14px;"
+                                                <div class="icon-with-notification"><img style="width: 11px;"
                                                         src="images/search-popup/adult-icon.svg" alt=""></div>
                                                 50
                                             </div>
                                             <div class="icon-text-area">
-                                                <div class="icon-with-notification"><img style="width: 20px;"
+                                                <div class="icon-with-notification"><img style="width: 17px;"
                                                         src="images/search-popup/child-icon.svg" alt=""></div>
                                                 50
                                             </div>
@@ -1417,12 +1419,12 @@ frontend\assets\AppAsset::register($this);
                                                         class="icon-notofi">!</span></div>
                                             </div>
                                             <div class="icon-text-area">
-                                                <div class="icon-with-notification"><img style="width: 21px;"
+                                                <div class="icon-with-notification"><img style="width: 17px;"
                                                         src="images/search-popup/child-icon-1.svg" alt=""></div>
                                                 99
                                             </div>
                                             <div class="icon-text-area">
-                                                <div class="icon-with-notification"><img style="width: 14px;"
+                                                <div class="icon-with-notification"><img style="width: 11px;"
                                                         src="images/search-popup/adult-icon.svg" alt=""></div>
                                                 50
                                             </div>
@@ -1451,17 +1453,17 @@ frontend\assets\AppAsset::register($this);
                                                         class="icon-notofi">!</span></div>
                                             </div>
                                             <div class="icon-text-area">
-                                                <div class="icon-with-notification"><img style="width: 21px;"
+                                                <div class="icon-with-notification"><img style="width: 17px;"
                                                         src="images/search-popup/child-icon-1.svg" alt=""></div>
                                                 99
                                             </div>
                                             <div class="icon-text-area">
-                                                <div class="icon-with-notification"><img style="width: 14px;"
+                                                <div class="icon-with-notification"><img style="width: 11px;"
                                                         src="images/search-popup/adult-icon.svg" alt=""></div>
                                                 50
                                             </div>
                                             <div class="icon-text-area">
-                                                <div class="icon-with-notification"><img style="width: 20px;"
+                                                <div class="icon-with-notification"><img style="width: 17px;"
                                                         src="images/search-popup/child-icon.svg" alt=""></div>
                                                 50
                                             </div>

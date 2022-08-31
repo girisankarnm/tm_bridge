@@ -1093,10 +1093,21 @@ ul {
   -ms-border-radius: 0;
   -o-border-radius: 0;
   background: #fff;
-  padding: 15px 0;
+  padding: 10px 0;
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  position: fixed;
+  height: 40px;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+.data-content .modal .search-popup-wrapper .modal-content .modal-header .modal-header-container {
+  max-width: 1100px;
+  padding: 0 15px;
+  margin: 0 auto;
+  width: 100%;
 }
 .data-content .modal .search-popup-wrapper .modal-content .modal-header .close {
   padding: 0;
@@ -1104,6 +1115,12 @@ ul {
   width: 25px;
   height: 25px;
   margin: 0;
+}
+.data-content .modal .search-popup-wrapper .modal-content .modal-header .close img {
+  width: 15px;
+}
+.data-content .modal .search-popup-wrapper .modal-content .modal-body {
+  margin: 40px 0 0;
 }
 
 .search-result-card {
@@ -1114,7 +1131,7 @@ ul {
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
-  padding: 15px;
+  padding: 10px;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -1130,11 +1147,19 @@ ul {
   margin: 0 20px 0 0;
 }
 .search-result-card .search-result-left .resort-details-area figure img {
-  width: 90px;
+  width: 85px;
+}
+
+.star-wrapper img {
+  width: 15px;
+}
+
+.resort-location {
+  margin: 0 0 8px;
 }
 
 .search-result-card .card-heading-row {
-  margin: 0 0 5px;
+  margin: 0 0 3px;
 }
 .search-result-card .card-heading-row .card-heading {
   margin: 0 0 3px;
@@ -1205,14 +1230,14 @@ ul {
   -o-border-radius: 10px;
 }
 .enquiry-box-wrapper .enquiry-number {
-  padding: 20px 30px 20px 20px;
+  padding: 10px 20px;
   border-right: 1px solid #E1E4ED;
 }
 .enquiry-box-wrapper .enquiry-number h6 {
   font-size: 11px !important;
   color: #1E2339 !important;
   font-family: Bw-Mitga-bold !important;
-  margin: 0;
+  margin: 0 0 5px;
   line-height: 15px;
 }
 .enquiry-box-wrapper .enquiry-number h3 {
@@ -1224,7 +1249,7 @@ ul {
 }
 
 .enquiry-details {
-  padding: 10px 100px 10px 10px;
+  padding: 5px 90px 5px 15px;
 }
 .enquiry-details .enquiry-row .enquiry-img {
   width: 16px;
@@ -1244,7 +1269,7 @@ ul {
 
 .enquiry-chat-icon {
   width: 80px;
-  padding: 20px;
+  padding: 0 20px;
   border-left: 1px solid #E1E4ED;
   display: inline-flex;
   align-items: center;
@@ -1280,7 +1305,7 @@ ul {
 
 .room-cat-view-details {
   display: flex;
-  margin: 10px 0 0;
+  margin: 8px 0 0;
   align-items: center;
   justify-content: space-between;
 }
@@ -1291,13 +1316,13 @@ ul {
   justify-content: space-between;
 }
 .room-cat img {
-  width: 28px;
-  height: 28px;
+  width: 20px;
+  height: 20px;
 }
 
 span.room-cat-text {
-  font-size: 14px;
-  margin: 0 0 0 10px;
+  font-size: 12px;
+  margin: 0 0 0 5px;
 }
 
 .view-details-btn {
@@ -1356,12 +1381,12 @@ span.room-cat-text {
   justify-content: space-between;
 }
 .matching-rooms-box-wrapper .matching-rooms-box-single .room-content {
-  padding: 15px;
+  padding: 10px;
   border-right: 1px solid #999FB4;
 }
 
 .hotel-icon-img {
-  width: 90px;
+  width: 80px;
 }
 
 .room-policy-occupancy-wrapper {
@@ -1377,9 +1402,9 @@ span.room-cat-text {
   border-right: 1px solid #999FB4;
 }
 .room-policy-occupancy-wrapper .room-policy-occupancy-single .room-policy-occupancy-heading {
-  font-size: 13px;
+  font-size: 12px;
   color: #1E2339;
-  padding: 15px 30px;
+  padding: 10px 30px;
   text-align: center;
   background: #E1E5FF;
   font-family: Bw-Mitga-bold;
@@ -1392,7 +1417,7 @@ span.room-cat-text {
   justify-content: center;
 }
 .room-policy-occupancy-wrapper .room-policy-occupancy-single .room-policy-occupancy-content .room-policy-occupancy-content-single {
-  font-size: 13px;
+  font-size: 12px;
   padding: 0 10px;
   white-space: nowrap;
 }
@@ -1405,10 +1430,10 @@ span.room-cat-text {
 }
 .days-price-details .stay-days-wrapper label.checkbox-container {
   color: #1E2339 !important;
-  margin: 10px 0;
+  margin: 5px 0 7px;
   padding: 0 35px 0 0;
   text-align: right;
-  font-size: 16px !important;
+  font-size: 14px !important;
 }
 .days-price-details .stay-days-wrapper label.checkbox-container .checkmark {
   margin: 0;
@@ -1431,7 +1456,7 @@ span.room-cat-text {
 }
 .days-price-details .room-price-wrapper .current-price {
   margin: 0 0 2px;
-  font-size: 18px;
+  font-size: 15px;
   color: #5968DB;
   line-height: 16px;
   font-family: Bw-Mitga-bold;
@@ -1441,7 +1466,7 @@ span.room-cat-text {
   text-align: right;
   white-space: nowrap;
   font-size: 12px;
-  margin: 10px 0 0;
+  margin: 5px 0 0;
   color: #1E2339;
 }
 
@@ -1459,11 +1484,11 @@ span.room-cat-text {
 }
 
 .matching-rooms-wrapper {
-  margin: 30px 0 0;
+  margin: 15px 0 0;
 }
 .matching-rooms-wrapper .matching-rooms-head {
-  margin: 0 0 10px;
-  font-size: 16px;
+  margin: 0 0 5px;
+  font-size: 15px;
   color: #1E2339;
   font-family: Bw-Mitga-bold;
 }
@@ -1474,8 +1499,8 @@ span.room-cat-text {
 }
 .matching-boxes-main .matching-each-room-wrapper {
   border: 1px solid #E1E4ED;
-  padding: 10px;
-  margin: 15px 0 0;
+  padding: 6px;
+  margin: 10px 0 0;
   display: flex;
   align-items: stretch;
   justify-content: space-between;
@@ -1489,7 +1514,7 @@ span.room-cat-text {
   font-size: 12px;
   font-family: Bw-Mitga-bold;
   border: 1px solid #E1E4ED;
-  padding: 8px 10px;
+  padding: 5px 10px;
   border-radius: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -1501,7 +1526,7 @@ span.room-cat-text {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 51px;
+  min-height: 45px;
 }
 .matching-boxes-main .matching-each-room-wrapper .room-single-content-area .room-single-content-wrapper {
   display: flex;
@@ -1515,14 +1540,14 @@ span.room-cat-text {
   border: 1px solid #E1E4ED;
 }
 .matching-boxes-main .matching-each-room-wrapper .room-single-content-area .room-single-content-wrapper .room-single-content .room-single-content-heading {
-  padding: 10px 0 2px;
+  padding: 5px 0 2px;
   color: #1E2339;
-  font-size: 14px;
+  font-size: 12px;
   font-family: Bw-Mitga-bold;
 }
 .matching-boxes-main .matching-each-room-wrapper .room-single-content-area .room-single-content-wrapper .room-single-content .room-single-content-value {
-  padding: 5px 0 15px;
-  font-size: 14px;
+  padding: 5px 0 7px;
+  font-size: 12px;
 }
 .matching-boxes-main .active {
   border-color: #ED8AB5;
@@ -1541,11 +1566,11 @@ span.room-cat-text {
 .icon-with-notification {
   position: relative;
   display: inline-block;
-  width: 33px;
+  width: 25px;
   margin: 0 0 0 10px;
 }
 .icon-with-notification img {
-  max-width: 33px;
+  max-width: 25px;
 }
 .icon-with-notification .icon-notofi {
   position: absolute;
@@ -1554,7 +1579,7 @@ span.room-cat-text {
   font-size: 10px;
   font-family: Bw-Mitga-bold;
   right: -6px;
-  top: 4px;
+  top: 0px;
   width: 15px;
   height: 15px;
   border-radius: 50%;
