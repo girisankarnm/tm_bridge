@@ -1285,7 +1285,7 @@ frontend\assets\AppAsset::register($this);
                                 <div class="days-price-details">
                                     <div class="stay-days-wrapper">
                                         <label class="checkbox-container">10 Days Stay
-                                            <input type="checkbox">
+                                            <input type="checkbox" onclick="Toaster()">
                                             <span class="checkmark"></span>
                                         </label>
                                     </div>
@@ -1593,5 +1593,9 @@ $(window).on('load', function() {
 
 function viewDetails(id) {
     $(`#matching-boxes-main-${id}`).slideToggle(500);
+}
+
+function Toaster(){
+    toastr.success("Hellow");
 }
 </script>
