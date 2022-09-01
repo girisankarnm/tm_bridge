@@ -591,11 +591,9 @@ frontend\assets\AppAsset::register($this);
     <div class="modal-dialog search-popup-wrapper" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <div class="modal-header-container">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <img src="images/search-popup/close-btn.svg" alt="">
-                    </button>
-                </div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <img src="images/search-popup/close-btn.svg" alt="">
+                </button>
             </div>
             <div class="modal-body">
                 <div class="search-result-card">
@@ -684,7 +682,7 @@ frontend\assets\AppAsset::register($this);
                                                 <div class="room-head-info">
                                                     <div class="room-head-area">
                                                         <h4 class="card-heading">Standard Rooms with Pool</h4>
-                                                        <h4 class="card-heading">2500 SQ FT</h4>
+                                                        <h4 class="room-size-heading">2500 SQ FT</h4>
                                                     </div>
                                                     <div class="door-info">
                                                         <img src="images/search-popup/door-icon.svg" alt="">
@@ -698,7 +696,8 @@ frontend\assets\AppAsset::register($this);
                                                     <span class="room-cat-text">EP (Room Only)</span>
                                                 </div>
                                                 <div class="view-details">
-                                                    <button class="view-details-btn" onClick="viewDetails(1)">View
+                                                    <button class="view-details-btn" id="view-details-btn-01"
+                                                        onClick="viewDetails(1)">View
                                                         Details</button>
                                                 </div>
                                             </div>
@@ -959,7 +958,7 @@ frontend\assets\AppAsset::register($this);
                                                 <div class="room-head-info">
                                                     <div class="room-head-area">
                                                         <h4 class="card-heading">Standard Rooms with Pool</h4>
-                                                        <h4 class="card-heading">2500 SQ FT</h4>
+                                                        <h4 class="room-size-heading">2500 SQ FT</h4>
                                                     </div>
                                                     <div class="door-info">
                                                         <img src="images/search-popup/door-icon.svg" alt="">
@@ -973,7 +972,8 @@ frontend\assets\AppAsset::register($this);
                                                     <span class="room-cat-text">EP (Room Only)</span>
                                                 </div>
                                                 <div class="view-details">
-                                                    <button class="view-details-btn" onClick="viewDetails(2)">View
+                                                    <button class="view-details-btn" id="view-details-btn-02"
+                                                        onClick="viewDetails(2)">View
                                                         Details</button>
                                                 </div>
                                             </div>
@@ -1234,7 +1234,7 @@ frontend\assets\AppAsset::register($this);
                                                 <div class="room-head-info">
                                                     <div class="room-head-area">
                                                         <h4 class="card-heading">Standard Rooms with Pool</h4>
-                                                        <h4 class="card-heading">2500 SQ FT</h4>
+                                                        <h4 class="room-size-heading">2500 SQ FT</h4>
                                                     </div>
                                                     <div class="door-info">
                                                         <img src="images/search-popup/door-icon.svg" alt="">
@@ -1248,7 +1248,8 @@ frontend\assets\AppAsset::register($this);
                                                     <span class="room-cat-text">EP (Room Only)</span>
                                                 </div>
                                                 <div class="view-details">
-                                                    <button class="view-details-btn" onClick="viewDetails(3)">View
+                                                    <button class="view-details-btn" id="view-details-btn-03"
+                                                        onClick="viewDetails(3)">View
                                                         Details</button>
                                                 </div>
                                             </div>
@@ -1593,9 +1594,10 @@ $(window).on('load', function() {
 
 function viewDetails(id) {
     $(`#matching-boxes-main-${id}`).slideToggle(500);
+    $(`#view-details-btn-0${id}`).toggleClass(`view-details-on`);
 }
 
-function Toaster(){
+function Toaster() {
     toastr.success("Hellow");
 }
 </script>

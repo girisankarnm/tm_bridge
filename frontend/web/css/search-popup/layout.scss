@@ -5,7 +5,7 @@ $font-bold: Bw-Mitga-bold;
 @media (min-width: 576px) {
     .search-popup-wrapper {
         margin: 0 auto;
-        max-width: 1100px;
+        max-width: 100%;
     }
 }
 
@@ -34,7 +34,7 @@ $font-bold: Bw-Mitga-bold;
                     top: 0;
 
                     .modal-header-container {
-                        // max-width: 1100px;
+                        max-width: 100%;
                         padding: 0 15px;
                         margin: 0 auto;
                         width: 100%;
@@ -54,7 +54,8 @@ $font-bold: Bw-Mitga-bold;
                 }
 
                 .modal-body {
-                    margin: 40px 0 0;
+                    max-width: 1100px;
+                    margin: 40px auto 0;
                 }
             }
         }
@@ -297,6 +298,18 @@ span.room-cat-text {
         @include transform(rotate(45deg));
         border-right: 2px solid #ED8AB5;
         border-bottom: 2px solid #ED8AB5;
+        @include transition(all ease 0.5s);
+    }
+}
+
+.view-details-on {
+    background: #ED8AB5;
+    color: #fff;
+
+    &::after {
+        top: 6px;
+        border-color: $color-white;
+        @include transform(rotate(-135deg));
     }
 }
 
@@ -591,4 +604,11 @@ span.room-cat-text {
 
 .modal-backdrop {
     background: #F6F8FC;
+}
+
+.card-heading-row {
+    .room-size-heading {
+        font-size: 12px;
+        margin: 2px 0 0px;
+    }
 }
