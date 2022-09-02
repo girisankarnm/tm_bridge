@@ -1076,6 +1076,10 @@ ul {
     max-width: 100% !important;
   }
 }
+.modal-open .modal {
+  background: #F6F8FC;
+}
+
 .data-content .modal .search-popup-wrapper .modal-content {
   border: none;
   box-shadow: none;
