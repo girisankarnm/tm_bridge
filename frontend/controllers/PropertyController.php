@@ -26,12 +26,12 @@ class PropertyController extends Controller
 
     public function actionIndex()
     {
-        $this->layout = 'main-search';
+        $this->layout = 'tm_main';
         return $this->render('index', []);
     }
     public function actionSearchhotel()
     {
-        $this->layout = 'main-search';
+        $this->layout = 'tm_main';
         return $this->render('search_hotel', []);
     }
      public function actionPpe()
