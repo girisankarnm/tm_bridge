@@ -711,6 +711,7 @@ frontend\assets\AppAsset::register($this);
                                         <div class="room-policy-occupancy-content">
                                             <div class="room-policy-occupancy-content-single">
                                                 <img src="images/search-popup/child-icon.svg" style="width:18px"
+                                                    data-toggle="tooltip" data-placement="top" title="Tooltip on top"
                                                     class="room-policy-occupancy-icon" alt="">
                                                 <span>0-7 YR</span>
                                             </div>
@@ -1505,6 +1506,7 @@ frontend\assets\AppAsset::register($this);
         </div>
     </div>
 </div>
+<!-- Flexbox container for aligning the toasts -->
 <script>
 /* When the user clicks on the button,
     toggle between hiding and showing the dropdown content */
@@ -1601,4 +1603,7 @@ function viewDetails(id) {
 function Toaster() {
     toastr.success("Hellow");
 }
+$(function() {
+    $('[data-toggle="tooltip"]').tooltip()
+})
 </script>

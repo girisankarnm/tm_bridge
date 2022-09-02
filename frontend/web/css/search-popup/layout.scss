@@ -13,6 +13,64 @@ $font-bold: Bw-Mitga-bold;
     background: #F6F8FC;
 }
 
+.resort-details-area {
+    display: flex;
+}
+
+.resort-details-area figure {
+    margin: 0 12px 0 0;
+}
+
+.resort-details-area article h4 {
+    color: var(--dark-color) !important;
+    font-family: var(--primary-font-bold);
+    font-weight: 600;
+    font-size: 16px;
+    margin: 5px 0 2px;
+    line-height: 20px;
+}
+
+.resort-location {
+    display: flex;
+    align-items: center;
+    font-family: var(--primary-font-light);
+    font-size: 12px;
+    margin: 0 0 5px;
+}
+
+.location-name {
+    margin: 0 0 0 5px;
+    color: #9399a8 !important;
+    line-height: 13px;
+    font-size: 14px;
+}
+
+.resort-peroid {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.resort-peroid-area {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.star-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-left: 1px solid #1E2339;
+    margin: 0 0 0 15px;
+    padding: 0 0 0 10px;
+}
+
+.card-heading-row {
+    display: flex;
+    align-items: center;
+}
+
 
 .data-content {
     .modal {
@@ -58,6 +116,7 @@ $font-bold: Bw-Mitga-bold;
                 }
 
                 .modal-body {
+                    padding: 20px 0 0;
                     max-width: 1100px;
                     margin: 40px auto 0;
                 }
@@ -614,5 +673,18 @@ span.room-cat-text {
     .room-size-heading {
         font-size: 12px;
         margin: 2px 0 0px;
+    }
+}
+
+.tooltip {
+    .arrow {
+        &::before {
+            border-top-color: #838bc7 !important;
+        }
+
+    }
+
+    .tooltip-inner {
+        background: #838bc7 !important;
     }
 }
