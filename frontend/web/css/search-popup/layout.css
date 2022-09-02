@@ -1071,9 +1071,9 @@ ul {
   }
 }
 @media (min-width: 576px) {
-  .search-popup-wrapper {
+  .modal-dialog.search-popup-wrapper {
     margin: 0 auto;
-    max-width: 100%;
+    max-width: 100% !important;
   }
 }
 .data-content .modal .search-popup-wrapper .modal-content {

@@ -2,6 +2,7 @@
 //$this->registerCssFile('/css/search/search.css');
 $this->registerCssFile('/css/search.css');
 $this->registerCssFile('/css/search/search-style.css');
+$this->registerCssFile('/css/search-popup/layout.css');
 frontend\assets\AppAsset::register($this);
 
 

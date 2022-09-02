@@ -62,7 +62,7 @@ $this->registerCssFile('/css/tm.css');
     <link rel="stylesheet" href="/css/layout.css">
     <link rel="stylesheet" href="/css/ppe/style.css">
     <link rel="stylesheet" href="/css/datepicker.css">
-    <link rel="stylesheet" href="/css/search-popup/layout.css">
+    <!-- <link rel="stylesheet" href="/css/search-popup/layout.css"> -->
     <!-- PLEASE FOLLOW CODING STANDARDS https://docs.ckan.org/en/2.9/contributing/html.html -->
 </head>
 
