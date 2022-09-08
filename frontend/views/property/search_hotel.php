@@ -711,7 +711,8 @@ frontend\assets\AppAsset::register($this);
                                         <div class="room-policy-occupancy-content">
                                             <div class="room-policy-occupancy-content-single">
                                                 <img src="images/search-popup/child-icon.svg" style="width:18px"
-                                                    data-toggle="tooltip" data-placement="top" title="Tooltip on top"
+                                                    data-toggle="tooltip" data-placement="top"
+                                                    title="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
                                                     class="room-policy-occupancy-icon" alt="">
                                                 <span>0-7 YR</span>
                                             </div>
@@ -750,7 +751,7 @@ frontend\assets\AppAsset::register($this);
                             <div class="matching-boxes-main" id="matching-boxes-main-1">
                                 <div class="matching-each-room-wrapper">
                                     <div class="room-single-content-area">
-                                        <div class="room-single-header">Day 1 | 10 Aug 2022</div>
+                                        <div class="room-single-header day-block">Day 1 | 10 Aug 2022</div>
                                         <div class="room-single-content-wrapper">
                                             <div class="room-single-content">
                                                 <div class="room-single-content-heading">Rooms</div>
@@ -769,6 +770,7 @@ frontend\assets\AppAsset::register($this);
                                                 <div class="icon-with-notification"><img
                                                         src="images/search-popup/food-icon.svg" alt=""><span
                                                         class="icon-notofi">!</span></div>
+                                                AP (B + L + D)
                                             </div>
                                             <div class="icon-text-area">
                                                 <div class="icon-with-notification"><img style="width: 17px;"
@@ -803,6 +805,7 @@ frontend\assets\AppAsset::register($this);
                                                 <div class="icon-with-notification"><img
                                                         src="images/search-popup/food-icon.svg" alt=""><span
                                                         class="icon-notofi">!</span></div>
+                                                AP (B + L + D)
                                             </div>
                                             <div class="icon-text-area">
                                                 <div class="icon-with-notification"><img style="width: 17px;"
@@ -849,7 +852,7 @@ frontend\assets\AppAsset::register($this);
                                 </div>
                                 <div class="matching-each-room-wrapper active">
                                     <div class="room-single-content-area">
-                                        <div class="room-single-header">Day 1 | 10 Aug 2022</div>
+                                        <div class="room-single-header day-block">Day 1 | 10 Aug 2022</div>
                                         <div class="room-single-content-wrapper">
                                             <div class="room-single-content">
                                                 <div class="room-single-content-heading">Rooms</div>
@@ -1026,7 +1029,7 @@ frontend\assets\AppAsset::register($this);
                             <div class="matching-boxes-main" id="matching-boxes-main-2">
                                 <div class="matching-each-room-wrapper">
                                     <div class="room-single-content-area">
-                                        <div class="room-single-header">Day 1 | 10 Aug 2022</div>
+                                        <div class="room-single-header day-block">Day 1 | 10 Aug 2022</div>
                                         <div class="room-single-content-wrapper">
                                             <div class="room-single-content">
                                                 <div class="room-single-content-heading">Rooms</div>
@@ -1125,7 +1128,7 @@ frontend\assets\AppAsset::register($this);
                                 </div>
                                 <div class="matching-each-room-wrapper active">
                                     <div class="room-single-content-area">
-                                        <div class="room-single-header">Day 1 | 10 Aug 2022</div>
+                                        <div class="room-single-header day-block">Day 1 | 10 Aug 2022</div>
                                         <div class="room-single-content-wrapper">
                                             <div class="room-single-content">
                                                 <div class="room-single-content-heading">Rooms</div>
@@ -1235,7 +1238,7 @@ frontend\assets\AppAsset::register($this);
                                             <div class="card-heading-row">
                                                 <div class="room-head-info">
                                                     <div class="room-head-area">
-                                                        <h4 class="card-heading">Standard Rooms with Pool</h4>
+                                                        <h4 class="card-heading">Luxury Suit</h4>
                                                         <h4 class="room-size-heading">2500 SQ FT</h4>
                                                     </div>
                                                     <div class="door-info">
@@ -1302,7 +1305,7 @@ frontend\assets\AppAsset::register($this);
                             <div class="matching-boxes-main" id="matching-boxes-main-3">
                                 <div class="matching-each-room-wrapper">
                                     <div class="room-single-content-area">
-                                        <div class="room-single-header">Day 1 | 10 Aug 2022</div>
+                                        <div class="room-single-header day-block">Day 1 | 10 Aug 2022</div>
                                         <div class="room-single-content-wrapper">
                                             <div class="room-single-content">
                                                 <div class="room-single-content-heading">Rooms</div>
@@ -1401,7 +1404,7 @@ frontend\assets\AppAsset::register($this);
                                 </div>
                                 <div class="matching-each-room-wrapper active">
                                     <div class="room-single-content-area">
-                                        <div class="room-single-header">Day 1 | 10 Aug 2022</div>
+                                        <div class="room-single-header day-block">Day 1 | 10 Aug 2022</div>
                                         <div class="room-single-content-wrapper">
                                             <div class="room-single-content">
                                                 <div class="room-single-content-heading">Rooms</div>

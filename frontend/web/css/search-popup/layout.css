@@ -1082,10 +1082,16 @@ ul {
 
 .resort-details-area {
   display: flex;
+  justify-content: space-between;
 }
 
 .resort-details-area figure {
   margin: 0 12px 0 0;
+  width: 80px;
+}
+
+.resort-details-area article {
+  width: calc(100% - 95px);
 }
 
 .resort-details-area article h4 {
@@ -1183,8 +1189,9 @@ ul {
   width: 15px;
 }
 .data-content .modal .search-popup-wrapper .modal-content .modal-body {
+  width: 100%;
+  max-width: 1200px;
   padding: 20px 0 0;
-  max-width: 1100px;
   margin: 40px auto 0;
 }
 
@@ -1203,8 +1210,12 @@ ul {
 }
 .search-result-card .search-result-left {
   display: flex;
+  width: 50%;
   align-items: flex-start;
   justify-content: flex-start;
+}
+.search-result-card .search-result-left .card-details {
+  width: 100%;
 }
 .search-result-card .search-result-left .card-img {
   width: 115px;
@@ -1284,6 +1295,8 @@ ul {
 }
 
 .enquiry-box-wrapper {
+  width: 100%;
+  max-width: 500px;
   display: flex;
   align-items: stretch;
   justify-content: space-between;
@@ -1342,6 +1355,7 @@ ul {
 }
 
 .room-head-info {
+  width: 100%;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -1465,6 +1479,7 @@ span.room-cat-text {
   justify-content: space-between;
 }
 .matching-rooms-box-wrapper .matching-rooms-box-single .room-content {
+  width: 45%;
   padding: 10px;
   border-right: 1px solid #999FB4;
 }
@@ -1480,8 +1495,9 @@ span.room-cat-text {
 }
 .room-policy-occupancy-wrapper .room-policy-occupancy-single {
   display: flex;
-  flex-direction: column;
+  min-width: 220px;
   align-items: stretch;
+  flex-direction: column;
   justify-content: space-between;
   border-right: 1px solid #999FB4;
 }
@@ -1590,7 +1606,10 @@ span.room-cat-text {
   justify-content: space-between;
 }
 .matching-boxes-main .matching-each-room-wrapper .room-single-content-area {
-  width: 32%;
+  width: 37%;
+}
+.matching-boxes-main .matching-each-room-wrapper .room-single-content-area:nth-child(1) {
+  width: 26%;
 }
 .matching-boxes-main .matching-each-room-wrapper .room-single-content-area .room-single-header {
   background: #fff;
@@ -1611,6 +1630,9 @@ span.room-cat-text {
   align-items: center;
   justify-content: center;
   min-height: 45px;
+}
+.matching-boxes-main .matching-each-room-wrapper .room-single-content-area .day-block {
+  background: #e1e5ff;
 }
 .matching-boxes-main .matching-each-room-wrapper .room-single-content-area .room-single-content-wrapper {
   display: flex;
@@ -1642,6 +1664,7 @@ span.room-cat-text {
   display: flex;
   align-items: center;
   justify-content: center;
+  white-space: nowrap;
 }
 .icon-text-area img {
   max-width: 33px;
@@ -1651,7 +1674,7 @@ span.room-cat-text {
   position: relative;
   display: inline-block;
   width: 25px;
-  margin: 0 0 0 10px;
+  margin: 0 10px 0 10px;
 }
 .icon-with-notification img {
   max-width: 25px;
@@ -1692,13 +1715,13 @@ span.room-cat-text {
   background: #ED8AB5;
 }
 .checkbox-info-wrapper .info-icon-main {
-  margin: 60px 0 0;
+  margin: 40px 0 0;
   text-align: center;
   width: 100%;
 }
 .checkbox-info-wrapper .info-icon-main .info-icon {
-  width: 24px;
-  height: 24px;
+  width: 18px;
+  height: 18px;
   margin: 0 auto;
   background: #F44336;
   border-radius: 50%;
