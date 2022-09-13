@@ -607,13 +607,14 @@ frontend\assets\AppAsset::register($this);
                                 <article>
                                     <div class="card-heading-row">
                                         <h4 class="card-heading">Misty Rock Resort</h4>
-                                        <div class="star-wrapper">
+                                        <!-- <div class="star-wrapper">
                                             <img src="images/search-popup/star-icon.svg" alt="">
                                             <img src="images/search-popup/star-icon.svg" alt="">
                                             <img src="images/search-popup/star-icon.svg" alt="">
                                             <img src="images/search-popup/star-icon.svg" alt="">
                                             <img src="images/search-popup/star-icon.svg" alt="">
-                                        </div>
+                                        </div> -->
+                                        <span class="room-rating">Luxury</span>
                                     </div>
                                     <div class="resort-location">
                                         <span class="location-icon"><img src="images/location-icon.png" alt=""></span>
