@@ -39,6 +39,11 @@ class PropertyController extends Controller
         $this->layout = 'tm_main';
         return $this->render('index2', []);
     }
+     public function actionPpe1()
+    {
+        $this->layout = 'tm_main';
+        return $this->render('index3', []);
+    }
 
 
 }
