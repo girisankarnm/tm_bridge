@@ -715,12 +715,12 @@ frontend\assets\AppAsset::register($this);
                                                     data-toggle="tooltip" data-placement="top"
                                                     title="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
                                                     class="room-policy-occupancy-icon" alt="">
-                                                <span>0-7 YR</span>
+                                                <span class="policy-text">0-7 YR</span>
                                             </div>
                                             <div class="room-policy-occupancy-content-single">
                                                 <img src="images/search-popup/child-icon-1.svg" style="width:18px"
                                                     class="room-policy-occupancy-icon" alt="">
-                                                <div class="tooltip-main">
+                                                <!-- <div class="tooltip-main">
                                                     <span class="tooltip-button" aria-expanded="false">8-15 YR</span>
                                                     <div class="tooltip-content tooltip-bottom" role="tooltip"
                                                         tabindex="0">
@@ -728,6 +728,19 @@ frontend\assets\AppAsset::register($this);
                                                         <p class="tooltip-para">Lorem ipsum dolor sit amet, consectetur
                                                             adipiscing elit. Cras
                                                             convallis sodales erat vel accumsan.</p>
+                                                    </div>
+                                                </div> -->
+                                                <div class="tooltip-wrapper">
+                                                    <div class="recent-link">
+                                                        <a href="javascript:void(0);" class="policy-text">8-15 YR</a>
+                                                        <span class="hovercard">
+                                                            <div class="tooltiptext">
+                                                                <h4 class="tooltip-head">Heading</h4>
+                                                                <p class="tooltip-para">Crumb Collector is a minimal and
+                                                                    easy to use
+                                                                    bookmark manager.</p>
+                                                            </div>
+                                                        </span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1007,7 +1020,20 @@ frontend\assets\AppAsset::register($this);
                                             <div class="room-policy-occupancy-content-single">
                                                 <img src="images/search-popup/child-icon-1.svg" style="width:17px"
                                                     class="room-policy-occupancy-icon" alt="">
-                                                <span>8-15 YR</span>
+                                                <!-- <span>8-15 YR</span> -->
+                                                <div class="tooltip-wrapper">
+                                                    <div class="recent-link">
+                                                        <a href="javascript:void(0);" class="policy-text">8-15 YR</a>
+                                                        <span class="hovercard">
+                                                            <div class="tooltiptext">
+                                                                <h4 class="tooltip-head">Heading</h4>
+                                                                <p class="tooltip-para">Crumb Collector is a minimal and
+                                                                    easy to use
+                                                                    bookmark manager.</p>
+                                                            </div>
+                                                        </span>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -1283,7 +1309,19 @@ frontend\assets\AppAsset::register($this);
                                             <div class="room-policy-occupancy-content-single">
                                                 <img src="images/search-popup/child-icon-1.svg" style="width:18px"
                                                     class="room-policy-occupancy-icon" alt="">
-                                                <span>8-15 YR</span>
+                                                <div class="tooltip-wrapper">
+                                                    <div class="recent-link">
+                                                        <a href="javascript:void(0);" class="policy-text">8-15 YR</a>
+                                                        <span class="hovercard">
+                                                            <div class="tooltiptext">
+                                                                <!-- <h4 class="tooltip-head">Heading</h4> -->
+                                                                <p class="tooltip-para">Crumb Collector is a minimal and
+                                                                    easy to use
+                                                                    bookmark manager.</p>
+                                                            </div>
+                                                        </span>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

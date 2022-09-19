@@ -9,6 +9,60 @@ $font-bold: Bw-Mitga-bold;
     }
 }
 
+.hovercard {
+    position: absolute;
+    opacity: 0;
+    z-index: 1;
+    left: 50%;
+    bottom: 100%;
+    pointer-events: none;
+    @include transform(translateX(-15%));
+    margin: 0 0 10px;
+
+    &::after {
+        position: absolute;
+        content: "";
+        left: 15px;
+        bottom: -12px;
+        border: 6px solid transparent;
+        border-top: 6px solid #575c85;
+    }
+}
+
+.recent-link:hover .hovercard {
+    opacity: 1;
+    transition: all ease 0.5s;
+    /* transition: 0.5s; */
+    /* transition-delay: 0.1s; */
+}
+
+.tooltiptext {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: #575c85;
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: white;
+    line-height: 15px;
+    transition: 1s;
+    width: 200px;
+    word-break: break-word;
+    white-space: normal;
+
+    .tooltip-head {
+        color: #fff;
+        font-size: 18px;
+        margin: 0 0 5px;
+        font-family: $font-bold !important;
+    }
+
+    .tooltip-para {
+        color: #fff;
+        font-size: 14px;
+    }
+}
+
 .modal-open .modal {
     background: #F6F8FC;
 }
@@ -403,6 +457,32 @@ span.room-cat-text {
     background: #fff;
     border: 1px solid #E1E4ED;
 
+    &:nth-child(1) {
+        .hovercard {
+            top: 100%;
+            margin: 10px 0 0;
+        }
+
+        .recent-link {
+            &:hover {
+                .hovercard {
+                    top: 100%;
+                    bottom: initial;
+
+                    &::after {
+                        left: 15px;
+                        top: -12px;
+                        content: "";
+                        bottom: initial;
+                        position: absolute;
+                        border: 6px solid transparent;
+                        border-bottom: 6px solid #575c85;
+                    }
+                }
+            }
+        }
+    }
+
     .matching-rooms-box-single {
         padding: 0;
         display: flex;
@@ -457,9 +537,17 @@ span.room-cat-text {
                 font-size: 12px;
                 padding: 0 10px;
                 white-space: nowrap;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
             }
         }
     }
+}
+
+.policy-text {
+    font-size: 12px;
+    padding: 0 0 0 5px;
 }
 
 .days-price-details {
@@ -909,4 +997,11 @@ span.room-cat-text {
     padding: .25em .4em;
     margin-left: 6px;
     font-size: 12px;
+}
+
+
+.recent-link {
+    color: #252525;
+    position: relative;
+    padding-bottom: 0px;
 }
