@@ -1,0 +1,68 @@
+/* (A) BUILD TOOLTIP USING BEFORE PSEUDO-CLASS */
+[data-tooltip]::before {
+    content: attr(data-tooltip);
+}
+
+/* (B) POSITION TOOLTIP */
+[data-tooltip] {
+    position: relative;
+    display: inline-block;
+}
+
+[data-tooltip]::before {
+    position: absolute;
+    z-index: 999;
+}
+
+[data-tooltip].top::before {
+    bottom: 100%;
+    margin-bottom: 10px;
+}
+
+[data-tooltip].bottom::before {
+    top: 100%;
+    margin-top: 10px;
+}
+
+[data-tooltip].left::before {
+    right: 100%;
+    margin-right: 10px;
+}
+
+[data-tooltip].right::before {
+    left: 100%;
+    margin-left: 10px;
+}
+
+/* (C) SHOW TOOLTIP ONLY ON HOVER */
+[data-tooltip]::before {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+[data-tooltip]:hover::before {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* (D) STYLE THE TOOLTIP */
+[data-tooltip] {
+    background: #fea;
+}
+
+[data-tooltip]::before {
+    background: #000;
+    color: #fff;
+    padding: 5px;
+    min-width: 100px;
+    text-align: center;
+}
+
+/* WIDGET */
+.widget-wrap {
+    max-width: 500px;
+    padding: 0px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.4);
+}

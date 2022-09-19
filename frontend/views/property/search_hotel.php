@@ -722,7 +722,8 @@ frontend\assets\AppAsset::register($this);
                                                     class="room-policy-occupancy-icon" alt="">
                                                 <div class="tooltip-main">
                                                     <span class="tooltip-button" aria-expanded="false">8-15 YR</span>
-                                                    <div class="tooltip-content top" role="tooltip" tabindex="0">
+                                                    <div class="tooltip-content tooltip-bottom" role="tooltip"
+                                                        tabindex="0">
                                                         <h2 class="tooltip-heading">Tooltip html item</h2>
                                                         <p class="tooltip-para">Lorem ipsum dolor sit amet, consectetur
                                                             adipiscing elit. Cras
@@ -1292,7 +1293,17 @@ frontend\assets\AppAsset::register($this);
                                             <div class="room-policy-occupancy-content-single">
                                                 <img src="images/search-popup/bed-icon.svg" style="width:28px"
                                                     class="room-policy-occupancy-icon" alt="">
-                                                <span>DB: XI EB: XI SB: X</span>
+                                                <!-- <span>DB: XI EB: XI SB: X</span> -->
+                                                <div class="tooltip-main">
+                                                    <span class="tooltip-button" aria-expanded="false">8-15 YR</span>
+                                                    <div class="tooltip-content top tooltip-top" role="tooltip"
+                                                        tabindex="0">
+                                                        <h2 class="tooltip-heading">Tooltip html item</h2>
+                                                        <p class="tooltip-para">Lorem ipsum dolor sit amet, consectetur
+                                                            adipiscing elit. Cras
+                                                            convallis sodales erat vel accumsan.</p>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

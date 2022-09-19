@@ -1,0 +1,46 @@
+@import "../partials/partials";
+
+$font-bold: Bw-Mitga-bold;
+
+.large-btn {
+    font-size: 14px !important;
+}
+
+.bordered-btn {
+    border: 1px solid #d2d6d9 !important;
+    background: none !important;
+    color: #000 !important;
+}
+
+.bordered-btn.active {
+    color: #fff !important;
+    background: #5968DB !important;
+}
+
+
+.main-bns-wrapper {
+    display: flex;
+    margin: 0 0 25px;
+    align-items: center;
+    justify-content: center;
+
+    button {
+        margin: 0 5px;
+        min-width: 250px;
+        font-family: $font-bold !important;
+    }
+}
+
+.ppt-header-table {
+    width: 270px;
+}
+
+.ppt-content-table {
+    width: 100%;
+}
+
+.td-main-heading {
+    font-family: $font-bold;
+    font-size: 11px !important;
+    text-align: center;
+}
