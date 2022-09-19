@@ -752,7 +752,7 @@ frontend\assets\AppAsset::register($this);
                                             <div class="room-policy-occupancy-content-single">
                                                 <img src="images/search-popup/bed-icon.svg" style="width:28px"
                                                     class="room-policy-occupancy-icon" alt="">
-                                                <span>DB: XI EB: XI SB: X</span>
+                                                <span class="policy-text">DB: XI EB: XI SB: X</span>
                                             </div>
                                         </div>
                                     </div>
@@ -1015,7 +1015,7 @@ frontend\assets\AppAsset::register($this);
                                             <div class="room-policy-occupancy-content-single">
                                                 <img src="images/search-popup/child-icon.svg" style="width:18px"
                                                     class="room-policy-occupancy-icon" alt="">
-                                                <span>0-7 YR</span>
+                                                <span class="policy-text">0-7 YR</span>
                                             </div>
                                             <div class="room-policy-occupancy-content-single">
                                                 <img src="images/search-popup/child-icon-1.svg" style="width:17px"
@@ -1043,7 +1043,7 @@ frontend\assets\AppAsset::register($this);
                                             <div class="room-policy-occupancy-content-single">
                                                 <img src="images/search-popup/bed-icon.svg" style="width:28px"
                                                     class="room-policy-occupancy-icon" alt="">
-                                                <span>DB: XI EB: XI SB: X</span>
+                                                <span class="policy-text">DB: XI EB: XI SB: X</span>
                                             </div>
                                         </div>
                                     </div>
@@ -1304,7 +1304,7 @@ frontend\assets\AppAsset::register($this);
                                             <div class="room-policy-occupancy-content-single">
                                                 <img src="images/search-popup/child-icon.svg" style="width:18px"
                                                     class="room-policy-occupancy-icon" alt="">
-                                                <span>0-7 YR</span>
+                                                <span class="policy-text">0-7 YR</span>
                                             </div>
                                             <div class="room-policy-occupancy-content-single">
                                                 <img src="images/search-popup/child-icon-1.svg" style="width:18px"
@@ -1333,7 +1333,8 @@ frontend\assets\AppAsset::register($this);
                                                     class="room-policy-occupancy-icon" alt="">
                                                 <!-- <span>DB: XI EB: XI SB: X</span> -->
                                                 <div class="tooltip-main">
-                                                    <span class="tooltip-button" aria-expanded="false">8-15 YR</span>
+                                                    <span class="tooltip-button policy-text" aria-expanded="false">8-15
+                                                        YR</span>
                                                     <div class="tooltip-content top tooltip-top" role="tooltip"
                                                         tabindex="0">
                                                         <h2 class="tooltip-heading">Tooltip html item</h2>
