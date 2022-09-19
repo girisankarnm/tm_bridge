@@ -51,7 +51,7 @@ $this->registerCssFile('/css/ppt/ppt-styles.css');
             <button class="btn bordered-btn large-btn">Weekday Hikes</button>
             <button class="btn bordered-btn large-btn">Meal Supplement</button>
         </div>
-        <div class="single-room-details-wrapper">
+        <div class="single-room-details-wrapper room-details-block-wrapper">
             <div class="resort-header-wrapper bottom-radius-none hotel-rates-wrapper">
                 <div class="resort-details-area">
                     <div class="room-rate-heading">Superior Room - River View</div>
@@ -61,70 +61,472 @@ $this->registerCssFile('/css/ppt/ppt-styles.css');
                 <div class="room-table-wrapper">
                     <table id="" class="ppt-header-table">
                         <tr class="first-row">
-                            <td>
-                                <div class="room-rates">Date Range</div>
+                            <td style="height: 92px;">
+                                <div class="rooms-td-head">Date Range</div>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <div class="room-rates">Slab 1</div>
+                                <div class="rooms-date-content">
+                                    <span class="content-left">1 Sep 22 To 31 Dec 22</span>
+                                    <span class="edit-icon"><img src="images/ppt/edit-icon.svg" alt=""></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="rooms-date-content">
+                                    <span class="content-left">15 Sep 22 To 25 Sep 22</span>
+                                    <span class="edit-icon"><img src="images/ppt/edit-icon.svg" alt=""></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="rooms-date-content">
+                                    <span class="content-left">15 Sep 22 To 25 Sep 22</span>
+                                    <span class="edit-icon"><img src="images/ppt/edit-icon.svg" alt=""></span>
+                                </div>
                             </td>
                         </tr>
                     </table>
-                    <div class="table-responsive scroll-table">
-                        <table id="" class="ppt-content-table">
-                            <tbody>
-                                <tr class="first-row">
-                                    <td colspan="5" class="td-main-heading">Room (Rack 25000)</td>
-                                </tr>
-                                <tr>
-                                    <td><span class="td-heading">Slab 1</span></td>
-                                    <td><span class="td-heading">Slab 2</span></td>
-                                    <td><span class="td-heading">Slab 3</span></td>
-                                    <td><span class="td-heading">Slab 4</span></td>
-                                    <td><span class="td-heading">Slab 5</span></td>
-                                </tr>
-                            </tbody>
+                    <div class="table-responsive scroll-table p-0">
+                        <table class="ppt-content-main-table">
+                            <tr>
+                                <td>
+                                    <table class="ppt-content-table" style="background: #FCE4D8 !important;">
+                                        <tbody>
+                                            <tr class="first-row">
+                                                <td colspan="5" class="rooms-td-head">Room (Rack 25000)</td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="rooms-td-subhead">Slab 1</span></td>
+                                                <td><span class="rooms-td-subhead">Slab 2</span></td>
+                                                <td><span class="rooms-td-subhead">Slab 3</span></td>
+                                                <td><span class="rooms-td-subhead">Slab 4</span></td>
+                                                <td><span class="rooms-td-subhead">Slab 5</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                                <td>
+                                    <table class="ppt-content-table" style="background: #C5E0B7 !important;">
+                                        <tbody>
+                                            <tr class="first-row">
+                                                <td colspan="5" class="rooms-td-head">EBA (Rack 25000)</td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="rooms-td-subhead">Slab 1</span></td>
+                                                <td><span class="rooms-td-subhead">Slab 2</span></td>
+                                                <td><span class="rooms-td-subhead">Slab 3</span></td>
+                                                <td><span class="rooms-td-subhead">Slab 4</span></td>
+                                                <td><span class="rooms-td-subhead">Slab 5</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                                <td>
+                                    <table class="ppt-content-table" style="background: #BCDDF1 !important;">
+                                        <tbody>
+                                            <tr class="first-row">
+                                                <td colspan="5" class="rooms-td-head">CWB (Rack 25000)</td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="rooms-td-subhead">Slab 1</span></td>
+                                                <td><span class="rooms-td-subhead">Slab 2</span></td>
+                                                <td><span class="rooms-td-subhead">Slab 3</span></td>
+                                                <td><span class="rooms-td-subhead">Slab 4</span></td>
+                                                <td><span class="rooms-td-subhead">Slab 5</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                                <td>
+                                    <table class="ppt-content-table" style="background: #D6D0FF !important;">
+                                        <tbody>
+                                            <tr class="first-row">
+                                                <td colspan="5" class="rooms-td-head">CNB (Rack 25000)</td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="rooms-td-subhead">Slab 1</span></td>
+                                                <td><span class="rooms-td-subhead">Slab 2</span></td>
+                                                <td><span class="rooms-td-subhead">Slab 3</span></td>
+                                                <td><span class="rooms-td-subhead">Slab 4</span></td>
+                                                <td><span class="rooms-td-subhead">Slab 5</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                                <td>
+                                    <table class="ppt-content-table" style="background: #B2E8D7 !important;">
+                                        <tbody>
+                                            <tr class="first-row">
+                                                <td colspan="5" class="rooms-td-head">Single (Rack 25000)</td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="rooms-td-subhead">Slab 1</span></td>
+                                                <td><span class="rooms-td-subhead">Slab 2</span></td>
+                                                <td><span class="rooms-td-subhead">Slab 3</span></td>
+                                                <td><span class="rooms-td-subhead">Slab 4</span></td>
+                                                <td><span class="rooms-td-subhead">Slab 5</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
                         </table>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="single-room-details-wrapper room-details-block-wrapper">
+            <div class="resort-header-wrapper bottom-radius-none hotel-rates-wrapper">
+                <div class="resort-details-area">
+                    <div class="room-rate-heading">Deluxe Cottage with Pvt Pool</div>
+                </div>
+            </div>
+            <div class="date-table-wrapper">
+                <div class="room-table-wrapper">
+                    <table id="" class="ppt-header-table">
+                        <tr class="first-row">
+                            <td style="height: 92px;">
+                                <div class="rooms-td-head">Date Range</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="rooms-date-content">
+                                    <span class="content-left">1 Sep 22 To 31 Dec 22</span>
+                                    <span class="edit-icon"><img src="images/ppt/edit-icon.svg" alt=""></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="rooms-date-content">
+                                    <span class="content-left">15 Sep 22 To 25 Sep 22</span>
+                                    <span class="edit-icon"><img src="images/ppt/edit-icon.svg" alt=""></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="rooms-date-content">
+                                    <span class="content-left">15 Sep 22 To 25 Sep 22</span>
+                                    <span class="edit-icon"><img src="images/ppt/edit-icon.svg" alt=""></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="table-responsive scroll-table p-0">
+                        <table class="ppt-content-main-table">
+                            <tr>
+                                <td>
+                                    <table class="ppt-content-table" style="background: #FCE4D8 !important;">
+                                        <tbody>
+                                            <tr class="first-row">
+                                                <td colspan="5" class="rooms-td-head">Room (Rack 25000)</td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="rooms-td-subhead">Slab 1</span></td>
+                                                <td><span class="rooms-td-subhead">Slab 2</span></td>
+                                                <td><span class="rooms-td-subhead">Slab 3</span></td>
+                                                <td><span class="rooms-td-subhead">Slab 4</span></td>
+                                                <td><span class="rooms-td-subhead">Slab 5</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                                <td>
+                                    <table class="ppt-content-table" style="background: #C5E0B7 !important;">
+                                        <tbody>
+                                            <tr class="first-row">
+                                                <td colspan="5" class="rooms-td-head">EBA (Rack 25000)</td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="rooms-td-subhead">Slab 1</span></td>
+                                                <td><span class="rooms-td-subhead">Slab 2</span></td>
+                                                <td><span class="rooms-td-subhead">Slab 3</span></td>
+                                                <td><span class="rooms-td-subhead">Slab 4</span></td>
+                                                <td><span class="rooms-td-subhead">Slab 5</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                                <td>
+                                    <table class="ppt-content-table" style="background: #BCDDF1 !important;">
+                                        <tbody>
+                                            <tr class="first-row">
+                                                <td colspan="5" class="rooms-td-head">CWB (Rack 25000)</td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="rooms-td-subhead">Slab 1</span></td>
+                                                <td><span class="rooms-td-subhead">Slab 2</span></td>
+                                                <td><span class="rooms-td-subhead">Slab 3</span></td>
+                                                <td><span class="rooms-td-subhead">Slab 4</span></td>
+                                                <td><span class="rooms-td-subhead">Slab 5</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                                <td>
+                                    <table class="ppt-content-table" style="background: #D6D0FF !important;">
+                                        <tbody>
+                                            <tr class="first-row">
+                                                <td colspan="5" class="rooms-td-head">CNB (Rack 25000)</td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="rooms-td-subhead">Slab 1</span></td>
+                                                <td><span class="rooms-td-subhead">Slab 2</span></td>
+                                                <td><span class="rooms-td-subhead">Slab 3</span></td>
+                                                <td><span class="rooms-td-subhead">Slab 4</span></td>
+                                                <td><span class="rooms-td-subhead">Slab 5</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                                <td>
+                                    <table class="ppt-content-table" style="background: #B2E8D7 !important;">
+                                        <tbody>
+                                            <tr class="first-row">
+                                                <td colspan="5" class="rooms-td-head">Single (Rack 25000)</td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="rooms-td-subhead">Slab 1</span></td>
+                                                <td><span class="rooms-td-subhead">Slab 2</span></td>
+                                                <td><span class="rooms-td-subhead">Slab 3</span></td>
+                                                <td><span class="rooms-td-subhead">Slab 4</span></td>
+                                                <td><span class="rooms-td-subhead">Slab 5</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="two-side-btns-wrapper">
+            <button class="btn">Cancel</button>
+            <button class="btn">Next</button>
+        </div>
     </div>
 </div>
 
-<div class="right-side-popup-wrapper">
-    <div class="right-side-container">
-        <div class="pop-head-btn-wrapper">
-            <h5 class="pop-header">Standard Room with AC (INR Rates)</h5>
-            <div class="pop-close-btn-wrapper">
-                <button class="pop-close-btn" onClick="popClose()"><img src="images/property-icons/close-btn.png"
-                        alt="">
-                    Close</button>
-            </div>
-        </div>
-        <div class="select-dates-wrapper">
-            <div class="select-dates-heading">Select Dates</div>
-            <div class="month-name">August 2022</div>
-            <!-- <div class="selected-dates-wrapper">
-                <div class="selected-dates">15</div>
-                <div class="selected-dates">20</div>
-                <div class="selected-dates">22</div>
-                <div class="selected-dates">24</div>
-            </div> -->
-            <div class="multiple-date-calendar-wrapper">
-                <input type="text" class="form-control date" placeholder="Pick the multiple dates">
-            </div>
-            <div class="ppe-rate-wrapper">
-                <div class="ppe-rate">PPE Rate</div>
-                <input type="text" value="3250">
-            </div>
-            <div class="text-right mt-3">
-                <button class="btn secondary-btn">Apply</button>
-            </div>
-        </div>
-    </div>
-</div>
+
+
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
@@ -177,11 +579,6 @@ function popClose() {
     // $('.datepicker').removeClass("datepicker-on");
     flag = 1;
     $('.date').datepicker('hide')
-}
-
-function toggleTable(id) {
-    $(`#room-heading-table-${id} tr`).toggleClass("row-on");
-    $(`#available-room-rates-${id} tr`).toggleClass("row-on");
 }
 // $('.month-picker').datepicker({
 //     multidate: false,

@@ -1238,12 +1238,84 @@ ul {
 
 .ppt-content-table {
   width: 100%;
+  border-radius: 0;
+  border: none !important;
+}
+.ppt-content-table tr {
+  background: none !important;
+}
+.ppt-content-table tr td {
+  padding: 10px;
+  height: 46px;
+  border-top: 1px solid #A0A9C4;
+  border-right: 1px solid #A0A9C4;
+}
+.ppt-content-table tr:nth-child(1) td {
+  border-top: none;
 }
 
 .td-main-heading {
   font-family: Bw-Mitga-bold;
   font-size: 11px !important;
   text-align: center;
+}
+
+.room-details-block-wrapper .resort-header-wrapper {
+  background: #FFFFFF;
+  border: 1px solid #A0A9C4;
+}
+.room-details-block-wrapper .date-table-wrapper {
+  border: 1px solid #A0A9C4;
+}
+.room-details-block-wrapper .date-table-wrapper .ppt-header-table {
+  box-shadow: none;
+  background: #fff !important;
+  border: 1px solid #A0A9C4 !important;
+  border-top: 1px solid transparent !important;
+}
+.room-details-block-wrapper .date-table-wrapper .ppt-header-table tr {
+  background: none;
+  border-bottom: 1px solid #A0A9C4;
+}
+.room-details-block-wrapper .date-table-wrapper .ppt-header-table tr:nth-last-child(1) {
+  border-bottom: 1px solid transparent;
+}
+.room-details-block-wrapper .date-table-wrapper .ppt-header-table td {
+  padding: 10px;
+}
+
+.rooms-date-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rooms-td-head {
+  text-align: center !important;
+  font-size: 13px !important;
+  color: #1E2339 !important;
+  font-family: Bw-Mitga-bold !important;
+}
+
+.rooms-td-subhead {
+  text-align: center;
+  font-size: 11px;
+  color: #1E2339;
+  font-family: Bw-Mitga-bold;
+}
+
+.edit-icon {
+  display: inline-block;
+  width: 25px;
+}
+.edit-icon img {
+  width: 100%;
+}
+
+.two-side-btns-wrapper {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
 }
 
 /*# sourceMappingURL=ppt-styles.css.map */
