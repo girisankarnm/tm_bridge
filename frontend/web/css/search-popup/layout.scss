@@ -9,6 +9,10 @@ $font-bold: Bw-Mitga-bold;
     }
 }
 
+.tooltip-wrapper {
+    display: inline-block;
+}
+
 .hovercard {
     position: absolute;
     opacity: 0;
@@ -54,12 +58,14 @@ $font-bold: Bw-Mitga-bold;
         color: #fff;
         font-size: 18px;
         margin: 0 0 5px;
+        text-align: left;
         font-family: $font-bold !important;
     }
 
     .tooltip-para {
         color: #fff;
         font-size: 14px;
+        text-align: left;
     }
 }
 

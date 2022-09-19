@@ -793,7 +793,21 @@ frontend\assets\AppAsset::register($this);
                                                 <div class="icon-with-notification"><img
                                                         src="images/search-popup/food-icon.svg" alt=""><span
                                                         class="icon-notofi">!</span></div>
-                                                AP (B + L + D)
+                                                <!-- AP (B + L + D) -->
+                                                <div class="tooltip-wrapper">
+                                                    <div class="recent-link">
+                                                        <a href="javascript:void(0);" class="policy-text">AP (B + L +
+                                                            D)</a>
+                                                        <span class="hovercard">
+                                                            <div class="tooltiptext">
+                                                                <h4 class="tooltip-head">Heading</h4>
+                                                                <p class="tooltip-para">Crumb Collector is a minimal and
+                                                                    easy to use
+                                                                    bookmark manager.</p>
+                                                            </div>
+                                                        </span>
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div class="icon-text-area">
                                                 <div class="icon-with-notification"><img style="width: 17px;"

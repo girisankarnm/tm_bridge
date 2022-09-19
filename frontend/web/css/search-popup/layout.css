@@ -1145,6 +1145,10 @@ ul {
     max-width: 100% !important;
   }
 }
+.tooltip-wrapper {
+  display: inline-block;
+}
+
 .hovercard {
   position: absolute;
   opacity: 0;
@@ -1193,11 +1197,13 @@ ul {
   color: #fff;
   font-size: 18px;
   margin: 0 0 5px;
+  text-align: left;
   font-family: Bw-Mitga-bold !important;
 }
 .tooltiptext .tooltip-para {
   color: #fff;
   font-size: 14px;
+  text-align: left;
 }
 
 .modal-open .modal {
