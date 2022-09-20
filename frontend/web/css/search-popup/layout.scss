@@ -50,15 +50,16 @@ $font-bold: Bw-Mitga-bold;
     color: white;
     line-height: 15px;
     transition: 1s;
-    width: 200px;
+    width: 250px;
     word-break: break-word;
     white-space: normal;
 
     .tooltip-head {
         color: #fff;
-        font-size: 18px;
+        font-size: 14px;
         margin: 0 0 5px;
         text-align: left;
+        line-height: 17px;
         font-family: $font-bold !important;
     }
 
@@ -727,7 +728,7 @@ span.room-cat-text {
     position: relative;
     display: inline-block;
     width: 25px;
-    margin: 0 10px 0 10px;
+    margin: 0 10px 0 5px;
 
     img {
         max-width: 25px;
@@ -1009,4 +1010,13 @@ span.room-cat-text {
 .recent-link {
     position: relative;
     padding-bottom: 0px;
+}
+
+.icons-wrapp-main {
+    display: flex;
+    align-items: center;
+
+    .icon-with-notification {
+        margin: 0 0 0 3px;
+    }
 }

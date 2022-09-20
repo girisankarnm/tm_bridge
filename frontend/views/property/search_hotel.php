@@ -854,20 +854,22 @@ frontend\assets\AppAsset::register($this);
                                                         class="icon-notofi">!</span></div>
                                                 AP (B + L + D)
                                             </div>
-                                            <div class="icon-text-area">
-                                                <div class="icon-with-notification"><img style="width: 17px;"
-                                                        src="images/search-popup/child-icon-1.svg" alt=""></div>
-                                                99
-                                            </div>
-                                            <div class="icon-text-area">
-                                                <div class="icon-with-notification"><img style="width: 11px;"
-                                                        src="images/search-popup/adult-icon.svg" alt=""></div>
-                                                50
-                                            </div>
-                                            <div class="icon-text-area">
-                                                <div class="icon-with-notification"><img style="width: 17px;"
-                                                        src="images/search-popup/child-icon.svg" alt=""></div>
-                                                50
+                                            <div class="icons-wrapp-main">
+                                                <div class="icon-text-area">
+                                                    <div class="icon-with-notification"><img style="width: 17px;"
+                                                            src="images/search-popup/child-icon-1.svg" alt=""></div>
+                                                    99
+                                                </div>
+                                                <div class="icon-text-area">
+                                                    <div class="icon-with-notification"><img style="width: 11px;"
+                                                            src="images/search-popup/adult-icon.svg" alt=""></div>
+                                                    50
+                                                </div>
+                                                <div class="icon-text-area">
+                                                    <div class="icon-with-notification"><img style="width: 17px;"
+                                                            src="images/search-popup/child-icon.svg" alt=""></div>
+                                                    50
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="room-single-content-wrapper">
