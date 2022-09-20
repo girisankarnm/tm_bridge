@@ -787,37 +787,47 @@ frontend\assets\AppAsset::register($this);
                                         </div>
                                     </div>
                                     <div class="room-single-content-area">
-                                        <div class="room-single-header">
-                                            <div class="icon-text-area">
-                                                In Enq:
-                                                <div class="icon-with-notification"><img
-                                                        src="images/search-popup/food-icon.svg" alt=""><span
-                                                        class="icon-notofi">!</span></div>
-                                                <!-- AP (B + L + D) -->
-                                                <div class="tooltip-wrapper">
-                                                    <div class="recent-link">
-                                                        <a href="javascript:void(0);" class="policy-text">AP (B + L +
-                                                            D)</a>
-                                                        <span class="hovercard">
-                                                            <div class="tooltiptext">
-                                                                <h4 class="tooltip-head">Heading</h4>
-                                                                <p class="tooltip-para">Crumb Collector is a minimal and
-                                                                    easy to use
-                                                                    bookmark manager.</p>
-                                                            </div>
-                                                        </span>
+                                        <!-- <div class="tooltip-wrapper">
+                                            <div class="recent-link">
+                                                <a href="javascript:void(0);" class="policy-text">AP (B + L +
+                                                    D)</a>
+                                                <span class="hovercard">
+                                                    <div class="tooltiptext">
+                                                        <h4 class="tooltip-head">Heading</h4>
+                                                        <p class="tooltip-para">Crumb Collector is a minimal and
+                                                            easy to use
+                                                            bookmark manager.</p>
                                                     </div>
+                                                </span>
+                                            </div>
+                                        </div> -->
+                                        <div class="recent-link">
+                                            <span class="hovercard">
+                                                <div class="tooltiptext">
+                                                    <h4 class="tooltip-head">Heading</h4>
+                                                    <p class="tooltip-para">Crumb Collector is a minimal and
+                                                        easy to use
+                                                        bookmark manager.</p>
                                                 </div>
-                                            </div>
-                                            <div class="icon-text-area">
-                                                <div class="icon-with-notification"><img style="width: 17px;"
-                                                        src="images/search-popup/child-icon-1.svg" alt=""></div>
-                                                99
-                                            </div>
-                                            <div class="icon-text-area">
-                                                <div class="icon-with-notification"><img style="width: 11px;"
-                                                        src="images/search-popup/adult-icon.svg" alt=""></div>
-                                                50
+                                            </span>
+                                            <div class="room-single-header">
+                                                <div class="icon-text-area">
+                                                    In Enq:
+                                                    <div class="icon-with-notification"><img
+                                                            src="images/search-popup/food-icon.svg" alt=""><span
+                                                            class="icon-notofi">!</span></div>
+                                                    <!-- AP (B + L + D) -->
+                                                </div>
+                                                <div class="icon-text-area">
+                                                    <div class="icon-with-notification"><img style="width: 17px;"
+                                                            src="images/search-popup/child-icon-1.svg" alt=""></div>
+                                                    99
+                                                </div>
+                                                <div class="icon-text-area">
+                                                    <div class="icon-with-notification"><img style="width: 11px;"
+                                                            src="images/search-popup/adult-icon.svg" alt=""></div>
+                                                    50
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="room-single-content-wrapper">
