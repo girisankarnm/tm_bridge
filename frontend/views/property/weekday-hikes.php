@@ -47,14 +47,26 @@ $this->registerCssFile('/css/ppt/ppt-styles.css');
     </div>
     <div class="booking-table-wrapper">
         <div class="main-bns-wrapper">
-            <button class="btn bordered-btn large-btn active">Room Rate</button>
-            <button class="btn bordered-btn large-btn">Weekday Hikes</button>
+            <button class="btn bordered-btn large-btn">Room Rate</button>
+            <button class="btn bordered-btn large-btn active">Weekday Hikes</button>
             <button class="btn bordered-btn large-btn">Meal Supplement</button>
         </div>
         <div class="single-room-details-wrapper room-details-block-wrapper">
             <div class="resort-header-wrapper bottom-radius-none hotel-rates-wrapper">
                 <div class="resort-details-area">
-                    <div class="room-rate-heading">Superior Room - River View</div>
+                    <div class="room-rate-heading">Superior Room - River View <div class="meal-area"><img
+                                src="images/search-popup/food-icon.svg" alt=""> EP (Room Only)</div>
+                    </div>
+                </div>
+                <div class="resort-peroid-area">
+                    <div class="next-prev-arrrows">
+                        <div class="next-prev-btns" onclick="moveToLeft()">
+                            <img src="images/ppt/right-arrow.svg" alt="">
+                        </div>
+                        <div class="next-prev-btns" onclick="moveToRight()">
+                            <img src="images/ppt/left-arrow.svg" alt="">
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="date-table-wrapper">
@@ -289,6 +301,16 @@ $this->registerCssFile('/css/ppt/ppt-styles.css');
                 <div class="resort-details-area">
                     <div class="room-rate-heading">Deluxe Cottage with Pvt Pool</div>
                 </div>
+                <div class="resort-peroid-area">
+                    <div class="next-prev-arrrows">
+                        <div class="next-prev-btns" onclick="moveToLeft()">
+                            <img src="images/ppt/right-arrow.svg" alt="">
+                        </div>
+                        <div class="next-prev-btns" onclick="moveToRight()">
+                            <img src="images/ppt/left-arrow.svg" alt="">
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="date-table-wrapper">
                 <div class="room-table-wrapper">
@@ -323,7 +345,7 @@ $this->registerCssFile('/css/ppt/ppt-styles.css');
                             </td>
                         </tr>
                     </table>
-                    <div class="table-responsive scroll-table p-0">
+                    <div class="table-responsive scroll-table p-0" id="scroll-table-1">
                         <table class="ppt-content-main-table">
                             <tr>
                                 <td>
@@ -519,8 +541,13 @@ $this->registerCssFile('/css/ppt/ppt-styles.css');
         </div>
 
         <div class="two-side-btns-wrapper">
-            <button class="btn">Cancel</button>
-            <button class="btn">Next</button>
+            <div class="two-side-btns-left">
+                <button class="btn">Cancel</button>
+            </div>
+            <div class="two-side-btns-right">
+                <button class="btn">Back</button>
+                <button class="btn">Next</button>
+            </div>
         </div>
     </div>
 </div>
@@ -552,13 +579,35 @@ divs.forEach(div => div.addEventListener('scroll', e => {
     divs.forEach(d => {
         // d.scrollTop = div.scrollTop;
         d.scrollLeft = div.scrollLeft;
+        d.scrollRight = div.scrollRight;
     });
 }));
 
+
+// function moveToLeft() {
+//     divs.forEach(element => {
+//         element.scrolRight -= (element.offsetWidth);
+//     });
+// }
+
+// function moveToRight() {
+//     divs.forEach(element => {
+//         element.scrollLeft += (element.offsetWidth);
+//     });
+// }
+
 function moveToRight() {
-    divs.forEach(element => {
-        element.scrollLeft += (element.offsetWidth / 3);
-    });
+    event.preventDefault();
+    $('#scroll-table-1').animate({
+        scrollLeft: "+=300px"
+    }, "slow");
+}
+
+function moveToLeft() {
+    event.preventDefault();
+    $('.scroll-table').animate({
+        scrollLeft: "-=300px"
+    }, "slow");
 }
 // $(document).ready(function() {
 //     $(".bulk-edit-btn").click(function() {

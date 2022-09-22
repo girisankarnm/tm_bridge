@@ -42,8 +42,16 @@ class PropertyController extends Controller
      public function actionPpe1()
     {
         $this->layout = 'tm_main';
-        return $this->render('index3', []);
+        return $this->render('room-rate', []);
     }
-
-
+     public function actionPpe2()
+    {
+        $this->layout = 'tm_main';
+        return $this->render('weekday-hikes', []);
+    }
+     public function actionPpe3()
+    {
+        $this->layout = 'tm_main';
+        return $this->render('meal-supplement', []);
+    }
 }

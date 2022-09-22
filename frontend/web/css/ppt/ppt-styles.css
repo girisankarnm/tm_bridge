@@ -933,7 +933,7 @@ ul {
   left: 0;
   right: 0;
   bottom: 0;
-  background: #361805;
+  background: #DEE2FE;
   -webkit-transform: scaleX(0);
   transform: scaleX(0);
   -webkit-transform-origin: 0 50%;
@@ -1070,139 +1070,73 @@ ul {
     display: block;
   }
 }
-.tooltip {
-  --tooltip-background: #1f2937;
-  --tooltip-color: #fff;
-  --toolitp-width: 290px;
-  --tooltip-padding: 20px;
-  --tooltip-zindex: 10;
-  --tooltip-tip-width: 10px;
-  --tooltip-offset: 15px;
-  --tooltip-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
-  --tooltip-border-radius: 5px;
+/* (A) BUILD TOOLTIP USING BEFORE PSEUDO-CLASS */
+[data-tooltip]::before {
+  content: attr(data-tooltip);
+}
+
+/* (B) POSITION TOOLTIP */
+[data-tooltip] {
   position: relative;
   display: inline-block;
 }
 
-.tooltip-content {
-  display: block;
-  visibility: hidden;
+[data-tooltip]::before {
   position: absolute;
-  width: var(--toolitp-width);
-  min-width: var(--toolitp-width);
-  margin: 0 0 var(--tooltip-offset) 0;
-  padding: var(--tooltip-padding);
-  color: var(--tooltip-color);
-  background: var(--tooltip-background);
-  border-radius: var(--tooltip-border-radius);
-  opacity: 0;
-  transform: translateX(-50%);
-  transition: opacity 0.15s ease-out;
-  box-shadow: var(--tooltip-shadow);
-  z-index: var(--tooltip-zindex);
+  z-index: 999;
 }
 
-.tooltip-content.active {
+[data-tooltip].top::before {
+  bottom: 100%;
+  margin-bottom: 10px;
+}
+
+[data-tooltip].bottom::before {
+  top: 100%;
+  margin-top: 10px;
+}
+
+[data-tooltip].left::before {
+  right: 100%;
+  margin-right: 10px;
+}
+
+[data-tooltip].right::before {
+  left: 100%;
+  margin-left: 10px;
+}
+
+/* (C) SHOW TOOLTIP ONLY ON HOVER */
+[data-tooltip]::before {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+[data-tooltip]:hover::before {
   visibility: visible;
   opacity: 1;
 }
 
-/* tooltip positioning */
-.tooltip-content.top {
-  bottom: 100%;
-  left: 50%;
-  margin: 0 0 15px 0;
+/* (D) STYLE THE TOOLTIP */
+[data-tooltip] {
+  background: #fea;
 }
 
-.tooltip-content.bottom {
-  top: 100%;
-  left: 50%;
-  margin: 15px 0 0 0;
-}
-
-.tooltip-content.left {
-  top: 50%;
-  left: auto;
-  right: 100%;
-  margin: 0 15px 0 0;
-  transform: translate(0, -50%);
-}
-
-.tooltip-content.right {
-  top: 50%;
-  left: 100%;
-  margin: 0 0 0 15px;
-  transform: translate(0, -50%);
-}
-
-/* tip styling */
-.tooltip-content::after {
-  position: absolute;
-  width: 0;
-  height: 0;
-  content: " ";
-}
-
-.tooltip-content.top::after {
-  bottom: calc(-1 * var(--tooltip-tip-width));
-  left: 50%;
-  margin-left: calc(-1 * var(--tooltip-tip-width));
-  border-left: var(--tooltip-tip-width) solid transparent;
-  border-right: var(--tooltip-tip-width) solid transparent;
-  border-top: var(--tooltip-tip-width) solid var(--tooltip-background);
-}
-
-.tooltip-content.bottom::after {
-  top: calc(-1 * var(--tooltip-tip-width));
-  left: 50%;
-  margin-left: calc(-1 * var(--tooltip-tip-width));
-  border-bottom: var(--tooltip-tip-width) solid var(--tooltip-background);
-  border-left: var(--tooltip-tip-width) solid transparent;
-  border-right: var(--tooltip-tip-width) solid transparent;
-}
-
-.tooltip-content.right::after {
-  top: 50%;
-  left: calc(-1 * var(--tooltip-tip-width));
-  right: auto;
-  margin-top: calc(-1 * var(--tooltip-tip-width));
-  border-top: var(--tooltip-tip-width) solid transparent;
-  border-bottom: var(--tooltip-tip-width) solid transparent;
-  border-left: 0;
-  border-right: var(--tooltip-tip-width) solid var(--tooltip-background);
-}
-
-.tooltip-content.left::after {
-  top: 50%;
-  left: auto;
-  right: calc(-1 * var(--tooltip-tip-width));
-  margin-top: calc(-1 * var(--tooltip-tip-width));
-  border-top: var(--tooltip-tip-width) solid transparent;
-  border-bottom: var(--tooltip-tip-width) solid transparent;
-  border-left: var(--tooltip-tip-width) solid var(--tooltip-background);
-  border-right: 0;
-}
-
-.tooltip-button1 {
-  display: inline-block;
-  padding: 12px 20px;
+[data-tooltip]::before {
+  background: #000;
   color: #fff;
-  background: #9932cc;
-  border: none;
-  border-radius: 20px;
-  font-size: 1rem;
-  font-weight: 400;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: background-color 0.24s;
-  -webkit-transition: background-color 0.24s;
-  -moz-transition: background-color 0.24s;
-  -ms-transition: background-color 0.24s;
-  -o-transition: background-color 0.24s;
+  padding: 5px;
+  min-width: 100px;
+  text-align: center;
 }
 
-.tooltip-button1:hover {
-  background: #483d8b;
+/* WIDGET */
+.widget-wrap {
+  max-width: 500px;
+  padding: 0px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.4);
 }
 
 .large-btn {
@@ -1316,6 +1250,82 @@ ul {
   display: flex;
   align-items: stretch;
   justify-content: space-between;
+}
+.two-side-btns-wrapper .two-side-btns-left {
+  display: inline-flex;
+  align-items: stretch;
+  justify-content: flex-start;
+}
+.two-side-btns-wrapper .two-side-btns-rightt {
+  display: inline-flex;
+  align-items: stretch;
+  justify-content: flex-end;
+}
+
+.next-prev-arrrows {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.next-prev-arrrows .next-prev-btns {
+  border: 2px solid #BFC8E5;
+  border-radius: 5px;
+  padding: 2px 10px;
+  min-width: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all ease 0.5s;
+  -webkit-transition: all ease 0.5s;
+  -moz-transition: all ease 0.5s;
+  -ms-transition: all ease 0.5s;
+  -o-transition: all ease 0.5s;
+}
+.next-prev-arrrows .next-prev-btns:nth-last-child(1) {
+  margin: 0 0 0 10px;
+}
+.next-prev-arrrows .next-prev-btns:hover {
+  background: #f3f3f3;
+}
+.next-prev-arrrows .next-prev-btns img {
+  width: 10px;
+}
+
+.meal-area {
+  display: flex;
+  align-items: center;
+  font-family: "Bw-Mitga-regular";
+  font-size: 13px;
+}
+.meal-area img {
+  width: 30px;
+  margin: 0 5px 0 0;
+}
+
+.room-rate-heading {
+  display: flex;
+  align-items: center;
+}
+.room-rate-heading .meal-area {
+  margin: 0 0 0 10px;
+}
+
+.red-btn {
+  background: #E40968 !important;
+}
+.red-btn::before {
+  background: #b30e55 !important;
+}
+
+.btn:hover, .btn:focus {
+  color: #fff !important;
+  box-shadow: none;
+  outline: none;
+}
+.btn::before {
+  background: #2d3c9b;
 }
 
 /*# sourceMappingURL=ppt-styles.css.map */
