@@ -598,7 +598,7 @@ divs.forEach(div => div.addEventListener('scroll', e => {
 
 function moveToRight() {
     event.preventDefault();
-    $('#scroll-table-1').animate({
+    $('.scroll-table').animate({
         scrollLeft: "+=300px"
     }, "slow");
 }

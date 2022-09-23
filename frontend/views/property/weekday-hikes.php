@@ -109,21 +109,16 @@ $this->registerCssFile('/css/ppt/ppt-styles.css');
                                     <table class="ppt-content-table" style="background: #FCE4D8 !important;">
                                         <tbody>
                                             <tr class="first-row">
-                                                <td colspan="5" class="rooms-td-head">Room (Rack 25000)</td>
+                                                <td colspan="7" class="rooms-td-head">Room Tariff</td>
                                             </tr>
                                             <tr>
-                                                <td><span class="rooms-td-subhead">Slab 1</span></td>
-                                                <td><span class="rooms-td-subhead">Slab 2</span></td>
-                                                <td><span class="rooms-td-subhead">Slab 3</span></td>
-                                                <td><span class="rooms-td-subhead">Slab 4</span></td>
-                                                <td><span class="rooms-td-subhead">Slab 5</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td>150000</td>
-                                                <td>150000</td>
-                                                <td>150000</td>
-                                                <td>150000</td>
-                                                <td>150000</td>
+                                                <td><span class="rooms-td-subhead">Sun</span></td>
+                                                <td><span class="rooms-td-subhead">Mon</span></td>
+                                                <td><span class="rooms-td-subhead">Tue</span></td>
+                                                <td><span class="rooms-td-subhead">Wed</span></td>
+                                                <td><span class="rooms-td-subhead">Thu</span></td>
+                                                <td><span class="rooms-td-subhead">Fri</span></td>
+                                                <td><span class="rooms-td-subhead">Sat</span></td>
                                             </tr>
                                             <tr>
                                                 <td>150000</td>
@@ -131,8 +126,21 @@ $this->registerCssFile('/css/ppt/ppt-styles.css');
                                                 <td>150000</td>
                                                 <td>150000</td>
                                                 <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
                                             </tr>
                                             <tr>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>150000</td>
+                                                <td>150000</td>
                                                 <td>150000</td>
                                                 <td>150000</td>
                                                 <td>150000</td>
@@ -146,21 +154,16 @@ $this->registerCssFile('/css/ppt/ppt-styles.css');
                                     <table class="ppt-content-table" style="background: #C5E0B7 !important;">
                                         <tbody>
                                             <tr class="first-row">
-                                                <td colspan="5" class="rooms-td-head">EBA (Rack 25000)</td>
+                                                <td colspan="7" class="rooms-td-head">Extra Bed Adult</td>
                                             </tr>
                                             <tr>
-                                                <td><span class="rooms-td-subhead">Slab 1</span></td>
-                                                <td><span class="rooms-td-subhead">Slab 2</span></td>
-                                                <td><span class="rooms-td-subhead">Slab 3</span></td>
-                                                <td><span class="rooms-td-subhead">Slab 4</span></td>
-                                                <td><span class="rooms-td-subhead">Slab 5</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td>150000</td>
-                                                <td>150000</td>
-                                                <td>150000</td>
-                                                <td>150000</td>
-                                                <td>150000</td>
+                                                <td><span class="rooms-td-subhead">Sun</span></td>
+                                                <td><span class="rooms-td-subhead">Mon</span></td>
+                                                <td><span class="rooms-td-subhead">Tue</span></td>
+                                                <td><span class="rooms-td-subhead">Wed</span></td>
+                                                <td><span class="rooms-td-subhead">Thu</span></td>
+                                                <td><span class="rooms-td-subhead">Fri</span></td>
+                                                <td><span class="rooms-td-subhead">Sat</span></td>
                                             </tr>
                                             <tr>
                                                 <td>150000</td>
@@ -168,8 +171,21 @@ $this->registerCssFile('/css/ppt/ppt-styles.css');
                                                 <td>150000</td>
                                                 <td>150000</td>
                                                 <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
                                             </tr>
                                             <tr>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>150000</td>
+                                                <td>150000</td>
                                                 <td>150000</td>
                                                 <td>150000</td>
                                                 <td>150000</td>
@@ -183,21 +199,16 @@ $this->registerCssFile('/css/ppt/ppt-styles.css');
                                     <table class="ppt-content-table" style="background: #BCDDF1 !important;">
                                         <tbody>
                                             <tr class="first-row">
-                                                <td colspan="5" class="rooms-td-head">CWB (Rack 25000)</td>
+                                                <td colspan="7" class="rooms-td-head">Child with Bed</td>
                                             </tr>
                                             <tr>
-                                                <td><span class="rooms-td-subhead">Slab 1</span></td>
-                                                <td><span class="rooms-td-subhead">Slab 2</span></td>
-                                                <td><span class="rooms-td-subhead">Slab 3</span></td>
-                                                <td><span class="rooms-td-subhead">Slab 4</span></td>
-                                                <td><span class="rooms-td-subhead">Slab 5</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td>150000</td>
-                                                <td>150000</td>
-                                                <td>150000</td>
-                                                <td>150000</td>
-                                                <td>150000</td>
+                                                <td><span class="rooms-td-subhead">Sun</span></td>
+                                                <td><span class="rooms-td-subhead">Mon</span></td>
+                                                <td><span class="rooms-td-subhead">Tue</span></td>
+                                                <td><span class="rooms-td-subhead">Wed</span></td>
+                                                <td><span class="rooms-td-subhead">Thu</span></td>
+                                                <td><span class="rooms-td-subhead">Fri</span></td>
+                                                <td><span class="rooms-td-subhead">Sat</span></td>
                                             </tr>
                                             <tr>
                                                 <td>150000</td>
@@ -205,8 +216,21 @@ $this->registerCssFile('/css/ppt/ppt-styles.css');
                                                 <td>150000</td>
                                                 <td>150000</td>
                                                 <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
                                             </tr>
                                             <tr>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>150000</td>
+                                                <td>150000</td>
                                                 <td>150000</td>
                                                 <td>150000</td>
                                                 <td>150000</td>
@@ -220,21 +244,16 @@ $this->registerCssFile('/css/ppt/ppt-styles.css');
                                     <table class="ppt-content-table" style="background: #D6D0FF !important;">
                                         <tbody>
                                             <tr class="first-row">
-                                                <td colspan="5" class="rooms-td-head">CNB (Rack 25000)</td>
+                                                <td colspan="7" class="rooms-td-head">Child with Bed</td>
                                             </tr>
                                             <tr>
-                                                <td><span class="rooms-td-subhead">Slab 1</span></td>
-                                                <td><span class="rooms-td-subhead">Slab 2</span></td>
-                                                <td><span class="rooms-td-subhead">Slab 3</span></td>
-                                                <td><span class="rooms-td-subhead">Slab 4</span></td>
-                                                <td><span class="rooms-td-subhead">Slab 5</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td>150000</td>
-                                                <td>150000</td>
-                                                <td>150000</td>
-                                                <td>150000</td>
-                                                <td>150000</td>
+                                                <td><span class="rooms-td-subhead">Sun</span></td>
+                                                <td><span class="rooms-td-subhead">Mon</span></td>
+                                                <td><span class="rooms-td-subhead">Tue</span></td>
+                                                <td><span class="rooms-td-subhead">Wed</span></td>
+                                                <td><span class="rooms-td-subhead">Thu</span></td>
+                                                <td><span class="rooms-td-subhead">Fri</span></td>
+                                                <td><span class="rooms-td-subhead">Sat</span></td>
                                             </tr>
                                             <tr>
                                                 <td>150000</td>
@@ -242,8 +261,21 @@ $this->registerCssFile('/css/ppt/ppt-styles.css');
                                                 <td>150000</td>
                                                 <td>150000</td>
                                                 <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
                                             </tr>
                                             <tr>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>150000</td>
+                                                <td>150000</td>
                                                 <td>150000</td>
                                                 <td>150000</td>
                                                 <td>150000</td>
@@ -257,21 +289,16 @@ $this->registerCssFile('/css/ppt/ppt-styles.css');
                                     <table class="ppt-content-table" style="background: #B2E8D7 !important;">
                                         <tbody>
                                             <tr class="first-row">
-                                                <td colspan="5" class="rooms-td-head">Single (Rack 25000)</td>
+                                                <td colspan="7" class="rooms-td-head">Child with Bed</td>
                                             </tr>
                                             <tr>
-                                                <td><span class="rooms-td-subhead">Slab 1</span></td>
-                                                <td><span class="rooms-td-subhead">Slab 2</span></td>
-                                                <td><span class="rooms-td-subhead">Slab 3</span></td>
-                                                <td><span class="rooms-td-subhead">Slab 4</span></td>
-                                                <td><span class="rooms-td-subhead">Slab 5</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td>150000</td>
-                                                <td>150000</td>
-                                                <td>150000</td>
-                                                <td>150000</td>
-                                                <td>150000</td>
+                                                <td><span class="rooms-td-subhead">Sun</span></td>
+                                                <td><span class="rooms-td-subhead">Mon</span></td>
+                                                <td><span class="rooms-td-subhead">Tue</span></td>
+                                                <td><span class="rooms-td-subhead">Wed</span></td>
+                                                <td><span class="rooms-td-subhead">Thu</span></td>
+                                                <td><span class="rooms-td-subhead">Fri</span></td>
+                                                <td><span class="rooms-td-subhead">Sat</span></td>
                                             </tr>
                                             <tr>
                                                 <td>150000</td>
@@ -279,8 +306,21 @@ $this->registerCssFile('/css/ppt/ppt-styles.css');
                                                 <td>150000</td>
                                                 <td>150000</td>
                                                 <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
                                             </tr>
                                             <tr>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>150000</td>
+                                                <td>150000</td>
                                                 <td>150000</td>
                                                 <td>150000</td>
                                                 <td>150000</td>
@@ -352,21 +392,16 @@ $this->registerCssFile('/css/ppt/ppt-styles.css');
                                     <table class="ppt-content-table" style="background: #FCE4D8 !important;">
                                         <tbody>
                                             <tr class="first-row">
-                                                <td colspan="5" class="rooms-td-head">Room (Rack 25000)</td>
+                                                <td colspan="7" class="rooms-td-head">Room Tariff</td>
                                             </tr>
                                             <tr>
-                                                <td><span class="rooms-td-subhead">Slab 1</span></td>
-                                                <td><span class="rooms-td-subhead">Slab 2</span></td>
-                                                <td><span class="rooms-td-subhead">Slab 3</span></td>
-                                                <td><span class="rooms-td-subhead">Slab 4</span></td>
-                                                <td><span class="rooms-td-subhead">Slab 5</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td>150000</td>
-                                                <td>150000</td>
-                                                <td>150000</td>
-                                                <td>150000</td>
-                                                <td>150000</td>
+                                                <td><span class="rooms-td-subhead">Sun</span></td>
+                                                <td><span class="rooms-td-subhead">Mon</span></td>
+                                                <td><span class="rooms-td-subhead">Tue</span></td>
+                                                <td><span class="rooms-td-subhead">Wed</span></td>
+                                                <td><span class="rooms-td-subhead">Thu</span></td>
+                                                <td><span class="rooms-td-subhead">Fri</span></td>
+                                                <td><span class="rooms-td-subhead">Sat</span></td>
                                             </tr>
                                             <tr>
                                                 <td>150000</td>
@@ -374,8 +409,21 @@ $this->registerCssFile('/css/ppt/ppt-styles.css');
                                                 <td>150000</td>
                                                 <td>150000</td>
                                                 <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
                                             </tr>
                                             <tr>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>150000</td>
+                                                <td>150000</td>
                                                 <td>150000</td>
                                                 <td>150000</td>
                                                 <td>150000</td>
@@ -389,21 +437,16 @@ $this->registerCssFile('/css/ppt/ppt-styles.css');
                                     <table class="ppt-content-table" style="background: #C5E0B7 !important;">
                                         <tbody>
                                             <tr class="first-row">
-                                                <td colspan="5" class="rooms-td-head">EBA (Rack 25000)</td>
+                                                <td colspan="7" class="rooms-td-head">Extra Bed Adult</td>
                                             </tr>
                                             <tr>
-                                                <td><span class="rooms-td-subhead">Slab 1</span></td>
-                                                <td><span class="rooms-td-subhead">Slab 2</span></td>
-                                                <td><span class="rooms-td-subhead">Slab 3</span></td>
-                                                <td><span class="rooms-td-subhead">Slab 4</span></td>
-                                                <td><span class="rooms-td-subhead">Slab 5</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td>150000</td>
-                                                <td>150000</td>
-                                                <td>150000</td>
-                                                <td>150000</td>
-                                                <td>150000</td>
+                                                <td><span class="rooms-td-subhead">Sun</span></td>
+                                                <td><span class="rooms-td-subhead">Mon</span></td>
+                                                <td><span class="rooms-td-subhead">Tue</span></td>
+                                                <td><span class="rooms-td-subhead">Wed</span></td>
+                                                <td><span class="rooms-td-subhead">Thu</span></td>
+                                                <td><span class="rooms-td-subhead">Fri</span></td>
+                                                <td><span class="rooms-td-subhead">Sat</span></td>
                                             </tr>
                                             <tr>
                                                 <td>150000</td>
@@ -411,8 +454,21 @@ $this->registerCssFile('/css/ppt/ppt-styles.css');
                                                 <td>150000</td>
                                                 <td>150000</td>
                                                 <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
                                             </tr>
                                             <tr>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>150000</td>
+                                                <td>150000</td>
                                                 <td>150000</td>
                                                 <td>150000</td>
                                                 <td>150000</td>
@@ -426,21 +482,16 @@ $this->registerCssFile('/css/ppt/ppt-styles.css');
                                     <table class="ppt-content-table" style="background: #BCDDF1 !important;">
                                         <tbody>
                                             <tr class="first-row">
-                                                <td colspan="5" class="rooms-td-head">CWB (Rack 25000)</td>
+                                                <td colspan="7" class="rooms-td-head">Child with Bed</td>
                                             </tr>
                                             <tr>
-                                                <td><span class="rooms-td-subhead">Slab 1</span></td>
-                                                <td><span class="rooms-td-subhead">Slab 2</span></td>
-                                                <td><span class="rooms-td-subhead">Slab 3</span></td>
-                                                <td><span class="rooms-td-subhead">Slab 4</span></td>
-                                                <td><span class="rooms-td-subhead">Slab 5</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td>150000</td>
-                                                <td>150000</td>
-                                                <td>150000</td>
-                                                <td>150000</td>
-                                                <td>150000</td>
+                                                <td><span class="rooms-td-subhead">Sun</span></td>
+                                                <td><span class="rooms-td-subhead">Mon</span></td>
+                                                <td><span class="rooms-td-subhead">Tue</span></td>
+                                                <td><span class="rooms-td-subhead">Wed</span></td>
+                                                <td><span class="rooms-td-subhead">Thu</span></td>
+                                                <td><span class="rooms-td-subhead">Fri</span></td>
+                                                <td><span class="rooms-td-subhead">Sat</span></td>
                                             </tr>
                                             <tr>
                                                 <td>150000</td>
@@ -448,8 +499,21 @@ $this->registerCssFile('/css/ppt/ppt-styles.css');
                                                 <td>150000</td>
                                                 <td>150000</td>
                                                 <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
                                             </tr>
                                             <tr>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>150000</td>
+                                                <td>150000</td>
                                                 <td>150000</td>
                                                 <td>150000</td>
                                                 <td>150000</td>
@@ -463,21 +527,16 @@ $this->registerCssFile('/css/ppt/ppt-styles.css');
                                     <table class="ppt-content-table" style="background: #D6D0FF !important;">
                                         <tbody>
                                             <tr class="first-row">
-                                                <td colspan="5" class="rooms-td-head">CNB (Rack 25000)</td>
+                                                <td colspan="7" class="rooms-td-head">Child with Bed</td>
                                             </tr>
                                             <tr>
-                                                <td><span class="rooms-td-subhead">Slab 1</span></td>
-                                                <td><span class="rooms-td-subhead">Slab 2</span></td>
-                                                <td><span class="rooms-td-subhead">Slab 3</span></td>
-                                                <td><span class="rooms-td-subhead">Slab 4</span></td>
-                                                <td><span class="rooms-td-subhead">Slab 5</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td>150000</td>
-                                                <td>150000</td>
-                                                <td>150000</td>
-                                                <td>150000</td>
-                                                <td>150000</td>
+                                                <td><span class="rooms-td-subhead">Sun</span></td>
+                                                <td><span class="rooms-td-subhead">Mon</span></td>
+                                                <td><span class="rooms-td-subhead">Tue</span></td>
+                                                <td><span class="rooms-td-subhead">Wed</span></td>
+                                                <td><span class="rooms-td-subhead">Thu</span></td>
+                                                <td><span class="rooms-td-subhead">Fri</span></td>
+                                                <td><span class="rooms-td-subhead">Sat</span></td>
                                             </tr>
                                             <tr>
                                                 <td>150000</td>
@@ -485,8 +544,21 @@ $this->registerCssFile('/css/ppt/ppt-styles.css');
                                                 <td>150000</td>
                                                 <td>150000</td>
                                                 <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
                                             </tr>
                                             <tr>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>150000</td>
+                                                <td>150000</td>
                                                 <td>150000</td>
                                                 <td>150000</td>
                                                 <td>150000</td>
@@ -500,21 +572,16 @@ $this->registerCssFile('/css/ppt/ppt-styles.css');
                                     <table class="ppt-content-table" style="background: #B2E8D7 !important;">
                                         <tbody>
                                             <tr class="first-row">
-                                                <td colspan="5" class="rooms-td-head">Single (Rack 25000)</td>
+                                                <td colspan="7" class="rooms-td-head">Child with Bed</td>
                                             </tr>
                                             <tr>
-                                                <td><span class="rooms-td-subhead">Slab 1</span></td>
-                                                <td><span class="rooms-td-subhead">Slab 2</span></td>
-                                                <td><span class="rooms-td-subhead">Slab 3</span></td>
-                                                <td><span class="rooms-td-subhead">Slab 4</span></td>
-                                                <td><span class="rooms-td-subhead">Slab 5</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td>150000</td>
-                                                <td>150000</td>
-                                                <td>150000</td>
-                                                <td>150000</td>
-                                                <td>150000</td>
+                                                <td><span class="rooms-td-subhead">Sun</span></td>
+                                                <td><span class="rooms-td-subhead">Mon</span></td>
+                                                <td><span class="rooms-td-subhead">Tue</span></td>
+                                                <td><span class="rooms-td-subhead">Wed</span></td>
+                                                <td><span class="rooms-td-subhead">Thu</span></td>
+                                                <td><span class="rooms-td-subhead">Fri</span></td>
+                                                <td><span class="rooms-td-subhead">Sat</span></td>
                                             </tr>
                                             <tr>
                                                 <td>150000</td>
@@ -522,8 +589,21 @@ $this->registerCssFile('/css/ppt/ppt-styles.css');
                                                 <td>150000</td>
                                                 <td>150000</td>
                                                 <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
                                             </tr>
                                             <tr>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                                <td>150000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>150000</td>
+                                                <td>150000</td>
                                                 <td>150000</td>
                                                 <td>150000</td>
                                                 <td>150000</td>
@@ -599,14 +679,14 @@ divs.forEach(div => div.addEventListener('scroll', e => {
 function moveToRight() {
     event.preventDefault();
     $('#scroll-table-1').animate({
-        scrollLeft: "+=300px"
+        scrollLeft: "+=1000px"
     }, "slow");
 }
 
 function moveToLeft() {
     event.preventDefault();
     $('.scroll-table').animate({
-        scrollLeft: "-=300px"
+        scrollLeft: "-=1000px"
     }, "slow");
 }
 // $(document).ready(function() {

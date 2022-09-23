@@ -109,18 +109,14 @@ $this->registerCssFile('/css/ppt/ppt-styles.css');
                                     <table class="ppt-content-table" style="background: #FCE4D8 !important;">
                                         <tbody>
                                             <tr class="first-row">
-                                                <td colspan="5" class="rooms-td-head">Room (Rack 25000)</td>
+                                                <td colspan="5" class="rooms-td-head">Adult Rate</td>
                                             </tr>
                                             <tr>
-                                                <td><span class="rooms-td-subhead">Slab 1</span></td>
-                                                <td><span class="rooms-td-subhead">Slab 2</span></td>
-                                                <td><span class="rooms-td-subhead">Slab 3</span></td>
-                                                <td><span class="rooms-td-subhead">Slab 4</span></td>
-                                                <td><span class="rooms-td-subhead">Slab 5</span></td>
+                                                <td><span class="rooms-td-subhead">Breakfast</span></td>
+                                                <td><span class="rooms-td-subhead">Lunch</span></td>
+                                                <td><span class="rooms-td-subhead">Dinner</span></td>
                                             </tr>
                                             <tr>
-                                                <td>150000</td>
-                                                <td>150000</td>
                                                 <td>150000</td>
                                                 <td>150000</td>
                                                 <td>150000</td>
@@ -129,12 +125,8 @@ $this->registerCssFile('/css/ppt/ppt-styles.css');
                                                 <td>150000</td>
                                                 <td>150000</td>
                                                 <td>150000</td>
-                                                <td>150000</td>
-                                                <td>150000</td>
                                             </tr>
                                             <tr>
-                                                <td>150000</td>
-                                                <td>150000</td>
                                                 <td>150000</td>
                                                 <td>150000</td>
                                                 <td>150000</td>
@@ -146,18 +138,14 @@ $this->registerCssFile('/css/ppt/ppt-styles.css');
                                     <table class="ppt-content-table" style="background: #C5E0B7 !important;">
                                         <tbody>
                                             <tr class="first-row">
-                                                <td colspan="5" class="rooms-td-head">EBA (Rack 25000)</td>
+                                                <td colspan="3" class="rooms-td-head">Child Rate</td>
                                             </tr>
                                             <tr>
-                                                <td><span class="rooms-td-subhead">Slab 1</span></td>
-                                                <td><span class="rooms-td-subhead">Slab 2</span></td>
-                                                <td><span class="rooms-td-subhead">Slab 3</span></td>
-                                                <td><span class="rooms-td-subhead">Slab 4</span></td>
-                                                <td><span class="rooms-td-subhead">Slab 5</span></td>
+                                                <td><span class="rooms-td-subhead">Breakfast</span></td>
+                                                <td><span class="rooms-td-subhead">Lunch</span></td>
+                                                <td><span class="rooms-td-subhead">Dinner</span></td>
                                             </tr>
                                             <tr>
-                                                <td>150000</td>
-                                                <td>150000</td>
                                                 <td>150000</td>
                                                 <td>150000</td>
                                                 <td>150000</td>
@@ -166,12 +154,8 @@ $this->registerCssFile('/css/ppt/ppt-styles.css');
                                                 <td>150000</td>
                                                 <td>150000</td>
                                                 <td>150000</td>
-                                                <td>150000</td>
-                                                <td>150000</td>
                                             </tr>
                                             <tr>
-                                                <td>150000</td>
-                                                <td>150000</td>
                                                 <td>150000</td>
                                                 <td>150000</td>
                                                 <td>150000</td>

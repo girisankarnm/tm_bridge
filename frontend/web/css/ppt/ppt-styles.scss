@@ -109,6 +109,8 @@ $font-bold: Bw-Mitga-bold;
 }
 
 .rooms-td-subhead {
+    display: inline-block;
+    width: 100%;
     text-align: center;
     font-size: 11px;
     color: #1E2339;
