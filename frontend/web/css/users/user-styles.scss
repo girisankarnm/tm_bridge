@@ -1,0 +1,552 @@
+@import "../partials/partials";
+
+$font-bold: 'Bw-Mitga-bold';
+
+
+.user-header-box {
+    width: 100%;
+    display: flex;
+    color: #fff;
+    padding: 7px 15px;
+    align-items: center;
+    background: #5968DB;
+    @include border-radius(5px);
+    justify-content: space-between;
+
+    .place-title {
+        color: #fff;
+        font-size: 15px;
+        margin: 0 35px 0 0;
+        font-family: $font-bold !important;
+    }
+
+    .room-stay-details {
+        font-size: 12px;
+        margin: 0 35px 0 0;
+    }
+}
+
+.user-header-box-left {
+    display: flex;
+    align-items: center;
+}
+
+.calendar-icon {
+    position: relative;
+
+    img {
+        width: 18px;
+    }
+
+    .calendar-noti {
+        top: 0;
+        width: 15px;
+        right: -5px;
+        height: 15px;
+        color: #fff;
+        font-size: 10px;
+        position: absolute;
+        align-items: center;
+        display: inline-flex;
+        background: #E40968;
+        justify-content: center;
+        font-family: $font-bold;
+        @include border-radius(50%);
+    }
+}
+
+.up-arrow {
+    img {
+        width: 15px;
+    }
+}
+
+.custom-accordion-wrapper {
+    .panel-default {
+        .panel-heading {
+            background: none;
+        }
+    }
+}
+
+body {
+    color: #6a6c6f;
+    background-color: #f1f3f6;
+    margin-top: 30px;
+}
+
+.container {
+    max-width: 960px;
+}
+
+
+.accordion {
+    .card {
+        border: none;
+
+        .card-header {
+            padding: 0;
+            display: flex;
+            color: #fff;
+            align-items: center;
+            background: #5968DB;
+            margin: 0 0 30px !important;
+            justify-content: space-between;
+            border-radius: 5px !important;
+            -webkit-border-radius: 5px !important;
+            -moz-border-radius: 5px !important;
+            -ms-border-radius: 5px !important;
+            -o-border-radius: 5px !important;
+
+            .card-title {
+                margin: 0;
+            }
+        }
+
+        .card-body {
+            padding: 0;
+            margin: 0 0 15px;
+            @include border-radius(10px);
+        }
+    }
+}
+
+.building-details {
+    display: flex;
+    align-items: center;
+}
+
+.resort-icons {
+    img {
+        width: 16px;
+    }
+}
+
+.building-type-wrapper {
+    margin: 0 0 0 15px;
+}
+
+.building-type {
+    font-size: 11px;
+    min-height: 23px;
+    min-width: 177px;
+    align-items: center;
+    display: inline-flex;
+    background: #F0F2FF;
+    justify-content: center;
+    @include border-radius(15px);
+}
+
+.phone-number-wrapper {
+    display: flex;
+    margin: 0 0 0 15px;
+    align-items: center;
+    line-height: 18px;
+
+    .phone-number-icon {
+        width: 23px;
+        height: 23px;
+    }
+
+    .phone-number {
+        margin: 0 0 0 6px;
+        color: #32374D;
+        font-size: 12px;
+        line-height: 10px;
+        min-height: auto;
+    }
+}
+
+.room-single-content {
+    border: 1px solid #999FB4;
+    @include border-radius(10px);
+    margin: 0 0 15px;
+    padding: 0px;
+}
+
+.search-result-card {
+    background: #fff;
+    border: 1px solid #999FB4;
+    @include border-radius(10px);
+    padding: 10px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    .search-result-left {
+        display: flex;
+        width: 70%;
+        align-items: flex-start;
+        justify-content: flex-start;
+
+        .card-details {
+            width: 100%;
+        }
+
+        .card-img {
+            width: 115px;
+            height: 115px;
+            margin: 0 20px 0 0;
+        }
+
+        .resort-details-area {
+            figure {
+                img {
+                    width: 85px;
+                }
+            }
+        }
+    }
+}
+
+.view-details-btn {
+    color: #ED8AB5;
+    background: none;
+    font-size: 10px !important;
+    border: 2px solid #ED8AB5;
+    padding: 3px 30px 3px 10px;
+    @include border-radius(15px);
+    font-family: $font-bold !important;
+    position: relative;
+
+    &::after {
+        position: absolute;
+        content: "";
+        right: 10px;
+        top: 5px;
+        border: none;
+        width: 10px;
+        height: 10px;
+        @include transform(rotate(45deg));
+        border-right: 2px solid #ED8AB5;
+        border-bottom: 2px solid #ED8AB5;
+        @include transition(all ease 0.5s);
+    }
+}
+
+.view-details-on {
+    background: #ED8AB5;
+    color: #fff;
+
+    &::after {
+        top: 10px;
+        border-color: $color-white;
+        @include transform(rotate(-135deg));
+    }
+}
+
+.block-ssr-booking-btns {
+    margin: 0 0 0 80px;
+
+    button {
+        padding: 0 10px;
+        line-height: 14px;
+        font-size: 12px !important;
+        color: #1E2339 !important;
+        background: #F0F2FF !important;
+        font-family: "Bw-Mitga-bold" !important;
+
+        .btn-status {
+            font-size: 10px;
+            font-family: 'Bw-Mitga-regular' !important;
+        }
+    }
+
+    .active {
+        color: #fff !important;
+        background: #E40968 !important;
+    }
+}
+
+.action-btn {
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #F0F2FF;
+    padding: 6px 10px;
+    color: #1E2339;
+    font-family: $font-bold;
+    font-size: 10px;
+    @include border-radius(.25rem);
+
+    img {
+        margin: 0 0 0 50px;
+        width: 20px;
+    }
+}
+
+.actions-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 0 20px;
+}
+
+.total-amount-wrapper {
+    .total-amount {
+        color: #5968DB;
+        font-size: 18px;
+        line-height: 25px;
+        margin: 0;
+
+        .total-value {
+            font-family: $font-bold;
+        }
+    }
+}
+
+.wishlist-man-icon {
+    display: flex;
+    padding: 0 20px;
+    align-items: center;
+    justify-content: space-between;
+
+    .wishlist-icon {
+        width: 23px;
+        height: 24px;
+        margin: 0 15px 0 0;
+    }
+
+}
+
+.man-icon {
+    position: relative;
+    display: inline-block;
+
+    img {
+        width: 12px;
+    }
+
+    .man-top-icon {
+        position: absolute;
+        top: -7px;
+        right: -13px;
+
+        img {
+            width: 17px;
+        }
+    }
+}
+
+.view-details-wrapper {
+    padding: 10px;
+    display: none;
+
+    .view-details-single {
+        padding: 10px;
+        margin: 0 0 10px;
+        border: 2px solid #E1E4ED;
+        @include border-radius(5px);
+    }
+}
+
+.day-area-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    .day-content {
+        background: #838BC7;
+        color: #fff;
+        padding: 10px 20px;
+        display: inline-block;
+        @include border-radius(5px);
+        margin: 0 10px 0 0;
+    }
+}
+
+.icons-group-wrapper {
+    min-width: 225px;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 44px;
+
+    .icon-content-single {
+        display: flex;
+        align-items: center;
+        font-family: $font-bold;
+        color: #1E2339;
+        font-size: 14px;
+        margin: 0 15px;
+
+        img {
+            // width: 15px;
+            margin: 0 10px 0 0;
+        }
+    }
+}
+
+.red-bordered-box {
+    border: 2px solid #F44336;
+}
+
+.red-box {
+    color: #F44336;
+    text-align: center;
+    font-family: $font-bold;
+    justify-content: center;
+    border: 2px solid #F44336;
+}
+
+.edit-question-icon {
+    margin: 0 0 0 10px;
+}
+
+.room-row-single {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+    justify-content: space-between;
+
+    .room-left {
+        display: inline-flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+}
+
+.room-name {
+    min-width: 200px;
+    color: #1E2339;
+    font-size: 12px;
+    font-family: $font-bold;
+}
+
+.meals-price-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.meals-area {
+    display: flex;
+    align-items: center;
+
+    figure {
+        margin: 0;
+        position: relative;
+
+        img {
+            width: 23px;
+        }
+
+        .info-icon {
+            position: absolute;
+            right: -7px;
+            top: -7px;
+
+            img {
+                width: 15px !important;
+            }
+        }
+    }
+
+    article {
+        margin: 0 0 0 5px;
+        font-size: 12px;
+        color: #1E2339;
+    }
+}
+
+.cat-price-wrapper {
+    display: flex;
+    align-items: center;
+    margin: 0 0 0 20px;
+
+    .cat-btn {
+        background: #838BC7;
+        padding: 3px 10px;
+        font-size: 12px;
+        color: #fff;
+        @include border-radius(15px);
+        margin: 0 10px 0 0;
+    }
+
+    .cat-price {
+        font-size: 12px;
+        color: #1E2339;
+        font-family: $font-bold;
+    }
+}
+
+.room-center {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.dropdown-wrapper {
+    margin: 0 20px 0 0;
+}
+
+.select-custom {
+    background: #F0F2FF;
+    position: relative;
+    min-width: 180px;
+
+    &::after {
+        position: absolute;
+        content: "";
+        pointer-events: none;
+        width: 10px;
+        height: 6px;
+        right: 10px;
+        top: 15px;
+        background: url(../../images/user-icons/down-arrow.svg) center top no-repeat;
+        background-size: contain;
+    }
+
+    select {
+        background: #F0F2FF;
+        color: #1E2339;
+        font-family: $font-bold !important;
+        font-size: 12px !important;
+        appearance: none;
+        border: none;
+        padding: 10px 50px 10px 15px;
+    }
+}
+
+.room-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+
+.apply-button {
+    border: none;
+    min-width: 110px;
+    padding: 6px 20px;
+    display: inline-block;
+    @include border-radius(30px);
+    font-family: $font-bold !important;
+    color: #1E2339;
+}
+
+.apply-hike-button {
+    background: #A3ABE2;
+}
+
+.apply-slash-button {
+    background: #B6DD79;
+}
+
+.view-delete-icons {
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-end;
+    margin: 0 0 0 15px;
+
+    button {
+        margin: 0 0 0 5px;
+        width: 24px;
+        height: 24px;
+        border: none;
+        background: none;
+    }
+}

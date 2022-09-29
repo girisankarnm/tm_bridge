@@ -1,6 +1,6 @@
 @import "../partials/partials";
 
-$font-bold: Bw-Mitga-bold;
+$font-bold: 'Bw-Mitga-bold';
 
 .large-btn {
     font-size: 14px !important;
@@ -201,6 +201,14 @@ $font-bold: Bw-Mitga-bold;
 
     &::before {
         background: #b30e55 !important;
+    }
+}
+
+.grey-btn {
+    background: #E1E5FF !important;
+
+    &::before {
+        background: #E1E5FF !important;
     }
 }
 
