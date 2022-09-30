@@ -158,8 +158,9 @@ $this->registerCssFile('/css/custom-style.css');
                                         </div>
                                         <button class="apply-button apply-hike-button">Apply Hike</button>
                                         <div class="view-delete-icons">
-                                            <button class="view-btn"><img src="images/user-icons/view-btn-icon.svg"
-                                                    alt=""></button>
+                                            <button class="view-btn" data-toggle="modal"
+                                                data-target="#roomingPlanModal"><img
+                                                    src="images/user-icons/view-btn-icon.svg" alt=""></button>
                                             <button class="delete-btn"><img src="images/user-icons/delete-icon.svg"
                                                     alt=""></button>
                                         </div>
@@ -209,8 +210,9 @@ $this->registerCssFile('/css/custom-style.css');
                                         </div>
                                         <button class="apply-button apply-slash-button">Apply Slash</button>
                                         <div class="view-delete-icons">
-                                            <button class="view-btn"><img src="images/user-icons/view-btn-icon.svg"
-                                                    alt=""></button>
+                                            <button class="view-btn" data-toggle="modal"
+                                                data-target="#roomingPlanModal"><img
+                                                    src="images/user-icons/view-btn-icon.svg" alt=""></button>
                                             <button class="delete-btn"><img src="images/user-icons/delete-icon.svg"
                                                     alt=""></button>
                                         </div>
@@ -268,8 +270,9 @@ $this->registerCssFile('/css/custom-style.css');
                                         </div>
                                         <button class="apply-button apply-hike-button">Apply Hike</button>
                                         <div class="view-delete-icons">
-                                            <button class="view-btn"><img src="images/user-icons/view-btn-icon.svg"
-                                                    alt=""></button>
+                                            <button class="view-btn" data-toggle="modal"
+                                                data-target="#roomingPlanModal"><img
+                                                    src="images/user-icons/view-btn-icon.svg" alt=""></button>
                                             <button class="delete-btn"><img src="images/user-icons/delete-icon.svg"
                                                     alt=""></button>
                                         </div>
@@ -319,8 +322,9 @@ $this->registerCssFile('/css/custom-style.css');
                                         </div>
                                         <button class="apply-button apply-slash-button">Apply Slash</button>
                                         <div class="view-delete-icons">
-                                            <button class="view-btn"><img src="images/user-icons/view-btn-icon.svg"
-                                                    alt=""></button>
+                                            <button class="view-btn" data-toggle="modal"
+                                                data-target="#roomingPlanModal"><img
+                                                    src="images/user-icons/view-btn-icon.svg" alt=""></button>
                                             <button class="delete-btn"><img src="images/user-icons/delete-icon.svg"
                                                     alt=""></button>
                                         </div>
@@ -414,7 +418,7 @@ $this->registerCssFile('/css/custom-style.css');
                                             <img src="images/user-icons/child-icon.svg" alt="" style="width: 20px"> 0
                                         </div>
                                     </div>
-                                    <div class="edit-question-icon">
+                                    <div class="edit-question-icon" data-toggle="modal" data-target="#editModal">
                                         <img src="images/user-icons/edit-icon.svg" style="width:28px;" alt="">
                                     </div>
                                 </div>
@@ -459,8 +463,9 @@ $this->registerCssFile('/css/custom-style.css');
                                         </div>
                                         <button class="apply-button apply-hike-button">Apply Hike</button>
                                         <div class="view-delete-icons">
-                                            <button class="view-btn"><img src="images/user-icons/view-btn-icon.svg"
-                                                    alt=""></button>
+                                            <button class="view-btn" data-toggle="modal"
+                                                data-target="#roomingPlanModal"><img
+                                                    src="images/user-icons/view-btn-icon.svg" alt=""></button>
                                             <button class="delete-btn"><img src="images/user-icons/delete-icon.svg"
                                                     alt=""></button>
                                         </div>
@@ -510,8 +515,9 @@ $this->registerCssFile('/css/custom-style.css');
                                         </div>
                                         <button class="apply-button apply-slash-button">Apply Slash</button>
                                         <div class="view-delete-icons">
-                                            <button class="view-btn"><img src="images/user-icons/view-btn-icon.svg"
-                                                    alt=""></button>
+                                            <button class="view-btn" data-toggle="modal"
+                                                data-target="#roomingPlanModal"><img
+                                                    src="images/user-icons/view-btn-icon.svg" alt=""></button>
                                             <button class="delete-btn"><img src="images/user-icons/delete-icon.svg"
                                                     alt=""></button>
                                         </div>
@@ -569,8 +575,9 @@ $this->registerCssFile('/css/custom-style.css');
                                         </div>
                                         <button class="apply-button apply-hike-button">Apply Hike</button>
                                         <div class="view-delete-icons">
-                                            <button class="view-btn"><img src="images/user-icons/view-btn-icon.svg"
-                                                    alt=""></button>
+                                            <button class="view-btn" data-toggle="modal"
+                                                data-target="#roomingPlanModal"><img
+                                                    src="images/user-icons/view-btn-icon.svg" alt=""></button>
                                             <button class="delete-btn"><img src="images/user-icons/delete-icon.svg"
                                                     alt=""></button>
                                         </div>
@@ -620,8 +627,9 @@ $this->registerCssFile('/css/custom-style.css');
                                         </div>
                                         <button class="apply-button apply-slash-button">Apply Slash</button>
                                         <div class="view-delete-icons">
-                                            <button class="view-btn"><img src="images/user-icons/view-btn-icon.svg"
-                                                    alt=""></button>
+                                            <button class="view-btn" data-toggle="modal"
+                                                data-target="#roomingPlanModal"><img
+                                                    src="images/user-icons/view-btn-icon.svg" alt=""></button>
                                             <button class="delete-btn"><img src="images/user-icons/delete-icon.svg"
                                                     alt=""></button>
                                         </div>
@@ -736,7 +744,7 @@ $this->registerCssFile('/css/custom-style.css');
                                             <img src="images/user-icons/child-icon.svg" alt="" style="width: 20px"> 0
                                         </div>
                                     </div>
-                                    <div class="edit-question-icon">
+                                    <div class="edit-question-icon" data-toggle="modal" data-target="#editModal">
                                         <img src="images/user-icons/edit-icon.svg" style="width:28px;" alt="">
                                     </div>
                                 </div>
@@ -781,8 +789,9 @@ $this->registerCssFile('/css/custom-style.css');
                                         </div>
                                         <button class="apply-button apply-hike-button">Apply Hike</button>
                                         <div class="view-delete-icons">
-                                            <button class="view-btn"><img src="images/user-icons/view-btn-icon.svg"
-                                                    alt=""></button>
+                                            <button class="view-btn" data-toggle="modal"
+                                                data-target="#roomingPlanModal"><img
+                                                    src="images/user-icons/view-btn-icon.svg" alt=""></button>
                                             <button class="delete-btn"><img src="images/user-icons/delete-icon.svg"
                                                     alt=""></button>
                                         </div>
@@ -832,8 +841,9 @@ $this->registerCssFile('/css/custom-style.css');
                                         </div>
                                         <button class="apply-button apply-slash-button">Apply Slash</button>
                                         <div class="view-delete-icons">
-                                            <button class="view-btn"><img src="images/user-icons/view-btn-icon.svg"
-                                                    alt=""></button>
+                                            <button class="view-btn" data-toggle="modal"
+                                                data-target="#roomingPlanModal"><img
+                                                    src="images/user-icons/view-btn-icon.svg" alt=""></button>
                                             <button class="delete-btn"><img src="images/user-icons/delete-icon.svg"
                                                     alt=""></button>
                                         </div>
@@ -891,8 +901,9 @@ $this->registerCssFile('/css/custom-style.css');
                                         </div>
                                         <button class="apply-button apply-hike-button">Apply Hike</button>
                                         <div class="view-delete-icons">
-                                            <button class="view-btn"><img src="images/user-icons/view-btn-icon.svg"
-                                                    alt=""></button>
+                                            <button class="view-btn" data-toggle="modal"
+                                                data-target="#roomingPlanModal"><img
+                                                    src="images/user-icons/view-btn-icon.svg" alt=""></button>
                                             <button class="delete-btn"><img src="images/user-icons/delete-icon.svg"
                                                     alt=""></button>
                                         </div>
@@ -942,8 +953,9 @@ $this->registerCssFile('/css/custom-style.css');
                                         </div>
                                         <button class="apply-button apply-slash-button">Apply Slash</button>
                                         <div class="view-delete-icons">
-                                            <button class="view-btn"><img src="images/user-icons/view-btn-icon.svg"
-                                                    alt=""></button>
+                                            <button class="view-btn" data-toggle="modal"
+                                                data-target="#roomingPlanModal"><img
+                                                    src="images/user-icons/view-btn-icon.svg" alt=""></button>
                                             <button class="delete-btn"><img src="images/user-icons/delete-icon.svg"
                                                     alt=""></button>
                                         </div>
@@ -1005,7 +1017,7 @@ $this->registerCssFile('/css/custom-style.css');
                             <table class="room-pax-table">
                                 <thead>
                                     <tr>
-                                        <th></th style="width:55%">
+                                        <th style="width:55%"></th>
                                         <th style="width:15%">
                                             <div class="man-icon">
                                                 <img src="images/user-icons/man-icon.svg" alt="">
@@ -1020,7 +1032,7 @@ $this->registerCssFile('/css/custom-style.css');
                                                         alt=""></span>
                                             </div>
                                         </th>
-                                        <th style="width:15%">
+                                        <th style="width:15%;">
                                             <div class="man-icon">
                                                 <img src="images/user-icons/man-icon.svg" alt="">
                                                 <span class="man-top-icon"><img src="images/user-icons/check-icon.svg"
@@ -1031,44 +1043,139 @@ $this->registerCssFile('/css/custom-style.css');
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td style="text-align: left;">
+                                        <td style="width:55%; text-align: left;">
                                             <div class="td-box">Pax Count as per property's Child & Infant Policy</div>
                                         </td>
-                                        <td>
+                                        <td style="width:15%;">
                                             <div class="td-box">7</div>
                                         </td>
-                                        <td>
+                                        <td style="width:15%;">
                                             <div class="td-box">0</div>
                                         </td>
-                                        <td>
+                                        <td style="width:15%;">
                                             <div class="td-box">0</div>
                                         </td>
                                     </tr>
+                                </tbody>
+                            </table>
+                            <div class="table-vertical-scroll">
+                                <table class="room-pax-table">
+                                    <tbody>
+                                        <tr>
+                                            <td style="text-align: left; width:55%;">
+                                                <div class="td-box">Crown Luxury</div>
+                                            </td>
+                                            <td style="width:15.5%">
+                                                <div class="td-box">7</div>
+                                            </td>
+                                            <td style="width:15%">
+                                                <div class="td-box">0</div>
+                                            </td>
+                                            <td style="width:15%;">
+                                                <div class="td-box">0</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: left; ">
+                                                <div class="td-box">Crown Luxury</div>
+                                            </td>
+                                            <td style="">
+                                                <div class="td-box">7</div>
+                                            </td>
+                                            <td style="">
+                                                <div class="td-box">0</div>
+                                            </td>
+                                            <td style="">
+                                                <div class="td-box">0</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: left; ">
+                                                <div class="td-box">Crown Luxury</div>
+                                            </td>
+                                            <td style="">
+                                                <div class="td-box">7</div>
+                                            </td>
+                                            <td style="">
+                                                <div class="td-box">0</div>
+                                            </td>
+                                            <td style="">
+                                                <div class="td-box">0</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: left; ">
+                                                <div class="td-box">Crown Luxury</div>
+                                            </td>
+                                            <td style="">
+                                                <div class="td-box">7</div>
+                                            </td>
+                                            <td style="">
+                                                <div class="td-box">0</div>
+                                            </td>
+                                            <td style="">
+                                                <div class="td-box">0</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: left; ">
+                                                <div class="td-box">Crown Luxury</div>
+                                            </td>
+                                            <td style="">
+                                                <div class="td-box">7</div>
+                                            </td>
+                                            <td style="">
+                                                <div class="td-box">0</div>
+                                            </td>
+                                            <td style="">
+                                                <div class="td-box">0</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: left; ">
+                                                <div class="td-box">Crown Luxury</div>
+                                            </td>
+                                            <td style="">
+                                                <div class="td-box">7</div>
+                                            </td>
+                                            <td style="">
+                                                <div class="td-box">0</div>
+                                            </td>
+                                            <td style="">
+                                                <div class="td-box">0</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: left; ">
+                                                <div class="td-box">Crown Luxury</div>
+                                            </td>
+                                            <td style="">
+                                                <div class="td-box">7</div>
+                                            </td>
+                                            <td style="">
+                                                <div class="td-box">0</div>
+                                            </td>
+                                            <td style="">
+                                                <div class="td-box">0</div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <table class="room-pax-table">
+                                <tbody>
                                     <tr>
-                                        <td style="text-align: left;">
-                                            <div class="td-box">Crown Luxury</div>
-                                        </td>
-                                        <td>
-                                            <div class="td-box">7</div>
-                                        </td>
-                                        <td>
-                                            <div class="td-box">0</div>
-                                        </td>
-                                        <td>
-                                            <div class="td-box">0</div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td style="text-align: left;">
+                                        <td style="text-align: left;width:55%;">
                                             <div class="td-box">Allocated Pax</div>
                                         </td>
-                                        <td>
+                                        <td style="width:15%;">
                                             <div class="td-box">7</div>
                                         </td>
-                                        <td>
+                                        <td style="width:15%;">
                                             <div class="td-box">0</div>
                                         </td>
-                                        <td>
+                                        <td style="width:15%;">
                                             <div class="td-box">0</div>
                                         </td>
                                     </tr>
@@ -1078,7 +1185,7 @@ $this->registerCssFile('/css/custom-style.css');
                     </div>
                     <div class="popup-bottom">
                         <div class="two-btn-center">
-                            <button class="btn grey-btn">Cancel</button>
+                            <button class="btn grey-btn" data-dismiss="modal" aria-label="Close">Cancel</button>
                             <button class="btn red-btn">Apply</button>
                         </div>
                     </div>
@@ -1091,7 +1198,7 @@ $this->registerCssFile('/css/custom-style.css');
 <!-- BOF Roomin Plan Modal -->
 <div class="modal fade" id="roomingPlanModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
     aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered medium-modal-wrapper" role="document">
+    <div class="modal-dialog modal-dialog-centered large-modal-wrapper" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <div class="modal-header-left">
@@ -1107,7 +1214,7 @@ $this->registerCssFile('/css/custom-style.css');
                         <div class="enquiry-box-header">
                             <div class="enquiry-box-single">
                                 <div class="enquiry-box-title">Enquiry No</div>
-                                <div class="enquiry-box-value">Enquiry No</div>
+                                <div class="enquiry-box-value">101/2022</div>
                             </div>
                             <div class="enquiry-box-single">
                                 <div class="enquiry-box-title">Guest Name</div>
@@ -1137,11 +1244,11 @@ $this->registerCssFile('/css/custom-style.css');
                                     <div class="room-facilities-single">
                                         <div class="icons-group-wrapper">
                                             <div class="icon-content-single">
-                                                <img src="images/user-icons/child-icon.svg" alt="" style="width: 25px">
+                                                <img src="images/user-icons/child-icon.svg" alt="" style="width: 16px">
                                                 1-9 YR
                                             </div>
                                             <div class="icon-content-single">
-                                                <img src="images/user-icons/women-icon.svg" alt="" style="width: 25px">
+                                                <img src="images/user-icons/women-icon.svg" alt="" style="width: 15px">
                                                 10-15 YR
                                             </div>
                                         </div>
@@ -1151,104 +1258,140 @@ $this->registerCssFile('/css/custom-style.css');
                         </div>
                     </div>
                 </div>
-                <div class="pop-room-details-wrapper">
-                    <div class="pop-room-content-header">
-                        <div class="pop-room-content">
-                            <figure><img src="images/user-icons/user-img.png" alt=""></figure>
-                            <article>
-                                <h4 class="room-name">Misty Rock Resort</h4>
-                                <div class="resort-location">
-                                    <span class="location-icon"><img src="images/location-icon.png" alt=""></span>
-                                    <h5 class="location-name">Wayanad, Kerala, India</h5>
-                                </div>
-                            </article>
-                        </div>
-                        <div class="enquiry-pax">
-                            <div class="enquiry-pax-header">Enquiry Pax</div>
-                            <div class="enquiry-pax-contents-wrapper">
-                                <div class="icons-group-wrapper">
-                                    <div class="icon-content-single">
-                                        <img src="images/user-icons/man-icon.svg" alt="" style="width: 14px"> 7
-                                    </div>
-                                    <div class="icon-content-single">
-                                        <img src="images/user-icons/women-icon.svg" alt="" style="width: 19px">
-                                        0
+                <div class="pax-count-pax-wise-wrapper">
+                    <div class="row">
+                        <div class="col-lg-7">
+                            <div class="header-area">
+                                <div class="heading">Pax Count</div>
+                                <div class="header-area-facilities">
+                                    <div class="room-facilities-single">
+                                        <div class="icons-group-wrapper">
+                                            <div class="icon-content-single">
+                                                <img src="images/user-icons/child-icon.svg" alt="" style="width: 16px">
+                                                1-9 YR
+                                            </div>
+                                            <div class="icon-content-single">
+                                                <img src="images/user-icons/women-icon.svg" alt="" style="width: 15px">
+                                                10-15 YR
+                                            </div>
+                                        </div>
+                                        <div class="icons-group-wrapper colored-box">
+                                            <div class="icon-content-single">
+                                                <img src="images/user-icons/meals-icon.svg" alt="" style="width: 23px">
+                                                AP (Breakfast)
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                            <div class="table-responsive common-table-area-wrapper">
+                                <table class="common-table-area">
+                                    <thead>
+                                        <tr>
+                                            <th>Rooms</th>
+                                            <th>EBS</th>
+                                            <th>CWB</th>
+                                            <th>CNB</th>
+                                            <th>SGL</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><input type="text" class="table-input" value="99"></td>
+                                            <td><input type="text" class="table-input" value="99"></td>
+                                            <td><input type="text" class="table-input" value="99"></td>
+                                            <td><input type="text" class="table-input table-input-disabled" value="99">
+                                            </td>
+                                            <td><input type="text" class="table-input" value="99"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="info-area">
+                                <div class="info-list">
+                                    <h6><img src="images/user-icons/info-icon.svg" alt=""> Unallocated Pax:</h6>
+                                    <div class="icons-group-wrapper">
+                                        <div class="icon-content-single">
+                                            <img src="images/user-icons/child-icon.svg" alt="" style="width: 16px">
+                                            1-9 YR
+                                        </div>
+                                        <div class="icon-content-single">
+                                            <img src="images/user-icons/women-icon.svg" alt="" style="width: 15px">
+                                            10-15 YR
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="info-list">
+                                    <h6><img src="images/user-icons/info-icon.svg" alt=""> Excess Bed Utilization: DB:22
+                                        | EB:22 | SB:22</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="header-area">
+                                <div class="heading">Pax-Wise Bed Utilization</div>
+                            </div>
+                            <div class="table-responsive common-table-area-wrapper">
+                                <table class="common-table-area white-table no-border-table">
+                                    <tbody>
+                                        <tr>
+                                            <td><img style="width: 11px; margin: 0 10px;"
+                                                    src="images/user-icons/man-icon.svg" alt=""></td>
+                                            <td><input type="text" class="table-input" value="DB:99"></td>
+                                            <td><input type="text" class="table-input" value="EB:99"></td>
+                                            <td><input type="text" class="table-input table-input-disabled"
+                                                    value="SGL:99"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><img style="width: 15px; margin: 0 10px;"
+                                                    src="images/user-icons/women-icon.svg" alt=""></td>
+                                            <td><input type="text" class="table-input" value="DB:99"></td>
+                                            <td><input type="text" class="table-input" value="EB:99"></td>
+                                            <td><input type="text" class="table-input table-input-disabled"
+                                                    value="SGL:99"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><img style="width: 15px; margin: 0 10px;"
+                                                    src="images/user-icons/child-icon.svg" alt=""></td>
+                                            <td><input type="text" class="table-input" value="DB:99"></td>
+                                            <td><input type="text" class="table-input" value="EB:99"></td>
+                                            <td><input type="text" class="table-input table-input-disabled"
+                                                    value="SGL:99"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
-                    <div class="room-body-wrapper">
-                        <div class="table-responsive">
-                            <table class="room-pax-table">
+                    <div class="slab-rate-wrapper">
+                        <div class="header-area">
+                            <div class="heading">Tariff Basis: Slab Rate</div>
+                        </div>
+                        <div class="table-responsive common-table-area-wrapper">
+                            <table class="common-table-area">
                                 <thead>
                                     <tr>
-                                        <th></th style="width:55%">
-                                        <th style="width:15%">
-                                            <div class="man-icon">
-                                                <img src="images/user-icons/man-icon.svg" alt="">
-                                                <span class="man-top-icon"><img src="images/user-icons/check-icon.svg"
-                                                        alt=""></span>
-                                            </div>
-                                        </th>
-                                        <th style="width:15%">
-                                            <div class="man-icon">
-                                                <img src="images/user-icons/man-icon.svg" alt="">
-                                                <span class="man-top-icon"><img src="images/user-icons/check-icon.svg"
-                                                        alt=""></span>
-                                            </div>
-                                        </th>
-                                        <th style="width:15%">
-                                            <div class="man-icon">
-                                                <img src="images/user-icons/man-icon.svg" alt="">
-                                                <span class="man-top-icon"><img src="images/user-icons/check-icon.svg"
-                                                        alt=""></span>
-                                            </div>
-                                        </th>
+                                        <th>Rooms</th>
+                                        <th>FRA</th>
+                                        <th>CWB</th>
+                                        <th>CNB</th>
+                                        <th>SGI</th>
+                                        <th>FOC</th>
+                                        <th>Dinner</th>
+                                        <th>Day Tool</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td style="text-align: left;">
-                                            <div class="td-box">Pax Count as per property's Child & Infant Policy</div>
+                                        <td><input type="text" class="table-input" value="1,24450"></td>
+                                        <td><input type="text" class="table-input" value="2,2950"></td>
+                                        <td><input type="text" class="table-input" value="0"></td>
+                                        <td><input type="text" class="table-input table-input-disabled" value="1,2700">
                                         </td>
-                                        <td>
-                                            <div class="td-box">7</div>
-                                        </td>
-                                        <td>
-                                            <div class="td-box">0</div>
-                                        </td>
-                                        <td>
-                                            <div class="td-box">0</div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td style="text-align: left;">
-                                            <div class="td-box">Crown Luxury</div>
-                                        </td>
-                                        <td>
-                                            <div class="td-box">7</div>
-                                        </td>
-                                        <td>
-                                            <div class="td-box">0</div>
-                                        </td>
-                                        <td>
-                                            <div class="td-box">0</div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td style="text-align: left;">
-                                            <div class="td-box">Allocated Pax</div>
-                                        </td>
-                                        <td>
-                                            <div class="td-box">7</div>
-                                        </td>
-                                        <td>
-                                            <div class="td-box">0</div>
-                                        </td>
-                                        <td>
-                                            <div class="td-box">0</div>
-                                        </td>
+                                        <td><input type="text" class="table-input" value="0"></td>
+                                        <td><input type="text" class="table-input" value="0"></td>
+                                        <td><input type="text" class="table-input" value="0"></td>
+                                        <td><input type="text" class="table-input" value="35,000"></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -1256,7 +1399,7 @@ $this->registerCssFile('/css/custom-style.css');
                     </div>
                     <div class="popup-bottom">
                         <div class="two-btn-center">
-                            <button class="btn grey-btn">Cancel</button>
+                            <button class="btn grey-btn" data-dismiss="modal" aria-label="Close">Cancel</button>
                             <button class="btn red-btn">Apply</button>
                         </div>
                     </div>
@@ -1374,7 +1517,7 @@ function viewDetails(id) {
     $(`#view-details-btn-0${id}`).toggleClass(`view-details-on`);
 }
 
-$(window).on('load', function() {
-    $('#roomingPlanModal').modal('show');
-});
+// $(window).on('load', function() {
+//     $('#roomingPlanModal').modal('show');
+// });
 </script>

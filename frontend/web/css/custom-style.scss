@@ -132,6 +132,7 @@ $font-bold: 'Bw-Mitga-bold';
 
 .room-pax-table {
     width: 100%;
+    box-shadow: none !important;
     background: none !important;
     border: none !important;
 
@@ -162,6 +163,18 @@ $font-bold: 'Bw-Mitga-bold';
                 border: none !important;
                 color: #1E2339;
                 // background: #f7f7fb !important;
+            }
+        }
+    }
+}
+
+.modal-content-scroll {
+    tbody {
+        tr {
+            padding: 0;
+
+            td {
+                padding: 5px 10px 5px 0;
             }
         }
     }
@@ -202,5 +215,269 @@ $font-bold: 'Bw-Mitga-bold';
     button {
         margin: 0 5px;
         font-family: $font-bold !important;
+    }
+}
+
+.enquiry-box-wrapper {
+    background: #F0F2FF;
+    border-radius: 5px;
+    margin: 0 0 20px;
+    padding: 15px;
+
+    .enquiry-box-header {
+        display: flex;
+        align-items: stretch;
+        justify-content: space-between;
+        margin: 0 0 15px;
+    }
+}
+
+.enquiry-box-single {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    background: #fff;
+    border: 2px solid #D2D2D2;
+    padding: 0;
+    @include border-radius(5px);
+    width: 40%;
+
+    &:nth-child(2) {
+        width: 58%;
+    }
+
+    .enquiry-box-title {
+        font-size: 12px;
+        color: #1E2339;
+        border-right: 2px solid #D2D2D2;
+        padding: 10px 15px;
+    }
+
+    .enquiry-box-value {
+        font-size: 12px;
+        color: #1E2339;
+        font-family: $font-bold;
+        padding: 10px 15px;
+        flex-grow: 1;
+    }
+}
+
+.hotel-room-wrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    .hotel-details {
+        .room-name {
+            color: #1E2339;
+            font-size: 14px;
+            margin: 0 0 5px;
+            font-family: $font-bold;
+        }
+    }
+
+    .room-details {
+        .room-name {
+            color: #1E2339;
+            font-size: 15px;
+            margin: 0 0 5px;
+            font-family: $font-bold;
+        }
+    }
+}
+
+.room-facilities-wrapper {
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-end;
+
+}
+
+.room-facilities-single {
+    margin: 0 10px 0 0;
+
+    &:nth-last-child(1) {
+        margin-right: 0;
+    }
+
+    .icons-group-wrapper {
+        background: #fff;
+        border: 1px solid #D2D2D2;
+        padding: 0;
+        min-width: auto;
+
+
+        .icon-content-single {
+            font-family: 'Bw-Mitga-regular' !important;
+        }
+
+    }
+
+    .colored-box {
+        background: #838BC7;
+
+        .icon-content-single {
+            color: #fff;
+        }
+    }
+}
+
+.header-area {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0 0 10px;
+
+    .heading {
+        color: #1E2339;
+        margin: 0 15px 0 0;
+        font-family: $font-bold;
+    }
+}
+
+.header-area-facilities {
+    .room-facilities-single {
+        display: flex;
+        align-items: center;
+
+        .icons-group-wrapper {
+            margin: 0 15px 0 0;
+        }
+    }
+}
+
+.table-responsive {
+    background: var(--white-color) !important;
+    box-shadow: none !important;
+    @include border-radius(0px);
+}
+
+input.table-input {
+    max-width: 90px;
+    border: 1px solid #d2d2d2;
+    margin: 10px;
+    padding: 7px 10px;
+    @include border-radius(5px);
+
+    &:hover,
+    &:focus {
+        outline: none;
+    }
+}
+
+input.table-input-disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+
+.common-table-area-wrapper {
+    .common-table-area {
+        border: none !important;
+        box-shadow: none;
+        width: 100%;
+
+        thead {
+
+            tr {
+                th {
+                    border: 1px solid #F0F2FF;
+                    border-right: 1px solid #d2d2d2;
+                    border-bottom: none;
+                    background: #F0F2FF;
+                    // font-weight: normal;
+                    font-family: $font-bold !important;
+                    color: #1E2339;
+                    font-size: 13px !important;
+                    padding: 10px 10px;
+
+                    &:nth-last-child(1) {
+                        border-right: none;
+                    }
+                }
+            }
+        }
+
+        tbody {
+
+            tr {
+                td {
+                    border-top: none;
+                    border: 1px solid #D2D2D2;
+                }
+            }
+        }
+    }
+
+    .white-table {
+        tbody {
+            tr {
+                background: none;
+
+                td {}
+            }
+        }
+    }
+}
+
+.no-border-table {
+    tbody {
+        tr {
+            td {
+                border: none !important;
+            }
+        }
+    }
+}
+
+.info-area {
+    margin: 5px 0 0;
+
+    .info-list {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        h6 {
+            color: #1E2339;
+            font-size: 13px;
+            margin: 0;
+
+            img {
+                width: 20px;
+                margin: 0 4px 0 0;
+            }
+        }
+
+        .icons-group-wrapper {
+            min-width: auto;
+
+            .icon-content-single {
+                margin: 0 10px 0 0;
+                font-family: 'Bw-Mitga-regular';
+            }
+        }
+    }
+}
+
+.slab-rate-wrapper {
+    margin: 10px 0 0;
+}
+
+.table-vertical-scroll {
+    max-height: 180px;
+    overflow: hidden;
+    overflow-y: auto;
+
+    .room-pax-table {
+        tbody {
+            tr {
+                td {
+                    &:nth-last-child(1) {
+                        padding-right: 5px;
+                    }
+                }
+            }
+        }
     }
 }
