@@ -1047,13 +1047,13 @@ $this->registerCssFile('/css/custom-style.css');
                                             <div class="td-box">Pax Count as per property's Child & Infant Policy</div>
                                         </td>
                                         <td style="width:15%;">
-                                            <div class="td-box">7</div>
+                                            <div class="td-smal-input">7</div>
                                         </td>
                                         <td style="width:15%;">
-                                            <div class="td-box">0</div>
+                                            <div class="td-smal-input">0</div>
                                         </td>
                                         <td style="width:15%;">
-                                            <div class="td-box">0</div>
+                                            <div class="td-smal-input">0</div>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -1066,97 +1066,55 @@ $this->registerCssFile('/css/custom-style.css');
                                                 <div class="td-box">Crown Luxury</div>
                                             </td>
                                             <td style="width:15.5%">
-                                                <div class="td-box">7</div>
+                                                <input class="td-smal-input" value="7">
                                             </td>
                                             <td style="width:15%">
-                                                <div class="td-box">0</div>
+                                                <input class="td-smal-input" value="0">
                                             </td>
                                             <td style="width:15%;">
-                                                <div class="td-box">0</div>
+                                                <input class="td-smal-input" value="0">
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td style="text-align: left; ">
+                                            <td style="text-align: left; width:55%;">
                                                 <div class="td-box">Crown Luxury</div>
                                             </td>
-                                            <td style="">
-                                                <div class="td-box">7</div>
+                                            <td style="width:15.5%">
+                                                <input class="td-smal-input" value="7">
                                             </td>
-                                            <td style="">
-                                                <div class="td-box">0</div>
+                                            <td style="width:15%">
+                                                <input class="td-smal-input" value="0">
                                             </td>
-                                            <td style="">
-                                                <div class="td-box">0</div>
+                                            <td style="width:15%;">
+                                                <input class="td-smal-input" value="0">
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td style="text-align: left; ">
+                                            <td style="text-align: left; width:55%;">
                                                 <div class="td-box">Crown Luxury</div>
                                             </td>
-                                            <td style="">
-                                                <div class="td-box">7</div>
+                                            <td style="width:15.5%">
+                                                <input class="td-smal-input" value="7">
                                             </td>
-                                            <td style="">
-                                                <div class="td-box">0</div>
+                                            <td style="width:15%">
+                                                <input class="td-smal-input" value="0">
                                             </td>
-                                            <td style="">
-                                                <div class="td-box">0</div>
+                                            <td style="width:15%;">
+                                                <input class="td-smal-input" value="0">
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td style="text-align: left; ">
+                                            <td style="text-align: left; width:55%;">
                                                 <div class="td-box">Crown Luxury</div>
                                             </td>
-                                            <td style="">
-                                                <div class="td-box">7</div>
+                                            <td style="width:15.5%">
+                                                <input class="td-smal-input" value="7">
                                             </td>
-                                            <td style="">
-                                                <div class="td-box">0</div>
+                                            <td style="width:15%">
+                                                <input class="td-smal-input" value="0">
                                             </td>
-                                            <td style="">
-                                                <div class="td-box">0</div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td style="text-align: left; ">
-                                                <div class="td-box">Crown Luxury</div>
-                                            </td>
-                                            <td style="">
-                                                <div class="td-box">7</div>
-                                            </td>
-                                            <td style="">
-                                                <div class="td-box">0</div>
-                                            </td>
-                                            <td style="">
-                                                <div class="td-box">0</div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td style="text-align: left; ">
-                                                <div class="td-box">Crown Luxury</div>
-                                            </td>
-                                            <td style="">
-                                                <div class="td-box">7</div>
-                                            </td>
-                                            <td style="">
-                                                <div class="td-box">0</div>
-                                            </td>
-                                            <td style="">
-                                                <div class="td-box">0</div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td style="text-align: left; ">
-                                                <div class="td-box">Crown Luxury</div>
-                                            </td>
-                                            <td style="">
-                                                <div class="td-box">7</div>
-                                            </td>
-                                            <td style="">
-                                                <div class="td-box">0</div>
-                                            </td>
-                                            <td style="">
-                                                <div class="td-box">0</div>
+                                            <td style="width:15%;">
+                                                <input class="td-smal-input" value="0">
                                             </td>
                                         </tr>
                                     </tbody>
@@ -1170,13 +1128,13 @@ $this->registerCssFile('/css/custom-style.css');
                                             <div class="td-box">Allocated Pax</div>
                                         </td>
                                         <td style="width:15%;">
-                                            <div class="td-box">7</div>
+                                            <div class="td-smal-input">7</div>
                                         </td>
                                         <td style="width:15%;">
-                                            <div class="td-box">0</div>
+                                            <div class="td-smal-input">0</div>
                                         </td>
                                         <td style="width:15%;">
-                                            <div class="td-box">0</div>
+                                            <div class="td-smal-input">0</div>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -1517,7 +1475,7 @@ function viewDetails(id) {
     $(`#view-details-btn-0${id}`).toggleClass(`view-details-on`);
 }
 
-// $(window).on('load', function() {
-//     $('#roomingPlanModal').modal('show');
-// });
+$(window).on('load', function() {
+    $('#roomingPlanModal').modal('show');
+});
 </script>
