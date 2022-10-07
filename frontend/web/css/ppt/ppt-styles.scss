@@ -99,6 +99,11 @@ $font-bold: 'Bw-Mitga-bold';
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    .content-left {
+        white-space: nowrap;
+        padding: 0 15px 0 0;
+    }
 }
 
 .rooms-td-head {

@@ -39,18 +39,22 @@ $this->registerCssFile('/css/custom-style.css');
                                         <article>
                                             <div class="card-heading-row">
                                                 <h4 class="card-heading">Misty Rock Resort</h4>
-                                                <div class="star-wrapper">
-                                                    <img src="images/search-popup/star-icon.svg" alt="">
-                                                    <img src="images/search-popup/star-icon.svg" alt="">
-                                                    <img src="images/search-popup/star-icon.svg" alt="">
-                                                    <img src="images/search-popup/star-icon.svg" alt="">
-                                                    <img src="images/search-popup/star-icon.svg" alt="">
+                                                <div class="hotel-rating-text-wrapper">
+                                                    <span class="hotel-rating-text">Luxury</span>
                                                 </div>
+                                                <!-- <div class="star-wrapper">
+                                                    <img src="images/search-popup/star-icon.svg" alt="">
+                                                    <img src="images/search-popup/star-icon.svg" alt="">
+                                                    <img src="images/search-popup/star-icon.svg" alt="">
+                                                    <img src="images/search-popup/star-icon.svg" alt="">
+                                                    <img src="images/search-popup/star-icon.svg" alt="">
+                                                </div> -->
                                                 <div class="block-ssr-booking-btns">
-                                                    <button class="btn">Block</button>
-                                                    <button class="btn active">SSR <br> <span
-                                                            class="btn-status">Accepted</span></button>
-                                                    <button class="btn">Booking</button>
+                                                    <div class="block-ssr-booking-btn">Block</div>
+                                                    <div class="block-ssr-booking-btn active">SSR <br>
+                                                        <span class="btn-status">Accepted</span>
+                                                    </div>
+                                                    <div class="block-ssr-booking-btn">Booking</div>
                                                 </div>
                                             </div>
                                             <div class="resort-location">
@@ -89,8 +93,23 @@ $this->registerCssFile('/css/custom-style.css');
                             </div>
                             <div class="search-result-right">
                                 <div class="actions-wrapper">
-                                    <button class="action-btn">Actions <img src="images/user-icons/actions-icon.svg"
-                                            alt=""></button>
+                                    <!-- <button class="action-btn">Actions <img src="images/user-icons/actions-icon.svg"
+                                            alt=""></button> -->
+                                    <div class="dropdown show">
+                                        <a class="action-btn dropdown-toggle" href="#" role="button"
+                                            id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
+                                            Actions <img src="images/user-icons/actions-icon.svg" alt="">
+                                        </a>
+
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                            <a class="dropdown-item" href="#">Message</a>
+                                            <a class="dropdown-item" href="#">Check availability</a>
+                                            <a class="dropdown-item" href="#">SRR</a>
+                                            <a class="dropdown-item" href="#">Block</a>
+                                            <a class="dropdown-item" href="#">Booking</a>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="total-amount-wrapper">
                                     <h3 class="total-amount">Total Amount: <span class="total-value">₹ 25,000,0</span>
@@ -104,13 +123,16 @@ $this->registerCssFile('/css/custom-style.css');
                                     <div class="day-content">Day 1 | 10 Aug 2022</div>
                                     <div class="icons-group-wrapper red-bordered-box">
                                         <div class="icon-content-single">
-                                            <img src="images/user-icons/man-icon.svg" alt="" style="width: 14px"> 7
+                                            <img src="images/user-icons/man-icon.svg" alt=""
+                                                style="width: 10px; margin:0 5px 0 0;"> 7
                                         </div>
                                         <div class="icon-content-single">
-                                            <img src="images/user-icons/women-icon.svg" alt="" style="width: 19px"> 0
+                                            <img src="images/user-icons/women-icon.svg" alt=""
+                                                style="width: 14px; margin:0 5px 0 0;"> 0
                                         </div>
                                         <div class="icon-content-single">
-                                            <img src="images/user-icons/child-icon.svg" alt="" style="width: 20px"> 0
+                                            <img src="images/user-icons/child-icon.svg" alt=""
+                                                style="width: 14px; margin:0 5px 0 0;"> 0
                                         </div>
                                     </div>
                                     <div class="edit-question-icon" data-toggle="modal" data-target="#editModal">
@@ -122,14 +144,17 @@ $this->registerCssFile('/css/custom-style.css');
                                         <div class="room-name">Crown Luxury</div>
                                         <div class="icons-group-wrapper">
                                             <div class="icon-content-single">
-                                                <img src="images/user-icons/man-icon.svg" alt="" style="width: 14px"> 7
+                                                <img src="images/user-icons/man-icon.svg" alt=""
+                                                    style="width: 10px; margin:0 5px 0 0;"> 7
                                             </div>
                                             <div class="icon-content-single">
-                                                <img src="images/user-icons/women-icon.svg" alt="" style="width: 19px">
+                                                <img src="images/user-icons/women-icon.svg" alt=""
+                                                    style="width: 14px; margin:0 5px 0 0;">
                                                 0
                                             </div>
                                             <div class="icon-content-single">
-                                                <img src="images/user-icons/child-icon.svg" alt="" style="width: 20px">
+                                                <img src="images/user-icons/child-icon.svg" alt=""
+                                                    style="width: 14px; margin:0 5px 0 0;">
                                                 0
                                             </div>
                                         </div>
@@ -171,14 +196,17 @@ $this->registerCssFile('/css/custom-style.css');
                                         <div class="room-name">Crown Deluxe</div>
                                         <div class="icons-group-wrapper">
                                             <div class="icon-content-single">
-                                                <img src="images/user-icons/man-icon.svg" alt="" style="width: 14px"> 2
+                                                <img src="images/user-icons/man-icon.svg" alt=""
+                                                    style="width: 10px; margin:0 5px 0 0;"> 2
                                             </div>
                                             <div class="icon-content-single">
-                                                <img src="images/user-icons/women-icon.svg" alt="" style="width: 19px">
+                                                <img src="images/user-icons/women-icon.svg" alt=""
+                                                    style="width: 14px; margin:0 5px 0 0;">
                                                 0
                                             </div>
                                             <div class="icon-content-single">
-                                                <img src="images/user-icons/child-icon.svg" alt="" style="width: 20px">
+                                                <img src="images/user-icons/child-icon.svg" alt=""
+                                                    style="width: 14px; margin:0 5px 0 0;">
                                                 0
                                             </div>
                                         </div>
@@ -234,14 +262,17 @@ $this->registerCssFile('/css/custom-style.css');
                                         <div class="room-name">Crown Luxury</div>
                                         <div class="icons-group-wrapper">
                                             <div class="icon-content-single">
-                                                <img src="images/user-icons/man-icon.svg" alt="" style="width: 14px"> 7
+                                                <img src="images/user-icons/man-icon.svg" alt=""
+                                                    style="width: 10px; margin:0 5px 0 0;"> 7
                                             </div>
                                             <div class="icon-content-single">
-                                                <img src="images/user-icons/women-icon.svg" alt="" style="width: 19px">
+                                                <img src="images/user-icons/women-icon.svg" alt=""
+                                                    style="width: 14px; margin:0 5px 0 0;">
                                                 0
                                             </div>
                                             <div class="icon-content-single">
-                                                <img src="images/user-icons/child-icon.svg" alt="" style="width: 20px">
+                                                <img src="images/user-icons/child-icon.svg" alt=""
+                                                    style="width: 14px; margin:0 5px 0 0;">
                                                 0
                                             </div>
                                         </div>
@@ -283,14 +314,17 @@ $this->registerCssFile('/css/custom-style.css');
                                         <div class="room-name">Crown Deluxe</div>
                                         <div class="icons-group-wrapper">
                                             <div class="icon-content-single">
-                                                <img src="images/user-icons/man-icon.svg" alt="" style="width: 14px"> 2
+                                                <img src="images/user-icons/man-icon.svg" alt=""
+                                                    style="width: 10px; margin:0 5px 0 0;"> 2
                                             </div>
                                             <div class="icon-content-single">
-                                                <img src="images/user-icons/women-icon.svg" alt="" style="width: 19px">
+                                                <img src="images/user-icons/women-icon.svg" alt=""
+                                                    style="width: 14px; margin:0 5px 0 0;">
                                                 0
                                             </div>
                                             <div class="icon-content-single">
-                                                <img src="images/user-icons/child-icon.svg" alt="" style="width: 20px">
+                                                <img src="images/user-icons/child-icon.svg" alt=""
+                                                    style="width: 14px; margin:0 5px 0 0;">
                                                 0
                                             </div>
                                         </div>
@@ -344,18 +378,15 @@ $this->registerCssFile('/css/custom-style.css');
                                         <article>
                                             <div class="card-heading-row">
                                                 <h4 class="card-heading">Parakkat Nature Hotels & Resort</h4>
-                                                <div class="star-wrapper">
-                                                    <img src="images/search-popup/star-icon.svg" alt="">
-                                                    <img src="images/search-popup/star-icon.svg" alt="">
-                                                    <img src="images/search-popup/star-icon.svg" alt="">
-                                                    <img src="images/search-popup/star-icon.svg" alt="">
-                                                    <img src="images/search-popup/star-icon.svg" alt="">
+                                                <div class="hotel-rating-text-wrapper">
+                                                    <span class="hotel-rating-text">Luxury</span>
                                                 </div>
                                                 <div class="block-ssr-booking-btns">
-                                                    <button class="btn">Block</button>
-                                                    <button class="btn active">SSR <br> <span
-                                                            class="btn-status">Accepted</span></button>
-                                                    <button class="btn">Booking</button>
+                                                    <div class="block-ssr-booking-btn">Block</div>
+                                                    <div class="block-ssr-booking-btn active">SSR <br>
+                                                        <span class="btn-status">Accepted</span>
+                                                    </div>
+                                                    <div class="block-ssr-booking-btn">Booking</div>
                                                 </div>
                                             </div>
                                             <div class="resort-location">
@@ -394,8 +425,21 @@ $this->registerCssFile('/css/custom-style.css');
                             </div>
                             <div class="search-result-right">
                                 <div class="actions-wrapper">
-                                    <button class="action-btn">Actions <img src="images/user-icons/actions-icon.svg"
-                                            alt=""></button>
+                                    <div class="dropdown show">
+                                        <a class="action-btn dropdown-toggle" href="#" role="button"
+                                            id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
+                                            Actions <img src="images/user-icons/actions-icon.svg" alt="">
+                                        </a>
+
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                            <a class="dropdown-item" href="#">Message</a>
+                                            <a class="dropdown-item" href="#">Check availability</a>
+                                            <a class="dropdown-item" href="#">SRR</a>
+                                            <a class="dropdown-item" href="#">Block</a>
+                                            <a class="dropdown-item" href="#">Booking</a>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="total-amount-wrapper">
                                     <h3 class="total-amount">Total Amount: <span class="total-value">₹ 25,000,0</span>
@@ -409,13 +453,16 @@ $this->registerCssFile('/css/custom-style.css');
                                     <div class="day-content">Day 1 | 10 Aug 2022</div>
                                     <div class="icons-group-wrapper red-bordered-box">
                                         <div class="icon-content-single">
-                                            <img src="images/user-icons/man-icon.svg" alt="" style="width: 14px"> 7
+                                            <img src="images/user-icons/man-icon.svg" alt=""
+                                                style="width: 10px; margin:0 5px 0 0;"> 7
                                         </div>
                                         <div class="icon-content-single">
-                                            <img src="images/user-icons/women-icon.svg" alt="" style="width: 19px"> 0
+                                            <img src="images/user-icons/women-icon.svg" alt=""
+                                                style="width: 14px; margin:0 5px 0 0;"> 0
                                         </div>
                                         <div class="icon-content-single">
-                                            <img src="images/user-icons/child-icon.svg" alt="" style="width: 20px"> 0
+                                            <img src="images/user-icons/child-icon.svg" alt=""
+                                                style="width: 14px; margin:0 5px 0 0;"> 0
                                         </div>
                                     </div>
                                     <div class="edit-question-icon" data-toggle="modal" data-target="#editModal">
@@ -430,11 +477,13 @@ $this->registerCssFile('/css/custom-style.css');
                                                 <img src="images/user-icons/man-icon.svg" alt="" style="width: 14px"> 7
                                             </div>
                                             <div class="icon-content-single">
-                                                <img src="images/user-icons/women-icon.svg" alt="" style="width: 19px">
+                                                <img src="images/user-icons/women-icon.svg" alt=""
+                                                    style="width: 14px; margin:0 5px 0 0;">
                                                 0
                                             </div>
                                             <div class="icon-content-single">
-                                                <img src="images/user-icons/child-icon.svg" alt="" style="width: 20px">
+                                                <img src="images/user-icons/child-icon.svg" alt=""
+                                                    style="width: 14px; margin:0 5px 0 0;">
                                                 0
                                             </div>
                                         </div>
@@ -476,14 +525,17 @@ $this->registerCssFile('/css/custom-style.css');
                                         <div class="room-name">Crown Deluxe</div>
                                         <div class="icons-group-wrapper">
                                             <div class="icon-content-single">
-                                                <img src="images/user-icons/man-icon.svg" alt="" style="width: 14px"> 2
+                                                <img src="images/user-icons/man-icon.svg" alt=""
+                                                    style="width: 10px; margin:0 5px 0 0;"> 2
                                             </div>
                                             <div class="icon-content-single">
-                                                <img src="images/user-icons/women-icon.svg" alt="" style="width: 19px">
+                                                <img src="images/user-icons/women-icon.svg" alt=""
+                                                    style="width: 14px; margin:0 5px 0 0;">
                                                 0
                                             </div>
                                             <div class="icon-content-single">
-                                                <img src="images/user-icons/child-icon.svg" alt="" style="width: 20px">
+                                                <img src="images/user-icons/child-icon.svg" alt=""
+                                                    style="width: 14px; margin:0 5px 0 0;">
                                                 0
                                             </div>
                                         </div>
@@ -539,14 +591,17 @@ $this->registerCssFile('/css/custom-style.css');
                                         <div class="room-name">Crown Luxury</div>
                                         <div class="icons-group-wrapper">
                                             <div class="icon-content-single">
-                                                <img src="images/user-icons/man-icon.svg" alt="" style="width: 14px"> 7
+                                                <img src="images/user-icons/man-icon.svg" alt=""
+                                                    style="width: 10px; margin:0 5px 0 0;"> 7
                                             </div>
                                             <div class="icon-content-single">
-                                                <img src="images/user-icons/women-icon.svg" alt="" style="width: 19px">
+                                                <img src="images/user-icons/women-icon.svg" alt=""
+                                                    style="width: 14px; margin:0 5px 0 0;">
                                                 0
                                             </div>
                                             <div class="icon-content-single">
-                                                <img src="images/user-icons/child-icon.svg" alt="" style="width: 20px">
+                                                <img src="images/user-icons/child-icon.svg" alt=""
+                                                    style="width: 14px; margin:0 5px 0 0;">
                                                 0
                                             </div>
                                         </div>
@@ -588,14 +643,17 @@ $this->registerCssFile('/css/custom-style.css');
                                         <div class="room-name">Crown Deluxe</div>
                                         <div class="icons-group-wrapper">
                                             <div class="icon-content-single">
-                                                <img src="images/user-icons/man-icon.svg" alt="" style="width: 14px"> 2
+                                                <img src="images/user-icons/man-icon.svg" alt=""
+                                                    style="width: 10px; margin:0 5px 0 0;"> 2
                                             </div>
                                             <div class="icon-content-single">
-                                                <img src="images/user-icons/women-icon.svg" alt="" style="width: 19px">
+                                                <img src="images/user-icons/women-icon.svg" alt=""
+                                                    style="width: 14px; margin:0 5px 0 0;">
                                                 0
                                             </div>
                                             <div class="icon-content-single">
-                                                <img src="images/user-icons/child-icon.svg" alt="" style="width: 20px">
+                                                <img src="images/user-icons/child-icon.svg" alt=""
+                                                    style="width: 14px; margin:0 5px 0 0;">
                                                 0
                                             </div>
                                         </div>
@@ -670,18 +728,15 @@ $this->registerCssFile('/css/custom-style.css');
                                         <article>
                                             <div class="card-heading-row">
                                                 <h4 class="card-heading">Parakkat Nature Hotels & Resort</h4>
-                                                <div class="star-wrapper">
-                                                    <img src="images/search-popup/star-icon.svg" alt="">
-                                                    <img src="images/search-popup/star-icon.svg" alt="">
-                                                    <img src="images/search-popup/star-icon.svg" alt="">
-                                                    <img src="images/search-popup/star-icon.svg" alt="">
-                                                    <img src="images/search-popup/star-icon.svg" alt="">
+                                                <div class="hotel-rating-text-wrapper">
+                                                    <span class="hotel-rating-text">Luxury</span>
                                                 </div>
                                                 <div class="block-ssr-booking-btns">
-                                                    <button class="btn">Block</button>
-                                                    <button class="btn active">SSR <br> <span
-                                                            class="btn-status">Accepted</span></button>
-                                                    <button class="btn">Booking</button>
+                                                    <div class="block-ssr-booking-btn">Block</div>
+                                                    <div class="block-ssr-booking-btn active">SSR <br>
+                                                        <span class="btn-status">Accepted</span>
+                                                    </div>
+                                                    <div class="block-ssr-booking-btn">Booking</div>
                                                 </div>
                                             </div>
                                             <div class="resort-location">
@@ -720,8 +775,21 @@ $this->registerCssFile('/css/custom-style.css');
                             </div>
                             <div class="search-result-right">
                                 <div class="actions-wrapper">
-                                    <button class="action-btn">Actions <img src="images/user-icons/actions-icon.svg"
-                                            alt=""></button>
+                                    <div class="dropdown show">
+                                        <a class="action-btn dropdown-toggle" href="#" role="button"
+                                            id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
+                                            Actions <img src="images/user-icons/actions-icon.svg" alt="">
+                                        </a>
+
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                            <a class="dropdown-item" href="#">Message</a>
+                                            <a class="dropdown-item" href="#">Check availability</a>
+                                            <a class="dropdown-item" href="#">SRR</a>
+                                            <a class="dropdown-item" href="#">Block</a>
+                                            <a class="dropdown-item" href="#">Booking</a>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="total-amount-wrapper">
                                     <h3 class="total-amount">Total Amount: <span class="total-value">₹ 25,000,0</span>
@@ -735,13 +803,16 @@ $this->registerCssFile('/css/custom-style.css');
                                     <div class="day-content">Day 1 | 10 Aug 2022</div>
                                     <div class="icons-group-wrapper red-bordered-box">
                                         <div class="icon-content-single">
-                                            <img src="images/user-icons/man-icon.svg" alt="" style="width: 14px"> 7
+                                            <img src="images/user-icons/man-icon.svg" alt=""
+                                                style="width: 10px; margin:0 5px 0 0;"> 7
                                         </div>
                                         <div class="icon-content-single">
-                                            <img src="images/user-icons/women-icon.svg" alt="" style="width: 19px"> 0
+                                            <img src="images/user-icons/women-icon.svg" alt=""
+                                                style="width: 14px; margin:0 5px 0 0;"> 0
                                         </div>
                                         <div class="icon-content-single">
-                                            <img src="images/user-icons/child-icon.svg" alt="" style="width: 20px"> 0
+                                            <img src="images/user-icons/child-icon.svg" alt=""
+                                                style="width: 14px; margin:0 5px 0 0;"> 0
                                         </div>
                                     </div>
                                     <div class="edit-question-icon" data-toggle="modal" data-target="#editModal">
@@ -753,14 +824,17 @@ $this->registerCssFile('/css/custom-style.css');
                                         <div class="room-name">Crown Luxury</div>
                                         <div class="icons-group-wrapper">
                                             <div class="icon-content-single">
-                                                <img src="images/user-icons/man-icon.svg" alt="" style="width: 14px"> 7
+                                                <img src="images/user-icons/man-icon.svg" alt=""
+                                                    style="width: 10px; margin:0 5px 0 0;"> 7
                                             </div>
                                             <div class="icon-content-single">
-                                                <img src="images/user-icons/women-icon.svg" alt="" style="width: 19px">
+                                                <img src="images/user-icons/women-icon.svg" alt=""
+                                                    style="width: 14px; margin:0 5px 0 0;">
                                                 0
                                             </div>
                                             <div class="icon-content-single">
-                                                <img src="images/user-icons/child-icon.svg" alt="" style="width: 20px">
+                                                <img src="images/user-icons/child-icon.svg" alt=""
+                                                    style="width: 14px; margin:0 5px 0 0;">
                                                 0
                                             </div>
                                         </div>
@@ -802,14 +876,17 @@ $this->registerCssFile('/css/custom-style.css');
                                         <div class="room-name">Crown Deluxe</div>
                                         <div class="icons-group-wrapper">
                                             <div class="icon-content-single">
-                                                <img src="images/user-icons/man-icon.svg" alt="" style="width: 14px"> 2
+                                                <img src="images/user-icons/man-icon.svg" alt=""
+                                                    style="width: 10px; margin:0 5px 0 0;"> 2
                                             </div>
                                             <div class="icon-content-single">
-                                                <img src="images/user-icons/women-icon.svg" alt="" style="width: 19px">
+                                                <img src="images/user-icons/women-icon.svg" alt=""
+                                                    style="width: 14px; margin:0 5px 0 0;">
                                                 0
                                             </div>
                                             <div class="icon-content-single">
-                                                <img src="images/user-icons/child-icon.svg" alt="" style="width: 20px">
+                                                <img src="images/user-icons/child-icon.svg" alt=""
+                                                    style="width: 14px; margin:0 5px 0 0;">
                                                 0
                                             </div>
                                         </div>
@@ -865,14 +942,17 @@ $this->registerCssFile('/css/custom-style.css');
                                         <div class="room-name">Crown Luxury</div>
                                         <div class="icons-group-wrapper">
                                             <div class="icon-content-single">
-                                                <img src="images/user-icons/man-icon.svg" alt="" style="width: 14px"> 7
+                                                <img src="images/user-icons/man-icon.svg" alt=""
+                                                    style="width: 10px; margin:0 5px 0 0;"> 7
                                             </div>
                                             <div class="icon-content-single">
-                                                <img src="images/user-icons/women-icon.svg" alt="" style="width: 19px">
+                                                <img src="images/user-icons/women-icon.svg" alt=""
+                                                    style="width: 14px; margin:0 5px 0 0;">
                                                 0
                                             </div>
                                             <div class="icon-content-single">
-                                                <img src="images/user-icons/child-icon.svg" alt="" style="width: 20px">
+                                                <img src="images/user-icons/child-icon.svg" alt=""
+                                                    style="width: 14px; margin:0 5px 0 0;">
                                                 0
                                             </div>
                                         </div>
@@ -914,14 +994,347 @@ $this->registerCssFile('/css/custom-style.css');
                                         <div class="room-name">Crown Deluxe</div>
                                         <div class="icons-group-wrapper">
                                             <div class="icon-content-single">
-                                                <img src="images/user-icons/man-icon.svg" alt="" style="width: 14px"> 2
+                                                <img src="images/user-icons/man-icon.svg" alt=""
+                                                    style="width: 10px; margin:0 5px 0 0;"> 2
                                             </div>
                                             <div class="icon-content-single">
-                                                <img src="images/user-icons/women-icon.svg" alt="" style="width: 19px">
+                                                <img src="images/user-icons/women-icon.svg" alt=""
+                                                    style="width: 14px; margin:0 5px 0 0;">
                                                 0
                                             </div>
                                             <div class="icon-content-single">
-                                                <img src="images/user-icons/child-icon.svg" alt="" style="width: 20px">
+                                                <img src="images/user-icons/child-icon.svg" alt=""
+                                                    style="width: 14px; margin:0 5px 0 0;">
+                                                0
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="room-center">
+                                        <div class="meals-price-wrapper">
+                                            <div class="meals-area">
+                                                <figure>
+                                                    <img src="images/search-popup/food-icon.svg" alt="">
+                                                    <span class="info-icon">
+                                                        <img src="images/user-icons/info-icon.svg" alt="">
+                                                    </span>
+                                                </figure>
+                                                <article>AP</article>
+                                            </div>
+                                            <div class="cat-price-wrapper">
+                                                <div class="cat-btn">SSR</div>
+                                                <div class="cat-price">₹6,400</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="room-right">
+                                        <div class="dropdown-wrapper">
+                                            <div class="select-custom">
+                                                <select name="" id="">
+                                                    <option value="">Manual Rooming</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <button class="apply-button apply-slash-button">Apply Slash</button>
+                                        <div class="view-delete-icons">
+                                            <button class="view-btn" data-toggle="modal"
+                                                data-target="#roomingPlanModal"><img
+                                                    src="images/user-icons/view-btn-icon.svg" alt=""></button>
+                                            <button class="delete-btn"><img src="images/user-icons/delete-icon.svg"
+                                                    alt=""></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="room-single-content">
+                        <div class="search-result-card">
+                            <div class="search-result-left">
+                                <div class="card-details">
+                                    <div class="resort-details-area">
+                                        <figure>
+                                            <img src="images/search-popup/hotel-img.png" alt="">
+                                        </figure>
+                                        <article>
+                                            <div class="card-heading-row">
+                                                <h4 class="card-heading">Parakkat Nature Hotels & Resort</h4>
+                                                <div class="hotel-rating-text-wrapper">
+                                                    <span class="hotel-rating-text">Luxury</span>
+                                                </div>
+                                                <div class="block-ssr-booking-btns">
+                                                    <div class="block-ssr-booking-btn">Block</div>
+                                                    <div class="block-ssr-booking-btn active">SSR <br>
+                                                        <span class="btn-status">Accepted</span>
+                                                    </div>
+                                                    <div class="block-ssr-booking-btn">Booking</div>
+                                                </div>
+                                            </div>
+                                            <div class="resort-location">
+                                                <span class="location-icon"><img src="images/location-icon.png"
+                                                        alt=""></span>
+                                                <h5 class="location-name">Wayanad, Kerala, India</h5>
+                                            </div>
+                                            <div class="building-details">
+                                                <div class="resort-icons">
+                                                    <img src="images/resort-icons/no-smoking-icon.svg" alt="">
+                                                    <img src="images/resort-icons/no-pets.svg" alt="">
+                                                </div>
+                                                <div class="building-type-wrapper">
+                                                    <span class="building-type">APARTMENT</span>
+                                                </div>
+                                                <div class="wishlist-man-icon">
+                                                    <div class="wishlist-icon"><img
+                                                            src="images/user-icons/wishlist-icon.svg" alt=""></div>
+                                                    <div class="man-icon">
+                                                        <img src="images/user-icons/man-icon.svg" alt="">
+                                                        <span class="man-top-icon"><img
+                                                                src="images/user-icons/check-icon.svg" alt=""></span>
+                                                    </div>
+                                                </div>
+                                                <div class="phone-number-wrapper">
+                                                    <div class="view-details">
+                                                        <button class="view-details-btn" id="view-details-btn-02"
+                                                            onclick="viewDetails(3)">View
+                                                            Details</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="search-result-right">
+                                <div class="actions-wrapper">
+                                    <div class="dropdown show">
+                                        <a class="action-btn dropdown-toggle" href="#" role="button"
+                                            id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
+                                            Actions <img src="images/user-icons/actions-icon.svg" alt="">
+                                        </a>
+
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                            <a class="dropdown-item" href="#">Message</a>
+                                            <a class="dropdown-item" href="#">Check availability</a>
+                                            <a class="dropdown-item" href="#">SRR</a>
+                                            <a class="dropdown-item" href="#">Block</a>
+                                            <a class="dropdown-item" href="#">Booking</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="total-amount-wrapper">
+                                    <h3 class="total-amount">Total Amount: <span class="total-value">₹ 25,000,0</span>
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="view-details-wrapper" id="matching-boxes-main-3">
+                            <div class="view-details-single">
+                                <div class="day-area-wrapper">
+                                    <div class="day-content">Day 1 | 10 Aug 2022</div>
+                                    <div class="icons-group-wrapper red-bordered-box">
+                                        <div class="icon-content-single">
+                                            <img src="images/user-icons/man-icon.svg" alt=""
+                                                style="width: 10px; margin:0 5px 0 0;"> 7
+                                        </div>
+                                        <div class="icon-content-single">
+                                            <img src="images/user-icons/women-icon.svg" alt=""
+                                                style="width: 14px; margin:0 5px 0 0;"> 0
+                                        </div>
+                                        <div class="icon-content-single">
+                                            <img src="images/user-icons/child-icon.svg" alt=""
+                                                style="width: 14px; margin:0 5px 0 0;"> 0
+                                        </div>
+                                    </div>
+                                    <div class="edit-question-icon" data-toggle="modal" data-target="#editModal">
+                                        <img src="images/user-icons/edit-icon.svg" style="width:28px;" alt="">
+                                    </div>
+                                </div>
+                                <div class="room-row-single">
+                                    <div class="room-left">
+                                        <div class="room-name">Crown Luxury</div>
+                                        <div class="icons-group-wrapper">
+                                            <div class="icon-content-single">
+                                                <img src="images/user-icons/man-icon.svg" alt=""
+                                                    style="width: 10px; margin:0 5px 0 0;"> 7
+                                            </div>
+                                            <div class="icon-content-single">
+                                                <img src="images/user-icons/women-icon.svg" alt=""
+                                                    style="width: 14px; margin:0 5px 0 0;">
+                                                0
+                                            </div>
+                                            <div class="icon-content-single">
+                                                <img src="images/user-icons/child-icon.svg" alt=""
+                                                    style="width: 14px; margin:0 5px 0 0;">
+                                                0
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="room-center">
+                                        <div class="meals-price-wrapper">
+                                            <div class="meals-area">
+                                                <figure>
+                                                    <img src="images/search-popup/food-icon.svg" alt="">
+                                                </figure>
+                                                <article>AP</article>
+                                            </div>
+                                            <div class="cat-price-wrapper">
+                                                <div class="cat-btn">SSR</div>
+                                                <div class="cat-price">₹6,100</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="room-right">
+                                        <div class="dropdown-wrapper">
+                                            <div class="select-custom">
+                                                <select name="" id="">
+                                                    <option value="">Auto Rooming</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <button class="apply-button apply-hike-button">Apply Hike</button>
+                                        <div class="view-delete-icons">
+                                            <button class="view-btn" data-toggle="modal"
+                                                data-target="#roomingPlanModal"><img
+                                                    src="images/user-icons/view-btn-icon.svg" alt=""></button>
+                                            <button class="delete-btn"><img src="images/user-icons/delete-icon.svg"
+                                                    alt=""></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="room-row-single">
+                                    <div class="room-left">
+                                        <div class="room-name">Crown Deluxe</div>
+                                        <div class="icons-group-wrapper">
+                                            <div class="icon-content-single">
+                                                <img src="images/user-icons/man-icon.svg" alt=""
+                                                    style="width: 10px; margin:0 5px 0 0;"> 2
+                                            </div>
+                                            <div class="icon-content-single">
+                                                <img src="images/user-icons/women-icon.svg" alt=""
+                                                    style="width: 14px; margin:0 5px 0 0;">
+                                                0
+                                            </div>
+                                            <div class="icon-content-single">
+                                                <img src="images/user-icons/child-icon.svg" alt=""
+                                                    style="width: 14px; margin:0 5px 0 0;">
+                                                0
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="room-center">
+                                        <div class="meals-price-wrapper">
+                                            <div class="meals-area">
+                                                <figure>
+                                                    <img src="images/search-popup/food-icon.svg" alt="">
+                                                    <span class="info-icon">
+                                                        <img src="images/user-icons/info-icon.svg" alt="">
+                                                    </span>
+                                                </figure>
+                                                <article>AP</article>
+                                            </div>
+                                            <div class="cat-price-wrapper">
+                                                <div class="cat-btn">SSR</div>
+                                                <div class="cat-price">₹6,400</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="room-right">
+                                        <div class="dropdown-wrapper">
+                                            <div class="select-custom">
+                                                <select name="" id="">
+                                                    <option value="">Manual Rooming</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <button class="apply-button apply-slash-button">Apply Slash</button>
+                                        <div class="view-delete-icons">
+                                            <button class="view-btn" data-toggle="modal"
+                                                data-target="#roomingPlanModal"><img
+                                                    src="images/user-icons/view-btn-icon.svg" alt=""></button>
+                                            <button class="delete-btn"><img src="images/user-icons/delete-icon.svg"
+                                                    alt=""></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="view-details-single">
+                                <div class="day-area-wrapper">
+                                    <div class="day-content">Day 1 | 10 Aug 2022</div>
+                                    <div class="icons-group-wrapper red-box">
+                                        Child Policy Mismatch
+                                    </div>
+                                    <div class="edit-question-icon">
+                                        <img src="images/user-icons/question-icon.svg" style="width:28px;" alt="">
+                                    </div>
+                                </div>
+                                <div class="room-row-single">
+                                    <div class="room-left">
+                                        <div class="room-name">Crown Luxury</div>
+                                        <div class="icons-group-wrapper">
+                                            <div class="icon-content-single">
+                                                <img src="images/user-icons/man-icon.svg" alt=""
+                                                    style="width: 10px; margin:0 5px 0 0;"> 7
+                                            </div>
+                                            <div class="icon-content-single">
+                                                <img src="images/user-icons/women-icon.svg" alt=""
+                                                    style="width: 14px; margin:0 5px 0 0;">
+                                                0
+                                            </div>
+                                            <div class="icon-content-single">
+                                                <img src="images/user-icons/child-icon.svg" alt=""
+                                                    style="width: 14px; margin:0 5px 0 0;">
+                                                0
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="room-center">
+                                        <div class="meals-price-wrapper">
+                                            <div class="meals-area">
+                                                <figure>
+                                                    <img src="images/search-popup/food-icon.svg" alt="">
+                                                </figure>
+                                                <article>AP</article>
+                                            </div>
+                                            <div class="cat-price-wrapper">
+                                                <div class="cat-btn">SSR</div>
+                                                <div class="cat-price">₹6,100</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="room-right">
+                                        <div class="dropdown-wrapper">
+                                            <div class="select-custom">
+                                                <select name="" id="">
+                                                    <option value="">Auto Rooming</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <button class="apply-button apply-hike-button">Apply Hike</button>
+                                        <div class="view-delete-icons">
+                                            <button class="view-btn" data-toggle="modal"
+                                                data-target="#roomingPlanModal"><img
+                                                    src="images/user-icons/view-btn-icon.svg" alt=""></button>
+                                            <button class="delete-btn"><img src="images/user-icons/delete-icon.svg"
+                                                    alt=""></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="room-row-single">
+                                    <div class="room-left">
+                                        <div class="room-name">Crown Deluxe</div>
+                                        <div class="icons-group-wrapper">
+                                            <div class="icon-content-single">
+                                                <img src="images/user-icons/man-icon.svg" alt=""
+                                                    style="width: 10px; margin:0 5px 0 0;"> 2
+                                            </div>
+                                            <div class="icon-content-single">
+                                                <img src="images/user-icons/women-icon.svg" alt=""
+                                                    style="width: 14px; margin:0 5px 0 0;">
+                                                0
+                                            </div>
+                                            <div class="icon-content-single">
+                                                <img src="images/user-icons/child-icon.svg" alt=""
+                                                    style="width: 14px; margin:0 5px 0 0;">
                                                 0
                                             </div>
                                         </div>
@@ -1002,10 +1415,12 @@ $this->registerCssFile('/css/custom-style.css');
                             <div class="enquiry-pax-contents-wrapper">
                                 <div class="icons-group-wrapper">
                                     <div class="icon-content-single">
-                                        <img src="images/user-icons/man-icon.svg" alt="" style="width: 14px"> 7
+                                        <img src="images/user-icons/man-icon.svg" alt=""
+                                            style="width: 10px; margin:0 5px 0 0;"> 7
                                     </div>
                                     <div class="icon-content-single">
-                                        <img src="images/user-icons/women-icon.svg" alt="" style="width: 19px">
+                                        <img src="images/user-icons/women-icon.svg" alt=""
+                                            style="width: 14px; margin:0 5px 0 0;">
                                         0
                                     </div>
                                 </div>
@@ -1202,11 +1617,13 @@ $this->registerCssFile('/css/custom-style.css');
                                     <div class="room-facilities-single">
                                         <div class="icons-group-wrapper">
                                             <div class="icon-content-single">
-                                                <img src="images/user-icons/child-icon.svg" alt="" style="width: 16px">
+                                                <img src="images/user-icons/child-icon.svg" alt=""
+                                                    style="width: 14px; margin:0 5px 0 0;">
                                                 1-9 YR
                                             </div>
                                             <div class="icon-content-single">
-                                                <img src="images/user-icons/women-icon.svg" alt="" style="width: 15px">
+                                                <img src="images/user-icons/women-icon.svg" alt=""
+                                                    style="width: 14px; margin:0 5px 0 0;">
                                                 10-15 YR
                                             </div>
                                         </div>
@@ -1225,12 +1642,18 @@ $this->registerCssFile('/css/custom-style.css');
                                     <div class="room-facilities-single">
                                         <div class="icons-group-wrapper">
                                             <div class="icon-content-single">
-                                                <img src="images/user-icons/child-icon.svg" alt="" style="width: 16px">
-                                                1-9 YR
+                                                <img src="images/user-icons/man-icon.svg" alt=""
+                                                    style="width: 10px; margin:0 5px 0 0;"> 7
                                             </div>
                                             <div class="icon-content-single">
-                                                <img src="images/user-icons/women-icon.svg" alt="" style="width: 15px">
-                                                10-15 YR
+                                                <img src="images/user-icons/women-icon.svg" alt=""
+                                                    style="width: 14px; margin:0 5px 0 0;">
+                                                0
+                                            </div>
+                                            <div class="icon-content-single">
+                                                <img src="images/user-icons/child-icon.svg" alt=""
+                                                    style="width: 14px; margin:0 5px 0 0;">
+                                                0
                                             </div>
                                         </div>
                                         <div class="icons-group-wrapper colored-box">
@@ -1258,8 +1681,7 @@ $this->registerCssFile('/css/custom-style.css');
                                             <td><input type="text" class="table-input" value="99"></td>
                                             <td><input type="text" class="table-input" value="99"></td>
                                             <td><input type="text" class="table-input" value="99"></td>
-                                            <td><input type="text" class="table-input table-input-disabled" value="99">
-                                            </td>
+                                            <td><span class="table-input">99</span></td>
                                             <td><input type="text" class="table-input" value="99"></td>
                                         </tr>
                                     </tbody>
@@ -1268,14 +1690,21 @@ $this->registerCssFile('/css/custom-style.css');
                             <div class="info-area">
                                 <div class="info-list">
                                     <h6><img src="images/user-icons/info-icon.svg" alt=""> Unallocated Pax:</h6>
-                                    <div class="icons-group-wrapper">
+                                    <div class="icons-group-wrapper"
+                                        style="border: 1px solid #D2D2D2;margin:0 0 0 10px;">
                                         <div class="icon-content-single">
-                                            <img src="images/user-icons/child-icon.svg" alt="" style="width: 16px">
-                                            1-9 YR
+                                            <img src="images/user-icons/man-icon.svg" alt=""
+                                                style="width: 10px; margin:0 5px 0 0;"> 7
                                         </div>
                                         <div class="icon-content-single">
-                                            <img src="images/user-icons/women-icon.svg" alt="" style="width: 15px">
-                                            10-15 YR
+                                            <img src="images/user-icons/women-icon.svg" alt=""
+                                                style="width: 14px; margin:0 5px 0 0;">
+                                            0
+                                        </div>
+                                        <div class="icon-content-single">
+                                            <img src="images/user-icons/child-icon.svg" alt=""
+                                                style="width: 14px; margin:0 5px 0 0;">
+                                            0
                                         </div>
                                     </div>
                                 </div>
@@ -1293,7 +1722,7 @@ $this->registerCssFile('/css/custom-style.css');
                                 <table class="common-table-area white-table no-border-table">
                                     <tbody>
                                         <tr>
-                                            <td><img style="width: 11px; margin: 0 10px;"
+                                            <td><img style="width: 11px; margin: 0;"
                                                     src="images/user-icons/man-icon.svg" alt=""></td>
                                             <td><input type="text" class="table-input" value="DB:99"></td>
                                             <td><input type="text" class="table-input" value="EB:99"></td>
@@ -1301,7 +1730,7 @@ $this->registerCssFile('/css/custom-style.css');
                                                     value="SGL:99"></td>
                                         </tr>
                                         <tr>
-                                            <td><img style="width: 15px; margin: 0 10px;"
+                                            <td><img style="width: 15px; margin: 0;"
                                                     src="images/user-icons/women-icon.svg" alt=""></td>
                                             <td><input type="text" class="table-input" value="DB:99"></td>
                                             <td><input type="text" class="table-input" value="EB:99"></td>
@@ -1309,7 +1738,7 @@ $this->registerCssFile('/css/custom-style.css');
                                                     value="SGL:99"></td>
                                         </tr>
                                         <tr>
-                                            <td><img style="width: 15px; margin: 0 10px;"
+                                            <td><img style="width: 15px; margin: 0;"
                                                     src="images/user-icons/child-icon.svg" alt=""></td>
                                             <td><input type="text" class="table-input" value="DB:99"></td>
                                             <td><input type="text" class="table-input" value="EB:99"></td>
@@ -1341,15 +1770,14 @@ $this->registerCssFile('/css/custom-style.css');
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td><input type="text" class="table-input" value="1,24450"></td>
-                                        <td><input type="text" class="table-input" value="2,2950"></td>
-                                        <td><input type="text" class="table-input" value="0"></td>
-                                        <td><input type="text" class="table-input table-input-disabled" value="1,2700">
-                                        </td>
-                                        <td><input type="text" class="table-input" value="0"></td>
-                                        <td><input type="text" class="table-input" value="0"></td>
-                                        <td><input type="text" class="table-input" value="0"></td>
-                                        <td><input type="text" class="table-input" value="35,000"></td>
+                                        <td><span class="td-padding">1,24450</span></td>
+                                        <td><span class="td-padding">2,2950</span></td>
+                                        <td><span class="td-padding">0</span></td>
+                                        <td><span class="td-padding">1,2700</span></td>
+                                        <td><span class="td-padding">0</span></td>
+                                        <td><span class="td-padding">0</span></td>
+                                        <td><span class="td-padding">0</span></td>
+                                        <td><span class="td-padding">35,000</span></td>
                                     </tr>
                                 </tbody>
                             </table>

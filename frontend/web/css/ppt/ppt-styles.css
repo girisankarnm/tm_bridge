@@ -1163,7 +1163,7 @@ ul {
 .main-bns-wrapper button {
   margin: 0 5px;
   min-width: 250px;
-  font-family: Bw-Mitga-bold !important;
+  font-family: "Bw-Mitga-bold" !important;
 }
 
 .ppt-header-table {
@@ -1189,7 +1189,7 @@ ul {
 }
 
 .td-main-heading {
-  font-family: Bw-Mitga-bold;
+  font-family: "Bw-Mitga-bold";
   font-size: 11px !important;
   text-align: center;
 }
@@ -1223,12 +1223,16 @@ ul {
   align-items: center;
   justify-content: space-between;
 }
+.rooms-date-content .content-left {
+  white-space: nowrap;
+  padding: 0 15px 0 0;
+}
 
 .rooms-td-head {
   text-align: center !important;
   font-size: 13px !important;
   color: #1E2339 !important;
-  font-family: Bw-Mitga-bold !important;
+  font-family: "Bw-Mitga-bold" !important;
 }
 
 .rooms-td-subhead {
@@ -1237,7 +1241,7 @@ ul {
   text-align: center;
   font-size: 11px;
   color: #1E2339;
-  font-family: Bw-Mitga-bold;
+  font-family: "Bw-Mitga-bold";
 }
 
 .edit-icon {
@@ -1319,6 +1323,13 @@ ul {
 }
 .red-btn::before {
   background: #b30e55 !important;
+}
+
+.grey-btn {
+  background: #E1E5FF !important;
+}
+.grey-btn::before {
+  background: #E1E5FF !important;
 }
 
 .btn:hover, .btn:focus {

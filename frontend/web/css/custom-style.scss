@@ -39,7 +39,7 @@ $font-bold: 'Bw-Mitga-bold';
     margin: 0 0 0 5px;
     color: #9399a8 !important;
     line-height: 13px;
-    font-size: 14px;
+    font-size: 11px;
 }
 
 .resort-peroid {
@@ -284,7 +284,7 @@ $font-bold: 'Bw-Mitga-bold';
     .hotel-details {
         .room-name {
             color: #1E2339;
-            font-size: 14px;
+            font-size: 12px;
             margin: 0 0 5px;
             font-family: $font-bold;
         }
@@ -293,7 +293,7 @@ $font-bold: 'Bw-Mitga-bold';
     .room-details {
         .room-name {
             color: #1E2339;
-            font-size: 15px;
+            font-size: 11px;
             margin: 0 0 5px;
             font-family: $font-bold;
         }
@@ -343,6 +343,7 @@ $font-bold: 'Bw-Mitga-bold';
     margin: 0 0 10px;
 
     .heading {
+        font-size: 11px;
         color: #1E2339;
         margin: 0 15px 0 0;
         font-family: $font-bold;
@@ -366,11 +367,13 @@ $font-bold: 'Bw-Mitga-bold';
     @include border-radius(0px);
 }
 
-input.table-input {
+.table-input {
     max-width: 90px;
-    border: 1px solid #d2d2d2;
+    min-width: 80px;
     margin: 2px 10px;
     padding: 7px 10px;
+    display: inline-block;
+    border: 1px solid #d2d2d2;
     @include border-radius(5px);
 
     &:hover,
@@ -458,8 +461,8 @@ input.table-input-disabled {
             margin: 0;
 
             img {
-                width: 20px;
-                margin: 0 4px 0 0;
+                width: 15px;
+                margin: -2px 4px 0 0;
             }
         }
 
@@ -503,5 +506,27 @@ input.table-input-disabled {
                 padding: 8px 15px;
             }
         }
+    }
+}
+
+.td-padding {
+    width: 100%;
+    padding: 8px 10px;
+    display: inline-block;
+}
+
+.hotel-rating-text-wrapper {
+    margin: 0 0 0 5px;
+    padding: 0 0 0 5px;
+    border-left: 1px solid #333;
+
+    .hotel-rating-text {
+        font-size: 9px;
+        padding: 4px 10px;
+        letter-spacing: 0.2px;
+        background: #f0f2ff;
+        font-family: $font-bold;
+        text-transform: uppercase;
+        @include border-radius(5px);
     }
 }

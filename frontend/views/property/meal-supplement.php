@@ -80,7 +80,7 @@ $this->registerCssFile('/css/ppt/ppt-styles.css');
                         <tr>
                             <td>
                                 <div class="rooms-date-content">
-                                    <span class="content-left">1 Sep 22 To 31 Dec 22</span>
+                                    <span class="content-left">1 Sep 22 To 31 Dec 22 (General)</span>
                                     <span class="edit-icon"><img src="images/ppt/edit-icon.svg" alt=""></span>
                                 </div>
                             </td>
