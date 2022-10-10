@@ -1443,7 +1443,7 @@ $this->registerCssFile('/css/custom-style.css');
                                         <th style="width:15%">
                                             <div class="man-icon">
                                                 <img src="images/user-icons/man-icon.svg" alt="">
-                                                <span class="man-top-icon"><img src="images/user-icons/check-icon.svg"
+                                                <span class="man-top-icon"><img src="images/user-icons/info-icon.svg"
                                                         alt=""></span>
                                             </div>
                                         </th>
@@ -1462,13 +1462,13 @@ $this->registerCssFile('/css/custom-style.css');
                                             <div class="td-box">Pax Count as per property's Child & Infant Policy</div>
                                         </td>
                                         <td style="width:15%;">
-                                            <div class="td-smal-input">7</div>
+                                            <div class="td-smal-input blank-heading">7</div>
                                         </td>
                                         <td style="width:15%;">
-                                            <div class="td-smal-input">0</div>
+                                            <div class="td-smal-input blank-heading">0</div>
                                         </td>
                                         <td style="width:15%;">
-                                            <div class="td-smal-input">0</div>
+                                            <div class="td-smal-input blank-heading">0</div>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -1478,7 +1478,7 @@ $this->registerCssFile('/css/custom-style.css');
                                     <tbody>
                                         <tr>
                                             <td style="text-align: left; width:55%;">
-                                                <div class="td-box">Crown Luxury</div>
+                                                <div class="td-box color-navy">Crown Luxury</div>
                                             </td>
                                             <td style="width:15.5%">
                                                 <input class="td-smal-input" value="7">
@@ -1492,7 +1492,7 @@ $this->registerCssFile('/css/custom-style.css');
                                         </tr>
                                         <tr>
                                             <td style="text-align: left; width:55%;">
-                                                <div class="td-box">Crown Luxury</div>
+                                                <div class="td-box color-navy">Crown Luxury</div>
                                             </td>
                                             <td style="width:15.5%">
                                                 <input class="td-smal-input" value="7">
@@ -1506,7 +1506,7 @@ $this->registerCssFile('/css/custom-style.css');
                                         </tr>
                                         <tr>
                                             <td style="text-align: left; width:55%;">
-                                                <div class="td-box">Crown Luxury</div>
+                                                <div class="td-box color-navy">Crown Luxury</div>
                                             </td>
                                             <td style="width:15.5%">
                                                 <input class="td-smal-input" value="7">
@@ -1520,7 +1520,7 @@ $this->registerCssFile('/css/custom-style.css');
                                         </tr>
                                         <tr>
                                             <td style="text-align: left; width:55%;">
-                                                <div class="td-box">Crown Luxury</div>
+                                                <div class="td-box color-navy">Crown Luxury</div>
                                             </td>
                                             <td style="width:15.5%">
                                                 <input class="td-smal-input" value="7">
@@ -1543,13 +1543,13 @@ $this->registerCssFile('/css/custom-style.css');
                                             <div class="td-box">Allocated Pax</div>
                                         </td>
                                         <td style="width:15%;">
-                                            <div class="td-smal-input">7</div>
+                                            <div class="td-smal-input blank-heading">7</div>
                                         </td>
                                         <td style="width:15%;">
-                                            <div class="td-smal-input">0</div>
+                                            <div class="td-smal-input blank-heading">0</div>
                                         </td>
                                         <td style="width:15%;">
-                                            <div class="td-smal-input">0</div>
+                                            <div class="td-smal-input blank-heading">0</div>
                                         </td>
                                     </tr>
                                 </tbody>

@@ -1830,7 +1830,7 @@ span.room-cat-text {
   position: relative;
   display: inline-block;
   width: 25px;
-  margin: 0 10px 0 5px;
+  margin: 0 0 0 10px;
 }
 .icon-with-notification img {
   max-width: 25px;

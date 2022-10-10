@@ -849,9 +849,10 @@ frontend\assets\AppAsset::register($this);
                                         <div class="room-single-header">
                                             <div class="icon-text-area">
                                                 In Enq:
-                                                <div class="icon-with-notification"><img
-                                                        src="images/search-popup/food-icon.svg" alt=""><span
-                                                        class="icon-notofi">!</span></div>
+                                                <div class="icon-with-notification" style="margin: 0px 10px 0px 0px;">
+                                                    <img src="images/search-popup/food-icon.svg" alt=""><span
+                                                        class="icon-notofi">!</span>
+                                                </div>
                                                 AP (B + L + D)
                                             </div>
                                             <div class="icons-wrapp-main">

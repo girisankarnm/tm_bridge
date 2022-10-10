@@ -181,23 +181,32 @@ $font-bold: 'Bw-Mitga-bold';
 }
 
 .td-box {
+    border: none;
+    font-size: 13px;
     padding: 10px 15px;
-    border: 1px solid #D2D2D2;
+    font-family: $font-bold;
     @include border-radius(5px);
 }
 
 .td-smal-input {
+    max-width: 96px;
+    text-align: center;
     padding: 10px 15px;
     border: 1px solid #D2D2D2;
     @include border-radius(5px);
-    max-width: 96px;
-    text-align: center;
 
     &:hover,
     &:focus {
         box-shadow: none;
         outline: none;
     }
+}
+
+.blank-heading {
+    border: none;
+    font-size: 14px;
+    font-family: $font-bold;
+    @include border-radius(0);
 }
 
 .red-btn {
@@ -482,7 +491,7 @@ input.table-input-disabled {
 }
 
 .table-vertical-scroll {
-    max-height: 134px;
+    max-height: 130px;
     overflow: hidden;
     overflow-y: auto;
 
@@ -529,4 +538,8 @@ input.table-input-disabled {
         text-transform: uppercase;
         @include border-radius(5px);
     }
+}
+
+.color-navy {
+    color: #5968DB !important;
 }
