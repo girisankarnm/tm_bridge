@@ -1609,4 +1609,15 @@ input.table-input-disabled {
   color: #5968DB !important;
 }
 
+.horizontal-align {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.tooltip-wrapper {
+  display: inline-block;
+  position: relative;
+}
+
 /*# sourceMappingURL=custom-style.css.map */

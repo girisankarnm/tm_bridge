@@ -1172,7 +1172,16 @@ ul {
   border-top: 6px solid #575c85;
 }
 
-.recent-link:hover .hovercard {
+span.hovercard.right-tooltip {
+  right: -38px;
+  left: initial;
+}
+span.hovercard.right-tooltip::after {
+  left: initial !important;
+  right: 10px;
+}
+
+.tooltip-link:hover .hovercard {
   opacity: 1;
   transition: all ease 0.5s;
   /* transition: 0.5s; */
@@ -1427,6 +1436,7 @@ ul {
 
 .enquiry-box-wrapper {
   width: 100%;
+  margin: 0 !important;
   max-width: 500px;
   display: flex;
   align-items: stretch;
@@ -1437,9 +1447,10 @@ ul {
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
+  padding: 0 !important;
 }
 .enquiry-box-wrapper .enquiry-number {
-  padding: 10px 20px;
+  padding: 10px 15px;
   border-right: 1px solid #E1E4ED;
 }
 .enquiry-box-wrapper .enquiry-number h6 {
@@ -1458,7 +1469,8 @@ ul {
 }
 
 .enquiry-details {
-  padding: 5px 90px 5px 15px;
+  padding: 5px 15px 5px 15px;
+  min-width: 300px;
 }
 .enquiry-details .enquiry-row .enquiry-img {
   width: 16px;
@@ -1478,11 +1490,14 @@ ul {
 
 .enquiry-chat-icon {
   width: 80px;
-  padding: 0 20px;
+  padding: 0;
   border-left: 1px solid #E1E4ED;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+}
+.enquiry-chat-icon img {
+  max-width: 50px;
 }
 
 .room-head-info {
@@ -1601,11 +1616,11 @@ span.room-cat-text {
   top: 100%;
   margin: 10px 0 0;
 }
-.matching-rooms-box-wrapper:nth-child(1) .recent-link:hover .hovercard {
+.matching-rooms-box-wrapper:nth-child(1) .tooltip-link:hover .hovercard {
   top: 100%;
   bottom: initial;
 }
-.matching-rooms-box-wrapper:nth-child(1) .recent-link:hover .hovercard::after {
+.matching-rooms-box-wrapper:nth-child(1) .tooltip-link:hover .hovercard::after {
   left: 15px;
   top: -12px;
   content: "";
@@ -1830,7 +1845,7 @@ span.room-cat-text {
   position: relative;
   display: inline-block;
   width: 25px;
-  margin: 0 0 0 10px;
+  margin: 0 0 0 5px;
 }
 .icon-with-notification img {
   max-width: 25px;
@@ -2084,7 +2099,7 @@ span.room-cat-text {
   font-size: 12px;
 }
 
-.recent-link {
+.tooltip-link {
   position: relative;
   padding-bottom: 0px;
 }

@@ -3,6 +3,7 @@
 $this->registerCssFile('/css/search.css');
 $this->registerCssFile('/css/search/search-style.css');
 $this->registerCssFile('/css/search-popup/layout.css');
+$this->registerCssFile('/css/custom-style.css');
 frontend\assets\AppAsset::register($this);
 
 
@@ -21,7 +22,7 @@ frontend\assets\AppAsset::register($this);
         <div>
             <div class="timeline-item card  search-card-list shadow-div">
                 <div class="animated-background facebook">
-                    <div class="background-masker header-top "></div>
+                    <div class="background-masker header-top "> 11111</div>
                     <div class="background-masker header-left"></div>
                     <div class="background-masker header-right"></div>
                     <div class="background-masker header-bottom"></div>
@@ -712,8 +713,6 @@ frontend\assets\AppAsset::register($this);
                                         <div class="room-policy-occupancy-content">
                                             <div class="room-policy-occupancy-content-single">
                                                 <img src="images/search-popup/child-icon.svg" style="width:18px"
-                                                    data-toggle="tooltip" data-placement="top"
-                                                    title="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
                                                     class="room-policy-occupancy-icon" alt="">
                                                 <span class="policy-text">0-7 YR</span>
                                             </div>
@@ -731,7 +730,7 @@ frontend\assets\AppAsset::register($this);
                                                     </div>
                                                 </div> -->
                                                 <div class="tooltip-wrapper">
-                                                    <div class="recent-link">
+                                                    <div class="tooltip-link">
                                                         <a href="javascript:void(0);" class="policy-text">8-15 YR</a>
                                                         <span class="hovercard">
                                                             <div class="tooltiptext">
@@ -758,11 +757,17 @@ frontend\assets\AppAsset::register($this);
                                     </div>
                                 </div>
                                 <div class="days-price-details">
-                                    <div class="stay-days-wrapper">
+                                    <div class="tooltip-link stay-days-wrapper">
                                         <label class="checkbox-container">10 Days Stay
                                             <input type="checkbox">
                                             <span class="checkmark"></span>
                                         </label>
+                                        <span class="hovercard right-tooltip">
+                                            <div class="tooltiptext">
+                                                <h4 class="tooltip-head">Heading</h4>
+                                                <p class="tooltip-para">11</p>
+                                            </div>
+                                        </span>
                                     </div>
                                     <div class="room-price-wrapper">
                                         <div class="old-price">₹ 10'246</div>
@@ -788,7 +793,7 @@ frontend\assets\AppAsset::register($this);
                                     </div>
                                     <div class="room-single-content-area">
                                         <!-- <div class="tooltip-wrapper">
-                                            <div class="recent-link">
+                                            <div class="tooltip-link">
                                                 <a href="javascript:void(0);" class="policy-text">AP (B + L +
                                                     D)</a>
                                                 <span class="hovercard">
@@ -801,35 +806,57 @@ frontend\assets\AppAsset::register($this);
                                                 </span>
                                             </div>
                                         </div> -->
-                                        <div class="recent-link">
-                                            <span class="hovercard">
-                                                <div class="tooltiptext">
-                                                    <h4 class="tooltip-head">Heading</h4>
-                                                    <p class="tooltip-para">Crumb Collector is a minimal and
-                                                        easy to use
-                                                        bookmark manager.</p>
+                                        <div class="room-single-header">
+                                            <!-- <div class="tooltip-wrapper">
+                                                    <a href="javascript:void(0);" class="policy-text">8-15 YR</a>
+                                                    <span class="hovercard">
+                                                        <div class="tooltiptext">
+                                                            <h4 class="tooltip-head">Heading</h4>
+                                                            <p class="tooltip-para">Crumb Collector is a minimal and
+                                                                easy to use
+                                                                bookmark manager.</p>
+                                                        </div>
+                                                    </span>
+                                                </div> -->
+                                            <div class="icon-text-area">
+                                                In Enq:
+                                                <div class="icon-with-notification">
+                                                    <img src="images/search-popup/food-icon.svg" alt="">
+                                                    <span class="icon-notofi">!</span>
                                                 </div>
-                                            </span>
-                                            <div class="room-single-header">
-                                                <div class="icon-text-area">
-                                                    In Enq:
-                                                    <div class="icon-with-notification"><img
-                                                            src="images/search-popup/food-icon.svg" alt=""><span
-                                                            class="icon-notofi">!</span></div>
-                                                    <!-- AP (B + L + D) -->
-                                                </div>
-                                                <div class="icon-text-area">
-                                                    <div class="icon-with-notification"><img style="width: 17px;"
-                                                            src="images/search-popup/child-icon-1.svg" alt=""></div>
-                                                    99
-                                                </div>
-                                                <div class="icon-text-area">
-                                                    <div class="icon-with-notification"><img style="width: 11px;"
-                                                            src="images/search-popup/adult-icon.svg" alt=""></div>
-                                                    50
+                                                <!-- AP (B + L + D) -->
+                                            </div>
+                                            <div class="tooltip-wrapper">
+                                                <div class="tooltip-link">
+                                                    <div class="horizontal-align" style="margin: 0 0 0 5px;">
+                                                        <div class="icon-text-area">
+                                                            <div class="icon-with-notification"><img
+                                                                    style="width: 17px;"
+                                                                    src="images/search-popup/child-icon-1.svg" alt="">
+                                                            </div>
+                                                            99
+                                                        </div>
+                                                        <div class="icon-text-area">
+                                                            <div class="icon-with-notification"><img
+                                                                    style="width: 11px;"
+                                                                    src="images/search-popup/adult-icon.svg" alt="">
+                                                            </div>
+                                                            50
+                                                        </div>
+                                                    </div>
+                                                    <span class="hovercard">
+                                                        <div class="tooltiptext">
+                                                            <h4 class="tooltip-head">Heading</h4>
+                                                            <p class="tooltip-para">Crumb Collector is a minimal
+                                                                and
+                                                                easy to use
+                                                                bookmark manager.</p>
+                                                        </div>
+                                                    </span>
                                                 </div>
                                             </div>
                                         </div>
+
                                         <div class="room-single-content-wrapper">
                                             <div class="room-single-content">
                                                 <div class="room-single-content-heading">CBW</div>
@@ -847,30 +874,70 @@ frontend\assets\AppAsset::register($this);
                                     </div>
                                     <div class="room-single-content-area">
                                         <div class="room-single-header">
-                                            <div class="icon-text-area">
+                                            <div class="icon-text-area" style="margin-right:10px;">
                                                 In Enq:
-                                                <div class="icon-with-notification" style="margin: 0px 10px 0px 0px;">
-                                                    <img src="images/search-popup/food-icon.svg" alt=""><span
-                                                        class="icon-notofi">!</span>
+                                                <div class="tooltip-link">
+                                                    <div class="icon-with-notification"
+                                                        style="margin: 0px 10px 0px 10px;">
+                                                        <img src="images/search-popup/food-icon.svg" alt=""><span
+                                                            class="icon-notofi">!</span>
+                                                    </div>
+                                                    AP (B + L + D)
+                                                    <span class="hovercard">
+                                                        <div class="tooltiptext">
+                                                            <h4 class="tooltip-head">Heading</h4>
+                                                            <p class="tooltip-para">Crumb Collector is a minimal
+                                                                and
+                                                                easy to use
+                                                                bookmark manager.</p>
+                                                        </div>
+                                                    </span>
                                                 </div>
-                                                AP (B + L + D)
                                             </div>
-                                            <div class="icons-wrapp-main">
-                                                <div class="icon-text-area">
-                                                    <div class="icon-with-notification"><img style="width: 17px;"
-                                                            src="images/search-popup/child-icon-1.svg" alt=""></div>
-                                                    99
+                                            <div class="tooltip-wrapper">
+                                                <div class="tooltip-link">
+                                                    <div class="icons-wrapp-main">
+                                                        <div class="icon-text-area">
+                                                            <div class="icon-with-notification"><img
+                                                                    style="width: 17px;"
+                                                                    src="images/search-popup/child-icon-1.svg" alt="">
+                                                            </div>
+                                                            99
+                                                        </div>
+                                                        <div class="icon-text-area">
+                                                            <div class="icon-with-notification"><img
+                                                                    style="width: 11px;"
+                                                                    src="images/search-popup/adult-icon.svg" alt="">
+                                                            </div>
+                                                            50
+                                                        </div>
+                                                        <div class="icon-text-area">
+                                                            <div class="icon-with-notification"><img
+                                                                    style="width: 17px;"
+                                                                    src="images/search-popup/child-icon.svg" alt="">
+                                                            </div>
+                                                            50
+                                                        </div>
+                                                        <span class="hovercard">
+                                                            <div class="tooltiptext">
+                                                                <h4 class="tooltip-head">Heading</h4>
+                                                                <p class="tooltip-para">Crumb Collector is a
+                                                                    minimal and
+                                                                    easy to use
+                                                                    bookmark manager.</p>
+                                                            </div>
+                                                        </span>
+                                                    </div>
                                                 </div>
-                                                <div class="icon-text-area">
-                                                    <div class="icon-with-notification"><img style="width: 11px;"
-                                                            src="images/search-popup/adult-icon.svg" alt=""></div>
-                                                    50
-                                                </div>
-                                                <div class="icon-text-area">
-                                                    <div class="icon-with-notification"><img style="width: 17px;"
-                                                            src="images/search-popup/child-icon.svg" alt=""></div>
-                                                    50
-                                                </div>
+
+                                                <span class="hovercard">
+                                                    <div class="tooltiptext">
+                                                        <h4 class="tooltip-head">Heading 111</h4>
+                                                        <p class="tooltip-para">Crumb Collector is a minimal and
+                                                            easy to use
+                                                            bookmark manager.</p>
+                                                    </div>
+                                                </span>
                                             </div>
                                         </div>
                                         <div class="room-single-content-wrapper">
@@ -889,11 +956,17 @@ frontend\assets\AppAsset::register($this);
                                         </div>
                                     </div>
                                     <div class="checkbox-info-wrapper">
-                                        <div class="checkbox-wrapper">
+                                        <div class="tooltip-link checkbox-wrapper">
                                             <label class="checkbox-container">
                                                 <input type="checkbox">
                                                 <span class="checkmark"></span>
                                             </label>
+                                            <span class="hovercard right-tooltip">
+                                                <div class="tooltiptext">
+                                                    <h4 class="tooltip-head">Heading</h4>
+                                                    <p class="tooltip-para">11</p>
+                                                </div>
+                                            </span>
                                         </div>
                                         <div class="info-icon-main">
                                             <div class="info-icon">!</div>
@@ -916,7 +989,7 @@ frontend\assets\AppAsset::register($this);
                                     </div>
                                     <div class="room-single-content-area">
                                         <div class="room-single-header">
-                                            <div class="icon-text-area">
+                                            <div class="icon-text-area" style="margin-right:10px;">
                                                 In Enq:
                                                 <div class="icon-with-notification"><img
                                                         src="images/search-popup/food-icon.svg" alt=""><span
@@ -950,7 +1023,7 @@ frontend\assets\AppAsset::register($this);
                                     </div>
                                     <div class="room-single-content-area">
                                         <div class="room-single-header">
-                                            <div class="icon-text-area">
+                                            <div class="icon-text-area" style="margin-right:10px;">
                                                 In Enq:
                                                 <div class="icon-with-notification"><img
                                                         src="images/search-popup/food-icon.svg" alt=""><span
@@ -988,11 +1061,17 @@ frontend\assets\AppAsset::register($this);
                                         </div>
                                     </div>
                                     <div class="checkbox-info-wrapper">
-                                        <div class="checkbox-wrapper">
+                                        <div class="tooltip-link checkbox-wrapper">
                                             <label class="checkbox-container">
                                                 <input type="checkbox" checked="checked">
                                                 <span class="checkmark"></span>
                                             </label>
+                                            <span class="hovercard right-tooltip">
+                                                <div class="tooltiptext">
+                                                    <h4 class="tooltip-head">Heading</h4>
+                                                    <p class="tooltip-para">11</p>
+                                                </div>
+                                            </span>
                                         </div>
                                         <div class="info-icon-main">
                                             <div class="info-icon">!</div>
@@ -1049,12 +1128,14 @@ frontend\assets\AppAsset::register($this);
                                                     class="room-policy-occupancy-icon" alt="">
                                                 <!-- <span>8-15 YR</span> -->
                                                 <div class="tooltip-wrapper">
-                                                    <div class="recent-link">
-                                                        <a href="javascript:void(0);" class="policy-text">8-15 YR</a>
+                                                    <div class="tooltip-link">
+                                                        <a href="javascript:void(0);" class="policy-text">8-15
+                                                            YR</a>
                                                         <span class="hovercard">
                                                             <div class="tooltiptext">
                                                                 <h4 class="tooltip-head">Heading</h4>
-                                                                <p class="tooltip-para">Crumb Collector is a minimal and
+                                                                <p class="tooltip-para">Crumb Collector is a
+                                                                    minimal and
                                                                     easy to use
                                                                     bookmark manager.</p>
                                                             </div>
@@ -1076,11 +1157,17 @@ frontend\assets\AppAsset::register($this);
                                     </div>
                                 </div>
                                 <div class="days-price-details">
-                                    <div class="stay-days-wrapper">
+                                    <div class="tooltip-link stay-days-wrapper">
                                         <label class="checkbox-container">10 Days Stay
                                             <input type="checkbox">
                                             <span class="checkmark"></span>
                                         </label>
+                                        <span class="hovercard right-tooltip">
+                                            <div class="tooltiptext">
+                                                <h4 class="tooltip-head">Heading</h4>
+                                                <p class="tooltip-para">11</p>
+                                            </div>
+                                        </span>
                                     </div>
                                     <div class="room-price-wrapper">
                                         <div class="old-price">₹ 10'246</div>
@@ -1178,11 +1265,17 @@ frontend\assets\AppAsset::register($this);
                                         </div>
                                     </div>
                                     <div class="checkbox-info-wrapper">
-                                        <div class="checkbox-wrapper">
+                                        <div class="tooltip-link checkbox-wrapper">
                                             <label class="checkbox-container">
                                                 <input type="checkbox">
                                                 <span class="checkmark"></span>
                                             </label>
+                                            <span class="hovercard right-tooltip">
+                                                <div class="tooltiptext">
+                                                    <h4 class="tooltip-head">Heading</h4>
+                                                    <p class="tooltip-para">11</p>
+                                                </div>
+                                            </span>
                                         </div>
                                         <div class="info-icon-main">
                                             <div class="info-icon">!</div>
@@ -1277,11 +1370,17 @@ frontend\assets\AppAsset::register($this);
                                         </div>
                                     </div>
                                     <div class="checkbox-info-wrapper">
-                                        <div class="checkbox-wrapper">
+                                        <div class="tooltip-link checkbox-wrapper">
                                             <label class="checkbox-container">
                                                 <input type="checkbox" checked="checked">
                                                 <span class="checkmark"></span>
                                             </label>
+                                            <span class="hovercard right-tooltip">
+                                                <div class="tooltiptext">
+                                                    <h4 class="tooltip-head">Heading</h4>
+                                                    <p class="tooltip-para">11</p>
+                                                </div>
+                                            </span>
                                         </div>
                                         <div class="info-icon-main">
                                             <div class="info-icon">!</div>
@@ -1337,12 +1436,14 @@ frontend\assets\AppAsset::register($this);
                                                 <img src="images/search-popup/child-icon-1.svg" style="width:18px"
                                                     class="room-policy-occupancy-icon" alt="">
                                                 <div class="tooltip-wrapper">
-                                                    <div class="recent-link">
-                                                        <a href="javascript:void(0);" class="policy-text">8-15 YR</a>
+                                                    <div class="tooltip-link">
+                                                        <a href="javascript:void(0);" class="policy-text">8-15
+                                                            YR</a>
                                                         <span class="hovercard">
                                                             <div class="tooltiptext">
                                                                 <!-- <h4 class="tooltip-head">Heading</h4> -->
-                                                                <p class="tooltip-para">Crumb Collector is a minimal and
+                                                                <p class="tooltip-para">Crumb Collector is a
+                                                                    minimal and
                                                                     easy to use
                                                                     bookmark manager.</p>
                                                             </div>
@@ -1365,7 +1466,8 @@ frontend\assets\AppAsset::register($this);
                                                     <div class="tooltip-content top tooltip-top" role="tooltip"
                                                         tabindex="0">
                                                         <h2 class="tooltip-heading">Tooltip html item</h2>
-                                                        <p class="tooltip-para">Lorem ipsum dolor sit amet, consectetur
+                                                        <p class="tooltip-para">Lorem ipsum dolor sit amet,
+                                                            consectetur
                                                             adipiscing elit. Cras
                                                             convallis sodales erat vel accumsan.</p>
                                                     </div>
@@ -1375,11 +1477,17 @@ frontend\assets\AppAsset::register($this);
                                     </div>
                                 </div>
                                 <div class="days-price-details">
-                                    <div class="stay-days-wrapper">
+                                    <div class="tooltip-link stay-days-wrapper">
                                         <label class="checkbox-container">10 Days Stay
                                             <input type="checkbox" onclick="Toaster()">
                                             <span class="checkmark"></span>
                                         </label>
+                                        <span class="hovercard right-tooltip">
+                                            <div class="tooltiptext">
+                                                <h4 class="tooltip-head">Heading</h4>
+                                                <p class="tooltip-para">11</p>
+                                            </div>
+                                        </span>
                                     </div>
                                     <div class="room-price-wrapper">
                                         <div class="old-price">₹ 10'246</div>
@@ -1477,11 +1585,17 @@ frontend\assets\AppAsset::register($this);
                                         </div>
                                     </div>
                                     <div class="checkbox-info-wrapper">
-                                        <div class="checkbox-wrapper">
+                                        <div class="tooltip-link checkbox-wrapper">
                                             <label class="checkbox-container">
                                                 <input type="checkbox">
                                                 <span class="checkmark"></span>
                                             </label>
+                                            <span class="hovercard right-tooltip">
+                                                <div class="tooltiptext">
+                                                    <h4 class="tooltip-head">Heading</h4>
+                                                    <p class="tooltip-para">11</p>
+                                                </div>
+                                            </span>
                                         </div>
                                         <div class="info-icon-main">
                                             <div class="info-icon">!</div>
@@ -1576,11 +1690,17 @@ frontend\assets\AppAsset::register($this);
                                         </div>
                                     </div>
                                     <div class="checkbox-info-wrapper">
-                                        <div class="checkbox-wrapper">
+                                        <div class="tooltip-link checkbox-wrapper">
                                             <label class="checkbox-container">
                                                 <input type="checkbox" checked="checked">
                                                 <span class="checkmark"></span>
                                             </label>
+                                            <span class="hovercard right-tooltip">
+                                                <div class="tooltiptext">
+                                                    <h4 class="tooltip-head">Heading</h4>
+                                                    <p class="tooltip-para">11</p>
+                                                </div>
+                                            </span>
                                         </div>
                                         <div class="info-icon-main">
                                             <div class="info-icon">!</div>
@@ -1870,9 +1990,11 @@ Array.prototype.forEach.call(tooltips, function(el, i) {
         const tooltipBox = tooltipContent.getBoundingClientRect();
         const tooltipRight = tooltipBox.right + tooltipBox.width;
 
-        if (tooltipSpace.top > tooltipBox.height && tooltipBox.left > 0 && tooltipRight < window.innerWidth) {
+        if (tooltipSpace.top > tooltipBox.height && tooltipBox.left > 0 && tooltipRight < window
+            .innerWidth) {
             tooltipContent.classList.add('top')
-        } else if (tooltipSpace.bottom > tooltipBox.height && tooltipBox.left > 0 && tooltipRight < window
+        } else if (tooltipSpace.bottom > tooltipBox.height && tooltipBox.left > 0 && tooltipRight <
+            window
             .innerWidth) {
             tooltipContent.classList.add('bottom')
         } else {
