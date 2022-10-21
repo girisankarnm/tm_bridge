@@ -59,4 +59,9 @@ class PropertyController extends Controller
         $this->layout = 'tm_main';
         return $this->render('users', []);
     }
+     public function actionPpe5()
+    {
+        $this->layout = 'tm_main';
+        return $this->render('booking-request', []);
+    }
 }

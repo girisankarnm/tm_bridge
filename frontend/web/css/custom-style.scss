@@ -554,3 +554,54 @@ input.table-input-disabled {
     display: inline-block;
     position: relative;
 }
+
+
+.resort-details-area {
+    article {
+        h4.with-stars {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+    }
+}
+
+.stars {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0 0 0 20px;
+
+    img {
+        width: 15px;
+    }
+}
+
+.common-table {
+    width: 100%;
+}
+
+.action-edit-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    img {
+        width: 30px;
+        margin: 0 0 5px 0;
+    }
+
+    span {
+        text-transform: uppercase;
+        font-family: $font-bold;
+        color: #1E2339;
+        font-size: 16px;
+        text-align: center;
+    }
+}
+
+.status-text {
+    text-transform: uppercase;
+    font-family: $font-bold !important;
+}

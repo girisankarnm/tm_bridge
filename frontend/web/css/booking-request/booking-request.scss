@@ -1,0 +1,670 @@
+@import "../partials/partials";
+
+$font-bold: Bw-Mitga-bold;
+
+.room-booking-header {
+    margin: 0 0 20px;
+    @include border-radius(5px);
+    background: #5968DB;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .room-booking-header-left {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        .heading {
+            border-right: 1px solid $color-white;
+            font-family: $font-bold;
+            color: $color-white;
+            padding: 0 10px 0 0;
+            margin: 0 10px 0 0;
+            font-size: 14px;
+        }
+    }
+
+    .room-booking-header-right {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+}
+
+.date-area {
+    display: flex;
+    margin: 0 40px 0 0;
+    align-items: center;
+    justify-content: flex-start;
+
+    figure {
+        margin: -3px 10px 0 0;
+
+        img {
+            width: 20px;
+        }
+    }
+
+    article {
+        margin: 0;
+        color: $color-white;
+        font-size: 12px;
+    }
+}
+
+.small-box {
+    @include border-radius(10px);
+    border: 2px solid $color-white;
+    background: #7280e0;
+    color: $color-white;
+    padding: 2px 25px;
+    min-height: 50px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 0 0 15px;
+    font-size: 14px;
+    font-family: $font-bold;
+
+    .booking-status {
+        color: $color-white;
+        font-size: 14px;
+        font-family: $font-bold !important;
+        line-height: 22px;
+        margin: 0;
+    }
+
+    .date {
+        margin: 0;
+        color: $color-white;
+    }
+}
+
+.mobile-no {
+    font-size: 11px;
+    color: #1E2339;
+    font-family: $font-bold;
+}
+
+.hotels-client-table-wrapper {
+    margin: 0 0 30px;
+}
+
+.hotels-client-wrapper {
+    display: flex;
+    margin: 0 0 20px;
+    align-items: stretch;
+    border: 1px solid #999FB4;
+    justify-content: space-between;
+
+    .hotels-client-single {
+        width: 50%;
+        padding: 15px;
+
+        &:nth-child(1) {
+            border-right: 1px solid #999FB4;
+        }
+    }
+}
+
+.hotels-client-table {
+    background: none;
+    border: 1px solid #ABB0C1 !important;
+
+    thead {
+        tr {
+            th {
+                background: #E1E5FF;
+                border-right: 1px solid #ABB0C1;
+                font-size: 14px;
+                font-family: $font-bold !important;
+                font-weight: initial !important;
+                padding: 15px !important;
+
+                &:nth-child(1) {
+                    padding: 15px !important;
+                    border-top-left-radius: 5px;
+                }
+
+                &:nth-last-child(1) {
+                    border-right: none;
+                }
+            }
+
+            .action-column {
+                text-align: center;
+            }
+        }
+    }
+
+    tbody {
+        tr {
+            td {
+                padding: 15px;
+                color: #1E2339;
+                background: none;
+                border: 1px solid #ABB0C1;
+            }
+        }
+    }
+}
+
+.status-select-wrapper {
+    position: relative;
+
+    &::before {
+        position: absolute;
+        content: "";
+        right: 0;
+        border: 6px solid transparent;
+        border-top-color: #1E2339;
+        top: 4px;
+        pointer-events: none;
+    }
+
+    .status-select {
+        background: none;
+        border: none;
+        width: 100%;
+        appearance: none;
+
+        &:focus,
+        &:hover {
+            outline: none;
+        }
+    }
+}
+
+.status-paid {
+    color: #4B9600;
+}
+
+.status-pending {
+    color: #f5c115;
+}
+
+.status-due {
+    color: #f00;
+}
+
+.bookin-lists-chat-wrapper {
+    border: 1px solid #ABB0C1;
+    padding: 15px;
+    background: #fff;
+}
+
+.single-date-bookings {
+    border: 1px solid #E1E4ED;
+    padding: 20px 10px 0;
+    // padding: 10px 25px 15px 15px;
+}
+
+.date-area-btn {
+    background: #838BC7;
+    display: inline-block;
+    color: #fff;
+    min-width: 200px;
+    text-align: center;
+    font-size: 12px;
+    min-height: 40px;
+    line-height: 40px;
+    @include border-radius(5px);
+    font-family: $font-bold;
+    margin: 0 0 10px;
+}
+
+.room-details-wrapper {
+    .room-details-row {
+        display: flex;
+        margin: 15px 0;
+        align-items: center;
+        justify-content: space-between;
+
+        .room-details-left {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+
+            .room-name {
+                margin: 5px 0 0 0;
+                font-size: 13px;
+                color: #1E2339;
+                font-family: $font-bold;
+            }
+        }
+
+        .room-details-right {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+    }
+}
+
+.check-area {
+    margin: 0 10px 0 0;
+
+    .checkbox-container {
+        width: 24px;
+        height: 28px;
+        padding: 0;
+        margin: 0;
+        border: none;
+
+        .checkmark {
+            border-color: #E1E4ED;
+            @include border-radius(4px);
+            margin: 0;
+
+            &:after {
+                left: 10px;
+                top: 6px;
+            }
+        }
+
+        input:checked~.checkmark {
+            background: #5968DB;
+            border: none;
+        }
+
+        &:hover {
+            input~.checkmark {
+                border-color: #5968DB;
+            }
+        }
+    }
+}
+
+.single-item {
+    margin: 0 0 0 15px;
+}
+
+.booking-status-btn {
+    background: none;
+    border: none;
+    display: flex;
+    padding: 4px 20px;
+    color: $color-white;
+    align-items: center;
+    justify-content: center;
+    @include border-radius(15px);
+
+    img {
+        width: 12px;
+        margin: 0 8px 0 0;
+    }
+}
+
+.room-avilable {
+    background: #4B9600;
+}
+
+.room-not-avilable {
+    background: #F44336;
+}
+
+.room-no-btn {
+    background: none;
+    padding: 3px 20px;
+    font-family: $font-bold !important;
+    border: 1px solid #838BC7;
+    @include border-radius(15px);
+}
+
+.meals-icon-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: #1E2339;
+
+    .meals-icon {
+        position: relative;
+        margin: 0 5px 0 0;
+
+        .info-icon {
+            position: absolute;
+            top: -10px;
+            right: -5px;
+
+            img {
+                width: 15px;
+            }
+        }
+
+        .meals-icon-img {
+            width: 25px;
+        }
+    }
+}
+
+.room-cat-rate {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    .room-cat-area {
+        background: #838BC7;
+        color: #fff;
+        font-size: 12px;
+        padding: 4px 20px;
+        @include border-radius(15px);
+        margin: 0 5px 0 0;
+    }
+
+    .room-rate {
+        color: #1E2339;
+        font-family: $font-bold;
+        font-size: 14px;
+    }
+}
+
+.view-info-area {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    min-width: 70px;
+
+    .info-btn {
+        padding: 0;
+        border: none;
+        margin: 0 0 0 5px;
+
+        img {
+            width: 20px;
+        }
+    }
+}
+
+.total-btns-wrapper {
+    background: #F0F2FF;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    @include border-radius(0 0 5px 5px);
+
+    .total-amount {
+        color: #1E2339;
+        font-size: 16px;
+        font-family: $font-bold;
+
+        span {
+            margin: 0 0 0 10px;
+        }
+    }
+}
+
+.small-btn {
+    padding: 5px 20px;
+    font-size: 14px;
+    border: none;
+    @include border-radius(15px);
+}
+
+.blue-btn {
+    background: #5968DB;
+    color: $color-white;
+}
+
+.booking-lists-wrapper {
+    margin: 20px 0 0;
+
+    .booking-lists-btns {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .booking-lists-btns-left {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .booking-lists-btns-right {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+    }
+}
+
+.medium-btn {
+    border: none;
+    color: #fff;
+    padding: 8px 20px;
+    margin: 0 15px 0 0;
+    align-items: center;
+    white-space: nowrap;
+    display: inline-flex;
+    background: #5968DB;
+    justify-content: center;
+    font-size: 12px !important;
+    @include border-radius(5px);
+    font-family: $font-bold !important;
+
+    img {
+        width: 25px;
+        margin: 0 10px 0 0;
+    }
+}
+
+.booking-lists-btns-right {
+    button {
+        min-width: 200px;
+        margin: 0 0 0 15px;
+    }
+}
+
+.primary-btn {
+    color: $color-white;
+    background: #E40968 !important;
+}
+
+.comment-box-main {
+    display: none;
+}
+
+.comment-box-wrapper {
+    display: flex;
+    margin: 30px 0 0;
+    padding: 30px 50px 0;
+    align-items: flex-start;
+    justify-content: space-between;
+    border-top: 1px solid #ABB0C1;
+
+    .chat-img {
+        width: 50px;
+        height: 50px;
+        margin: 0 20px 0 0;
+        @include border-radius(50%);
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .chat-type-area-wrapper {
+        display: flex;
+        align-items: center;
+        width: calc(100% - 70px);
+        justify-content: space-between;
+
+        .chat-type-area {
+            width: 100%;
+            resize: none;
+            height: 110px;
+            font-size: 12px;
+            color: #A0A0A0;
+            margin: 0 30px 0 0;
+            padding: 10px 15px;
+            border: 2px solid #E1E4ED;
+        }
+    }
+}
+
+.blue-btn {
+    background: #5968DB;
+    border: none;
+    color: #fff;
+    min-width: 200px;
+    height: 43px;
+    font-family: $font-bold !important;
+    @include border-radius(5px);
+}
+
+.show-activity-wrapper {
+    display: none;
+
+    .activity-chat-wrapper {
+        padding: 30px 100px 0;
+
+        .activity-chat-single {
+            display: flex;
+            width: 900px;
+            margin: 0 auto 20px;
+            align-items: flex-start;
+            justify-content: flex-start;
+
+            .activity-chat-user {
+                display: flex;
+                margin: 0;
+                align-items: center;
+                justify-content: flex-start;
+
+                .user-details {
+                    padding: 0 20px 0 0;
+
+                    .user-details-name {
+                        margin: 0;
+                        font-size: 14px;
+                        color: #000621;
+                        text-align: right;
+                        line-height: 20px;
+                        font-family: $font-bold !important;
+                    }
+
+                    .user-details-date {
+                        margin: 0;
+                        font-size: 12px;
+                        text-align: right;
+                        line-height: 20px;
+                    }
+                }
+
+                .user-img {
+                    width: 46px;
+                    height: 46px;
+                    @include border-radius(50%);
+
+                    img {
+                        width: 100%;
+                    }
+                }
+            }
+
+            .activity-chat-area {
+                position: relative;
+                margin: 0 0 0 30px;
+
+                &::before {
+                    position: absolute;
+                    content: "";
+                    left: -29px;
+                    top: 0;
+                    height: 22px;
+                    width: 30px;
+                    background: url(../../images/booking-request/textarea-left-icon.svg) left top no-repeat;
+                    background-size: contain;
+                }
+
+                &::after {
+                    position: absolute;
+                    content: "";
+                    left: -2px;
+                    top: 2px;
+                    height: 11px;
+                    width: 5px;
+                    background-color: #f0f2ff;
+                }
+
+                .activity-chat {
+                    height: 80px;
+                    resize: none;
+                    padding: 15px;
+                    font-size: 12px;
+                    background: #F0F2FF;
+                    border: 2px solid #E1E4ED;
+                    width: 512px;
+                    border-radius: 0 5px 5px 5px;
+                }
+            }
+
+            &:nth-child(even) {
+                padding-left: 0;
+                flex-direction: row-reverse;
+                justify-content: flex-end;
+                padding: 0 0 0 130px;
+
+                .activity-chat-user {
+                    flex-direction: row-reverse;
+
+                    .user-img {
+                        margin: 0 0 0 30px;
+                    }
+
+                    .user-details {
+                        padding: 0 0px 0 20px;
+
+                        .user-details-name,
+                        .user-details-date {
+                            text-align: left
+                        }
+                    }
+                }
+
+                .activity-chat-area {
+                    margin: 0 0 0 60px;
+
+                    .activity-chat {
+                        @include border-radius(5px 0 5px 5px);
+                    }
+
+                    &::before {
+                        right: -29px;
+                        left: initial;
+                        background: url(../../images/booking-request/textarea-right-icon.svg) left top no-repeat;
+                        background-size: contain;
+                    }
+
+                    &::after {
+                        top: 2px;
+                        right: -2px;
+                        left: initial;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+@media (max-width:1400px) {
+    .show-activity-wrapper {
+        .activity-chat-wrapper {
+            padding: 0 25px;
+
+            .activity-chat-single {
+                .activity-chat-area {
+                    .activity-chat {
+                        width: 450px;
+                    }
+                }
+            }
+        }
+    }
+}
