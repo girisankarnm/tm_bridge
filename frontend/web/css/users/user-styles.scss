@@ -466,6 +466,7 @@ body {
     justify-content: space-between;
 
     .room-left {
+        width: 40%;
         display: inline-flex;
         align-items: center;
         justify-content: flex-start;
@@ -538,6 +539,7 @@ body {
 }
 
 .room-center {
+    width: 25%;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -576,6 +578,7 @@ body {
 }
 
 .room-right {
+    width: 35%;
     display: flex;
     align-items: center;
     justify-content: flex-end;
