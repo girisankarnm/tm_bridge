@@ -106,146 +106,6 @@ ul {
 /* Handle */
 /* Handle on hover */
 /* The container */
-.radio-container {
-  display: block;
-  position: relative;
-  padding-left: 40px;
-  margin-bottom: 12px;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  color: #545554;
-  font-size: 1rem;
-  margin-right: 20px;
-  margin: 0 0 15px !important;
-  min-height: 40px;
-  line-height: 40px;
-}
-.radio-container a {
-  font-weight: 600;
-  color: #ffa800;
-}
-
-/* Hide the browser's default radio button */
-.radio-container input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-}
-
-/* Create a custom radio button */
-.radio-container .checkmark {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  height: 28px;
-  width: 28px;
-  background: none;
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
-  border: 1px solid #EDEDED;
-}
-
-/* On mouse-over, add a grey background color */
-.radio-container:hover input ~ .checkmark {
-  background: none;
-}
-
-/* When the radio button is checked, add a blue background */
-.radio-container input:checked ~ .checkmark {
-  background: none;
-  border-color: #E89F72;
-}
-
-/* Create the indicator (the dot/circle - hidden when not checked) */
-.radio-container .checkmark::after {
-  content: "";
-  position: absolute;
-  display: none;
-}
-
-.radio-container .checkmark::before {
-  content: "";
-  position: absolute;
-  transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
-  -moz-transform: rotate(-45deg);
-  -o-transform: rotate(-45deg);
-  top: 6px;
-  left: 6px;
-  width: 14px;
-  height: 14px;
-  background: #C4C4C4;
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
-}
-
-/* Show the indicator (dot/circle) when checked */
-.radio-container input:checked ~ .checkmark::after {
-  display: block;
-  background: #E89F72;
-}
-
-/* Style the indicator (dot/circle) */
-.customRadioDesign {
-  background: #fff;
-  border: 1px solid #C4C4C4;
-  width: 100%;
-  height: 40px;
-  z-index: 0;
-  position: absolute;
-  left: 0;
-  top: 0;
-  border-radius: 4px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  -o-border-radius: 4px;
-}
-
-.radioContent {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: #000;
-  position: relative;
-  z-index: 1;
-  margin: 0;
-}
-
-.radio-container input:checked ~ .customRadioDesign {
-  border: 1px solid #C4C4C4;
-}
-
-.radio-container .checkmark:after {
-  transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
-  -moz-transform: rotate(-45deg);
-  -o-transform: rotate(-45deg);
-  top: 6px;
-  left: 6px;
-  width: 14px;
-  height: 14px;
-  background: #C4C4C4;
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
-}
-
-/* The container */
 .checkbox-container {
   display: block;
   position: relative;
@@ -789,6 +649,70 @@ ul {
 .dropdown-menu .dropdown-item:hover {
   background: #E67612;
   color: #000 !important;
+}
+
+/* The container */
+.radio-wrapper {
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  color: #1E2339;
+  font-family: "Bw-Mitga-bold" !important;
+  /* Hide the browser's default radio button */
+  /* Create a custom radio button */
+  /* On mouse-over, add a grey background color */
+  /* When the radio button is checked, add a blue background */
+  /* Show the indicator (dot/circle) when checked */
+}
+.radio-wrapper input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+.radio-wrapper .checkmark {
+  position: absolute;
+  top: 6px;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #E1E5FF;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  margin: 0;
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+}
+.radio-wrapper .checkmark::after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  background: #fff;
+}
+.radio-wrapper:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+.radio-wrapper input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+.radio-wrapper input:checked ~ .checkmark:after {
+  display: block;
 }
 
 @media (max-width: 1199px) {
@@ -1620,7 +1544,7 @@ input.table-input-disabled {
   position: relative;
 }
 
-.resort-details-area article h4.with-stars {
+.with-stars {
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -1661,6 +1585,18 @@ input.table-input-disabled {
 .status-text {
   text-transform: uppercase;
   font-family: "Bw-Mitga-bold" !important;
+}
+
+.info-note-wrapper {
+  display: flex;
+  font-size: 12px;
+  margin: 15px 0 0;
+  align-items: center;
+  color: #1E2339;
+}
+.info-note-wrapper img {
+  width: 20px;
+  margin: 0 7px 0 0;
 }
 
 /*# sourceMappingURL=custom-style.css.map */

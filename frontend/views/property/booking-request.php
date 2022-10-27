@@ -3,8 +3,8 @@ frontend\assets\AppAsset::register($this);
 $this->registerCssFile('/css/ppe/style.css');
 $this->registerCssFile('/css/datepicker.css');
 $this->registerCssFile('/css/users/user-styles.css');
-$this->registerCssFile('/css/custom-style.css');
 $this->registerCssFile('/css/booking-request/booking-request.css');
+$this->registerCssFile('/css/custom-style.css');
 ?>
 <div class="wrapper">
     <div class="room-booking-header">
@@ -392,8 +392,8 @@ Lorren ippsum gravida sem?</textarea>
 
 
 <!-- BOF Edit Modal -->
-<div class="modal fade" id="bookingConfirmationModal" tabindex="-1" role="dialog"
-    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal" id="RoomTariffBreakupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered medium-modal-wrapper" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -410,163 +410,279 @@ Lorren ippsum gravida sem?</textarea>
                         <div class="pop-room-content">
                             <figure><img src="images/user-icons/user-img.png" alt=""></figure>
                             <article>
-                                <h4 class="room-name">Misty Rock Resort</h4>
+                                <h4 class="room-name with-stars">Misty Rock Resort
+                                    <div class="stars">
+                                        <img src="images/booking-request/star.svg" alt="">
+                                        <img src="images/booking-request/star.svg" alt="">
+                                        <img src="images/booking-request/star.svg" alt="">
+                                        <img src="images/booking-request/star.svg" alt="">
+                                        <img src="images/booking-request/star.svg" alt="">
+                                    </div>
+                                </h4>
                                 <div class="resort-location">
                                     <span class="location-icon"><img src="images/location-icon.png" alt=""></span>
-                                    <h5 class="location-name">Wayanad, Kerala, India</h5>
+                                    <h5 class="location-name">Munnar ( Locality) Kerala, India</h5>
                                 </div>
                             </article>
                         </div>
-                        <div class="enquiry-pax">
-                            <div class="enquiry-pax-header">Enquiry Pax</div>
-                            <div class="enquiry-pax-contents-wrapper">
-                                <div class="icons-group-wrapper">
-                                    <div class="icon-content-single">
-                                        <img src="images/user-icons/man-icon.svg" alt=""
-                                            style="width: 10px; margin:0 5px 0 0;"> 7
+                    </div>
+                    <div class="popup-tariff-room-details">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="room-withaminities">
+                                    <div class="room-facilities-wrapper">
+                                        <div class="room-facilities-single">
+                                            <div class="icons-group-wrapper">
+                                                <div class="icon-content-single">
+                                                    <img src="images/user-icons/bed-icon.svg" alt=""
+                                                        style="width: 25px">
+                                                    DB:2 |
+                                                    EB:2 | SB:1
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="room-facilities-single">
+                                            <div class="icons-group-wrapper">
+                                                <div class="icon-content-single">
+                                                    <img src="images/user-icons/child-icon.svg" alt=""
+                                                        style="width: 14px; margin:0 5px 0 0;">
+                                                    1-9 YR
+                                                </div>
+                                                <div class="icon-content-single">
+                                                    <img src="images/user-icons/women-icon.svg" alt=""
+                                                        style="width: 14px; margin:0 5px 0 0;">
+                                                    10-15 YR
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="icon-content-single">
-                                        <img src="images/user-icons/women-icon.svg" alt=""
-                                            style="width: 14px; margin:0 5px 0 0;">
-                                        0
+                                    <div class="enq-table-wrapper">
+                                        <table class="enq-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Enq Pax</th>
+                                                    <th>Enq Meal Plan</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <div class="icons-group-light-wrapper">
+                                                            <div class="icon-content-single">
+                                                                <img src="images/user-icons/child-icon.svg" alt=""
+                                                                    style="width: 14px; margin:0 5px 0 0;">
+                                                                10
+                                                            </div>
+                                                            <div class="icon-content-single">
+                                                                <img src="images/user-icons/women-icon.svg" alt=""
+                                                                    style="width: 14px; margin:0 5px 0 0;">
+                                                                10
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="icons-group-light-wrapper">
+                                                            <div class="icon-content-single">
+                                                                <img src="images/booking-request/meals-icon.svg" alt=""
+                                                                    style="width: 20px; margin:0 5px 0 0;">
+                                                                CP (Breakfast)
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
+                                    <div class="enq-table-wrapper">
+                                        <table class="enq-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Tariff Basis Pax</th>
+                                                    <th>Tariff Basis Meal Plan</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <div class="icons-group-light-wrapper">
+                                                            <div class="icon-content-single">
+                                                                <img src="images/user-icons/child-icon.svg" alt=""
+                                                                    style="width: 14px; margin:0 5px 0 0;">
+                                                                10
+                                                            </div>
+                                                            <div class="icon-content-single">
+                                                                <img src="images/user-icons/women-icon.svg" alt=""
+                                                                    style="width: 14px; margin:0 5px 0 0;">
+                                                                10
+                                                            </div>
+                                                            <div class="icon-content-single">
+                                                                <img src="images/user-icons/man-icon.svg" alt=""
+                                                                    style="width: 9px; margin:0 5px 0 0;">
+                                                                10
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="icons-group-light-wrapper">
+                                                            <div class="icon-content-single">
+                                                                <img src="images/booking-request/meals-icon.svg" alt=""
+                                                                    style="width: 20px; margin:0 5px 0 0;">
+                                                                MAP (Breakfast)
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="info-note-wrapper">
+                                        <img src="images/booking-request/info-icon-red.svg" alt="">
+                                        Excess Bed Utilization: DB:22 | EB:22 | SB:22
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="popup-room-rate-table-wrapper">
+                                    <table class="popup-room-rate-table">
+                                        <tr>
+                                            <td class="head-td">Rooms</td>
+                                            <td>10X 111111</td>
+                                            <td>10X 111111</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="head-td">EBA</td>
+                                            <td>10X 111111</td>
+                                            <td>10X 111111</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="head-td">CWB</td>
+                                            <td>10X 111111</td>
+                                            <td>10X 111111</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="head-td">CNB</td>
+                                            <td>10X 111111</td>
+                                            <td>10X 111111</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="head-td">SGL</td>
+                                            <td>10X 111111</td>
+                                            <td>10X 111111</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="head-td">FOC</td>
+                                            <td>5 Infants</td>
+                                            <td>5 Infants</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="head-td">Inclusion</td>
+                                            <td>10X 111111</td>
+                                            <td>10X 111111</td>
+                                        </tr>
+                                        <tr class="total-row">
+                                            <td colspan="2">TOTAL</td>
+                                            <td>₹11111111</td>
+                                        </tr>
+                                    </table>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="room-body-wrapper">
-                        <div class="table-responsive">
-                            <table class="room-pax-table">
-                                <thead>
-                                    <tr>
-                                        <th style="width:55%"></th>
-                                        <th style="width:15%">
-                                            <div class="man-icon">
-                                                <img src="images/user-icons/man-icon.svg" alt="">
-                                                <span class="man-top-icon"><img src="images/user-icons/check-icon.svg"
-                                                        alt=""></span>
-                                            </div>
-                                        </th>
-                                        <th style="width:15%">
-                                            <div class="man-icon">
-                                                <img src="images/user-icons/man-icon.svg" alt="">
-                                                <span class="man-top-icon"><img src="images/user-icons/info-icon.svg"
-                                                        alt=""></span>
-                                            </div>
-                                        </th>
-                                        <th style="width:15%;">
-                                            <div class="man-icon">
-                                                <img src="images/user-icons/man-icon.svg" alt="">
-                                                <span class="man-top-icon"><img src="images/user-icons/check-icon.svg"
-                                                        alt=""></span>
-                                            </div>
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td style="width:55%; text-align: left;">
-                                            <div class="td-box">Pax Count as per property's Child & Infant Policy</div>
-                                        </td>
-                                        <td style="width:15%;">
-                                            <div class="td-smal-input blank-heading">7</div>
-                                        </td>
-                                        <td style="width:15%;">
-                                            <div class="td-smal-input blank-heading">0</div>
-                                        </td>
-                                        <td style="width:15%;">
-                                            <div class="td-smal-input blank-heading">0</div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <div class="table-vertical-scroll">
-                                <table class="room-pax-table">
-                                    <tbody>
-                                        <tr>
-                                            <td style="text-align: left; width:55%;">
-                                                <div class="td-box color-navy">Crown Luxury</div>
-                                            </td>
-                                            <td style="width:15.5%">
-                                                <input class="td-smal-input" value="7">
-                                            </td>
-                                            <td style="width:15%">
-                                                <input class="td-smal-input" value="0">
-                                            </td>
-                                            <td style="width:15%;">
-                                                <input class="td-smal-input" value="0">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td style="text-align: left; width:55%;">
-                                                <div class="td-box color-navy">Crown Luxury</div>
-                                            </td>
-                                            <td style="width:15.5%">
-                                                <input class="td-smal-input" value="7">
-                                            </td>
-                                            <td style="width:15%">
-                                                <input class="td-smal-input" value="0">
-                                            </td>
-                                            <td style="width:15%;">
-                                                <input class="td-smal-input" value="0">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td style="text-align: left; width:55%;">
-                                                <div class="td-box color-navy">Crown Luxury</div>
-                                            </td>
-                                            <td style="width:15.5%">
-                                                <input class="td-smal-input" value="7">
-                                            </td>
-                                            <td style="width:15%">
-                                                <input class="td-smal-input" value="0">
-                                            </td>
-                                            <td style="width:15%;">
-                                                <input class="td-smal-input" value="0">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td style="text-align: left; width:55%;">
-                                                <div class="td-box color-navy">Crown Luxury</div>
-                                            </td>
-                                            <td style="width:15.5%">
-                                                <input class="td-smal-input" value="7">
-                                            </td>
-                                            <td style="width:15%">
-                                                <input class="td-smal-input" value="0">
-                                            </td>
-                                            <td style="width:15%;">
-                                                <input class="td-smal-input" value="0">
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- EOF Edit Modal -->
 
-                            <table class="room-pax-table">
-                                <tbody>
-                                    <tr>
-                                        <td style="text-align: left;width:55%;">
-                                            <div class="td-box">Allocated Pax</div>
-                                        </td>
-                                        <td style="width:15%;">
-                                            <div class="td-smal-input blank-heading">7</div>
-                                        </td>
-                                        <td style="width:15%;">
-                                            <div class="td-smal-input blank-heading">0</div>
-                                        </td>
-                                        <td style="width:15%;">
-                                            <div class="td-smal-input blank-heading">0</div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+<!-- BOF Edit Modal -->
+<div class="modal" id="BookingConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered medium-modal-wrapper" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-header-left">
+                    <h3 class="popup-title">Booking Confirmation</h3>
+                </div>
+                <div class="modal-header-right">
+                    <!-- <h4 class="day-header">Tuesday, 10 Aug 2022</h4> -->
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="pop-room-details-wrapper">
+                    <div class="payment-terms-wrapper">
+                        <h3 class="payment-terms-heading">Select Payment Terms</h3>
+                        <div class="payment-terms-radios">
+                            <label class="radio-wrapper">One <span class="payment-block">₹ 10,000,00</span>
+                                <input type="radio" checked="checked" name="radio">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="radio-wrapper">Two <span class="payment-block">₹ 10,000,00</span>
+                                <input type="radio" name="radio">
+                                <span class="checkmark"></span>
+                            </label>
                         </div>
                     </div>
-                    <div class="popup-bottom">
-                        <div class="two-btn-center">
-                            <button class="btn grey-btn" data-dismiss="modal" aria-label="Close">Cancel</button>
-                            <button class="btn red-btn">Apply</button>
+                    <div class="installment-table-wrapper">
+                        <div class="installment-table-header">
+                            <div class="installment-table-header-left">
+                                <h3 class="payment-terms-heading">Select Payment Terms</h3>
+                            </div>
+                            <div class="installment-table-header-right">
+                                <div class="add-remove-btns-wrapper">
+                                    <button class="add-remove-btns"><img src="images/booking-request/remove-btn.svg"
+                                            alt=""></button>
+                                    <button class="add-remove-btns"><img src="images/booking-request/add-btn.svg"
+                                            alt=""></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="popup-tariff-room-details">
+                        <div class="popup-room-rate-table-wrapper">
+                            <table class="popup-room-rate-table">
+                                <tr>
+                                    <td style="width:15%;" class="head-td">
+                                        <input type="text" class="amount-input" value="30">
+                                    </td>
+                                    <td style="width:5%;" class="head-td">%</td>
+                                    <td style="width:40%;">₹ 25,000</td>
+                                    <td style="width:40%;"><img class="calendar-img"
+                                            src="images/booking-request/calender-icon-blue.svg" alt=""> 10
+                                        October
+                                        2022</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:15%;" class="head-td">
+                                        <input type="text" class="amount-input" value="50">
+                                    </td>
+                                    <td style="width:5%;" class="head-td">%</td>
+                                    <td style="width:40%;">₹ 50,000</td>
+                                    <td style="width:40%;"><img class="calendar-img"
+                                            src="images/booking-request/calender-icon-blue.svg" alt=""> <span
+                                            class="disabled-text">Select
+                                            Date</span></td>
+                                </tr>
+                                <tr>
+                                    <td style="width:15%;" class="head-td">
+                                        <input type="text" class="amount-input" value="00">
+                                    </td>
+                                    <td style="width:5%;" class="head-td">%</td>
+                                    <td style="width:40%;">₹ 00</td>
+                                    <td style="width:40%;"><img class="calendar-img"
+                                            src="images/booking-request/calender-icon-blue.svg" alt=""> 20
+                                        October 2022</td>
+                                </tr>
+                                <tr class="total-tr">
+                                    <td style="width:15%;text-align: center;"><span class="total-value">80%</span></td>
+                                    <td style="width:5%;">&nbsp;</td>
+                                    <td colspan="2">₹ 75,000</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="center-btn-group">
+                            <button class="btn grey-btn">Back</button>
+                            <button class="btn primary-btn">Submit</button>
                         </div>
                     </div>
                 </div>
@@ -684,7 +800,7 @@ function viewDetails(id) {
 }
 
 $(window).on('load', function() {
-    $('#bookingConfirmationModal').modal('show');
+    $('#BookingConfirmationModal').modal('show');
 });
 $(document).ready(function() {
     $(".comment-btn").click(function() {

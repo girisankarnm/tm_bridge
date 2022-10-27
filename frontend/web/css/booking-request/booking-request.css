@@ -109,140 +109,64 @@ ul {
 .radio-container {
   display: block;
   position: relative;
-  padding-left: 40px;
+  padding-left: 35px;
   margin-bottom: 12px;
   cursor: pointer;
+  font-size: 22px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  color: #545554;
-  font-size: 1rem;
-  margin-right: 20px;
-  margin: 0 0 15px !important;
-  min-height: 40px;
-  line-height: 40px;
+  min-height: auto;
+  line-height: normal;
+  /* Hide the browser's default radio button */
+  /* When the radio button is checked, add a blue background */
+  /* Show the indicator (dot/circle) when checked */
+  /* Create a custom radio button */
+  /* On mouse-over, add a grey background color */
 }
-.radio-container a {
-  font-weight: 600;
-  color: #ffa800;
-}
-
-/* Hide the browser's default radio button */
 .radio-container input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
 }
-
-/* Create a custom radio button */
+.radio-container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+.radio-container .container input:checked ~ .checkmark:after {
+  display: block;
+}
 .radio-container .checkmark {
   position: absolute;
-  top: 0px;
-  left: 0px;
-  height: 28px;
-  width: 28px;
-  background: none;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
-  border: 1px solid #EDEDED;
+  margin: 0;
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+  /* Style the indicator (dot/circle) */
 }
-
-/* On mouse-over, add a grey background color */
-.radio-container:hover input ~ .checkmark {
-  background: none;
-}
-
-/* When the radio button is checked, add a blue background */
-.radio-container input:checked ~ .checkmark {
-  background: none;
-  border-color: #E89F72;
-}
-
-/* Create the indicator (the dot/circle - hidden when not checked) */
 .radio-container .checkmark::after {
   content: "";
   position: absolute;
   display: none;
 }
-
-.radio-container .checkmark::before {
-  content: "";
-  position: absolute;
-  transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
-  -moz-transform: rotate(-45deg);
-  -o-transform: rotate(-45deg);
-  top: 6px;
-  left: 6px;
-  width: 14px;
-  height: 14px;
-  background: #C4C4C4;
+.radio-container .checkmark::after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
+  background: white;
 }
-
-/* Show the indicator (dot/circle) when checked */
-.radio-container input:checked ~ .checkmark::after {
-  display: block;
-  background: #E89F72;
-}
-
-/* Style the indicator (dot/circle) */
-.customRadioDesign {
-  background: #fff;
-  border: 1px solid #C4C4C4;
-  width: 100%;
-  height: 40px;
-  z-index: 0;
-  position: absolute;
-  left: 0;
-  top: 0;
-  border-radius: 4px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  -o-border-radius: 4px;
-}
-
-.radioContent {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: #000;
-  position: relative;
-  z-index: 1;
-  margin: 0;
-}
-
-.radio-container input:checked ~ .customRadioDesign {
-  border: 1px solid #C4C4C4;
-}
-
-.radio-container .checkmark:after {
-  transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
-  -moz-transform: rotate(-45deg);
-  -o-transform: rotate(-45deg);
-  top: 6px;
-  left: 6px;
-  width: 14px;
-  height: 14px;
-  background: #C4C4C4;
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
+.radio-container:hover input ~ .checkmark {
+  background-color: #ccc;
 }
 
 /* The container */
@@ -1159,7 +1083,7 @@ ul {
 }
 .room-booking-header .room-booking-header-left .heading {
   border-right: 1px solid #fff;
-  font-family: Bw-Mitga-bold;
+  font-family: "Bw-Mitga-bold";
   color: #fff;
   padding: 0 10px 0 0;
   margin: 0 10px 0 0;
@@ -1206,12 +1130,12 @@ ul {
   justify-content: center;
   margin: 0 0 0 15px;
   font-size: 14px;
-  font-family: Bw-Mitga-bold;
+  font-family: "Bw-Mitga-bold";
 }
 .small-box .booking-status {
   color: #fff;
   font-size: 14px;
-  font-family: Bw-Mitga-bold !important;
+  font-family: "Bw-Mitga-bold" !important;
   line-height: 22px;
   margin: 0;
 }
@@ -1223,7 +1147,7 @@ ul {
 .mobile-no {
   font-size: 11px;
   color: #1E2339;
-  font-family: Bw-Mitga-bold;
+  font-family: "Bw-Mitga-bold";
 }
 
 .hotels-client-table-wrapper {
@@ -1253,7 +1177,7 @@ ul {
   background: #E1E5FF;
   border-right: 1px solid #ABB0C1;
   font-size: 14px;
-  font-family: Bw-Mitga-bold !important;
+  font-family: "Bw-Mitga-bold" !important;
   font-weight: initial !important;
   padding: 15px !important;
 }
@@ -1333,7 +1257,7 @@ ul {
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
-  font-family: Bw-Mitga-bold;
+  font-family: "Bw-Mitga-bold";
   margin: 0 0 10px;
 }
 
@@ -1352,7 +1276,7 @@ ul {
   margin: 5px 0 0 0;
   font-size: 13px;
   color: #1E2339;
-  font-family: Bw-Mitga-bold;
+  font-family: "Bw-Mitga-bold";
 }
 .room-details-wrapper .room-details-row .room-details-right {
   display: flex;
@@ -1425,7 +1349,7 @@ ul {
 .room-no-btn {
   background: none;
   padding: 3px 20px;
-  font-family: Bw-Mitga-bold !important;
+  font-family: "Bw-Mitga-bold" !important;
   border: 1px solid #838BC7;
   border-radius: 15px;
   -webkit-border-radius: 15px;
@@ -1476,7 +1400,7 @@ ul {
 }
 .room-cat-rate .room-rate {
   color: #1E2339;
-  font-family: Bw-Mitga-bold;
+  font-family: "Bw-Mitga-bold";
   font-size: 14px;
 }
 
@@ -1510,7 +1434,7 @@ ul {
 .total-btns-wrapper .total-amount {
   color: #1E2339;
   font-size: 16px;
-  font-family: Bw-Mitga-bold;
+  font-family: "Bw-Mitga-bold";
 }
 .total-btns-wrapper .total-amount span {
   margin: 0 0 0 10px;
@@ -1567,7 +1491,7 @@ ul {
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
-  font-family: Bw-Mitga-bold !important;
+  font-family: "Bw-Mitga-bold" !important;
 }
 .medium-btn img {
   width: 25px;
@@ -1632,7 +1556,7 @@ ul {
   color: #fff;
   min-width: 200px;
   height: 43px;
-  font-family: Bw-Mitga-bold !important;
+  font-family: "Bw-Mitga-bold" !important;
   border-radius: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -1668,7 +1592,7 @@ ul {
   color: #000621;
   text-align: right;
   line-height: 20px;
-  font-family: Bw-Mitga-bold !important;
+  font-family: "Bw-Mitga-bold" !important;
 }
 .show-activity-wrapper .activity-chat-wrapper .activity-chat-single .activity-chat-user .user-details .user-details-date {
   margin: 0;
@@ -1760,6 +1684,215 @@ ul {
   top: 2px;
   right: -2px;
   left: initial;
+}
+
+.room-withaminities {
+  margin: 20px 0 0;
+}
+.room-withaminities .room-facilities-wrapper {
+  justify-content: space-between;
+}
+.room-withaminities .room-facilities-wrapper .room-facilities-single {
+  width: 48%;
+  margin: 0;
+}
+
+.icons-group-light-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.icons-group-light-wrapper .icon-content-single {
+  display: flex;
+  margin: 0 7px;
+  align-items: center;
+}
+
+.enq-table-wrapper {
+  margin: 15px 0 0;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border: 1px solid #D2D2D2 !important;
+  overflow: hidden;
+}
+.enq-table-wrapper .enq-table {
+  width: 100%;
+  box-shadow: none;
+  border: none !important;
+}
+.enq-table-wrapper .enq-table thead tr th {
+  width: 50%;
+  color: #1E2339;
+  background: #E1E5FF;
+  text-align: center;
+  border-right: 1px solid #D2D2D2 !important;
+}
+.enq-table-wrapper .enq-table thead tr th:nth-last-child(1) {
+  border-right: none !important;
+}
+.enq-table-wrapper .enq-table tbody tr td {
+  width: 50%;
+  padding: 10px 0;
+  border-right: 1px solid #D2D2D2 !important;
+}
+.enq-table-wrapper .enq-table tbody tr td:nth-last-child(1) {
+  border-right: none !important;
+}
+
+.popup-room-rate-table-wrapper {
+  margin: 20px 0 0;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border: 1px solid #D2D2D2 !important;
+  overflow: hidden;
+}
+.popup-room-rate-table-wrapper .popup-room-rate-table {
+  width: 100%;
+  box-shadow: none;
+  border: none !important;
+}
+.popup-room-rate-table-wrapper .popup-room-rate-table tr td {
+  font-size: 12px;
+  width: 33.333%;
+  padding: 10px;
+  border-right: 1px solid #D2D2D2 !important;
+  border-bottom: 1px solid #D2D2D2 !important;
+}
+.popup-room-rate-table-wrapper .popup-room-rate-table tr td:nth-last-child(1) {
+  border-right: none !important;
+}
+.popup-room-rate-table-wrapper .popup-room-rate-table tr .head-td {
+  text-align: left;
+  color: #1E2339;
+  padding: 10px 20px;
+  background: #E1E5FF;
+  font-family: "Bw-Mitga-bold" !important;
+}
+.popup-room-rate-table-wrapper .popup-room-rate-table tr:nth-last-child(1) td {
+  border-bottom: none !important;
+}
+.popup-room-rate-table-wrapper .popup-room-rate-table .total-row {
+  background: #838BC7;
+}
+.popup-room-rate-table-wrapper .popup-room-rate-table .total-row td {
+  color: #fff;
+}
+.popup-room-rate-table-wrapper .popup-room-rate-table .total-row td:nth-child(1) {
+  padding: 10px 20px;
+}
+
+span.payment-block {
+  color: #fff;
+  padding: 6px 10px;
+  margin: 0 0 0 15px;
+  display: inline-block;
+  background: #838BC7;
+  font-family: "Bw-Mitga-bold";
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border: 2px solid #5968DB;
+}
+
+.payment-terms-heading {
+  font-size: 14px;
+  margin: 0 0 10px;
+  color: #1E2339;
+  font-family: "Bw-Mitga-bold" !important;
+}
+
+.installment-table-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.installment-table-header .installment-table-header-left {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.installment-table-header .installment-table-header-left .payment-terms-heading {
+  margin: 0;
+}
+.installment-table-header .installment-table-header-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.add-remove-btns-wrapper .add-remove-btns {
+  width: 20px;
+  height: 20px;
+  background: none;
+  border: none;
+}
+
+.amount-input {
+  width: 100%;
+  background: none;
+  padding: 0;
+  border: none;
+  text-align: center;
+  color: #1E2339;
+  font-family: "Bw-Mitga-bold" !important;
+  font-size: 12px;
+}
+.amount-input:hover, .amount-input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.calendar-img {
+  width: 20px;
+  margin: 0 5px 0 0;
+}
+
+.popup-room-rate-table tr {
+  background: #fff;
+}
+
+.disabled-text {
+  opacity: 0.7;
+}
+
+.popup-room-rate-table-wrapper .popup-room-rate-table .total-tr {
+  background: #838BC7 !important;
+  color: #fff;
+}
+.popup-room-rate-table-wrapper .popup-room-rate-table .total-tr td {
+  border: none !important;
+  color: #fff;
+  font-family: "Bw-Mitga-bold" !important;
+  font-size: 16px !important;
+  padding: 15px 10px;
+}
+.popup-room-rate-table-wrapper .popup-room-rate-table .total-tr td .total-value {
+  text-align: center;
+}
+
+.center-btn-group {
+  margin: 15px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.center-btn-group button {
+  margin: 0 5px;
+}
+.center-btn-group button:hover, .center-btn-group button:focus {
+  outline: none;
+  box-shadow: none;
+}
+.center-btn-group button:hover:before, .center-btn-group button:focus:before, .center-btn-group button:active:before {
+  background: #1E2339;
 }
 
 @media (max-width: 1400px) {

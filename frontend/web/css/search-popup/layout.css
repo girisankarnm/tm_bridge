@@ -1208,7 +1208,7 @@ span.hovercard.right-tooltip::after {
   margin: 0 0 5px;
   text-align: left;
   line-height: 17px;
-  font-family: Bw-Mitga-bold !important;
+  font-family: "Bw-Mitga-bold" !important;
 }
 .tooltiptext .tooltip-para {
   color: #fff;
@@ -1456,14 +1456,14 @@ span.hovercard.right-tooltip::after {
 .enquiry-box-wrapper .enquiry-number h6 {
   font-size: 11px !important;
   color: #1E2339 !important;
-  font-family: Bw-Mitga-bold !important;
+  font-family: "Bw-Mitga-bold" !important;
   margin: 0 0 5px;
   line-height: 15px;
 }
 .enquiry-box-wrapper .enquiry-number h3 {
   font-size: 16px !important;
   color: #1E2339 !important;
-  font-family: Bw-Mitga-bold !important;
+  font-family: "Bw-Mitga-bold" !important;
   margin: 0;
   line-height: 15px;
 }
@@ -1481,7 +1481,7 @@ span.hovercard.right-tooltip::after {
   width: 100%;
 }
 .enquiry-details .enquiry-row .enquiry-content {
-  font-family: Bw-Mitga-bold;
+  font-family: "Bw-Mitga-bold";
   font-size: 11px;
 }
 .enquiry-details .enquiry-row .enquiry-content a {
@@ -1517,7 +1517,7 @@ span.hovercard.right-tooltip::after {
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
   color: #1E2339;
-  font-family: Bw-Mitga-bold;
+  font-family: "Bw-Mitga-bold";
   font-size: 12px;
   display: flex;
   align-items: center;
@@ -1561,7 +1561,7 @@ span.room-cat-text {
   -moz-border-radius: 15px;
   -ms-border-radius: 15px;
   -o-border-radius: 15px;
-  font-family: Bw-Mitga-bold !important;
+  font-family: "Bw-Mitga-bold" !important;
   position: relative;
 }
 .view-details-btn::after {
@@ -1670,7 +1670,7 @@ span.room-cat-text {
   padding: 10px 30px;
   text-align: center;
   background: #E1E5FF;
-  font-family: Bw-Mitga-bold;
+  font-family: "Bw-Mitga-bold";
 }
 .room-policy-occupancy-wrapper .room-policy-occupancy-single .room-policy-occupancy-content {
   flex-grow: 1;
@@ -1722,7 +1722,7 @@ span.room-cat-text {
   color: #E40968;
   line-height: 16px;
   margin: 0 15px 0 0;
-  font-family: Bw-Mitga-bold;
+  font-family: "Bw-Mitga-bold";
   text-decoration: line-through;
 }
 .days-price-details .room-price-wrapper .current-price {
@@ -1730,7 +1730,7 @@ span.room-cat-text {
   font-size: 15px;
   color: #5968DB;
   line-height: 16px;
-  font-family: Bw-Mitga-bold;
+  font-family: "Bw-Mitga-bold";
 }
 
 .tax-details {
@@ -1761,7 +1761,7 @@ span.room-cat-text {
   margin: 0 0 5px;
   font-size: 15px;
   color: #1E2339;
-  font-family: Bw-Mitga-bold;
+  font-family: "Bw-Mitga-bold";
 }
 
 .matching-boxes-main {
@@ -1786,7 +1786,7 @@ span.room-cat-text {
   background: #fff;
   color: #1E2339;
   font-size: 12px;
-  font-family: Bw-Mitga-bold;
+  font-family: "Bw-Mitga-bold";
   border: 1px solid #E1E4ED;
   padding: 5px 10px;
   border-radius: 5px;
@@ -1820,7 +1820,7 @@ span.room-cat-text {
   padding: 5px 0 2px;
   color: #1E2339;
   font-size: 12px;
-  font-family: Bw-Mitga-bold;
+  font-family: "Bw-Mitga-bold";
 }
 .matching-boxes-main .matching-each-room-wrapper .room-single-content-area .room-single-content-wrapper .room-single-content .room-single-content-value {
   padding: 5px 0 7px;
@@ -1855,7 +1855,7 @@ span.room-cat-text {
   background: #F44336;
   color: #fff;
   font-size: 10px;
-  font-family: Bw-Mitga-bold;
+  font-family: "Bw-Mitga-bold";
   right: -6px;
   top: 0px;
   width: 15px;

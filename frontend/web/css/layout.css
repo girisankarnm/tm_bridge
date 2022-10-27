@@ -47,3 +47,16 @@
 table :where(label, p) {
     display: inline;
 }
+
+.room-row-single .room-left {
+    width: 40%;
+}
+
+.room-center {
+    width: 25%;
+    justify-content: flex-start;
+}
+
+.room-right {
+    width: 35%;
+}

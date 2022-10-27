@@ -1,6 +1,7 @@
 @import "../partials/partials";
 
-$font-bold: Bw-Mitga-bold;
+$font-bold: 'Bw-Mitga-bold';
+$color-dark: #1E2339;
 
 .room-booking-header {
     margin: 0 0 20px;
@@ -652,6 +653,253 @@ $font-bold: Bw-Mitga-bold;
 }
 
 
+.room-withaminities {
+    margin: 20px 0 0;
+
+    .room-facilities-wrapper {
+        justify-content: space-between;
+
+        .room-facilities-single {
+            width: 48%;
+            margin: 0;
+        }
+    }
+}
+
+.icons-group-light-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .icon-content-single {
+        display: flex;
+        margin: 0 7px;
+        align-items: center;
+    }
+}
+
+.enq-table-wrapper {
+    margin: 15px 0 0;
+    @include border-radius(5px);
+    border: 1px solid #D2D2D2 !important;
+    overflow: hidden;
+
+    .enq-table {
+        width: 100%;
+        // @include border-radius(5px);
+        box-shadow: none;
+        border: none !important;
+
+
+        thead {
+            tr {
+                th {
+                    width: 50%;
+                    color: $color-dark;
+                    background: #E1E5FF;
+                    text-align: center;
+                    border-right: 1px solid #D2D2D2 !important;
+
+                    &:nth-last-child(1) {
+                        border-right: none !important;
+                    }
+                }
+            }
+        }
+
+        tbody {
+            tr {
+                td {
+                    width: 50%;
+                    padding: 10px 0;
+                    border-right: 1px solid #D2D2D2 !important;
+
+                    &:nth-last-child(1) {
+                        border-right: none !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.popup-room-rate-table-wrapper {
+    margin: 20px 0 0;
+    @include border-radius(5px);
+    border: 1px solid #D2D2D2 !important;
+    overflow: hidden;
+
+    .popup-room-rate-table {
+        width: 100%;
+        box-shadow: none;
+        border: none !important;
+
+        tr {
+            td {
+                font-size: 12px;
+                width: 33.333%;
+                padding: 10px;
+                border-right: 1px solid #D2D2D2 !important;
+                border-bottom: 1px solid #D2D2D2 !important;
+
+                &:nth-last-child(1) {
+                    border-right: none !important;
+                }
+            }
+
+            .head-td {
+                text-align: left;
+                color: $color-dark;
+                padding: 10px 20px;
+                background: #E1E5FF;
+                font-family: $font-bold !important;
+            }
+
+            &:nth-last-child(1) {
+                td {
+                    border-bottom: none !important;
+                }
+            }
+        }
+
+        .total-row {
+            background: #838BC7;
+
+            td {
+                color: $color-white;
+
+                &:nth-child(1) {
+                    padding: 10px 20px;
+                }
+            }
+        }
+    }
+}
+
+span.payment-block {
+    color: #fff;
+    padding: 6px 10px;
+    margin: 0 0 0 15px;
+    display: inline-block;
+    background: #838BC7;
+    font-family: $font-bold;
+    @include border-radius(5px);
+    border: 2px solid #5968DB;
+}
+
+.payment-terms-heading {
+    font-size: 14px;
+    margin: 0 0 10px;
+    color: $color-dark;
+    font-family: $font-bold !important;
+}
+
+.installment-table-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .installment-table-header-left {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        .payment-terms-heading {
+            margin: 0;
+        }
+    }
+
+    .installment-table-header-right {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+}
+
+.add-remove-btns-wrapper {
+    .add-remove-btns {
+        width: 20px;
+        height: 20px;
+        background: none;
+        border: none;
+    }
+}
+
+.amount-input {
+    width: 100%;
+    background: none;
+    padding: 0;
+    border: none;
+    text-align: center;
+    color: $color-dark;
+    font-family: $font-bold !important;
+    font-size: 12px;
+
+    &:hover,
+    &:focus {
+        outline: none;
+        box-shadow: none;
+    }
+}
+
+.calendar-img {
+    width: 20px;
+    margin: 0 5px 0 0;
+}
+
+.popup-room-rate-table {
+    tr {
+        background: $color-white;
+    }
+}
+
+.disabled-text {
+    opacity: 0.7;
+}
+
+.popup-room-rate-table-wrapper {
+    .popup-room-rate-table {
+        .total-tr {
+            background: #838BC7 !important;
+            color: $color-white;
+
+            td {
+                border: none !important;
+                color: $color-white;
+                font-family: $font-bold !important;
+                font-size: 16px !important;
+                padding: 15px 10px;
+
+                .total-value {
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+.center-btn-group {
+    margin: 15px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    button {
+        margin: 0 5px;
+
+        &:hover,
+        &:focus {
+            outline: none;
+            box-shadow: none;
+        }
+
+        &:hover:before,
+        &:focus:before,
+        &:active:before {
+            background: $color-dark;
+        }
+    }
+}
 
 @media (max-width:1400px) {
     .show-activity-wrapper {
