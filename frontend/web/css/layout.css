@@ -60,3 +60,23 @@ table :where(label, p) {
 .room-right {
     width: 35%;
 }
+
+.modal-backdrop {
+    background: rgb(0 0 0 / 27%);
+}
+
+.hasDatepicker {
+    padding: 0 !important;
+    text-align: left;
+    text-indent: 0 !important;
+    border: none;
+    margin: 5px 0 0;
+}
+
+.hasDatepicker::placeholder {
+    color: #1E2339;
+}
+
+.hasDatepicker:focus {
+    outline: none;
+}

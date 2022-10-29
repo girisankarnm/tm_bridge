@@ -5,6 +5,7 @@ $this->registerCssFile('/css/datepicker.css');
 $this->registerCssFile('/css/users/user-styles.css');
 $this->registerCssFile('/css/booking-request/booking-request.css');
 $this->registerCssFile('/css/custom-style.css');
+$this->registerCssFile('/css/datepicker/jquery-ui.css');
 ?>
 <div class="wrapper">
     <div class="room-booking-header">
@@ -643,25 +644,27 @@ Lorren ippsum gravida sem?</textarea>
                             <table class="popup-room-rate-table">
                                 <tr>
                                     <td style="width:15%;" class="head-td">
-                                        <input type="text" class="amount-input" value="30">
+                                        <input type="text" class="amount-input" placeholder="Enter %">
                                     </td>
                                     <td style="width:5%;" class="head-td">%</td>
                                     <td style="width:40%;">₹ 25,000</td>
-                                    <td style="width:40%;"><img class="calendar-img"
-                                            src="images/booking-request/calender-icon-blue.svg" alt=""> 10
-                                        October
-                                        2022</td>
+                                    <td style="width:40%;">
+                                        <img class="calendar-img" src="images/booking-request/calender-icon-blue.svg"
+                                            alt="">
+                                        <input type="text" class="datepicker" placeholder="20 October 2022">
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td style="width:15%;" class="head-td">
-                                        <input type="text" class="amount-input" value="50">
+                                        <input type="text" class="amount-input" placeholder="Enter %">
                                     </td>
                                     <td style="width:5%;" class="head-td">%</td>
                                     <td style="width:40%;">₹ 50,000</td>
-                                    <td style="width:40%;"><img class="calendar-img"
-                                            src="images/booking-request/calender-icon-blue.svg" alt=""> <span
-                                            class="disabled-text">Select
-                                            Date</span></td>
+                                    <td style="width:40%;">
+                                        <img class="calendar-img" src="images/booking-request/calender-icon-blue.svg"
+                                            alt="">
+                                        <input type="text" class="datepicker" placeholder="20 October 2022">
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td style="width:15%;" class="head-td">
@@ -669,9 +672,11 @@ Lorren ippsum gravida sem?</textarea>
                                     </td>
                                     <td style="width:5%;" class="head-td">%</td>
                                     <td style="width:40%;">₹ 00</td>
-                                    <td style="width:40%;"><img class="calendar-img"
-                                            src="images/booking-request/calender-icon-blue.svg" alt=""> 20
-                                        October 2022</td>
+                                    <td style="width:40%;">
+                                        <img class="calendar-img" src="images/booking-request/calender-icon-blue.svg"
+                                            alt="">
+                                        <input type="text" class="datepicker" placeholder="20 October 2022">
+                                    </td>
                                 </tr>
                                 <tr class="total-tr">
                                     <td style="width:15%;text-align: center;"><span class="total-value">80%</span></td>
@@ -692,10 +697,8 @@ Lorren ippsum gravida sem?</textarea>
 </div>
 <!-- EOF Edit Modal -->
 
-
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
 
 <script>
 // $(window).scroll(function() {
@@ -809,5 +812,10 @@ $(document).ready(function() {
     $(".activity-btn").click(function() {
         $(".show-activity-wrapper").slideToggle();
     });
+    $(function() {
+        // $("#datepicker").datepicker();
+        $(".datepicker").datepicker();
+    });
+
 });
 </script>

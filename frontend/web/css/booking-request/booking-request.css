@@ -106,70 +106,6 @@ ul {
 /* Handle */
 /* Handle on hover */
 /* The container */
-.radio-container {
-  display: block;
-  position: relative;
-  padding-left: 35px;
-  margin-bottom: 12px;
-  cursor: pointer;
-  font-size: 22px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  min-height: auto;
-  line-height: normal;
-  /* Hide the browser's default radio button */
-  /* When the radio button is checked, add a blue background */
-  /* Show the indicator (dot/circle) when checked */
-  /* Create a custom radio button */
-  /* On mouse-over, add a grey background color */
-}
-.radio-container input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-}
-.radio-container input:checked ~ .checkmark {
-  background-color: #2196F3;
-}
-.radio-container .container input:checked ~ .checkmark:after {
-  display: block;
-}
-.radio-container .checkmark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 20px;
-  width: 20px;
-  background-color: #eee;
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
-  margin: 0;
-  /* Create the indicator (the dot/circle - hidden when not checked) */
-  /* Style the indicator (dot/circle) */
-}
-.radio-container .checkmark::after {
-  content: "";
-  position: absolute;
-  display: none;
-}
-.radio-container .checkmark::after {
-  top: 9px;
-  left: 9px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: white;
-}
-.radio-container:hover input ~ .checkmark {
-  background-color: #ccc;
-}
-
-/* The container */
 .checkbox-container {
   display: block;
   position: relative;
@@ -713,6 +649,70 @@ ul {
 .dropdown-menu .dropdown-item:hover {
   background: #E67612;
   color: #000 !important;
+}
+
+/* The container */
+.radio-wrapper {
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  color: #1E2339;
+  font-family: "Bw-Mitga-bold" !important;
+  /* Hide the browser's default radio button */
+  /* Create a custom radio button */
+  /* On mouse-over, add a grey background color */
+  /* When the radio button is checked, add a blue background */
+  /* Show the indicator (dot/circle) when checked */
+}
+.radio-wrapper input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+.radio-wrapper .checkmark {
+  position: absolute;
+  top: 6px;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #E1E5FF;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  margin: 0;
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+}
+.radio-wrapper .checkmark::after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  background: #fff;
+}
+.radio-wrapper:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+.radio-wrapper input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+.radio-wrapper input:checked ~ .checkmark:after {
+  display: block;
 }
 
 @media (max-width: 1199px) {
@@ -1457,7 +1457,7 @@ ul {
 }
 
 .booking-lists-wrapper {
-  margin: 20px 0 0;
+  margin: 20px 0 30px;
 }
 .booking-lists-wrapper .booking-lists-btns {
   display: flex;
@@ -1514,8 +1514,8 @@ ul {
 
 .comment-box-wrapper {
   display: flex;
-  margin: 30px 0 0;
-  padding: 30px 50px 0;
+  margin: 0;
+  padding: 30px 50px;
   align-items: flex-start;
   justify-content: space-between;
   border-top: 1px solid #ABB0C1;
@@ -1844,6 +1844,11 @@ span.payment-block {
   color: #1E2339;
   font-family: "Bw-Mitga-bold" !important;
   font-size: 12px;
+}
+.amount-input::placeholder {
+  font-family: "Bw-Mitga-bold" !important;
+  font-size: 12px;
+  color: #1E2339;
 }
 .amount-input:hover, .amount-input:focus {
   outline: none;
