@@ -1,7 +1,76 @@
 @import "partials/partials";
 
 $font-bold: 'Bw-Mitga-bold';
+
 $color-dark: #1E2339;
+
+.check-container {
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin: 0;
+    height: 24px;
+    line-height: 24px;
+
+    /* Hide the browser's default checkbox */
+    input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+
+    /* Create a custom checkbox */
+    .checkmark {
+        top: 0;
+        left: 0;
+        margin: 0;
+        width: 24px;
+        height: 24px;
+        background: none;
+        position: absolute;
+        @include border-radius(5px);
+        border: 2px solid #5968DB;
+
+        /* Create the checkmark/indicator (hidden when not checked) */
+        &:after {
+            content: "";
+            position: absolute;
+            display: none;
+            left: 7px;
+            top: 2px;
+            width: 7px;
+            height: 12px;
+            border: solid #5968DB;
+            border-width: 0 3px 3px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+    }
+
+    /* On mouse-over, add a grey background color */
+    &:hover input~.checkmark {
+        border: 2px solid #5968DB;
+    }
+
+    /* When the checkbox is checked, add a blue background */
+    input:checked~.checkmark {
+        // background: none;
+    }
+
+    /* Show the checkmark when checked */
+    input:checked~.checkmark:after {
+        display: block;
+    }
+}
 
 @media (min-width: 576px) {
     .large-modal-wrapper {
@@ -619,4 +688,100 @@ input.table-input-disabled {
         width: 20px;
         margin: 0 7px 0 0;
     }
+}
+
+.resort-details-area {
+    figure {
+        width: 75px;
+        height: 75px;
+        overflow: hidden;
+        @include border-radius(5px);
+
+        img {
+            width: 100%;
+        }
+    }
+}
+
+.border-none {
+    border: none !important;
+}
+
+.head-td {
+    font-size: 14px;
+    background: #E1E5FF !important;
+    font-family: $font-bold !important;
+    font-weight: initial !important;
+    padding: 15px !important;
+}
+
+.td-input {
+    width: 100%;
+    min-height: 40px;
+    padding: 5px 10px;
+    text-align: center;
+    border: 1px solid #9EA3B8;
+
+    &:focus,
+    &:hover {
+        outline: none;
+        box-shadow: none;
+    }
+}
+
+.room-rates-area-wrapper {
+    margin: 0 0 30px;
+}
+
+.contets-area-wrapper {
+    border: 2px solid #ABB0C1;
+    @include border-radius(5px);
+    padding: 10px;
+}
+
+.dates-selected-wrapper {
+    display: flex;
+    margin: 20px 0 0;
+    align-items: stretch;
+    justify-content: flex-start;
+    border-bottom: 2px solid #ABB0C1;
+    padding: 0 0 20px;
+
+    .selected-date-single {
+        padding: 7px 14px;
+        margin: 0 10px 0 0;
+        border: 1px solid #ABB0C1;
+        @include border-radius(7px);
+
+        .date-name {
+            font-size: 10px;
+            color: #1E2339;
+            text-align: center;
+        }
+
+        .date-number {
+            margin: 5px 0;
+            font-size: 50px;
+            color: #A3A8C6;
+            line-height: 40px;
+            text-align: center;
+            font-family: $font-bold;
+        }
+
+        .month-year {
+            font-size: 13px;
+            color: #A3A8C6;
+            text-align: center;
+        }
+    }
+}
+
+.table-td {
+    font-family: $font-bold !important;
+    color: $color-dark !important;
+}
+
+.bold-red-value {
+    font-family: $font-bold !important;
+    color: #CF1465 !important;
 }

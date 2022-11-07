@@ -1,0 +1,77 @@
+@import "../partials/partials";
+
+$font-bold: 'Bw-Mitga-bold';
+$color-dark: #1E2339;
+
+.contets-area-header {
+    display: flex;
+    margin: 0 0 15px;
+    align-items: center;
+    justify-content: space-between;
+
+    .left {
+        align-items: center;
+        display: inline-flex;
+        justify-content: flex-start;
+
+        .meal-area {
+            margin: 0 0 0 10px;
+        }
+    }
+
+    .right {
+        align-items: center;
+        display: inline-flex;
+        justify-content: flex-end;
+    }
+}
+
+.contets-area-heading {
+    margin: 0;
+    font-size: 14px;
+    color: #1E2339;
+    line-height: 20px;
+    font-family: $font-bold !important;
+}
+
+.meal-area {
+    display: flex;
+    align-items: center;
+    font-family: "Bw-Mitga-regular";
+    font-size: 13px;
+
+    img {
+        width: 30px;
+        margin: 0 5px 0 0;
+    }
+}
+
+.apply-rate {
+    display: flex;
+    align-items: center;
+}
+
+.total-card-wrapper {
+    display: flex;
+    align-items: center;
+    background: #F0F2FF;
+    justify-content: flex-end;
+    min-height: 100px;
+    padding: 0 100px;
+
+    .total-card-single {
+        margin: 0 0 0 50px;
+
+        .total-title {
+            font-size: 10px;
+            color: $color-dark;
+            font-family: $font-bold;
+        }
+
+        .total-value {
+            font-size: 20px;
+            color: $color-dark;
+            font-family: $font-bold;
+        }
+    }
+}

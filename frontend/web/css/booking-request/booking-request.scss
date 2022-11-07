@@ -56,19 +56,20 @@ $color-dark: #1E2339;
 }
 
 .small-box {
+    display: flex;
+    font-size: 12px;
+    min-height: 40px;
+    padding: 2px 10px;
+    margin: 0 0 0 15px;
+    color: $color-white;
+    letter-spacing: 0.5px;
+    background: #7280e0;
+    flex-direction: column;
+    font-family: $font-bold;
+    align-items: flex-start;
+    justify-content: center;
     @include border-radius(10px);
     border: 2px solid $color-white;
-    background: #7280e0;
-    color: $color-white;
-    padding: 2px 25px;
-    min-height: 50px;
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-    justify-content: center;
-    margin: 0 0 0 15px;
-    font-size: 14px;
-    font-family: $font-bold;
 
     .booking-status {
         color: $color-white;
@@ -118,9 +119,10 @@ $color-dark: #1E2339;
     thead {
         tr {
             th {
-                background: #E1E5FF;
+                text-align: center;
                 border-right: 1px solid #ABB0C1;
                 font-size: 14px;
+                background: #E1E5FF;
                 font-family: $font-bold !important;
                 font-weight: initial !important;
                 padding: 15px !important;
@@ -144,9 +146,10 @@ $color-dark: #1E2339;
     tbody {
         tr {
             td {
-                padding: 15px;
+                padding: 8px 15px;
                 color: #1E2339;
                 background: none;
+                text-align: center;
                 border: 1px solid #ABB0C1;
             }
         }
@@ -463,6 +466,15 @@ $color-dark: #1E2339;
 .primary-btn {
     color: $color-white;
     background: #E40968 !important;
+
+    &:hover {
+        background: rgb(228 9 104 / 70%) !important;
+
+        &::before {
+            content: none;
+            background: #E40968 !important;
+        }
+    }
 }
 
 .comment-box-main {
@@ -480,6 +492,7 @@ $color-dark: #1E2339;
     .chat-img {
         width: 50px;
         height: 50px;
+        overflow: hidden;
         margin: 0 20px 0 0;
         @include border-radius(50%);
 
@@ -559,6 +572,7 @@ $color-dark: #1E2339;
                 .user-img {
                     width: 46px;
                     height: 46px;
+                    overflow: hidden;
                     @include border-radius(50%);
 
                     img {

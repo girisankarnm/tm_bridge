@@ -54,8 +54,10 @@ $this->registerCssFile('/css/ppt/ppt-styles.css');
         <div class="single-room-details-wrapper room-details-block-wrapper">
             <div class="resort-header-wrapper bottom-radius-none hotel-rates-wrapper">
                 <div class="resort-details-area">
-                    <div class="room-rate-heading">Superior Room - River View <div class="meal-area"><img
-                                src="images/search-popup/food-icon.svg" alt=""> EP (Room Only)</div>
+                    <div class="room-rate-heading">Superior Room - River View
+                        <div class="meal-area">
+                            <img src="images/search-popup/food-icon.svg" alt=""> EP (Room Only)
+                        </div>
                     </div>
                 </div>
                 <!-- <div class="resort-peroid-area">

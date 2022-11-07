@@ -64,4 +64,14 @@ class PropertyController extends Controller
         $this->layout = 'tm_main';
         return $this->render('booking-request', []);
     }
+     public function actionPpe6()
+    {
+        $this->layout = 'tm_main';
+        return $this->render('SRR-special-rate-request', []);
+    }
+     public function actionPpe7()
+    {
+        $this->layout = 'tm_main';
+        return $this->render('SRR-apply-LS-rate', []);
+    }
 }

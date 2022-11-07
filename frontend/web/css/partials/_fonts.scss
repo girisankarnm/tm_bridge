@@ -62,4 +62,25 @@
 }
 
 // EOF Athelas
+// BOF Cera Pro
+// @font-face {
+//     font-family: 'cera_problack';
+//     src: url('../fonts/cera-pro/cera_pro_bold-webfont.woff2') format('woff2'),
+//         url('../fonts/cera-pro/cera_pro_black-webfont.woff') format('woff');
+//     font-weight: normal;
+//     font-style: normal;
+
+// }
+
+@font-face {
+    font-family: 'CeraProBold';
+    src: url('../fonts/cera-pro/CeraProBold.eot');
+    src: url('../fonts/cera-pro/CeraProBold.eot') format('embedded-opentype'),
+        url('../fonts/cera-pro/CeraProBold.woff2') format('woff2'),
+        url('../fonts/cera-pro/CeraProBold.woff') format('woff'),
+        url('../fonts/cera-pro/CeraProBold.ttf') format('truetype'),
+        url('../fonts/cera-pro/CeraProBold.svg#CeraProBold') format('svg');
+}
+
+// EOF Cera Pro
 // EOF Fonts
