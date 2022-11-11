@@ -35,15 +35,12 @@ $this->registerCssFile('/css/datepicker/jquery-ui.css');
                 <div class="resort-details-area">
                     <figure><img src="images/booking-request/thumb-01.png" alt=""></figure>
                     <article>
-                        <h4 class="with-stars">Kallada Tours and Travels
-                            <div class="stars">
-                                <img src="images/booking-request/star.svg" alt="">
-                                <img src="images/booking-request/star.svg" alt="">
-                                <img src="images/booking-request/star.svg" alt="">
-                                <img src="images/booking-request/star.svg" alt="">
-                                <img src="images/booking-request/star.svg" alt="">
+                        <div class="card-heading-row">
+                            <h4 class="card-heading">Kallada Tours and Travels</h4>
+                            <div class="hotel-rating-text-wrapper">
+                                <span class="hotel-rating-text">Luxury</span>
                             </div>
-                        </h4>
+                        </div>
                         <div class="resort-location">
                             <span class="location-icon"><img src="images/location-icon.png" alt=""></span>
                             <h5 class="location-name">Ernakulam, Kerala, India</h5>
@@ -125,6 +122,14 @@ $this->registerCssFile('/css/datepicker/jquery-ui.css');
                                 </div>
                             </td>
                         </tr>
+                        <tr>
+                            <td colspan="5">
+                                <div style="text-align: right;">
+                                    <button class="btn grey-btn">Back</button>
+                                    <button class="btn primary-btn">Submit</button>
+                                </div>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -133,183 +138,278 @@ $this->registerCssFile('/css/datepicker/jquery-ui.css');
             <div class="date-wise-booking">
                 <div class="single-date-bookings">
                     <div class="date-area-btn">10 August 2022</div>
-                    <div class="room-details-wrapper">
-                        <div class="room-details-row">
-                            <div class="room-details-left">
-                                <div class="check-area">
-                                    <label class="checkbox-container">
-                                        <input type="checkbox">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div class="room-name">Premium Valley View Room Pool </div>
-                            </div>
-                            <div class="room-details-right">
-                                <div class="single-item">
-                                    <button class="booking-status-btn room-avilable">
+                    <div class="reponsive-table room-details-table-wrapper">
+                        <table class="room-details-table">
+                            <tr>
+                                <td style="width: 30px;">
+                                    <div class="check-area">
+                                        <label class="checkbox-container">
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                </td>
+                                <td style="max-width: 60%;width: 100%;">
+                                    <div class="room-name">Premium Valley View Room Pool </div>
+                                </td>
+                                <td><button class="booking-status-btn room-avilable">
                                         <img src="images/booking-request/check-icon.svg" alt=""> Available
-                                    </button>
-                                </div>
-                                <div class="single-item">
-                                    <button class="room-no-btn">No. of Rooms: 10</button>
-                                </div>
-                                <div class="single-item">
+                                    </button></td>
+                                <td style="text-align: center;"><button class="room-no-btn">No. of Rooms:
+                                        10</button></td>
+                                <td>
                                     <div class="meals-icon-area">
                                         <div class="meals-icon"><img src="images/booking-request/meals-icon.svg" alt=""
                                                 class="meals-icon-img">
                                         </div>AP
                                     </div>
-                                </div>
-                                <div class="single-item">
+                                </td>
+                                <td>
                                     <div class="room-cat-rate">
                                         <div class="room-cat-area">SRR</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="room-cat-rate">
+
                                         <div class="room-rate">₹6,100</div>
                                     </div>
-                                </div>
-                                <div class="single-item">
+                                </td>
+                                <td>
                                     <div class="view-info-area">
                                         <button class="info-btn"><img src="images/booking-request/view-icon.svg"
                                                 alt=""></button>
+                                        <button class="delete-btn"><img src="images/user-icons/delete-icon.svg"
+                                                alt=""></button>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="room-details-row">
-                            <div class="room-details-left">
-                                <div class="check-area">
-                                    <label class="checkbox-container">
-                                        <input type="checkbox">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div class="room-name">Premium Valley View Room Pool </div>
-                            </div>
-                            <div class="room-details-right">
-                                <div class="single-item">
-                                    <button class="booking-status-btn room-avilable">
-                                        <img src="images/booking-request/check-icon.svg" alt=""> Available
-                                    </button>
-                                </div>
-                                <div class="single-item">
-                                    <button class="room-no-btn">No. of Rooms: 10</button>
-                                </div>
-                                <div class="single-item">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="check-area">
+                                        <label class="checkbox-container">
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="room-name">Premium Valley View Room Pool </div>
+                                </td>
+                                <td><button class="booking-status-btn room-not-avilable">
+                                        <img src="images/booking-request/uncheck-icon.svg" alt=""> Not Available
+                                    </button></td>
+                                <td style="text-align: center;"><button class="room-no-btn">No. of Rooms:
+                                        10</button></td>
+                                <td>
                                     <div class="meals-icon-area">
-                                        <div class="meals-icon">
-                                            <span class="info-icon"><img src="images/booking-request/info-icon.svg"
-                                                    alt=""></span>
-                                            <img src="images/booking-request/meals-icon.svg" alt=""
+                                        <div class="meals-icon"><img src="images/booking-request/meals-icon.svg" alt=""
                                                 class="meals-icon-img">
                                         </div>AP
                                     </div>
-                                </div>
-                                <div class="single-item">
+                                </td>
+                                <td>
                                     <div class="room-cat-rate">
                                         <div class="room-cat-area">SRR</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="room-cat-rate">
+
                                         <div class="room-rate">₹6,100</div>
                                     </div>
-                                </div>
-                                <div class="single-item">
+                                </td>
+                                <td>
                                     <div class="view-info-area">
-                                        <button class="info-btn"><img src="images/booking-request/info-icon.svg"
-                                                alt=""></button>
                                         <button class="info-btn"><img src="images/booking-request/view-icon.svg"
                                                 alt=""></button>
+                                        <button class="delete-btn"><img src="images/user-icons/delete-icon.svg"
+                                                alt=""></button>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="check-area">
+                                        <label class="checkbox-container">
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="room-name">Premium Valley View Room Pool </div>
+                                </td>
+                                <td><button class="booking-status-btn new-request">New Request</button></td>
+                                <td style="text-align: center;"><button class="room-no-btn">No. of Rooms:
+                                        10</button></td>
+                                <td>
+                                    <div class="meals-icon-area">
+                                        <div class="meals-icon"><img src="images/booking-request/meals-icon.svg" alt=""
+                                                class="meals-icon-img">
+                                        </div>AP
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="room-cat-rate">
+                                        <div class="room-cat-area">SRR</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="room-cat-rate">
+
+                                        <div class="room-rate">₹6,100</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="view-info-area">
+                                        <button class="info-btn"><img src="images/booking-request/view-icon.svg"
+                                                alt=""></button>
+                                        <button class="delete-btn"><img src="images/user-icons/delete-icon.svg"
+                                                alt=""></button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
                 <div class="single-date-bookings">
                     <div class="date-area-btn">10 August 2022</div>
-                    <div class="room-details-wrapper">
-                        <div class="room-details-row">
-                            <div class="room-details-left">
-                                <div class="check-area">
-                                    <label class="checkbox-container">
-                                        <input type="checkbox">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div class="room-name">Premium Valley View Room Pool </div>
-                            </div>
-                            <div class="room-details-right">
-                                <div class="single-item">
-                                    <button class="booking-status-btn room-not-avilable">
-                                        <img src="images/booking-request/uncheck-icon.svg" alt=""> Not Available
-                                    </button>
-                                </div>
-                                <div class="single-item">
-                                    <button class="room-no-btn">No. of Rooms: 10</button>
-                                </div>
-                                <div class="single-item">
+                    <div class="reponsive-table room-details-table-wrapper">
+                        <table class="room-details-table">
+                            <tr>
+                                <td style="width: 30px;">
+                                    <div class="check-area">
+                                        <label class="checkbox-container">
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                </td>
+                                <td style="max-width: 60%;width: 100%;">
+                                    <div class="room-name">Premium Valley View Room Pool </div>
+                                </td>
+                                <td><button class="booking-status-btn room-avilable">
+                                        <img src="images/booking-request/check-icon.svg" alt=""> Available
+                                    </button></td>
+                                <td style="text-align: center;"><button class="room-no-btn">No. of Rooms:
+                                        10</button></td>
+                                <td>
                                     <div class="meals-icon-area">
-                                        <div class="meals-icon">
-                                            <span class="info-icon"><img src="images/booking-request/info-icon.svg"
-                                                    alt=""></span>
-                                            <img src="images/booking-request/meals-icon.svg" alt=""
+                                        <div class="meals-icon"><img src="images/booking-request/meals-icon.svg" alt=""
                                                 class="meals-icon-img">
                                         </div>AP
                                     </div>
-                                </div>
-                                <div class="single-item">
+                                </td>
+                                <td>
                                     <div class="room-cat-rate">
                                         <div class="room-cat-area">SRR</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="room-cat-rate">
+
                                         <div class="room-rate">₹6,100</div>
                                     </div>
-                                </div>
-                                <div class="single-item">
+                                </td>
+                                <td>
                                     <div class="view-info-area">
                                         <button class="info-btn"><img src="images/booking-request/view-icon.svg"
                                                 alt=""></button>
+                                        <button class="delete-btn"><img src="images/user-icons/delete-icon.svg"
+                                                alt=""></button>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="room-details-row">
-                            <div class="room-details-left">
-                                <div class="check-area">
-                                    <label class="checkbox-container">
-                                        <input type="checkbox">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div class="room-name">Premium Valley View Room Pool </div>
-                            </div>
-                            <div class="room-details-right">
-                                <div class="single-item">
-                                    <button class="booking-status-btn room-not-avilable">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="check-area">
+                                        <label class="checkbox-container">
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="room-name">Premium Valley View Room Pool </div>
+                                </td>
+                                <td><button class="booking-status-btn room-not-avilable">
                                         <img src="images/booking-request/uncheck-icon.svg" alt=""> Not Available
-                                    </button>
-                                </div>
-                                <div class="single-item">
-                                    <button class="room-no-btn">No. of Rooms: 10</button>
-                                </div>
-                                <div class="single-item">
+                                    </button></td>
+                                <td style="text-align: center;"><button class="room-no-btn">No. of Rooms:
+                                        10</button></td>
+                                <td>
                                     <div class="meals-icon-area">
-                                        <div class="meals-icon">
-                                            <img src="images/booking-request/meals-icon.svg" alt=""
+                                        <div class="meals-icon"><img src="images/booking-request/meals-icon.svg" alt=""
                                                 class="meals-icon-img">
                                         </div>AP
                                     </div>
-                                </div>
-                                <div class="single-item">
+                                </td>
+                                <td>
                                     <div class="room-cat-rate">
                                         <div class="room-cat-area">SRR</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="room-cat-rate">
+
                                         <div class="room-rate">₹6,100</div>
                                     </div>
-                                </div>
-                                <div class="single-item">
+                                </td>
+                                <td>
+                                    <div class="view-info-area">
+                                        <button class="info-btn"><img src="images/booking-request/view-icon.svg"
+                                                alt=""></button>
+                                        <button class="delete-btn"><img src="images/user-icons/delete-icon.svg"
+                                                alt=""></button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="check-area">
+                                        <label class="checkbox-container">
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="room-name">Premium Valley View Room Pool </div>
+                                </td>
+                                <td><button class="booking-status-btn new-request">New Request</button></td>
+                                <td style="text-align: center;"><button class="room-no-btn">No. of Rooms:
+                                        10</button></td>
+                                <td>
+                                    <div class="meals-icon-area">
+                                        <div class="meals-icon"><img src="images/booking-request/meals-icon.svg" alt=""
+                                                class="meals-icon-img">
+                                        </div>AP
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="room-cat-rate">
+                                        <div class="room-cat-area">SRR</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="room-cat-rate">
+
+                                        <div class="room-rate">₹6,100</div>
+                                    </div>
+                                </td>
+                                <td>
                                     <div class="view-info-area">
                                         <button class="info-btn"><img src="images/booking-request/info-icon.svg"
                                                 alt=""></button>
                                         <button class="info-btn"><img src="images/booking-request/view-icon.svg"
                                                 alt=""></button>
+                                        <button class="delete-btn"><img src="images/user-icons/delete-icon.svg"
+                                                alt=""></button>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
+                                </td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -614,11 +714,11 @@ Lorren ippsum gravida sem?</textarea>
                     <div class="payment-terms-wrapper">
                         <h3 class="payment-terms-heading">Select Payment Terms</h3>
                         <div class="payment-terms-radios">
-                            <label class="radio-wrapper">One <span class="payment-block">₹ 10,000,00</span>
+                            <label class="radio-wrapper">On Account <span class="payment-block">₹ 10,000,00</span>
                                 <input type="radio" checked="checked" name="radio">
                                 <span class="checkmark"></span>
                             </label>
-                            <label class="radio-wrapper">Two <span class="payment-block">₹ 10,000,00</span>
+                            <label class="radio-wrapper">In Installments <span class="payment-block">₹ 10,000,00</span>
                                 <input type="radio" name="radio">
                                 <span class="checkmark"></span>
                             </label>

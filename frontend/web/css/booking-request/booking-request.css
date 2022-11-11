@@ -40,6 +40,11 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: "CeraProBold";
+  src: url("../fonts/cera-pro/CeraProBold.eot");
+  src: url("../fonts/cera-pro/CeraProBold.eot") format("embedded-opentype"), url("../fonts/cera-pro/CeraProBold.woff2") format("woff2"), url("../fonts/cera-pro/CeraProBold.woff") format("woff"), url("../fonts/cera-pro/CeraProBold.ttf") format("truetype"), url("../fonts/cera-pro/CeraProBold.svg#CeraProBold") format("svg");
+}
 * {
   padding: 0;
   margin: 0;
@@ -1152,7 +1157,7 @@ ul {
 }
 
 .hotels-client-table-wrapper {
-  margin: 0 0 30px;
+  margin: 0 0 20px;
 }
 
 .hotels-client-wrapper {
@@ -1164,7 +1169,7 @@ ul {
 }
 .hotels-client-wrapper .hotels-client-single {
   width: 50%;
-  padding: 15px;
+  padding: 10px;
 }
 .hotels-client-wrapper .hotels-client-single:nth-child(1) {
   border-right: 1px solid #999FB4;
@@ -1177,14 +1182,14 @@ ul {
 .hotels-client-table thead tr th {
   text-align: center;
   border-right: 1px solid #ABB0C1;
-  font-size: 14px;
+  font-size: 11px !important;
   background: #E1E5FF;
   font-family: "Bw-Mitga-bold" !important;
   font-weight: initial !important;
-  padding: 15px !important;
+  padding: 5px 15px !important;
 }
 .hotels-client-table thead tr th:nth-child(1) {
-  padding: 15px !important;
+  padding: 5px 15px !important;
   border-top-left-radius: 5px;
 }
 .hotels-client-table thead tr th:nth-last-child(1) {
@@ -1194,10 +1199,11 @@ ul {
   text-align: center;
 }
 .hotels-client-table tbody tr td {
-  padding: 8px 15px;
+  padding: 6px 15px;
   color: #1E2339;
   background: none;
   text-align: center;
+  font-size: 11px !important;
   border: 1px solid #ABB0C1;
 }
 
@@ -1250,11 +1256,11 @@ ul {
   background: #838BC7;
   display: inline-block;
   color: #fff;
-  min-width: 200px;
+  min-width: 170px;
   text-align: center;
   font-size: 12px;
-  min-height: 40px;
-  line-height: 40px;
+  min-height: 30px;
+  line-height: 30px;
   border-radius: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -1323,12 +1329,14 @@ ul {
 }
 
 .booking-status-btn {
+  white-space: nowrap;
   background: none;
   border: none;
   display: flex;
   padding: 4px 20px;
   color: #fff;
   align-items: center;
+  width: 100%;
   justify-content: center;
   border-radius: 15px;
   -webkit-border-radius: 15px;
@@ -1349,16 +1357,21 @@ ul {
   background: #F44336;
 }
 
+.new-request {
+  background: #f5c115;
+}
+
 .room-no-btn {
   background: none;
   padding: 3px 20px;
-  font-family: "Bw-Mitga-bold" !important;
+  white-space: nowrap;
   border: 1px solid #838BC7;
   border-radius: 15px;
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
   -ms-border-radius: 15px;
   -o-border-radius: 15px;
+  font-family: "Bw-Mitga-bold" !important;
 }
 
 .meals-icon-area {
@@ -1421,13 +1434,23 @@ ul {
 .view-info-area .info-btn img {
   width: 20px;
 }
+.view-info-area button {
+  margin: 0 0 0 5px;
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: none;
+}
+.view-info-area button img {
+  width: 100%;
+}
 
 .total-btns-wrapper {
   background: #F0F2FF;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 15px;
+  padding: 10px 15px;
   border-radius: 0 0 5px 5px;
   -webkit-border-radius: 0 0 5px 5px;
   -moz-border-radius: 0 0 5px 5px;
@@ -1460,7 +1483,7 @@ ul {
 }
 
 .booking-lists-wrapper {
-  margin: 20px 0 30px;
+  margin: 10px 0 30px;
 }
 .booking-lists-wrapper .booking-lists-btns {
   display: flex;
@@ -1562,17 +1585,17 @@ ul {
 }
 
 .blue-btn {
-  background: #5968DB;
   border: none;
+  height: 36px;
   color: #fff;
   min-width: 200px;
-  height: 43px;
-  font-family: "Bw-Mitga-bold" !important;
+  background: #5968DB;
   border-radius: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
+  font-family: "Bw-Mitga-bold" !important;
 }
 
 .show-activity-wrapper {
@@ -1782,8 +1805,8 @@ ul {
 .popup-room-rate-table-wrapper .popup-room-rate-table tr .head-td {
   text-align: left;
   color: #1E2339;
-  padding: 10px 20px;
   background: #E1E5FF;
+  padding: 5px 15px !important;
   font-family: "Bw-Mitga-bold" !important;
 }
 .popup-room-rate-table-wrapper .popup-room-rate-table tr:nth-last-child(1) td {
@@ -1811,7 +1834,8 @@ span.payment-block {
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
-  border: 2px solid #5968DB;
+  border: none;
+  font-size: 10px;
 }
 
 .payment-terms-heading {
@@ -1848,18 +1872,22 @@ span.payment-block {
 }
 
 .amount-input {
-  width: 100%;
-  background: none;
   padding: 0;
-  border: none;
+  width: 100%;
+  min-height: 30px;
+  background: #fff;
   text-align: center;
   color: #1E2339;
-  font-family: "Bw-Mitga-bold" !important;
-  font-size: 12px;
+  text-indent: 0 !important;
+  font-size: 10px !important;
+  border: 1px solid #9EA3B8;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
 }
 .amount-input::placeholder {
-  font-family: "Bw-Mitga-bold" !important;
-  font-size: 12px;
   color: #1E2339;
 }
 .amount-input:hover, .amount-input:focus {
@@ -1868,8 +1896,8 @@ span.payment-block {
 }
 
 .calendar-img {
-  width: 20px;
-  margin: 0 5px 0 0;
+  width: 15px;
+  margin: -5px 2px 0 0;
 }
 
 .popup-room-rate-table tr {
@@ -1888,8 +1916,8 @@ span.payment-block {
   border: none !important;
   color: #fff;
   font-family: "Bw-Mitga-bold" !important;
-  font-size: 16px !important;
-  padding: 15px 10px;
+  font-size: 14px !important;
+  padding: 10px;
 }
 .popup-room-rate-table-wrapper .popup-room-rate-table .total-tr td .total-value {
   text-align: center;
@@ -1910,6 +1938,29 @@ span.payment-block {
 }
 .center-btn-group button:hover:before, .center-btn-group button:focus:before, .center-btn-group button:active:before {
   background: #1E2339;
+}
+
+.room-details-table-wrapper .room-details-table {
+  width: 100%;
+  border: none !important;
+  box-shadow: none;
+  background: none;
+}
+.room-details-table-wrapper .room-details-table tr {
+  background: none !important;
+  padding: 0;
+}
+.room-details-table-wrapper .room-details-table tr td {
+  padding: 5px;
+  background: none !important;
+}
+
+.room-details-table-wrapper {
+  margin: 0 0 10px;
+}
+
+.hasDatepicker {
+  margin: 0;
 }
 
 @media (max-width: 1400px) {

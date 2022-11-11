@@ -56,7 +56,7 @@ $color-dark: #1E2339;
     align-items: center;
     background: #F0F2FF;
     justify-content: flex-end;
-    min-height: 100px;
+    min-height: 70px;
     padding: 0 100px;
 
     .total-card-single {
@@ -69,7 +69,7 @@ $color-dark: #1E2339;
         }
 
         .total-value {
-            font-size: 20px;
+            font-size: 18px;
             color: $color-dark;
             font-family: $font-bold;
         }

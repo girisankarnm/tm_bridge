@@ -66,11 +66,13 @@ table :where(label, p) {
 }
 
 .hasDatepicker {
-    padding: 0 !important;
+    margin: 0;
+    border: none;
+    min-height: 30px;
     text-align: left;
     text-indent: 0 !important;
-    border: none;
-    margin: 5px 0 0;
+    padding: 0 10px !important;
+    border: 1px solid #D2D2D2;
 }
 
 .hasDatepicker::placeholder {

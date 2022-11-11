@@ -40,6 +40,11 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: "CeraProBold";
+  src: url("../fonts/cera-pro/CeraProBold.eot");
+  src: url("../fonts/cera-pro/CeraProBold.eot") format("embedded-opentype"), url("../fonts/cera-pro/CeraProBold.woff2") format("woff2"), url("../fonts/cera-pro/CeraProBold.woff") format("woff"), url("../fonts/cera-pro/CeraProBold.ttf") format("truetype"), url("../fonts/cera-pro/CeraProBold.svg#CeraProBold") format("svg");
+}
 * {
   padding: 0;
   margin: 0;
@@ -141,8 +146,8 @@ ul {
   position: absolute;
   top: 4px;
   left: 0;
-  height: 24px;
-  width: 24px;
+  height: 20px;
+  width: 20px;
   background: none;
 }
 
@@ -665,6 +670,9 @@ ul {
   user-select: none;
   color: #1E2339;
   font-family: "Bw-Mitga-bold" !important;
+  display: flex;
+  align-items: center;
+  min-height: 30px;
   /* Hide the browser's default radio button */
   /* Create a custom radio button */
   /* On mouse-over, add a grey background color */
@@ -677,18 +685,18 @@ ul {
   cursor: pointer;
 }
 .radio-wrapper .checkmark {
-  position: absolute;
-  top: 6px;
   left: 0;
-  height: 20px;
+  top: 5px;
+  margin: 0;
   width: 20px;
+  height: 20px;
+  position: absolute;
   background-color: #E1E5FF;
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
-  margin: 0;
   /* Create the indicator (the dot/circle - hidden when not checked) */
 }
 .radio-wrapper .checkmark::after {
@@ -1112,7 +1120,7 @@ ul {
   align-items: center;
   background: #F0F2FF;
   justify-content: flex-end;
-  min-height: 100px;
+  min-height: 70px;
   padding: 0 100px;
 }
 .total-card-wrapper .total-card-single {
@@ -1124,7 +1132,7 @@ ul {
   font-family: "Bw-Mitga-bold";
 }
 .total-card-wrapper .total-card-single .total-value {
-  font-size: 20px;
+  font-size: 18px;
   color: #1E2339;
   font-family: "Bw-Mitga-bold";
 }

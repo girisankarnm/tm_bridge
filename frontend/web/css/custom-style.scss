@@ -32,8 +32,8 @@ $color-dark: #1E2339;
         top: 0;
         left: 0;
         margin: 0;
-        width: 24px;
-        height: 24px;
+        width: 20px;
+        height: 20px;
         background: none;
         position: absolute;
         @include border-radius(5px);
@@ -712,12 +712,12 @@ input.table-input-disabled {
     background: #E1E5FF !important;
     font-family: $font-bold !important;
     font-weight: initial !important;
-    padding: 15px !important;
+    padding: 10px 15px !important;
 }
 
 .td-input {
     width: 100%;
-    min-height: 40px;
+    min-height: 30px;
     padding: 5px 10px;
     text-align: center;
     border: 1px solid #9EA3B8;
@@ -730,7 +730,7 @@ input.table-input-disabled {
 }
 
 .room-rates-area-wrapper {
-    margin: 0 0 30px;
+    margin: 0 0 15px;
 }
 
 .contets-area-wrapper {
@@ -741,35 +741,35 @@ input.table-input-disabled {
 
 .dates-selected-wrapper {
     display: flex;
-    margin: 20px 0 0;
+    margin: 10px 0 0;
     align-items: stretch;
     justify-content: flex-start;
     border-bottom: 2px solid #ABB0C1;
-    padding: 0 0 20px;
+    padding: 0 0 10px;
 
     .selected-date-single {
-        padding: 7px 14px;
+        padding: 7px 10px;
         margin: 0 10px 0 0;
         border: 1px solid #ABB0C1;
         @include border-radius(7px);
 
         .date-name {
-            font-size: 10px;
+            font-size: 8px;
             color: #1E2339;
             text-align: center;
         }
 
         .date-number {
             margin: 5px 0;
-            font-size: 50px;
+            font-size: 36px;
             color: #A3A8C6;
-            line-height: 40px;
+            line-height: 30px;
             text-align: center;
             font-family: $font-bold;
         }
 
         .month-year {
-            font-size: 13px;
+            font-size: 9px;
             color: #A3A8C6;
             text-align: center;
         }
