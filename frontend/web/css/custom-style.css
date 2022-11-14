@@ -865,7 +865,7 @@ ul {
   left: 0;
   right: 0;
   bottom: 0;
-  background: #DEE2FE;
+  background: #182dcb;
   -webkit-transform: scaleX(0);
   transform: scaleX(0);
   -webkit-transform-origin: 0 50%;
@@ -1767,6 +1767,33 @@ input.table-input-disabled {
 .bold-red-value {
   font-family: "Bw-Mitga-bold" !important;
   color: #CF1465 !important;
+}
+
+.table-bottom-btns button {
+  margin: 0 5px;
+}
+
+.yellow-btn {
+  background: #d1a71b !important;
+}
+.yellow-btn:hover {
+  background: #ecba16 !important;
+}
+.yellow-btn:hover::before {
+  background: #ecba16 !important;
+}
+
+.pop-room-content figure {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+.pop-room-content figure img {
+  width: 100%;
 }
 
 /*# sourceMappingURL=custom-style.css.map */

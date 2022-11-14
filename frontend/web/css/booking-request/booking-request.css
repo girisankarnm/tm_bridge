@@ -146,8 +146,8 @@ ul {
   position: absolute;
   top: 4px;
   left: 0;
-  height: 24px;
-  width: 24px;
+  height: 20px;
+  width: 20px;
   background: none;
 }
 
@@ -670,6 +670,9 @@ ul {
   user-select: none;
   color: #1E2339;
   font-family: "Bw-Mitga-bold" !important;
+  display: flex;
+  align-items: center;
+  min-height: 30px;
   /* Hide the browser's default radio button */
   /* Create a custom radio button */
   /* On mouse-over, add a grey background color */
@@ -682,18 +685,18 @@ ul {
   cursor: pointer;
 }
 .radio-wrapper .checkmark {
-  position: absolute;
-  top: 6px;
   left: 0;
-  height: 20px;
+  top: 5px;
+  margin: 0;
   width: 20px;
+  height: 20px;
+  position: absolute;
   background-color: #E1E5FF;
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
-  margin: 0;
   /* Create the indicator (the dot/circle - hidden when not checked) */
 }
 .radio-wrapper .checkmark::after {
@@ -862,7 +865,7 @@ ul {
   left: 0;
   right: 0;
   bottom: 0;
-  background: #DEE2FE;
+  background: #182dcb;
   -webkit-transform: scaleX(0);
   transform: scaleX(0);
   -webkit-transform-origin: 0 50%;
@@ -1313,8 +1316,8 @@ ul {
   margin: 0;
 }
 .check-area .checkbox-container .checkmark:after {
-  left: 10px;
-  top: 6px;
+  top: 3px;
+  left: 8px;
 }
 .check-area .checkbox-container input:checked ~ .checkmark {
   background: #5968DB;

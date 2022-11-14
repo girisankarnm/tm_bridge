@@ -124,9 +124,10 @@ $this->registerCssFile('/css/datepicker/jquery-ui.css');
                         </tr>
                         <tr>
                             <td colspan="5">
-                                <div style="text-align: right;">
+                                <div class="table-bottom-btns" style="text-align: center;">
                                     <button class="btn grey-btn">Back</button>
-                                    <button class="btn primary-btn">Submit</button>
+                                    <button class="btn">Withdrawal</button>
+                                    <button class="btn primary-btn">Accept</button>
                                 </div>
                             </td>
                         </tr>
@@ -903,7 +904,7 @@ function viewDetails(id) {
 }
 
 $(window).on('load', function() {
-    $('#BookingConfirmationModal').modal('show');
+    $('#RoomTariffBreakupModal').modal('show');
 });
 $(document).ready(function() {
     $(".comment-btn").click(function() {

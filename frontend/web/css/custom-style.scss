@@ -785,3 +785,33 @@ input.table-input-disabled {
     font-family: $font-bold !important;
     color: #CF1465 !important;
 }
+
+.table-bottom-btns {
+    button {
+        margin: 0 5px;
+    }
+}
+
+.yellow-btn {
+    background: #d1a71b !important;
+
+    &:hover {
+        background: #ecba16 !important;
+
+        &::before {
+            background: #ecba16 !important;
+        }
+    }
+}
+
+.pop-room-content {
+    figure {
+        width: 60px;
+        height: 60px;
+        @include border-radius(10px);
+
+        img {
+            width: 100%;
+        }
+    }
+}
