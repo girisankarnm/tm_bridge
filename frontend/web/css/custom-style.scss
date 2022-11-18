@@ -699,6 +699,7 @@ input.table-input-disabled {
 
         img {
             width: 100%;
+            object-fit: cover;
         }
     }
 }
@@ -721,6 +722,11 @@ input.table-input-disabled {
     padding: 5px 10px;
     text-align: center;
     border: 1px solid #9EA3B8;
+
+    &:disabled {
+        border: none;
+        background: none;
+    }
 
     &:focus,
     &:hover {

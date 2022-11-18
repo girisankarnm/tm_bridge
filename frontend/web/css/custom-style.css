@@ -1682,6 +1682,7 @@ input.table-input-disabled {
 }
 .resort-details-area figure img {
   width: 100%;
+  object-fit: cover;
 }
 
 .border-none {
@@ -1702,6 +1703,10 @@ input.table-input-disabled {
   padding: 5px 10px;
   text-align: center;
   border: 1px solid #9EA3B8;
+}
+.td-input:disabled {
+  border: none;
+  background: none;
 }
 .td-input:focus, .td-input:hover {
   outline: none;
