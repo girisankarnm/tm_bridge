@@ -821,3 +821,26 @@ input.table-input-disabled {
         }
     }
 }
+
+.with-edit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.edit-btn {
+    width: 25px;
+    height: 25px;
+    border: none;
+    margin: 0 0 0 10px;
+
+    img {
+        width: 100%;
+    }
+}
+
+.lg-value {
+    font-size: 24px;
+    margin: 0 0 0 10px;
+}

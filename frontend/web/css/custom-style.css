@@ -1801,4 +1801,25 @@ input.table-input-disabled {
   width: 100%;
 }
 
+.with-edit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.edit-btn {
+  width: 25px;
+  height: 25px;
+  border: none;
+  margin: 0 0 0 10px;
+}
+.edit-btn img {
+  width: 100%;
+}
+
+.lg-value {
+  font-size: 24px;
+  margin: 0 0 0 10px;
+}
+
 /*# sourceMappingURL=custom-style.css.map */
