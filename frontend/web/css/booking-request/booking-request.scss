@@ -298,6 +298,7 @@ $color-dark: #1E2339;
     width: 100%;
     justify-content: center;
     @include border-radius(15px);
+    min-width: 140px;
 
     img {
         width: 12px;

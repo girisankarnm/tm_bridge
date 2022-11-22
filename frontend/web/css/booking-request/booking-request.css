@@ -175,8 +175,8 @@ ul {
 
 /* Style the checkmark/indicator */
 .checkbox-container .checkmark:after {
-  left: 8px;
-  top: 4px;
+  left: 6px;
+  top: 2px;
   width: 5px;
   height: 10px;
   border: solid #fff;
@@ -1346,6 +1346,7 @@ ul {
   -moz-border-radius: 15px;
   -ms-border-radius: 15px;
   -o-border-radius: 15px;
+  min-width: 140px;
 }
 .booking-status-btn img {
   width: 12px;
