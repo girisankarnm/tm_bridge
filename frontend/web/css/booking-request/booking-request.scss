@@ -450,6 +450,7 @@ $color-dark: #1E2339;
         }
 
         .booking-lists-btns-right {
+            width: 100%;
             display: flex;
             align-items: center;
             justify-content: flex-end;
@@ -638,49 +639,49 @@ $color-dark: #1E2339;
                     border-radius: 0 5px 5px 5px;
                 }
             }
+        }
 
-            &:nth-child(even) {
-                padding-left: 0;
+        .activity-chat-right {
+            padding-left: 0;
+            flex-direction: row-reverse;
+            justify-content: flex-end;
+            padding: 0 0 0 130px;
+
+            .activity-chat-user {
                 flex-direction: row-reverse;
-                justify-content: flex-end;
-                padding: 0 0 0 130px;
 
-                .activity-chat-user {
-                    flex-direction: row-reverse;
-
-                    .user-img {
-                        margin: 0 0 0 30px;
-                    }
-
-                    .user-details {
-                        padding: 0 0px 0 20px;
-
-                        .user-details-name,
-                        .user-details-date {
-                            text-align: left
-                        }
-                    }
+                .user-img {
+                    margin: 0 0 0 30px;
                 }
 
-                .activity-chat-area {
-                    margin: 0 0 0 60px;
+                .user-details {
+                    padding: 0 0px 0 20px;
 
-                    .activity-chat {
-                        @include border-radius(5px 0 5px 5px);
+                    .user-details-name,
+                    .user-details-date {
+                        text-align: left
                     }
+                }
+            }
 
-                    &::before {
-                        right: -29px;
-                        left: initial;
-                        background: url(../../images/booking-request/textarea-right-icon.svg) left top no-repeat;
-                        background-size: contain;
-                    }
+            .activity-chat-area {
+                margin: 0 0 0 60px;
 
-                    &::after {
-                        top: 2px;
-                        right: -2px;
-                        left: initial;
-                    }
+                .activity-chat {
+                    @include border-radius(5px 0 5px 5px);
+                }
+
+                &::before {
+                    right: -29px;
+                    left: initial;
+                    background: url(../../images/booking-request/textarea-right-icon.svg) left top no-repeat;
+                    background-size: contain;
+                }
+
+                &::after {
+                    top: 2px;
+                    right: -2px;
+                    left: initial;
                 }
             }
         }

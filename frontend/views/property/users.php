@@ -174,6 +174,7 @@ $this->registerCssFile('/css/custom-style.css');
                                         </div>
                                     </div>
                                     <div class="room-right">
+                                        <button class="apply-button apply-hike-button">Apply Hike</button>
                                         <div class="dropdown-wrapper">
                                             <div class="select-custom">
                                                 <select name="" id="">
@@ -181,7 +182,6 @@ $this->registerCssFile('/css/custom-style.css');
                                                 </select>
                                             </div>
                                         </div>
-                                        <button class="apply-button apply-hike-button">Apply Hike</button>
                                         <div class="view-delete-icons">
                                             <button class="view-btn" data-toggle="modal"
                                                 data-target="#roomingPlanModal"><img
@@ -229,6 +229,7 @@ $this->registerCssFile('/css/custom-style.css');
                                         </div>
                                     </div>
                                     <div class="room-right">
+                                        <button class="apply-button apply-slash-button">Apply Slash</button>
                                         <div class="dropdown-wrapper">
                                             <div class="select-custom">
                                                 <select name="" id="">
@@ -236,7 +237,6 @@ $this->registerCssFile('/css/custom-style.css');
                                                 </select>
                                             </div>
                                         </div>
-                                        <button class="apply-button apply-slash-button">Apply Slash</button>
                                         <div class="view-delete-icons">
                                             <button class="view-btn" data-toggle="modal"
                                                 data-target="#roomingPlanModal"><img
@@ -292,6 +292,7 @@ $this->registerCssFile('/css/custom-style.css');
                                         </div>
                                     </div>
                                     <div class="room-right">
+                                        <button class="apply-button apply-hike-button">Apply Hike</button>
                                         <div class="dropdown-wrapper">
                                             <div class="select-custom">
                                                 <select name="" id="">
@@ -299,7 +300,6 @@ $this->registerCssFile('/css/custom-style.css');
                                                 </select>
                                             </div>
                                         </div>
-                                        <button class="apply-button apply-hike-button">Apply Hike</button>
                                         <div class="view-delete-icons">
                                             <button class="view-btn" data-toggle="modal"
                                                 data-target="#roomingPlanModal"><img
@@ -347,6 +347,7 @@ $this->registerCssFile('/css/custom-style.css');
                                         </div>
                                     </div>
                                     <div class="room-right">
+                                        <button class="apply-button apply-slash-button">Apply Slash</button>
                                         <div class="dropdown-wrapper">
                                             <div class="select-custom">
                                                 <select name="" id="">
@@ -354,7 +355,6 @@ $this->registerCssFile('/css/custom-style.css');
                                                 </select>
                                             </div>
                                         </div>
-                                        <button class="apply-button apply-slash-button">Apply Slash</button>
                                         <div class="view-delete-icons">
                                             <button class="view-btn" data-toggle="modal"
                                                 data-target="#roomingPlanModal"><img
@@ -503,6 +503,7 @@ $this->registerCssFile('/css/custom-style.css');
                                         </div>
                                     </div>
                                     <div class="room-right">
+                                        <button class="apply-button apply-hike-button">Apply Hike</button>
                                         <div class="dropdown-wrapper">
                                             <div class="select-custom">
                                                 <select name="" id="">
@@ -510,7 +511,6 @@ $this->registerCssFile('/css/custom-style.css');
                                                 </select>
                                             </div>
                                         </div>
-                                        <button class="apply-button apply-hike-button">Apply Hike</button>
                                         <div class="view-delete-icons">
                                             <button class="view-btn" data-toggle="modal"
                                                 data-target="#roomingPlanModal"><img
@@ -558,6 +558,7 @@ $this->registerCssFile('/css/custom-style.css');
                                         </div>
                                     </div>
                                     <div class="room-right">
+                                        <button class="apply-button apply-slash-button">Apply Slash</button>
                                         <div class="dropdown-wrapper">
                                             <div class="select-custom">
                                                 <select name="" id="">
@@ -565,7 +566,6 @@ $this->registerCssFile('/css/custom-style.css');
                                                 </select>
                                             </div>
                                         </div>
-                                        <button class="apply-button apply-slash-button">Apply Slash</button>
                                         <div class="view-delete-icons">
                                             <button class="view-btn" data-toggle="modal"
                                                 data-target="#roomingPlanModal"><img
@@ -621,6 +621,7 @@ $this->registerCssFile('/css/custom-style.css');
                                         </div>
                                     </div>
                                     <div class="room-right">
+                                        <button class="apply-button apply-hike-button">Apply Hike</button>
                                         <div class="dropdown-wrapper">
                                             <div class="select-custom">
                                                 <select name="" id="">
@@ -628,7 +629,6 @@ $this->registerCssFile('/css/custom-style.css');
                                                 </select>
                                             </div>
                                         </div>
-                                        <button class="apply-button apply-hike-button">Apply Hike</button>
                                         <div class="view-delete-icons">
                                             <button class="view-btn" data-toggle="modal"
                                                 data-target="#roomingPlanModal"><img
@@ -676,6 +676,7 @@ $this->registerCssFile('/css/custom-style.css');
                                         </div>
                                     </div>
                                     <div class="room-right">
+                                        <button class="apply-button apply-slash-button">Apply Slash</button>
                                         <div class="dropdown-wrapper">
                                             <div class="select-custom">
                                                 <select name="" id="">
@@ -683,7 +684,6 @@ $this->registerCssFile('/css/custom-style.css');
                                                 </select>
                                             </div>
                                         </div>
-                                        <button class="apply-button apply-slash-button">Apply Slash</button>
                                         <div class="view-delete-icons">
                                             <button class="view-btn" data-toggle="modal"
                                                 data-target="#roomingPlanModal"><img
@@ -854,6 +854,7 @@ $this->registerCssFile('/css/custom-style.css');
                                         </div>
                                     </div>
                                     <div class="room-right">
+                                        <button class="apply-button apply-hike-button">Apply Hike</button>
                                         <div class="dropdown-wrapper">
                                             <div class="select-custom">
                                                 <select name="" id="">
@@ -861,7 +862,6 @@ $this->registerCssFile('/css/custom-style.css');
                                                 </select>
                                             </div>
                                         </div>
-                                        <button class="apply-button apply-hike-button">Apply Hike</button>
                                         <div class="view-delete-icons">
                                             <button class="view-btn" data-toggle="modal"
                                                 data-target="#roomingPlanModal"><img
@@ -909,6 +909,7 @@ $this->registerCssFile('/css/custom-style.css');
                                         </div>
                                     </div>
                                     <div class="room-right">
+                                        <button class="apply-button apply-slash-button">Apply Slash</button>
                                         <div class="dropdown-wrapper">
                                             <div class="select-custom">
                                                 <select name="" id="">
@@ -916,7 +917,6 @@ $this->registerCssFile('/css/custom-style.css');
                                                 </select>
                                             </div>
                                         </div>
-                                        <button class="apply-button apply-slash-button">Apply Slash</button>
                                         <div class="view-delete-icons">
                                             <button class="view-btn" data-toggle="modal"
                                                 data-target="#roomingPlanModal"><img
@@ -972,6 +972,7 @@ $this->registerCssFile('/css/custom-style.css');
                                         </div>
                                     </div>
                                     <div class="room-right">
+                                        <button class="apply-button apply-hike-button">Apply Hike</button>
                                         <div class="dropdown-wrapper">
                                             <div class="select-custom">
                                                 <select name="" id="">
@@ -979,7 +980,6 @@ $this->registerCssFile('/css/custom-style.css');
                                                 </select>
                                             </div>
                                         </div>
-                                        <button class="apply-button apply-hike-button">Apply Hike</button>
                                         <div class="view-delete-icons">
                                             <button class="view-btn" data-toggle="modal"
                                                 data-target="#roomingPlanModal"><img
@@ -1027,6 +1027,7 @@ $this->registerCssFile('/css/custom-style.css');
                                         </div>
                                     </div>
                                     <div class="room-right">
+                                        <button class="apply-button apply-slash-button">Apply Slash</button>
                                         <div class="dropdown-wrapper">
                                             <div class="select-custom">
                                                 <select name="" id="">
@@ -1034,7 +1035,6 @@ $this->registerCssFile('/css/custom-style.css');
                                                 </select>
                                             </div>
                                         </div>
-                                        <button class="apply-button apply-slash-button">Apply Slash</button>
                                         <div class="view-delete-icons">
                                             <button class="view-btn" data-toggle="modal"
                                                 data-target="#roomingPlanModal"><img
@@ -1184,6 +1184,7 @@ $this->registerCssFile('/css/custom-style.css');
                                         </div>
                                     </div>
                                     <div class="room-right">
+                                        <button class="apply-button apply-hike-button">Apply Hike</button>
                                         <div class="dropdown-wrapper">
                                             <div class="select-custom">
                                                 <select name="" id="">
@@ -1191,7 +1192,6 @@ $this->registerCssFile('/css/custom-style.css');
                                                 </select>
                                             </div>
                                         </div>
-                                        <button class="apply-button apply-hike-button">Apply Hike</button>
                                         <div class="view-delete-icons">
                                             <button class="view-btn" data-toggle="modal"
                                                 data-target="#roomingPlanModal"><img
@@ -1239,6 +1239,7 @@ $this->registerCssFile('/css/custom-style.css');
                                         </div>
                                     </div>
                                     <div class="room-right">
+                                        <button class="apply-button apply-slash-button">Apply Slash</button>
                                         <div class="dropdown-wrapper">
                                             <div class="select-custom">
                                                 <select name="" id="">
@@ -1246,7 +1247,6 @@ $this->registerCssFile('/css/custom-style.css');
                                                 </select>
                                             </div>
                                         </div>
-                                        <button class="apply-button apply-slash-button">Apply Slash</button>
                                         <div class="view-delete-icons">
                                             <button class="view-btn" data-toggle="modal"
                                                 data-target="#roomingPlanModal"><img
@@ -1302,6 +1302,7 @@ $this->registerCssFile('/css/custom-style.css');
                                         </div>
                                     </div>
                                     <div class="room-right">
+                                        <button class="apply-button apply-hike-button">Apply Hike</button>
                                         <div class="dropdown-wrapper">
                                             <div class="select-custom">
                                                 <select name="" id="">
@@ -1309,7 +1310,6 @@ $this->registerCssFile('/css/custom-style.css');
                                                 </select>
                                             </div>
                                         </div>
-                                        <button class="apply-button apply-hike-button">Apply Hike</button>
                                         <div class="view-delete-icons">
                                             <button class="view-btn" data-toggle="modal"
                                                 data-target="#roomingPlanModal"><img
@@ -1357,6 +1357,7 @@ $this->registerCssFile('/css/custom-style.css');
                                         </div>
                                     </div>
                                     <div class="room-right">
+                                        <button class="apply-button apply-slash-button">Apply Slash</button>
                                         <div class="dropdown-wrapper">
                                             <div class="select-custom">
                                                 <select name="" id="">
@@ -1364,7 +1365,6 @@ $this->registerCssFile('/css/custom-style.css');
                                                 </select>
                                             </div>
                                         </div>
-                                        <button class="apply-button apply-slash-button">Apply Slash</button>
                                         <div class="view-delete-icons">
                                             <button class="view-btn" data-toggle="modal"
                                                 data-target="#roomingPlanModal"><img

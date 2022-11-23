@@ -1500,6 +1500,7 @@ ul {
   justify-content: flex-start;
 }
 .booking-lists-wrapper .booking-lists-btns .booking-lists-btns-right {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -1684,42 +1685,42 @@ ul {
   width: 512px;
   border-radius: 0 5px 5px 5px;
 }
-.show-activity-wrapper .activity-chat-wrapper .activity-chat-single:nth-child(even) {
+.show-activity-wrapper .activity-chat-wrapper .activity-chat-right {
   padding-left: 0;
   flex-direction: row-reverse;
   justify-content: flex-end;
   padding: 0 0 0 130px;
 }
-.show-activity-wrapper .activity-chat-wrapper .activity-chat-single:nth-child(even) .activity-chat-user {
+.show-activity-wrapper .activity-chat-wrapper .activity-chat-right .activity-chat-user {
   flex-direction: row-reverse;
 }
-.show-activity-wrapper .activity-chat-wrapper .activity-chat-single:nth-child(even) .activity-chat-user .user-img {
+.show-activity-wrapper .activity-chat-wrapper .activity-chat-right .activity-chat-user .user-img {
   margin: 0 0 0 30px;
 }
-.show-activity-wrapper .activity-chat-wrapper .activity-chat-single:nth-child(even) .activity-chat-user .user-details {
+.show-activity-wrapper .activity-chat-wrapper .activity-chat-right .activity-chat-user .user-details {
   padding: 0 0px 0 20px;
 }
-.show-activity-wrapper .activity-chat-wrapper .activity-chat-single:nth-child(even) .activity-chat-user .user-details .user-details-name,
-.show-activity-wrapper .activity-chat-wrapper .activity-chat-single:nth-child(even) .activity-chat-user .user-details .user-details-date {
+.show-activity-wrapper .activity-chat-wrapper .activity-chat-right .activity-chat-user .user-details .user-details-name,
+.show-activity-wrapper .activity-chat-wrapper .activity-chat-right .activity-chat-user .user-details .user-details-date {
   text-align: left;
 }
-.show-activity-wrapper .activity-chat-wrapper .activity-chat-single:nth-child(even) .activity-chat-area {
+.show-activity-wrapper .activity-chat-wrapper .activity-chat-right .activity-chat-area {
   margin: 0 0 0 60px;
 }
-.show-activity-wrapper .activity-chat-wrapper .activity-chat-single:nth-child(even) .activity-chat-area .activity-chat {
+.show-activity-wrapper .activity-chat-wrapper .activity-chat-right .activity-chat-area .activity-chat {
   border-radius: 5px 0 5px 5px;
   -webkit-border-radius: 5px 0 5px 5px;
   -moz-border-radius: 5px 0 5px 5px;
   -ms-border-radius: 5px 0 5px 5px;
   -o-border-radius: 5px 0 5px 5px;
 }
-.show-activity-wrapper .activity-chat-wrapper .activity-chat-single:nth-child(even) .activity-chat-area::before {
+.show-activity-wrapper .activity-chat-wrapper .activity-chat-right .activity-chat-area::before {
   right: -29px;
   left: initial;
   background: url(../../images/booking-request/textarea-right-icon.svg) left top no-repeat;
   background-size: contain;
 }
-.show-activity-wrapper .activity-chat-wrapper .activity-chat-single:nth-child(even) .activity-chat-area::after {
+.show-activity-wrapper .activity-chat-wrapper .activity-chat-right .activity-chat-area::after {
   top: 2px;
   right: -2px;
   left: initial;

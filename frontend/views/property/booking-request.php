@@ -456,11 +456,12 @@ $this->registerCssFile('/css/datepicker/jquery-ui.css');
                             <div class="user-img"><img src="images/booking-request/chat-user-thumb-01.png" alt=""></div>
                         </div>
                         <div class="activity-chat-area">
-                            <textarea name="" id="" cols="30" rows="10"
-                                class="activity-chat">Lorren ippsum gravida sem?</textarea>
+                            <div class="activity-chat">Lorren ippsum gravida sem?</div>
+                            <!-- <textarea name="" id="" cols="30" rows="10"
+                                class="activity-chat">Lorren ippsum gravida sem?</textarea> -->
                         </div>
                     </div>
-                    <div class="activity-chat-single">
+                    <div class="activity-chat-single activity-chat-right">
                         <div class="activity-chat-user">
                             <div class="user-details">
                                 <h5 class="user-details-name">Prakash</h5>
@@ -469,8 +470,7 @@ $this->registerCssFile('/css/datepicker/jquery-ui.css');
                             <div class="user-img"><img src="images/booking-request/chat-user-thumb-02.png" alt=""></div>
                         </div>
                         <div class="activity-chat-area">
-                            <textarea name="" id="" cols="30" rows="10" class="activity-chat">Lorren ippsum gravida sem?
-Lorren ippsum gravida sem?</textarea>
+                            <div class="activity-chat">Lorren ippsum gravida sem?</div>
                         </div>
                     </div>
                     <div class="activity-chat-single">
@@ -482,8 +482,43 @@ Lorren ippsum gravida sem?</textarea>
                             <div class="user-img"><img src="images/booking-request/chat-user-thumb-01.png" alt=""></div>
                         </div>
                         <div class="activity-chat-area">
-                            <textarea name="" id="" cols="30" rows="10"
-                                class="activity-chat">Lorren ippsum gravida sem?</textarea>
+                            <div class="activity-chat">Lorren ippsum gravida sem?</div>
+                        </div>
+                    </div>
+                    <div class="activity-chat-single">
+                        <div class="activity-chat-user">
+                            <div class="user-details">
+                                <h5 class="user-details-name">Praveen</h5>
+                                <h5 class="user-details-date">12-October 2022</h5>
+                            </div>
+                            <div class="user-img"><img src="images/booking-request/chat-user-thumb-01.png" alt=""></div>
+                        </div>
+                        <div class="activity-chat-area">
+                            <div class="activity-chat">Lorren ippsum gravida sem?</div>
+                        </div>
+                    </div>
+                    <div class="activity-chat-single">
+                        <div class="activity-chat-user">
+                            <div class="user-details">
+                                <h5 class="user-details-name">Praveen</h5>
+                                <h5 class="user-details-date">12-October 2022</h5>
+                            </div>
+                            <div class="user-img"><img src="images/booking-request/chat-user-thumb-01.png" alt=""></div>
+                        </div>
+                        <div class="activity-chat-area">
+                            <div class="activity-chat">Lorren ippsum gravida sem?</div>
+                        </div>
+                    </div>
+                    <div class="activity-chat-single">
+                        <div class="activity-chat-user">
+                            <div class="user-details">
+                                <h5 class="user-details-name">Praveen</h5>
+                                <h5 class="user-details-date">12-October 2022</h5>
+                            </div>
+                            <div class="user-img"><img src="images/booking-request/chat-user-thumb-01.png" alt=""></div>
+                        </div>
+                        <div class="activity-chat-area">
+                            <div class="activity-chat">Lorren ippsum gravida sem?</div>
                         </div>
                     </div>
                 </div>
