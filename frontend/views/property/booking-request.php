@@ -600,7 +600,7 @@ $this->registerCssFile('/css/datepicker/jquery-ui.css');
                     </div>
                 </div>
                 <div class="show-more-btn-wrapper">
-                    <button class="btn show-more-btn">Show More</button>
+                    <button class="btn show-more-btn">View More</button>
                 </div>
             </div>
         </div>

@@ -472,7 +472,7 @@ $this->registerCssFile('/css/ssr-special-rate/ssr-special-rate.css');
                     </div>
                 </div>
                 <div class="show-more-btn-wrapper">
-                    <button class="btn show-more-btn">Show More</button>
+                    <button class="btn show-more-btn">View More</button>
                 </div>
             </div>
         </div>
