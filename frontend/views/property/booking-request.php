@@ -417,7 +417,12 @@ $this->registerCssFile('/css/datepicker/jquery-ui.css');
                 </div>
             </div>
             <div class="total-btns-wrapper">
-                <button class="small-btn blue-btn">Available for all days</button>
+                <!-- <button class="small-btn blue-btn">Available for all days</button> -->
+                <div class="info-msg">
+                    <img src="images/booking-request/info-icon.svg" style="width: 20px;" alt="">Delete <a href="#"> Not
+                        Available</a>
+                    Rooms marked by property to resend booking request again
+                </div>
                 <div class="total-amount">
                     TOTAL <span>₹6,400</span>
                 </div>

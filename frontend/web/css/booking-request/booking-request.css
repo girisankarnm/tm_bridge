@@ -1977,6 +1977,21 @@ span.payment-block {
   margin: 0;
 }
 
+.info-msg {
+  display: flex;
+  font-size: 12px;
+  align-items: center;
+  justify-content: flex-start;
+}
+.info-msg img {
+  margin: 0 5px 0 0;
+}
+.info-msg a {
+  color: #f44336 !important;
+  display: inline-block;
+  margin: 0 3px;
+}
+
 @media (max-width: 1400px) {
   .show-activity-wrapper .activity-chat-wrapper {
     padding: 0 25px;
