@@ -22,7 +22,7 @@ frontend\assets\AppAsset::register($this);
         <div>
             <div class="timeline-item card  search-card-list shadow-div">
                 <div class="animated-background facebook">
-                    <div class="background-masker header-top "> 11111</div>
+                    <div class="background-masker header-top "></div>
                     <div class="background-masker header-left"></div>
                     <div class="background-masker header-right"></div>
                     <div class="background-masker header-bottom"></div>
@@ -670,7 +670,10 @@ frontend\assets\AppAsset::register($this);
                     </div>
                 </div>
                 <div class="matching-rooms-wrapper">
-                    <div class="matching-rooms-head">3 Matching Rooms Found</div>
+                    <div class="matching-rooms-header">
+                        <div class="matching-rooms-head">3 Matching Rooms Found</div>
+                        <span class="right-text assigned-text">Assigned rooms</span>
+                    </div>
 
                     <div class="matching-rooms-container">
                         <div class="matching-rooms-box-wrapper">
@@ -758,10 +761,15 @@ frontend\assets\AppAsset::register($this);
                                 </div>
                                 <div class="days-price-details">
                                     <div class="tooltip-link stay-days-wrapper">
-                                        <label class="checkbox-container">10 Days Stay
-                                            <input type="checkbox">
-                                            <span class="checkmark"></span>
-                                        </label>
+                                        <div class="days-container">
+                                            <span class="days-text">10 Days Stay </span>
+                                            <span class="tik-icon"><img src="images/Tick-Load-Full.png"
+                                                    style="width:20px" class="room-policy-occupancy-icon" alt=""></span>
+                                            <!-- <label class="checkbox-container">
+                                                <input type="checkbox">
+                                                <span class="checkmark"></span>
+                                            </label> -->
+                                        </div>
                                         <span class="hovercard right-tooltip">
                                             <div class="tooltiptext">
                                                 <h4 class="tooltip-head">Heading</h4>
@@ -1158,10 +1166,13 @@ frontend\assets\AppAsset::register($this);
                                 </div>
                                 <div class="days-price-details">
                                     <div class="tooltip-link stay-days-wrapper">
-                                        <label class="checkbox-container">10 Days Stay
-                                            <input type="checkbox">
-                                            <span class="checkmark"></span>
-                                        </label>
+                                        <div class="days-container">
+                                            <span class="days-text">10 Days Stay </span>
+                                            <label class="checkbox-container">
+                                                <input type="checkbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
                                         <span class="hovercard right-tooltip">
                                             <div class="tooltiptext">
                                                 <h4 class="tooltip-head">Heading</h4>
@@ -1478,10 +1489,13 @@ frontend\assets\AppAsset::register($this);
                                 </div>
                                 <div class="days-price-details">
                                     <div class="tooltip-link stay-days-wrapper">
-                                        <label class="checkbox-container">10 Days Stay
-                                            <input type="checkbox" onclick="Toaster()">
-                                            <span class="checkmark"></span>
-                                        </label>
+                                        <div class="days-container">
+                                            <span class="days-text">10 Days Stay </span>
+                                            <label class="checkbox-container">
+                                                <input type="checkbox" onclick="Toaster()">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
                                         <span class="hovercard right-tooltip">
                                             <div class="tooltiptext">
                                                 <h4 class="tooltip-head">Heading</h4>

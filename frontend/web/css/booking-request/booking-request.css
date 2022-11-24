@@ -1449,6 +1449,15 @@ ul {
   width: 100%;
 }
 
+.info-btn {
+  padding: 0;
+  border: none;
+  margin: 0 0 0 5px;
+}
+.info-btn img {
+  width: 20px;
+}
+
 .total-btns-wrapper {
   background: #F0F2FF;
   display: flex;

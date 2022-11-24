@@ -844,3 +844,35 @@ input.table-input-disabled {
     font-size: 24px;
     margin: 0 0 0 10px;
 }
+
+.days-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 0 0 5px;
+
+    label.checkbox-container {
+        margin-top: -7px !important;
+    }
+}
+
+.tik-icon {
+    display: inline-block;
+    margin: 0 0 0 8px;
+
+    img {
+        width: 20px;
+    }
+}
+
+.matching-rooms-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.assigned-text {
+    font-size: 14px;
+    color: #5968DB;
+    line-height: 16px;
+}

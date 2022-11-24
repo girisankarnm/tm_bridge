@@ -376,7 +376,11 @@ $this->registerCssFile('/css/datepicker/jquery-ui.css');
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="room-name">Premium Valley View Room Pool </div>
+                                    <div class="room-name">Premium Valley View Room Pool
+                                        <button class="info-btn">
+                                            <img src="images/booking-request/info-icon.svg" alt="">
+                                        </button>
+                                    </div>
                                 </td>
                                 <td><button class="booking-status-btn new-request">New Request</button></td>
                                 <td style="text-align: center;"><button class="room-no-btn">No. of Rooms:
@@ -401,8 +405,6 @@ $this->registerCssFile('/css/datepicker/jquery-ui.css');
                                 </td>
                                 <td>
                                     <div class="view-info-area">
-                                        <button class="info-btn"><img src="images/booking-request/info-icon.svg"
-                                                alt=""></button>
                                         <button class="info-btn"><img src="images/booking-request/view-icon.svg"
                                                 alt=""></button>
                                         <button class="delete-btn"><img src="images/user-icons/delete-icon.svg"
