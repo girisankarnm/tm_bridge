@@ -567,6 +567,9 @@ $color-dark: #1E2339;
 
     .activity-chat-wrapper {
         padding: 30px 100px 0;
+        max-height: 530px;
+        overflow: hidden;
+        // overflow-y: auto;
 
         .activity-chat-single {
             display: flex;
@@ -998,6 +1001,19 @@ span.payment-block {
         color: #f44336 !important;
         display: inline-block;
         margin: 0 3px;
+    }
+}
+
+.show-more-btn-wrapper {
+    text-align: center;
+
+    .show-more-btn {
+        border: 1px solid #333;
+        background: none;
+        padding: 6px 20px;
+        border-radius: 5px;
+        text-align: center;
+        min-width: 130px;
     }
 }
 
