@@ -1686,4 +1686,63 @@ body {
   background: none;
 }
 
+.assign-bar-wrapper {
+  margin: 0 0 30px;
+}
+.assign-bar-wrapper .assign-bar-contents {
+  padding: 10px 20px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border: 2px solid #5968DB;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.assign-bar-heading {
+  font-size: 12px;
+  font-family: "Bw-Mitga-bold";
+  color: #000;
+}
+
+.add-btn {
+  display: inline-block;
+  background: #5968db;
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  border-radius: 50%;
+  margin: 0 0 0 5px;
+}
+
+.assign-props-single {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  border: 1px solid #999FB4;
+  padding: 0px 20px;
+  border-radius: 20px;
+}
+.assign-props-single .assign-props-head {
+  font-size: 12px;
+  font-family: "Bw-Mitga-bold";
+  color: #000;
+  line-height: 18px;
+  border-right: 1px solid #999FB4;
+  padding: 5px 10px 5px 0;
+  margin: 0 10px 0 0;
+}
+.assign-props-single .assign-props-value {
+  padding: 5px 10px 5px 0;
+  font-size: 12px;
+  color: #000;
+  line-height: 18px;
+}
+
 /*# sourceMappingURL=user-styles.css.map */

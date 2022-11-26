@@ -1471,6 +1471,10 @@ ul {
   -o-border-radius: 0 0 5px 5px;
 }
 .total-btns-wrapper .total-amount {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
   color: #1E2339;
   font-size: 16px;
   font-family: "Bw-Mitga-bold";
@@ -1980,6 +1984,7 @@ span.payment-block {
 }
 
 .info-msg {
+  width: 100%;
   display: flex;
   font-size: 12px;
   align-items: center;

@@ -6,6 +6,22 @@ $this->registerCssFile('/css/users/user-styles.css');
 $this->registerCssFile('/css/custom-style.css');
 ?>
 <div class="wrapper">
+    <div class="assign-bar-wrapper">
+        <div class="assign-bar-contents">
+            <div class="assign-bar-heading">Assigned Property <span class="add-btn">+</span></div>
+            <div class="assign-props-single">
+                <div class="assign-props-head">Guest Name</div>
+                <div class="assign-props-value">Jayesh Sathyamoorthy</div>
+            </div>
+            <div class="assign-props-single">
+                <div class="assign-props-head">Enq No</div>
+                <div class="assign-props-value">1232/2022</div>
+            </div>
+            <div class="assign-props-single">
+                <div class="assign-props-value">20 Nights, 5 Destinations</div>
+            </div>
+        </div>
+    </div>
     <div class="custom-accordion-wrapper">
         <div id="accordion" class="accordion">
             <div class="card mb-0">
