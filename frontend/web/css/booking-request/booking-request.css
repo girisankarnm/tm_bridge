@@ -1476,7 +1476,7 @@ ul {
   align-items: center;
   justify-content: flex-end;
   color: #1E2339;
-  font-size: 16px;
+  font-size: 14px;
   font-family: "Bw-Mitga-bold";
 }
 .total-btns-wrapper .total-amount span {
@@ -1663,9 +1663,13 @@ ul {
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
 }
 .show-activity-wrapper .activity-chat-wrapper .activity-chat-single .activity-chat-user .user-img img {
   width: 100%;
+  object-fit: cover;
 }
 .show-activity-wrapper .activity-chat-wrapper .activity-chat-single .activity-chat-area {
   position: relative;
@@ -1741,8 +1745,12 @@ ul {
   left: initial;
 }
 
+.popup-tariff-room-details {
+  margin: 30px 0 0;
+}
+
 .room-withaminities {
-  margin: 20px 0 0;
+  margin: 0;
 }
 .room-withaminities .room-facilities-wrapper {
   justify-content: space-between;
@@ -1798,7 +1806,7 @@ ul {
 }
 
 .popup-room-rate-table-wrapper {
-  margin: 20px 0 0;
+  margin: 0;
   border-radius: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;

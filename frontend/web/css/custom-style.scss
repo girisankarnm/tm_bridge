@@ -841,7 +841,7 @@ input.table-input-disabled {
 }
 
 .lg-value {
-    font-size: 24px;
+    font-size: 16px;
     margin: 0 0 0 10px;
 }
 
@@ -875,4 +875,14 @@ input.table-input-disabled {
     font-size: 14px;
     color: #5968DB;
     line-height: 16px;
+}
+
+.room-label {
+    color: #fff;
+    font-size: 10px;
+    padding: 2px 15px;
+    margin: 0 5px 0 0;
+    background: #838bc7;
+    display: inline-block;
+    @include border-radius(15px);
 }

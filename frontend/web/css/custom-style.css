@@ -142,7 +142,7 @@ ul {
   -moz-border-radius: 6px;
   -ms-border-radius: 6px;
   -o-border-radius: 6px;
-  border: 2px solid #A88F6C;
+  border: 2px solid #5968DB;
   position: absolute;
   top: 4px;
   left: 0;
@@ -153,14 +153,10 @@ ul {
 
 /* On mouse-over, add a grey background color */
 .checkbox-container:hover input ~ .checkmark {
-  border: 3px solid #A88F6C;
+  border: 2px solid #5968DB;
 }
 
 /* When the checkbox is checked, add a blue background */
-.checkbox-container input:checked ~ .checkmark {
-  background: #A88F6C;
-}
-
 /* Create the checkmark/indicator (hidden when not checked) */
 .checkbox-container .checkmark:after {
   content: "";
@@ -1818,7 +1814,7 @@ input.table-input-disabled {
 }
 
 .lg-value {
-  font-size: 24px;
+  font-size: 16px;
   margin: 0 0 0 10px;
 }
 
@@ -1850,6 +1846,20 @@ input.table-input-disabled {
   font-size: 14px;
   color: #5968DB;
   line-height: 16px;
+}
+
+.room-label {
+  color: #fff;
+  font-size: 10px;
+  padding: 2px 15px;
+  margin: 0 5px 0 0;
+  background: #838bc7;
+  display: inline-block;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
 }
 
 /*# sourceMappingURL=custom-style.css.map */

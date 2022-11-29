@@ -8,7 +8,9 @@ $this->registerCssFile('/css/custom-style.css');
 <div class="wrapper">
     <div class="assign-bar-wrapper">
         <div class="assign-bar-contents">
-            <div class="assign-bar-heading">Assigned Property <span class="add-btn">+</span></div>
+            <div class="assign-bar-heading">Assigned Property
+                <span class="add-btn"><img src="images/add-icon.png" alt=""></span>
+            </div>
             <div class="assign-props-single">
                 <div class="assign-props-head">Guest Name</div>
                 <div class="assign-props-value">Jayesh Sathyamoorthy</div>

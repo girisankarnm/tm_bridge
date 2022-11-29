@@ -428,7 +428,7 @@ $color-dark: #1E2339;
         align-items: center;
         justify-content: flex-end;
         color: #1E2339;
-        font-size: 16px;
+        font-size: 14px;
         font-family: $font-bold;
 
         span {
@@ -613,9 +613,13 @@ $color-dark: #1E2339;
                     height: 46px;
                     overflow: hidden;
                     @include border-radius(50%);
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                    background-size: cover;
 
                     img {
                         width: 100%;
+                        object-fit: cover;
                     }
                 }
             }
@@ -705,9 +709,12 @@ $color-dark: #1E2339;
     }
 }
 
+.popup-tariff-room-details {
+    margin: 30px 0 0;
+}
 
 .room-withaminities {
-    margin: 20px 0 0;
+    margin: 0;
 
     .room-facilities-wrapper {
         justify-content: space-between;
@@ -777,7 +784,7 @@ $color-dark: #1E2339;
 }
 
 .popup-room-rate-table-wrapper {
-    margin: 20px 0 0;
+    margin: 0;
     @include border-radius(5px);
     border: 1px solid #D2D2D2 !important;
     overflow: hidden;

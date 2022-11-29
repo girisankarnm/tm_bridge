@@ -138,7 +138,7 @@ $this->registerCssFile('/css/ssr-special-rate/ssr-special-rate.css');
                                         </div>
                                     </div>
                                 </td>
-                                <td style="width:20%" class="table-td">6 x 2000</td>
+                                <td style="width:20%" class="table-td"><span class="room-label">PPE</span> 6 x 2000</td>
                                 <td style="width:20%" class="table-td">6 x 2000</td>
                                 <td style="width:17%" class="table-td">2000</td>
                                 <td style="width:3%; text-align: center;" class="table-td">
@@ -168,7 +168,7 @@ $this->registerCssFile('/css/ssr-special-rate/ssr-special-rate.css');
                                         </div>
                                     </div>
                                 </td>
-                                <td style="width:20%" class="table-td">6 x 1000</td>
+                                <td style="width:20%" class="table-td"><span class="room-label">PPE</span> 6 x 1000</td>
                                 <td style="width:20%" class="table-td">6 x 1000</td>
                                 <td style="width:17%" class="table-td">1000</td>
                                 <td style="width:3%; text-align: center;" class="table-td">
@@ -204,7 +204,7 @@ $this->registerCssFile('/css/ssr-special-rate/ssr-special-rate.css');
                                         </div>
                                     </div>
                                 </td>
-                                <td style="width:20%" class="table-td">6 x 4000</td>
+                                <td style="width:20%" class="table-td"><span class="room-label">PPE</span> 6 x 4000</td>
                                 <td style="width:20%" class="table-td">6 x 4000</td>
                                 <td style="width:17%" class="table-td">4000</td>
                                 <td style="width:3%; text-align: center;" class="table-td">
@@ -234,7 +234,7 @@ $this->registerCssFile('/css/ssr-special-rate/ssr-special-rate.css');
                                         </div>
                                     </div>
                                 </td>
-                                <td style="width:20%" class="table-td">6 x 2000</td>
+                                <td style="width:20%" class="table-td"><span class="room-label">PPE</span> 6 x 2000</td>
                                 <td style="width:20%" class="table-td">6 x 2000</td>
                                 <td style="width:17%" class="table-td">2000</td>
                                 <td style="width:3%; text-align: center;" class="table-td">
@@ -244,8 +244,6 @@ $this->registerCssFile('/css/ssr-special-rate/ssr-special-rate.css');
                                     </label>
                                 </td>
                             </tr>
-
-
                             <tr style="background:none;">
                                 <td colspan="6" style="border: none; text-align: left;">
                                     <div class="date-area-btn mb-0" style="background: #5968DB;">05 December 2022</div>
@@ -271,7 +269,7 @@ $this->registerCssFile('/css/ssr-special-rate/ssr-special-rate.css');
                                         </div>
                                     </div>
                                 </td>
-                                <td style="width:20%" class="table-td">6 x 4000</td>
+                                <td style="width:20%" class="table-td"><span class="room-label">PPE</span> 6 x 4000</td>
                                 <td style="width:20%" class="table-td">6 x 4000</td>
                                 <td style="width:17%" class="table-td">4000</td>
                                 <td style="width:3%; text-align: center;" class="table-td">
@@ -301,7 +299,7 @@ $this->registerCssFile('/css/ssr-special-rate/ssr-special-rate.css');
                                         </div>
                                     </div>
                                 </td>
-                                <td style="width:20%" class="table-td">6 x 2000</td>
+                                <td style="width:20%" class="table-td"><span class="room-label">PPE</span> 6 x 2000</td>
                                 <td style="width:20%" class="table-td">6 x 2000</td>
                                 <td style="width:17%" class="table-td">2000</td>
                                 <td style="width:3%; text-align: center;" class="table-td">
@@ -358,7 +356,8 @@ $this->registerCssFile('/css/ssr-special-rate/ssr-special-rate.css');
                                 <h5 class="user-details-name">Praveen</h5>
                                 <h5 class="user-details-date">12-October 2022</h5>
                             </div>
-                            <div class="user-img"><img src="images/booking-request/chat-user-thumb-01.png" alt=""></div>
+                            <div class="user-img"
+                                style="background-image: url(images/booking-request/chat-user-thumb-01.png);"></div>
                         </div>
                         <div class="activity-chat-area">
                             <div class="activity-chat">Lorren ippsum gravida sem?</div>
@@ -542,6 +541,9 @@ $this->registerCssFile('/css/ssr-special-rate/ssr-special-rate.css');
                         </div>
                     </div>
                     <div class="popup-tariff-room-details">
+                        <div class="col-lg-12">
+                            <div class="pop-table-heading"></div>
+                        </div>
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="room-withaminities">

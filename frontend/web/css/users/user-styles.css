@@ -1706,19 +1706,22 @@ body {
   font-size: 12px;
   font-family: "Bw-Mitga-bold";
   color: #000;
+  display: inline-flex;
+  align-items: center;
 }
 
 .add-btn {
   display: inline-block;
-  background: #5968db;
-  width: 20px;
-  height: 20px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   color: #fff;
   border-radius: 50%;
-  margin: 0 0 0 5px;
+  margin: 0 0 0 10px;
+}
+.add-btn img {
+  width: 20px;
+  height: 20px;
 }
 
 .assign-props-single {
