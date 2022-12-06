@@ -1862,4 +1862,8 @@ input.table-input-disabled {
   -o-border-radius: 15px;
 }
 
+.accordion > .card {
+  overflow: visible !important;
+}
+
 /*# sourceMappingURL=custom-style.css.map */

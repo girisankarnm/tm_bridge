@@ -886,3 +886,7 @@ input.table-input-disabled {
     display: inline-block;
     @include border-radius(15px);
 }
+
+.accordion>.card {
+    overflow: visible !important;
+}

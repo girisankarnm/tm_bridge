@@ -79,4 +79,9 @@ class PropertyController extends Controller
         $this->layout = 'tm_main';
         return $this->render('booking-cancellation', []);
     }
+     public function actionPpe9()
+    {
+        $this->layout = 'tm_main';
+        return $this->render('voucher', []);
+    }
 }
