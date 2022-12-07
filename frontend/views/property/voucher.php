@@ -55,7 +55,8 @@ $this->registerCssFile('/css/ssr-special-rate/ssr-special-rate.css');
                                 <table cellpadding="0" cellspacing="0"
                                     style="width: 100%; float: right; border: none !important; box-shadow: none;">
                                     <tr style="background: none;">
-                                        <td style="width: 75px;"><img src="images/booking-request/thumb-01.png" alt="">
+                                        <td style="width: 75px;"><img style="width:75px;"
+                                                src="images/booking-request/thumb-01.png" alt="">
                                         </td>
                                         <td style="padding: 10px;">
                                             <h4
@@ -82,7 +83,8 @@ $this->registerCssFile('/css/ssr-special-rate/ssr-special-rate.css');
                                 <table cellpadding="0" cellspacing="0"
                                     style="width: 100%; float: right; border: none !important; box-shadow: none;">
                                     <tr style="background: none;">
-                                        <td style="width: 75px;"><img src="images/booking-request/thumb-02.png" alt="">
+                                        <td style="width: 75px;"><img style="width:75px;"
+                                                src="images/booking-request/thumb-02.png" alt="">
                                         </td>
                                         <td style="padding: 10px;">
                                             <h4
