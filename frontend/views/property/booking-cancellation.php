@@ -316,7 +316,7 @@ $this->registerCssFile('/css/ssr-special-rate/ssr-special-rate.css');
 
             </div>
             <div class="total-card-wrapper mt-3">
-                <div class="total-card-single">
+                <div class="total-card-single total-small-card">
                     <!-- <div class="total-title">VARIANCE</div> -->
                     <div class="total-value">SUB TOTAL <span class="lg-value">₹6,400</span></div>
                 </div>

@@ -1539,7 +1539,7 @@ ul {
 }
 
 .booking-lists-btns-right button {
-  min-width: 200px;
+  min-width: 150px;
   margin: 0 0 0 15px;
 }
 
@@ -1602,7 +1602,7 @@ ul {
   border: none;
   height: 36px;
   color: #fff;
-  min-width: 200px;
+  min-width: 150px;
   background: #5968DB;
   border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -1619,6 +1619,7 @@ ul {
   padding: 30px 100px 0;
   max-height: 530px;
   overflow: hidden;
+  overflow-y: auto;
 }
 .show-activity-wrapper .activity-chat-wrapper .activity-chat-single {
   display: flex;
@@ -1651,8 +1652,8 @@ ul {
   line-height: 20px;
 }
 .show-activity-wrapper .activity-chat-wrapper .activity-chat-single .activity-chat-user .user-img {
-  width: 46px;
-  height: 46px;
+  width: 35px;
+  height: 35px;
   overflow: hidden;
   border-radius: 50%;
   -webkit-border-radius: 50%;
@@ -1691,14 +1692,26 @@ ul {
   background-color: #f0f2ff;
 }
 .show-activity-wrapper .activity-chat-wrapper .activity-chat-single .activity-chat-area .activity-chat {
-  height: 80px;
+  height: auto;
   resize: none;
-  padding: 15px;
+  width: 512px;
   font-size: 12px;
   background: #F0F2FF;
+  padding: 15px 15px 20px;
   border: 2px solid #E1E4ED;
-  width: 512px;
   border-radius: 0 5px 5px 5px;
+  -webkit-border-radius: 0 5px 5px 5px;
+  -moz-border-radius: 0 5px 5px 5px;
+  -ms-border-radius: 0 5px 5px 5px;
+  -o-border-radius: 0 5px 5px 5px;
+  position: relative;
+}
+.show-activity-wrapper .activity-chat-wrapper .activity-chat-single .activity-chat-area .activity-chat .chat-time {
+  position: absolute;
+  bottom: 3px;
+  right: 10px;
+  font-size: 9px;
+  color: #666;
 }
 .show-activity-wrapper .activity-chat-wrapper .activity-chat-right {
   padding-left: 0;

@@ -335,7 +335,10 @@ $this->registerCssFile('/css/ssr-special-rate/ssr-special-rate.css');
                             <div class="user-img"><img src="images/booking-request/chat-user-thumb-01.png" alt=""></div>
                         </div>
                         <div class="activity-chat-area">
-                            <div class="activity-chat">Lorren ippsum gravida sem?</div>
+                            <div class="activity-chat">
+                                Lorren ippsum gravida sem?
+                                <span class="chat-time">06:19 PM</span>
+                            </div>
                         </div>
                     </div>
                     <div class="activity-chat-single activity-chat-right">
@@ -471,9 +474,9 @@ $this->registerCssFile('/css/ssr-special-rate/ssr-special-rate.css');
                         </div>
                     </div>
                 </div>
-                <div class="show-more-btn-wrapper">
+                <!-- <div class="show-more-btn-wrapper">
                     <button class="btn show-more-btn">View More</button>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
