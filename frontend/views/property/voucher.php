@@ -103,6 +103,10 @@ $this->registerCssFile('/css/ssr-special-rate/ssr-special-rate.css');
                                             <div style="font-size: 11px;
     color: #1E2339; font-weight: 700;">+91 123 456 7890</div>
                                         </td>
+                                        <td style="width: 50px; text-align: right;"
+                                            style="padding: 10px 0px;color: #1E2339;background: none;text-align: left;font-size: 11px !important;border: none;">
+                                            <img src="images/qr-code.png" alt="" style="width: 50px;">
+                                        </td>
                                     </tr>
                                 </table>
                             </td>
@@ -397,17 +401,28 @@ $this->registerCssFile('/css/ssr-special-rate/ssr-special-rate.css');
                     <table cellpadding="0" cellspacing="0"
                         style="width: 100%; float: left; border: none !important; box-shadow: none; margin: 15px 0 0;">
                         <tr style="background: none;">
-                            <td style="width: 85%;"
+                            <td></td>
+                        </tr>
+                    </table>
+                    <table cellpadding="0" cellspacing="0"
+                        style="width: 100%; float: left; border: none !important; box-shadow: none; margin: 15px 0 0;">
+                        <tr style="background: none;">
+                            <td style="width: 55%;"
                                 style="padding: 10px 0px;color: #1E2339;background: none;text-align: left;font-size: 11px !important;border: none;">
                                 <p style="display: block; margin: 0 0 5px; font-weight: bold; color: #222">This is a
                                     computer generated voucher and does not contain any signature.</p>
-                                <p style="display: block; margin: 0 0 5px; font-weight: bold; color: #222">Voucher
+                            </td>
+                            <td style="width: 45%;"
+                                style="padding: 10px 0px;color: #1E2339;background: none;text-align: left;font-size: 11px !important;border: none;">
+                                <p
+                                    style="display: block; margin: 0 0 5px; font-weight: bold; color: #222; text-align: right;">
+                                    Voucher
                                     generated <img src="images/logo.svg" style="width: 60px;" alt=""></p>
                             </td>
-                            <td style="width: 10%; text-align: right;"
+                            <!-- <td style="width: 10%; text-align: right;"
                                 style="padding: 10px 0px;color: #1E2339;background: none;text-align: left;font-size: 11px !important;border: none;">
                                 <img src="images/qr-code.png" alt="" style="width: 50px;">
-                            </td>
+                            </td> -->
                         </tr>
                     </table>
                     <table cellpadding="0" cellspacing="0"
