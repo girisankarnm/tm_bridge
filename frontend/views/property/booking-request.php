@@ -644,6 +644,7 @@ $this->registerCssFile('/css/datepicker/jquery-ui.css');
                         </div>
                     </div>
                     <div class="popup-tariff-room-details">
+                        <div class="tariff-heading">Premium Valley View Room Pool</div>
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="room-withaminities">
@@ -710,47 +711,36 @@ $this->registerCssFile('/css/datepicker/jquery-ui.css');
                                             </tbody>
                                         </table>
                                     </div>
-                                    <div class="enq-table-wrapper">
-                                        <table class="enq-table">
-                                            <thead>
+                                    <div class="pax-table-wrapper">
+                                        <div class="tariff-heading">Tariff Basis Pax</div>
+                                        <div class="pax-table-main">
+                                            <table class="pax-table">
                                                 <tr>
-                                                    <th>Tariff Basis Pax</th>
-                                                    <th>Tariff Basis Meal Plan</th>
+                                                    <td style="border-right: 1px solid #ddd; width: 10%;"><img
+                                                            src="images/user-icons/man-icon.svg" alt=""
+                                                            style="width: 10px; margin:0 5px 0 0;"></td>
+                                                    <td>DB2</td>
+                                                    <td>EB1</td>
+                                                    <td>SGL 0</td>
                                                 </tr>
-                                            </thead>
-                                            <tbody>
                                                 <tr>
-                                                    <td>
-                                                        <div class="icons-group-light-wrapper">
-                                                            <div class="icon-content-single">
-                                                                <img src="images/user-icons/child-icon.svg" alt=""
-                                                                    style="width: 14px; margin:0 5px 0 0;">
-                                                                10
-                                                            </div>
-                                                            <div class="icon-content-single">
-                                                                <img src="images/user-icons/women-icon.svg" alt=""
-                                                                    style="width: 14px; margin:0 5px 0 0;">
-                                                                10
-                                                            </div>
-                                                            <div class="icon-content-single">
-                                                                <img src="images/user-icons/man-icon.svg" alt=""
-                                                                    style="width: 9px; margin:0 5px 0 0;">
-                                                                10
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <div class="icons-group-light-wrapper">
-                                                            <div class="icon-content-single">
-                                                                <img src="images/booking-request/meals-icon.svg" alt=""
-                                                                    style="width: 20px; margin:0 5px 0 0;">
-                                                                MAP (Breakfast)
-                                                            </div>
-                                                        </div>
-                                                    </td>
+                                                    <td style="border-right: 1px solid #ddd; width: 10%;"><img
+                                                            src="images/user-icons/women-icon.svg" alt=""
+                                                            style="width: 14px; margin:0 5px 0 0;"></td>
+                                                    <td>DB0</td>
+                                                    <td>EB0</td>
+                                                    <td>SB1</td>
                                                 </tr>
-                                            </tbody>
-                                        </table>
+                                                <tr>
+                                                    <td style="border-right: 1px solid #ddd; width: 10%;"><img
+                                                            src="images/user-icons/child-icon.svg" alt=""
+                                                            style="width: 14px; margin:0 5px 0 0;"></td>
+                                                    <td>DB0</td>
+                                                    <td>EB0</td>
+                                                    <td>SB0</td>
+                                                </tr>
+                                            </table>
+                                        </div>
                                     </div>
                                     <div class="info-note-wrapper">
                                         <img src="images/booking-request/info-icon-red.svg" alt="">
@@ -758,47 +748,54 @@ $this->registerCssFile('/css/datepicker/jquery-ui.css');
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-6 pl-0">
                                 <div class="popup-room-rate-table-wrapper">
                                     <table class="popup-room-rate-table">
                                         <tr>
                                             <td class="head-td">Rooms</td>
-                                            <td>10X 111111</td>
-                                            <td>10X 111111</td>
+                                            <td><input type="text" class="rooms-number" placeholder="No. of Rooms"></td>
+                                            <td>4200</td>
+                                            <td>8400</td>
                                         </tr>
                                         <tr>
                                             <td class="head-td">EBA</td>
-                                            <td>10X 111111</td>
-                                            <td>10X 111111</td>
+                                            <td>1X 100</td>
+                                            <td>100</td>
+                                            <td>100</td>
                                         </tr>
                                         <tr>
                                             <td class="head-td">CWB</td>
-                                            <td>10X 111111</td>
-                                            <td>10X 111111</td>
+                                            <td>0X 100</td>
+                                            <td>0</td>
+                                            <td>0</td>
                                         </tr>
                                         <tr>
                                             <td class="head-td">CNB</td>
-                                            <td>10X 111111</td>
-                                            <td>10X 111111</td>
+                                            <td>1X 100</td>
+                                            <td>100</td>
+                                            <td>100</td>
                                         </tr>
                                         <tr>
                                             <td class="head-td">SGL</td>
-                                            <td>10X 111111</td>
-                                            <td>10X 111111</td>
+                                            <td>0X 4200</td>
+                                            <td>0</td>
+                                            <td>0</td>
                                         </tr>
                                         <tr>
                                             <td class="head-td">FOC</td>
-                                            <td>5 Infants</td>
-                                            <td>5 Infants</td>
+                                            <td>0 Infants</td>
+                                            <td>0</td>
+                                            <td>0</td>
                                         </tr>
                                         <tr>
                                             <td class="head-td">Inclusion</td>
-                                            <td>10X 111111</td>
-                                            <td>10X 111111</td>
+                                            <td>0</td>
+                                            <td>0</td>
+                                            <td>0</td>
                                         </tr>
                                         <tr class="total-row">
-                                            <td colspan="2">TOTAL</td>
-                                            <td>₹11111111</td>
+                                            <td colspan="3">TOTAL</td>
+                                            <td>₹4400</td>
                                         </tr>
                                     </table>
                                 </div>

@@ -404,6 +404,44 @@ $this->registerCssFile('/css/ssr-special-rate/ssr-special-rate.css');
                             <td></td>
                         </tr>
                     </table>
+                    <table cellpadding="0" cellspacing="0" id="commentsTable"
+                        style="width: 100%; float: left; border: none !important; box-shadow: none; margin: 15px 0 0;">
+                        <tr style="background: none;">
+                            <td style="width: 50%;">
+                                <h4 style="color: #333; font-size: 16px; font-weight: 700; margin: 0;">Comments</h4>
+                            </td>
+                            <td style="width: 50%; text-align: right;">
+                                <button
+                                    style="background: #E40968 !important; color: #fff; border: none; font-size: 12px !important; padding: 5px 15px;-webkit-print-color-adjust: exact;">+
+                                    Add
+                                    New</button>
+                            </td>
+                        </tr>
+                        <tr style="background: none;">
+                            <td style="width: 100%;" colspan="2">
+                                <input type="text" placeholder="Add comments and press Enter"
+                                    style="width: 100%;margin: 10px 0;height: 40px;border: 1px solid #333;">
+                            </td>
+                        </tr>
+                        <tr style="background: none;">
+                            <td style="width: 100%;" colspan="2">
+                                <ul style="padding: 0;">
+                                    <li style="list-style: inside;">If you come late at hotel, They will not provide
+                                        meals
+                                        <span
+                                            style="background: #bcb3b3;color: #000;padding: 1px 6px;display: inline-block;margin: 0 0 0 5px;">x</span>
+                                    </li>
+                                    <li style="list-style: inside;">Car parking facilities are available <span
+                                            style="background: #bcb3b3;color: #000;padding: 1px 6px;display: inline-block;margin: 0 0 0 5px;">x</span>
+                                    </li>
+                                    <li style="list-style: inside;">Please call 7012761225 for any assistance at night
+                                        <span
+                                            style="background: #bcb3b3;color: #000;padding: 1px 6px;display: inline-block;margin: 0 0 0 5px;">x</span>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
                     <table cellpadding="0" cellspacing="0"
                         style="width: 100%; float: left; border: none !important; box-shadow: none; margin: 15px 0 0;">
                         <tr style="background: none;">
@@ -581,3 +619,12 @@ $(document).ready(function() {
 //     })
 // })
 </script>
+<style>
+@media print {
+
+    .sidebar-contr,
+    #commentsTable {
+        display: none;
+    }
+}
+</style>

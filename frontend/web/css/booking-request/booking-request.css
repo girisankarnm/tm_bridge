@@ -2029,6 +2029,52 @@ span.payment-block {
   min-width: 130px;
 }
 
+.tariff-heading {
+  font-size: 14px;
+  margin: 0 0 10px;
+  color: #1E2339;
+  font-family: "Bw-Mitga-bold";
+}
+
+.pax-table-wrapper {
+  margin: 15px 0 0;
+}
+.pax-table-wrapper .tariff-heading {
+  margin: 0 0 10px;
+}
+
+.pax-table-main {
+  overflow: hidden;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border: 1px solid #D2D2D2 !important;
+}
+.pax-table-main table.pax-table {
+  width: 100%;
+  box-shadow: none;
+  background: none;
+  border: none !important;
+}
+.pax-table-main table.pax-table tr {
+  background: none;
+}
+.pax-table-main table.pax-table tr td {
+  color: #292931;
+  padding: 5px 15px;
+}
+
+.rooms-number {
+  width: 100px;
+  background: none;
+  padding: 5px 3px;
+  text-align: left;
+  border: 1px solid #333;
+  text-indent: 0 !important;
+}
+
 @media (max-width: 1400px) {
   .show-activity-wrapper .activity-chat-wrapper {
     padding: 0 25px;

@@ -1043,6 +1043,52 @@ span.payment-block {
     }
 }
 
+.tariff-heading {
+    font-size: 14px;
+    margin: 0 0 10px;
+    color: $color-dark;
+    font-family: $font-bold;
+}
+
+.pax-table-wrapper {
+    margin: 15px 0 0;
+
+    .tariff-heading {
+        margin: 0 0 10px;
+    }
+}
+
+.pax-table-main {
+    overflow: hidden;
+    @include border-radius(5px);
+    border: 1px solid #D2D2D2 !important;
+
+    table.pax-table {
+        width: 100%;
+        box-shadow: none;
+        background: none;
+        border: none !important;
+
+        tr {
+            background: none;
+
+            td {
+                color: #292931;
+                padding: 5px 15px;
+            }
+        }
+    }
+}
+
+.rooms-number {
+    width: 100px;
+    background: none;
+    padding: 5px 3px;
+    text-align: left;
+    border: 1px solid #333;
+    text-indent: 0 !important;
+}
+
 @media (max-width:1400px) {
     .show-activity-wrapper {
         .activity-chat-wrapper {
