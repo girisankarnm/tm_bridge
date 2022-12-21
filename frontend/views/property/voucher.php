@@ -411,13 +411,13 @@ $this->registerCssFile('/css/ssr-special-rate/ssr-special-rate.css');
                                 <h4 style="color: #333; font-size: 16px; font-weight: 700; margin: 0;">Comments</h4>
                             </td>
                             <td style="width: 50%; text-align: right;">
-                                <button
+                                <button id="add-new-btn"
                                     style="background: #E40968 !important; color: #fff; border: none; font-size: 12px !important; padding: 5px 15px;-webkit-print-color-adjust: exact;">+
                                     Add
                                     New</button>
                             </td>
                         </tr>
-                        <tr style="background: none;">
+                        <tr style="background: none;" id="comments-input">
                             <td style="width: 100%;" colspan="2">
                                 <input type="text" placeholder="Add comments and press Enter"
                                     style="width: 100%;margin: 10px 0;height: 40px;border: 1px solid #333;">
@@ -622,8 +622,10 @@ $(document).ready(function() {
 <style>
 @media print {
 
-    .sidebar-contr,
-    #commentsTable {
+    /* #commentsTable */
+    #add-new-btn,
+    #comments-input,
+    .sidebar-contr {
         display: none;
     }
 }

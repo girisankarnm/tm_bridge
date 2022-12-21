@@ -801,6 +801,10 @@ $this->registerCssFile('/css/datepicker/jquery-ui.css');
                                 </div>
                             </div>
                         </div>
+                        <div class="two-side-btns-wrapper popup-bottom-btns">
+                            <button class="btn">Close</button>
+                            <button class="btn">Save</button>
+                        </div>
                     </div>
                 </div>
             </div>

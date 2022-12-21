@@ -2075,6 +2075,19 @@ span.payment-block {
   text-indent: 0 !important;
 }
 
+.two-side-btns-wrapper {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+.popup-bottom-btns {
+  margin: 30px 0 15px;
+}
+.popup-bottom-btns button {
+  max-width: 180px;
+}
+
 @media (max-width: 1400px) {
   .show-activity-wrapper .activity-chat-wrapper {
     padding: 0 25px;

@@ -814,7 +814,7 @@ frontend\assets\AppAsset::register($this);
                                                 </span>
                                             </div>
                                         </div> -->
-                                        <div class="room-single-header">
+                                        <div class="room-single-header" style="background: #e1e5ff;">
                                             <!-- <div class="tooltip-wrapper">
                                                     <a href="javascript:void(0);" class="policy-text">8-15 YR</a>
                                                     <span class="hovercard">
@@ -881,7 +881,7 @@ frontend\assets\AppAsset::register($this);
                                         </div>
                                     </div>
                                     <div class="room-single-content-area">
-                                        <div class="room-single-header">
+                                        <div class="room-single-header" style="background: #e1e5ff;">
                                             <div class="icon-text-area" style="margin-right:10px;">
                                                 In Enq:
                                                 <div class="tooltip-link">
@@ -996,7 +996,7 @@ frontend\assets\AppAsset::register($this);
                                         </div>
                                     </div>
                                     <div class="room-single-content-area">
-                                        <div class="room-single-header">
+                                        <div class="room-single-header" style="background: #e1e5ff;">
                                             <div class="icon-text-area" style="margin-right:10px;">
                                                 In Enq:
                                                 <div class="icon-with-notification"><img
@@ -1030,7 +1030,7 @@ frontend\assets\AppAsset::register($this);
                                         </div>
                                     </div>
                                     <div class="room-single-content-area">
-                                        <div class="room-single-header">
+                                        <div class="room-single-header" style="background: #e1e5ff;">
                                             <div class="icon-text-area" style="margin-right:10px;">
                                                 In Enq:
                                                 <div class="icon-with-notification"><img
@@ -1203,7 +1203,7 @@ frontend\assets\AppAsset::register($this);
                                         </div>
                                     </div>
                                     <div class="room-single-content-area">
-                                        <div class="room-single-header">
+                                        <div class="room-single-header" style="background: #e1e5ff;">
                                             <div class="icon-text-area">
                                                 In Enq:
                                                 <div class="icon-with-notification"><img
@@ -1237,7 +1237,7 @@ frontend\assets\AppAsset::register($this);
                                         </div>
                                     </div>
                                     <div class="room-single-content-area">
-                                        <div class="room-single-header">
+                                        <div class="room-single-header" style="background: #e1e5ff;">
                                             <div class="icon-text-area">
                                                 In Enq:
                                                 <div class="icon-with-notification"><img
@@ -1308,7 +1308,7 @@ frontend\assets\AppAsset::register($this);
                                         </div>
                                     </div>
                                     <div class="room-single-content-area">
-                                        <div class="room-single-header">
+                                        <div class="room-single-header" style="background: #e1e5ff;">
                                             <div class="icon-text-area">
                                                 In Enq:
                                                 <div class="icon-with-notification"><img
@@ -1342,7 +1342,7 @@ frontend\assets\AppAsset::register($this);
                                         </div>
                                     </div>
                                     <div class="room-single-content-area">
-                                        <div class="room-single-header">
+                                        <div class="room-single-header" style="background: #e1e5ff;">
                                             <div class="icon-text-area">
                                                 In Enq:
                                                 <div class="icon-with-notification"><img
@@ -1526,7 +1526,7 @@ frontend\assets\AppAsset::register($this);
                                         </div>
                                     </div>
                                     <div class="room-single-content-area">
-                                        <div class="room-single-header">
+                                        <div class="room-single-header" style="background: #e1e5ff;">
                                             <div class="icon-text-area">
                                                 In Enq:
                                                 <div class="icon-with-notification"><img
@@ -1560,7 +1560,7 @@ frontend\assets\AppAsset::register($this);
                                         </div>
                                     </div>
                                     <div class="room-single-content-area">
-                                        <div class="room-single-header">
+                                        <div class="room-single-header" style="background: #e1e5ff;">
                                             <div class="icon-text-area">
                                                 In Enq:
                                                 <div class="icon-with-notification"><img
@@ -1631,7 +1631,7 @@ frontend\assets\AppAsset::register($this);
                                         </div>
                                     </div>
                                     <div class="room-single-content-area">
-                                        <div class="room-single-header">
+                                        <div class="room-single-header" style="background: #e1e5ff;">
                                             <div class="icon-text-area">
                                                 In Enq:
                                                 <div class="icon-with-notification"><img
@@ -1665,7 +1665,7 @@ frontend\assets\AppAsset::register($this);
                                         </div>
                                     </div>
                                     <div class="room-single-content-area">
-                                        <div class="room-single-header">
+                                        <div class="room-single-header" style="background: #e1e5ff;">
                                             <div class="icon-text-area">
                                                 In Enq:
                                                 <div class="icon-with-notification"><img
