@@ -1,0 +1,38 @@
+@import "../partials/partials";
+
+$font-bold: 'Bw-Mitga-bold';
+$color-dark: #1E2339;
+$color-white: #fff;
+
+.message-tabs {
+    a {
+        font-size: 12px;
+        display: inline-block;
+        padding: 6px 15px 7px;
+        font-family: $font-bold;
+        @include border-radius(25px);
+        color: $color-white !important;
+        @include transition(all ease 1s);
+
+        .notify-msg {
+            width: 23px;
+            height: 23px;
+            margin: 0 0 0 10px;
+            align-items: center;
+            color: $color-white;
+            display: inline-flex;
+            background: #F44336;
+            justify-content: center;
+            font-family: $font-bold;
+            @include border-radius(50%);
+        }
+
+        &:hover {
+            background: #414EB3;
+        }
+    }
+
+    .active {
+        background: #414EB3;
+    }
+}

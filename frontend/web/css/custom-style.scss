@@ -72,6 +72,12 @@ $color-dark: #1E2339;
     }
 }
 
+.border-none {
+    border: none !important;
+}
+
+
+
 @media (min-width: 576px) {
     .large-modal-wrapper {
         max-width: 1016px !important;
