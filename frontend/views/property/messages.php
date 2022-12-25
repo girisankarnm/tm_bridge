@@ -23,7 +23,6 @@ $this->registerCssFile('/css/messages/messages.css');
             </div>
         </div>
     </div>
-
 </div>
 
 
