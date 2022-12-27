@@ -134,8 +134,13 @@ $color-white: #fff;
         background: #FFFFFF;
         border: 1px solid #ABB0C1;
         width: 35%;
-        border-radius: 5px;
+        @include border-radius(5px);
         padding: 0;
+        padding: 0 0 70px;
+        max-height: 620px;
+        overflow: hidden;
+        overflow-y: auto;
+        position: relative;
     }
 
     .chat-right {
@@ -282,8 +287,11 @@ $color-white: #fff;
 }
 
 .view-more-chat-list {
-    margin: 50px 0;
+    margin: 0;
     text-align: center;
+    position: absolute;
+    width: 100%;
+    bottom: 15px;
 
     .view-more-chat-btn {
         background: #E1E5FF;
