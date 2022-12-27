@@ -733,162 +733,6 @@ ul {
   }
 }
 /* Rectangle Out */
-.hvr-rectangle-out {
-  -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  position: relative;
-  -webkit-transition-property: color;
-  transition-property: color;
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  -moz-transform: perspective(1px) translateZ(0);
-  -ms-transform: perspective(1px) translateZ(0);
-  -o-transform: perspective(1px) translateZ(0);
-}
-
-.hvr-rectangle-out:before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: #FFAD00;
-  -webkit-transform: scale(0);
-  transform: scale(0);
-  -webkit-transition-property: transform;
-  transition-property: transform;
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  -webkit-transition-timing-function: ease-out;
-  transition-timing-function: ease-out;
-}
-
-.hvr-rectangle-out:hover,
-.hvr-rectangle-out:focus,
-.hvr-rectangle-out:active {
-  color: white;
-}
-
-.hvr-rectangle-out:hover:before,
-.hvr-rectangle-out:focus:before,
-.hvr-rectangle-out:active:before {
-  -webkit-transform: scale(1);
-  transform: scale(1);
-}
-
-/* Hang */
-@-webkit-keyframes hvr-hang {
-  0% {
-    -webkit-transform: translateY(8px);
-    transform: translateY(8px);
-  }
-  50% {
-    -webkit-transform: translateY(4px);
-    transform: translateY(4px);
-  }
-  100% {
-    -webkit-transform: translateY(8px);
-    transform: translateY(8px);
-  }
-}
-@keyframes hvr-hang {
-  0% {
-    -webkit-transform: translateY(8px);
-    transform: translateY(8px);
-  }
-  50% {
-    -webkit-transform: translateY(4px);
-    transform: translateY(4px);
-  }
-  100% {
-    -webkit-transform: translateY(8px);
-    transform: translateY(8px);
-  }
-}
-@-webkit-keyframes hvr-hang-sink {
-  100% {
-    -webkit-transform: translateY(8px);
-    transform: translateY(8px);
-  }
-}
-@keyframes hvr-hang-sink {
-  100% {
-    -webkit-transform: translateY(8px);
-    transform: translateY(8px);
-  }
-}
-.hvr-hang {
-  -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  -webkit-animation-name: hvr-hang-sink, hvr-hang;
-  animation-name: hvr-hang-sink, hvr-hang;
-  -webkit-animation-duration: 0.3s, 1.5s;
-  animation-duration: 0.3s, 1.5s;
-  -webkit-animation-delay: 0s, 0.3s;
-  animation-delay: 0s, 0.3s;
-  -webkit-animation-timing-function: ease-out, ease-in-out;
-  animation-timing-function: ease-out, ease-in-out;
-  -webkit-animation-iteration-count: 1, infinite;
-  animation-iteration-count: 1, infinite;
-  -webkit-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
-  -webkit-animation-direction: normal, alternate;
-  animation-direction: normal, alternate;
-}
-
-/* Bounce To Right */
-.btn {
-  -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  position: relative;
-  -webkit-transition-property: color;
-  transition-property: color;
-  -webkit-transition-duration: 0.5s;
-  transition-duration: 0.5s;
-  overflow: hidden;
-}
-
-.btn:before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: #182dcb;
-  -webkit-transform: scaleX(0);
-  transform: scaleX(0);
-  -webkit-transform-origin: 0 50%;
-  transform-origin: 0 50%;
-  -webkit-transition-property: transform;
-  transition-property: transform;
-  -webkit-transition-duration: 0.5s;
-  transition-duration: 0.5s;
-  -webkit-transition-timing-function: ease-out;
-  transition-timing-function: ease-out;
-}
-
-.btn:hover,
-.btn:focus,
-.btn:active {
-  color: white;
-}
-
-.btn:hover:before,
-.btn:focus:before,
-.btn:active:before {
-  -webkit-transform: scaleX(1);
-  transform: scaleX(1);
-  -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
-  transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
-}
-
 .slick-list {
   padding: 40px 0 60px !important;
 }
@@ -1615,29 +1459,30 @@ ul {
 .show-activity-wrapper {
   display: none;
 }
-.show-activity-wrapper .activity-chat-wrapper {
+
+.activity-chat-wrapper {
   padding: 30px 100px 0;
   max-height: 530px;
   overflow: hidden;
   overflow-y: auto;
 }
-.show-activity-wrapper .activity-chat-wrapper .activity-chat-single {
+.activity-chat-wrapper .activity-chat-single {
   display: flex;
   width: 900px;
   margin: 0 auto 20px;
   align-items: flex-start;
   justify-content: flex-start;
 }
-.show-activity-wrapper .activity-chat-wrapper .activity-chat-single .activity-chat-user {
+.activity-chat-wrapper .activity-chat-single .activity-chat-user {
   display: flex;
   margin: 0;
   align-items: center;
   justify-content: flex-start;
 }
-.show-activity-wrapper .activity-chat-wrapper .activity-chat-single .activity-chat-user .user-details {
+.activity-chat-wrapper .activity-chat-single .activity-chat-user .user-details {
   padding: 0 20px 0 0;
 }
-.show-activity-wrapper .activity-chat-wrapper .activity-chat-single .activity-chat-user .user-details .user-details-name {
+.activity-chat-wrapper .activity-chat-single .activity-chat-user .user-details .user-details-name {
   margin: 0;
   font-size: 14px;
   color: #000621;
@@ -1645,13 +1490,13 @@ ul {
   line-height: 20px;
   font-family: "Bw-Mitga-bold" !important;
 }
-.show-activity-wrapper .activity-chat-wrapper .activity-chat-single .activity-chat-user .user-details .user-details-date {
+.activity-chat-wrapper .activity-chat-single .activity-chat-user .user-details .user-details-date {
   margin: 0;
   font-size: 12px;
   text-align: right;
   line-height: 20px;
 }
-.show-activity-wrapper .activity-chat-wrapper .activity-chat-single .activity-chat-user .user-img {
+.activity-chat-wrapper .activity-chat-single .activity-chat-user .user-img {
   width: 35px;
   height: 35px;
   overflow: hidden;
@@ -1664,15 +1509,15 @@ ul {
   background-position: center center;
   background-size: cover;
 }
-.show-activity-wrapper .activity-chat-wrapper .activity-chat-single .activity-chat-user .user-img img {
+.activity-chat-wrapper .activity-chat-single .activity-chat-user .user-img img {
   width: 100%;
   object-fit: cover;
 }
-.show-activity-wrapper .activity-chat-wrapper .activity-chat-single .activity-chat-area {
+.activity-chat-wrapper .activity-chat-single .activity-chat-area {
   position: relative;
   margin: 0 0 0 30px;
 }
-.show-activity-wrapper .activity-chat-wrapper .activity-chat-single .activity-chat-area::before {
+.activity-chat-wrapper .activity-chat-single .activity-chat-area::before {
   position: absolute;
   content: "";
   left: -29px;
@@ -1682,7 +1527,7 @@ ul {
   background: url(../../images/booking-request/textarea-left-icon.svg) left top no-repeat;
   background-size: contain;
 }
-.show-activity-wrapper .activity-chat-wrapper .activity-chat-single .activity-chat-area::after {
+.activity-chat-wrapper .activity-chat-single .activity-chat-area::after {
   position: absolute;
   content: "";
   left: -2px;
@@ -1691,7 +1536,7 @@ ul {
   width: 5px;
   background-color: #f0f2ff;
 }
-.show-activity-wrapper .activity-chat-wrapper .activity-chat-single .activity-chat-area .activity-chat {
+.activity-chat-wrapper .activity-chat-single .activity-chat-area .activity-chat {
   height: auto;
   resize: none;
   width: 512px;
@@ -1707,49 +1552,49 @@ ul {
   -o-border-radius: 0 5px 5px 5px;
   position: relative;
 }
-.show-activity-wrapper .activity-chat-wrapper .activity-chat-single .activity-chat-area .activity-chat .chat-time {
+.activity-chat-wrapper .activity-chat-single .activity-chat-area .activity-chat .chat-time {
   position: absolute;
   bottom: 3px;
   right: 10px;
   font-size: 9px;
   color: #666;
 }
-.show-activity-wrapper .activity-chat-wrapper .activity-chat-right {
+.activity-chat-wrapper .activity-chat-right {
   padding-left: 0;
   flex-direction: row-reverse;
   justify-content: flex-end;
   padding: 0 0 0 130px;
 }
-.show-activity-wrapper .activity-chat-wrapper .activity-chat-right .activity-chat-user {
+.activity-chat-wrapper .activity-chat-right .activity-chat-user {
   flex-direction: row-reverse;
 }
-.show-activity-wrapper .activity-chat-wrapper .activity-chat-right .activity-chat-user .user-img {
+.activity-chat-wrapper .activity-chat-right .activity-chat-user .user-img {
   margin: 0 0 0 30px;
 }
-.show-activity-wrapper .activity-chat-wrapper .activity-chat-right .activity-chat-user .user-details {
+.activity-chat-wrapper .activity-chat-right .activity-chat-user .user-details {
   padding: 0 0px 0 20px;
 }
-.show-activity-wrapper .activity-chat-wrapper .activity-chat-right .activity-chat-user .user-details .user-details-name,
-.show-activity-wrapper .activity-chat-wrapper .activity-chat-right .activity-chat-user .user-details .user-details-date {
+.activity-chat-wrapper .activity-chat-right .activity-chat-user .user-details .user-details-name,
+.activity-chat-wrapper .activity-chat-right .activity-chat-user .user-details .user-details-date {
   text-align: left;
 }
-.show-activity-wrapper .activity-chat-wrapper .activity-chat-right .activity-chat-area {
+.activity-chat-wrapper .activity-chat-right .activity-chat-area {
   margin: 0 0 0 60px;
 }
-.show-activity-wrapper .activity-chat-wrapper .activity-chat-right .activity-chat-area .activity-chat {
+.activity-chat-wrapper .activity-chat-right .activity-chat-area .activity-chat {
   border-radius: 5px 0 5px 5px;
   -webkit-border-radius: 5px 0 5px 5px;
   -moz-border-radius: 5px 0 5px 5px;
   -ms-border-radius: 5px 0 5px 5px;
   -o-border-radius: 5px 0 5px 5px;
 }
-.show-activity-wrapper .activity-chat-wrapper .activity-chat-right .activity-chat-area::before {
+.activity-chat-wrapper .activity-chat-right .activity-chat-area::before {
   right: -29px;
   left: initial;
   background: url(../../images/booking-request/textarea-right-icon.svg) left top no-repeat;
   background-size: contain;
 }
-.show-activity-wrapper .activity-chat-wrapper .activity-chat-right .activity-chat-area::after {
+.activity-chat-wrapper .activity-chat-right .activity-chat-area::after {
   top: 2px;
   right: -2px;
   left: initial;

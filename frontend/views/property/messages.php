@@ -23,6 +23,180 @@ $this->registerCssFile('/css/messages/messages.css');
             </div>
         </div>
     </div>
+    <div class="messager-heading-wrapper">
+        <div class="messager-heading-left">
+            <div class="client-detail-swrapper">
+                <figure>
+                    <img src="images/booking-request/thumb-01.png" alt="">
+                </figure>
+                <article>
+                    <h5 class="client-name">Kallada Tours and Travels</h5>
+                    <p class="client-location">Kochi, Kerala</p>
+                </article>
+            </div>
+        </div>
+        <div class="messager-heading-right">
+            <div class="filter-wrapper">
+                <div class="filtered-list">
+                    <div class="filtered-single">SRR <img src="images/messages/close-btn.png" alt=""></div>
+                    <div class="filtered-single">Booking <img src="images/messages/close-btn.png" alt=""></div>
+                </div>
+                <div class="filter-select">
+                    <select name="" id="">
+                        <option value="">Filter</option>
+                        <option value="">SRR</option>
+                        <option value="">Booking</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="chat-wrapper">
+        <div class="chat-left">
+            <div class="search-datepick-main">
+                <div class="search-datepick">
+                    <div class="search-wrapper">
+                        <input type="text" placeholder="Show All" class="search-input">
+                        <button class="search-btn"><img src="images/messages/search-icon.png" alt=""></button>
+                    </div>
+                    <div class="datepicker-btn">
+                        <button class="calendar-icon"><img src="images/messages/calendar-icon.png" alt=""></button>
+                    </div>
+                </div>
+                <div class="datepicker-main">
+                    <input type="text" class="datepicker-input" value="Arrival Date  02 Jan 2022   to   22 Jam 2022">
+                </div>
+            </div>
+            <div class="chat-user-list-wrapper">
+                <div class="chat-user-list-single active">
+                    <div class="chat-user-details">
+                        <figure>
+                            <img src="images/messages/user-image-01.png" alt="">
+                        </figure>
+                        <article>
+                            <div class="chat-name">Praveen</div>
+                            <div class="chat-location">Kochi, Kerala</div>
+                        </article>
+                    </div>
+                    <div class="enq-no-wrapper">
+                        <div class="enq-no">Enq ID: 21122022</div>
+                    </div>
+                </div>
+                <div class="chat-user-list-single">
+                    <div class="chat-user-details">
+                        <figure>
+                            <img src="images/messages/user-image-02.png" alt="">
+                        </figure>
+                        <article>
+                            <div class="chat-name">Prakash</div>
+                            <div class="chat-location">Kottayam, Kerala</div>
+                        </article>
+                    </div>
+                    <div class="enq-no-wrapper">
+                        <div class="enq-no">Enq ID: 21122022</div>
+                    </div>
+                </div>
+                <div class="chat-user-list-single">
+                    <div class="chat-user-details">
+                        <figure>
+                            <img src="images/messages/user-image-01.png" alt="">
+                        </figure>
+                        <article>
+                            <div class="chat-name">Praveen</div>
+                            <div class="chat-location">Ernakulam, Kerala</div>
+                        </article>
+                    </div>
+                    <div class="enq-no-wrapper">
+                        <div class="enq-no">Enq ID: 21122022</div>
+                    </div>
+                </div>
+                <div class="chat-user-list-single">
+                    <div class="chat-user-details">
+                        <figure>
+                            <img src="images/messages/user-image-02.png" alt="">
+                        </figure>
+                        <article>
+                            <div class="chat-name">Prakash</div>
+                            <div class="chat-location">Thrissur, Kerala</div>
+                        </article>
+                    </div>
+                    <div class="enq-no-wrapper">
+                        <div class="enq-no">Enq ID: 21122022</div>
+                    </div>
+                </div>
+                <div class="view-more-chat-list">
+                    <button class="view-more-chat-btn">View More</button>
+                </div>
+            </div>
+        </div>
+        <div class="chat-right">
+            <div class="chat-area-header">
+                <div class="chat-user-list-single">
+                    <div class="chat-user-details">
+                        <figure>
+                            <img src="images/messages/user-image-02.png" alt="">
+                        </figure>
+                        <article>
+                            <div class="chat-name">Kallada Tours and Travels</div>
+                            <div class="chat-location">Kochi, Kerala</div>
+                        </article>
+                    </div>
+                    <div class="enq-no-wrapper">
+                        <div class="enq-no">Enq ID: 21122022</div>
+                    </div>
+                </div>
+            </div>
+            <div class="chat-area-content">
+                <div class="activity-chat-wrapper">
+                    <div class="activity-chat-single">
+                        <div class="activity-chat-user">
+                            <div class="user-details">
+                                <h5 class="user-details-name">Praveen</h5>
+                                <h5 class="user-details-date">12-October 2022</h5>
+                            </div>
+                            <div class="user-img"><img src="images/booking-request/chat-user-thumb-01.png" alt=""></div>
+                        </div>
+                        <div class="activity-chat-area">
+                            <div class="activity-chat">Lorren ippsum gravida sem?</div>
+                        </div>
+                    </div>
+                    <div class="activity-chat-single activity-chat-right">
+                        <div class="activity-chat-user">
+                            <div class="user-details">
+                                <h5 class="user-details-name">Prakash</h5>
+                                <h5 class="user-details-date">12-October 2022</h5>
+                            </div>
+                            <div class="user-img"><img src="images/booking-request/chat-user-thumb-02.png" alt=""></div>
+                        </div>
+                        <div class="activity-chat-area">
+                            <div class="activity-chat">Lorren ippsum gravida sem?</div>
+                        </div>
+                    </div>
+                    <div class="activity-chat-single">
+                        <div class="activity-chat-user">
+                            <div class="user-details">
+                                <h5 class="user-details-name">Praveen</h5>
+                                <h5 class="user-details-date">12-October 2022</h5>
+                            </div>
+                            <div class="user-img"><img src="images/booking-request/chat-user-thumb-01.png" alt=""></div>
+                        </div>
+                        <div class="activity-chat-area">
+                            <div class="activity-chat">Lorren ippsum gravida sem?</div>
+                        </div>
+                    </div>
+                    <div class="message-comment-box-main">
+                        <div class="comment-box-wrapper">
+                            <div class="chat-type-area-wrapper">
+                                <textarea name="" id="" cols="30" rows="10"
+                                    class="chat-type-area">Add comment</textarea>
+                                <button class="blue-btn">Send</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 

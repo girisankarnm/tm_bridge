@@ -569,155 +569,156 @@ $color-dark: #1E2339;
 .show-activity-wrapper {
     display: none;
 
-    .activity-chat-wrapper {
-        padding: 30px 100px 0;
-        max-height: 530px;
-        overflow: hidden;
-        overflow-y: auto;
+}
 
-        .activity-chat-single {
+.activity-chat-wrapper {
+    padding: 30px 100px 0;
+    max-height: 530px;
+    overflow: hidden;
+    overflow-y: auto;
+
+    .activity-chat-single {
+        display: flex;
+        width: 900px;
+        margin: 0 auto 20px;
+        align-items: flex-start;
+        justify-content: flex-start;
+
+        .activity-chat-user {
             display: flex;
-            width: 900px;
-            margin: 0 auto 20px;
-            align-items: flex-start;
+            margin: 0;
+            align-items: center;
             justify-content: flex-start;
 
-            .activity-chat-user {
-                display: flex;
-                margin: 0;
-                align-items: center;
-                justify-content: flex-start;
+            .user-details {
+                padding: 0 20px 0 0;
 
-                .user-details {
-                    padding: 0 20px 0 0;
-
-                    .user-details-name {
-                        margin: 0;
-                        font-size: 14px;
-                        color: #000621;
-                        text-align: right;
-                        line-height: 20px;
-                        font-family: $font-bold !important;
-                    }
-
-                    .user-details-date {
-                        margin: 0;
-                        font-size: 12px;
-                        text-align: right;
-                        line-height: 20px;
-                    }
+                .user-details-name {
+                    margin: 0;
+                    font-size: 14px;
+                    color: #000621;
+                    text-align: right;
+                    line-height: 20px;
+                    font-family: $font-bold !important;
                 }
 
-                .user-img {
-                    width: 35px;
-                    height: 35px;
-                    overflow: hidden;
-                    @include border-radius(50%);
-                    background-repeat: no-repeat;
-                    background-position: center center;
-                    background-size: cover;
-
-                    img {
-                        width: 100%;
-                        object-fit: cover;
-                    }
+                .user-details-date {
+                    margin: 0;
+                    font-size: 12px;
+                    text-align: right;
+                    line-height: 20px;
                 }
             }
 
-            .activity-chat-area {
-                position: relative;
-                margin: 0 0 0 30px;
+            .user-img {
+                width: 35px;
+                height: 35px;
+                overflow: hidden;
+                @include border-radius(50%);
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: cover;
 
-                &::before {
-                    position: absolute;
-                    content: "";
-                    left: -29px;
-                    top: 0;
-                    height: 22px;
-                    width: 30px;
-                    background: url(../../images/booking-request/textarea-left-icon.svg) left top no-repeat;
-                    background-size: contain;
-                }
-
-                &::after {
-                    position: absolute;
-                    content: "";
-                    left: -2px;
-                    top: 2px;
-                    height: 11px;
-                    width: 5px;
-                    background-color: #f0f2ff;
-                }
-
-                .activity-chat {
-                    height: auto;
-                    resize: none;
-                    width: 512px;
-                    font-size: 12px;
-                    word-break: break-all;
-                    background: #F0F2FF;
-                    padding: 15px 15px 20px;
-                    border: 2px solid #E1E4ED;
-                    border-radius: 0 5px 5px 5px;
-                    -webkit-border-radius: 0 5px 5px 5px;
-                    -moz-border-radius: 0 5px 5px 5px;
-                    -ms-border-radius: 0 5px 5px 5px;
-                    -o-border-radius: 0 5px 5px 5px;
-                    position: relative;
-
-                    .chat-time {
-                        position: absolute;
-                        bottom: 3px;
-                        right: 10px;
-                        font-size: 9px;
-                        color: #666;
-                    }
+                img {
+                    width: 100%;
+                    object-fit: cover;
                 }
             }
         }
 
-        .activity-chat-right {
-            padding-left: 0;
-            flex-direction: row-reverse;
-            justify-content: flex-end;
-            padding: 0 0 0 130px;
+        .activity-chat-area {
+            position: relative;
+            margin: 0 0 0 30px;
 
-            .activity-chat-user {
-                flex-direction: row-reverse;
-
-                .user-img {
-                    margin: 0 0 0 30px;
-                }
-
-                .user-details {
-                    padding: 0 0px 0 20px;
-
-                    .user-details-name,
-                    .user-details-date {
-                        text-align: left
-                    }
-                }
+            &::before {
+                position: absolute;
+                content: "";
+                left: -29px;
+                top: 0;
+                height: 22px;
+                width: 30px;
+                background: url(../../images/booking-request/textarea-left-icon.svg) left top no-repeat;
+                background-size: contain;
             }
 
-            .activity-chat-area {
-                margin: 0 0 0 60px;
+            &::after {
+                position: absolute;
+                content: "";
+                left: -2px;
+                top: 2px;
+                height: 11px;
+                width: 5px;
+                background-color: #f0f2ff;
+            }
 
-                .activity-chat {
-                    @include border-radius(5px 0 5px 5px);
-                }
+            .activity-chat {
+                height: auto;
+                resize: none;
+                width: 512px;
+                font-size: 12px;
+                word-break: break-all;
+                background: #F0F2FF;
+                padding: 15px 15px 20px;
+                border: 2px solid #E1E4ED;
+                border-radius: 0 5px 5px 5px;
+                -webkit-border-radius: 0 5px 5px 5px;
+                -moz-border-radius: 0 5px 5px 5px;
+                -ms-border-radius: 0 5px 5px 5px;
+                -o-border-radius: 0 5px 5px 5px;
+                position: relative;
 
-                &::before {
-                    right: -29px;
-                    left: initial;
-                    background: url(../../images/booking-request/textarea-right-icon.svg) left top no-repeat;
-                    background-size: contain;
+                .chat-time {
+                    position: absolute;
+                    bottom: 3px;
+                    right: 10px;
+                    font-size: 9px;
+                    color: #666;
                 }
+            }
+        }
+    }
 
-                &::after {
-                    top: 2px;
-                    right: -2px;
-                    left: initial;
+    .activity-chat-right {
+        padding-left: 0;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+        padding: 0 0 0 130px;
+
+        .activity-chat-user {
+            flex-direction: row-reverse;
+
+            .user-img {
+                margin: 0 0 0 30px;
+            }
+
+            .user-details {
+                padding: 0 0px 0 20px;
+
+                .user-details-name,
+                .user-details-date {
+                    text-align: left
                 }
+            }
+        }
+
+        .activity-chat-area {
+            margin: 0 0 0 60px;
+
+            .activity-chat {
+                @include border-radius(5px 0 5px 5px);
+            }
+
+            &::before {
+                right: -29px;
+                left: initial;
+                background: url(../../images/booking-request/textarea-right-icon.svg) left top no-repeat;
+                background-size: contain;
+            }
+
+            &::after {
+                top: 2px;
+                right: -2px;
+                left: initial;
             }
         }
     }
