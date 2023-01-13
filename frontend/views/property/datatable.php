@@ -10,6 +10,18 @@ $this->registerCssFile('/css/messages/messages.css');
 $this->registerCssFile('/css/data-table.css');
 use yii\helpers\Url;
 ?>
+<style>
+    select.form-control{
+        display: inline;
+        width: 200px;
+        margin-left: 25px;
+    }
+    input.form-control{
+        display: inline;
+        width: 200px;
+        margin-left: 25px;
+    }
+</style>
 <div class="wrapper">
     <div class="room-booking-header">
         <div class="room-booking-header-left">
@@ -26,14 +38,33 @@ use yii\helpers\Url;
         </div>
     </div>
     <div class="datatable-wrapper">
+        <!-- Create the drop down filter -->
+        <div class="category-filter">
+            <label id="categoryFilter"> Filter:
+            <select  class="form-control">
+                <option value="">Show All</option>
+                <option value="Classical">Classical</option>
+                <option value="Hip Hop">Hip Hop</option>
+                <option value="Jazz">Jazz</option>
+            </select>
+            </label>
+        </div>
+        <div class="datepicker-filter">
+            <label id="datepicker"> Arrival Date:
+            <input  class="form-control" name="dates">
+            </label>
+        </div>
+
         <table id="example" class="display" style="width:100%">
             <thead>
             <tr>
                 <th></th>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Salary</th>
+                <th>Enq NO</th>
+                <th>Ref NO</th>
+                <th>Bkg Date</th>
+                <th>Guest</th>
+                <th>Operator</th>
+                <th>Status</th>
                 <th></th>
                 <th></th>
             </tr>
@@ -41,10 +72,12 @@ use yii\helpers\Url;
             <tfoot>
             <tr>
                 <th></th>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Salary</th>
+                <th>Enq NO</th>
+                <th>Ref NO</th>
+                <th>Bkg Date</th>
+                <th>Guest</th>
+                <th>Operator</th>
+                <th>Status</th>
                 <th></th>
                 <th></th>
             </tr>
@@ -57,17 +90,46 @@ use yii\helpers\Url;
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/material-components-web/4.0.0/material-components-web.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.material.min.css">
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.13.1/datatables.min.css"/>
 
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.13.1/datatables.min.css"/>
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.0.1/css/buttons.dataTables.min.css">
 <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.13.1/datatables.min.js"></script>
 <!--<script src="https://cdn.datatables.net/1.13.1/js/dataTables.material.min.js"></script>-->
+
+
+
+
+<!--<link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">-->
+<!--<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.0.1/css/buttons.dataTables.min.css">-->
+<!---->
+<!--<script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>-->
+<!--<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>-->
+
+
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/2.0.1/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.html5.min.js"></script>
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.print.min.js"></script>
+
+<!--Date picker-->
+
+<!--<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>-->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+
 <script>
     $(document).ready(function() {
+        $('input[name="dates"]').daterangepicker();
 
         /* Formatting function for row details - modify as you need */
         function format(d) {
@@ -76,14 +138,12 @@ use yii\helpers\Url;
                 '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">' +
                 '<tr>' +
                 '<td>Full name:</td>' +
-                '<td>' +
-                d.name +
+                '<td> Thomas' +
                 '</td>' +
                 '</tr>' +
                 '<tr>' +
                 '<td>Extension number:</td>' +
-                '<td>' +
-                d.extn +
+                '<td> 1234' +
                 '</td>' +
                 '</tr>' +
                 '<tr>' +
@@ -121,10 +181,12 @@ use yii\helpers\Url;
                     data: null,
                     defaultContent: '',
                 },
+                { data: 'enq_no' },
+                { data: 'ref_no' },
+                { data: 'bkg_date' },
                 { data: 'name' },
-                { data: 'position' },
-                { data: 'office' },
-                { data: 'salary' },
+                { data: 'operator' },
+                { data: 'status' },
                 {
                     data: null,
                     className: "dt-center editor-edit",
@@ -138,10 +200,19 @@ use yii\helpers\Url;
                    orderable: false
                 }
             ],
-
+            dom: 'Bfrtip',
+            buttons: [
+               'excel','pdf',
+            ],
 
             order: [[1, 'asc']],
         });
+
+
+        //You can use this same idea to move the filter anywhere withing the datatable that you want.
+        $("#example_filter.dataTables_filter").append($("#categoryFilter"));
+        $("#example_filter.dataTables_filter").append($("#datepicker"));
+
 
         // Add event listener for opening and closing details
         $('#example tbody').on('click', 'td.dt-control', function () {
@@ -157,6 +228,10 @@ use yii\helpers\Url;
                 row.child(format(row.data())).show();
                 tr.addClass('shown');
             }
+        });
+
+        $("#categoryFilter").change(function (e) {
+           alert('hai');
         });
 
     });
