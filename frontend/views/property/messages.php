@@ -41,12 +41,21 @@ $this->registerCssFile('/css/messages/messages.css');
                     <div class="filtered-single">SRR <img src="images/messages/close-btn.png" alt=""></div>
                     <div class="filtered-single">Booking <img src="images/messages/close-btn.png" alt=""></div>
                 </div>
-                <div class="filter-select">
+                <!-- <div class="filter-select">
                     <select name="" id="">
                         <option value="">Filter</option>
                         <option value="">SRR</option>
-                        <option value="">Booking</option>
+                        <option value="">Filter</option>
                     </select>
+                </div> -->
+                <div class="dropdown filter-select-wrapper">
+                    <button class="filter-dropdown-btn dropdown-toggle" type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filter</button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Filter</a>
+                        <a class="dropdown-item" href="#">SRR</a>
+                        <a class="dropdown-item" href="#">Filter</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -64,7 +73,12 @@ $this->registerCssFile('/css/messages/messages.css');
                     </div>
                 </div>
                 <div class="datepicker-main">
-                    <input type="text" class="datepicker-input" value="Arrival Date  02 Jan 2022   to   22 Jam 2022">
+                    <div class="datepicker date input-group">
+                        <input type="text" placeholder="Choose Date" class="form-control datepicker-input" id="fecha1">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="chat-user-list-wrapper">
@@ -157,7 +171,9 @@ $this->registerCssFile('/css/messages/messages.css');
                             <div class="user-img"><img src="images/booking-request/chat-user-thumb-01.png" alt=""></div>
                         </div>
                         <div class="activity-chat-area">
-                            <div class="activity-chat">Lorren ippsum gravida sem?</div>
+                            <div class="activity-chat">Lorren ippsum gravida sem?
+                                <span class="chat-time">12.00 PM</span>
+                            </div>
                         </div>
                     </div>
                     <div class="activity-chat-single activity-chat-right">
@@ -169,7 +185,9 @@ $this->registerCssFile('/css/messages/messages.css');
                             <div class="user-img"><img src="images/booking-request/chat-user-thumb-02.png" alt=""></div>
                         </div>
                         <div class="activity-chat-area">
-                            <div class="activity-chat">Lorren ippsum gravida sem?</div>
+                            <div class="activity-chat">Lorren ippsum gravida sem?
+                                <span class="chat-time">12.00 PM</span>
+                            </div>
                         </div>
                     </div>
                     <div class="activity-chat-single">
@@ -181,7 +199,9 @@ $this->registerCssFile('/css/messages/messages.css');
                             <div class="user-img"><img src="images/booking-request/chat-user-thumb-01.png" alt=""></div>
                         </div>
                         <div class="activity-chat-area">
-                            <div class="activity-chat">Lorren ippsum gravida sem?</div>
+                            <div class="activity-chat">Lorren ippsum gravida sem?
+                                <span class="chat-time">12.00 PM</span>
+                            </div>
                         </div>
                     </div>
                     <div class="message-comment-box-main">
@@ -198,8 +218,6 @@ $this->registerCssFile('/css/messages/messages.css');
         </div>
     </div>
 </div>
-
-
 <!-- BOF Edit Modal -->
 <div class="modal" id="RoomTariffBreakupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
     aria-hidden="true">
@@ -511,43 +529,16 @@ $this->registerCssFile('/css/messages/messages.css');
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
 
+<!-- Datepicker -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 <script>
-// $(window).scroll(function() {
-//     console.log($(this).scrollTop())
-//     if ($(this).scrollTop() > 50) {
-//         $('.fix-this-div').addClass('newClass');
-//     } else {
-//         $('.fix-this-div').removeClass('newClass');
-//     }
-// });
-// window.addEventListener("scroll", function() {
-//     console.log(123)
-// }, false);
-window.addEventListener('scroll', function() {
-    console.log('Scroll event');
-});
-
-const divs = document.querySelectorAll('.scroll-table');
-divs.forEach(div => div.addEventListener('scroll', e => {
-    divs.forEach(d => {
-        // d.scrollTop = div.scrollTop;
-        d.scrollLeft = div.scrollLeft;
-        d.scrollRight = div.scrollRight;
+$(function() {
+    $('.datepicker').datepicker({
+        language: "es",
+        autoclose: true,
+        format: "dd/mm/yyyy"
     });
-}));
-
-
-// function moveToLeft() {
-//     divs.forEach(element => {
-//         element.scrolRight -= (element.offsetWidth);
-//     });
-// }
-
-// function moveToRight() {
-//     divs.forEach(element => {
-//         element.scrollLeft += (element.offsetWidth);
-//     });
-// }
+});
 
 function moveToRight() {
     event.preventDefault();
@@ -562,78 +553,4 @@ function moveToLeft() {
         scrollLeft: "-=1000px"
     }, "slow");
 }
-// $(document).ready(function() {
-//     $(".bulk-edit-btn").click(function() {
-//         $(".right-side-popup-wrapper").toggleClass("bulk-edit-on");
-//     });
-// });
-var flag = 0;
-
-function bulkEdit() {
-    $('.right-side-popup-wrapper').addClass("bulk-edit-on");
-    // $('.datepicker').addClass("datepicker-on");
-    flag = 0;
-    $('.date').datepicker('show')
-}
-
-function popClose() {
-    $('.right-side-popup-wrapper').removeClass("bulk-edit-on");
-    // $('.datepicker').removeClass("datepicker-on");
-    flag = 1;
-    $('.date').datepicker('hide')
-}
-// $('.month-picker').datepicker({
-//     multidate: false,
-//     format: "MM-yyyy",
-//     viewMode: "months",
-//     minViewMode: "months"
-// });
-$('.date').datepicker({
-    multidate: true,
-    format: 'dd-mm-yyyy'
-});
-// $('.date').datepicker('show')
-$('.date').datepicker()
-    .on('hide', function(e) {
-        if (flag === 0) {
-            $('.date').datepicker('show')
-        }
-    });
-$(function() {
-    $(".month-picker").datepicker({
-        multidate: false,
-        format: "MM-yyyy",
-        viewMode: "months",
-        minViewMode: "months",
-    }).datepicker('update', new Date());
-});
-
-function viewDetails(id) {
-    $(`#matching-boxes-main-${id}`).slideToggle(500);
-    $(`#view-details-btn-0${id}`).toggleClass(`view-details-on`);
-}
-
-// $(window).on('load', function() {
-//     $('#BookingConfirmationModal').modal('show');
-// });
-$(document).ready(function() {
-    $(".comment-btn").click(function() {
-        $(".comment-box-main").slideToggle();
-    });
-    $(".activity-btn").click(function() {
-        $(".show-activity-wrapper").slideToggle();
-    });
-    $(function() {
-        // $("#datepicker").datepicker();
-        $(".datepicker").datepicker();
-    });
-
-});
-
-// jQuery(document).ready(function($) {
-//     $(".show-more-btn").click(function(e) {
-//         $(".activity-chat-single:hidden").slice(0, 3).fadeIn();
-//         if ($(".activity-chat-single:hidden").length < 1) $(this).fadeOut();
-//     })
-// })
 </script>
