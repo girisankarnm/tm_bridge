@@ -119,7 +119,7 @@ class PropertyController extends Controller
                     "enq_no" => "02/2022",
                     "ref_no" => "1232326565",
                     "bkg_date" => "25 Oct 2023",
-                    "operator" => "Kallada Tours",
+                    "operator" => "Kallada Tours and",
                     "status" => "Pending"
                 ],
                 [
