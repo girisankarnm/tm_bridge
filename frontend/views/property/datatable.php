@@ -55,7 +55,7 @@ use yii\helpers\Url;
             </label>
         </div>
 
-        <table id="example" class="display" style="width:100%">
+        <table id="example" class="display d" style="width:100%">
             <thead>
             <tr>
                 <th></th>
