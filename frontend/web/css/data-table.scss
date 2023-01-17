@@ -87,7 +87,7 @@ table.dataTable td.dt-control:before {
         position: absolute;
         content: "";
         left: 8px;
-        top: 10px;
+        top: 8px;
         width: 15px;
         height: 15px;
     }
@@ -97,6 +97,8 @@ table.dataTable td.dt-control:before {
     &::before {
         background: #fff url(../../images/xlsx-icon.png) left top no-repeat;
         background-size: contain;
+        width: 20px;
+        height: 16px;
     }
 }
 
@@ -104,6 +106,8 @@ table.dataTable td.dt-control:before {
     &::before {
         background: #fff url(../../images/pdf-icon.png) left top no-repeat;
         background-size: contain;
+        width: 23px;
+        height: 16px;
     }
 }
 

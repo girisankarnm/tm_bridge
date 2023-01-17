@@ -976,6 +976,9 @@ ul {
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
   overflow: hidden;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 .client-detail-swrapper figure img {
   width: 100%;
@@ -1068,7 +1071,62 @@ ul {
   border: 1px solid #ABB0C1;
   width: 63%;
   border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
   padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+.chat-wrapper .chat-right .chat-default-screen {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: #FFFFFF;
+  z-index: 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 100px;
+  text-align: center;
+}
+.chat-wrapper .chat-right .chat-default-screen article h3 {
+  font-family: "Bw-Mitga-bold" !important;
+  color: #1E2339;
+  font-size: 17px;
+  margin: 0 0 60px;
+}
+.chat-wrapper .chat-right .chat-default-screen figure {
+  width: 100%;
+  max-width: 400px;
+}
+.chat-wrapper .chat-right .chat-default-screen figure img {
+  width: 100%;
+}
+
+.datepicker-main .datepicker-result-area {
+  width: 100%;
+  padding: 0 10px;
+  background: none;
+  color: #1E2339 !important;
+  border: 1px solid #808080;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  font-weight: 400 !important;
+  min-height: 32px;
+  line-height: 32px;
+}
+.datepicker-main .datepicker-result-area .datepicker-result {
+  font-size: 12px;
 }
 
 .search-datepick-main {
@@ -1091,6 +1149,10 @@ ul {
   padding: 7px 35px 7px 15px;
   text-indent: 0 !important;
   border-radius: 25px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  -ms-border-radius: 25px;
+  -o-border-radius: 25px;
   border: 1px solid #808080;
   font-size: 12px;
 }
@@ -1171,6 +1233,9 @@ ul {
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
   overflow: hidden;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 .chat-user-list-single .chat-user-details figure img {
   width: 100%;

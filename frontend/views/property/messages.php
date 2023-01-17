@@ -26,8 +26,8 @@ $this->registerCssFile('/css/messages/messages.css');
     <div class="messager-heading-wrapper">
         <div class="messager-heading-left">
             <div class="client-detail-swrapper">
-                <figure>
-                    <img src="images/booking-request/thumb-01.png" alt="">
+                <figure style="background-image: url(images/booking-request/thumb-01.png);">
+                    <!-- <img src="images/booking-request/thumb-01.png" alt=""> -->
                 </figure>
                 <article>
                     <h5 class="client-name">Kallada Tours and Travels</h5>
@@ -73,19 +73,16 @@ $this->registerCssFile('/css/messages/messages.css');
                     </div>
                 </div>
                 <div class="datepicker-main">
-                    <div class="datepicker date input-group">
-                        <input type="text" placeholder="Choose Date" class="form-control datepicker-input" id="fecha1">
-                        <div class="input-group-append">
-                            <span class="input-group-text"><i class="fa fa-calendar"></i></span>
-                        </div>
+                    <div class="datepicker-result-area">
+                        <span class="datepicker-result">Arrival Date 02 Jan 2022 to 22 Jam 2022</span>
                     </div>
                 </div>
             </div>
             <div class="chat-user-list-wrapper">
                 <div class="chat-user-list-single active">
                     <div class="chat-user-details">
-                        <figure>
-                            <img src="images/messages/user-image-01.png" alt="">
+                        <figure style="background-image: url(images/messages/user-image-01.png);">
+                            <!-- <img src="images/messages/user-image-01.png" alt=""> -->
                         </figure>
                         <article>
                             <div class="chat-name">Praveen</div>
@@ -98,8 +95,8 @@ $this->registerCssFile('/css/messages/messages.css');
                 </div>
                 <div class="chat-user-list-single">
                     <div class="chat-user-details">
-                        <figure>
-                            <img src="images/messages/user-image-02.png" alt="">
+                        <figure style="background-image: url(images/messages/user-image-02.png);">
+                            <!-- <img src="images/messages/user-image-02.png" alt=""> -->
                         </figure>
                         <article>
                             <div class="chat-name">Prakash</div>
@@ -112,8 +109,8 @@ $this->registerCssFile('/css/messages/messages.css');
                 </div>
                 <div class="chat-user-list-single">
                     <div class="chat-user-details">
-                        <figure>
-                            <img src="images/messages/user-image-01.png" alt="">
+                        <figure style="background-image: url(images/messages/user-image-01.png);">
+                            <!-- <img src="images/messages/user-image-01.png" alt=""> -->
                         </figure>
                         <article>
                             <div class="chat-name">Praveen</div>
@@ -126,8 +123,8 @@ $this->registerCssFile('/css/messages/messages.css');
                 </div>
                 <div class="chat-user-list-single">
                     <div class="chat-user-details">
-                        <figure>
-                            <img src="images/messages/user-image-02.png" alt="">
+                        <figure style="background-image: url(images/messages/user-image-02.png);">
+                            <!-- <img src="images/messages/user-image-02.png" alt=""> -->
                         </figure>
                         <article>
                             <div class="chat-name">Prakash</div>
@@ -144,11 +141,21 @@ $this->registerCssFile('/css/messages/messages.css');
             </div>
         </div>
         <div class="chat-right">
+            <!-- BOF CHat Landing Page Image HTML -->
+            <div class="chat-default-screen">
+                <article>
+                    <h3>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </h3>
+                </article>
+                <figure>
+                    <img src="images/messages/chat-default-img.png" alt="">
+                </figure>
+            </div>
+            <!-- EOF CHat Landing Page Image HTML -->
             <div class="chat-area-header">
                 <div class="chat-user-list-single">
                     <div class="chat-user-details">
-                        <figure>
-                            <img src="images/messages/user-image-02.png" alt="">
+                        <figure style="background-image: url(images/messages/user-image-02.png);">
+                            <!-- <img src="images/messages/user-image-02.png" alt=""> -->
                         </figure>
                         <article>
                             <div class="chat-name">Kallada Tours and Travels</div>

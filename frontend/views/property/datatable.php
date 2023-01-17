@@ -144,27 +144,21 @@ $(document).ready(function() {
         return (
             '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">' +
             '<tr>' +
-            '<td>Full name:</td>' +
-            '<td> Thomas' +
-            '</td>' +
-            '</tr>' +
+            '<th>Stay Date</th>' +
+            '<th>Room Name</th>' +
+            '<th>Room</th>' +
+            '<th>EBA</th>' +
+            '<th>CWB</th>' +
+            '<th>CNB</th>' +
+            '<th>SGL</th>' +
             '<tr>' +
-            '<td>Extension number:</td>' +
-            '<td> 1234' +
-            '</td>' +
-            '</tr>' +
-            '<tr>' +
-            '<td>Extra info:</td>' +
-            '<td>And any further details here (images etc)...</td>' +
-            '</tr>' + '<tr>' +
-            '<td>Extra info:</td>' +
-            '<td>And any further details here (images etc)...</td>' +
-            '</tr>' + '<tr>' +
-            '<td>Extra info:</td>' +
-            '<td>And any further details here (images etc)...</td>' +
-            '</tr>' + '<tr>' +
-            '<td>Extra info:</td>' +
-            '<td>And any further details here (images etc)...</td>' +
+            '<td> 15-Jan-23</td>' +
+            '<td> Standard Room</td>' +
+            '<td> 6</td>' +
+            '<td> 3</td>' +
+            '<td> 2</td>' +
+            '<td> 2</td>' +
+            '<td> 2</td>' +
             '</tr>' +
             '</table>'
         );

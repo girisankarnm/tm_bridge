@@ -59,6 +59,9 @@ $color-white: #fff;
         margin: 0 15px 0 0;
         @include border-radius(50%);
         overflow: hidden;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
 
         img {
             width: 100%;
@@ -149,10 +152,67 @@ $color-white: #fff;
         background: #FFFFFF;
         border: 1px solid #ABB0C1;
         width: 63%;
-        border-radius: 5px;
+        @include border-radius(5px);
         padding: 20px;
+        position: relative;
+        overflow: hidden;
+
+        .chat-default-screen {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            background: #FFFFFF;
+            z-index: 9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 100px;
+            text-align: center;
+
+            article {
+                h3 {
+                    font-family: $font-bold !important;
+                    color: $color-dark;
+                    font-size: 17px;
+                    margin: 0 0 60px;
+                }
+            }
+
+            figure {
+                width: 100%;
+                max-width: 400px;
+
+                img {
+                    width: 100%;
+                }
+            }
+        }
     }
 }
+
+.datepicker-main {
+    .datepicker-result-area {
+        width: 100%;
+        padding: 0 10px;
+        background: none;
+        color: #1E2339 !important;
+        border: 1px solid #808080;
+        @include border-radius(5px);
+        font-weight: 400 !important;
+        min-height: 32px;
+        line-height: 32px;
+
+        .datepicker-result {
+            font-size: 12px;
+        }
+    }
+}
+
 
 .search-datepick-main {
     padding: 20px 15px;
@@ -174,7 +234,7 @@ $color-white: #fff;
         color: #1E2339;
         padding: 7px 35px 7px 15px;
         text-indent: 0 !important;
-        border-radius: 25px;
+        @include border-radius(25px);
         border: 1px solid #808080;
         font-size: 12px;
 
@@ -253,6 +313,9 @@ $color-white: #fff;
             height: 45px;
             @include border-radius(50%);
             overflow: hidden;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
 
             img {
                 width: 100%;
