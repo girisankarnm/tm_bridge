@@ -1462,7 +1462,7 @@ ul {
 
 .activity-chat-wrapper {
   padding: 30px 100px 0;
-  max-height: 530px;
+  max-height: 400px;
   overflow: hidden;
   overflow-y: auto;
 }

@@ -1062,6 +1062,8 @@ ul {
   position: relative;
 }
 .chat-wrapper .chat-right {
+  max-height: 620px;
+  height: 100%;
   background: #FFFFFF;
   border: 1px solid #ABB0C1;
   width: 63%;

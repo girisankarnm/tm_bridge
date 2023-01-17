@@ -204,13 +204,12 @@ $this->registerCssFile('/css/messages/messages.css');
                             </div>
                         </div>
                     </div>
-                    <div class="message-comment-box-main">
-                        <div class="comment-box-wrapper">
-                            <div class="chat-type-area-wrapper">
-                                <textarea name="" id="" cols="30" rows="10"
-                                    class="chat-type-area">Add comment</textarea>
-                                <button class="blue-btn">Send</button>
-                            </div>
+                </div>
+                <div class="message-comment-box-main">
+                    <div class="comment-box-wrapper">
+                        <div class="chat-type-area-wrapper">
+                            <textarea name="" id="" cols="30" rows="10" class="chat-type-area">Add comment</textarea>
+                            <button class="blue-btn">Send</button>
                         </div>
                     </div>
                 </div>

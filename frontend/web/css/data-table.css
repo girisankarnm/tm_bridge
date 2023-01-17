@@ -961,6 +961,44 @@ div.dataTables_wrapper table.mdc-data-table__table thead tr th.sorting {
   background: #ABB0C1;
 }
 
+table.dataTable td.dt-control:before {
+  height: 1.7em !important;
+  width: 1.7em !important;
+  border: none !important;
+  box-shadow: none !important;
+  font-size: 21px !important;
+  font-family: "Bw-Mitga-bold" !important;
+  line-height: 32px !important;
+}
+
+.buttons-excel,
+.buttons-pdf {
+  background: none !important;
+  text-transform: uppercase;
+  font-size: 11px !important;
+  padding: 7px 10px 8px 30px !important;
+  position: relative;
+}
+.buttons-excel::before,
+.buttons-pdf::before {
+  position: absolute;
+  content: "";
+  left: 8px;
+  top: 10px;
+  width: 15px;
+  height: 15px;
+}
+
+.buttons-excel::before {
+  background: #fff url(../../images/xlsx-icon.png) left top no-repeat;
+  background-size: contain;
+}
+
+.buttons-pdf::before {
+  background: #fff url(../../images/pdf-icon.png) left top no-repeat;
+  background-size: contain;
+}
+
 @media (min-width: 576px) {
   .datatable-wrapper .form-inline label {
     justify-content: flex-start !important;
