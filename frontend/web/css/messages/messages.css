@@ -1169,7 +1169,22 @@ ul {
 }
 
 .datepicker-btn {
-  width: 24px;
+  width: 30px;
+  position: relative;
+}
+.datepicker-btn::after {
+  position: absolute;
+  content: "";
+  background: #ffffff url(../../images/messages/calendar-icon.png) no-repeat center center;
+  background-size: contain;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  pointer-events: none;
 }
 .datepicker-btn .calendar-icon {
   background: none;

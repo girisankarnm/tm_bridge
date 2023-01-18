@@ -5,9 +5,170 @@ $this->registerCssFile('/css/datepicker.css');
 $this->registerCssFile('/css/users/user-styles.css');
 $this->registerCssFile('/css/booking-request/booking-request.css');
 $this->registerCssFile('/css/custom-style.css');
-$this->registerCssFile('/css/datepicker/jquery-ui.css');
+// $this->registerCssFile('/css/datepicker/jquery-ui.css');
 $this->registerCssFile('/css/messages/messages.css');
 ?>
+<style>
+/* From here you can start to copy */
+.calendar {
+    padding: 0px;
+    border-radius: 0;
+    font-size: 18px;
+    border: none;
+    box-shadow: none;
+    width: 30px;
+    padding: 0 !important;
+}
+
+.ui-datepicker {
+    background: #ffffff;
+    border-radius: 15px;
+    width: 270px;
+    z-index: 11 !important;
+}
+
+.ui-datepicker-header {
+    height: 40px;
+    line-height: 45px;
+    color: #ffffff;
+    background: #31639c;
+    margin-bottom: 0px;
+}
+
+.ui-datepicker-prev,
+.ui-datepicker-next {
+    width: 20px;
+    height: 20px;
+    text-indent: 9999px;
+    border-radius: 100%;
+    cursor: pointer;
+    overflow: hidden;
+    margin-top: 12px;
+}
+
+.ui-datepicker-prev {
+    float: left;
+    margin-left: 12px;
+}
+
+.ui-datepicker-prev:after {
+    transform: rotate(45deg);
+    margin: -43px 0px 0px 8px;
+}
+
+.ui-datepicker-next {
+    float: right;
+    margin-right: 12px;
+}
+
+.ui-datepicker-next:after {
+    transform: rotate(-135deg);
+    margin: -43px 0px 0px 6px;
+}
+
+.ui-datepicker-prev:after,
+.ui-datepicker-next:after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-left: 2px solid #f7f7f7;
+    border-bottom: 2px solid #f7f7f7;
+}
+
+.ui-datepicker-prev:hover,
+.ui-datepicker-next:hover,
+.ui-datepicker-prev:hover:after,
+.ui-datepicker-next:hover:after {
+    border-color: #fff;
+}
+
+.ui-datepicker-title {
+    text-align: center;
+    font-size: 25px;
+    line-height: 28px;
+}
+
+.ui-datepicker-calendar {
+    width: 100%;
+    max-width: 270px;
+    text-align: center;
+    box-shadow: none;
+}
+
+.ui-datepicker-calendar thead tr th span {
+    display: block;
+    width: 40px;
+    color: #31639c;
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+.ui-state-default {
+    display: block;
+    text-decoration: none;
+    color: #333333;
+    line-height: 40px;
+    font-size: 16px;
+}
+
+.ui-state-default:hover {
+    color: #ffffff !important;
+    background: #31639c;
+    border-radius: 50px;
+    transition: all 0.25s cubic-bezier(0.7, -0.12, 0.2, 1.12);
+}
+
+.ui-state-highlight {
+    color: #ffffff !important;
+    background-color: #31639c;
+    border-radius: 50px;
+}
+
+.ui-state-active {
+    color: #ffffff !important;
+    background-color: #31639c;
+    border-radius: 50px;
+}
+
+.ui-datepicker-unselectable .ui-state-default {
+    color: #eee;
+    border: 2px solid transparent;
+}
+
+.ui-datepicker-calendar thead tr th span {
+    color: #fff;
+}
+
+.icon {
+    margin-left: -30px;
+    margin-top: -26px;
+    position: relative;
+    color: #31639c;
+    font-size: 20px;
+}
+
+.ui-datepicker .ui-datepicker-title span {
+    font-size: 12px;
+}
+
+.ui-datepicker-calendar thead tr th span,
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default {
+    font-size: 10px;
+    width: 20px;
+    margin: 0;
+    height: 20px;
+    line-height: 20px;
+}
+
+.ui-datepicker th,
+.ui-datepicker td {
+    padding: 5px !important;
+}
+</style>
 <div class="wrapper">
     <div class="room-booking-header">
         <div class="room-booking-header-left">
@@ -69,7 +230,8 @@ $this->registerCssFile('/css/messages/messages.css');
                         <button class="search-btn"><img src="images/messages/search-icon.png" alt=""></button>
                     </div>
                     <div class="datepicker-btn">
-                        <button class="calendar-icon"><img src="images/messages/calendar-icon.png" alt=""></button>
+                        <!-- <button class="calendar-icon"><img src="images/messages/calendar-icon.png" alt=""></button> -->
+                        <input type="text" id="datepicker" class="calendar">
                     </div>
                 </div>
                 <div class="datepicker-main">
@@ -536,13 +698,13 @@ $this->registerCssFile('/css/messages/messages.css');
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
 
 <!-- Datepicker -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
+<!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
 <script>
-$(function() {
-    $('.datepicker').datepicker({
-        language: "es",
-        autoclose: true,
-        format: "dd/mm/yyyy"
+jQuery(document).ready(function() {
+    jQuery('#datepicker').datepicker({
+        format: 'dd-mm-yyyy',
+        startDate: '+1d'
     });
 });
 
