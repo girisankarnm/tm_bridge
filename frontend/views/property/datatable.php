@@ -40,8 +40,8 @@ input.form-control {
     </div>
     <div class="datatable-wrapper">
         <!-- Create the drop down filter -->
-        <div class="category-filter">
-            <label id="categoryFilter"> Filter:
+        <div class="category-filter" id="categoryFilter">
+            <label> Filter:
                 <select class="form-control">
                     <option value="">Show All</option>
                     <option value="Classical">Classical</option>
@@ -50,8 +50,8 @@ input.form-control {
                 </select>
             </label>
         </div>
-        <div class="datepicker-filter">
-            <label id="datepicker"> Arrival Date:
+        <div class="datepicker-filter" id="datepicker">
+            <label> Arrival Date:
                 <input class="form-control" name="dates">
             </label>
         </div>
@@ -66,7 +66,7 @@ input.form-control {
                     <th>Guest</th>
                     <th>Operator</th>
                     <th>Status</th>
-                    <th></th>
+                    <!-- <th></th> -->
                     <th></th>
                 </tr>
             </thead>
@@ -80,7 +80,7 @@ input.form-control {
                     <th>Operator</th>
                     <th>Status</th>
                     <th></th>
-                    <th></th>
+                    <!-- <th></th> -->
                 </tr>
             </tfoot>
         </table>
@@ -202,15 +202,15 @@ $(document).ready(function() {
             {
                 data: null,
                 className: "dt-center editor-edit",
-                defaultContent: ' <a href="<?= Url::toRoute(['/property/ppe11', 'id' => '"+data+"' ]) ?>" class="info-btn"><img src="images/user-icons/info-icon.svg" alt=""></a>',
-                orderable: false
-            },
-            {
-                data: null,
-                className: "dt-center editor-delete",
-                defaultContent: ' <a class="eye-btn"><img src="images/user-icons/eye-icon.png" alt=""></a>',
+                defaultContent: ' <div class="icons-list"> <a href="<?= Url::toRoute(['/property/ppe11', 'id' => '"+data+"' ]) ?>" class="info-btn"><img src="images/user-icons/info-icon.svg" alt=""></a> <a class="eye-btn"><img src="images/user-icons/eye-icon.png" alt=""></a> </div>',
                 orderable: false
             }
+            // {
+            //     data: null,
+            //     className: "dt-center editor-delete",
+            //     defaultContent: ' <a class="eye-btn"><img src="images/user-icons/eye-icon.png" alt=""></a>',
+            //     orderable: false
+            // }
         ],
         dom: 'Bfrtip',
         buttons: [

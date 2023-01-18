@@ -942,3 +942,41 @@ input.table-input-disabled {
         }
     }
 }
+
+.daterangepicker {
+    .calendar-table {
+        th {
+            color: #fff;
+            border-radius: 0 !important;
+        }
+
+        .next span,
+        .prev span {
+            border-color: #fff !important;
+        }
+    }
+
+    .calendar-table {
+
+        td.available:hover {
+            background-color: #586ada !important;
+            border-color: transparent;
+            color: #fff;
+
+            span {
+                border-color: #5968DB !important;
+            }
+        }
+
+        .th.available:hover {
+            background-color: #586ada !important;
+            border-color: transparent;
+            color: #000 !important;
+        }
+    }
+}
+
+.daterangepicker td.active,
+.daterangepicker td.active:hover {
+    background-color: #586ada !important;
+}

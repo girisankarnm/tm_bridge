@@ -1754,4 +1754,31 @@ input.table-input-disabled {
   background: #E40968 !important;
 }
 
+.daterangepicker .calendar-table th {
+  color: #fff;
+  border-radius: 0 !important;
+}
+.daterangepicker .calendar-table .next span,
+.daterangepicker .calendar-table .prev span {
+  border-color: #fff !important;
+}
+.daterangepicker .calendar-table td.available:hover {
+  background-color: #586ada !important;
+  border-color: transparent;
+  color: #fff;
+}
+.daterangepicker .calendar-table td.available:hover span {
+  border-color: #5968DB !important;
+}
+.daterangepicker .calendar-table .th.available:hover {
+  background-color: #586ada !important;
+  border-color: transparent;
+  color: #000 !important;
+}
+
+.daterangepicker td.active,
+.daterangepicker td.active:hover {
+  background-color: #586ada !important;
+}
+
 /*# sourceMappingURL=custom-style.css.map */
