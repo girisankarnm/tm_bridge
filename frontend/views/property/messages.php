@@ -48,10 +48,11 @@ $this->registerCssFile('/css/messages/messages.css');
                         <option value="">Filter</option>
                     </select>
                 </div> -->
-                <div class="dropdown filter-select-wrapper">
-                    <button class="filter-dropdown-btn dropdown-toggle" type="button" id="dropdownMenuButton"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filter</button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <div class="custom-dropdown-wrapper">
+                    <button class="custom-dropdown-btn dropdown-toggle" type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filter <img
+                            src="images/user-icons/actions-icon.svg" alt=""></button>
+                    <div class="dropdown-menu pink-lists" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" href="#">Filter</a>
                         <a class="dropdown-item" href="#">SRR</a>
                         <a class="dropdown-item" href="#">Filter</a>

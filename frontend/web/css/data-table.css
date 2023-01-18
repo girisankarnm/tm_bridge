@@ -958,7 +958,7 @@ div.dataTables_wrapper table.mdc-data-table__table thead tr th.sorting_desc,
 div.dataTables_wrapper table.mdc-data-table__table thead tr th.sorting {
   color: #1E2339;
   font-family: "Bw-Mitga-bold" !important;
-  background: #ABB0C1;
+  background: #E1E5FF;
 }
 
 table.dataTable td.dt-control:before {
