@@ -66,13 +66,13 @@ div.dataTables_wrapper table.mdc-data-table__table thead tr th.sorting {
 }
 
 table.dataTable td.dt-control:before {
-    height: 1.7em !important;
-    width: 1.7em !important;
+    height: 1.3em !important;
+    width: 1.3em !important;
     border: none !important;
     box-shadow: none !important;
     font-size: 21px !important;
     font-family: "Bw-Mitga-bold" !important;
-    line-height: 32px !important;
+    line-height: 25px !important;
 }
 
 .buttons-excel,
@@ -108,6 +108,60 @@ table.dataTable td.dt-control:before {
         background-size: contain;
         width: 23px;
         height: 16px;
+    }
+}
+
+div.dataTables_wrapper {
+    div.dataTables_filter {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        label {
+            input[type="search"] {
+                height: 31.99px;
+            }
+        }
+
+        .category-filter {
+            select.form-control {
+                margin: 0 0 0 0.5em;
+            }
+        }
+
+        .category-filter,
+        .datepicker-filter {
+            margin: 0 0 0 15px;
+        }
+    }
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled,
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover,
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active {
+    font-size: 12px;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    padding: 0 !important;
+    font-size: 12px;
+    background: none !important;
+    min-width: 25px !important;
+    min-height: 25px !important;
+    line-height: 24px;
+}
+
+.dataTables_wrapper {
+
+    table.dataTable thead tr {
+        background: #e1e5ff !important;
+    }
+
+    table.dataTable thead th,
+    table.dataTable tfoot th,
+    table.dataTable tfoot td {
+        background: #e1e5ff !important;
+        color: #292931 !important;
     }
 }
 
