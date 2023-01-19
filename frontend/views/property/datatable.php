@@ -202,7 +202,7 @@ $(document).ready(function() {
             {
                 data: null,
                 className: "dt-center editor-edit",
-                defaultContent: ' <div class="icons-list"> <a href="<?= Url::toRoute(['/property/ppe11', 'id' => '"+data+"' ]) ?>" class="info-btn"><img src="images/user-icons/info-icon.svg" alt=""></a> <a class="eye-btn"><img src="images/user-icons/eye-icon.png" alt=""></a> </div>',
+                defaultContent: ' <div class="icons-list"> <a href="<?= Url::toRoute(['/property/ppe11', 'id' => '"+data+"' ]) ?>" class="info-btn"><img src="images/user-icons/info-icon.svg" alt=""></a> <a class="eye-btn"><img style="width:20px; margin:0 0 0 2px;" src="images/user-icons/eye-icon.png" alt=""></a> </div>',
                 orderable: false
             }
             // {

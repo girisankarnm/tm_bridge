@@ -1044,6 +1044,10 @@ div.dataTables_wrapper div.dataTables_filter .datepicker-filter {
   color: #292931 !important;
 }
 
+table.dataTable thead > tr > th.sorting {
+  height: 30px !important;
+}
+
 @media (min-width: 576px) {
   .datatable-wrapper .form-inline label {
     justify-content: flex-start !important;

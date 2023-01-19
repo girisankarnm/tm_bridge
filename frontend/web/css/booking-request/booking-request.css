@@ -1495,6 +1495,7 @@ ul {
   font-size: 12px;
   text-align: right;
   line-height: 20px;
+  white-space: nowrap;
 }
 .activity-chat-wrapper .activity-chat-single .activity-chat-user .user-img {
   width: 35px;
@@ -1571,7 +1572,8 @@ ul {
   margin: 0 0 0 30px;
 }
 .activity-chat-wrapper .activity-chat-right .activity-chat-user .user-details {
-  padding: 0 0px 0 20px;
+  padding: 0 0px 0 10px;
+  width: calc(100% - 55px);
 }
 .activity-chat-wrapper .activity-chat-right .activity-chat-user .user-details .user-details-name,
 .activity-chat-wrapper .activity-chat-right .activity-chat-user .user-details .user-details-date {
