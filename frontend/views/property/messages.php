@@ -146,14 +146,14 @@ $this->registerCssFile('/css/messages/messages.css');
         </div>
         <div class="chat-right">
             <!-- BOF CHat Landing Page Image HTML -->
-            <!-- <div class="chat-default-screen">
+            <div class="chat-default-screen">
                 <article>
                     <h3>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </h3>
                 </article>
                 <figure>
                     <img src="images/messages/chat-default-img.png" alt="">
                 </figure>
-            </div> -->
+            </div>
             <!-- EOF CHat Landing Page Image HTML -->
             <div class="chat-area-header">
                 <div class="chat-user-list-single">
