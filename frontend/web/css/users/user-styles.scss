@@ -680,3 +680,116 @@ body {
         line-height: 18px;
     }
 }
+
+.enquiry-strip-table {
+    width: 100%;
+    margin: 0 0 35px;
+    background: #5968DB;
+    box-shadow: none;
+    border: none !important;
+
+    tr {
+        padding: 0;
+        background: none;
+
+        td {
+            padding: 10px 5px;
+            color: #fff;
+        }
+    }
+}
+
+.enquiry-details-td {
+    display: flex;
+    padding: 15px 10px;
+    align-items: center;
+    justify-content: flex-start;
+    border: none;
+    padding: 0px 20px;
+    background: $color-white;
+    @include border-radius(20px);
+
+    .head {
+        font-size: 10px;
+        font-family: $font-bold;
+        color: #000;
+        line-height: 18px;
+        border-right: 1px solid #999FB4;
+        padding: 5px 5px 5px 0;
+        white-space: nowrap;
+        margin: 0 10px 0 0;
+    }
+
+    .value {
+        padding: 5px 10px 5px 0;
+        font-size: 10px;
+        color: #000;
+        line-height: 18px;
+        white-space: nowrap;
+    }
+}
+
+.data-content {
+    .modal {
+        .assigned-property-status-wrapper {
+            .modal-content {
+                .modal-body {
+                    // max-width: 90% !important;
+                    max-width: 1300px !important;
+                }
+            }
+        }
+    }
+}
+
+.assigned-property-status-table-wrapper {
+    overflow: hidden;
+    overflow-x: auto;
+
+    .assigned-property-status-table {
+        // width: 100%;
+        margin: 0 0 25px;
+
+        thead {
+            tr {
+                th {
+                    padding: 5px 8px !important;
+                    font-weight: initial !important;
+                    font-size: 10px !important;
+                    color: #fff;
+                    text-align: center;
+                    border-right: 1px solid $color-white;
+
+                    &:nth-child(1) {
+                        text-align: left;
+                    }
+
+                    &:nth-last-child(1) {
+                        border-right: 1px solid #586ADA;
+
+                    }
+                }
+            }
+        }
+
+        tbody {
+            tr {
+                td {
+                    font-size: 10px !important;
+                    padding: 5px 8px !important;
+                    border-right: 1px solid #586ADA;
+                    border-bottom: 1px solid #586ADA;
+                    text-align: center;
+
+                    &:nth-child(1) {
+                        text-align: left;
+                    }
+
+                    &:nth-last-child(1) {
+                        // border-right-color: transparent;
+                    }
+                }
+            }
+        }
+    }
+}

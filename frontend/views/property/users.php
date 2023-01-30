@@ -3,6 +3,7 @@ frontend\assets\AppAsset::register($this);
 $this->registerCssFile('/css/ppe/style.css');
 $this->registerCssFile('/css/datepicker.css');
 $this->registerCssFile('/css/users/user-styles.css');
+$this->registerCssFile('/css/search-popup/layout.css');
 $this->registerCssFile('/css/custom-style.css');
 ?>
 <div class="wrapper">
@@ -24,6 +25,7 @@ $this->registerCssFile('/css/custom-style.css');
             </div>
         </div>
     </div>
+
     <div class="custom-accordion-wrapper">
         <div id="accordion" class="accordion">
             <div class="card mb-0">
@@ -269,10 +271,34 @@ $this->registerCssFile('/css/custom-style.css');
                                 <div class="day-area-wrapper">
                                     <div class="day-content">Day 1 | 10 Aug 2022</div>
                                     <div class="icons-group-wrapper red-box">
-                                        Child Policy Mismatch
+                                        <div class="tooltip-wrapper">
+                                            <div class="tooltip-link">
+                                                <span>Child Policy Mismatch</span>
+                                                <span class="hovercard">
+                                                    <div class="tooltiptext">
+                                                        <!-- <h4 class="tooltip-head">Heading</h4> -->
+                                                        <p class="tooltip-para">Only rooms with similar child & infant
+                                                            policy allowed</p>
+                                                    </div>
+                                                </span>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="edit-question-icon">
-                                        <img src="images/user-icons/question-icon.svg" style="width:28px;" alt="">
+                                        <div class="tooltip-wrapper">
+                                            <div class="tooltip-link">
+                                                <span><img src="images/user-icons/question-icon.svg" style="width:28px;"
+                                                        alt=""></span>
+                                                <span class="hovercard">
+                                                    <div class="tooltiptext">
+                                                        <!-- <h4 class="tooltip-head">Heading</h4> -->
+                                                        <p class="tooltip-para">Only rooms with similar child & infant
+                                                            policy allowed</p>
+                                                    </div>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!-- <img src="images/user-icons/question-icon.svg" style="width:28px;" alt=""> -->
                                     </div>
                                 </div>
                                 <div class="room-row-single">
@@ -1279,7 +1305,20 @@ $this->registerCssFile('/css/custom-style.css');
                                 <div class="day-area-wrapper">
                                     <div class="day-content">Day 1 | 10 Aug 2022</div>
                                     <div class="icons-group-wrapper red-box">
-                                        Child Policy Mismatch
+                                        <div class="tooltip-wrapper">
+                                            <div class="tooltip-link">
+                                                <span>Child Policy Mismatch</span>
+                                                <span class="hovercard">
+                                                    <div class="tooltiptext">
+                                                        <!-- <h4 class="tooltip-head">Heading</h4> -->
+                                                        <p class="tooltip-para">Crumb Collector is a
+                                                            minimal and
+                                                            easy to use
+                                                            bookmark manager.</p>
+                                                    </div>
+                                                </span>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="edit-question-icon">
                                         <img src="images/user-icons/question-icon.svg" style="width:28px;" alt="">
@@ -1813,6 +1852,184 @@ $this->registerCssFile('/css/custom-style.css');
     </div>
 </div>
 <!-- EOF Roomin Plan Modal -->
+<!-- BOF Assigned Property Status Modal -->
+<div class="modal fade" id="AssignedPropertyStatusModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog search-popup-wrapper assigned-property-status-wrapper" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <img src="images/search-popup/close-btn.svg" alt="">
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="assigned-property-status-wrapper">
+                    <table class="enquiry-strip-table">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="enquiry-details-td">
+                                        <div class="head">Enq No</div>
+                                        <div class="value">1232/2022</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="enquiry-details-td">
+                                        <div class="head">Guest Name</div>
+                                        <div class="value">Jayesh Sathyamoorthy</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="enquiry-details-td">
+                                        <div class="head">Arrival Date</div>
+                                        <div class="value">13/02/2023</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="enquiry-details-td">
+                                        <div class="head">Departure Date</div>
+                                        <div class="value">18/02/2023</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="enquiry-details-td">
+                                        <div class="head">Duration</div>
+                                        <div class="value">6 Days</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="enquiry-details-td">
+                                        <div class="head">No. of Destinations</div>
+                                        <div class="value">5 Destinations</div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="assigned-property-status-table-wrapper">
+                    <table class="assigned-property-status-table">
+                        <thead>
+                            <tr>
+                                <th>Munnar Property (5/10)</th>
+                                <th>SRR</th>
+                                <th>BLOCK</th>
+                                <th>BKG</th>
+                                <th>Mar 23</th>
+                                <th>Mar 24</th>
+                                <th>Mar 25</th>
+                                <th>Mar 26</th>
+                                <th>Mar 27</th>
+                                <th>Mar 28</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Munnar Queen 3 Star</td>
+                                <td>Pending</td>
+                                <td>&nbsp;</td>
+                                <td>Pending</td>
+                                <td><img src="images/check-success.png" style="width: 12px" alt=""></td>
+                                <td><img src="images/check-success.png" style="width: 12px" alt=""></td>
+                                <td><strong>NA</strong></td>
+                                <td><img src="images/check-success.png" style="width: 12px" alt=""></td>
+                                <td><img src="images/check-success.png" style="width: 12px" alt=""></td>
+                                <td><img src="images/check-success.png" style="width: 12px" alt=""></td>
+                            </tr>
+                            <tr>
+                                <td>Fog Resort 3 Star</td>
+                                <td>&nbsp;</td>
+                                <td>Confrmed</td>
+                                <td>&nbsp;</td>
+                                <td><img src="images/close.png" style="width: 10px" alt=""></td>
+                                <td><img src="images/close.png" style="width: 10px" alt=""></td>
+                                <td><strong>NA</strong></td>
+                                <td><img src="images/check-success.png" style="width: 12px" alt=""></td>
+                                <td><img src="images/check-success.png" style="width: 12px" alt=""></td>
+                                <td><img src="images/check-success.png" style="width: 12px" alt=""></td>
+                            </tr>
+                            <tr>
+                                <td>Elixir Hills & Resorts & Spa 3 Star</td>
+                                <td>Confrmed</td>
+                                <td>&nbsp;</td>
+                                <td>Confrmed</td>
+                                <td><img src="images/check-success.png" style="width: 12px" alt=""></td>
+                                <td><img src="images/check-success.png" style="width: 12px" alt=""></td>
+                                <td><strong>NA</strong></td>
+                                <td><img src="images/check-success.png" style="width: 12px" alt=""></td>
+                                <td><img src="images/check-success.png" style="width: 12px" alt=""></td>
+                                <td><img src="images/check-success.png" style="width: 12px" alt=""></td>
+                            </tr>
+                            <tr>
+                                <td>The Rivulet 3 Star </td>
+                                <td>&nbsp;</td>
+                                <td>Rejected</td>
+                                <td>&nbsp;</td>
+                                <td><img src="images/close.png" style="width: 10px" alt=""></td>
+                                <td><img src="images/close.png" style="width: 10px" alt=""></td>
+                                <td><strong>NA</strong></td>
+                                <td><img src="images/check-success.png" style="width: 12px" alt=""></td>
+                                <td><img src="images/check-success.png" style="width: 12px" alt=""></td>
+                                <td><img src="images/check-success.png" style="width: 12px" alt=""></td>
+                            </tr>
+                            <tr>
+                                <td>Black Forest 3 Star</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td><img src="images/check-success.png" style="width: 12px" alt=""></td>
+                                <td><img src="images/check-success.png" style="width: 12px" alt=""></td>
+                                <td><strong>NA</strong></td>
+                                <td><img src="images/check-success.png" style="width: 12px" alt=""></td>
+                                <td><img src="images/check-success.png" style="width: 12px" alt=""></td>
+                                <td><img src="images/check-success.png" style="width: 12px" alt=""></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="assigned-property-status-table">
+                        <thead>
+                            <tr>
+                                <th>Thekkady Property (3/10)</th>
+                                <th>SRR</th>
+                                <th>BLOCK</th>
+                                <th>BKG</th>
+                                <th>Mar 29</th>
+                                <th>Mar 30</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Grand Thekkady 3 Star</td>
+                                <td>Pending</td>
+                                <td>&nbsp;</td>
+                                <td>Pending</td>
+                                <td><img src="images/check-success.png" style="width: 12px" alt=""></td>
+                                <td><img src="images/check-success.png" style="width: 12px" alt=""></td>
+                            </tr>
+                            <tr>
+                                <td>Forest Canopy 3 Star </td>
+                                <td>&nbsp;</td>
+                                <td>Confrmed</td>
+                                <td>&nbsp;</td>
+                                <td><img src="images/close.png" style="width: 10px" alt=""></td>
+                                <td><img src="images/check-success.png" style="width: 12px" alt=""></td>
+                            </tr>
+                            <tr>
+                                <td>Periyar Meadows 3 Star</td>
+                                <td>Confrmed</td>
+                                <td>&nbsp;</td>
+                                <td>Confrmed</td>
+                                <td><img src="images/check-success.png" style="width: 12px" alt=""></td>
+                                <td><img src="images/close.png" style="width: 12px" alt=""></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- BOF Assigned Property Status Modal -->
 
 
 
@@ -1922,6 +2139,157 @@ function viewDetails(id) {
 }
 
 $(window).on('load', function() {
-    $('#roomingPlanModal').modal('show');
+    $('#AssignedPropertyStatusModal').modal('show');
 });
+// BOF Tooltip JS
+const tooltips = document.querySelectorAll('.tooltip-main');
+
+Array.prototype.forEach.call(tooltips, function(el, i) {
+    let tooltipButton = el.querySelector('.tooltip-button'),
+        tooltipContent = el.querySelector('.tooltip-content'),
+        /* Search for last focussable element inside tooltip (so that we can remove the tooltip after next tab) */
+        tooltipContentItemsFocusable = tooltipContent.querySelectorAll(
+            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'),
+        tooltipContentItems = tooltipContentItemsFocusable[tooltipContentItemsFocusable.length - 1];
+
+    /* set the tooltip position based on a top tooltip on screen */
+    function setTooltipPosition() {
+        /* if any positioning classes present -> remove them */
+        positionClasses = ['top', 'right', 'bottom', 'left'];
+        positionClasses.forEach(function(item) {
+            tooltipContent.classList.remove(item);
+        });
+
+
+        /* Calculate tooltip space */
+
+        const tooltipSpace = tooltipButton.getBoundingClientRect();
+        const tooltipBox = tooltipContent.getBoundingClientRect();
+        const tooltipRight = tooltipBox.right + tooltipBox.width;
+
+        if (tooltipSpace.top > tooltipBox.height && tooltipBox.left > 0 && tooltipRight < window
+            .innerWidth) {
+            tooltipContent.classList.add('top')
+        } else if (tooltipSpace.bottom > tooltipBox.height && tooltipBox.left > 0 && tooltipRight <
+            window
+            .innerWidth) {
+            tooltipContent.classList.add('bottom')
+        } else {
+            if (tooltipBox.left > 0 && tooltipRight > window.innerWidth) {
+                tooltipContent.classList.add('left')
+            } else if (tooltipBox.left < 0 && tooltipRight < window.innerWidth) {
+                tooltipContent.classList.add('right')
+            } else {
+                tooltipContent.classList.add('bottom')
+            }
+        }
+    }
+
+    setTooltipPosition();
+    /* retrigger position on resize  */
+    window.addEventListener("resize", () => {
+        setTooltipPosition();
+    });
+
+    let mouseOverTooltip = false,
+        mouseOverTooltipButton = false,
+        focusOnTooltip = false;
+    tooltipButton.addEventListener('click', function(element) {
+        clicktooltipContent()
+    });
+    tooltipButton.addEventListener('mouseover', function(element) {
+        mouseOverTooltipButton = true;
+        showtooltipContent()
+    });
+    tooltipButton.addEventListener('mouseout', function(element) {
+        mouseOverTooltipButton = false;
+        /* Set small timeout for removing the tooltip to make user able to interract  */
+        setTimeout(function() {
+            if (!mouseOverTooltip) {
+                hidetooltipContent()
+            }
+        }, 200);
+    });
+    tooltipButton.addEventListener('focus', function(element) {
+        showtooltipContent()
+    });
+    tooltipButton.addEventListener('blur', function(element) {
+        /* Set small timeout for removing the tooltip to make user able to interract  */
+        setTimeout(function() {
+            if (!focusOnTooltip) {
+                hidetooltipContent()
+            }
+        }, 200);
+    });
+
+    /* escape key closes tooltip  */
+    tooltipButton.addEventListener('keyup', function(element) {
+        if (event.keyCode == 27) {
+            hidetooltipContent();
+        };
+    });
+    tooltipContent.addEventListener('keyup', function(element) {
+        if (event.keyCode == 27) {
+            hidetooltipContent();
+        };
+    });
+
+
+    /* default mouse enters and leave  */
+    tooltipContent.addEventListener('mouseenter', function(element) {
+        mouseOverTooltip = true;
+    });
+    tooltipContent.addEventListener('mouseleave', function(element) {
+        mouseOverTooltip = false;
+        /* Set small timeout for removing the tooltip to make user able to interract  */
+        setTimeout(function() {
+            if (!mouseOverTooltipButton) {
+                hidetooltipContent()
+            }
+        }, 200);
+
+    });
+    tooltipContent.addEventListener('focus', function(element) {
+        focusOnTooltip = true;
+        showtooltipContent()
+    });
+    if (tooltipContentItemsFocusable.length > 0) {
+        tooltipContentItems.addEventListener('focus', function(element) {
+            focusOnTooltip = true;
+            showtooltipContent()
+        });
+        tooltipContentItems.addEventListener('blur', function(element) {
+            focusOnTooltip = false;
+            hidetooltipContent()
+        });
+    } else {
+        tooltipContent.addEventListener('blur', function(element) {
+            focusOnTooltip = false;
+            hidetooltipContent()
+        });
+    }
+
+
+    /* Functions for showing and hiding tooltip, add aria-expanded on button, not mandatory, but gives people with voice over an indicator something happened */
+    function clicktooltipContent() {
+        if (tooltipButton.getAttribute('aria-expanded') == 'true') {
+            tooltipContent.classList.remove('active');
+            tooltipButton.setAttribute('aria-expanded', 'false');
+        } else {
+            tooltipContent.classList.add('active');
+            tooltipButton.setAttribute('aria-expanded', 'true');
+        };
+    }
+
+    function showtooltipContent() {
+        tooltipContent.classList.add('active');
+        tooltipButton.setAttribute('aria-expanded', 'true');
+    }
+
+    function hidetooltipContent() {
+        tooltipContent.classList.remove('active');
+        tooltipButton.setAttribute('aria-expanded', 'false');
+    }
+});
+// EOF Tooltip JS
 </script>

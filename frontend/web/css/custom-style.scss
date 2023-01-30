@@ -1077,3 +1077,256 @@ input:focus-within,
 input:focus-visible {
     outline: none !important;
 }
+
+// BOF Tooltip CSS
+.tooltip-wrapper {
+    display: inline-block;
+}
+
+.hovercard {
+    left: 50%;
+    opacity: 0;
+    z-index: 1;
+    bottom: 100%;
+    margin: 0 0 10px;
+    position: absolute;
+    pointer-events: none;
+    @include transform(translateX(-35%));
+
+    &::after {
+        position: absolute;
+        content: "";
+        left: 15px;
+        bottom: -12px;
+        border: 6px solid transparent;
+        border-top: 6px solid #575c85;
+    }
+}
+
+span.hovercard.right-tooltip {
+    right: -38px;
+    left: initial;
+
+    &::after {
+        left: initial !important;
+        right: 10px;
+    }
+}
+
+.tooltip-link:hover .hovercard {
+    opacity: 1;
+    transition: all ease 0.5s;
+    /* transition: 0.5s; */
+    /* transition-delay: 0.1s; */
+}
+
+.tooltiptext {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: #575c85;
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: white;
+    line-height: 15px;
+    transition: 1s;
+    width: 250px;
+    word-break: break-word;
+    white-space: normal;
+
+    .tooltip-head {
+        color: #fff;
+        font-size: 14px;
+        margin: 0 0 5px;
+        text-align: left;
+        line-height: 17px;
+        font-family: $font-bold !important;
+    }
+
+    .tooltip-para {
+        color: #fff;
+        font-size: 14px;
+        text-align: left;
+    }
+}
+
+.tooltip-main {
+    --tooltip-background: #575c85;
+    --tooltip-color: #fff;
+    --toolitp-width: 290px;
+    --tooltip-padding: 10px 15px;
+    --tooltip-zindex: 10;
+    --tooltip-tip-width: 10px;
+    --tooltip-offset: 15px;
+    --tooltip-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+    --tooltip-border-radius: 5px;
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip-content {
+    visibility: hidden;
+    display: block;
+    white-space: normal;
+    position: absolute;
+    width: var(--toolitp-width);
+    min-width: var(--toolitp-width);
+    margin: 0 0 var(--tooltip-offset) 0;
+    padding: var(--tooltip-padding);
+    color: var(--tooltip-color);
+    background: var(--tooltip-background);
+    border-radius: var(--tooltip-border-radius);
+    opacity: 0;
+    transform: translateX(-50%);
+    transition: opacity 0.15s ease-out;
+    box-shadow: var(--tooltip-shadow);
+    z-index: var(--tooltip-zindex);
+}
+
+.tooltip-content.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* tooltip positioning */
+
+.tooltip-content.top {
+    bottom: 100%;
+    left: 50%;
+    margin: 0 0 15px 0;
+}
+
+.tooltip-content.bottom {
+    top: 100%;
+    left: 50%;
+    margin: 15px 0 0 0;
+}
+
+.tooltip-content.left {
+    top: 50%;
+    left: auto;
+    right: 100%;
+    margin: 0 15px 0 0;
+    transform: translate(0, -50%);
+}
+
+.tooltip-content.right {
+    top: 50%;
+    left: 100%;
+    margin: 0 0 0 15px;
+    transform: translate(0, -50%);
+}
+
+/* tip styling */
+
+.tooltip-content::after {
+    position: absolute;
+    width: 0;
+    height: 0;
+    content: " ";
+}
+
+.tooltip-content.top::after {
+    bottom: calc(-1 * var(--tooltip-tip-width));
+    left: 50%;
+    margin-left: calc(-1 * var(--tooltip-tip-width));
+    border-left: var(--tooltip-tip-width) solid transparent;
+    border-right: var(--tooltip-tip-width) solid transparent;
+    border-top: var(--tooltip-tip-width) solid var(--tooltip-background);
+}
+
+.tooltip-content.bottom::after {
+    top: calc(-1 * var(--tooltip-tip-width));
+    left: 50%;
+    margin-left: calc(-1 * var(--tooltip-tip-width));
+    border-bottom: var(--tooltip-tip-width) solid var(--tooltip-background);
+    border-left: var(--tooltip-tip-width) solid transparent;
+    border-right: var(--tooltip-tip-width) solid transparent;
+}
+
+.tooltip-content.right::after {
+    top: 50%;
+    left: calc(-1 * var(--tooltip-tip-width));
+    right: auto;
+    margin-top: calc(-1 * var(--tooltip-tip-width));
+    border-top: var(--tooltip-tip-width) solid transparent;
+    border-bottom: var(--tooltip-tip-width) solid transparent;
+    border-left: 0;
+    border-right: var(--tooltip-tip-width) solid var(--tooltip-background);
+}
+
+.tooltip-content.left::after {
+    top: 50%;
+    left: auto;
+    right: calc(-1 * var(--tooltip-tip-width));
+    margin-top: calc(-1 * var(--tooltip-tip-width));
+    border-top: var(--tooltip-tip-width) solid transparent;
+    border-bottom: var(--tooltip-tip-width) solid transparent;
+    border-left: var(--tooltip-tip-width) solid var(--tooltip-background);
+    border-right: 0;
+}
+
+.tooltip-button {
+    padding: 0px;
+    cursor: pointer;
+    display: inline-block;
+    transition: background-color 0.24s;
+    -webkit-transition: background-color 0.24s;
+    -moz-transition: background-color 0.24s;
+    -ms-transition: background-color 0.24s;
+    -o-transition: background-color 0.24s;
+}
+
+
+.tooltip-content.tooltip-bottom {
+    top: 100%;
+    left: 50%;
+    margin: 15px 0 0 0;
+}
+
+.tooltip-content.tooltip-bottom::after {
+    top: calc(-1 * var(--tooltip-tip-width));
+    left: 50%;
+    margin-left: calc(-1 * var(--tooltip-tip-width));
+    border-bottom: var(--tooltip-tip-width) solid var(--tooltip-background);
+    border-left: var(--tooltip-tip-width) solid transparent;
+    border-right: var(--tooltip-tip-width) solid transparent;
+}
+
+.tooltip-content.tooltip-top {
+    top: initial;
+    bottom: 100%;
+    left: 50%;
+    margin: 0 0 15px 0;
+}
+
+.tooltip-content.tooltip-top::after {
+    bottom: initial;
+    top: 100%;
+    left: 50%;
+    margin-left: calc(-1 * var(--tooltip-tip-width));
+    border-left: var(--tooltip-tip-width) solid transparent;
+    border-right: var(--tooltip-tip-width) solid transparent;
+    border-top: var(--tooltip-tip-width) solid var(--tooltip-background);
+    border-bottom: none;
+}
+
+
+.tooltip-button:hover {
+    // background: #483d8b;
+}
+
+.tooltip-heading {
+    color: #fff;
+    font-size: 18px;
+    word-break: break-all;
+}
+
+.tooltip-para {
+    color: #fff;
+    font-size: 15px;
+    white-space: normal;
+    word-break: break-word;
+}
+
+// EOF Tooltip CSS
