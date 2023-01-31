@@ -1346,6 +1346,7 @@ span.room-cat-text {
 .view-details-btn {
   color: #ED8AB5;
   background: none;
+  white-space: nowrap;
   font-size: 10px !important;
   border: 2px solid #ED8AB5;
   padding: 3px 30px 3px 10px;

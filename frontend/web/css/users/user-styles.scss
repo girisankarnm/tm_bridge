@@ -589,6 +589,7 @@ body {
     border: none;
     min-width: 110px;
     padding: 6px 20px;
+    white-space: nowrap;
     display: inline-block;
     @include border-radius(30px);
     font-family: $font-bold !important;
