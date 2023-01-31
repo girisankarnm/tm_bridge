@@ -477,10 +477,10 @@ span.room-cat-text {
         position: absolute;
         content: "";
         right: 10px;
-        top: 3px;
+        top: 7px;
         border: none;
-        width: 10px;
-        height: 10px;
+        width: 7px;
+        height: 7px;
         @include transform(rotate(45deg));
         border-right: 2px solid #ED8AB5;
         border-bottom: 2px solid #ED8AB5;
@@ -494,7 +494,7 @@ span.room-cat-text {
     color: #fff;
 
     &::after {
-        top: 6px;
+        top: 10px;
         border-color: $color-white;
         @include transform(rotate(-135deg));
     }
