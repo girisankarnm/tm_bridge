@@ -160,12 +160,12 @@ span.hovercard.right-tooltip {
 
                 .modal-header {
                     z-index: 12;
-                    @include border-radius(0);
-                    background: #fff;
-                    padding: 10px 0;
                     display: flex;
+                    padding: 10px 0;
+                    background: #fff;
                     align-items: center;
-                    justify-content: flex-end;
+                    justify-content: space-between;
+                    @include border-radius(0);
                     position: fixed;
                     height: 40px;
                     width: 100%;
@@ -197,6 +197,30 @@ span.hovercard.right-tooltip {
                     max-width: 1200px;
                     padding: 20px 0 0;
                     margin: 40px auto 0;
+                }
+            }
+        }
+    }
+}
+
+.data-content {
+    .modal {
+        .search-popup-wrapper {
+            .modal-content {
+                .modal-header-with-table {
+                    position: relative;
+                    justify-content: center;
+                    padding: 10px 0;
+                    height: auto;
+
+                    .close {
+                        position: absolute;
+                        right: 10px;
+                    }
+                }
+
+                .modal-body {
+                    margin: 0 auto;
                 }
             }
         }
@@ -254,6 +278,7 @@ span.hovercard.right-tooltip {
         margin: 0 0 3px;
 
         .card-heading {
+            min-width: 150px;
             margin: 0 0 3px;
             font-family: Bw-Mitga-bold !important;
             font-size: 14px;
@@ -267,7 +292,12 @@ span.hovercard.right-tooltip {
 }
 
 .resort-icons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
     img {
+        margin: 0 5px 0 0;
         width: 16px;
     }
 }
@@ -459,6 +489,7 @@ span.room-cat-text {
 }
 
 .view-details-on {
+    white-space: nowrap;
     background: #ED8AB5;
     color: #fff;
 
@@ -1035,5 +1066,12 @@ span.room-cat-text {
 
     .icon-with-notification {
         margin: 0 0 0 3px;
+    }
+}
+
+
+@media (max-width: 1300px) {
+    .enquiry-details-td {
+        padding: 0px 10px;
     }
 }

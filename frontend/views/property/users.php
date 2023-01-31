@@ -1857,12 +1857,7 @@ $this->registerCssFile('/css/custom-style.css');
     aria-hidden="true">
     <div class="modal-dialog search-popup-wrapper assigned-property-status-wrapper" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <img src="images/search-popup/close-btn.svg" alt="">
-                </button>
-            </div>
-            <div class="modal-body">
+            <div class="modal-header modal-header-with-table">
                 <div class="assigned-property-status-wrapper">
                     <table class="enquiry-strip-table">
                         <tbody>
@@ -1907,6 +1902,11 @@ $this->registerCssFile('/css/custom-style.css');
                         </tbody>
                     </table>
                 </div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <img src="images/search-popup/close-btn.svg" alt="">
+                </button>
+            </div>
+            <div class="modal-body">
                 <div class="assigned-property-status-table-wrapper">
                     <table class="assigned-property-status-table">
                         <thead>

@@ -1589,18 +1589,17 @@ body {
 }
 
 .enquiry-strip-table {
+  margin: 0;
   width: 100%;
-  margin: 0 0 35px;
-  background: #5968DB;
-  box-shadow: none;
   border: none !important;
+  box-shadow: none;
 }
 .enquiry-strip-table tr {
   padding: 0;
   background: none;
 }
 .enquiry-strip-table tr td {
-  padding: 10px 5px;
+  padding: 0px 5px;
   color: #fff;
 }
 
@@ -1609,7 +1608,7 @@ body {
   padding: 15px 10px;
   align-items: center;
   justify-content: flex-start;
-  border: none;
+  border: 1px solid #999FB4;
   padding: 0px 20px;
   background: #fff;
   border-radius: 20px;
@@ -1626,7 +1625,7 @@ body {
   border-right: 1px solid #999FB4;
   padding: 5px 5px 5px 0;
   white-space: nowrap;
-  margin: 0 10px 0 0;
+  margin: 0 5px 0 0;
 }
 .enquiry-details-td .value {
   padding: 5px 10px 5px 0;
@@ -1657,6 +1656,7 @@ body {
 }
 .assigned-property-status-table-wrapper .assigned-property-status-table thead tr th:nth-child(1) {
   text-align: left;
+  width: 250px;
 }
 .assigned-property-status-table-wrapper .assigned-property-status-table thead tr th:nth-last-child(1) {
   border-right: 1px solid #586ADA;

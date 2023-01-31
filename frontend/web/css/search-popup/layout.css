@@ -40,6 +40,11 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: "CeraProBold";
+  src: url("../fonts/cera-pro/CeraProBold.eot");
+  src: url("../fonts/cera-pro/CeraProBold.eot") format("embedded-opentype"), url("../fonts/cera-pro/CeraProBold.woff2") format("woff2"), url("../fonts/cera-pro/CeraProBold.woff") format("woff"), url("../fonts/cera-pro/CeraProBold.ttf") format("truetype"), url("../fonts/cera-pro/CeraProBold.svg#CeraProBold") format("svg");
+}
 * {
   padding: 0;
   margin: 0;
@@ -106,146 +111,6 @@ ul {
 /* Handle */
 /* Handle on hover */
 /* The container */
-.radio-container {
-  display: block;
-  position: relative;
-  padding-left: 40px;
-  margin-bottom: 12px;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  color: #545554;
-  font-size: 1rem;
-  margin-right: 20px;
-  margin: 0 0 15px !important;
-  min-height: 40px;
-  line-height: 40px;
-}
-.radio-container a {
-  font-weight: 600;
-  color: #ffa800;
-}
-
-/* Hide the browser's default radio button */
-.radio-container input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-}
-
-/* Create a custom radio button */
-.radio-container .checkmark {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  height: 28px;
-  width: 28px;
-  background: none;
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
-  border: 1px solid #EDEDED;
-}
-
-/* On mouse-over, add a grey background color */
-.radio-container:hover input ~ .checkmark {
-  background: none;
-}
-
-/* When the radio button is checked, add a blue background */
-.radio-container input:checked ~ .checkmark {
-  background: none;
-  border-color: #E89F72;
-}
-
-/* Create the indicator (the dot/circle - hidden when not checked) */
-.radio-container .checkmark::after {
-  content: "";
-  position: absolute;
-  display: none;
-}
-
-.radio-container .checkmark::before {
-  content: "";
-  position: absolute;
-  transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
-  -moz-transform: rotate(-45deg);
-  -o-transform: rotate(-45deg);
-  top: 6px;
-  left: 6px;
-  width: 14px;
-  height: 14px;
-  background: #C4C4C4;
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
-}
-
-/* Show the indicator (dot/circle) when checked */
-.radio-container input:checked ~ .checkmark::after {
-  display: block;
-  background: #E89F72;
-}
-
-/* Style the indicator (dot/circle) */
-.customRadioDesign {
-  background: #fff;
-  border: 1px solid #C4C4C4;
-  width: 100%;
-  height: 40px;
-  z-index: 0;
-  position: absolute;
-  left: 0;
-  top: 0;
-  border-radius: 4px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  -o-border-radius: 4px;
-}
-
-.radioContent {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: #000;
-  position: relative;
-  z-index: 1;
-  margin: 0;
-}
-
-.radio-container input:checked ~ .customRadioDesign {
-  border: 1px solid #C4C4C4;
-}
-
-.radio-container .checkmark:after {
-  transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
-  -moz-transform: rotate(-45deg);
-  -o-transform: rotate(-45deg);
-  top: 6px;
-  left: 6px;
-  width: 14px;
-  height: 14px;
-  background: #C4C4C4;
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
-}
-
-/* The container */
 .checkbox-container {
   display: block;
   position: relative;
@@ -277,25 +142,21 @@ ul {
   -moz-border-radius: 6px;
   -ms-border-radius: 6px;
   -o-border-radius: 6px;
-  border: 2px solid #A88F6C;
+  border: 2px solid #5968DB;
   position: absolute;
   top: 4px;
   left: 0;
-  height: 24px;
-  width: 24px;
+  height: 20px;
+  width: 20px;
   background: none;
 }
 
 /* On mouse-over, add a grey background color */
 .checkbox-container:hover input ~ .checkmark {
-  border: 3px solid #A88F6C;
+  border: 2px solid #5968DB;
 }
 
 /* When the checkbox is checked, add a blue background */
-.checkbox-container input:checked ~ .checkmark {
-  background: #A88F6C;
-}
-
 /* Create the checkmark/indicator (hidden when not checked) */
 .checkbox-container .checkmark:after {
   content: "";
@@ -310,8 +171,8 @@ ul {
 
 /* Style the checkmark/indicator */
 .checkbox-container .checkmark:after {
-  left: 8px;
-  top: 4px;
+  left: 6px;
+  top: 2px;
   width: 5px;
   height: 10px;
   border: solid #fff;
@@ -791,6 +652,73 @@ ul {
   color: #000 !important;
 }
 
+/* The container */
+.radio-wrapper {
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  color: #1E2339;
+  font-family: "Bw-Mitga-bold" !important;
+  display: flex;
+  align-items: center;
+  min-height: 30px;
+  /* Hide the browser's default radio button */
+  /* Create a custom radio button */
+  /* On mouse-over, add a grey background color */
+  /* When the radio button is checked, add a blue background */
+  /* Show the indicator (dot/circle) when checked */
+}
+.radio-wrapper input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+.radio-wrapper .checkmark {
+  left: 0;
+  top: 5px;
+  margin: 0;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  background-color: #E1E5FF;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+}
+.radio-wrapper .checkmark::after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  background: #fff;
+}
+.radio-wrapper:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+.radio-wrapper input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+.radio-wrapper input:checked ~ .checkmark:after {
+  display: block;
+}
+
 @media (max-width: 1199px) {
   .chainContainer {
     flex-wrap: wrap;
@@ -805,162 +733,6 @@ ul {
   }
 }
 /* Rectangle Out */
-.hvr-rectangle-out {
-  -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  position: relative;
-  -webkit-transition-property: color;
-  transition-property: color;
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  -moz-transform: perspective(1px) translateZ(0);
-  -ms-transform: perspective(1px) translateZ(0);
-  -o-transform: perspective(1px) translateZ(0);
-}
-
-.hvr-rectangle-out:before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: #FFAD00;
-  -webkit-transform: scale(0);
-  transform: scale(0);
-  -webkit-transition-property: transform;
-  transition-property: transform;
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  -webkit-transition-timing-function: ease-out;
-  transition-timing-function: ease-out;
-}
-
-.hvr-rectangle-out:hover,
-.hvr-rectangle-out:focus,
-.hvr-rectangle-out:active {
-  color: white;
-}
-
-.hvr-rectangle-out:hover:before,
-.hvr-rectangle-out:focus:before,
-.hvr-rectangle-out:active:before {
-  -webkit-transform: scale(1);
-  transform: scale(1);
-}
-
-/* Hang */
-@-webkit-keyframes hvr-hang {
-  0% {
-    -webkit-transform: translateY(8px);
-    transform: translateY(8px);
-  }
-  50% {
-    -webkit-transform: translateY(4px);
-    transform: translateY(4px);
-  }
-  100% {
-    -webkit-transform: translateY(8px);
-    transform: translateY(8px);
-  }
-}
-@keyframes hvr-hang {
-  0% {
-    -webkit-transform: translateY(8px);
-    transform: translateY(8px);
-  }
-  50% {
-    -webkit-transform: translateY(4px);
-    transform: translateY(4px);
-  }
-  100% {
-    -webkit-transform: translateY(8px);
-    transform: translateY(8px);
-  }
-}
-@-webkit-keyframes hvr-hang-sink {
-  100% {
-    -webkit-transform: translateY(8px);
-    transform: translateY(8px);
-  }
-}
-@keyframes hvr-hang-sink {
-  100% {
-    -webkit-transform: translateY(8px);
-    transform: translateY(8px);
-  }
-}
-.hvr-hang {
-  -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  -webkit-animation-name: hvr-hang-sink, hvr-hang;
-  animation-name: hvr-hang-sink, hvr-hang;
-  -webkit-animation-duration: 0.3s, 1.5s;
-  animation-duration: 0.3s, 1.5s;
-  -webkit-animation-delay: 0s, 0.3s;
-  animation-delay: 0s, 0.3s;
-  -webkit-animation-timing-function: ease-out, ease-in-out;
-  animation-timing-function: ease-out, ease-in-out;
-  -webkit-animation-iteration-count: 1, infinite;
-  animation-iteration-count: 1, infinite;
-  -webkit-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
-  -webkit-animation-direction: normal, alternate;
-  animation-direction: normal, alternate;
-}
-
-/* Bounce To Right */
-.btn {
-  -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  position: relative;
-  -webkit-transition-property: color;
-  transition-property: color;
-  -webkit-transition-duration: 0.5s;
-  transition-duration: 0.5s;
-  overflow: hidden;
-}
-
-.btn:before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: #DEE2FE;
-  -webkit-transform: scaleX(0);
-  transform: scaleX(0);
-  -webkit-transform-origin: 0 50%;
-  transform-origin: 0 50%;
-  -webkit-transition-property: transform;
-  transition-property: transform;
-  -webkit-transition-duration: 0.5s;
-  transition-duration: 0.5s;
-  -webkit-transition-timing-function: ease-out;
-  transition-timing-function: ease-out;
-}
-
-.btn:hover,
-.btn:focus,
-.btn:active {
-  color: white;
-}
-
-.btn:hover:before,
-.btn:focus:before,
-.btn:active:before {
-  -webkit-transform: scaleX(1);
-  transform: scaleX(1);
-  -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
-  transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
-}
-
 .slick-list {
   padding: 40px 0 60px !important;
 }
@@ -1296,16 +1068,16 @@ span.hovercard.right-tooltip::after {
 }
 .data-content .modal .search-popup-wrapper .modal-content .modal-header {
   z-index: 12;
+  display: flex;
+  padding: 10px 0;
+  background: #fff;
+  align-items: center;
+  justify-content: space-between;
   border-radius: 0;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   -ms-border-radius: 0;
   -o-border-radius: 0;
-  background: #fff;
-  padding: 10px 0;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
   position: fixed;
   height: 40px;
   width: 100%;
@@ -1333,6 +1105,20 @@ span.hovercard.right-tooltip::after {
   max-width: 1200px;
   padding: 20px 0 0;
   margin: 40px auto 0;
+}
+
+.data-content .modal .search-popup-wrapper .modal-content .modal-header-with-table {
+  position: relative;
+  justify-content: center;
+  padding: 10px 0;
+  height: auto;
+}
+.data-content .modal .search-popup-wrapper .modal-content .modal-header-with-table .close {
+  position: absolute;
+  right: 10px;
+}
+.data-content .modal .search-popup-wrapper .modal-content .modal-body {
+  margin: 0 auto;
 }
 
 .search-result-card {
@@ -1378,6 +1164,7 @@ span.hovercard.right-tooltip::after {
   margin: 0 0 3px;
 }
 .search-result-card .card-heading-row .card-heading {
+  min-width: 150px;
   margin: 0 0 3px;
   font-family: Bw-Mitga-bold !important;
   font-size: 14px;
@@ -1388,7 +1175,13 @@ span.hovercard.right-tooltip::after {
   font-size: 12px;
 }
 
+.resort-icons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
 .resort-icons img {
+  margin: 0 5px 0 0;
   width: 16px;
 }
 
@@ -1587,6 +1380,7 @@ span.room-cat-text {
 }
 
 .view-details-on {
+  white-space: nowrap;
   background: #ED8AB5;
   color: #fff;
 }
@@ -2110,6 +1904,12 @@ span.room-cat-text {
 }
 .icons-wrapp-main .icon-with-notification {
   margin: 0 0 0 3px;
+}
+
+@media (max-width: 1300px) {
+  .enquiry-details-td {
+    padding: 0px 10px;
+  }
 }
 
 /*# sourceMappingURL=layout.css.map */

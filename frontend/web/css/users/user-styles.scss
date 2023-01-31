@@ -682,18 +682,18 @@ body {
 }
 
 .enquiry-strip-table {
+    margin: 0;
     width: 100%;
-    margin: 0 0 35px;
-    background: #5968DB;
-    box-shadow: none;
+    // background: #5968DB;
     border: none !important;
+    box-shadow: none;
 
     tr {
         padding: 0;
         background: none;
 
         td {
-            padding: 10px 5px;
+            padding: 0px 5px;
             color: #fff;
         }
     }
@@ -704,7 +704,7 @@ body {
     padding: 15px 10px;
     align-items: center;
     justify-content: flex-start;
-    border: none;
+    border: 1px solid #999FB4;
     padding: 0px 20px;
     background: $color-white;
     @include border-radius(20px);
@@ -717,7 +717,7 @@ body {
         border-right: 1px solid #999FB4;
         padding: 5px 5px 5px 0;
         white-space: nowrap;
-        margin: 0 10px 0 0;
+        margin: 0 5px 0 0;
     }
 
     .value {
@@ -762,6 +762,7 @@ body {
 
                     &:nth-child(1) {
                         text-align: left;
+                        width: 250px;
                     }
 
                     &:nth-last-child(1) {
