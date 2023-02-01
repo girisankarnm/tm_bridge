@@ -136,5 +136,10 @@ class PropertyController extends Controller
 
         return $this->asJson($data);
 
+    }    
+    public function actionPpe13()
+    {
+        $this->layout = 'tm_main';
+        return $this->render('property-booking-report', []);
     }
 }
