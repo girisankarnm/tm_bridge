@@ -9,73 +9,146 @@ $this->registerCssFile('/css/datepicker/jquery-ui.css');
 $this->registerCssFile('/css/messages/messages.css');
 $this->registerCssFile('/css/data-table.css');
 ?>
+
+<style>
+/* The container */
+.radio-container {
+    display: block;
+    position: relative;
+    padding: 0 20px 0 30px;
+    margin: 0;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    line-height: 20px;
+}
+
+/* Hide the browser's default radio button */
+.radio-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    margin: 0;
+}
+
+/* On mouse-over, add a grey background color */
+.radio-container:hover input~.checkmark {
+    background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.radio-container input:checked~.checkmark {
+    background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radio-container input:checked~.checkmark:after {
+    display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.radio-container .checkmark:after {
+    left: 8px;
+    top: 4px;
+    width: 6px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.report-type-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.radio-btns-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.report-type-heading {
+    padding: 0 15px 0 0;
+    margin: 0;
+    font-size: 13px;
+    font-weight: 600;
+    color: #333;
+}
+
+@media print {
+
+    hr,
+    #iconsTable,
+    .content-contr .sidebar-contr,
+    .search-report-area {
+        display: none;
+    }
+}
+</style>
 <div class="wrapper">
-    <div class="room-booking-header">
+    <div class="room-booking-header" style="-webkit-print-color-adjust: exact;">
         <div class="room-booking-header-left">
             <div class="heading border-none" style="font-size: 12px;">Property Booking Report</div>
         </div>
     </div>
 
     <div class="search-report-area">
-        <table cellpadding="0" cellspacing="0" style="width: 100%; border: none !important; margin: 0;
-    box-shadow: none; background: none !important;">
-            <tr style="background: none; padding:0;">
-                <td>
-                    <table cellpadding="0" cellspacing="0" style="width: 100%; border: none !important; margin: 0 0 10px;
-    box-shadow: none; background: none !important;">
-                        <tr style="background: none; padding:0;">
-                            <td style="">
-                                <select name="" id="" class="form-control" style="width: 350px;">
-                                    <option value="">The Leaf (Munnar, Kerala, India)</option>
-                                    <option value="">The Leaf (Munnar, Kerala, India)</option>
-                                    <option value="">The Leaf (Munnar, Kerala, India)</option>
-                                </select>
-                            </td>
-                            <td style="width: 250px">
-                                <input type="text" placeholder="Select Date Range"
-                                    style="border: 1px solid #aaa;border-radius: 3px;padding: 5px;background-color: transparent; width: 100%">
-                                <!-- <div class="datepicker-filter" id="datepicker">
-                                    <label> Arrival Date:
-                                        <input class="form-control" name="dates">
-                                    </label>
-                                </div> -->
-                            </td>
-                        </tr>
-                        <tr style="background: none; padding:0;">
-                            <td colspan="2">
-                                <table cellpadding="0" cellspacing="0" style="width: 100%; border: none !important; margin: 0;
-    box-shadow: none; background: none !important;">
-                                    <tr style="background: none !important;">
-                                        <td style="width: 28%; padding: 15px 10px 0; font-size: 14px;">
-                                            <input type="radio" style="position: relative;top: 2px;margin: 0 2px 0 0;">
-                                            Report Type
-                                        </td>
-                                        <td style="width: 28%; padding: 15px 10px 0;">
-                                            <select name="" id="" class="form-control" style="width: 100%;">
-                                                <option value="">Summary</option>
-                                                <option value="">Summary</option>
-                                                <option value="">Summary</option>
-                                            </select>
-                                        </td>
-                                        <td style="width: 28%; padding: 15px 10px 0;">
-                                            <select name="" id="" class="form-control" style="width: 100%;">
-                                                <option value="">Detailed </option>
-                                                <option value="">Detailed </option>
-                                                <option value="">Detailed </option>
-                                            </select>
-                                        </td>
-                                        <td style="width: 16%; padding: 15px 0px 0 10px;">
-                                            <button
-                                                style="background: #5968db;color: #fff;border: none;width: 100%;text-align: center;padding: 7px 10px;border-radius: 5px;">Search</button>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-        </table>
+        <div class="row">
+            <div class="col-lg-3">
+                <select name="" id="" class="form-control" style="width: 100%;">
+                    <option value="">The Leaf (Munnar, Kerala, India)</option>
+                    <option value="">The Leaf (Munnar, Kerala, India)</option>
+                    <option value="">The Leaf (Munnar, Kerala, India)</option>
+                </select>
+            </div>
+            <div class="col-lg-3">
+                <input type="text" placeholder="Select Date Range"
+                    style="border: 1px solid #aaa;border-radius: 3px;padding: 5px;background-color: transparent; width: 100%">
+            </div>
+            <div class="col-lg-4">
+                <div class="report-type-wrapper">
+                    <h5 class="report-type-heading">Report Type</h5>
+                    <div class="radio-btns-wrapper">
+                        <label class="radio-container">Summary
+                            <input type="radio" name="radio">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="radio-container">Detailed
+                            <input type="radio" checked="checked" name="radio">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <button
+                    style="background: #5968db;color: #fff;border: none;width: 100%;text-align: center;padding: 7px 10px;border-radius: 5px;">Search</button>
+            </div>
+        </div>
     </div>
     <hr>
 
@@ -94,7 +167,7 @@ $this->registerCssFile('/css/data-table.css');
                 </td>
             </tr>
         </table>
-        <table cellpadding="0" cellspacing="0" style="width: 100%; border: none !important; margin: 0 0 15px;
+        <table id="iconsTable" cellpadding="0" cellspacing="0" style="width: 100%; border: none !important; margin: 0 0 15px;
     box-shadow: none; background: none !important;">
             <tr style="background: none;">
                 <td>
