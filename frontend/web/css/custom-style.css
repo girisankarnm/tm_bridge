@@ -2114,4 +2114,17 @@ span.hovercard.right-tooltip::after {
   word-break: break-word;
 }
 
+.place-name {
+  font-family: "Bw-Mitga-bold" !important;
+  color: #1E2339;
+  font-size: 14px;
+  line-height: 18px;
+  margin: 0 0 2px;
+}
+
+.place-dates {
+  white-space: nowrap;
+  font-size: 10px !important;
+}
+
 /*# sourceMappingURL=custom-style.css.map */

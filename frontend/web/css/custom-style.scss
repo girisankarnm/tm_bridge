@@ -1330,3 +1330,16 @@ span.hovercard.right-tooltip {
 }
 
 // EOF Tooltip CSS
+
+.place-name {
+    font-family: $font-bold !important;
+    color: $color-dark;
+    font-size: 14px;
+    line-height: 18px;
+    margin: 0 0 2px;
+}
+
+.place-dates {
+    white-space: nowrap;
+    font-size: 10px !important;
+}
