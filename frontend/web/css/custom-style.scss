@@ -1343,3 +1343,13 @@ span.hovercard.right-tooltip {
     white-space: nowrap;
     font-size: 10px !important;
 }
+
+.search-input {
+    height: 30px;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    background-clip: padding-box;
+    @include border-radius(0.25rem);
+}

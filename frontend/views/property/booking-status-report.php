@@ -20,8 +20,13 @@ $this->registerCssFile('/css/data-table.css');
         <table class="table" style="border: 1px solid #dee2e6 !important;" cellpadding="0" cellspacing="0">
             <tr>
                 <td style="padding: 10px;">Enq No: <strong>XXXX | 2023 </strong></td>
+                <td style="padding: 10px;">
+                    <div class="search-box">
+                        <input type="text" class="search-input" placeholder="Search" style="min-width: 70%;">
+                    </div>
+                </td>
                 <td style="padding: 10px;"> Guest: <strong>Manoj John</strong></td>
-                <td style="padding: 10px;padding: 10px;" colspan="2">Tour Date:
+                <td style="padding: 10px;padding: 10px;">Tour Date:
                     <strong>15 Mar 23 To 22 Mar 23 (7 N)</strong>
                 </td>
             </tr>
