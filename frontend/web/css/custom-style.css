@@ -1433,6 +1433,7 @@ input.table-input-disabled {
 .hotel-rating-text-wrapper .hotel-rating-text {
   font-size: 9px;
   padding: 4px 10px;
+  white-space: nowrap;
   letter-spacing: 0.2px;
   background: #f0f2ff;
   font-family: "Bw-Mitga-bold";
@@ -2139,6 +2140,31 @@ span.hovercard.right-tooltip::after {
   -moz-border-radius: 0.25rem;
   -ms-border-radius: 0.25rem;
   -o-border-radius: 0.25rem;
+}
+
+.search-area {
+  margin: 0 0 15px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.search-box .search-head {
+  font-size: 12px;
+  font-family: "Bw-Mitga-bold" !important;
+  color: #1E2339;
+  margin: 0;
+  padding: 0 15px 0 0;
+}
+.search-box .search-input {
+  margin: 0 10px 0 0;
+}
+
+.small-btn {
+  min-height: 30px !important;
+  line-height: 0px !important;
 }
 
 /*# sourceMappingURL=custom-style.css.map */

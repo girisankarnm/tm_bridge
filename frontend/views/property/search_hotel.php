@@ -588,8 +588,8 @@ frontend\assets\AppAsset::register($this);
     </nav>
 
 </div>
-<div class="modal fade" id="searchPopupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+<div class="modal fade large-modal" id="searchPopupModal" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog search-popup-wrapper" role="document">
         <div class="modal-content">
             <div class="modal-header">

@@ -80,7 +80,7 @@ span.hovercard.right-tooltip {
     }
 }
 
-.modal-open .modal {
+.modal-open .large-modal {
     background: #F6F8FC;
 }
 
@@ -185,6 +185,8 @@ span.hovercard.right-tooltip {
                         width: 25px;
                         height: 25px;
                         margin: 0;
+                        position: absolute;
+                        right: 10px;
 
                         img {
                             width: 15px;
@@ -195,7 +197,7 @@ span.hovercard.right-tooltip {
                 .modal-body {
                     width: 100%;
                     max-width: 1200px;
-                    padding: 20px 0 0;
+                    padding: 50px 0 0;
                     margin: 40px auto 0;
                 }
             }

@@ -15,18 +15,23 @@ $this->registerCssFile('/css/data-table.css');
             <div class="heading border-none" style="font-size: 12px;">Booking Status Report</div>
         </div>
     </div>
-
+    <div class="row">
+        <div class="col-6">
+            <div class="search-area">
+                <div class="search-box">
+                    <h5 class="search-head">Enq No.</h5>
+                    <input type="text" class="search-input" placeholder="Search" style="min-width: 70%;">
+                    <button class="btn primary-btn small-btn">Search</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="table-top-strip">
         <table class="table" style="border: 1px solid #dee2e6 !important;" cellpadding="0" cellspacing="0">
             <tr>
                 <td style="padding: 10px;">Enq No: <strong>XXXX | 2023 </strong></td>
-                <td style="padding: 10px;">
-                    <div class="search-box">
-                        <input type="text" class="search-input" placeholder="Search" style="min-width: 70%;">
-                    </div>
-                </td>
                 <td style="padding: 10px;"> Guest: <strong>Manoj John</strong></td>
-                <td style="padding: 10px;padding: 10px;">Tour Date:
+                <td style="padding: 10px;padding: 10px;" colspan="2">Tour Date:
                     <strong>15 Mar 23 To 22 Mar 23 (7 N)</strong>
                 </td>
             </tr>

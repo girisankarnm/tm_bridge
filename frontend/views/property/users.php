@@ -1853,8 +1853,8 @@ $this->registerCssFile('/css/custom-style.css');
 </div>
 <!-- EOF Roomin Plan Modal -->
 <!-- BOF Assigned Property Status Modal -->
-<div class="modal fade" id="AssignedPropertyStatusModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+<div class="modal fade large-modal" id="AssignedPropertyStatusModal" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog search-popup-wrapper assigned-property-status-wrapper" role="document">
         <div class="modal-content">
             <div class="modal-header modal-header-with-table">
