@@ -25,6 +25,12 @@ $this->registerCssFile('/css/data-table.css');
                 </div>
             </div>
         </div>
+        <div class="col-6">
+            <div class="text-right">
+                <button class="print-icons" style="margin: 0 0 0 0; border: none;background: none;"><img
+                        src="images/printer.png" alt=""></button>
+            </div>
+        </div>
     </div>
     <div class="table-top-strip">
         <table class="table" style="border: 1px solid #dee2e6 !important;" cellpadding="0" cellspacing="0">
@@ -48,18 +54,18 @@ $this->registerCssFile('/css/data-table.css');
         <table style="width: 100%;border: 1px solid #dee2e6 !important;" cellpadding="0" cellspacing="0">
             <tbody>
                 <tr>
-                    <td style="width: 200px; min-width: 200px;background:#5968DB; color: #fff;padding: 5px 10px;white-space: nowrap;"
+                    <td style="width: 200px; min-width: 200px;background:#5968DB;-webkit-print-color-adjust: exact; color: #fff;padding: 5px 10px;white-space: nowrap;"
                         rowspan="2">
                         Destination
                         Date of Stay
                     </td>
-                    <td style="background:#5968DB; color: #fff;padding: 5px 10px;border-left: 1px solid #dee2e6;"
+                    <td style="background:#5968DB;-webkit-print-color-adjust: exact; color: #fff;padding: 5px 10px;border-left: 1px solid #dee2e6;"
                         rowspan="2">Property | Room Category
                     </td>
-                    <td style="background:#5968DB; color: #fff;padding: 5px 10px;border-left: 1px solid #dee2e6; border-right:1px solid #dee2e6; width: 90px;text-align: center; min-width: 90px;"
+                    <td style="background:#5968DB;-webkit-print-color-adjust: exact; color: #fff;padding: 5px 10px;border-left: 1px solid #dee2e6; border-right:1px solid #dee2e6; width: 90px;text-align: center; min-width: 90px;"
                         rowspan="2">Meal Plan</td>
                     <td
-                        style="background:#5968DB; color: #fff;padding: 5px 10px;border-left: 1px solid #dee2e6;width: 350px;text-align: center;">
+                        style="background:#5968DB;-webkit-print-color-adjust: exact; color: #fff;padding: 5px 10px;border-left: 1px solid #dee2e6;width: 350px;text-align: center;">
                         Booked
                         Units</td>
                 </tr>
@@ -69,19 +75,19 @@ $this->registerCssFile('/css/data-table.css');
     border-bottom: none !important;" cellpadding="0" cellspacing="0">
                             <tr>
                                 <td
-                                    style="background:#5968DB; border-right: 1px solid #fff; color: #fff;width: 70px; padding: 5px 10px;text-align: center; min-width: 70px;">
+                                    style="background:#5968DB;-webkit-print-color-adjust: exact; border-right: 1px solid #fff; color: #fff;width: 70px; padding: 5px 10px;text-align: center; min-width: 70px;">
                                     Room</td>
                                 <td
-                                    style="background:#5968DB; border-right: 1px solid #fff; color: #fff;width: 70px; padding: 5px 10px;text-align: center; min-width: 70px;">
+                                    style="background:#5968DB;-webkit-print-color-adjust: exact; border-right: 1px solid #fff; color: #fff;width: 70px; padding: 5px 10px;text-align: center; min-width: 70px;">
                                     EBA</td>
                                 <td
-                                    style="background:#5968DB; border-right: 1px solid #fff; color: #fff;width: 70px; padding: 5px 10px;text-align: center; min-width: 70px;">
+                                    style="background:#5968DB;-webkit-print-color-adjust: exact; border-right: 1px solid #fff; color: #fff;width: 70px; padding: 5px 10px;text-align: center; min-width: 70px;">
                                     CWB</td>
                                 <td
-                                    style="background:#5968DB; border-right: 1px solid #fff; color: #fff;width: 70px; padding: 5px 10px;text-align: center; min-width: 70px;">
+                                    style="background:#5968DB;-webkit-print-color-adjust: exact; border-right: 1px solid #fff; color: #fff;width: 70px; padding: 5px 10px;text-align: center; min-width: 70px;">
                                     CNB</td>
                                 <td
-                                    style="background:#5968DB; border-right: 1px solid #fff; color: #fff;width: 70px; padding: 5px 10px;text-align: center; min-width: 70px;">
+                                    style="background:#5968DB;-webkit-print-color-adjust: exact; border-right: 1px solid #fff; color: #fff;width: 70px; padding: 5px 10px;text-align: center; min-width: 70px;">
                                     SGL</td>
                             </tr>
                         </table>
@@ -370,6 +376,69 @@ $this->registerCssFile('/css/data-table.css');
         </table>
     </div>
 
+    <div class="summary-table" style="margin: 30px 0 0;">
+        <h4 class="summary-table-head" style="color: #333;font-size: 14px;margin: 0 0 5px; font-weight: 700;">
+            Booking Summary</h4>
+        <table style="width: 100%;box-shadow: none;">
+            <thead>
+                <tr>
+                    <th
+                        style="width: 20%; background: #5968DB; -webkit-print-color-adjust: exact; color: #fff; padding: 5px 10px !important;  white-space: nowrap;font-family: Bw-Mitga-regular !important; font-weight: inherit;">
+                        Destination | Dur</th>
+                    <th
+                        style="width: 35%; background: #5968DB; -webkit-print-color-adjust: exact; color: #fff; padding: 5px 10px !important; border-right: 1px solid #fff; white-space: nowrap;font-family: Bw-Mitga-regular !important; font-weight: inherit;">
+                        Property</th>
+                    <th
+                        style="width: 10%; text-align: center; background: #5968DB; -webkit-print-color-adjust: exact; color: #fff; padding: 5px 10px !important; border-right: 1px solid #fff; white-space: nowrap;font-family: Bw-Mitga-regular !important; font-weight: inherit;">
+                        BKG Ref</th>
+                    <th
+                        style="width: 10%; text-align: center; background: #5968DB; -webkit-print-color-adjust: exact; color: #fff; padding: 5px 10px !important; border-right: 1px solid #fff; white-space: nowrap;font-family: Bw-Mitga-regular !important; font-weight: inherit;">
+                        BKG Date</th>
+                    <th
+                        style="width: 5%; text-align: center; background: #5968DB; -webkit-print-color-adjust: exact; color: #fff; padding: 5px 10px !important; border-right: 1px solid #fff; white-space: nowrap;font-family: Bw-Mitga-regular !important; font-weight: inherit;">
+                        Dur</th>
+                    <th
+                        style="width: 10%; text-align: center; background: #5968DB; -webkit-print-color-adjust: exact; color: #fff; padding: 5px 10px !important;  white-space: nowrap;font-family: Bw-Mitga-regular !important; font-weight: inherit;">
+                        Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="border: 1px solid #dee2e6; padding: 5px 10px;">Munnar</td>
+                    <td style="border: 1px solid #dee2e6; padding: 5px 10px;">Munnar Queen Resort</td>
+                    <td style="border: 1px solid #dee2e6; padding: 5px 10px;text-align: center;">1234567359</td>
+                    <td style="border: 1px solid #dee2e6; padding: 5px 10px;text-align: center;">15 Jan 23</td>
+                    <td style="border: 1px solid #dee2e6; padding: 5px 10px;text-align: center;">1</td>
+                    <td style="border: 1px solid #dee2e6; padding: 5px 10px;text-align: center;">20,000</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #dee2e6; padding: 5px 10px;">Munnar</td>
+                    <td style="border: 1px solid #dee2e6; padding: 5px 10px;">The Leaf Resort & Spa</td>
+                    <td style="border: 1px solid #dee2e6; padding: 5px 10px;text-align: center;">1234567359</td>
+                    <td style="border: 1px solid #dee2e6; padding: 5px 10px;text-align: center;">15 Jan 23</td>
+                    <td style="border: 1px solid #dee2e6; padding: 5px 10px;text-align: center;">1</td>
+                    <td style="border: 1px solid #dee2e6; padding: 5px 10px;text-align: center;">25,000</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #dee2e6; padding: 5px 10px;">Thekkady</td>
+                    <td style="border: 1px solid #dee2e6; padding: 5px 10px;">Elephant Courtyard</td>
+                    <td style="border: 1px solid #dee2e6; padding: 5px 10px;text-align: center;">1234567359</td>
+                    <td style="border: 1px solid #dee2e6; padding: 5px 10px;text-align: center;">10 Jan 23</td>
+                    <td style="border: 1px solid #dee2e6; padding: 5px 10px;text-align: center;">2</td>
+                    <td style="border: 1px solid #dee2e6; padding: 5px 10px;text-align: center;">15,000</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #dee2e6; padding: 5px 10px;">Alappuzha</td>
+                    <td style="border: 1px solid #dee2e6; padding: 5px 10px;">Pending Booking</td>
+                    <td style="border: 1px solid #dee2e6; padding: 5px 10px;text-align: center;">-</td>
+                    <td style="border: 1px solid #dee2e6; padding: 5px 10px;text-align: center;">-</td>
+                    <td style="border: 1px solid #dee2e6; padding: 5px 10px;text-align: center;">-</td>
+                    <td style="border: 1px solid #dee2e6; padding: 5px 10px;text-align: center;">-</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -437,3 +506,11 @@ $(document).ready(function() {
 
 });
 </script>
+
+<style>
+@media print {
+    .content-contr .sidebar-contr {
+        display: none;
+    }
+}
+</style>
