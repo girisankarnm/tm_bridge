@@ -570,3 +570,26 @@ li {
     backdrop-filter: blur(5px);
     opacity: 1 !important;
 }
+
+/* BOF Submenu CSS */
+.sub-menu a {
+    font-size: 12px !important;
+    display: inline-block;
+    width: 100%;
+    padding: 5px 10px;
+}
+
+.sub-menu .sidebar-item {}
+
+.menu-arrow {
+    position: absolute;
+    right: 20px;
+}
+
+.sub-menu-list {
+    padding: 10px;
+    background: #fff;
+    padding-left: 35px;
+}
+
+/* EOF Submenu CSS */

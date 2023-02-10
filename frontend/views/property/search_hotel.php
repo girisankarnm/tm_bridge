@@ -672,7 +672,8 @@ frontend\assets\AppAsset::register($this);
                 <div class="matching-rooms-wrapper">
                     <div class="matching-rooms-header">
                         <div class="matching-rooms-head">3 Matching Rooms Found</div>
-                        <span class="right-text assigned-text">Assigned rooms</span>
+                        <span class="right-text assigned-text"><img src="images/search-popup/food-icon.svg" alt="">
+                            Assigned rooms</span>
                     </div>
 
                     <div class="matching-rooms-container">

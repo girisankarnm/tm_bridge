@@ -984,7 +984,7 @@ ul {
   }
 
   .medium-modal-wrapper {
-    max-width: 750px !important;
+    max-width: 850px !important;
   }
 }
 .popup-title {
@@ -1692,9 +1692,21 @@ input.table-input-disabled {
 }
 
 .assigned-text {
+  border: 2px solid #5968DB;
+  padding: 6px 15px 6px 12px;
+  margin: 0 0 10px;
+  border-radius: 5px;
   font-size: 14px;
   color: #5968DB;
   line-height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.assigned-text img {
+  width: 28px;
+  margin: 0 10px 0 0;
 }
 
 .room-label {
