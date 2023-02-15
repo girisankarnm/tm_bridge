@@ -115,21 +115,31 @@ $this->registerCssFile('/css/custom-style.css');
                                 <div class="actions-wrapper">
                                     <!-- <button class="action-btn">Actions <img src="images/user-icons/actions-icon.svg"
                                             alt=""></button> -->
-                                    <div class="dropdown show">
-                                        <a class="action-btn dropdown-toggle" href="#" role="button"
-                                            id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-                                            aria-expanded="false">
-                                            Actions <img src="images/user-icons/actions-icon.svg" alt="">
-                                        </a>
+                                    <span class="tooltip-link">
+                                        <div class="dropdown show">
+                                            <a class="action-btn dropdown-toggle" href="#" role="button"
+                                                id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false">
+                                                Actions <img src="images/user-icons/actions-icon.svg" alt="">
+                                            </a>
 
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                            <a class="dropdown-item" href="#">Message</a>
-                                            <a class="dropdown-item" href="#">Check availability</a>
-                                            <a class="dropdown-item" href="#">SRR</a>
-                                            <a class="dropdown-item" href="#">Block</a>
-                                            <a class="dropdown-item" href="#">Booking</a>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                <a class="dropdown-item" href="#">Message</a>
+                                                <a class="dropdown-item" href="#">Check availability</a>
+                                                <a class="dropdown-item" href="#">SRR</a>
+                                                <a class="dropdown-item" href="#">Block</a>
+                                                <a class="dropdown-item" href="#">Booking</a>
+                                            </div>
                                         </div>
-                                    </div>
+                                        <span class="hovercard hovercard-right">
+                                            <div class="tooltiptext">
+                                                <!-- <h4 class="tooltip-head">Heading</h4> -->
+                                                <p class="tooltip-para">Action disabled as child policies of rooms
+                                                    mismatch.
+                                                </p>
+                                            </div>
+                                        </span>
+                                    </span>
                                 </div>
                                 <div class="total-amount-wrapper">
                                     <h3 class="total-amount">Total Amount: <span class="total-value">₹ 25,000,0</span>
@@ -196,10 +206,17 @@ $this->registerCssFile('/css/custom-style.css');
                                     <div class="room-right">
                                         <button class="apply-button apply-hike-button">Apply Hike</button>
                                         <div class="dropdown-wrapper">
-                                            <div class="select-custom">
+                                            <div class="select-custom tooltip-link">
                                                 <select name="" id="">
                                                     <option value="">Auto Rooming</option>
                                                 </select>
+                                                <span class="hovercard">
+                                                    <div class="tooltiptext">
+                                                        <!-- <h4 class="tooltip-head">Heading</h4> -->
+                                                        <p class="tooltip-para">Switch disabled as child policies of
+                                                            rooms mismatch.</p>
+                                                    </div>
+                                                </span>
                                             </div>
                                         </div>
                                         <div class="view-delete-icons">
@@ -251,10 +268,17 @@ $this->registerCssFile('/css/custom-style.css');
                                     <div class="room-right">
                                         <button class="apply-button apply-slash-button">Apply Slash</button>
                                         <div class="dropdown-wrapper">
-                                            <div class="select-custom">
+                                            <div class="select-custom tooltip-link">
                                                 <select name="" id="">
                                                     <option value="">Manual Rooming</option>
                                                 </select>
+                                                <span class="hovercard">
+                                                    <div class="tooltiptext">
+                                                        <!-- <h4 class="tooltip-head">Heading</h4> -->
+                                                        <p class="tooltip-para">Switch disabled as child policies of
+                                                            rooms mismatch.</p>
+                                                    </div>
+                                                </span>
                                             </div>
                                         </div>
                                         <div class="view-delete-icons">
@@ -270,18 +294,16 @@ $this->registerCssFile('/css/custom-style.css');
                             <div class="view-details-single">
                                 <div class="day-area-wrapper">
                                     <div class="day-content">Day 1 | 10 Aug 2022</div>
-                                    <div class="icons-group-wrapper red-box">
-                                        <div class="tooltip-wrapper">
-                                            <div class="tooltip-link">
-                                                <span>Child Policy Mismatch</span>
-                                                <span class="hovercard">
-                                                    <div class="tooltiptext">
-                                                        <!-- <h4 class="tooltip-head">Heading</h4> -->
-                                                        <p class="tooltip-para">Only rooms with similar child & infant
-                                                            policy allowed</p>
-                                                    </div>
-                                                </span>
-                                            </div>
+                                    <div class="icons-group-wrapper red-box tooltip-link">
+                                        <div class="">
+                                            <span>Child Policy Mismatch</span>
+                                            <span class="hovercard">
+                                                <div class="tooltiptext">
+                                                    <!-- <h4 class="tooltip-head">Heading</h4> -->
+                                                    <p class="tooltip-para">Only rooms with similar child & infant
+                                                        policy allowed</p>
+                                                </div>
+                                            </span>
                                         </div>
                                     </div>
                                     <div class="edit-question-icon">
@@ -338,10 +360,17 @@ $this->registerCssFile('/css/custom-style.css');
                                     <div class="room-right">
                                         <button class="apply-button apply-hike-button">Apply Hike</button>
                                         <div class="dropdown-wrapper">
-                                            <div class="select-custom">
+                                            <div class="select-custom tooltip-link">
                                                 <select name="" id="">
                                                     <option value="">Auto Rooming</option>
                                                 </select>
+                                                <span class="hovercard">
+                                                    <div class="tooltiptext">
+                                                        <!-- <h4 class="tooltip-head">Heading</h4> -->
+                                                        <p class="tooltip-para">Switch disabled as child policies of
+                                                            rooms mismatch.</p>
+                                                    </div>
+                                                </span>
                                             </div>
                                         </div>
                                         <div class="view-delete-icons">
@@ -393,10 +422,17 @@ $this->registerCssFile('/css/custom-style.css');
                                     <div class="room-right">
                                         <button class="apply-button apply-slash-button">Apply Slash</button>
                                         <div class="dropdown-wrapper">
-                                            <div class="select-custom">
+                                            <div class="select-custom tooltip-link">
                                                 <select name="" id="">
                                                     <option value="">Manual Rooming</option>
                                                 </select>
+                                                <span class="hovercard">
+                                                    <div class="tooltiptext">
+                                                        <!-- <h4 class="tooltip-head">Heading</h4> -->
+                                                        <p class="tooltip-para">Switch disabled as child policies of
+                                                            rooms mismatch.</p>
+                                                    </div>
+                                                </span>
                                             </div>
                                         </div>
                                         <div class="view-delete-icons">
@@ -468,22 +504,35 @@ $this->registerCssFile('/css/custom-style.css');
                                 </div>
                             </div>
                             <div class="search-result-right">
-                                <div class="actions-wrapper">
-                                    <div class="dropdown show">
-                                        <a class="action-btn dropdown-toggle" href="#" role="button"
-                                            id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-                                            aria-expanded="false">
-                                            Actions <img src="images/user-icons/actions-icon.svg" alt="">
-                                        </a>
 
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                            <a class="dropdown-item" href="#">Message</a>
-                                            <a class="dropdown-item" href="#">Check availability</a>
-                                            <a class="dropdown-item" href="#">SRR</a>
-                                            <a class="dropdown-item" href="#">Block</a>
-                                            <a class="dropdown-item" href="#">Booking</a>
+                                <div class="actions-wrapper">
+                                    <!-- <button class="action-btn">Actions <img src="images/user-icons/actions-icon.svg"
+                                            alt=""></button> -->
+                                    <span class="tooltip-link">
+                                        <div class="dropdown show">
+                                            <a class="action-btn dropdown-toggle" href="#" role="button"
+                                                id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false">
+                                                Actions <img src="images/user-icons/actions-icon.svg" alt="">
+                                            </a>
+
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                <a class="dropdown-item" href="#">Message</a>
+                                                <a class="dropdown-item" href="#">Check availability</a>
+                                                <a class="dropdown-item" href="#">SRR</a>
+                                                <a class="dropdown-item" href="#">Block</a>
+                                                <a class="dropdown-item" href="#">Booking</a>
+                                            </div>
                                         </div>
-                                    </div>
+                                        <span class="hovercard hovercard-right">
+                                            <div class="tooltiptext">
+                                                <!-- <h4 class="tooltip-head">Heading</h4> -->
+                                                <p class="tooltip-para">Action disabled as child policies of rooms
+                                                    mismatch.
+                                                </p>
+                                            </div>
+                                        </span>
+                                    </span>
                                 </div>
                                 <div class="total-amount-wrapper">
                                     <h3 class="total-amount">Total Amount: <span class="total-value">₹ 25,000,0</span>
@@ -549,10 +598,17 @@ $this->registerCssFile('/css/custom-style.css');
                                     <div class="room-right">
                                         <button class="apply-button apply-hike-button">Apply Hike</button>
                                         <div class="dropdown-wrapper">
-                                            <div class="select-custom">
+                                            <div class="select-custom tooltip-link">
                                                 <select name="" id="">
                                                     <option value="">Auto Rooming</option>
                                                 </select>
+                                                <span class="hovercard">
+                                                    <div class="tooltiptext">
+                                                        <!-- <h4 class="tooltip-head">Heading</h4> -->
+                                                        <p class="tooltip-para">Switch disabled as child policies of
+                                                            rooms mismatch.</p>
+                                                    </div>
+                                                </span>
                                             </div>
                                         </div>
                                         <div class="view-delete-icons">
@@ -604,10 +660,17 @@ $this->registerCssFile('/css/custom-style.css');
                                     <div class="room-right">
                                         <button class="apply-button apply-slash-button">Apply Slash</button>
                                         <div class="dropdown-wrapper">
-                                            <div class="select-custom">
+                                            <div class="select-custom tooltip-link">
                                                 <select name="" id="">
                                                     <option value="">Manual Rooming</option>
                                                 </select>
+                                                <span class="hovercard">
+                                                    <div class="tooltiptext">
+                                                        <!-- <h4 class="tooltip-head">Heading</h4> -->
+                                                        <p class="tooltip-para">Switch disabled as child policies of
+                                                            rooms mismatch.</p>
+                                                    </div>
+                                                </span>
                                             </div>
                                         </div>
                                         <div class="view-delete-icons">
@@ -667,10 +730,17 @@ $this->registerCssFile('/css/custom-style.css');
                                     <div class="room-right">
                                         <button class="apply-button apply-hike-button">Apply Hike</button>
                                         <div class="dropdown-wrapper">
-                                            <div class="select-custom">
+                                            <div class="select-custom tooltip-link">
                                                 <select name="" id="">
                                                     <option value="">Auto Rooming</option>
                                                 </select>
+                                                <span class="hovercard">
+                                                    <div class="tooltiptext">
+                                                        <!-- <h4 class="tooltip-head">Heading</h4> -->
+                                                        <p class="tooltip-para">Switch disabled as child policies of
+                                                            rooms mismatch.</p>
+                                                    </div>
+                                                </span>
                                             </div>
                                         </div>
                                         <div class="view-delete-icons">
@@ -722,10 +792,17 @@ $this->registerCssFile('/css/custom-style.css');
                                     <div class="room-right">
                                         <button class="apply-button apply-slash-button">Apply Slash</button>
                                         <div class="dropdown-wrapper">
-                                            <div class="select-custom">
+                                            <div class="select-custom tooltip-link">
                                                 <select name="" id="">
                                                     <option value="">Manual Rooming</option>
                                                 </select>
+                                                <span class="hovercard">
+                                                    <div class="tooltiptext">
+                                                        <!-- <h4 class="tooltip-head">Heading</h4> -->
+                                                        <p class="tooltip-para">Switch disabled as child policies of
+                                                            rooms mismatch.</p>
+                                                    </div>
+                                                </span>
                                             </div>
                                         </div>
                                         <div class="view-delete-icons">
@@ -819,21 +896,31 @@ $this->registerCssFile('/css/custom-style.css');
                             </div>
                             <div class="search-result-right">
                                 <div class="actions-wrapper">
-                                    <div class="dropdown show">
-                                        <a class="action-btn dropdown-toggle" href="#" role="button"
-                                            id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-                                            aria-expanded="false">
-                                            Actions <img src="images/user-icons/actions-icon.svg" alt="">
-                                        </a>
+                                    <span class="tooltip-link">
+                                        <div class="dropdown show">
+                                            <a class="action-btn dropdown-toggle" href="#" role="button"
+                                                id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false">
+                                                Actions <img src="images/user-icons/actions-icon.svg" alt="">
+                                            </a>
 
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                            <a class="dropdown-item" href="#">Message</a>
-                                            <a class="dropdown-item" href="#">Check availability</a>
-                                            <a class="dropdown-item" href="#">SRR</a>
-                                            <a class="dropdown-item" href="#">Block</a>
-                                            <a class="dropdown-item" href="#">Booking</a>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                <a class="dropdown-item" href="#">Message</a>
+                                                <a class="dropdown-item" href="#">Check availability</a>
+                                                <a class="dropdown-item" href="#">SRR</a>
+                                                <a class="dropdown-item" href="#">Block</a>
+                                                <a class="dropdown-item" href="#">Booking</a>
+                                            </div>
                                         </div>
-                                    </div>
+                                        <span class="hovercard hovercard-right">
+                                            <div class="tooltiptext">
+                                                <!-- <h4 class="tooltip-head">Heading</h4> -->
+                                                <p class="tooltip-para">Action disabled as child policies of rooms
+                                                    mismatch.
+                                                </p>
+                                            </div>
+                                        </span>
+                                    </span>
                                 </div>
                                 <div class="total-amount-wrapper">
                                     <h3 class="total-amount">Total Amount: <span class="total-value">₹ 25,000,0</span>
@@ -900,10 +987,17 @@ $this->registerCssFile('/css/custom-style.css');
                                     <div class="room-right">
                                         <button class="apply-button apply-hike-button">Apply Hike</button>
                                         <div class="dropdown-wrapper">
-                                            <div class="select-custom">
+                                            <div class="select-custom tooltip-link">
                                                 <select name="" id="">
                                                     <option value="">Auto Rooming</option>
                                                 </select>
+                                                <span class="hovercard">
+                                                    <div class="tooltiptext">
+                                                        <!-- <h4 class="tooltip-head">Heading</h4> -->
+                                                        <p class="tooltip-para">Switch disabled as child policies of
+                                                            rooms mismatch.</p>
+                                                    </div>
+                                                </span>
                                             </div>
                                         </div>
                                         <div class="view-delete-icons">
@@ -955,10 +1049,17 @@ $this->registerCssFile('/css/custom-style.css');
                                     <div class="room-right">
                                         <button class="apply-button apply-slash-button">Apply Slash</button>
                                         <div class="dropdown-wrapper">
-                                            <div class="select-custom">
+                                            <div class="select-custom tooltip-link">
                                                 <select name="" id="">
                                                     <option value="">Manual Rooming</option>
                                                 </select>
+                                                <span class="hovercard">
+                                                    <div class="tooltiptext">
+                                                        <!-- <h4 class="tooltip-head">Heading</h4> -->
+                                                        <p class="tooltip-para">Switch disabled as child policies of
+                                                            rooms mismatch.</p>
+                                                    </div>
+                                                </span>
                                             </div>
                                         </div>
                                         <div class="view-delete-icons">
@@ -1018,10 +1119,17 @@ $this->registerCssFile('/css/custom-style.css');
                                     <div class="room-right">
                                         <button class="apply-button apply-hike-button">Apply Hike</button>
                                         <div class="dropdown-wrapper">
-                                            <div class="select-custom">
+                                            <div class="select-custom tooltip-link">
                                                 <select name="" id="">
                                                     <option value="">Auto Rooming</option>
                                                 </select>
+                                                <span class="hovercard">
+                                                    <div class="tooltiptext">
+                                                        <!-- <h4 class="tooltip-head">Heading</h4> -->
+                                                        <p class="tooltip-para">Switch disabled as child policies of
+                                                            rooms mismatch.</p>
+                                                    </div>
+                                                </span>
                                             </div>
                                         </div>
                                         <div class="view-delete-icons">
@@ -1073,10 +1181,17 @@ $this->registerCssFile('/css/custom-style.css');
                                     <div class="room-right">
                                         <button class="apply-button apply-slash-button">Apply Slash</button>
                                         <div class="dropdown-wrapper">
-                                            <div class="select-custom">
+                                            <div class="select-custom tooltip-link">
                                                 <select name="" id="">
                                                     <option value="">Manual Rooming</option>
                                                 </select>
+                                                <span class="hovercard">
+                                                    <div class="tooltiptext">
+                                                        <!-- <h4 class="tooltip-head">Heading</h4> -->
+                                                        <p class="tooltip-para">Switch disabled as child policies of
+                                                            rooms mismatch.</p>
+                                                    </div>
+                                                </span>
                                             </div>
                                         </div>
                                         <div class="view-delete-icons">
@@ -1149,21 +1264,31 @@ $this->registerCssFile('/css/custom-style.css');
                             </div>
                             <div class="search-result-right">
                                 <div class="actions-wrapper">
-                                    <div class="dropdown show">
-                                        <a class="action-btn dropdown-toggle" href="#" role="button"
-                                            id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-                                            aria-expanded="false">
-                                            Actions <img src="images/user-icons/actions-icon.svg" alt="">
-                                        </a>
+                                    <span class="tooltip-link">
+                                        <div class="dropdown show">
+                                            <a class="action-btn dropdown-toggle" href="#" role="button"
+                                                id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false">
+                                                Actions <img src="images/user-icons/actions-icon.svg" alt="">
+                                            </a>
 
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                            <a class="dropdown-item" href="#">Message</a>
-                                            <a class="dropdown-item" href="#">Check availability</a>
-                                            <a class="dropdown-item" href="#">SRR</a>
-                                            <a class="dropdown-item" href="#">Block</a>
-                                            <a class="dropdown-item" href="#">Booking</a>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                <a class="dropdown-item" href="#">Message</a>
+                                                <a class="dropdown-item" href="#">Check availability</a>
+                                                <a class="dropdown-item" href="#">SRR</a>
+                                                <a class="dropdown-item" href="#">Block</a>
+                                                <a class="dropdown-item" href="#">Booking</a>
+                                            </div>
                                         </div>
-                                    </div>
+                                        <span class="hovercard hovercard-right">
+                                            <div class="tooltiptext">
+                                                <!-- <h4 class="tooltip-head">Heading</h4> -->
+                                                <p class="tooltip-para">Action disabled as child policies of rooms
+                                                    mismatch.
+                                                </p>
+                                            </div>
+                                        </span>
+                                    </span>
                                 </div>
                                 <div class="total-amount-wrapper">
                                     <h3 class="total-amount">Total Amount: <span class="total-value">₹ 25,000,0</span>
@@ -1230,10 +1355,17 @@ $this->registerCssFile('/css/custom-style.css');
                                     <div class="room-right">
                                         <button class="apply-button apply-hike-button">Apply Hike</button>
                                         <div class="dropdown-wrapper">
-                                            <div class="select-custom">
+                                            <div class="select-custom tooltip-link">
                                                 <select name="" id="">
                                                     <option value="">Auto Rooming</option>
                                                 </select>
+                                                <span class="hovercard">
+                                                    <div class="tooltiptext">
+                                                        <!-- <h4 class="tooltip-head">Heading</h4> -->
+                                                        <p class="tooltip-para">Switch disabled as child policies of
+                                                            rooms mismatch.</p>
+                                                    </div>
+                                                </span>
                                             </div>
                                         </div>
                                         <div class="view-delete-icons">
@@ -1285,10 +1417,17 @@ $this->registerCssFile('/css/custom-style.css');
                                     <div class="room-right">
                                         <button class="apply-button apply-slash-button">Apply Slash</button>
                                         <div class="dropdown-wrapper">
-                                            <div class="select-custom">
+                                            <div class="select-custom tooltip-link">
                                                 <select name="" id="">
                                                     <option value="">Manual Rooming</option>
                                                 </select>
+                                                <span class="hovercard">
+                                                    <div class="tooltiptext">
+                                                        <!-- <h4 class="tooltip-head">Heading</h4> -->
+                                                        <p class="tooltip-para">Switch disabled as child policies of
+                                                            rooms mismatch.</p>
+                                                    </div>
+                                                </span>
                                             </div>
                                         </div>
                                         <div class="view-delete-icons">
@@ -1361,10 +1500,17 @@ $this->registerCssFile('/css/custom-style.css');
                                     <div class="room-right">
                                         <button class="apply-button apply-hike-button">Apply Hike</button>
                                         <div class="dropdown-wrapper">
-                                            <div class="select-custom">
+                                            <div class="select-custom tooltip-link">
                                                 <select name="" id="">
                                                     <option value="">Auto Rooming</option>
                                                 </select>
+                                                <span class="hovercard">
+                                                    <div class="tooltiptext">
+                                                        <!-- <h4 class="tooltip-head">Heading</h4> -->
+                                                        <p class="tooltip-para">Switch disabled as child policies of
+                                                            rooms mismatch.</p>
+                                                    </div>
+                                                </span>
                                             </div>
                                         </div>
                                         <div class="view-delete-icons">
@@ -1416,10 +1562,17 @@ $this->registerCssFile('/css/custom-style.css');
                                     <div class="room-right">
                                         <button class="apply-button apply-slash-button">Apply Slash</button>
                                         <div class="dropdown-wrapper">
-                                            <div class="select-custom">
+                                            <div class="select-custom tooltip-link">
                                                 <select name="" id="">
                                                     <option value="">Manual Rooming</option>
                                                 </select>
+                                                <span class="hovercard">
+                                                    <div class="tooltiptext">
+                                                        <!-- <h4 class="tooltip-head">Heading</h4> -->
+                                                        <p class="tooltip-para">Switch disabled as child policies of
+                                                            rooms mismatch.</p>
+                                                    </div>
+                                                </span>
                                             </div>
                                         </div>
                                         <div class="view-delete-icons">
@@ -2138,9 +2291,6 @@ function viewDetails(id) {
     $(`#view-details-btn-0${id}`).toggleClass(`view-details-on`);
 }
 
-$(window).on('load', function() {
-    $('#AssignedPropertyStatusModal').modal('show');
-});
 // BOF Tooltip JS
 const tooltips = document.querySelectorAll('.tooltip-main');
 
@@ -2292,4 +2442,8 @@ Array.prototype.forEach.call(tooltips, function(el, i) {
     }
 });
 // EOF Tooltip JS
+
+// $(window).on('load', function() {
+//     $('#AssignedPropertyStatusModal').modal('show');
+// });
 </script>

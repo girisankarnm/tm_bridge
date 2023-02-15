@@ -1890,18 +1890,18 @@ input:focus-visible {
 }
 
 .hovercard {
-  left: 50%;
+  left: 0;
   opacity: 0;
   z-index: 1;
   bottom: 100%;
   margin: 0 0 10px;
   position: absolute;
   pointer-events: none;
-  transform: translateX(-35%);
-  -webkit-transform: translateX(-35%);
-  -ms-transform: translateX(-35%);
-  -moz-transform: translateX(-35%);
-  -o-transform: translateX(-35%);
+  transform: translateX(0%);
+  -webkit-transform: translateX(0%);
+  -ms-transform: translateX(0%);
+  -moz-transform: translateX(0%);
+  -o-transform: translateX(0%);
 }
 .hovercard::after {
   position: absolute;
@@ -1910,6 +1910,15 @@ input:focus-visible {
   bottom: -12px;
   border: 6px solid transparent;
   border-top: 6px solid #575c85;
+}
+
+.hovercard-right {
+  left: initial;
+  right: 0;
+}
+.hovercard-right::after {
+  left: initial;
+  right: 15px;
 }
 
 span.hovercard.right-tooltip {
@@ -1954,6 +1963,9 @@ span.hovercard.right-tooltip::after {
   color: #fff;
   font-size: 14px;
   text-align: left;
+}
+.tooltiptext .tooltip-para:nth-last-child(1) {
+  margin: 0;
 }
 
 .tooltip-main {
