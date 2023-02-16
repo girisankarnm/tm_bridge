@@ -1097,6 +1097,10 @@ input:focus-visible {
     display: inline-block;
 }
 
+.tooltip-link {
+    position: relative;
+}
+
 .hovercard {
     left: 0;
     opacity: 0;

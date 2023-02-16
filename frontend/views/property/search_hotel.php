@@ -771,7 +771,7 @@ frontend\assets\AppAsset::register($this);
                                                 <span class="checkmark"></span>
                                             </label> -->
                                         </div>
-                                        <span class="hovercard right-tooltip">
+                                        <span class="hovercard hovercard-right">
                                             <div class="tooltiptext">
                                                 <h4 class="tooltip-head">Heading</h4>
                                                 <p class="tooltip-para">11</p>

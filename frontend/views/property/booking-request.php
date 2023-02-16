@@ -750,48 +750,98 @@ $this->registerCssFile('/css/datepicker/jquery-ui.css');
                                 </div>
                             </div>
                             <div class="col-lg-6 pl-0">
-                                <div class="popup-room-rate-table-wrapper">
-                                    <table class="popup-room-rate-table">
+                                <div class="popup-room-rate-table-wrapper" style="overflow: visible;">
+                                    <table class="popup-room-rate-table" style="overflow: visible;">
                                         <tr>
                                             <td class="head-td">Rooms</td>
                                             <td><input type="text" class="rooms-number" placeholder="No. of Rooms"></td>
-                                            <td>4200</td>
+                                            <td class="tooltip-link">4200
+                                                <span class="hovercard">
+                                                    <div class="tooltiptext">
+                                                        <h4 class="tooltip-head">Heading</h4>
+                                                        <p class="tooltip-para">11</p>
+                                                    </div>
+                                                </span>
+                                            </td>
                                             <td>8400</td>
                                         </tr>
                                         <tr>
                                             <td class="head-td">EBA</td>
                                             <td>1X 100</td>
-                                            <td>100</td>
+                                            <td class="tooltip-link">100
+                                                <span class="hovercard">
+                                                    <div class="tooltiptext">
+                                                        <h4 class="tooltip-head">Heading</h4>
+                                                        <p class="tooltip-para">11</p>
+                                                    </div>
+                                                </span>
+                                            </td>
                                             <td>100</td>
                                         </tr>
                                         <tr>
                                             <td class="head-td">CWB</td>
                                             <td>0X 100</td>
-                                            <td>0</td>
+                                            <td class="tooltip-link">0
+                                                <span class="hovercard">
+                                                    <div class="tooltiptext">
+                                                        <h4 class="tooltip-head">Heading</h4>
+                                                        <p class="tooltip-para">11</p>
+                                                    </div>
+                                                </span>
+                                            </td>
                                             <td>0</td>
                                         </tr>
                                         <tr>
                                             <td class="head-td">CNB</td>
                                             <td>1X 100</td>
-                                            <td>100</td>
+                                            <td class="tooltip-link">100
+                                                <span class="hovercard">
+                                                    <div class="tooltiptext">
+                                                        <h4 class="tooltip-head">Heading</h4>
+                                                        <p class="tooltip-para">11</p>
+                                                    </div>
+                                                </span>
+                                            </td>
                                             <td>100</td>
                                         </tr>
                                         <tr>
                                             <td class="head-td">SGL</td>
                                             <td>0X 4200</td>
-                                            <td>0</td>
+                                            <td class="tooltip-link">0
+                                                <span class="hovercard">
+                                                    <div class="tooltiptext">
+                                                        <h4 class="tooltip-head">Heading</h4>
+                                                        <p class="tooltip-para">11</p>
+                                                    </div>
+                                                </span>
+                                            </td>
                                             <td>0</td>
                                         </tr>
                                         <tr>
                                             <td class="head-td">FOC</td>
                                             <td>0 Infants</td>
-                                            <td>0</td>
+                                            <td class="tooltip-link">0
+                                                <span class="hovercard">
+                                                    <div class="tooltiptext">
+                                                        <h4 class="tooltip-head">Heading</h4>
+                                                        <p class="tooltip-para">11</p>
+                                                    </div>
+                                                </span>
+                                            </td>
                                             <td>0</td>
                                         </tr>
                                         <tr>
                                             <td class="head-td">Inclusion</td>
                                             <td>0</td>
-                                            <td>0</td>
+                                            <td class="tooltip-link">
+                                                0
+                                                <span class="hovercard">
+                                                    <div class="tooltiptext">
+                                                        <h4 class="tooltip-head">Heading</h4>
+                                                        <p class="tooltip-para">11</p>
+                                                    </div>
+                                                </span>
+                                            </td>
                                             <td>0</td>
                                         </tr>
                                         <tr class="total-row">
