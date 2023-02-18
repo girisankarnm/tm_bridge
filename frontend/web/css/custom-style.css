@@ -1921,8 +1921,8 @@ input:focus-visible {
   right: 0;
 }
 .hovercard-right::after {
-  left: initial;
-  right: 15px;
+  left: initial !important;
+  right: 15px !important;
 }
 
 span.hovercard.right-tooltip {

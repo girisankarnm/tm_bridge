@@ -579,7 +579,13 @@ li {
     padding: 5px 10px;
 }
 
-.sub-menu .sidebar-item {}
+.sub-menu .sidebar-item.active {
+    color: #E40967 !important;
+}
+
+.sub-menu .sidebar-item:hover {
+    color: #E40967 !important;
+}
 
 .menu-arrow {
     position: absolute;
@@ -590,6 +596,11 @@ li {
     padding: 10px;
     background: #fff;
     padding-left: 35px;
+}
+
+.sub-menu-list li a.active,
+.sub-menu-list li a:hover {
+    color: #E40967 !important;
 }
 
 /* EOF Submenu CSS */

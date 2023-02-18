@@ -917,77 +917,6 @@ ul {
     max-width: 100% !important;
   }
 }
-.tooltip-wrapper {
-  display: inline-block;
-}
-
-.hovercard {
-  position: absolute;
-  opacity: 0;
-  z-index: 1;
-  left: 50%;
-  bottom: 100%;
-  pointer-events: none;
-  transform: translateX(-15%);
-  -webkit-transform: translateX(-15%);
-  -ms-transform: translateX(-15%);
-  -moz-transform: translateX(-15%);
-  -o-transform: translateX(-15%);
-  margin: 0 0 10px;
-}
-.hovercard::after {
-  position: absolute;
-  content: "";
-  left: 15px;
-  bottom: -12px;
-  border: 6px solid transparent;
-  border-top: 6px solid #575c85;
-}
-
-span.hovercard.right-tooltip {
-  right: -38px;
-  left: initial;
-}
-span.hovercard.right-tooltip::after {
-  left: initial !important;
-  right: 10px;
-}
-
-.tooltip-link:hover .hovercard {
-  opacity: 1;
-  transition: all ease 0.5s;
-  /* transition: 0.5s; */
-  /* transition-delay: 0.1s; */
-}
-
-.tooltiptext {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  background-color: #575c85;
-  padding: 10px 15px;
-  border-radius: 5px;
-  color: white;
-  line-height: 15px;
-  transition: 1s;
-  width: 250px;
-  word-break: break-word;
-  white-space: normal;
-}
-.tooltiptext .tooltip-head {
-  color: #fff;
-  font-size: 14px;
-  margin: 0 0 5px;
-  text-align: left;
-  line-height: 17px;
-  font-family: "Bw-Mitga-bold" !important;
-}
-.tooltiptext .tooltip-para {
-  color: #fff;
-  font-size: 14px;
-  text-align: left;
-}
-
 .modal-open .large-modal {
   background: #F6F8FC;
 }
@@ -1401,6 +1330,7 @@ span.room-cat-text {
   max-height: 600px;
   overflow: hidden;
   overflow-y: auto;
+  min-height: 300px;
 }
 
 .matching-rooms-box-wrapper {

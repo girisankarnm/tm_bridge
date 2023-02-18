@@ -752,31 +752,39 @@ frontend\assets\AppAsset::register($this);
                                     <div class="room-policy-occupancy-single">
                                         <div class="room-policy-occupancy-heading">Default Occupancy</div>
                                         <div class="room-policy-occupancy-content">
-                                            <div class="room-policy-occupancy-content-single">
+                                            <div class="room-policy-occupancy-content-single tooltip-link">
                                                 <img src="images/search-popup/bed-icon.svg" style="width:28px"
                                                     class="room-policy-occupancy-icon" alt="">
                                                 <span class="policy-text">DB: XI EB: XI SB: X</span>
+                                                <span class="hovercard">
+                                                    <div class="tooltiptext">
+                                                        <h4 class="tooltip-head">Tooltip html item</h4>
+                                                        <p class="tooltip-para">Lorem ipsum dolor sit amet,
+                                                            consectetur adipiscing elit. Cras convallis sodales erat vel
+                                                            accumsan.</p>
+                                                    </div>
+                                                </span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="days-price-details">
-                                    <div class="tooltip-link stay-days-wrapper">
-                                        <div class="days-container">
+                                    <div class="stay-days-wrapper">
+                                        <div class="days-container tooltip-link">
                                             <span class="days-text">10 Days Stay </span>
                                             <span class="tik-icon"><img src="images/Tick-Load-Full.png"
                                                     style="width:20px" class="room-policy-occupancy-icon" alt=""></span>
+                                            <span class="hovercard hovercard-right">
+                                                <div class="tooltiptext">
+                                                    <h4 class="tooltip-head">Heading</h4>
+                                                    <p class="tooltip-para">11</p>
+                                                </div>
+                                            </span>
                                             <!-- <label class="checkbox-container">
                                                 <input type="checkbox">
                                                 <span class="checkmark"></span>
                                             </label> -->
                                         </div>
-                                        <span class="hovercard hovercard-right">
-                                            <div class="tooltiptext">
-                                                <h4 class="tooltip-head">Heading</h4>
-                                                <p class="tooltip-para">11</p>
-                                            </div>
-                                        </span>
                                     </div>
                                     <div class="room-price-wrapper">
                                         <div class="old-price">₹ 10'246</div>
@@ -1157,10 +1165,18 @@ frontend\assets\AppAsset::register($this);
                                     <div class="room-policy-occupancy-single">
                                         <div class="room-policy-occupancy-heading">Default Occupancy</div>
                                         <div class="room-policy-occupancy-content">
-                                            <div class="room-policy-occupancy-content-single">
+                                            <div class="room-policy-occupancy-content-single tooltip-link">
                                                 <img src="images/search-popup/bed-icon.svg" style="width:28px"
                                                     class="room-policy-occupancy-icon" alt="">
                                                 <span class="policy-text">DB: XI EB: XI SB: X</span>
+                                                <span class="hovercard">
+                                                    <div class="tooltiptext">
+                                                        <h4 class="tooltip-head">Tooltip html item</h4>
+                                                        <p class="tooltip-para">Lorem ipsum dolor sit amet,
+                                                            consectetur adipiscing elit. Cras convallis sodales erat vel
+                                                            accumsan.</p>
+                                                    </div>
+                                                </span>
                                             </div>
                                         </div>
                                     </div>
@@ -1174,7 +1190,7 @@ frontend\assets\AppAsset::register($this);
                                                 <span class="checkmark"></span>
                                             </label>
                                         </div>
-                                        <span class="hovercard right-tooltip">
+                                        <span class="hovercard hovercard-right">
                                             <div class="tooltiptext">
                                                 <h4 class="tooltip-head">Heading</h4>
                                                 <p class="tooltip-para">11</p>
@@ -1468,10 +1484,10 @@ frontend\assets\AppAsset::register($this);
                                     <div class="room-policy-occupancy-single">
                                         <div class="room-policy-occupancy-heading">Default Occupancy</div>
                                         <div class="room-policy-occupancy-content">
-                                            <div class="room-policy-occupancy-content-single">
+                                            <!-- <div class="room-policy-occupancy-content-single">
                                                 <img src="images/search-popup/bed-icon.svg" style="width:28px"
                                                     class="room-policy-occupancy-icon" alt="">
-                                                <!-- <span>DB: XI EB: XI SB: X</span> -->
+                                                <span>DB: XI EB: XI SB: X</span>
                                                 <div class="tooltip-main">
                                                     <span class="tooltip-button policy-text" aria-expanded="false">8-15
                                                         YR</span>
@@ -1484,6 +1500,19 @@ frontend\assets\AppAsset::register($this);
                                                             convallis sodales erat vel accumsan.</p>
                                                     </div>
                                                 </div>
+                                            </div> -->
+                                            <div class="room-policy-occupancy-content-single tooltip-link">
+                                                <img src="images/search-popup/bed-icon.svg" style="width:28px"
+                                                    class="room-policy-occupancy-icon" alt="">
+                                                <span class="policy-text">8-15 YR</span>
+                                                <span class="hovercard">
+                                                    <div class="tooltiptext">
+                                                        <h4 class="tooltip-head">Tooltip html item</h4>
+                                                        <p class="tooltip-para">Lorem ipsum dolor sit amet,
+                                                            consectetur adipiscing elit. Cras convallis sodales erat vel
+                                                            accumsan.</p>
+                                                    </div>
+                                                </span>
                                             </div>
                                         </div>
                                     </div>
@@ -1497,7 +1526,7 @@ frontend\assets\AppAsset::register($this);
                                                 <span class="checkmark"></span>
                                             </label>
                                         </div>
-                                        <span class="hovercard right-tooltip">
+                                        <span class="hovercard hovercard-right">
                                             <div class="tooltiptext">
                                                 <h4 class="tooltip-head">Heading</h4>
                                                 <p class="tooltip-para">11</p>

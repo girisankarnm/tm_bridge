@@ -1126,8 +1126,8 @@ input:focus-visible {
     right: 0;
 
     &::after {
-        left: initial;
-        right: 15px;
+        left: initial !important;
+        right: 15px !important;
     }
 }
 

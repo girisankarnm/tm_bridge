@@ -155,14 +155,13 @@ FormAsset::register($this);
                     <p class="mb-0"> Users </p>
                 </a>
 
-
                 <div class='sub-menu'>
                     <a href='#settings' class="sidebar-item">
-                        <img src="/images/user.svg" alt="user.svg"> Settings
+                        <img src="/images/properties.svg" alt="user.svg"> Settings
                         <div class='menu-arrow fa fa-caret-down right'></div>
                     </a>
                     <ul class="sub-menu-list">
-                        <li><a href='#settings'>Account</a></li>
+                        <li><a href='#settings' class="active">Account</a></li>
                         <li><a href='#settings'>Profile</a></li>
                         <li><a href='#settings'>Secruity &amp; Privacy</a></li>
                         <li><a href='#settings'>Password</a></li>
@@ -228,6 +227,7 @@ FormAsset::register($this);
 
     $('.sub-menu ul').hide();
     $(".sub-menu a").click(function() {
+        $(this).toggleClass("active");
         $(this).parent(".sub-menu").children("ul").slideToggle("100");
         $(this).find(".right").toggleClass("fa-caret-up fa-caret-down");
     });
