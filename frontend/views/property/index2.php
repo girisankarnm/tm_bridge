@@ -6934,6 +6934,15 @@ $this->registerCssFile('/css/datepicker.css');
 // window.addEventListener("scroll", function() {
 //     console.log(123)
 // }, false);
+
+$('div.data-content').on('scroll', function () {
+    if ($(this).scrollTop() > 50) {
+        $('.fix-this-div').addClass('newClass');
+    } else {
+        $('.fix-this-div').removeClass('newClass');
+    }
+});
+
 window.addEventListener('scroll', function() {
     console.log('Scroll event');
 });
@@ -7104,5 +7113,8 @@ table thead {
 .datepicker.dropdown-menu {
     border: none !important;
     box-shadow: none !important;
+}
+.newClass {
+    background-color: red;
 }
 </style>
