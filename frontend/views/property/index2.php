@@ -39,214 +39,216 @@ $this->registerCssFile('/css/datepicker.css');
         </div>
     </div>
     <div class="booking-table-wrapper">
-
-        <div class="book-date-table-wrapper fix-this-div">
-            <table class="book-date-heading">
-                <tr>
-                    <td class="date-td">
-                        <div class="calender-heading"><img src="images/property-icons/calender-icon.png" alt=""> <span
-                                class="date-text">Date</span></div>
-                    </td>
-                </tr>
-            </table>
-            <div class="book-date-table-contents">
-                <div class="table-responsive scroll-table">
-                    <table class="book-dates-table">
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div class="day-content">
-                                        <h5 class="day-text">Wed</h5>
-                                        <h5 class="date-text-td">01</h5>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="day-content">
-                                        <h5 class="day-text">Thu</h5>
-                                        <h5 class="date-text-td">02</h5>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="day-content">
-                                        <h5 class="day-text">Fri</h5>
-                                        <h5 class="date-text-td">03</h5>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="day-content">
-                                        <h5 class="day-text">Sat</h5>
-                                        <h5 class="date-text-td">04</h5>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="day-content">
-                                        <h5 class="day-text sun-color">Sun</h5>
-                                        <h5 class="date-text-td">05</h5>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="day-content">
-                                        <h5 class="day-text">Mon</h5>
-                                        <h5 class="date-text-td">06</h5>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="day-content">
-                                        <h5 class="day-text">Tue</h5>
-                                        <h5 class="date-text-td">07</h5>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="day-content">
-                                        <h5 class="day-text">Wed</h5>
-                                        <h5 class="date-text-td">08</h5>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="day-content">
-                                        <h5 class="day-text">Thu</h5>
-                                        <h5 class="date-text-td">09</h5>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="day-content">
-                                        <h5 class="day-text">Fri</h5>
-                                        <h5 class="date-text-td">10</h5>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="day-content">
-                                        <h5 class="day-text">Sat</h5>
-                                        <h5 class="date-text-td">11</h5>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="day-content">
-                                        <h5 class="day-text sun-color">Sun</h5>
-                                        <h5 class="date-text-td">12</h5>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="day-content">
-                                        <h5 class="day-text">Mon</h5>
-                                        <h5 class="date-text-td">13</h5>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="day-content">
-                                        <h5 class="day-text">Tue</h5>
-                                        <h5 class="date-text-td">14</h5>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="day-content">
-                                        <h5 class="day-text">Wed</h5>
-                                        <h5 class="date-text-td">15</h5>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="day-content">
-                                        <h5 class="day-text">Thu</h5>
-                                        <h5 class="date-text-td">16</h5>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="day-content">
-                                        <h5 class="day-text">Fri</h5>
-                                        <h5 class="date-text-td">17</h5>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="day-content">
-                                        <h5 class="day-text">Sat</h5>
-                                        <h5 class="date-text-td">18</h5>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="day-content">
-                                        <h5 class="day-text sun-color">Sun</h5>
-                                        <h5 class="date-text-td">19</h5>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="day-content">
-                                        <h5 class="day-text">Mon</h5>
-                                        <h5 class="date-text-td">20</h5>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="day-content">
-                                        <h5 class="day-text">Tue</h5>
-                                        <h5 class="date-text-td">21</h5>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="day-content">
-                                        <h5 class="day-text">Wed</h5>
-                                        <h5 class="date-text-td">22</h5>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="day-content">
-                                        <h5 class="day-text">Thu</h5>
-                                        <h5 class="date-text-td">23</h5>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="day-content">
-                                        <h5 class="day-text">Fri</h5>
-                                        <h5 class="date-text-td">24</h5>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="day-content">
-                                        <h5 class="day-text">Sat</h5>
-                                        <h5 class="date-text-td">25</h5>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="day-content">
-                                        <h5 class="day-text sun-color">Sun</h5>
-                                        <h5 class="date-text-td">26</h5>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="day-content">
-                                        <h5 class="day-text">Mon</h5>
-                                        <h5 class="date-text-td">27</h5>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="day-content">
-                                        <h5 class="day-text">Tue</h5>
-                                        <h5 class="date-text-td">28</h5>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="day-content">
-                                        <h5 class="day-text">Wed</h5>
-                                        <h5 class="date-text-td">29</h5>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="day-content">
-                                        <h5 class="day-text">Thu</h5>
-                                        <h5 class="date-text-td">30</h5>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="day-content">
-                                        <h5 class="day-text">Fri</h5>
-                                        <h5 class="date-text-td">31</h5>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+        <div class="fix-this-div">
+            <div class="book-date-table-wrapper">
+                <table class="book-date-heading">
+                    <tr>
+                        <td class="date-td">
+                            <div class="calender-heading"><img src="images/property-icons/calender-icon.png" alt="">
+                                <span class="date-text">Date</span>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <div class="book-date-table-contents">
+                    <div class="table-responsive scroll-table">
+                        <table class="book-dates-table">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="day-content">
+                                            <h5 class="day-text">Wed</h5>
+                                            <h5 class="date-text-td">01</h5>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content">
+                                            <h5 class="day-text">Thu</h5>
+                                            <h5 class="date-text-td">02</h5>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content">
+                                            <h5 class="day-text">Fri</h5>
+                                            <h5 class="date-text-td">03</h5>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content">
+                                            <h5 class="day-text">Sat</h5>
+                                            <h5 class="date-text-td">04</h5>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content">
+                                            <h5 class="day-text sun-color">Sun</h5>
+                                            <h5 class="date-text-td">05</h5>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content">
+                                            <h5 class="day-text">Mon</h5>
+                                            <h5 class="date-text-td">06</h5>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content">
+                                            <h5 class="day-text">Tue</h5>
+                                            <h5 class="date-text-td">07</h5>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content">
+                                            <h5 class="day-text">Wed</h5>
+                                            <h5 class="date-text-td">08</h5>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content">
+                                            <h5 class="day-text">Thu</h5>
+                                            <h5 class="date-text-td">09</h5>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content">
+                                            <h5 class="day-text">Fri</h5>
+                                            <h5 class="date-text-td">10</h5>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content">
+                                            <h5 class="day-text">Sat</h5>
+                                            <h5 class="date-text-td">11</h5>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content">
+                                            <h5 class="day-text sun-color">Sun</h5>
+                                            <h5 class="date-text-td">12</h5>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content">
+                                            <h5 class="day-text">Mon</h5>
+                                            <h5 class="date-text-td">13</h5>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content">
+                                            <h5 class="day-text">Tue</h5>
+                                            <h5 class="date-text-td">14</h5>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content">
+                                            <h5 class="day-text">Wed</h5>
+                                            <h5 class="date-text-td">15</h5>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content">
+                                            <h5 class="day-text">Thu</h5>
+                                            <h5 class="date-text-td">16</h5>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content">
+                                            <h5 class="day-text">Fri</h5>
+                                            <h5 class="date-text-td">17</h5>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content">
+                                            <h5 class="day-text">Sat</h5>
+                                            <h5 class="date-text-td">18</h5>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content">
+                                            <h5 class="day-text sun-color">Sun</h5>
+                                            <h5 class="date-text-td">19</h5>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content">
+                                            <h5 class="day-text">Mon</h5>
+                                            <h5 class="date-text-td">20</h5>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content">
+                                            <h5 class="day-text">Tue</h5>
+                                            <h5 class="date-text-td">21</h5>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content">
+                                            <h5 class="day-text">Wed</h5>
+                                            <h5 class="date-text-td">22</h5>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content">
+                                            <h5 class="day-text">Thu</h5>
+                                            <h5 class="date-text-td">23</h5>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content">
+                                            <h5 class="day-text">Fri</h5>
+                                            <h5 class="date-text-td">24</h5>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content">
+                                            <h5 class="day-text">Sat</h5>
+                                            <h5 class="date-text-td">25</h5>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content">
+                                            <h5 class="day-text sun-color">Sun</h5>
+                                            <h5 class="date-text-td">26</h5>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content">
+                                            <h5 class="day-text">Mon</h5>
+                                            <h5 class="date-text-td">27</h5>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content">
+                                            <h5 class="day-text">Tue</h5>
+                                            <h5 class="date-text-td">28</h5>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content">
+                                            <h5 class="day-text">Wed</h5>
+                                            <h5 class="date-text-td">29</h5>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content">
+                                            <h5 class="day-text">Thu</h5>
+                                            <h5 class="date-text-td">30</h5>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="day-content">
+                                            <h5 class="day-text">Fri</h5>
+                                            <h5 class="date-text-td">31</h5>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-            </div>
-            <div class="right-arrow" onClick="moveToRight()">
-                <img src="images/property-icons/right-arrow.png" alt="">
+                <div class="right-arrow" onClick="moveToRight()">
+                    <img src="images/property-icons/right-arrow.png" alt="">
+                </div>
             </div>
         </div>
 
@@ -6935,11 +6937,12 @@ $this->registerCssFile('/css/datepicker.css');
 //     console.log(123)
 // }, false);
 
-$('div.data-content').on('scroll', function () {
+$('div.data-content').on('scroll', function() {
     if ($(this).scrollTop() > 50) {
-        $('.fix-this-div').addClass('newClass');
+        $('.fix-this-div').addClass('dateFixDiv');
+        $('.dateFixDiv').width($('.single-room-details-wrapper')[0].clientWidth)
     } else {
-        $('.fix-this-div').removeClass('newClass');
+        $('.fix-this-div').removeClass('dateFixDiv');
     }
 });
 
@@ -7114,7 +7117,14 @@ table thead {
     border: none !important;
     box-shadow: none !important;
 }
-.newClass {
-    background-color: red;
+
+.dateFixDiv {
+    position: fixed;
+    top: 60px;
+    background: #fff;
+}
+
+.dateFixDiv .single-room-details-wrapper {
+    margin: 0;
 }
 </style>

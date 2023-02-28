@@ -1177,6 +1177,7 @@ body {
 }
 .block-ssr-booking-btns .block-ssr-booking-btn .btn-status {
   font-size: 10px;
+  white-space: nowrap;
   font-family: "Bw-Mitga-regular" !important;
 }
 .block-ssr-booking-btns .active {
