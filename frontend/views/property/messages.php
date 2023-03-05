@@ -146,14 +146,14 @@ $this->registerCssFile('/css/messages/messages.css');
         </div>
         <div class="chat-right">
             <!-- BOF CHat Landing Page Image HTML -->
-            <div class="chat-default-screen">
+            <!-- <div class="chat-default-screen">
                 <article>
                     <h3>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </h3>
                 </article>
                 <figure>
                     <img src="images/messages/chat-default-img.png" alt="">
                 </figure>
-            </div>
+            </div> -->
             <!-- EOF CHat Landing Page Image HTML -->
             <div class="chat-area-header">
                 <div class="chat-user-list-single">
@@ -184,6 +184,18 @@ $this->registerCssFile('/css/messages/messages.css');
                         <div class="activity-chat-area">
                             <div class="activity-chat">Lorren ippsum gravida sem?
                                 <span class="chat-time">12.00 PM</span>
+                                <div class="reply-btn-wrapper">
+                                    <div class="dropdown">
+                                        <button class="reply-btn dropdown-toggle" type="button" id="dropdownMenuButton"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <img src="images/toggle-dots.svg" alt="">
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-right"
+                                            aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="#">Reply</a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -212,6 +224,18 @@ $this->registerCssFile('/css/messages/messages.css');
                         <div class="activity-chat-area">
                             <div class="activity-chat">Lorren ippsum gravida sem?
                                 <span class="chat-time">12.00 PM</span>
+                                <div class="reply-btn-wrapper">
+                                    <div class="dropdown">
+                                        <button class="reply-btn dropdown-toggle" type="button" id="dropdownMenuButton"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <img src="images/toggle-dots.svg" alt="">
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-right"
+                                            aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="#">Reply</a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

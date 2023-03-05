@@ -9,19 +9,23 @@ $this->registerCssFile('/css/custom-style.css');
 <div class="wrapper">
     <div class="assign-bar-wrapper">
         <div class="assign-bar-contents">
-            <div class="assign-bar-heading">Assigned Property
-                <span class="add-btn"><img src="images/add-icon.png" alt=""></span>
+            <div class="assign-bar-heading-area">
+                <div class="assign-bar-heading">Assigned Property
+                    <span class="add-btn"><img src="images/add-icon.png" alt=""></span>
+                </div>
             </div>
-            <div class="assign-props-single">
-                <div class="assign-props-head">Guest Name</div>
-                <div class="assign-props-value">Jayesh Sathyamoorthy</div>
-            </div>
-            <div class="assign-props-single">
-                <div class="assign-props-head">Enq No</div>
-                <div class="assign-props-value">1232/2022</div>
-            </div>
-            <div class="assign-props-single">
-                <div class="assign-props-value">20 Nights, 5 Destinations</div>
+            <div class="assign-props-area">
+                <div class="assign-props-single">
+                    <div class="assign-props-head">Guest Name</div>
+                    <div class="assign-props-value">Jayesh Sathyamoorthy</div>
+                </div>
+                <div class="assign-props-single">
+                    <div class="assign-props-head">Enq No</div>
+                    <div class="assign-props-value">1232/2022</div>
+                </div>
+                <div class="assign-props-single">
+                    <div class="assign-props-value">20 Nights, 5 Destinations</div>
+                </div>
             </div>
         </div>
     </div>
@@ -37,7 +41,9 @@ $this->registerCssFile('/css/custom-style.css');
                             <div class="room-stay-details">Selected: 1/10</div>
                             <div class="calendar-icon">
                                 <img src="images/user-icons/calender.svg" alt="">
-                                <span class="calendar-noti">1</span>
+                                <!-- <span class="calendar-noti">1</span> -->
+                                <span class="calendar-status-icon"><img src="images/notify-icons/error-icon.svg"
+                                        alt=""></span>
                             </div>
                         </div>
                         <div class="user-header-box-right">
@@ -195,7 +201,7 @@ $this->registerCssFile('/css/custom-style.css');
                                                 <figure>
                                                     <img src="images/search-popup/food-icon.svg" alt="">
                                                 </figure>
-                                                <article>AP</article>
+                                                <article>APP</article>
                                             </div>
                                             <div class="cat-price-wrapper">
                                                 <div class="cat-btn">SSR</div>
@@ -220,9 +226,43 @@ $this->registerCssFile('/css/custom-style.css');
                                             </div>
                                         </div>
                                         <div class="view-delete-icons">
-                                            <button class="view-btn" data-toggle="modal"
-                                                data-target="#roomingPlanModal"><img
-                                                    src="images/user-icons/view-btn-icon.svg" alt=""></button>
+                                            <button class="view-btn tooltip-link">
+                                                <img src="images/user-icons/view-btn-icon.svg" alt="">
+                                                <div class="hovercard hovercard-right">
+                                                    <div class="tooltip-table-wrapper">
+                                                        <table class="tooltip-table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Room</th>
+                                                                    <th>Child Policy</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>Standard Room</td>
+                                                                    <td>
+                                                                        <div class="icons-group-wrapper"
+                                                                            syle="min-width: initial;">
+                                                                            <div class="icon-content-single">
+                                                                                <img src="images/user-icons/man-icon.svg"
+                                                                                    alt=""
+                                                                                    style="width: 10px; margin:0 5px 0 0;">
+                                                                                8
+                                                                            </div>
+                                                                            <div class="icon-content-single">
+                                                                                <img src="images/user-icons/child-icon.svg"
+                                                                                    alt=""
+                                                                                    style="width: 14px; margin:0 5px 0 0;">
+                                                                                3 - 4
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </button>
                                             <button class="delete-btn"><img src="images/user-icons/delete-icon.svg"
                                                     alt=""></button>
                                         </div>
@@ -1778,6 +1818,233 @@ $this->registerCssFile('/css/custom-style.css');
     </div>
 </div>
 <!-- EOF Edit Modal -->
+<!-- BOF Table Modal -->
+<div class="modal fade" id="tableModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered large-modal-wrapper" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-header-left">
+                    <h3 class="popup-title">Manual Rooming Plan</h3>
+                </div>
+                <div class="modal-header-right">
+                    <h4 class="day-header">Day 1 | Tuesday, 10 Aug 2022</h4>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="rooming-plan-wrapper">
+                    <div class="enquiry-box-wrapper">
+                        <div class="enquiry-box-header">
+                            <div class="enquiry-box-single">
+                                <div class="enquiry-box-title">Enquiry No</div>
+                                <div class="enquiry-box-value">101/2022</div>
+                            </div>
+                            <div class="enquiry-box-single">
+                                <div class="enquiry-box-title">Guest Name</div>
+                                <div class="enquiry-box-value">Lionel Andrés Messi</div>
+                            </div>
+                        </div>
+                        <div class="hotel-room-wrapper">
+                            <div class="hotel-details">
+                                <div class="room-name">The Leaf Hotel & Resort</div>
+                                <div class="resort-location">
+                                    <span class="location-icon"><img src="images/location-icon.png" alt=""></span>
+                                    <h5 class="location-name">Munnar (Locality) Kerala. India</h5>
+                                </div>
+                            </div>
+                            <div class="room-details">
+                                <div class="room-name">Crown Luxury</div>
+                                <div class="room-facilities-wrapper">
+                                    <div class="room-facilities-single">
+                                        <div class="icons-group-wrapper">
+                                            <div class="icon-content-single">
+                                                <img src="images/user-icons/bed-icon.svg" alt="" style="width: 25px">
+                                                DB:2 |
+                                                EB:2 | SB:1
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="room-facilities-single">
+                                        <div class="icons-group-wrapper">
+                                            <div class="icon-content-single">
+                                                <img src="images/user-icons/child-icon.svg" alt=""
+                                                    style="width: 14px; margin:0 5px 0 0;">
+                                                1-9 YR
+                                            </div>
+                                            <div class="icon-content-single">
+                                                <img src="images/user-icons/women-icon.svg" alt=""
+                                                    style="width: 14px; margin:0 5px 0 0;">
+                                                10-15 YR
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pax-count-pax-wise-wrapper">
+                    <div class="row">
+                        <div class="col-lg-7">
+                            <div class="header-area">
+                                <div class="heading">Pax Count</div>
+                                <div class="header-area-facilities">
+                                    <div class="room-facilities-single">
+                                        <div class="icons-group-wrapper">
+                                            <div class="icon-content-single">
+                                                <img src="images/user-icons/man-icon.svg" alt=""
+                                                    style="width: 10px; margin:0 5px 0 0;"> 7
+                                            </div>
+                                            <div class="icon-content-single">
+                                                <img src="images/user-icons/women-icon.svg" alt=""
+                                                    style="width: 14px; margin:0 5px 0 0;">
+                                                0
+                                            </div>
+                                            <div class="icon-content-single">
+                                                <img src="images/user-icons/child-icon.svg" alt=""
+                                                    style="width: 14px; margin:0 5px 0 0;">
+                                                0
+                                            </div>
+                                        </div>
+                                        <div class="icons-group-wrapper colored-box">
+                                            <div class="icon-content-single">
+                                                <img src="images/user-icons/meals-icon.svg" alt="" style="width: 23px">
+                                                AP (Breakfast)
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="table-responsive common-table-area-wrapper">
+                                <table class="common-table-area">
+                                    <thead>
+                                        <tr>
+                                            <th>Rooms</th>
+                                            <th>EBS</th>
+                                            <th>CWB</th>
+                                            <th>CNB</th>
+                                            <th>SGL</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><input type="text" class="table-input" value="99"></td>
+                                            <td><input type="text" class="table-input" value="99"></td>
+                                            <td><input type="text" class="table-input" value="99"></td>
+                                            <td><span class="table-input">99</span></td>
+                                            <td><input type="text" class="table-input" value="99"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="info-area">
+                                <div class="info-list">
+                                    <h6><img src="images/user-icons/info-icon.svg" alt=""> Unallocated Pax:</h6>
+                                    <div class="icons-group-wrapper"
+                                        style="border: 1px solid #D2D2D2;margin:0 0 0 10px;">
+                                        <div class="icon-content-single">
+                                            <img src="images/user-icons/man-icon.svg" alt=""
+                                                style="width: 10px; margin:0 5px 0 0;"> 7
+                                        </div>
+                                        <div class="icon-content-single">
+                                            <img src="images/user-icons/women-icon.svg" alt=""
+                                                style="width: 14px; margin:0 5px 0 0;">
+                                            0
+                                        </div>
+                                        <div class="icon-content-single">
+                                            <img src="images/user-icons/child-icon.svg" alt=""
+                                                style="width: 14px; margin:0 5px 0 0;">
+                                            0
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="info-list">
+                                    <h6><img src="images/user-icons/info-icon.svg" alt=""> Excess Bed Utilization: DB:22
+                                        | EB:22 | SB:22</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="header-area">
+                                <div class="heading">Pax-Wise Bed Utilization</div>
+                            </div>
+                            <div class="table-responsive common-table-area-wrapper">
+                                <table class="common-table-area white-table no-border-table">
+                                    <tbody>
+                                        <tr>
+                                            <td><img style="width: 11px; margin: 0;"
+                                                    src="images/user-icons/man-icon.svg" alt=""></td>
+                                            <td><input type="text" class="table-input" value="DB:99"></td>
+                                            <td><input type="text" class="table-input" value="EB:99"></td>
+                                            <td><input type="text" class="table-input table-input-disabled"
+                                                    value="SGL:99"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><img style="width: 15px; margin: 0;"
+                                                    src="images/user-icons/women-icon.svg" alt=""></td>
+                                            <td><input type="text" class="table-input" value="DB:99"></td>
+                                            <td><input type="text" class="table-input" value="EB:99"></td>
+                                            <td><input type="text" class="table-input table-input-disabled"
+                                                    value="SGL:99"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><img style="width: 15px; margin: 0;"
+                                                    src="images/user-icons/child-icon.svg" alt=""></td>
+                                            <td><input type="text" class="table-input" value="DB:99"></td>
+                                            <td><input type="text" class="table-input" value="EB:99"></td>
+                                            <td><input type="text" class="table-input table-input-disabled"
+                                                    value="SGL:99"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slab-rate-wrapper">
+                        <div class="header-area">
+                            <div class="heading">Tariff Basis: Slab Rate</div>
+                        </div>
+                        <div class="table-responsive common-table-area-wrapper">
+                            <table class="common-table-area">
+                                <thead>
+                                    <tr>
+                                        <th>Rooms</th>
+                                        <th>FRA</th>
+                                        <th>CWB</th>
+                                        <th>CNB</th>
+                                        <th>SGI</th>
+                                        <th>FOC</th>
+                                        <th>Dinner</th>
+                                        <th>Day Tool</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span class="td-padding">1,24450</span></td>
+                                        <td><span class="td-padding">2,2950</span></td>
+                                        <td><span class="td-padding">0</span></td>
+                                        <td><span class="td-padding">1,2700</span></td>
+                                        <td><span class="td-padding">0</span></td>
+                                        <td><span class="td-padding">0</span></td>
+                                        <td><span class="td-padding">0</span></td>
+                                        <td><span class="td-padding">35,000</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="popup-bottom">
+                        <div class="two-btn-center">
+                            <button class="btn grey-btn" data-dismiss="modal" aria-label="Close">Cancel</button>
+                            <button class="btn red-btn">Apply</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- EOF Table Modal -->
 <!-- BOF Roomin Plan Modal -->
 <div class="modal fade" id="roomingPlanModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
     aria-hidden="true">
