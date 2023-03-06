@@ -307,7 +307,7 @@ $this->registerCssFile('/css/datepicker.css');
                                 <div class="room-rates">Hike</div>
                             </td>
                         </tr>
-                        <tr>
+                        <tr class="last-row">
                             <td>
                                 <div class="room-rates ppe-color">PPE</div>
                             </td>
@@ -1415,7 +1415,7 @@ $this->registerCssFile('/css/datepicker.css');
                                         </div>
                                     </td>
                                 </tr>
-                                <tr>
+                                <tr class="last-row">
                                     <td>
                                         <div class="day-content day-rate">
                                             <div class="day-text">900</div>
@@ -1634,7 +1634,7 @@ $this->registerCssFile('/css/datepicker.css');
                                 <div class="room-rates">Hike</div>
                             </td>
                         </tr>
-                        <tr>
+                        <tr class="last-row">
                             <td>
                                 <div class="room-rates ppe-color">PPE</div>
                             </td>
@@ -2742,7 +2742,7 @@ $this->registerCssFile('/css/datepicker.css');
                                         </div>
                                     </td>
                                 </tr>
-                                <tr>
+                                <tr class="last-row">
                                     <td>
                                         <div class="day-content day-rate">
                                             <div class="day-text">900</div>
@@ -2961,7 +2961,7 @@ $this->registerCssFile('/css/datepicker.css');
                                 <div class="room-rates">Hike</div>
                             </td>
                         </tr>
-                        <tr>
+                        <tr class="last-row">
                             <td>
                                 <div class="room-rates ppe-color">PPE</div>
                             </td>
@@ -4069,7 +4069,7 @@ $this->registerCssFile('/css/datepicker.css');
                                         </div>
                                     </td>
                                 </tr>
-                                <tr>
+                                <tr class="last-row">
                                     <td>
                                         <div class="day-content day-rate">
                                             <div class="day-text">900</div>
@@ -4287,7 +4287,7 @@ $this->registerCssFile('/css/datepicker.css');
                                 <div class="room-rates">Hike</div>
                             </td>
                         </tr>
-                        <tr>
+                        <tr class="last-row">
                             <td>
                                 <div class="room-rates ppe-color">PPE</div>
                             </td>
@@ -5395,7 +5395,7 @@ $this->registerCssFile('/css/datepicker.css');
                                         </div>
                                     </td>
                                 </tr>
-                                <tr>
+                                <tr class="last-row">
                                     <td>
                                         <div class="day-content day-rate">
                                             <div class="day-text">900</div>
@@ -5613,7 +5613,7 @@ $this->registerCssFile('/css/datepicker.css');
                                 <div class="room-rates">Hike</div>
                             </td>
                         </tr>
-                        <tr>
+                        <tr class="last-row">
                             <td>
                                 <div class="room-rates ppe-color">PPE</div>
                             </td>
@@ -6721,7 +6721,7 @@ $this->registerCssFile('/css/datepicker.css');
                                         </div>
                                     </td>
                                 </tr>
-                                <tr>
+                                <tr class="last-row">
                                     <td>
                                         <div class="day-content day-rate">
                                             <div class="day-text">900</div>

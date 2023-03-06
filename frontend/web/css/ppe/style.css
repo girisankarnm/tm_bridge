@@ -587,7 +587,9 @@
 
 .room-heading-table tr.first-row,
 .room-heading-table tr.row-on,
+.room-heading-table tr.last-row,
 .available-room-rates tr.first-row,
+.available-room-rates tr.last-row,
 .available-room-rates tr.row-on {
     display: table-row;
 }
