@@ -9,7 +9,7 @@ $this->registerCssFile('/css/datepicker/jquery-ui.css');
 $this->registerCssFile('/css/ssr-special-rate/ssr-special-rate.css');
 ?>
 <div class="wrapper">
-    <div class="room-booking-header">
+    <div class="room-booking-header history-chat-header">
         <div class="room-booking-header-left">
             <div class="heading border-none">SRR ( Special Rate Rooms )</div>
         </div>
@@ -335,9 +335,20 @@ $this->registerCssFile('/css/ssr-special-rate/ssr-special-rate.css');
                             <div class="user-img"><img src="images/booking-request/chat-user-thumb-01.png" alt=""></div>
                         </div>
                         <div class="activity-chat-area">
-                            <div class="activity-chat">
-                                Lorren ippsum gravida sem?
-                                <span class="chat-time">06:19 PM</span>
+                            <div class="activity-chat">Lorren ippsum gravida sem?
+                                <span class="chat-time">12.00 PM</span>
+                                <div class="chat-history-btn-wrapper">
+                                    <div class="dropdown">
+                                        <button class="chat-history-btn dropdown-toggle" type="button"
+                                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
+                                            <img src="images/chat-history.png" alt="">
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="#">Chat History</a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -350,7 +361,22 @@ $this->registerCssFile('/css/ssr-special-rate/ssr-special-rate.css');
                             <div class="user-img"><img src="images/booking-request/chat-user-thumb-02.png" alt=""></div>
                         </div>
                         <div class="activity-chat-area">
-                            <div class="activity-chat">Lorren ippsum gravida sem?</div>
+                            <div class="activity-chat">Lorren ippsum gravida sem?
+                                <span class="chat-time">12.00 PM</span>
+                                <div class="chat-history-btn-wrapper">
+                                    <div class="dropdown">
+                                        <button class="chat-history-btn dropdown-toggle" type="button"
+                                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
+                                            <img src="images/chat-history.png" alt="">
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-right"
+                                            aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="#">Chat History</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="activity-chat-single">
@@ -362,115 +388,21 @@ $this->registerCssFile('/css/ssr-special-rate/ssr-special-rate.css');
                             <div class="user-img"><img src="images/booking-request/chat-user-thumb-01.png" alt=""></div>
                         </div>
                         <div class="activity-chat-area">
-                            <div class="activity-chat">Lorren ippsum gravida sem?</div>
-                        </div>
-                    </div>
-                    <div class="activity-chat-single">
-                        <div class="activity-chat-user">
-                            <div class="user-details">
-                                <h5 class="user-details-name">Praveen</h5>
-                                <h5 class="user-details-date">12-October 2022</h5>
+                            <div class="activity-chat">Lorren ippsum gravida sem?
+                                <span class="chat-time">12.00 PM</span>
+                                <div class="chat-history-btn-wrapper">
+                                    <div class="dropdown">
+                                        <button class="chat-history-btn dropdown-toggle" type="button"
+                                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
+                                            <img src="images/chat-history.png" alt="">
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="#">Chat History</a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="user-img"><img src="images/booking-request/chat-user-thumb-01.png" alt=""></div>
-                        </div>
-                        <div class="activity-chat-area">
-                            <div class="activity-chat">Lorren ippsum gravida sem?</div>
-                        </div>
-                    </div>
-                    <div class="activity-chat-single">
-                        <div class="activity-chat-user">
-                            <div class="user-details">
-                                <h5 class="user-details-name">Praveen</h5>
-                                <h5 class="user-details-date">12-October 2022</h5>
-                            </div>
-                            <div class="user-img"><img src="images/booking-request/chat-user-thumb-01.png" alt=""></div>
-                        </div>
-                        <div class="activity-chat-area">
-                            <div class="activity-chat">Lorren ippsum gravida sem?</div>
-                        </div>
-                    </div>
-                    <div class="activity-chat-single">
-                        <div class="activity-chat-user">
-                            <div class="user-details">
-                                <h5 class="user-details-name">Praveen</h5>
-                                <h5 class="user-details-date">12-October 2022</h5>
-                            </div>
-                            <div class="user-img"><img src="images/booking-request/chat-user-thumb-01.png" alt=""></div>
-                        </div>
-                        <div class="activity-chat-area">
-                            <div class="activity-chat">Lorren ippsum gravida sem?</div>
-                        </div>
-                    </div>
-                    <div class="activity-chat-single">
-                        <div class="activity-chat-user">
-                            <div class="user-details">
-                                <h5 class="user-details-name">Praveen</h5>
-                                <h5 class="user-details-date">12-October 2022</h5>
-                            </div>
-                            <div class="user-img"><img src="images/booking-request/chat-user-thumb-01.png" alt=""></div>
-                        </div>
-                        <div class="activity-chat-area">
-                            <div class="activity-chat">Lorren ippsum gravida sem?</div>
-                        </div>
-                    </div>
-                    <div class="activity-chat-single">
-                        <div class="activity-chat-user">
-                            <div class="user-details">
-                                <h5 class="user-details-name">Praveen</h5>
-                                <h5 class="user-details-date">12-October 2022</h5>
-                            </div>
-                            <div class="user-img"><img src="images/booking-request/chat-user-thumb-01.png" alt=""></div>
-                        </div>
-                        <div class="activity-chat-area">
-                            <div class="activity-chat">Lorren ippsum gravida sem?</div>
-                        </div>
-                    </div>
-                    <div class="activity-chat-single">
-                        <div class="activity-chat-user">
-                            <div class="user-details">
-                                <h5 class="user-details-name">Praveen</h5>
-                                <h5 class="user-details-date">12-October 2022</h5>
-                            </div>
-                            <div class="user-img"><img src="images/booking-request/chat-user-thumb-01.png" alt=""></div>
-                        </div>
-                        <div class="activity-chat-area">
-                            <div class="activity-chat">Lorren ippsum gravida sem?</div>
-                        </div>
-                    </div>
-                    <div class="activity-chat-single">
-                        <div class="activity-chat-user">
-                            <div class="user-details">
-                                <h5 class="user-details-name">Praveen</h5>
-                                <h5 class="user-details-date">12-October 2022</h5>
-                            </div>
-                            <div class="user-img"><img src="images/booking-request/chat-user-thumb-01.png" alt=""></div>
-                        </div>
-                        <div class="activity-chat-area">
-                            <div class="activity-chat">Lorren ippsum gravida sem?</div>
-                        </div>
-                    </div>
-                    <div class="activity-chat-single">
-                        <div class="activity-chat-user">
-                            <div class="user-details">
-                                <h5 class="user-details-name">Praveen</h5>
-                                <h5 class="user-details-date">12-October 2022</h5>
-                            </div>
-                            <div class="user-img"><img src="images/booking-request/chat-user-thumb-01.png" alt=""></div>
-                        </div>
-                        <div class="activity-chat-area">
-                            <div class="activity-chat">Lorren ippsum gravida sem?</div>
-                        </div>
-                    </div>
-                    <div class="activity-chat-single">
-                        <div class="activity-chat-user">
-                            <div class="user-details">
-                                <h5 class="user-details-name">Praveen</h5>
-                                <h5 class="user-details-date">12-October 2022</h5>
-                            </div>
-                            <div class="user-img"><img src="images/booking-request/chat-user-thumb-01.png" alt=""></div>
-                        </div>
-                        <div class="activity-chat-area">
-                            <div class="activity-chat">Lorren ippsum gravida sem?</div>
                         </div>
                     </div>
                 </div>

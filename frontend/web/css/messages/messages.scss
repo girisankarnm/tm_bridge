@@ -410,35 +410,6 @@ $color-white: #fff;
     }
 }
 
-.reply-btn-wrapper {
-    top: 0px;
-    right: 0px;
-    position: absolute;
-    @include transition(all ease 0.5s);
-    opacity: 0;
-    pointer-events: none;
-
-    .reply-btn {
-        background: none;
-        border: none;
-        padding: 0 5px;
-        width: auto;
-
-        &::after {
-            border: none !important;
-        }
-    }
-
-    .dropdown-menu {
-        padding: .125rem 0;
-
-        .dropdown-item {
-            &:hover {
-                background: #e1e5ff;
-            }
-        }
-    }
-}
 
 
 .chat-area-content {
@@ -451,13 +422,6 @@ $color-white: #fff;
             .activity-chat-area {
                 .activity-chat {
                     width: 400px;
-
-                    &:hover {
-                        .reply-btn-wrapper {
-                            opacity: 1;
-                            pointer-events: all;
-                        }
-                    }
                 }
             }
         }

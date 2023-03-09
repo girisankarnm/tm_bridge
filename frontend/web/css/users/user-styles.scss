@@ -830,4 +830,22 @@ body {
     .select-custom {
         min-width: 170px;
     }
+
+    .assign-bar-heading {
+        font-size: 12px;
+        margin: 0 10px 0 0;
+    }
+
+    .assign-props-single {
+        .assign-props-head {
+            font-size: 10px;
+            margin: 0 5px 0 0;
+            padding: 5px 5px 5px 0;
+        }
+
+        .assign-props-value {
+            padding: 5px 0px 5px 0;
+            font-size: 10px;
+        }
+    }
 }

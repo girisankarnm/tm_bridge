@@ -1460,6 +1460,37 @@ ul {
   display: none;
 }
 
+.chat-history-btn-wrapper {
+  bottom: 0;
+  left: -30px;
+  position: absolute;
+  transition: all ease 0.5s;
+  -webkit-transition: all ease 0.5s;
+  -moz-transition: all ease 0.5s;
+  -ms-transition: all ease 0.5s;
+  -o-transition: all ease 0.5s;
+  opacity: 0;
+  pointer-events: none;
+}
+.chat-history-btn-wrapper .chat-history-btn {
+  background: none;
+  border: none;
+  padding: 0 5px;
+  width: auto;
+}
+.chat-history-btn-wrapper .chat-history-btn img {
+  width: 20px;
+}
+.chat-history-btn-wrapper .chat-history-btn::after {
+  border: none !important;
+}
+.chat-history-btn-wrapper .dropdown-menu {
+  padding: 0.125rem 0;
+}
+.chat-history-btn-wrapper .dropdown-menu .dropdown-item:hover {
+  background: #e1e5ff;
+}
+
 .activity-chat-wrapper {
   padding: 30px 100px 0;
   max-height: 400px;
@@ -1472,6 +1503,10 @@ ul {
   margin: 0 auto 20px;
   align-items: flex-start;
   justify-content: flex-start;
+}
+.activity-chat-wrapper .activity-chat-single:hover .chat-history-btn-wrapper {
+  opacity: 1;
+  pointer-events: all;
 }
 .activity-chat-wrapper .activity-chat-single .activity-chat-user {
   display: flex;
@@ -1588,6 +1623,10 @@ ul {
   -moz-border-radius: 5px 0 5px 5px;
   -ms-border-radius: 5px 0 5px 5px;
   -o-border-radius: 5px 0 5px 5px;
+}
+.activity-chat-wrapper .activity-chat-right .activity-chat-area .activity-chat .chat-history-btn-wrapper {
+  right: -40px;
+  left: initial;
 }
 .activity-chat-wrapper .activity-chat-right .activity-chat-area::before {
   right: -29px;
@@ -1933,6 +1972,13 @@ span.payment-block {
 }
 .popup-bottom-btns button {
   max-width: 180px;
+}
+
+.history-chat-header {
+  background: #616161 !important;
+}
+.history-chat-header .room-booking-header-right .small-box {
+  background: none !important;
 }
 
 @media (max-width: 1400px) {

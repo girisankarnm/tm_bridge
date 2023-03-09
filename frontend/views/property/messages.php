@@ -184,15 +184,15 @@ $this->registerCssFile('/css/messages/messages.css');
                         <div class="activity-chat-area">
                             <div class="activity-chat">Lorren ippsum gravida sem?
                                 <span class="chat-time">12.00 PM</span>
-                                <div class="reply-btn-wrapper">
+                                <div class="chat-history-btn-wrapper">
                                     <div class="dropdown">
-                                        <button class="reply-btn dropdown-toggle" type="button" id="dropdownMenuButton"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <img src="images/toggle-dots.svg" alt="">
+                                        <button class="chat-history-btn dropdown-toggle" type="button"
+                                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
+                                            <img src="images/chat-history.png" alt="">
                                         </button>
-                                        <div class="dropdown-menu dropdown-menu-right"
-                                            aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item" href="#">Reply</a>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="#">Chat History</a>
                                         </div>
                                     </div>
                                 </div>
@@ -210,6 +210,19 @@ $this->registerCssFile('/css/messages/messages.css');
                         <div class="activity-chat-area">
                             <div class="activity-chat">Lorren ippsum gravida sem?
                                 <span class="chat-time">12.00 PM</span>
+                                <div class="chat-history-btn-wrapper">
+                                    <div class="dropdown">
+                                        <button class="chat-history-btn dropdown-toggle" type="button"
+                                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
+                                            <img src="images/chat-history.png" alt="">
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-right"
+                                            aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="#">Chat History</a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -224,15 +237,15 @@ $this->registerCssFile('/css/messages/messages.css');
                         <div class="activity-chat-area">
                             <div class="activity-chat">Lorren ippsum gravida sem?
                                 <span class="chat-time">12.00 PM</span>
-                                <div class="reply-btn-wrapper">
+                                <div class="chat-history-btn-wrapper">
                                     <div class="dropdown">
-                                        <button class="reply-btn dropdown-toggle" type="button" id="dropdownMenuButton"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <img src="images/toggle-dots.svg" alt="">
+                                        <button class="chat-history-btn dropdown-toggle" type="button"
+                                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
+                                            <img src="images/chat-history.png" alt="">
                                         </button>
-                                        <div class="dropdown-menu dropdown-menu-right"
-                                            aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item" href="#">Reply</a>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="#">Chat History</a>
                                         </div>
                                     </div>
                                 </div>

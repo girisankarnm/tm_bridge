@@ -26,6 +26,9 @@ $this->registerCssFile('/css/custom-style.css');
                 <div class="assign-props-single">
                     <div class="assign-props-value">20 Nights, 5 Destinations</div>
                 </div>
+                <div class="assign-props-single">
+                    <div class="assign-props-value">Status Summary</div>
+                </div>
             </div>
         </div>
     </div>
