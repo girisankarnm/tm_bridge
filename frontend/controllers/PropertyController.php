@@ -147,4 +147,9 @@ class PropertyController extends Controller
         $this->layout = 'tm_main';
         return $this->render('booking-status-report', []);
     }
+    public function actionPpe15()
+    {
+        $this->layout = 'tm_main';
+        return $this->render('property-profile', []);
+    }
 }
