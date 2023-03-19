@@ -796,7 +796,18 @@ frontend\assets\AppAsset::register($this);
                             <div class="matching-boxes-main" id="matching-boxes-main-1">
                                 <div class="matching-each-room-wrapper">
                                     <div class="room-single-content-area">
-                                        <div class="room-single-header day-block">Day 1 | 10 Aug 2022</div>
+                                        <div class="room-single-header" style="background: #e1e5ff;">
+                                            <div class="date-door-wrapper">
+                                                <div class="date">Day 1 | 10 Aug 2022</div>
+                                                <div class="door-info-wrapper">
+                                                    <div class="door-info">
+                                                        <img src="images/search-popup/door-icon.svg" alt="">
+                                                        3/10
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
                                         <div class="room-single-content-wrapper">
                                             <div class="room-single-content">
                                                 <div class="room-single-content-heading">Rooms</div>

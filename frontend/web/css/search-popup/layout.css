@@ -1838,6 +1838,34 @@ span.room-cat-text {
   margin: 0 0 0 3px;
 }
 
+.date-door-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.date-door-wrapper .door-info {
+  min-height: 34px;
+  color: #1E2339;
+  padding: 2px 5px;
+  margin: 0 0 0 10px;
+  border: 2px solid #E1E4ED;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  font-family: "Bw-Mitga-bold";
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.date-door-wrapper .door-info img {
+  width: 16px;
+  margin: 0 7px 0 0;
+}
+
 @media (max-width: 1300px) {
   .enquiry-details-td {
     padding: 0px 10px;

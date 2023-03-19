@@ -1002,6 +1002,32 @@ span.room-cat-text {
     }
 }
 
+.date-door-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    .door-info {
+        min-height: 34px;
+        color: #1E2339;
+        padding: 2px 5px;
+        margin: 0 0 0 10px;
+        border: 2px solid #E1E4ED;
+        @include border-radius(5px);
+        font-family: $font-bold;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        img {
+            width: 16px;
+            margin: 0 7px 0 0;
+        }
+    }
+}
+
 
 @media (max-width: 1300px) {
     .enquiry-details-td {
