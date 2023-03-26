@@ -26,6 +26,20 @@ $font-bold: 'Bw-Mitga-bold';
         background-repeat: no-repeat;
         background-size: cover;
         @include border-radius(10px);
+        position: relative;
+
+        .property-name-label {
+            top: 15px;
+            left: 15px;
+            padding: 15px;
+            font-size: 14px;
+            color: #831BEE;
+            line-height: 16px;
+            position: absolute;
+            background: #F3E8FD;
+            font-family: $font-bold;
+            @include border-radius(8px);
+        }
     }
 
     .small-icons-wrapper {
@@ -35,6 +49,28 @@ $font-bold: 'Bw-Mitga-bold';
         justify-content: space-between;
         flex-wrap: wrap;
         height: 450px;
+        position: relative;
+
+        .show-all-photos {
+            bottom: 15px;
+            right: 15px;
+            padding: 15px;
+            font-size: 14px;
+            color: #831BEE;
+            line-height: 16px;
+            position: absolute;
+            background: #F3E8FD;
+            font-family: $font-bold;
+            @include border-radius(8px);
+            border: 1px solid #831BEE;
+            text-align: center;
+            min-width: 270px;
+            cursor: pointer;
+
+            img {
+                margin: -3px 0 0;
+            }
+        }
 
         .small-icon-single {
             width: 49%;
@@ -134,15 +170,15 @@ $font-bold: 'Bw-Mitga-bold';
     border-bottom: 1px solid #D4D4D4;
     padding: 0 0 15px;
     margin: 0 0 15px;
+}
 
-    .facilities-heading {
-        font-family: var(--outfit) !important;
-        font-weight: 500;
-        font-size: 16px;
-        line-height: 18px;
-        color: #0A0A0A;
-        margin: 0 0 20px;
-    }
+.facilities-heading {
+    font-family: var(--outfit) !important;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+    color: #0A0A0A;
+    margin: 0 0 20px;
 }
 
 .facilities-list-wrapper {
@@ -229,7 +265,15 @@ $font-bold: 'Bw-Mitga-bold';
         display: flex;
         align-items: stretch;
         justify-content: flex-start;
+        border-bottom: 1px solid #D4D4D4;
+        padding: 0 0 20px;
+        margin: 0 0 30px;
 
+        &:nth-last-child(1) {
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
 
         .rooms-list-content-single {
             border-right: 1px solid #D4D4D4;
@@ -435,3 +479,253 @@ $font-bold: 'Bw-Mitga-bold';
         }
     }
 }
+
+// BOF Accordion
+.accordion {
+    .card {
+        padding: 5px 15px;
+        background: #FFFFFF;
+        border: 1px solid #D8D8D8 !important;
+        box-shadow: 10px 14px 54px rgba(0, 0, 0, 0.06);
+        margin: 0 0 20px;
+        border-radius: 10px !important;
+        -webkit-border-radius: 10px !important;
+        -moz-border-radius: 10px !important;
+        -ms-border-radius: 10px !important;
+        -o-border-radius: 10px !important;
+
+        .card-header {
+            padding: 0;
+            border: none;
+            background: none;
+
+            .btn-header-link {
+                min-height: initial;
+                line-height: initial;
+                padding: 10px 0;
+                width: 100%;
+                background: none !important;
+                color: #333 !important;
+                text-align: left;
+                font-size: 20px;
+                color: #0A0A0A;
+                font-family: $font-bold;
+                position: relative;
+                border-bottom: 1px solid #D8D8D8;
+
+                &:hover,
+                &:focus {
+                    outline: none;
+                    box-shadow: none;
+                }
+
+                &::after {
+                    position: absolute;
+                    content: "";
+                    right: 0;
+                    top: 12px;
+                    width: 10px;
+                    height: 10px;
+                    border: none;
+                    border-left: 1.5px solid #0A0A0A;
+                    border-top: 1.5px solid #0A0A0A;
+                    @include border-radius(2px);
+                    @include transition(all ease 0.5s);
+                    @include transform(rotate(45deg));
+                }
+            }
+
+            .collapsed {
+                border-bottom: transparent;
+
+                &::after {
+                    @include transform(rotate(-135deg));
+                    top: 7px4;
+                }
+            }
+
+        }
+
+        .card-body {
+            padding: 15px 0;
+        }
+    }
+}
+
+.sales-details-wrapper {
+    .sales-detail-single {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin: 0 0 20px;
+
+        &:nth-last-child(1) {
+            margin: 0;
+        }
+
+        figure {
+            margin: 0 10px 0 0;
+            width: 16px;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        article {
+            width: calc(100% - 26px);
+
+            h5 {
+                color: #747474;
+                font-size: 12px;
+                line-height: 14px;
+                margin: 0 0 5px;
+            }
+
+            h4 {
+                color: #0A0A0A;
+                font-size: 14px;
+                line-height: 16px;
+                margin: 0;
+            }
+        }
+    }
+}
+
+// EOF Accordion
+
+.review-rating-card {
+    padding: 0;
+    border: none;
+    box-shadow: none;
+    margin: 0 0 30px;
+}
+
+.testimonials-cards-wrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    .testimonials-card {
+        background: #F7F7F7;
+        @include border-radius(12px);
+        padding: 30px;
+        width: 31%;
+        margin: 0 2% 2% 0;
+
+        .coma-icon {
+            margin: 0 0 15px;
+        }
+
+        .testimonials-content {
+            border-bottom: 1px solid #D4D4D4;
+            margin: 0 0 10px;
+
+            p {
+                color: #747474;
+                font-size: 12px;
+                line-height: 18px;
+            }
+        }
+    }
+}
+
+.testimonial-user-details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    figure {
+        width: 50px;
+        height: 50px;
+        @include border-radius(50%);
+        overflow: hidden;
+        margin: 0 10px 0 0;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    article {
+        width: calc(100% - 60px);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        h3 {
+            color: #0A0A0A;
+            font-size: 16px;
+            line-height: 18px;
+            font-family: $font-bold;
+        }
+
+        p {
+            color: #747474;
+            font-size: 12px;
+            line-height: 14px;
+            margin: 0;
+        }
+    }
+}
+
+.star-ratings {
+    img {
+        width: 20px;
+    }
+}
+
+// BOF Modal CSS
+.modal-imgs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .modal-single-img {
+        width: 49%;
+        margin: 0 0 2%;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .modal-large-img {
+        width: 100%;
+    }
+}
+
+.property-modal {
+    .modal-header {
+        background: none !important;
+        justify-content: flex-start;
+
+        button {
+            background: none;
+            border: none;
+
+            &:hover,
+            &:focus {
+                outline: none;
+                box-shadow: none;
+            }
+        }
+
+        .modal-title {
+            color: #0A0A0A;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 20px;
+            margin: 15px 0 0 15px;
+        }
+    }
+}
+
+@media (min-width: 1200px) {
+    .property-modal {
+        max-width: 1100px !important;
+    }
+}
+
+// EOF Modal CSS

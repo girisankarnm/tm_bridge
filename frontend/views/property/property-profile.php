@@ -4,7 +4,9 @@ $this->registerCssFile('/css/property-profile/property-profile.css');
 ?>
 <div class="wrapper">
     <div class="property-images">
-        <div class="property-large-img" style="background-image: url('images/property-profile/large-img.png');"></div>
+        <div class="property-large-img" style="background-image: url('images/property-profile/large-img.png');">
+            <div class="property-name-label">Airport Hotel</div>
+        </div>
         <div class="small-icons-wrapper">
             <div class="small-icon-single" style="background-image: url('images/property-profile/small-img-01.png');">
             </div>
@@ -14,6 +16,8 @@ $this->registerCssFile('/css/property-profile/property-profile.css');
             </div>
             <div class="small-icon-single" style="background-image: url('images/property-profile/small-img-04.png');">
             </div>
+            <div class="show-all-photos" data-toggle="modal" data-target="#allPhotosModal"><img
+                    src="images/property-profile/icons/grid.svg" alt=""> Show all Photos</div>
         </div>
     </div>
     <div class="row">
@@ -125,11 +129,288 @@ $this->registerCssFile('/css/property-profile/property-profile.css');
                     <h5>5879 Rating</h5>
                 </article>
             </div>
+            <div class="accordion-main">
+                <div class="accordion" id="faq">
+                    <div class="card">
+                        <div class="card-header" id="faqhead1">
+                            <a href="#" class="btn btn-header-link" data-toggle="collapse" data-target="#faq1"
+                                aria-expanded="true" aria-controls="faq1">Sales</a>
+                        </div>
+
+                        <div id="faq1" class="collapse show" aria-labelledby="faqhead1" data-parent="#faq">
+                            <div class="card-body">
+                                <div class="sales-details-wrapper">
+                                    <div class="sales-detail-single">
+                                        <figure><img src="images/property-profile/icons/user.svg" alt=""></figure>
+                                        <article>
+                                            <h5>Name</h5>
+                                            <h4>Dileesh Pothen</h4>
+                                        </article>
+                                    </div>
+                                    <div class="sales-detail-single">
+                                        <figure><img src="images/property-profile/icons/call.svg" alt=""></figure>
+                                        <article>
+                                            <h5>Phone Number</h5>
+                                            <h4>+91 904 867 8290</h4>
+                                        </article>
+                                    </div>
+                                    <div class="sales-detail-single">
+                                        <figure><img src="images/property-profile/icons/mail.svg" alt=""></figure>
+                                        <article>
+                                            <h5>Phone Number</h5>
+                                            <h4>Dileesh.pothen@gmail.com</h4>
+                                        </article>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="faqhead2">
+                            <a href="#" class="btn btn-header-link collapsed" data-toggle="collapse" data-target="#faq2"
+                                aria-expanded="true" aria-controls="faq2">Reservation</a>
+                        </div>
+
+                        <div id="faq2" class="collapse" aria-labelledby="faqhead2" data-parent="#faq">
+                            <div class="card-body">
+                                <div class="sales-details-wrapper">
+                                    <div class="sales-detail-single">
+                                        <figure><img src="images/property-profile/icons/user.svg" alt=""></figure>
+                                        <article>
+                                            <h5>Name</h5>
+                                            <h4>Dileesh Pothen</h4>
+                                        </article>
+                                    </div>
+                                    <div class="sales-detail-single">
+                                        <figure><img src="images/property-profile/icons/call.svg" alt=""></figure>
+                                        <article>
+                                            <h5>Phone Number</h5>
+                                            <h4>+91 904 867 8290</h4>
+                                        </article>
+                                    </div>
+                                    <div class="sales-detail-single">
+                                        <figure><img src="images/property-profile/icons/mail.svg" alt=""></figure>
+                                        <article>
+                                            <h5>Phone Number</h5>
+                                            <h4>Dileesh.pothen@gmail.com</h4>
+                                        </article>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="faqhead3">
+                            <a href="#" class="btn btn-header-link collapsed" data-toggle="collapse" data-target="#faq3"
+                                aria-expanded="true" aria-controls="faq3">Front Office</a>
+                        </div>
+
+                        <div id="faq3" class="collapse" aria-labelledby="faqhead3" data-parent="#faq">
+                            <div class="card-body">
+                                <div class="sales-details-wrapper">
+                                    <div class="sales-detail-single">
+                                        <figure><img src="images/property-profile/icons/user.svg" alt=""></figure>
+                                        <article>
+                                            <h5>Name</h5>
+                                            <h4>Dileesh Pothen</h4>
+                                        </article>
+                                    </div>
+                                    <div class="sales-detail-single">
+                                        <figure><img src="images/property-profile/icons/call.svg" alt=""></figure>
+                                        <article>
+                                            <h5>Phone Number</h5>
+                                            <h4>+91 904 867 8290</h4>
+                                        </article>
+                                    </div>
+                                    <div class="sales-detail-single">
+                                        <figure><img src="images/property-profile/icons/mail.svg" alt=""></figure>
+                                        <article>
+                                            <h5>Phone Number</h5>
+                                            <h4>Dileesh.pothen@gmail.com</h4>
+                                        </article>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="faqhead4">
+                            <a href="#" class="btn btn-header-link collapsed" data-toggle="collapse" data-target="#faq4"
+                                aria-expanded="true" aria-controls="faq4">Accounts</a>
+                        </div>
+
+                        <div id="faq4" class="collapse" aria-labelledby="faqhead4" data-parent="#faq">
+                            <div class="card-body">
+                                <div class="sales-details-wrapper">
+                                    <div class="sales-detail-single">
+                                        <figure><img src="images/property-profile/icons/user.svg" alt=""></figure>
+                                        <article>
+                                            <h5>Name</h5>
+                                            <h4>Dileesh Pothen</h4>
+                                        </article>
+                                    </div>
+                                    <div class="sales-detail-single">
+                                        <figure><img src="images/property-profile/icons/call.svg" alt=""></figure>
+                                        <article>
+                                            <h5>Phone Number</h5>
+                                            <h4>+91 904 867 8290</h4>
+                                        </article>
+                                    </div>
+                                    <div class="sales-detail-single">
+                                        <figure><img src="images/property-profile/icons/mail.svg" alt=""></figure>
+                                        <article>
+                                            <h5>Phone Number</h5>
+                                            <h4>Dileesh.pothen@gmail.com</h4>
+                                        </article>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-12">
             <div class="rooms-list-area">
+                <div class="facilities-heading">Rooms</div>
+                <div class="rooms-list-single">
+                    <div class="rooms-list-content-single room-name-details">
+                        <figure>
+                            <img src="images/property-profile/room-img-01.jpg" alt="">
+                            <div class="show-all-photos"><img src="images/property-profile/icons/grid.svg" alt=""> Show
+                                all Photos</div>
+                        </figure>
+                        <article>
+                            <h4>Deluxe Double Room with Balcony</h4>
+                            <h5>1 Large double bed</h5>
+                        </article>
+                    </div>
+                    <div class="rooms-list-content-single aminities-area">
+                        <div class="room-details-heading">Room Amenities</div>
+                        <ul class="aminities-list">
+                            <li>Free Wi-Fi</li>
+                            <li>Mineral Water - additional charge</li>
+                            <li>Air Conditioning</li>
+                            <li>Bathroom</li>
+                            <li>Air Conditioning</li>
+                            <li>Charging Points</li>
+                            <li>Living Area</li>
+                        </ul>
+                    </div>
+                    <div class="rooms-list-content-single highlights-area">
+                        <div class="room-details-heading">Room Highlights</div>
+                        <ul class="highlights-list">
+                            <li><img src="images/property-profile/icons/tick-icon.svg" alt=""> Room type:
+                                <div class="strong">Floating cottage</div>
+                            </li>
+                            <li><img src="images/property-profile/icons/tick-icon.svg" alt=""> Room View:
+                                <div class="strong">Beach</div>
+                            </li>
+                            <li><img src="images/property-profile/icons/tick-icon.svg" alt=""> Inventory:
+                                <div class="strong">12</div>
+                            </li>
+                            <li><img src="images/property-profile/icons/tick-icon.svg" alt=""> Average room size:
+                                <div class="strong">1250 Sq. Ft</div>
+                            </li>
+                            <li><img src="images/property-profile/icons/tick-icon.svg" alt=""> Default Meal Plan:
+                                <div class="strong">CP (Breakfast)</div>
+                            </li>
+                            <li><img src="images/property-profile/icons/tick-icon.svg" alt=""> Entry Restriction:
+                                <div class="strong">Admission is restricted f
+                                    or guests under 7 years</div>
+                            </li>
+                            <li><img src="images/property-profile/icons/tick-icon.svg" alt=""> <strong>Free cancellation
+                                    until 23:59 on 8 March 2023</strong></li>
+                        </ul>
+                    </div>
+                    <div class="rooms-list-content-single room-details-area">
+                        <div class="room-details-single">
+                            <div class="room-details-heading">Defacult Occupancy</div>
+                            <ul class="room-details-list">
+                                <li><img src="images/property-profile/icons/bed.svg" alt=""> BD: 2</li>
+                                <li>EB: 1</li>
+                                <li>SB: 1</li>
+                            </ul>
+                        </div>
+                        <div class="room-details-single">
+                            <div class="room-details-heading">Room’s Child Policy</div>
+                            <ul class="room-details-list">
+                                <li><img src="images/property-profile/icons/child.svg" alt=""> 0-5</li>
+                                <li><img src="images/property-profile/icons/adult.svg" alt=""> 6-11</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="rooms-list-single">
+                    <div class="rooms-list-content-single room-name-details">
+                        <figure>
+                            <img src="images/property-profile/room-img-01.jpg" alt="">
+                            <div class="show-all-photos"><img src="images/property-profile/icons/grid.svg" alt=""> Show
+                                all Photos</div>
+                        </figure>
+                        <article>
+                            <h4>Deluxe Double Room with Balcony</h4>
+                            <h5>1 Large double bed</h5>
+                        </article>
+                    </div>
+                    <div class="rooms-list-content-single aminities-area">
+                        <div class="room-details-heading">Room Amenities</div>
+                        <ul class="aminities-list">
+                            <li>Free Wi-Fi</li>
+                            <li>Mineral Water - additional charge</li>
+                            <li>Air Conditioning</li>
+                            <li>Bathroom</li>
+                            <li>Air Conditioning</li>
+                            <li>Charging Points</li>
+                            <li>Living Area</li>
+                        </ul>
+                    </div>
+                    <div class="rooms-list-content-single highlights-area">
+                        <div class="room-details-heading">Room Highlights</div>
+                        <ul class="highlights-list">
+                            <li><img src="images/property-profile/icons/tick-icon.svg" alt=""> Room type:
+                                <div class="strong">Floating cottage</div>
+                            </li>
+                            <li><img src="images/property-profile/icons/tick-icon.svg" alt=""> Room View:
+                                <div class="strong">Beach</div>
+                            </li>
+                            <li><img src="images/property-profile/icons/tick-icon.svg" alt=""> Inventory:
+                                <div class="strong">12</div>
+                            </li>
+                            <li><img src="images/property-profile/icons/tick-icon.svg" alt=""> Average room size:
+                                <div class="strong">1250 Sq. Ft</div>
+                            </li>
+                            <li><img src="images/property-profile/icons/tick-icon.svg" alt=""> Default Meal Plan:
+                                <div class="strong">CP (Breakfast)</div>
+                            </li>
+                            <li><img src="images/property-profile/icons/tick-icon.svg" alt=""> Entry Restriction:
+                                <div class="strong">Admission is restricted f
+                                    or guests under 7 years</div>
+                            </li>
+                            <li><img src="images/property-profile/icons/tick-icon.svg" alt=""> <strong>Free cancellation
+                                    until 23:59 on 8 March 2023</strong></li>
+                        </ul>
+                    </div>
+                    <div class="rooms-list-content-single room-details-area">
+                        <div class="room-details-single">
+                            <div class="room-details-heading">Defacult Occupancy</div>
+                            <ul class="room-details-list">
+                                <li><img src="images/property-profile/icons/bed.svg" alt=""> BD: 2</li>
+                                <li>EB: 1</li>
+                                <li>SB: 1</li>
+                            </ul>
+                        </div>
+                        <div class="room-details-single">
+                            <div class="room-details-heading">Room’s Child Policy</div>
+                            <ul class="room-details-list">
+                                <li><img src="images/property-profile/icons/child.svg" alt=""> 0-5</li>
+                                <li><img src="images/property-profile/icons/adult.svg" alt=""> 6-11</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
                 <div class="rooms-list-single">
                     <div class="rooms-list-content-single room-name-details">
                         <figure>
@@ -199,6 +480,281 @@ $this->registerCssFile('/css/property-profile/property-profile.css');
                     </div>
                 </div>
             </div>
+            <div class="testimonials-wrapper">
+                <div class="facilities-heading">Review</div>
+                <div class="rating-card review-rating-card">
+                    <figure>4.3 <img src="images/property-profile/icons/star.svg" alt=""></figure>
+                    <article>
+                        <h3>Very good</h3>
+                        <h5>5879 Rating</h5>
+                    </article>
+                </div>
+                <div class="testimonials-cards-wrapper">
+                    <div class="testimonials-card">
+                        <img src="images/property-profile/icons/coma.svg" alt="" class="coma-icon">
+                        <div class="testimonials-content">
+                            <p>Vestibulum tempus imperdiet sem ac porttitor. Vivamus pulvinar commodo orci, suscipit
+                                porttitor velit elementum non. Fusce nec estibulum tempus imperdiet sem ac porttitor.
+                                Vivamus pulvinar commodo orci,</p>
+                        </div>
+                        <div class="testimonial-user-details">
+                            <figure><img src="images/property-profile/icons/user.png" alt=""></figure>
+                            <article>
+                                <div class="user-details">
+                                    <h3>Jidnjidun</h3>
+                                    <p>Traveler</p>
+                                </div>
+                                <div class="star-ratings">
+                                    <img src="images/property-profile/icons/star.svg" alt="">
+                                    <img src="images/property-profile/icons/star.svg" alt="">
+                                    <img src="images/property-profile/icons/star.svg" alt="">
+                                    <img src="images/property-profile/icons/star.svg" alt="">
+                                    <img src="images/property-profile/icons/star.svg" alt="">
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="testimonials-card">
+                        <img src="images/property-profile/icons/coma.svg" alt="" class="coma-icon">
+                        <div class="testimonials-content">
+                            <p>Vestibulum tempus imperdiet sem ac porttitor. Vivamus pulvinar commodo orci, suscipit
+                                porttitor velit elementum non. Fusce nec estibulum tempus imperdiet sem ac porttitor.
+                                Vivamus pulvinar commodo orci,</p>
+                        </div>
+                        <div class="testimonial-user-details">
+                            <figure><img src="images/property-profile/icons/user.png" alt=""></figure>
+                            <article>
+                                <div class="user-details">
+                                    <h3>Jidnjidun</h3>
+                                    <p>Traveler</p>
+                                </div>
+                                <div class="star-ratings">
+                                    <img src="images/property-profile/icons/star.svg" alt="">
+                                    <img src="images/property-profile/icons/star.svg" alt="">
+                                    <img src="images/property-profile/icons/star.svg" alt="">
+                                    <img src="images/property-profile/icons/star.svg" alt="">
+                                    <img src="images/property-profile/icons/star.svg" alt="">
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="testimonials-card">
+                        <img src="images/property-profile/icons/coma.svg" alt="" class="coma-icon">
+                        <div class="testimonials-content">
+                            <p>Vestibulum tempus imperdiet sem ac porttitor. Vivamus pulvinar commodo orci, suscipit
+                                porttitor velit elementum non. Fusce nec estibulum tempus imperdiet sem ac porttitor.
+                                Vivamus pulvinar commodo orci,</p>
+                        </div>
+                        <div class="testimonial-user-details">
+                            <figure><img src="images/property-profile/icons/user.png" alt=""></figure>
+                            <article>
+                                <div class="user-details">
+                                    <h3>Jidnjidun</h3>
+                                    <p>Traveler</p>
+                                </div>
+                                <div class="star-ratings">
+                                    <img src="images/property-profile/icons/star.svg" alt="">
+                                    <img src="images/property-profile/icons/star.svg" alt="">
+                                    <img src="images/property-profile/icons/star.svg" alt="">
+                                    <img src="images/property-profile/icons/star.svg" alt="">
+                                    <img src="images/property-profile/icons/star.svg" alt="">
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="testimonials-card">
+                        <img src="images/property-profile/icons/coma.svg" alt="" class="coma-icon">
+                        <div class="testimonials-content">
+                            <p>Vestibulum tempus imperdiet sem ac porttitor. Vivamus pulvinar commodo orci, suscipit
+                                porttitor velit elementum non. Fusce nec estibulum tempus imperdiet sem ac porttitor.
+                                Vivamus pulvinar commodo orci,</p>
+                        </div>
+                        <div class="testimonial-user-details">
+                            <figure><img src="images/property-profile/icons/user.png" alt=""></figure>
+                            <article>
+                                <div class="user-details">
+                                    <h3>Jidnjidun</h3>
+                                    <p>Traveler</p>
+                                </div>
+                                <div class="star-ratings">
+                                    <img src="images/property-profile/icons/star.svg" alt="">
+                                    <img src="images/property-profile/icons/star.svg" alt="">
+                                    <img src="images/property-profile/icons/star.svg" alt="">
+                                    <img src="images/property-profile/icons/star.svg" alt="">
+                                    <img src="images/property-profile/icons/star.svg" alt="">
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="testimonials-card">
+                        <img src="images/property-profile/icons/coma.svg" alt="" class="coma-icon">
+                        <div class="testimonials-content">
+                            <p>Vestibulum tempus imperdiet sem ac porttitor. Vivamus pulvinar commodo orci, suscipit
+                                porttitor velit elementum non. Fusce nec estibulum tempus imperdiet sem ac porttitor.
+                                Vivamus pulvinar commodo orci,</p>
+                        </div>
+                        <div class="testimonial-user-details">
+                            <figure><img src="images/property-profile/icons/user.png" alt=""></figure>
+                            <article>
+                                <div class="user-details">
+                                    <h3>Jidnjidun</h3>
+                                    <p>Traveler</p>
+                                </div>
+                                <div class="star-ratings">
+                                    <img src="images/property-profile/icons/star.svg" alt="">
+                                    <img src="images/property-profile/icons/star.svg" alt="">
+                                    <img src="images/property-profile/icons/star.svg" alt="">
+                                    <img src="images/property-profile/icons/star.svg" alt="">
+                                    <img src="images/property-profile/icons/star.svg" alt="">
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="testimonials-card">
+                        <img src="images/property-profile/icons/coma.svg" alt="" class="coma-icon">
+                        <div class="testimonials-content">
+                            <p>Vestibulum tempus imperdiet sem ac porttitor. Vivamus pulvinar commodo orci, suscipit
+                                porttitor velit elementum non. Fusce nec estibulum tempus imperdiet sem ac porttitor.
+                                Vivamus pulvinar commodo orci,</p>
+                        </div>
+                        <div class="testimonial-user-details">
+                            <figure><img src="images/property-profile/icons/user.png" alt=""></figure>
+                            <article>
+                                <div class="user-details">
+                                    <h3>Jidnjidun</h3>
+                                    <p>Traveler</p>
+                                </div>
+                                <div class="star-ratings">
+                                    <img src="images/property-profile/icons/star.svg" alt="">
+                                    <img src="images/property-profile/icons/star.svg" alt="">
+                                    <img src="images/property-profile/icons/star.svg" alt="">
+                                    <img src="images/property-profile/icons/star.svg" alt="">
+                                    <img src="images/property-profile/icons/star.svg" alt="">
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="testimonials-card">
+                        <img src="images/property-profile/icons/coma.svg" alt="" class="coma-icon">
+                        <div class="testimonials-content">
+                            <p>Vestibulum tempus imperdiet sem ac porttitor. Vivamus pulvinar commodo orci, suscipit
+                                porttitor velit elementum non. Fusce nec estibulum tempus imperdiet sem ac porttitor.
+                                Vivamus pulvinar commodo orci,</p>
+                        </div>
+                        <div class="testimonial-user-details">
+                            <figure><img src="images/property-profile/icons/user.png" alt=""></figure>
+                            <article>
+                                <div class="user-details">
+                                    <h3>Jidnjidun</h3>
+                                    <p>Traveler</p>
+                                </div>
+                                <div class="star-ratings">
+                                    <img src="images/property-profile/icons/star.svg" alt="">
+                                    <img src="images/property-profile/icons/star.svg" alt="">
+                                    <img src="images/property-profile/icons/star.svg" alt="">
+                                    <img src="images/property-profile/icons/star.svg" alt="">
+                                    <img src="images/property-profile/icons/star.svg" alt="">
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="testimonials-card">
+                        <img src="images/property-profile/icons/coma.svg" alt="" class="coma-icon">
+                        <div class="testimonials-content">
+                            <p>Vestibulum tempus imperdiet sem ac porttitor. Vivamus pulvinar commodo orci, suscipit
+                                porttitor velit elementum non. Fusce nec estibulum tempus imperdiet sem ac porttitor.
+                                Vivamus pulvinar commodo orci,</p>
+                        </div>
+                        <div class="testimonial-user-details">
+                            <figure><img src="images/property-profile/icons/user.png" alt=""></figure>
+                            <article>
+                                <div class="user-details">
+                                    <h3>Jidnjidun</h3>
+                                    <p>Traveler</p>
+                                </div>
+                                <div class="star-ratings">
+                                    <img src="images/property-profile/icons/star.svg" alt="">
+                                    <img src="images/property-profile/icons/star.svg" alt="">
+                                    <img src="images/property-profile/icons/star.svg" alt="">
+                                    <img src="images/property-profile/icons/star.svg" alt="">
+                                    <img src="images/property-profile/icons/star.svg" alt="">
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="testimonials-card">
+                        <img src="images/property-profile/icons/coma.svg" alt="" class="coma-icon">
+                        <div class="testimonials-content">
+                            <p>Vestibulum tempus imperdiet sem ac porttitor. Vivamus pulvinar commodo orci, suscipit
+                                porttitor velit elementum non. Fusce nec estibulum tempus imperdiet sem ac porttitor.
+                                Vivamus pulvinar commodo orci,</p>
+                        </div>
+                        <div class="testimonial-user-details">
+                            <figure><img src="images/property-profile/icons/user.png" alt=""></figure>
+                            <article>
+                                <div class="user-details">
+                                    <h3>Jidnjidun</h3>
+                                    <p>Traveler</p>
+                                </div>
+                                <div class="star-ratings">
+                                    <img src="images/property-profile/icons/star.svg" alt="">
+                                    <img src="images/property-profile/icons/star.svg" alt="">
+                                    <img src="images/property-profile/icons/star.svg" alt="">
+                                    <img src="images/property-profile/icons/star.svg" alt="">
+                                    <img src="images/property-profile/icons/star.svg" alt="">
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+<!-- BOF Modal -->
+<div class="modal fade" id="allPhotosModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered property-modal" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><img src="images/property-profile/modal/left-arrow.svg" alt=""></span>
+                </button>
+                <h5 class="modal-title" id="exampleModalLongTitle" style="color: #0A0A0A !important;">Property
+                    Photos</h5>
+            </div>
+            <div class="modal-body">
+                <div class="modal-imgs">
+                    <div class="modal-single-img">
+                        <img src="images/property-profile/modal/img-01.png" alt="">
+                    </div>
+                    <div class="modal-single-img">
+                        <img src="images/property-profile/modal/img-02.png" alt="">
+                    </div>
+                    <div class="modal-single-img modal-large-img">
+                        <img src="images/property-profile/modal/img-03.png" alt="">
+                    </div>
+                    <div class="modal-single-img">
+                        <img src="images/property-profile/modal/img-04.png" alt="">
+                    </div>
+                    <div class="modal-single-img">
+                        <img src="images/property-profile/modal/img-05.png" alt="">
+                    </div>
+                    <div class="modal-single-img modal-large-img">
+                        <img src="images/property-profile/modal/img-06.png" alt="">
+                    </div>
+                    <div class="modal-single-img">
+                        <img src="images/property-profile/modal/img-07.png" alt="">
+                    </div>
+                    <div class="modal-single-img">
+                        <img src="images/property-profile/modal/img-08.png" alt="">
+                    </div>
+                    <div class="modal-single-img modal-large-img">
+                        <img src="images/property-profile/modal/img-09.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- EOF Modal -->
