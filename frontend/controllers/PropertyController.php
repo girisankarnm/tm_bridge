@@ -149,7 +149,7 @@ class PropertyController extends Controller
     }
     public function actionPpe15()
     {
-        $this->layout = 'tm_main';
+        $this->layout = 'property_profile';
         return $this->render('property-profile', []);
     }
 }

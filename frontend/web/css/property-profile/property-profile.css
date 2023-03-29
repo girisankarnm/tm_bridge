@@ -929,7 +929,7 @@ ul {
 }
 .property-images .property-large-img {
   width: 65%;
-  height: 450px;
+  height: 400px;
   margin: 0 10px 0 0;
   background-position: center center;
   background-repeat: no-repeat;
@@ -945,7 +945,7 @@ ul {
   top: 15px;
   left: 15px;
   padding: 15px;
-  font-size: 14px;
+  font-size: 12px;
   color: #831BEE;
   line-height: 16px;
   position: absolute;
@@ -963,31 +963,8 @@ ul {
   align-items: stretch;
   justify-content: space-between;
   flex-wrap: wrap;
-  height: 450px;
+  height: 400px;
   position: relative;
-}
-.property-images .small-icons-wrapper .show-all-photos {
-  bottom: 15px;
-  right: 15px;
-  padding: 15px;
-  font-size: 14px;
-  color: #831BEE;
-  line-height: 16px;
-  position: absolute;
-  background: #F3E8FD;
-  font-family: "Bw-Mitga-bold";
-  border-radius: 8px;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  -ms-border-radius: 8px;
-  -o-border-radius: 8px;
-  border: 1px solid #831BEE;
-  text-align: center;
-  min-width: 270px;
-  cursor: pointer;
-}
-.property-images .small-icons-wrapper .show-all-photos img {
-  margin: -3px 0 0;
 }
 .property-images .small-icons-wrapper .small-icon-single {
   width: 49%;
@@ -1018,7 +995,7 @@ ul {
   margin: 0 0 10px;
 }
 .hotel-category-wrapper .hotel-category {
-  font-size: 14px;
+  font-size: 12px;
   color: #D6A20A;
   font-weight: 500;
   padding: 10px 20px;
@@ -1035,14 +1012,14 @@ ul {
 
 .property-name {
   margin: 0 0 10px;
-  font-size: 18px;
+  font-size: 15px;
   line-height: 20px;
   font-family: var(--outfit) !important;
   color: #0A0A0A;
 }
 
 .property-location {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 400;
   color: #747474;
   font-family: var(--outfit);
@@ -1055,7 +1032,7 @@ ul {
 
 .property-mail {
   color: #636FD4;
-  font-size: 14px;
+  font-size: 12px;
   font-family: var(--outfit);
   margin: 0;
 }
@@ -1072,7 +1049,7 @@ ul {
   color: #831BEE;
   font-family: var(--outfit);
   font-weight: 400;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 14px;
   border-right: 1px solid #E8E8E8;
   padding: 0 25px 0 0;
@@ -1091,10 +1068,10 @@ ul {
 .facilities-heading {
   font-family: var(--outfit) !important;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 18px;
   color: #0A0A0A;
-  margin: 0 0 20px;
+  margin: 0 0 10px;
 }
 
 .facilities-list-wrapper ul {
@@ -1106,10 +1083,11 @@ ul {
 }
 .facilities-list-wrapper ul .facilities-list {
   width: 50%;
-  padding: 0 15px 15px 0;
+  font-size: 12px;
+  padding: 0 15px 10px 0;
 }
 .facilities-list-wrapper ul .facilities-list img {
-  width: 20px;
+  width: 18px;
   margin: 0 5px 0 0;
 }
 
@@ -1128,13 +1106,13 @@ ul {
 .room-content-details .room-content-single article h6 {
   margin: 0;
   line-height: 16px;
-  font-size: 12px !important;
+  font-size: 10px !important;
 }
 .room-content-details .room-content-single article h3 {
   margin: 0;
   color: #0A0A0A;
   line-height: 20px;
-  font-size: 14px !important;
+  font-size: 12px !important;
 }
 
 .policy-list {
@@ -1142,11 +1120,11 @@ ul {
 }
 .policy-list li {
   margin: 0 0 15px;
-  font-size: 14px;
+  font-size: 10px;
   color: #747474;
 }
 .policy-list li img {
-  width: 20px;
+  width: 15px;
   margin: -4px 0 0;
 }
 
@@ -1176,8 +1154,8 @@ ul {
 }
 .rooms-list-area .rooms-list-single .rooms-list-content-single {
   border-right: 1px solid #D4D4D4;
-  padding: 0 30px;
-  width: 28%;
+  padding: 0 15px;
+  width: 25%;
 }
 .rooms-list-area .rooms-list-single .rooms-list-content-single:nth-child(1) {
   padding-left: 0;
@@ -1185,7 +1163,13 @@ ul {
 .rooms-list-area .rooms-list-single .rooms-list-content-single:nth-last-child(1) {
   border-right: none;
   padding-right: 0;
-  width: 16%;
+  width: 20%;
+}
+.rooms-list-area .rooms-list-single .aminities-area {
+  width: 20%;
+}
+.rooms-list-area .rooms-list-single .highlights-area {
+  width: 30%;
 }
 
 .room-name-details figure {
@@ -1195,7 +1179,20 @@ ul {
 .room-name-details figure img {
   width: 100%;
 }
-.room-name-details figure .show-all-photos {
+.room-name-details article h4 {
+  color: #0A0A0A;
+  font-size: 14px;
+  line-height: 16px;
+  margin: 0 0 10px;
+}
+.room-name-details article h5 {
+  color: #747474;
+  font-size: 12px;
+  line-height: 18px;
+  margin: 0;
+}
+
+.show-all-photos {
   position: absolute;
   right: 15px;
   bottom: 15px;
@@ -1212,25 +1209,13 @@ ul {
   padding: 5px 10px;
   font-size: 11px;
 }
-.room-name-details figure .show-all-photos img {
+.show-all-photos img {
   max-width: 18px;
   margin: -1px 3px 0 0;
 }
-.room-name-details article h4 {
-  color: #0A0A0A;
-  font-size: 16px;
-  line-height: 18px;
-  margin: 0 0 10px;
-}
-.room-name-details article h5 {
-  color: #747474;
-  font-size: 12px;
-  line-height: 18px;
-  margin: 0;
-}
 
 .room-details-heading {
-  font-size: 14px;
+  font-size: 12px;
   color: #0A0A0A;
   font-weight: 600;
   margin: 0 0 10px;
@@ -1246,13 +1231,14 @@ ul {
   color: #747474;
   font-size: 12px;
   position: relative;
-  padding: 0 0 0 15px;
-  margin: 0 15px 0 0;
+  padding: 0 0 0 10px;
+  margin: 0 10px 0 0;
 }
 .aminities-list li::before {
   position: absolute;
   content: "";
   left: 0;
+  top: 7px;
   width: 4px;
   height: 4px;
   border-radius: 50%;
@@ -1261,8 +1247,6 @@ ul {
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
   background: #747474;
-  top: 7px;
-  left: 3px;
 }
 
 .highlights-list li {
@@ -1352,13 +1336,13 @@ ul {
 .rating-card article h3 {
   font-weight: 600;
   color: #0A0A0A;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 20px;
   margin: 0 0 7px;
 }
 .rating-card article h5 {
   color: #747474;
-  font-size: 12px;
+  font-size: 10px;
   line-height: 14px;
   margin: 0;
 }
@@ -1466,7 +1450,7 @@ ul {
 }
 .sales-details-wrapper .sales-detail-single article h4 {
   color: #0A0A0A;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 16px;
   margin: 0;
 }
@@ -1535,8 +1519,8 @@ ul {
 }
 .testimonial-user-details article h3 {
   color: #0A0A0A;
-  font-size: 16px;
-  line-height: 18px;
+  font-size: 13px;
+  line-height: 16px;
   font-family: "Bw-Mitga-bold";
 }
 .testimonial-user-details article p {
@@ -1557,7 +1541,17 @@ ul {
 }
 .modal-imgs .modal-single-img {
   width: 49%;
+  height: 300px;
   margin: 0 0 2%;
+  overflow: hidden;
+  background-position: center center;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .modal-imgs .modal-single-img img {
   width: 100%;
