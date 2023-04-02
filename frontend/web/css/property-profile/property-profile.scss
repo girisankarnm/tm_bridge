@@ -12,6 +12,16 @@ $font-bold: 'Bw-Mitga-bold';
     color: #831BEE !important;
 }
 
+.property-header {
+    margin: 0 0 30px;
+
+    .main-logo {
+        img {
+            width: 150px;
+        }
+    }
+}
+
 .property-images {
     display: flex;
     margin: 0 0 30px;
@@ -115,15 +125,15 @@ $font-bold: 'Bw-Mitga-bold';
 }
 
 .property-name {
-    margin: 0 0 10px;
-    font-size: 15px;
+    margin: 0 0 5px;
+    font-size: 17px;
     line-height: 20px;
     font-family: var(--outfit) !important;
     color: #0A0A0A;
 }
 
 .property-location {
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 400;
     color: #747474;
     font-family: var(--outfit);
@@ -137,7 +147,7 @@ $font-bold: 'Bw-Mitga-bold';
 
 .property-mail {
     color: #636FD4;
-    font-size: 12px;
+    font-size: 13px;
     font-family: var(--outfit);
     margin: 0;
 }
@@ -168,8 +178,8 @@ $font-bold: 'Bw-Mitga-bold';
 
 .facilities-wrapper {
     border-bottom: 1px solid #D4D4D4;
-    padding: 0 0 15px;
-    margin: 0 0 15px;
+    padding: 0 0 10px;
+    margin: 0 0 10px;
 }
 
 .facilities-heading {
@@ -178,7 +188,7 @@ $font-bold: 'Bw-Mitga-bold';
     font-size: 14px;
     line-height: 18px;
     color: #0A0A0A;
-    margin: 0 0 10px;
+    margin: 0 0 6px;
 }
 
 .facilities-list-wrapper {
@@ -192,7 +202,7 @@ $font-bold: 'Bw-Mitga-bold';
         .facilities-list {
             width: 50%;
             font-size: 12px;
-            padding: 0 15px 10px 0;
+            padding: 0 15px 5px 0;
 
             img {
                 width: 18px;
@@ -202,10 +212,18 @@ $font-bold: 'Bw-Mitga-bold';
     }
 }
 
+.facilities-list-three-columns {
+    ul {
+        .facilities-list {
+            width: 33%;
+        }
+    }
+}
+
 .room-content-details {
     .room-content-single {
         display: flex;
-        margin: 0 0 20px;
+        margin: 0 0 10px;
         align-items: flex-start;
         justify-content: flex-start;
 
@@ -238,7 +256,7 @@ $font-bold: 'Bw-Mitga-bold';
     margin: 0 0 30px;
 
     li {
-        margin: 0 0 15px;
+        margin: 0 0 8px;
         font-size: 10px;
         color: #747474;
 
@@ -565,7 +583,7 @@ $font-bold: 'Bw-Mitga-bold';
         display: flex;
         align-items: flex-start;
         justify-content: space-between;
-        margin: 0 0 20px;
+        margin: 0 0 15px;
 
         &:nth-last-child(1) {
             margin: 0;
@@ -699,14 +717,31 @@ $font-bold: 'Bw-Mitga-bold';
         @include border-radius(10px);
         background-repeat: no-repeat;
         background-size: cover;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
         img {
             width: 100%;
+        }
+
+        .modal-img-title {
+            // position: absolute;
+            background: rgb(10 10 10 / 70%);
+            @include border-radius(8px);
+            // left: 50%;
+            // bottom: 50%;
+            color: #fff;
+            font-size: 12px;
+            padding: 10px 20px;
+            // @include transform(translate(-50%, -50%));
         }
     }
 
     .modal-large-img {
         width: 100%;
+        height: 500px;
     }
 }
 
@@ -718,6 +753,11 @@ $font-bold: 'Bw-Mitga-bold';
         button {
             background: none;
             border: none;
+            padding: 0;
+
+            .close-img {
+                width: 30px;
+            }
 
             &:hover,
             &:focus {
@@ -731,7 +771,39 @@ $font-bold: 'Bw-Mitga-bold';
             font-size: 14px;
             font-weight: 700;
             line-height: 20px;
-            margin: 15px 0 0 15px;
+            margin: 5px 0 0 0px;
+        }
+    }
+}
+
+#allPhotosModal {
+    background: #fff;
+
+    .modal-dialog {
+        margin: 0 auto;
+        padding: 40px 0 0;
+        background: #fff;
+
+        .modal-content {
+            border: none;
+            box-shadow: none;
+
+            .modal-header {
+                border: none;
+                padding: 0;
+                margin: 0 0 15px;
+                position: relative;
+
+                button {
+                    position: absolute;
+                    left: 0;
+                    left: -40px;
+                }
+            }
+
+            .modal-body {
+                padding: 0;
+            }
         }
     }
 }
@@ -743,3 +815,79 @@ $font-bold: 'Bw-Mitga-bold';
 }
 
 // EOF Modal CSS
+@media (min-width: 1200px) {
+
+    .container,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container-xl {
+        max-width: 1170px !important;
+    }
+}
+
+@media (min-width: 1300px) {
+
+    .container,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container-xl {
+        max-width: 1270px !important;
+    }
+}
+
+@media (min-width: 1400px) {
+
+    .container,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container-xl {
+        max-width: 1366px !important;
+    }
+}
+
+@media (min-width: 1600px) {
+
+    .container,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container-xl {
+        max-width: 1570px !important;
+    }
+}
+
+@media (max-width: 1199px) {
+    .property-images {
+
+        .small-icons-wrapper,
+        .property-large-img {
+            height: 300px;
+        }
+    }
+
+    .rooms-list-area {
+        .rooms-list-single {
+            .rooms-list-content-single {
+                &:nth-child(1) {
+                    width: 20%;
+                }
+
+                .highlights-area {
+                    width: 38%;
+                }
+            }
+
+        }
+    }
+
+    .modal-imgs .modal-large-img {
+        height: 300px;
+    }
+
+    .room-name-details article h4 {
+        font-size: 12px;
+    }
+}

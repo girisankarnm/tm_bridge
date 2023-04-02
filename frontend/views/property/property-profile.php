@@ -4,6 +4,9 @@ $this->registerCssFile('/css/property-profile/property-profile.css');
 ?>
 <div class="wrapper">
     <div class="container">
+        <div class="property-header">
+            <figure class="main-logo"><img src="images/property-profile/logo.png" alt=""></figure>
+        </div>
         <div class="property-images">
             <div class="property-large-img" style="background-image: url('images/property-profile/large-img.png');">
                 <div class="property-name-label">Airport Hotel</div>
@@ -73,6 +76,70 @@ $this->registerCssFile('/css/property-profile/property-profile.css');
                                 <li class="facilities-list"><img
                                         src="images/property-profile/icons/tick-square-icon.svg" alt=""> First aid kit
                                 </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="facilities-wrapper">
+                        <h4 class="facilities-heading">Property Ameneities</h4>
+                        <div class="facilities-list-wrapper facilities-list-three-columns">
+                            <ul>
+                                <li class="facilities-list"><img
+                                        src="images/property-profile/icons/tick-square-icon.svg" alt="">Lift</li>
+                                <li class="facilities-list"><img
+                                        src="images/property-profile/icons/tick-square-icon.svg" alt="">Wheelchair
+                                    Accessible</li>
+                                <li class="facilities-list"><img
+                                        src="images/property-profile/icons/tick-square-icon.svg" alt="">Fitness Centre
+                                </li>
+                                <li class="facilities-list"><img
+                                        src="images/property-profile/icons/tick-square-icon.svg" alt="">Saloon</li>
+                                <li class="facilities-list"><img
+                                        src="images/property-profile/icons/tick-square-icon.svg" alt="">Bar</li>
+                                <li class="facilities-list"><img
+                                        src="images/property-profile/icons/tick-square-icon.svg" alt="">Spa</li>
+                                <li class="facilities-list"><img
+                                        src="images/property-profile/icons/tick-square-icon.svg" alt="">Business Centre
+                                </li>
+                                <li class="facilities-list"><img
+                                        src="images/property-profile/icons/tick-square-icon.svg" alt="">Convention Hall
+                                </li>
+                                <li class="facilities-list"><img
+                                        src="images/property-profile/icons/tick-square-icon.svg" alt="">Wifi</li>
+                                <li class="facilities-list"><img
+                                        src="images/property-profile/icons/tick-square-icon.svg" alt="">Laundry</li>
+                                <li class="facilities-list"><img
+                                        src="images/property-profile/icons/tick-square-icon.svg" alt="">Room Service
+                                </li>
+                                <li class="facilities-list"><img
+                                        src="images/property-profile/icons/tick-square-icon.svg" alt="">Ticket Service
+                                </li>
+                                <li class="facilities-list"><img
+                                        src="images/property-profile/icons/tick-square-icon.svg" alt="">Tour Desk</li>
+                                <li class="facilities-list"><img
+                                        src="images/property-profile/icons/tick-square-icon.svg" alt="">Power Backup
+                                </li>
+                                <li class="facilities-list"><img
+                                        src="images/property-profile/icons/tick-square-icon.svg" alt="">Scuba</li>
+                                <li class="facilities-list"><img
+                                        src="images/property-profile/icons/tick-square-icon.svg" alt="">Nightclub / DJ
+                                </li>
+                                <li class="facilities-list"><img
+                                        src="images/property-profile/icons/tick-square-icon.svg" alt="">Fitness Classes
+                                </li>
+                                <li class="facilities-list"><img
+                                        src="images/property-profile/icons/tick-square-icon.svg" alt="">Yoga Class</li>
+                                <li class="facilities-list"><img
+                                        src="images/property-profile/icons/tick-square-icon.svg" alt="">Garden</li>
+                                <li class="facilities-list"><img
+                                        src="images/property-profile/icons/tick-square-icon.svg" alt="">Dining Area</li>
+                                <li class="facilities-list"><img
+                                        src="images/property-profile/icons/tick-square-icon.svg" alt="">Camp Fire</li>
+                                <li class="facilities-list"><img
+                                        src="images/property-profile/icons/tick-square-icon.svg" alt="">BBQ Facilities
+                                </li>
+                                <li class="facilities-list"><img
+                                        src="images/property-profile/icons/tick-square-icon.svg" alt="">Children Play
+                                    Area</li>
                             </ul>
                         </div>
                     </div>
@@ -751,7 +818,8 @@ $this->registerCssFile('/css/property-profile/property-profile.css');
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true"><img src="images/property-profile/modal/left-arrow.svg" alt=""></span>
+                    <span aria-hidden="true"><img src="images/property-profile/modal/left-arrow.svg" alt=""
+                            class="close-img"></span>
                 </button>
                 <h5 class="modal-title" id="exampleModalLongTitle" style="color: #0A0A0A !important;">Property
                     Photos</h5>
@@ -761,38 +829,46 @@ $this->registerCssFile('/css/property-profile/property-profile.css');
                     <div class="modal-single-img"
                         style="background-image: url(images/property-profile/modal/img-01.png);">
                         <!-- <img src="images/property-profile/modal/img-01.png" alt=""> -->
+                        <span class="modal-img-title">Bed Room Area </span>
                     </div>
                     <div class="modal-single-img"
                         style="background-image: url(images/property-profile/modal/img-02.png);">
-                        <img src="images/property-profile/modal/img-02.png" alt="">
+                        <span class="modal-img-title">Bed Room Area </span>
                     </div>
                     <div class="modal-single-img modal-large-img"
                         style="background-image: url(images/property-profile/modal/img-02.png);">
                         <!-- <img src="images/property-profile/modal/img-03.png" alt=""> -->
+                        <span class="modal-img-title">Bed Room Area </span>
                     </div>
                     <div class="modal-single-img"
                         style="background-image: url(images/property-profile/modal/img-04.png);">
                         <!-- <img src="images/property-profile/modal/img-04.png" alt=""> -->
+                        <span class="modal-img-title">Bed Room Area </span>
                     </div>
                     <div class="modal-single-img"
                         style="background-image: url(images/property-profile/modal/img-05.png);">
                         <!-- <img src="images/property-profile/modal/img-05.png" alt=""> -->
+                        <span class="modal-img-title">Bed Room Area </span>
                     </div>
                     <div class="modal-single-img modal-large-img"
                         style="background-image: url(images/property-profile/modal/img-06.png);">
                         <!-- <img src="images/property-profile/modal/img-06.png" alt=""> -->
+                        <span class="modal-img-title">Bed Room Area </span>
                     </div>
                     <div class="modal-single-img"
                         style="background-image: url(images/property-profile/modal/img-07.png);">
                         <!-- <img src="images/property-profile/modal/img-07.png" alt=""> -->
+                        <span class="modal-img-title">Bed Room Area </span>
                     </div>
                     <div class="modal-single-img"
                         style="background-image: url(images/property-profile/modal/img-08.png);">
                         <!-- <img src="images/property-profile/modal/img-08.png" alt=""> -->
+                        <span class="modal-img-title">Bed Room Area </span>
                     </div>
                     <div class="modal-single-img modal-large-img"
                         style="background-image: url(images/property-profile/modal/img-09.png);">
                         <!-- <img src="images/property-profile/modal/img-09.png" alt=""> -->
+                        <span class="modal-img-title">Bed Room Area </span>
                     </div>
                 </div>
             </div>
