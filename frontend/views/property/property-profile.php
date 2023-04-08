@@ -363,7 +363,8 @@ $this->registerCssFile('/css/property-profile/property-profile.css');
                         <div class="rooms-list-content-single room-name-details">
                             <figure>
                                 <img src="images/property-profile/room-img-01.jpg" alt="">
-                                <div class="show-all-photos"><img src="images/property-profile/icons/grid.svg" alt="">
+                                <div class="show-all-photos" data-toggle="modal" data-target="#allPhotosModal"><img
+                                        src="images/property-profile/icons/grid.svg" alt="">
                                     Show
                                     all Photos</div>
                             </figure>
@@ -433,7 +434,8 @@ $this->registerCssFile('/css/property-profile/property-profile.css');
                         <div class="rooms-list-content-single room-name-details">
                             <figure>
                                 <img src="images/property-profile/room-img-01.jpg" alt="">
-                                <div class="show-all-photos"><img src="images/property-profile/icons/grid.svg" alt="">
+                                <div class="show-all-photos" data-toggle="modal" data-target="#allPhotosModal"><img
+                                        src="images/property-profile/icons/grid.svg" alt="">
                                     Show
                                     all Photos</div>
                             </figure>
@@ -503,7 +505,8 @@ $this->registerCssFile('/css/property-profile/property-profile.css');
                         <div class="rooms-list-content-single room-name-details">
                             <figure>
                                 <img src="images/property-profile/room-img-01.jpg" alt="">
-                                <div class="show-all-photos"><img src="images/property-profile/icons/grid.svg" alt="">
+                                <div class="show-all-photos" data-toggle="modal" data-target="#allPhotosModal"><img
+                                        src="images/property-profile/icons/grid.svg" alt="">
                                     Show
                                     all Photos</div>
                             </figure>

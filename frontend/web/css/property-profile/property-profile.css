@@ -1565,7 +1565,8 @@ ul {
   background-size: cover;
   position: relative;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
+  padding: 0 0 20px;
   justify-content: center;
 }
 .modal-imgs .modal-single-img img {
@@ -1636,6 +1637,10 @@ ul {
 }
 #allPhotosModal .modal-dialog .modal-content .modal-body {
   padding: 0;
+}
+
+.content-contr .data-content {
+  height: 100% !important;
 }
 
 @media (min-width: 1200px) {

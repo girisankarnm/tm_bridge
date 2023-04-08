@@ -719,7 +719,8 @@ $font-bold: 'Bw-Mitga-bold';
         background-size: cover;
         position: relative;
         display: flex;
-        align-items: center;
+        align-items: flex-end;
+        padding: 0 0 20px;
         justify-content: center;
 
         img {
@@ -806,6 +807,10 @@ $font-bold: 'Bw-Mitga-bold';
             }
         }
     }
+}
+
+.content-contr .data-content {
+    height: 100% !important;
 }
 
 @media (min-width: 1200px) {
