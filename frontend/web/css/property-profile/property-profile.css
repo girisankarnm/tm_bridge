@@ -1582,6 +1582,17 @@ ul {
   color: #fff;
   font-size: 12px;
   padding: 10px 20px;
+  opacity: 0;
+  transition: all ease 0.5s;
+  -webkit-transition: all ease 0.5s;
+  -moz-transition: all ease 0.5s;
+  -ms-transition: all ease 0.5s;
+  -o-transition: all ease 0.5s;
+  pointer-events: none;
+}
+.modal-imgs .modal-single-img:hover .modal-img-title {
+  opacity: 1;
+  pointer-events: all;
 }
 .modal-imgs .modal-large-img {
   width: 100%;
@@ -1612,30 +1623,30 @@ ul {
   margin: 5px 0 0 0px;
 }
 
-#allPhotosModal {
+.bg-white-modal {
   background: #fff;
 }
-#allPhotosModal .modal-dialog {
+.bg-white-modal .modal-dialog {
   margin: 0 auto;
   padding: 40px 0 0;
   background: #fff;
 }
-#allPhotosModal .modal-dialog .modal-content {
+.bg-white-modal .modal-dialog .modal-content {
   border: none;
   box-shadow: none;
 }
-#allPhotosModal .modal-dialog .modal-content .modal-header {
+.bg-white-modal .modal-dialog .modal-content .modal-header {
   border: none;
   padding: 0;
   margin: 0 0 15px;
   position: relative;
 }
-#allPhotosModal .modal-dialog .modal-content .modal-header button {
+.bg-white-modal .modal-dialog .modal-content .modal-header button {
   position: absolute;
   left: 0;
   left: -40px;
 }
-#allPhotosModal .modal-dialog .modal-content .modal-body {
+.bg-white-modal .modal-dialog .modal-content .modal-body {
   padding: 0;
 }
 

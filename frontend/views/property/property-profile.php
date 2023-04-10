@@ -815,8 +815,8 @@ $this->registerCssFile('/css/property-profile/property-profile.css');
     </div>
 </div>
 <!-- BOF Modal -->
-<div class="modal fade" id="allPhotosModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-    aria-hidden="true">
+<div class="modal bg-white-modal fade" id="allPhotosModal" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered property-modal" role="document">
         <div class="modal-content">
             <div class="modal-header">

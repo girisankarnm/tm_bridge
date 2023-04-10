@@ -737,6 +737,16 @@ $font-bold: 'Bw-Mitga-bold';
             font-size: 12px;
             padding: 10px 20px;
             // @include transform(translate(-50%, -50%));
+            opacity: 0;
+            @include transition(all ease 0.5s);
+            pointer-events: none;
+        }
+
+        &:hover {
+            .modal-img-title {
+                opacity: 1;
+                pointer-events: all;
+            }
         }
     }
 
@@ -777,7 +787,7 @@ $font-bold: 'Bw-Mitga-bold';
     }
 }
 
-#allPhotosModal {
+.bg-white-modal {
     background: #fff;
 
     .modal-dialog {
