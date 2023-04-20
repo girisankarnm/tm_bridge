@@ -1716,5 +1716,9 @@ ul {
     font-size: 12px;
   }
 }
+.data-content .modal .modal-content {
+  border: none !important;
+  box-shadow: none !important;
+}
 
 /*# sourceMappingURL=property-profile.css.map */
