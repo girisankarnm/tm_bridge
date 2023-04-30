@@ -139,17 +139,12 @@ $color-white: #fff;
         width: 35%;
         @include border-radius(5px);
         padding: 0;
-        padding: 0 0 70px;
-        max-height: 620px;
-        min-height: 500px;
-        overflow: hidden;
-        overflow-y: auto;
         position: relative;
     }
 
     .chat-right {
         min-height: 500px;
-        max-height: 620px;
+        max-height: 650px;
         height: 100%;
         background: #FFFFFF;
         border: 1px solid #ABB0C1;
@@ -310,8 +305,17 @@ $color-white: #fff;
     }
 }
 
-.chat-user-list-wrapper {
+.chat-user-list-main {
+    padding: 0 0 70px;
+    max-height: 534px;
+    min-height: 500px;
+    overflow: hidden;
+    overflow-y: auto;
     margin: 10px 0 20px 0;
+}
+
+.chat-user-list-wrapper {
+    margin: 0;
 }
 
 .chat-user-list-single {
@@ -414,6 +418,7 @@ $color-white: #fff;
 
 .chat-area-content {
     .activity-chat-wrapper {
+        max-height: 420px;
         padding: 30px 30px 0;
 
         .activity-chat-single {

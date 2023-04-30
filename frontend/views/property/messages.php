@@ -82,61 +82,203 @@ $this->registerCssFile('/css/messages/messages.css');
                     <span class="datepicker-result">Arrival Date 02 Jan 2022 to 22 Jam 2022</span>
                 </div>
             </div>
-            <div class="chat-user-list-wrapper">
-                <div class="chat-user-list-single active">
-                    <div class="chat-user-details">
-                        <figure style="background-image: url(images/messages/user-image-01.png);">
-                            <!-- <img src="images/messages/user-image-01.png" alt=""> -->
-                        </figure>
-                        <article>
-                            <div class="chat-name">Praveen</div>
-                            <div class="chat-location">Kochi, Kerala</div>
-                        </article>
+            <div class="chat-user-list-main">
+                <div class="chat-user-list-wrapper">
+                    <div class="chat-user-list-single active">
+                        <div class="chat-user-details">
+                            <figure style="background-image: url(images/messages/user-image-01.png);">
+                                <!-- <img src="images/messages/user-image-01.png" alt=""> -->
+                            </figure>
+                            <article>
+                                <div class="chat-name">Praveen</div>
+                                <div class="chat-location">Kochi, Kerala</div>
+                            </article>
+                        </div>
+                        <div class="enq-no-wrapper">
+                            <div class="enq-no">Enq ID: 21122022</div>
+                        </div>
                     </div>
-                    <div class="enq-no-wrapper">
-                        <div class="enq-no">Enq ID: 21122022</div>
+                    <div class="chat-user-list-single">
+                        <div class="chat-user-details">
+                            <figure style="background-image: url(images/messages/user-image-02.png);">
+                                <!-- <img src="images/messages/user-image-02.png" alt=""> -->
+                            </figure>
+                            <article>
+                                <div class="chat-name">Prakash</div>
+                                <div class="chat-location">Kottayam, Kerala</div>
+                            </article>
+                        </div>
+                        <div class="enq-no-wrapper">
+                            <div class="enq-no">Enq ID: 21122022</div>
+                        </div>
                     </div>
-                </div>
-                <div class="chat-user-list-single">
-                    <div class="chat-user-details">
-                        <figure style="background-image: url(images/messages/user-image-02.png);">
-                            <!-- <img src="images/messages/user-image-02.png" alt=""> -->
-                        </figure>
-                        <article>
-                            <div class="chat-name">Prakash</div>
-                            <div class="chat-location">Kottayam, Kerala</div>
-                        </article>
+                    <div class="chat-user-list-single">
+                        <div class="chat-user-details">
+                            <figure style="background-image: url(images/messages/user-image-01.png);">
+                                <!-- <img src="images/messages/user-image-01.png" alt=""> -->
+                            </figure>
+                            <article>
+                                <div class="chat-name">Praveen</div>
+                                <div class="chat-location">Ernakulam, Kerala</div>
+                            </article>
+                        </div>
+                        <div class="enq-no-wrapper">
+                            <div class="enq-no">Enq ID: 21122022</div>
+                        </div>
                     </div>
-                    <div class="enq-no-wrapper">
-                        <div class="enq-no">Enq ID: 21122022</div>
+                    <div class="chat-user-list-single">
+                        <div class="chat-user-details">
+                            <figure style="background-image: url(images/messages/user-image-02.png);">
+                                <!-- <img src="images/messages/user-image-02.png" alt=""> -->
+                            </figure>
+                            <article>
+                                <div class="chat-name">Prakash</div>
+                                <div class="chat-location">Thrissur, Kerala</div>
+                            </article>
+                        </div>
+                        <div class="enq-no-wrapper">
+                            <div class="enq-no">Enq ID: 21122022</div>
+                        </div>
                     </div>
-                </div>
-                <div class="chat-user-list-single">
-                    <div class="chat-user-details">
-                        <figure style="background-image: url(images/messages/user-image-01.png);">
-                            <!-- <img src="images/messages/user-image-01.png" alt=""> -->
-                        </figure>
-                        <article>
-                            <div class="chat-name">Praveen</div>
-                            <div class="chat-location">Ernakulam, Kerala</div>
-                        </article>
+                    <div class="chat-user-list-single">
+                        <div class="chat-user-details">
+                            <figure style="background-image: url(images/messages/user-image-02.png);">
+                                <!-- <img src="images/messages/user-image-02.png" alt=""> -->
+                            </figure>
+                            <article>
+                                <div class="chat-name">Prakash</div>
+                                <div class="chat-location">Thrissur, Kerala</div>
+                            </article>
+                        </div>
+                        <div class="enq-no-wrapper">
+                            <div class="enq-no">Enq ID: 21122022</div>
+                        </div>
                     </div>
-                    <div class="enq-no-wrapper">
-                        <div class="enq-no">Enq ID: 21122022</div>
+                    <div class="chat-user-list-single">
+                        <div class="chat-user-details">
+                            <figure style="background-image: url(images/messages/user-image-02.png);">
+                                <!-- <img src="images/messages/user-image-02.png" alt=""> -->
+                            </figure>
+                            <article>
+                                <div class="chat-name">Prakash</div>
+                                <div class="chat-location">Thrissur, Kerala</div>
+                            </article>
+                        </div>
+                        <div class="enq-no-wrapper">
+                            <div class="enq-no">Enq ID: 21122022</div>
+                        </div>
                     </div>
-                </div>
-                <div class="chat-user-list-single">
-                    <div class="chat-user-details">
-                        <figure style="background-image: url(images/messages/user-image-02.png);">
-                            <!-- <img src="images/messages/user-image-02.png" alt=""> -->
-                        </figure>
-                        <article>
-                            <div class="chat-name">Prakash</div>
-                            <div class="chat-location">Thrissur, Kerala</div>
-                        </article>
+                    <div class="chat-user-list-single">
+                        <div class="chat-user-details">
+                            <figure style="background-image: url(images/messages/user-image-02.png);">
+                                <!-- <img src="images/messages/user-image-02.png" alt=""> -->
+                            </figure>
+                            <article>
+                                <div class="chat-name">Prakash</div>
+                                <div class="chat-location">Thrissur, Kerala</div>
+                            </article>
+                        </div>
+                        <div class="enq-no-wrapper">
+                            <div class="enq-no">Enq ID: 21122022</div>
+                        </div>
                     </div>
-                    <div class="enq-no-wrapper">
-                        <div class="enq-no">Enq ID: 21122022</div>
+                    <div class="chat-user-list-single">
+                        <div class="chat-user-details">
+                            <figure style="background-image: url(images/messages/user-image-02.png);">
+                                <!-- <img src="images/messages/user-image-02.png" alt=""> -->
+                            </figure>
+                            <article>
+                                <div class="chat-name">Prakash</div>
+                                <div class="chat-location">Thrissur, Kerala</div>
+                            </article>
+                        </div>
+                        <div class="enq-no-wrapper">
+                            <div class="enq-no">Enq ID: 21122022</div>
+                        </div>
+                    </div>
+                    <div class="chat-user-list-single">
+                        <div class="chat-user-details">
+                            <figure style="background-image: url(images/messages/user-image-02.png);">
+                                <!-- <img src="images/messages/user-image-02.png" alt=""> -->
+                            </figure>
+                            <article>
+                                <div class="chat-name">Prakash</div>
+                                <div class="chat-location">Thrissur, Kerala</div>
+                            </article>
+                        </div>
+                        <div class="enq-no-wrapper">
+                            <div class="enq-no">Enq ID: 21122022</div>
+                        </div>
+                    </div>
+                    <div class="chat-user-list-single">
+                        <div class="chat-user-details">
+                            <figure style="background-image: url(images/messages/user-image-02.png);">
+                                <!-- <img src="images/messages/user-image-02.png" alt=""> -->
+                            </figure>
+                            <article>
+                                <div class="chat-name">Prakash</div>
+                                <div class="chat-location">Thrissur, Kerala</div>
+                            </article>
+                        </div>
+                        <div class="enq-no-wrapper">
+                            <div class="enq-no">Enq ID: 21122022</div>
+                        </div>
+                    </div>
+                    <div class="chat-user-list-single">
+                        <div class="chat-user-details">
+                            <figure style="background-image: url(images/messages/user-image-02.png);">
+                                <!-- <img src="images/messages/user-image-02.png" alt=""> -->
+                            </figure>
+                            <article>
+                                <div class="chat-name">Prakash</div>
+                                <div class="chat-location">Thrissur, Kerala</div>
+                            </article>
+                        </div>
+                        <div class="enq-no-wrapper">
+                            <div class="enq-no">Enq ID: 21122022</div>
+                        </div>
+                    </div>
+                    <div class="chat-user-list-single">
+                        <div class="chat-user-details">
+                            <figure style="background-image: url(images/messages/user-image-02.png);">
+                                <!-- <img src="images/messages/user-image-02.png" alt=""> -->
+                            </figure>
+                            <article>
+                                <div class="chat-name">Prakash</div>
+                                <div class="chat-location">Thrissur, Kerala</div>
+                            </article>
+                        </div>
+                        <div class="enq-no-wrapper">
+                            <div class="enq-no">Enq ID: 21122022</div>
+                        </div>
+                    </div>
+                    <div class="chat-user-list-single">
+                        <div class="chat-user-details">
+                            <figure style="background-image: url(images/messages/user-image-02.png);">
+                                <!-- <img src="images/messages/user-image-02.png" alt=""> -->
+                            </figure>
+                            <article>
+                                <div class="chat-name">Prakash</div>
+                                <div class="chat-location">Thrissur, Kerala</div>
+                            </article>
+                        </div>
+                        <div class="enq-no-wrapper">
+                            <div class="enq-no">Enq ID: 21122022</div>
+                        </div>
+                    </div>
+                    <div class="chat-user-list-single">
+                        <div class="chat-user-details">
+                            <figure style="background-image: url(images/messages/user-image-02.png);">
+                                <!-- <img src="images/messages/user-image-02.png" alt=""> -->
+                            </figure>
+                            <article>
+                                <div class="chat-name">Prakash</div>
+                                <div class="chat-location">Thrissur, Kerala</div>
+                            </article>
+                        </div>
+                        <div class="enq-no-wrapper">
+                            <div class="enq-no">Enq ID: 21122022</div>
+                        </div>
                     </div>
                 </div>
                 <div class="view-more-chat-list">
@@ -219,6 +361,344 @@ $this->registerCssFile('/css/messages/messages.css');
                                         </button>
                                         <div class="dropdown-menu dropdown-menu-right"
                                             aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="#">Chat History</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="activity-chat-single">
+                        <div class="activity-chat-user">
+                            <div class="user-details">
+                                <h5 class="user-details-name">Praveen</h5>
+                                <h5 class="user-details-date">12-October 2022</h5>
+                            </div>
+                            <div class="user-img"><img src="images/booking-request/chat-user-thumb-01.png" alt=""></div>
+                        </div>
+                        <div class="activity-chat-area">
+                            <div class="activity-chat">Lorren ippsum gravida sem?
+                                <span class="chat-time">12.00 PM</span>
+                                <div class="chat-history-btn-wrapper">
+                                    <div class="dropdown">
+                                        <button class="chat-history-btn dropdown-toggle" type="button"
+                                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
+                                            <img src="images/chat-history.png" alt="">
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="#">Chat History</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="activity-chat-single">
+                        <div class="activity-chat-user">
+                            <div class="user-details">
+                                <h5 class="user-details-name">Praveen</h5>
+                                <h5 class="user-details-date">12-October 2022</h5>
+                            </div>
+                            <div class="user-img"><img src="images/booking-request/chat-user-thumb-01.png" alt=""></div>
+                        </div>
+                        <div class="activity-chat-area">
+                            <div class="activity-chat">Lorren ippsum gravida sem?
+                                <span class="chat-time">12.00 PM</span>
+                                <div class="chat-history-btn-wrapper">
+                                    <div class="dropdown">
+                                        <button class="chat-history-btn dropdown-toggle" type="button"
+                                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
+                                            <img src="images/chat-history.png" alt="">
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="#">Chat History</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="activity-chat-single">
+                        <div class="activity-chat-user">
+                            <div class="user-details">
+                                <h5 class="user-details-name">Praveen</h5>
+                                <h5 class="user-details-date">12-October 2022</h5>
+                            </div>
+                            <div class="user-img"><img src="images/booking-request/chat-user-thumb-01.png" alt=""></div>
+                        </div>
+                        <div class="activity-chat-area">
+                            <div class="activity-chat">Lorren ippsum gravida sem?
+                                <span class="chat-time">12.00 PM</span>
+                                <div class="chat-history-btn-wrapper">
+                                    <div class="dropdown">
+                                        <button class="chat-history-btn dropdown-toggle" type="button"
+                                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
+                                            <img src="images/chat-history.png" alt="">
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="#">Chat History</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="activity-chat-single">
+                        <div class="activity-chat-user">
+                            <div class="user-details">
+                                <h5 class="user-details-name">Praveen</h5>
+                                <h5 class="user-details-date">12-October 2022</h5>
+                            </div>
+                            <div class="user-img"><img src="images/booking-request/chat-user-thumb-01.png" alt=""></div>
+                        </div>
+                        <div class="activity-chat-area">
+                            <div class="activity-chat">Lorren ippsum gravida sem?
+                                <span class="chat-time">12.00 PM</span>
+                                <div class="chat-history-btn-wrapper">
+                                    <div class="dropdown">
+                                        <button class="chat-history-btn dropdown-toggle" type="button"
+                                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
+                                            <img src="images/chat-history.png" alt="">
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="#">Chat History</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="activity-chat-single">
+                        <div class="activity-chat-user">
+                            <div class="user-details">
+                                <h5 class="user-details-name">Praveen</h5>
+                                <h5 class="user-details-date">12-October 2022</h5>
+                            </div>
+                            <div class="user-img"><img src="images/booking-request/chat-user-thumb-01.png" alt=""></div>
+                        </div>
+                        <div class="activity-chat-area">
+                            <div class="activity-chat">Lorren ippsum gravida sem?
+                                <span class="chat-time">12.00 PM</span>
+                                <div class="chat-history-btn-wrapper">
+                                    <div class="dropdown">
+                                        <button class="chat-history-btn dropdown-toggle" type="button"
+                                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
+                                            <img src="images/chat-history.png" alt="">
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="#">Chat History</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="activity-chat-single">
+                        <div class="activity-chat-user">
+                            <div class="user-details">
+                                <h5 class="user-details-name">Praveen</h5>
+                                <h5 class="user-details-date">12-October 2022</h5>
+                            </div>
+                            <div class="user-img"><img src="images/booking-request/chat-user-thumb-01.png" alt=""></div>
+                        </div>
+                        <div class="activity-chat-area">
+                            <div class="activity-chat">Lorren ippsum gravida sem?
+                                <span class="chat-time">12.00 PM</span>
+                                <div class="chat-history-btn-wrapper">
+                                    <div class="dropdown">
+                                        <button class="chat-history-btn dropdown-toggle" type="button"
+                                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
+                                            <img src="images/chat-history.png" alt="">
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="#">Chat History</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="activity-chat-single">
+                        <div class="activity-chat-user">
+                            <div class="user-details">
+                                <h5 class="user-details-name">Praveen</h5>
+                                <h5 class="user-details-date">12-October 2022</h5>
+                            </div>
+                            <div class="user-img"><img src="images/booking-request/chat-user-thumb-01.png" alt=""></div>
+                        </div>
+                        <div class="activity-chat-area">
+                            <div class="activity-chat">Lorren ippsum gravida sem?
+                                <span class="chat-time">12.00 PM</span>
+                                <div class="chat-history-btn-wrapper">
+                                    <div class="dropdown">
+                                        <button class="chat-history-btn dropdown-toggle" type="button"
+                                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
+                                            <img src="images/chat-history.png" alt="">
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="#">Chat History</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="activity-chat-single">
+                        <div class="activity-chat-user">
+                            <div class="user-details">
+                                <h5 class="user-details-name">Praveen</h5>
+                                <h5 class="user-details-date">12-October 2022</h5>
+                            </div>
+                            <div class="user-img"><img src="images/booking-request/chat-user-thumb-01.png" alt=""></div>
+                        </div>
+                        <div class="activity-chat-area">
+                            <div class="activity-chat">Lorren ippsum gravida sem?
+                                <span class="chat-time">12.00 PM</span>
+                                <div class="chat-history-btn-wrapper">
+                                    <div class="dropdown">
+                                        <button class="chat-history-btn dropdown-toggle" type="button"
+                                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
+                                            <img src="images/chat-history.png" alt="">
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="#">Chat History</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="activity-chat-single">
+                        <div class="activity-chat-user">
+                            <div class="user-details">
+                                <h5 class="user-details-name">Praveen</h5>
+                                <h5 class="user-details-date">12-October 2022</h5>
+                            </div>
+                            <div class="user-img"><img src="images/booking-request/chat-user-thumb-01.png" alt=""></div>
+                        </div>
+                        <div class="activity-chat-area">
+                            <div class="activity-chat">Lorren ippsum gravida sem?
+                                <span class="chat-time">12.00 PM</span>
+                                <div class="chat-history-btn-wrapper">
+                                    <div class="dropdown">
+                                        <button class="chat-history-btn dropdown-toggle" type="button"
+                                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
+                                            <img src="images/chat-history.png" alt="">
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="#">Chat History</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="activity-chat-single">
+                        <div class="activity-chat-user">
+                            <div class="user-details">
+                                <h5 class="user-details-name">Praveen</h5>
+                                <h5 class="user-details-date">12-October 2022</h5>
+                            </div>
+                            <div class="user-img"><img src="images/booking-request/chat-user-thumb-01.png" alt=""></div>
+                        </div>
+                        <div class="activity-chat-area">
+                            <div class="activity-chat">Lorren ippsum gravida sem?
+                                <span class="chat-time">12.00 PM</span>
+                                <div class="chat-history-btn-wrapper">
+                                    <div class="dropdown">
+                                        <button class="chat-history-btn dropdown-toggle" type="button"
+                                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
+                                            <img src="images/chat-history.png" alt="">
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="#">Chat History</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="activity-chat-single">
+                        <div class="activity-chat-user">
+                            <div class="user-details">
+                                <h5 class="user-details-name">Praveen</h5>
+                                <h5 class="user-details-date">12-October 2022</h5>
+                            </div>
+                            <div class="user-img"><img src="images/booking-request/chat-user-thumb-01.png" alt=""></div>
+                        </div>
+                        <div class="activity-chat-area">
+                            <div class="activity-chat">Lorren ippsum gravida sem?
+                                <span class="chat-time">12.00 PM</span>
+                                <div class="chat-history-btn-wrapper">
+                                    <div class="dropdown">
+                                        <button class="chat-history-btn dropdown-toggle" type="button"
+                                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
+                                            <img src="images/chat-history.png" alt="">
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="#">Chat History</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="activity-chat-single">
+                        <div class="activity-chat-user">
+                            <div class="user-details">
+                                <h5 class="user-details-name">Praveen</h5>
+                                <h5 class="user-details-date">12-October 2022</h5>
+                            </div>
+                            <div class="user-img"><img src="images/booking-request/chat-user-thumb-01.png" alt=""></div>
+                        </div>
+                        <div class="activity-chat-area">
+                            <div class="activity-chat">Lorren ippsum gravida sem?
+                                <span class="chat-time">12.00 PM</span>
+                                <div class="chat-history-btn-wrapper">
+                                    <div class="dropdown">
+                                        <button class="chat-history-btn dropdown-toggle" type="button"
+                                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
+                                            <img src="images/chat-history.png" alt="">
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="#">Chat History</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="activity-chat-single">
+                        <div class="activity-chat-user">
+                            <div class="user-details">
+                                <h5 class="user-details-name">Praveen</h5>
+                                <h5 class="user-details-date">12-October 2022</h5>
+                            </div>
+                            <div class="user-img"><img src="images/booking-request/chat-user-thumb-01.png" alt=""></div>
+                        </div>
+                        <div class="activity-chat-area">
+                            <div class="activity-chat">Lorren ippsum gravida sem?
+                                <span class="chat-time">12.00 PM</span>
+                                <div class="chat-history-btn-wrapper">
+                                    <div class="dropdown">
+                                        <button class="chat-history-btn dropdown-toggle" type="button"
+                                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
+                                            <img src="images/chat-history.png" alt="">
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                             <a class="dropdown-item" href="#">Chat History</a>
                                         </div>
                                     </div>
