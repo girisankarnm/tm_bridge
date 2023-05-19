@@ -736,8 +736,21 @@ $this->registerCssFile('/css/messages/messages.css');
                 <div class="message-comment-box-main">
                     <div class="comment-box-wrapper">
                         <div class="chat-type-area-wrapper">
-                            <textarea name="" id="" cols="30" rows="10" class="chat-type-area">Add comment</textarea>
-                            <button class="blue-btn">Send</button>
+                            <textarea name="" id="" cols="30" rows="10" class="chat-type-area" placeholder="Add comment"></textarea>
+                            <div class="chat-type-area-bottom">
+                                <div class="chat-type-area-bottom-left">
+                                    <div class="chat-type-icons">
+                                        <span class="chat-type-icon-single">
+                                            <button class="chat-type-icon-button">#</button>
+                                            <button class="chat-type-icon-button"><img src="images/messages/attachment.png" alt=""></button>
+                                            <button class="chat-type-icon-button"><img src="images/messages/smiley.png" alt=""></button>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="chat-type-area-bottom-right">
+                                    <button class="blue-btn">Send</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

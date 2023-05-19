@@ -9,6 +9,13 @@
     --primary-font-bold: 'Bw-Mitga-bold';
 }
 
+@media (min-width: 768px) {
+    .large-modal-wrapper {
+        max-width: 750px;
+    }
+
+}
+
 .data-content .fit-width-230px {
     -ms-flex: 0 0 230px;
     flex: 0 0 230px;

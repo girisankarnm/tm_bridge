@@ -817,7 +817,7 @@ $this->registerCssFile('/css/property-profile/property-profile.css');
 
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary video-btn" data-toggle="modal"
-    data-src="https://www.youtube.com/embed/NFWSFbqL0A0" data-target="#videoModal">
+     data-target="#videoModal">
     Play Video 1 - autoplay
 </button>
 <!-- BOF Modal -->
@@ -888,7 +888,7 @@ $this->registerCssFile('/css/property-profile/property-profile.css');
 <!-- BOF Video Modal -->
 <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog large-modal-wrapper" role="document">
         <div class="modal-content">
             <div class="modal-body">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"
@@ -897,8 +897,9 @@ $this->registerCssFile('/css/property-profile/property-profile.css');
                 </button>
                 <!-- 16:9 aspect ratio -->
                 <div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" src="" id="video" allowscriptaccess="always"
-                        allow="autoplay"></iframe>
+                    <!-- <iframe class="embed-responsive-item" src="" id="video" allowscriptaccess="always"
+                        allow="autoplay"></iframe> -->
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/NFWSFbqL0A0?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
